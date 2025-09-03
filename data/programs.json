@@ -1,0 +1,47 @@
+[
+  {
+    "id": "program-001",
+    "title": "CIE Ignite - Startup Incubation Program",
+    "description": "A comprehensive 6-month program designed to help students transform their innovative ideas into viable startups",
+    "duration": "6 months",
+    "type": "incubation",
+    "eligibility": "All PES University students with innovative business ideas",
+    "benefits": [
+      "Mentorship from industry experts",
+      "Seed funding up to ₹5 lakhs",
+      "Co-working space access",
+      "Legal and financial guidance",
+      "Networking opportunities"
+    ],
+    "applicationDeadline": "2025-03-15",
+    "startDate": "2025-04-01",
+    "maxParticipants": 20,
+    "applicationProcess": "Online application + Pitch presentation",
+    "contactEmail": "ignite@cie.pes.edu",
+    "featured": true,
+    "image": "/assets/programs/ignite-placeholder.jpg",
+    "tags": ["startup", "incubation", "funding", "mentorship"]
+  },
+  {
+    "id": "program-002",
+    "title": "Innovation Workshop Series",
+    "description": "Monthly workshops covering various aspects of innovation, entrepreneurship, and technology trends",
+    "duration": "2 hours per session",
+    "type": "workshop",
+    "eligibility": "Open to all students",
+    "benefits": [
+      "Learn from industry experts",
+      "Hands-on experience",
+      "Networking with peers",
+      "Certificate of participation"
+    ],
+    "applicationDeadline": "Ongoing",
+    "startDate": "Every month",
+    "maxParticipants": 100,
+    "applicationProcess": "Online registration",
+    "contactEmail": "workshops@cie.pes.edu",
+    "featured": false,
+    "image": "/assets/programs/workshop-placeholder.jpg",
+    "tags": ["workshop", "learning", "innovation", "monthly"]
+  }
+]
