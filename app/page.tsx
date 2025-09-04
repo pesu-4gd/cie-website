@@ -192,8 +192,14 @@ export default function Home() {
       </section>
 
       {/* Tabbed Content Section - Main Information */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-16 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-10 right-10 w-32 h-32 bg-blue-100 rounded-full mix-blend-multiply filter blur-2xl" />
+          <div className="absolute bottom-10 left-10 w-32 h-32 bg-indigo-100 rounded-full mix-blend-multiply filter blur-2xl" />
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -203,34 +209,75 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
               Discover <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">CIE</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-4">
               Explore our impact, programs, and success stories through interactive content tabs.
             </p>
+            <div className="flex items-center justify-center gap-2 text-sm text-blue-600 font-medium">
+              <ArrowRight className="w-4 h-4 animate-bounce" />
+              <span>Click tabs below to explore different sections</span>
+              <ArrowRight className="w-4 h-4 animate-bounce" style={{animationDelay: '0.5s'}} />
+            </div>
           </motion.div>
 
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-8 bg-gray-100 p-1 rounded-xl">
-              <TabsTrigger value="overview" className="flex items-center gap-2 text-sm">
-                <BarChart3 className="w-4 h-4" />
-                Overview
-              </TabsTrigger>
-              <TabsTrigger value="programs" className="flex items-center gap-2 text-sm">
-                <BookOpen className="w-4 h-4" />
-                Programs
-              </TabsTrigger>
-              <TabsTrigger value="ignite" className="flex items-center gap-2 text-sm">
-                <Rocket className="w-4 h-4" />
-                CIE Ignite
-              </TabsTrigger>
-              <TabsTrigger value="partners" className="flex items-center gap-2 text-sm">
-                <Building2 className="w-4 h-4" />
-                Partners
-              </TabsTrigger>
-              <TabsTrigger value="updates" className="flex items-center gap-2 text-sm">
-                <Zap className="w-4 h-4" />
-                Updates
-              </TabsTrigger>
-            </TabsList>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              {/* Subtle glow effect behind active tab */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-orange-400/20 blur-xl opacity-60"></div>
+              
+              <TabsList className="relative grid w-full grid-cols-2 md:grid-cols-5 mb-8 bg-white/80 backdrop-blur-md p-2 rounded-2xl shadow-xl border-2 border-white/50 hover:shadow-2xl transition-all duration-500">
+                <TabsTrigger 
+                  value="overview" 
+                  className="group relative flex items-center gap-2 text-sm font-semibold px-4 py-3 rounded-xl transition-all duration-300 hover:bg-blue-50 hover:text-blue-700 hover:shadow-lg hover:scale-105 hover:-translate-y-0.5 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-indigo-600 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:scale-105 data-[state=active]:-translate-y-1"
+                >
+                  <BarChart3 className="w-4 h-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 group-data-[state=active]:text-white group-hover:rotate-3" />
+                  <span className="hidden sm:inline transition-all duration-300">Overview</span>
+                  <span className="sm:hidden transition-all duration-300">Stats</span>
+                  {/* Active indicator dot */}
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 rounded-full bg-blue-600 opacity-0 group-data-[state=active]:opacity-100 transition-all duration-300"></div>
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="programs" 
+                  className="group relative flex items-center gap-2 text-sm font-semibold px-4 py-3 rounded-xl transition-all duration-300 hover:bg-green-50 hover:text-green-700 hover:shadow-lg hover:scale-105 hover:-translate-y-0.5 data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-600 data-[state=active]:to-emerald-600 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:scale-105 data-[state=active]:-translate-y-1"
+                >
+                  <BookOpen className="w-4 h-4 transition-all duration-300 group-hover:scale-110 group-hover:text-green-600 group-data-[state=active]:text-white group-hover:rotate-3" />
+                  <span className="hidden sm:inline transition-all duration-300">Programs</span>
+                  <span className="sm:hidden transition-all duration-300">Learn</span>
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 rounded-full bg-green-600 opacity-0 group-data-[state=active]:opacity-100 transition-all duration-300"></div>
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="ignite" 
+                  className="group relative flex items-center gap-2 text-sm font-semibold px-4 py-3 rounded-xl transition-all duration-300 hover:bg-orange-50 hover:text-orange-700 hover:shadow-lg hover:scale-105 hover:-translate-y-0.5 data-[state=active]:bg-gradient-to-r data-[state=active]:from-orange-600 data-[state=active]:to-red-600 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:scale-105 data-[state=active]:-translate-y-1"
+                >
+                  <Rocket className="w-4 h-4 transition-all duration-300 group-hover:scale-110 group-hover:text-orange-600 group-data-[state=active]:text-white group-hover:rotate-3" />
+                  <span className="hidden sm:inline transition-all duration-300">CIE Ignite</span>
+                  <span className="sm:hidden transition-all duration-300">Ignite</span>
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 rounded-full bg-orange-600 opacity-0 group-data-[state=active]:opacity-100 transition-all duration-300"></div>
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="partners" 
+                  className="group relative flex items-center gap-2 text-sm font-semibold px-4 py-3 rounded-xl transition-all duration-300 hover:bg-purple-50 hover:text-purple-700 hover:shadow-lg hover:scale-105 hover:-translate-y-0.5 data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-600 data-[state=active]:to-indigo-600 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:scale-105 data-[state=active]:-translate-y-1"
+                >
+                  <Building2 className="w-4 h-4 transition-all duration-300 group-hover:scale-110 group-hover:text-purple-600 group-data-[state=active]:text-white group-hover:rotate-3" />
+                  <span className="hidden sm:inline transition-all duration-300">Partners</span>
+                  <span className="sm:hidden transition-all duration-300">Work</span>
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 rounded-full bg-purple-600 opacity-0 group-data-[state=active]:opacity-100 transition-all duration-300"></div>
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="updates" 
+                  className="group relative flex items-center gap-2 text-sm font-semibold px-4 py-3 rounded-xl transition-all duration-300 hover:bg-yellow-50 hover:text-yellow-700 hover:shadow-lg hover:scale-105 hover:-translate-y-0.5 data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-600 data-[state=active]:to-orange-600 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:scale-105 data-[state=active]:-translate-y-1"
+                >
+                  <Zap className="w-4 h-4 transition-all duration-300 group-hover:scale-110 group-hover:text-yellow-600 group-data-[state=active]:text-white group-hover:rotate-3" />
+                  <span className="hidden sm:inline transition-all duration-300">Updates</span>
+                  <span className="sm:hidden transition-all duration-300">News</span>
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 rounded-full bg-yellow-600 opacity-0 group-data-[state=active]:opacity-100 transition-all duration-300"></div>
+                </TabsTrigger>
+              </TabsList>
+            </motion.div>
 
             {/* Overview Tab */}
             <TabsContent value="overview" className="space-y-8">
