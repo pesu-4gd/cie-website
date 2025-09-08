@@ -1,0 +1,53 @@
+[
+  {
+    "id": "ann-001",
+    "title": "CIE Ignite Registration Deadline",
+    "message": "Final reminder: CIE Ignite 2024 registration closes tomorrow at 11:59 PM. Don't miss this opportunity to showcase your innovative ideas!",
+    "type": "urgent",
+    "priority": "high",
+    "category": "deadline",
+    "createdAt": "2025-01-15T10:30:00Z",
+    "updatedAt": "2025-01-15T10:30:00Z",
+    "expiresAt": "2025-01-20T23:59:00Z",
+    "isActive": true,
+    "createdBy": "admin",
+    "actionButton": {
+      "text": "Register Now",
+      "url": "/students/programs/ignite/register"
+    }
+  },
+  {
+    "id": "ann-002",
+    "title": "Innovation Summit 2024 Schedule Released",
+    "message": "The complete schedule for Innovation Summit 2024 is now available. Check out keynote speakers, workshop timings, and networking sessions.",
+    "type": "info",
+    "priority": "medium",
+    "category": "event",
+    "createdAt": "2025-01-15T08:00:00Z",
+    "updatedAt": "2025-01-15T08:00:00Z",
+    "expiresAt": "2025-02-20T23:59:00Z",
+    "isActive": true,
+    "createdBy": "admin",
+    "actionButton": {
+      "text": "View Schedule",
+      "url": "/events/innovation-summit-2024"
+    }
+  },
+  {
+    "id": "ann-003",
+    "title": "New Scholarship Program Launched",
+    "message": "CIE announces new scholarship program for students from underrepresented communities. Applications open for eligible students.",
+    "type": "success",
+    "priority": "medium",
+    "category": "program",
+    "createdAt": "2025-01-14T12:00:00Z",
+    "updatedAt": "2025-01-14T12:00:00Z",
+    "expiresAt": "2025-03-15T23:59:00Z",
+    "isActive": true,
+    "createdBy": "admin",
+    "actionButton": {
+      "text": "Apply Now",
+      "url": "/students/funding/scholarship"
+    }
+  }
+]

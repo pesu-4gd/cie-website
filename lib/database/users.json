@@ -1,0 +1,26 @@
+[
+  {
+    "id": "admin-001",
+    "username": "admin",
+    "email": "admin@cie.pes.edu",
+    "passwordHash": "$2a$12$LQv3c1yqBWVHxkd0LQ1Gv.6BlznHSxIbT5.HWXU6TJwKcH0Y8YDPK",
+    "role": "admin",
+    "name": "CIE Administrator",
+    "isActive": true,
+    "createdAt": "2025-01-01T00:00:00Z",
+    "lastLogin": null,
+    "permissions": ["create_announcements", "edit_announcements", "delete_announcements", "manage_users"]
+  },
+  {
+    "id": "admin-002", 
+    "username": "moderator",
+    "email": "moderator@cie.pes.edu",
+    "passwordHash": "$2a$12$LQv3c1yqBWVHxkd0LQ1Gv.6BlznHSxIbT5.HWXU6TJwKcH0Y8YDPK",
+    "role": "moderator",
+    "name": "Content Moderator",
+    "isActive": true,
+    "createdAt": "2025-01-01T00:00:00Z",
+    "lastLogin": null,
+    "permissions": ["create_announcements", "edit_announcements"]
+  }
+]
