@@ -1,13 +1,21 @@
 'use client';
 
 import { Button } from '@/components/design-system';
-import { ArrowRight, Users, Building2, GraduationCap, Lightbulb, Target, Award, Play, Sparkles, Rocket, Calendar, Briefcase, BookOpen, TrendingUp, Star, Globe, ChevronRight, BarChart3, Zap } from 'lucide-react';
+import { ArrowRight, Users, Building2, GraduationCap, Lightbulb, Target, Award, Play, Sparkles, Rocket, Calendar, Briefcase, BookOpen, TrendingUp, Star, Globe, ChevronRight, BarChart3, Zap, X, Bell } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('overview');
+  const [showAnnouncementPopup, setShowAnnouncementPopup] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowAnnouncementPopup(true);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -89,203 +97,68 @@ export default function Home() {
        
       </section>
 
-      {/* Whiteboard Announcements Section */}
-      <section className="py-12 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-blue-100 rounded-full mix-blend-multiply filter blur-2xl opacity-30" />
-          <div className="absolute bottom-10 right-10 w-32 h-32 bg-indigo-100 rounded-full mix-blend-multiply filter blur-2xl opacity-30" />
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-8"
-          >
-            <div className="mb-4">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                <Calendar className="w-4 h-4 mr-2" />
-                Live Announcements
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Whiteboard</span> Announcements
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Stay updated with the latest announcements, deadlines, and important notices from CIE.
-            </p>
-          </motion.div>
-
-          {/* Whiteboard Container */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="bg-white rounded-3xl shadow-2xl border-2 border-gray-200 p-6 relative overflow-hidden"
-          >
-            {/* Whiteboard Header */}
-            <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
-                  <Calendar className="w-5 h-5 text-blue-600" />
+      {/* Creative Bottom-Right Corner Popup */}
+      {showAnnouncementPopup && (
+        <motion.div
+          initial={{ opacity: 0, x: 400, y: 100 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          exit={{ opacity: 0, x: 400, y: 100 }}
+          className="fixed bottom-6 right-6 z-50 max-w-sm w-80"
+        >
+          <div className="bg-gradient-to-br from-[#3999c2] via-[#383461] to-[#e75a2d] rounded-2xl shadow-2xl overflow-hidden border border-white/20">
+            {/* Header with close button */}
+            <div className="relative p-4 pb-2">
+              <button
+                onClick={() => setShowAnnouncementPopup(false)}
+                className="absolute top-3 right-3 w-6 h-6 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors"
+              >
+                <X className="w-3 h-3 text-white" />
+              </button>
+              
+              {/* Animated bell icon */}
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+                  <Bell className="w-5 h-5 text-white animate-pulse" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">Live Announcements</h3>
-                  <p className="text-sm text-gray-500">Updated in real-time</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm text-green-600 font-medium">Live</span>
-              </div>
-            </div>
-
-            {/* Announcements List */}
-            <div className="space-y-3">
-              {/* Sample Announcements - These would be dynamically loaded */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="flex items-start gap-4 p-3 bg-red-50 border-l-4 border-red-500 rounded-r-xl hover:shadow-md transition-all duration-300"
-              >
-                <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-white text-xs font-bold">!</span>
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-semibold text-gray-900">Urgent: CIE Ignite Registration Deadline</h4>
-                    <span className="text-xs text-gray-500 bg-white px-2 py-1 rounded-full">2 hours ago</span>
-                  </div>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    Final reminder: CIE Ignite 2024 registration closes tomorrow at 11:59 PM. Don't miss this opportunity to showcase your innovative ideas!
-                  </p>
-                  <div className="flex items-center gap-2 mt-3">
-                    <span className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">Deadline Tomorrow</span>
-                    <button 
-                      onClick={() => window.location.href = '/students/events/cie-ignite'}
-                      className="text-xs text-blue-600 hover:text-blue-700 font-medium"
-                    >
-                      Register Now →
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="flex items-start gap-4 p-3 bg-blue-50 border-l-4 border-blue-500 rounded-r-xl hover:shadow-md transition-all duration-300"
-              >
-                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <Calendar className="text-white w-4 h-4" />
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-semibold text-gray-900">Innovation Summit 2024 Schedule Released</h4>
-                    <span className="text-xs text-gray-500 bg-white px-2 py-1 rounded-full">5 hours ago</span>
-                  </div>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    The complete schedule for Innovation Summit 2024 is now available. Check out keynote speakers, workshop timings, and networking sessions.
-                  </p>
-                  <div className="flex items-center gap-2 mt-3">
-                    <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">February 20</span>
-                    <button 
-                      onClick={() => window.location.href = '/students/events/innovation-summit'}
-                      className="text-xs text-blue-600 hover:text-blue-700 font-medium"
-                    >
-                      View Schedule →
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="flex items-start gap-4 p-3 bg-green-50 border-l-4 border-green-500 rounded-r-xl hover:shadow-md transition-all duration-300"
-              >
-                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <Award className="text-white w-4 h-4" />
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-semibold text-gray-900">New Scholarship Program Launched</h4>
-                    <span className="text-xs text-gray-500 bg-white px-2 py-1 rounded-full">1 day ago</span>
-                  </div>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    CIE announces new scholarship program for students from underrepresented communities. Applications open for eligible students.
-                  </p>
-                  <div className="flex items-center gap-2 mt-3">
-                    <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">New Program</span>
-                    <button 
-                      onClick={() => window.location.href = '/students/funding/scholarships'}
-                      className="text-xs text-blue-600 hover:text-blue-700 font-medium"
-                    >
-                      Apply Now →
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Empty State - Show when no announcements */}
-              <div className="hidden">
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Calendar className="w-8 h-8 text-gray-400" />
-                  </div>
-                  <h4 className="text-lg font-medium text-gray-900 mb-2">No Announcements</h4>
-                  <p className="text-gray-500 text-sm">Check back later for new updates and announcements.</p>
+                  <h3 className="text-white font-bold text-lg">New Updates!</h3>
+                  <p className="text-white/80 text-xs">CIE Announcements</p>
                 </div>
               </div>
             </div>
 
-            {/* View All Announcements Button */}
-            <div className="mt-6 pt-4 border-t border-gray-200 text-center">
-              <Button 
-                onClick={() => window.location.href = '/announcements'}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl"
-              >
-                <Calendar className="w-4 h-4 mr-2" />
-                View All Announcements
-              </Button>
+            {/* Content */}
+            <div className="px-4 pb-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 mb-3">
+                <p className="text-white/90 text-sm leading-relaxed">
+                  🚀 Don't miss out on the latest opportunities, events, and important notices from CIE!
+                </p>
+              </div>
+              
+              {/* Action buttons */}
+              <div className="flex gap-2">
+                <button
+                  onClick={() => window.location.href = '/announcements'}
+                  className="flex-1 bg-[#3999c2] text-gray-100 hover:bg-[#383461] px-4 py-2 rounded-lg font-semibold text-sm transition-colors flex items-center justify-center"
+                >
+                  <Calendar className="w-4 h-4 mr-1" />
+                  View All
+                </button>
+                <button
+                  onClick={() => setShowAnnouncementPopup(false)}
+                  className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg font-semibold text-sm transition-colors"
+                >
+                  Later
+                </button>
+              </div>
             </div>
 
-            {/* Decorative Elements */}
-            <div className="absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full opacity-60"></div>
-            <div className="absolute top-8 right-8 w-1 h-1 bg-indigo-400 rounded-full opacity-40"></div>
-            <div className="absolute bottom-4 left-4 w-2 h-2 bg-purple-400 rounded-full opacity-60"></div>
-          </motion.div>
-
-          {/* Quick Stats for Announcements */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6"
-          >
-            <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl text-center border border-gray-200">
-              <div className="text-2xl font-bold text-blue-600 mb-1">12</div>
-              <div className="text-xs text-gray-600">Active Announcements</div>
-            </div>
-            <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl text-center border border-gray-200">
-              <div className="text-2xl font-bold text-green-600 mb-1">3</div>
-              <div className="text-xs text-gray-600">Urgent Notices</div>
-            </div>
-            <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl text-center border border-gray-200">
-              <div className="text-2xl font-bold text-purple-600 mb-1">8</div>
-              <div className="text-xs text-gray-600">This Week</div>
-            </div>
-            <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl text-center border border-gray-200">
-              <div className="text-2xl font-bold text-orange-600 mb-1">24h</div>
-              <div className="text-xs text-gray-600">Latest Update</div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+            {/* Decorative elements */}
+            <div className="absolute top-2 left-2 w-2 h-2 bg-white/30 rounded-full animate-ping"></div>
+            <div className="absolute bottom-2 right-8 w-1 h-1 bg-white/40 rounded-full animate-pulse"></div>
+          </div>
+        </motion.div>
+      )}
 
       {/* Navigation Cards - Compact Design */}
       <section className="py-8 bg-white relative">
