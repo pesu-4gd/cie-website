@@ -28,11 +28,33 @@ import {
   Filter,
   Mail,
   Phone,
-  LinkedIn
+  Linkedin
 } from 'lucide-react';
 import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
+
+// Type definitions
+interface Mentor {
+  id: string;
+  name: string;
+  title: string;
+  company: string;
+  location: string;
+  experience: string;
+  expertise: string[];
+  bio: string;
+  education: string;
+  achievements: string[];
+  menteeCount: number;
+  rating: number;
+  responseTime: string;
+  languages: string[];
+  availability: string;
+  image: string;
+  featured: boolean;
+  tags: string[];
+}
 
 const mentors = [
   {
@@ -431,7 +453,7 @@ function MentorsSection({
   selectedCompany,
   setSelectedCompany
 }: {
-  mentors: typeof mentors;
+  mentors: Mentor[];
   searchTerm: string;
   setSearchTerm: (term: string) => void;
   selectedExpertise: string;

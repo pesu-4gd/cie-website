@@ -32,19 +32,43 @@ export default function StudentsPage() {
 
   const mainSections = [
     {
+      title: 'Student Startup Program',
+      description: 'Comprehensive program to transform your ideas into thriving startups',
+      icon: Rocket,
+      href: '/students/startup-program',
+      color: 'blue',
+      highlights: ['Up to $200K Funding', 'Industry Mentorship', 'Prototype Development', 'Market Validation Support']
+    },
+    {
       title: 'Programs',
       description: 'Explore our comprehensive range of courses and training programs',
       icon: BookOpen,
       href: '/students/programs',
-      color: 'blue',
+      color: 'green',
       highlights: ['EIE Part 1 & 2', 'Product Management in AI Era', 'PAML Workshop', 'Summer Programs']
+    },
+    {
+      title: 'Student Clubs',
+      description: 'Join vibrant student-led organizations and drive meaningful impact',
+      icon: Heart,
+      href: '/students/clubs',
+      color: 'red',
+      highlights: ['E-Cell Leadership', 'CMS Sustainability', 'Event Organization', 'Alumni Network']
+    },
+    {
+      title: 'Centers of Excellence',
+      description: 'Engage with cutting-edge research and innovation opportunities',
+      icon: Globe,
+      href: '/students/centers-of-excellence',
+      color: 'indigo',
+      highlights: ['CRAIS Robotics', 'QuaNaD Quantum Tech', 'C-IoT Smart Systems', 'CHIPS Hardware']
     },
     {
       title: 'Events',
       description: 'Join workshops, competitions, and networking sessions',
       icon: Calendar,
       href: '/students/events',
-      color: 'green',
+      color: 'purple',
       highlights: ['CIE Ignite Ideathon', 'Hackathons', 'Industry AMAs', 'Networking Sessions']
     },
     {
@@ -52,23 +76,15 @@ export default function StudentsPage() {
       description: 'Access guides, templates, and learning materials',
       icon: Lightbulb,
       href: '/students/resources',
-      color: 'purple',
-      highlights: ['Entrepreneurship Guides', 'AI/ML Resources', 'Design Tools', 'Legal Templates']
-    },
-    {
-      title: 'Projects',
-      description: 'Showcase your work and explore student innovations',
-      icon: Rocket,
-      href: '/students/projects',
       color: 'orange',
-      highlights: ['Capstone Projects', 'Research Work', 'Startup Ideas', 'Portfolio Showcase']
+      highlights: ['Entrepreneurship Guides', 'AI/ML Resources', 'Design Tools', 'Legal Templates']
     },
     {
       title: 'Mentorship',
       description: 'Connect with industry experts and alumni mentors',
       icon: Users,
       href: '/students/mentorship',
-      color: 'red',
+      color: 'green',
       highlights: ['Industry Mentors', 'Alumni Network', 'Peer Mentoring', 'Career Guidance']
     },
     {
@@ -80,43 +96,50 @@ export default function StudentsPage() {
       highlights: ['CiC Grants', 'Mathworks Funding', 'Startup Grants', 'Scholarship Programs']
     },
     {
-      title: 'Clubs',
-      description: 'Join student organizations and build your network',
-      icon: Heart,
-      href: '/students/clubs',
-      color: 'pink',
-      highlights: ['E-Cell', 'CMS', 'Technical Clubs', 'Cultural Activities']
+      title: 'Projects',
+      description: 'Showcase your work and explore student innovations',
+      icon: Briefcase,
+      href: '/students/projects',
+      color: 'blue',
+      highlights: ['Capstone Projects', 'Research Work', 'Startup Ideas', 'Portfolio Showcase']
     },
     {
-      title: 'Centers of Excellence',
-      description: 'Explore cutting-edge research and innovation centers',
-      icon: Globe,
-      href: '/students/centers-of-excellence',
-      color: 'indigo',
-      highlights: ['CRAIS', 'C-IoT', 'CHIPS', 'CCNCS']
+      title: 'FAQs',
+      description: 'Get answers to frequently asked questions about CIE programs',
+      icon: Star,
+      href: '/students/faqs',
+      color: 'purple',
+      highlights: ['EIE Course Info', 'Program Details', 'Funding Questions', 'Application Process']
     }
   ];
 
   const recentUpdates = [
     {
-      title: 'CIE Ignite 2024 Registration Open',
-      description: 'Join our flagship startup challenge for 2nd-year students',
+      title: 'Student Startup Program Applications Open',
+      description: 'Apply for comprehensive startup support with up to $200K funding through PESU Venture Labs',
       date: '2024-01-15',
       type: 'Program',
       urgent: true
     },
     {
-      title: 'Product Management in AI Era - New Batch',
-      description: 'Learn from industry experts in our latest PM course',
+      title: 'CIE Ignite 2025 Registration Open',
+      description: 'Join our flagship ideathon for 2nd-year students - ₹25K+ in prizes',
+      date: '2024-01-12',
+      type: 'Competition',
+      urgent: true
+    },
+    {
+      title: 'New Centers of Excellence Collaboration',
+      description: 'Research opportunities now available across CRAIS, QuaNaD, and other CoEs',
       date: '2024-01-10',
-      type: 'Course',
+      type: 'Research',
       urgent: false
     },
     {
-      title: 'Industry Mentorship Program Applications',
-      description: 'Get paired with seasoned industry professionals',
+      title: 'Student Clubs Recruitment Drive',
+      description: 'E-Cell and CMS are recruiting new members - leadership opportunities available',
       date: '2024-01-08',
-      type: 'Mentorship',
+      type: 'Clubs',
       urgent: false
     }
   ];
@@ -211,7 +234,7 @@ export default function StudentsPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {mainSections.map((section, index) => {
               const IconComponent = section.icon;
               return (
@@ -219,7 +242,8 @@ export default function StudentsPage() {
                   key={section.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.05 }}
+                  className={`${index >= 5 ? 'md:col-span-2 lg:col-span-3 xl:col-span-1' : ''}`}
                 >
                   <Link href={section.href}>
                     <div className="bg-white rounded-3xl p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 group cursor-pointer h-full">

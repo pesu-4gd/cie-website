@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { motion } from 'framer-motion';collapsible';
+import { motion } from 'framer-motion';
 import { 
   Building2, 
   Handshake, 
@@ -301,8 +301,63 @@ const industries = ['All', 'Technology', 'IT Services', 'Automotive & IoT', 'Clo
 const partnershipTypes = ['All', 'Strategic Alliance', 'Industry Collaboration', 'Research Partnership', 'Talent Partnership', 'Technology Partnership', 'Innovation Partnership'];
 const statuses = ['All', 'Active', 'Pending', 'Completed'];
 
+// Type definitions for unused components
+interface Partner {
+  id: string;
+  name: string;
+  industry: string;
+  since: string;
+  description: string;
+  featured?: boolean;
+  collaborations: string[];
+  impact: {
+    students: number;
+    projects: number;
+    funding: string;
+  };
+  [key: string]: unknown;
+}
+
+interface CollaborationType {
+  id: string;
+  title: string;
+  description: string;
+  benefits: string[];
+  duration: string;
+  commitment: string;
+  examples: string[];
+  icon: React.ComponentType<{ className?: string }>;
+  [key: string]: unknown;
+}
+
+interface SuccessStory {
+  id: string;
+  outcome: string;
+  partner: string;
+  duration: string;
+  title: string;
+  description: string;
+  funding: string;
+  jobs: string;
+  students: string;
+  publications: string;
+  team: (string | number)[];
+  impact: string;
+  [key: string]: unknown;
+}
+
 // Component Sections
-function PartnersSection({ partners, searchTerm, setSearchTerm, selectedIndustry, setSelectedIndustry, selectedType, setSelectedType, selectedStatus, setSelectedStatus }) {
+function PartnersSection({ partners, searchTerm, setSearchTerm, selectedIndustry, setSelectedIndustry, selectedType, setSelectedType, selectedStatus, setSelectedStatus }: {
+  partners: Partner[];
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
+  selectedIndustry: string;
+  setSelectedIndustry: (industry: string) => void;
+  selectedType: string;
+  setSelectedType: (type: string) => void;
+  selectedStatus: string;
+  setSelectedStatus: (status: string) => void;
+}) {
   return (
     <div className="space-y-8">
       {/* Search and Filters */}
@@ -421,7 +476,7 @@ function PartnersSection({ partners, searchTerm, setSearchTerm, selectedIndustry
   );
 }
 
-function CollaborationTypesSection({ types }) {
+function CollaborationTypesSection({ types }: { types: CollaborationType[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {types.map((type, index) => {
@@ -496,7 +551,7 @@ function CollaborationTypesSection({ types }) {
   );
 }
 
-function SuccessStoriesSection({ stories }) {
+function SuccessStoriesSection({ stories }: { stories: SuccessStory[] }) {
   return (
     <div className="space-y-8">
       {stories.map((story, index) => (
@@ -868,6 +923,8 @@ export default function CollaborationsPage() {
 
   const [selectedTier, setSelectedTier] = useState('platinum');
   const [activeROI, setActiveROI] = useState(false);
+  
+  const collaborationPrograms = [
     {
       id: 'mentorship',
       title: 'Industry Mentorship Program',
@@ -964,69 +1021,6 @@ export default function CollaborationsPage() {
     }
   ];
 
-  const partnershipTiers = [
-    {
-      id: 'platinum',
-      name: 'Platinum Partner',
-      price: '₹10+ Lakhs',
-      color: 'from-purple-600 to-indigo-600',
-      features: [
-        'All collaboration models included',
-        'Dedicated relationship manager',
-        'Quarterly business reviews',
-        'Custom partnership agreements',
-        'Priority access to top talent',
-        'Joint marketing opportunities',
-        'Executive advisory board seat'
-      ],
-      benefits: [
-        'Brand visibility at all CIE events',
-        'Access to all research centers',
-        'Unlimited mentorship opportunities',
-        'Custom training programs',
-        'First access to breakthrough innovations'
-      ]
-    },
-    {
-      id: 'gold',
-      name: 'Gold Partner',
-      price: '₹5-10 Lakhs',
-      color: 'from-yellow-500 to-orange-500',
-      features: [
-        'Choose 3 collaboration models',
-        'Dedicated partnership coordinator',
-        'Bi-annual reviews',
-        'Standard partnership agreements',
-        'Access to talent pipeline',
-        'Co-branded event opportunities'
-      ],
-      benefits: [
-        'Brand visibility at major events',
-        'Access to 2 research centers',
-        'Structured mentorship programs',
-        'Quarterly talent showcases'
-      ]
-    },
-    {
-      id: 'silver',
-      name: 'Silver Partner',
-      price: '₹2-5 Lakhs',
-      color: 'from-gray-400 to-gray-600',
-      features: [
-        'Choose 2 collaboration models',
-        'Annual partnership reviews',
-        'Standard agreements',
-        'Access to student talent',
-        'Event participation opportunities'
-      ],
-      benefits: [
-        'Brand visibility at selected events',
-        'Access to 1 research center',
-        'Mentorship opportunities',
-        'Annual talent showcase'
-      ]
-    }
-  ];
 
   const roiMetrics = {
     sponsorship: {

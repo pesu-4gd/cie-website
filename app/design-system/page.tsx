@@ -151,7 +151,7 @@ export default function DesignSystemPage() {
                     title="Startup Incubation"
                     description="Transform your innovative ideas into successful startups with our comprehensive incubation program."
                     duration="6 months"
-                    participants={25}
+                    enrolledStudents={25}
                     category="Entrepreneurship"
                     image="/api/placeholder/300/200"
                   />
@@ -159,7 +159,7 @@ export default function DesignSystemPage() {
                     title="Industry Mentorship"
                     description="Connect with industry experts and gain valuable insights to accelerate your career growth."
                     duration="3 months"
-                    participants={50}
+                    enrolledStudents={50}
                     category="Mentorship"
                     image="/api/placeholder/300/200"
                   />
@@ -167,7 +167,7 @@ export default function DesignSystemPage() {
                     title="Innovation Challenge"
                     description="Participate in cutting-edge challenges that push the boundaries of technology and innovation."
                     duration="1 month"
-                    participants={100}
+                    enrolledStudents={100}
                     category="Competition"
                     image="/api/placeholder/300/200"
                   />
@@ -184,7 +184,6 @@ export default function DesignSystemPage() {
                     time="09:00 AM"
                     location="PES University Main Campus"
                     category="Summit"
-                    image="/api/placeholder/400/200"
                   />
                   <EventCard
                     title="Startup Pitch Competition"
@@ -193,7 +192,6 @@ export default function DesignSystemPage() {
                     time="02:00 PM"
                     location="CIE Auditorium"
                     category="Competition"
-                    image="/api/placeholder/400/200"
                   />
                 </Grid>
               </div>
@@ -204,26 +202,23 @@ export default function DesignSystemPage() {
                   <NewsCard
                     title="CIE Launches New Innovation Lab"
                     excerpt="State-of-the-art facility equipped with latest technology to support student innovation projects."
-                    date="2025-01-15"
+                    publishedDate="2025-01-15"
                     author="CIE Team"
                     category="Announcement"
-                    image="/api/placeholder/300/200"
                   />
                   <NewsCard
                     title="Student Startup Raises $1M Funding"
                     excerpt="Alumni-founded startup secures significant funding round, showcasing CIE's impact on entrepreneurship."
-                    date="2025-01-10"
+                    publishedDate="2025-01-10"
                     author="News Team"
                     category="Success Story"
-                    image="/api/placeholder/300/200"
                   />
                   <NewsCard
                     title="Industry Partnership Announcement"
                     excerpt="New collaboration with leading tech companies to provide internship and job opportunities."
-                    date="2025-01-05"
+                    publishedDate="2025-01-05"
                     author="CIE Team"
                     category="Partnership"
-                    image="/api/placeholder/300/200"
                   />
                 </Grid>
               </div>

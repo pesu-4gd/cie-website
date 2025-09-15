@@ -34,15 +34,13 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <div className="mb-4">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100/90 text-blue-800 backdrop-blur-sm">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-pes-navy/20 text-white border border-pes-navy/30 backdrop-blur-sm">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Empowering Innovation Since 2018
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-4 leading-tight">
-              <span className="block text-white">INSPIRE.</span>
-              <span className="block text-blue-400">IDEATE.</span>
-              <span className="block text-orange-400">INNOVATE.</span>
+              <span className="block text-white">Ideate • <span className="text-[#00338d]">Innovate</span> • Inspire</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-200 mb-6 max-w-3xl mx-auto leading-relaxed">
               Transform ideas into reality through entrepreneurship, technology, and meaningful impact at PES University.
@@ -52,7 +50,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
               <button 
                 onClick={() => window.location.href = '/students/programs'}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-pes-navy hover:bg-pes-navy-dark text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center"
               >
                 EXPLORE NOW
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -69,19 +67,19 @@ export default function Home() {
             {/* Quick Stats - Compact Grid */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
               <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="text-2xl font-bold text-blue-400">2159+</div>
+                <div className="text-2xl font-bold text-white">2159+</div>
                 <div className="text-xs text-gray-300">Students</div>
               </div>
               <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="text-2xl font-bold text-green-400">50+</div>
+                <div className="text-2xl font-bold text-white">50+</div>
                 <div className="text-xs text-gray-300">Startups</div>
               </div>
               <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="text-2xl font-bold text-purple-400">₹2Cr+</div>
+                <div className="text-2xl font-bold text-white">₹2Cr+</div>
                 <div className="text-xs text-gray-300">Funding</div>
               </div>
               <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="text-2xl font-bold text-orange-400">100+</div>
+                <div className="text-2xl font-bold text-white">100+</div>
                 <div className="text-xs text-gray-300">Partners</div>
               </div>
             </div>

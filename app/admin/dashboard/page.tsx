@@ -59,8 +59,8 @@ export default function AdminDashboard() {
   const [formData, setFormData] = useState({
     title: '',
     message: '',
-    type: 'info' as const,
-    priority: 'medium' as const,
+    type: 'info' as 'urgent' | 'info' | 'success' | 'warning',
+    priority: 'medium' as 'high' | 'medium' | 'low',
     category: '',
     expiresAt: '',
     actionButton: {
@@ -383,7 +383,7 @@ export default function AdminDashboard() {
                   </label>
                   <select
                     value={formData.type}
-                    onChange={(e) => setFormData(prev => ({ ...prev, type: e.target.value as any }))}
+                    onChange={(e) => setFormData(prev => ({ ...prev, type: e.target.value as 'urgent' | 'info' | 'success' | 'warning' }))}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="info">Info</option>
@@ -399,7 +399,7 @@ export default function AdminDashboard() {
                   </label>
                   <select
                     value={formData.priority}
-                    onChange={(e) => setFormData(prev => ({ ...prev, priority: e.target.value as any }))}
+                    onChange={(e) => setFormData(prev => ({ ...prev, priority: e.target.value as 'high' | 'medium' | 'low' }))}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="low">Low</option>

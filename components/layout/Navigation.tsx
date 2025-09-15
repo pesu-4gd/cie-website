@@ -295,11 +295,11 @@ export const Navigation: React.FC<NavigationProps> = ({ className }) => {
                                           href={center.href}
                                           target="_blank"
                                           rel="noopener noreferrer"
-                                          className="block p-3 rounded-lg hover:bg-blue-50 transition-colors group/center"
+                                          className="block p-3 rounded-lg hover:bg-pes-navy/5 transition-colors group/center"
                                         >
                                           <div className="flex items-start justify-between">
                                             <div className="flex-1">
-                                              <div className="text-xs font-medium text-gray-900 group-hover/center:text-blue-700 leading-tight">
+                                              <div className="text-xs font-medium text-gray-900 group-hover/center:text-pes-navy leading-tight">
                                                 {center.title}
                                               </div>
                                               <p className="text-xs text-gray-600 mt-1 leading-tight">

@@ -13,12 +13,12 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   ...compat.extends("prettier"),
   {
-    plugins: ["prettier"],
     rules: {
-      "prettier/prettier": "error",
       "@typescript-eslint/no-unused-vars": "warn",
       "react/no-unescaped-entities": "off",
     },
+  },
+  {
     ignores: [
       "node_modules/**",
       ".next/**",

@@ -95,7 +95,13 @@ interface ProgramCardProps {
   title: string;
   description: string;
   duration?: string;
+  level?: string;
+  category?: string;
   eligibility?: string;
+  enrolledStudents?: number;
+  maxStudents?: number;
+  startDate?: string;
+  applicationDeadline?: string;
   image?: string;
   onApply?: () => void;
   onLearnMore?: () => void;
@@ -106,7 +112,13 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
   title,
   description,
   duration,
+  level,
+  category,
   eligibility,
+  enrolledStudents,
+  maxStudents,
+  startDate,
+  applicationDeadline,
   image,
   onApply,
   onLearnMore,
@@ -127,6 +139,36 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
         <div className="flex items-center text-sm text-muted-foreground mb-2">
           <span className="font-medium">Duration:</span>
           <span className="ml-2">{duration}</span>
+        </div>
+      )}
+      {level && (
+        <div className="flex items-center text-sm text-muted-foreground mb-2">
+          <span className="font-medium">Level:</span>
+          <span className="ml-2">{level}</span>
+        </div>
+      )}
+      {category && (
+        <div className="flex items-center text-sm text-muted-foreground mb-2">
+          <span className="font-medium">Category:</span>
+          <span className="ml-2">{category}</span>
+        </div>
+      )}
+      {enrolledStudents && maxStudents && (
+        <div className="flex items-center text-sm text-muted-foreground mb-2">
+          <span className="font-medium">Enrolled:</span>
+          <span className="ml-2">{enrolledStudents} / {maxStudents}</span>
+        </div>
+      )}
+      {startDate && (
+        <div className="flex items-center text-sm text-muted-foreground mb-2">
+          <span className="font-medium">Starts:</span>
+          <span className="ml-2">{startDate}</span>
+        </div>
+      )}
+      {applicationDeadline && (
+        <div className="flex items-center text-sm text-muted-foreground mb-2">
+          <span className="font-medium">Apply by:</span>
+          <span className="ml-2">{applicationDeadline}</span>
         </div>
       )}
       {eligibility && (
@@ -159,6 +201,9 @@ interface EventCardProps {
   time?: string;
   location?: string;
   category?: string;
+  attendees?: number;
+  maxAttendees?: number;
+  registrationDeadline?: string;
   onRegister?: () => void;
   onViewDetails?: () => void;
   className?: string;
@@ -171,6 +216,9 @@ export const EventCard: React.FC<EventCardProps> = ({
   time,
   location,
   category,
+  attendees,
+  maxAttendees,
+  registrationDeadline,
   onRegister,
   onViewDetails,
   className
@@ -205,6 +253,18 @@ export const EventCard: React.FC<EventCardProps> = ({
             <span>{location}</span>
           </div>
         )}
+        {attendees && maxAttendees && (
+          <div className="flex items-center">
+            <span className="font-medium w-16">Attendees:</span>
+            <span>{attendees} / {maxAttendees}</span>
+          </div>
+        )}
+        {registrationDeadline && (
+          <div className="flex items-center">
+            <span className="font-medium w-16">Deadline:</span>
+            <span>{registrationDeadline}</span>
+          </div>
+        )}
       </div>
     </CardContent>
     <CardFooter className="gap-2">
@@ -225,11 +285,13 @@ export const EventCard: React.FC<EventCardProps> = ({
 // News Card
 interface NewsCardProps {
   title: string;
-  summary: string;
+  summary?: string;
+  excerpt?: string;
   author?: string;
   publishedDate: string;
   category?: string;
   readTime?: string;
+  tags?: string[];
   featured?: boolean;
   onRead?: () => void;
   className?: string;
@@ -238,34 +300,39 @@ interface NewsCardProps {
 export const NewsCard: React.FC<NewsCardProps> = ({
   title,
   summary,
+  excerpt,
   author,
   publishedDate,
   category,
   readTime,
+  tags = [],
   featured = false,
   onRead,
   className
-}) => (
-  <Card 
-    variant={featured ? 'filled' : 'default'} 
-    hover 
-    className={cn('max-w-lg', className)}
-  >
-    <CardHeader>
-      <div className="flex justify-between items-start">
-        <CardTitle className={cn('text-lg', featured && 'text-primary-800')}>
-          {title}
-        </CardTitle>
-        {featured && (
-          <span className="px-2 py-1 text-xs font-bold bg-cie-gold text-gray-900 rounded-full">
-            FEATURED
-          </span>
-        )}
-      </div>
-      <CardDescription>{summary}</CardDescription>
-    </CardHeader>
+}) => {
+  const contentText = excerpt || summary || '';
+  
+  return (
+    <Card 
+      variant={featured ? 'filled' : 'default'} 
+      hover 
+      className={cn('max-w-lg', className)}
+    >
+      <CardHeader>
+        <div className="flex justify-between items-start">
+          <CardTitle className={cn('text-lg', featured && 'text-primary-800')}>
+            {title}
+          </CardTitle>
+          {featured && (
+            <span className="px-2 py-1 text-xs font-bold bg-cie-gold text-gray-900 rounded-full">
+              FEATURED
+            </span>
+          )}
+        </div>
+        <CardDescription>{contentText}</CardDescription>
+      </CardHeader>
     <CardContent>
-      <div className="flex items-center justify-between text-sm text-muted-foreground">
+      <div className="flex items-center justify-between text-sm text-muted-foreground mb-3">
         <div className="flex items-center space-x-4">
           {author && <span>By {author}</span>}
           <span>{publishedDate}</span>
@@ -279,6 +346,15 @@ export const NewsCard: React.FC<NewsCardProps> = ({
           {readTime && <span>{readTime} read</span>}
         </div>
       </div>
+      {tags.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <span key={tag} className="px-2 py-1 bg-muted rounded-md text-xs text-muted-foreground">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
     </CardContent>
     {onRead && (
       <CardFooter>
@@ -288,7 +364,8 @@ export const NewsCard: React.FC<NewsCardProps> = ({
       </CardFooter>
     )}
   </Card>
-);
+  );
+};
 
 // Job Card
 interface JobCardProps {
@@ -299,6 +376,7 @@ interface JobCardProps {
   salary?: string;
   description: string;
   deadline?: string;
+  postedDate?: string;
   remote?: boolean;
   experienceLevel?: 'entry' | 'mid' | 'senior';
   skills?: string[];
@@ -316,6 +394,7 @@ export const JobCard: React.FC<JobCardProps> = ({
   salary,
   description,
   deadline,
+  postedDate,
   remote = false,
   experienceLevel,
   skills = [],
@@ -388,6 +467,12 @@ export const JobCard: React.FC<JobCardProps> = ({
         )}
         
         <div className="space-y-1 text-sm">
+          {postedDate && (
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Posted:</span>
+              <span className="font-medium text-muted-foreground">{postedDate}</span>
+            </div>
+          )}
           {deadline && (
             <div className="flex justify-between">
               <span className="text-muted-foreground">Deadline:</span>

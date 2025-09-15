@@ -25,45 +25,54 @@ export default {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         
-        // PES University brand colors
+        // PES University brand colors - Navy Blue and Orange theme
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#2563eb', // Main PES blue
-          600: '#1d4ed8',
-          700: '#1e40af',
+          50: '#f0f4ff',
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8',
+          500: '#1e3a8a', // PES Navy Blue - Main brand color
+          600: '#1e40af',
+          700: '#1d4ed8',
           800: '#1e3a8a',
-          900: '#172554',
-          950: '#0f1629',
-          DEFAULT: '#2563eb',
+          900: '#1e293b',
+          950: '#0f172a',
+          DEFAULT: '#1e3a8a',
           foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
-          950: '#020617',
-          DEFAULT: '#64748b',
+          50: '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#f97316', // PES Orange - Secondary brand color
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12',
+          950: '#431407',
+          DEFAULT: '#f97316',
           foreground: 'hsl(var(--secondary-foreground))',
         },
-        // CIE specific colors
-        cie: {
-          orange: '#ff6b35',
-          'orange-light': '#ff8c69',
-          'orange-dark': '#e55a2b',
-          gold: '#ffd700',
-          'gold-light': '#ffed4e',
-          'gold-dark': '#ccac00',
+        // PES University specific colors
+        pes: {
+          'navy': '#1e3a8a',        // Main navy blue
+          'navy-light': '#3b82f6',  // Lighter navy for accents
+          'navy-dark': '#1e293b',   // Darker navy for depth
+          'orange': '#f97316',      // Main orange
+          'orange-light': '#fb923c', // Lighter orange
+          'orange-dark': '#c2410c',  // Darker orange
+          'gold': '#fbbf24',        // Academic gold
+          'silver': '#94a3b8',      // Professional silver
+        },
+        // Academic colors for different purposes
+        academic: {
+          'excellence': '#059669',  // Green for achievements
+          'innovation': '#7c3aed',  // Purple for innovation
+          'research': '#0891b2',    // Teal for research
+          'community': '#dc2626',   // Red for community
         },
         // Semantic colors
         success: {
@@ -120,12 +129,13 @@ export default {
         'full': '9999px',
       },
       boxShadow: {
-        'cie-sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-        'cie': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'cie-md': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-        'cie-lg': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-        'cie-xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-        'cie-glow': '0 0 20px rgba(37, 99, 235, 0.3)',
+        'pes-sm': '0 1px 2px 0 rgba(30, 58, 138, 0.05)',
+        'pes': '0 4px 6px -1px rgba(30, 58, 138, 0.1), 0 2px 4px -1px rgba(30, 58, 138, 0.06)',
+        'pes-md': '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)',
+        'pes-lg': '0 20px 25px -5px rgba(30, 58, 138, 0.1), 0 10px 10px -5px rgba(30, 58, 138, 0.04)',
+        'pes-xl': '0 25px 50px -12px rgba(30, 58, 138, 0.25)',
+        'pes-glow': '0 0 20px rgba(30, 58, 138, 0.3)',
+        'orange-glow': '0 0 20px rgba(249, 115, 22, 0.3)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

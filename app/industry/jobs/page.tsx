@@ -224,7 +224,7 @@ export default function JobsPage() {
   const [selectedExperience, setSelectedExperience] = useState('All');
   const [selectedSalary, setSelectedSalary] = useState('All');
   const [activeTab, setActiveTab] = useState('browse');
-  const [savedJobs, setSavedJobs] = useState([]);
+  const [savedJobs, setSavedJobs] = useState<number[]>([]);
 
   const locations = ['All', 'Bangalore', 'Mumbai', 'Hyderabad', 'Pune', 'Chennai', 'Delhi'];
   const jobTypes = ['All', 'Full-time', 'Part-time', 'Contract', 'Internship'];
@@ -242,7 +242,7 @@ export default function JobsPage() {
     return matchesSearch && matchesLocation && matchesType && matchesExperience;
   });
 
-  const toggleSaveJob = (jobId) => {
+  const toggleSaveJob = (jobId: number) => {
     setSavedJobs(prev => 
       prev.includes(jobId) 
         ? prev.filter(id => id !== jobId)
@@ -419,6 +419,41 @@ export default function JobsPage() {
   );
 }
 
+// Type definitions
+interface Job {
+  id: number;
+  title: string;
+  company: string;
+  location: string;
+  type: string;
+  experience: string;
+  salary: string;
+  postedDate: string;
+  deadline: string;
+  skills: string[];
+  description: string;
+  requirements: string[];
+  benefits: string[];
+  featured: boolean;
+  urgent: boolean;
+  companyLogo: string;
+  applicants: number;
+  views: number;
+  [key: string]: unknown;
+}
+
+interface JobCategory {
+  name: string;
+  count: number;
+  icon: string;
+}
+
+interface Employer {
+  name: string;
+  jobs: number;
+  logo: string;
+}
+
 // Component Sections
 function BrowseJobsSection({ 
   jobs, 
@@ -435,6 +470,21 @@ function BrowseJobsSection({
   experienceLevels,
   savedJobs,
   toggleSaveJob
+}: {
+  jobs: Job[];
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
+  selectedLocation: string;
+  setSelectedLocation: (location: string) => void;
+  selectedType: string;
+  setSelectedType: (type: string) => void;
+  selectedExperience: string;
+  setSelectedExperience: (experience: string) => void;
+  locations: string[];
+  jobTypes: string[];
+  experienceLevels: string[];
+  savedJobs: number[];
+  toggleSaveJob: (jobId: number) => void;
 }) {
   return (
     <div className="space-y-8">
@@ -597,7 +647,7 @@ function BrowseJobsSection({
   );
 }
 
-function CategoriesSection({ categories }) {
+function CategoriesSection({ categories }: { categories: JobCategory[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {categories.map((category, index) => (
@@ -626,7 +676,7 @@ function CategoriesSection({ categories }) {
   );
 }
 
-function EmployersSection({ employers }) {
+function EmployersSection({ employers }: { employers: Employer[] }) {
   return (
     <div className="space-y-8">
       <div className="text-center mb-8">

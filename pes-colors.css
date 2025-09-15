@@ -1,0 +1,195 @@
+/* PES University Color Palette */
+/* Primary Colors */
+:root {
+  --pes-orange: #f07f1a;
+  --pes-blue: #00338d;
+  
+  /* Tints and Shades for Orange */
+  --pes-orange-50: #fef7ed;
+  --pes-orange-100: #fdedd3;
+  --pes-orange-200: #fbd9a5;
+  --pes-orange-300: #f9c16d;
+  --pes-orange-400: #f7a532;
+  --pes-orange-500: #f07f1a;
+  --pes-orange-600: #e16510;
+  --pes-orange-700: #ba4d0f;
+  --pes-orange-800: #953d14;
+  --pes-orange-900: #7a3214;
+  --pes-orange-950: #421808;
+  
+  /* Tints and Shades for Blue */
+  --pes-blue-50: #eff6ff;
+  --pes-blue-100: #dbeafe;
+  --pes-blue-200: #bfdbfe;
+  --pes-blue-300: #93c5fd;
+  --pes-blue-400: #60a5fa;
+  --pes-blue-500: #3b82f6;
+  --pes-blue-600: #2563eb;
+  --pes-blue-700: #1d4ed8;
+  --pes-blue-800: #00338d;
+  --pes-blue-900: #1e3a8a;
+  --pes-blue-950: #0f172a;
+  
+  /* Neutral Colors */
+  --pes-gray-50: #f8fafc;
+  --pes-gray-100: #f1f5f9;
+  --pes-gray-200: #e2e8f0;
+  --pes-gray-300: #cbd5e1;
+  --pes-gray-400: #94a3b8;
+  --pes-gray-500: #64748b;
+  --pes-gray-600: #475569;
+  --pes-gray-700: #334155;
+  --pes-gray-800: #1e293b;
+  --pes-gray-900: #0f172a;
+  
+  /* Accent Colors */
+  --pes-success: #059669;
+  --pes-warning: #d97706;
+  --pes-error: #dc2626;
+  --pes-info: #0284c7;
+}
+
+/* Utility Classes */
+.bg-pes-orange { background-color: var(--pes-orange); }
+.bg-pes-blue { background-color: var(--pes-blue); }
+.text-pes-orange { color: var(--pes-orange); }
+.text-pes-blue { color: var(--pes-blue); }
+.border-pes-orange { border-color: var(--pes-orange); }
+.border-pes-blue { border-color: var(--pes-blue); }
+
+/* PES Gradient Classes */
+.bg-pes-gradient {
+  background: linear-gradient(135deg, var(--pes-blue) 0%, var(--pes-orange) 100%);
+}
+
+.bg-pes-gradient-reverse {
+  background: linear-gradient(135deg, var(--pes-orange) 0%, var(--pes-blue) 100%);
+}
+
+/* PES Button Styles */
+.btn-pes-primary {
+  background: linear-gradient(135deg, var(--pes-blue) 0%, var(--pes-orange) 100%);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-pes-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(240, 127, 26, 0.3);
+}
+
+.btn-pes-outline {
+  background: transparent;
+  color: var(--pes-blue);
+  padding: 0.75rem 2rem;
+  border: 2px solid var(--pes-blue);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-pes-outline:hover {
+  background: var(--pes-blue);
+  color: white;
+}
+
+/* PES Card Styles */
+.pes-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid var(--pes-orange);
+  transition: all 0.3s ease;
+}
+
+.pes-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.pes-card-header {
+  background: linear-gradient(135deg, var(--pes-blue-50) 0%, var(--pes-orange-50) 100%);
+  border-radius: 0.75rem 0.75rem 0 0;
+  padding: 1.5rem;
+  border-bottom: 2px solid var(--pes-orange);
+}
+
+/* PES Section Dividers */
+.pes-section-divider {
+  height: 4px;
+  background: linear-gradient(90deg, var(--pes-blue) 0%, var(--pes-orange) 100%);
+  border-radius: 2px;
+  margin: 2rem auto;
+  max-width: 200px;
+}
+
+/* PES Animation Classes */
+@keyframes pes-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pes-animate-fade-in-up {
+  animation: pes-fade-in-up 0.6s ease-out;
+}
+
+/* PES Typography */
+.pes-heading {
+  color: var(--pes-blue);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.pes-subheading {
+  color: var(--pes-orange);
+  font-weight: 600;
+}
+
+/* PES Badge Styles */
+.pes-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, var(--pes-orange) 0%, var(--pes-blue) 100%);
+  color: white;
+}
+
+.pes-badge-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: transparent;
+  color: var(--pes-blue);
+  border: 1px solid var(--pes-blue);
+}
+
+/* Responsive Design Utilities */
+@media (max-width: 768px) {
+  .btn-pes-primary,
+  .btn-pes-outline {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .pes-card-header {
+    padding: 1rem;
+  }
+}

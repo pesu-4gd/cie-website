@@ -84,20 +84,20 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
               <Button
                 variant="ghost"
                 size="sm"
-                className="hidden lg:flex h-10 w-10 p-0 rounded-full hover:bg-blue-50 transition-all duration-200"
+                className="hidden lg:flex h-10 w-10 p-0 rounded-full hover:bg-pes-navy/5 transition-all duration-200"
                 aria-label="Search"
               >
-                <Search className="h-5 w-5 text-gray-600 hover:text-blue-600" />
+                <Search className="h-5 w-5 text-gray-600 hover:text-pes-navy" />
               </Button>
 
               {/* Notifications */}
               <Button
                 variant="ghost"
                 size="sm"
-                className="hidden lg:flex h-10 w-10 p-0 relative rounded-full hover:bg-blue-50 transition-all duration-200"
+                className="hidden lg:flex h-10 w-10 p-0 relative rounded-full hover:bg-pes-navy/5 transition-all duration-200"
                 aria-label="Notifications"
               >
-                <Bell className="h-5 w-5 text-gray-600 hover:text-blue-600" />
+                <Bell className="h-5 w-5 text-gray-600 hover:text-pes-navy" />
                 <span className="absolute -top-1 -right-1 h-3 w-3 bg-red-500 rounded-full border-2 border-white"></span>
               </Button>
 
@@ -118,7 +118,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
               <Button
                 variant="ghost"
                 size="sm"
-                className="lg:hidden h-10 w-10 p-0 rounded-full hover:bg-blue-50 transition-all duration-200"
+                className="lg:hidden h-10 w-10 p-0 rounded-full hover:bg-pes-navy/5 transition-all duration-200"
                 onClick={toggleMobileMenu}
                 aria-label="Toggle menu"
               >

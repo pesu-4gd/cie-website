@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function TestPage() {
   return (
     <div className="container mx-auto px-4 py-8">
@@ -6,9 +8,9 @@ export default function TestPage() {
         If you can see this page without it downloading, the fix is working!
       </p>
       <div className="mt-8 text-center">
-        <a href="/" className="text-blue-600 hover:text-blue-800 underline">
+        <Link href="/" className="text-blue-600 hover:text-blue-800 underline">
           Back to Home
-        </a>
+        </Link>
       </div>
     </div>
   )

@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-collapsible';
 import { HelpCircle, Search, ChevronDown, ChevronUp, Users, Building2, GraduationCap, BookOpen, DollarSign, Calendar } from 'lucide-react';
 import { useState } from 'react';
 
