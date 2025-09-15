@@ -2,30 +2,14 @@
 
 import React from 'react';
 import { 
-  Calendar, 
-  Clock, 
-  MapPin, 
   Users, 
-  ExternalLink, 
-  BookOpen, 
-  Award, 
-  TrendingUp,
-  Building2,
-  User,
-  Mail,
-  Phone,
-  Linkedin,
-  Github,
-  Globe,
   Briefcase,
   GraduationCap,
-  Target,
-  Star
+  Target
 } from 'lucide-react';
 
 // Import all card components
 import { 
-  Card, 
   EventCard, 
   ProgramCard, 
   NewsCard, 
@@ -44,10 +28,10 @@ export default function CardsDemo() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="bg-gradient-to-r from-primary to-secondary text-white py-16">
+      <div className="bg-gradient-to-r from-[#00338d] to-[#f07f1a] text-white py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-4">Card Components Demo</h1>
-          <p className="text-xl opacity-90">Comprehensive showcase of all reusable card components</p>
+          <h1 className="text-4xl font-bold mb-4">PES CIE Card Components Demo</h1>
+          <p className="text-xl opacity-90">Ideate • Innovate • Inspire</p>
         </div>
       </div>
 
@@ -55,16 +39,14 @@ export default function CardsDemo() {
         
         {/* Stats Cards Section */}
         <section>
-          <h2 className="text-3xl font-bold mb-8 text-center">Statistics Cards</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-[#00338d]">Statistics Cards</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <StatsCard
               title="Total Students"
               value="2,847"
-              change={{
-                value: "+12%",
-                trend: "up",
-                period: "last month"
-              }}
+              trend="up"
+              trendValue="+12%"
+              trendPeriod="last month"
               icon={<Users className="h-6 w-6" />}
               color="primary"
               description="Active enrolled students"
@@ -72,11 +54,9 @@ export default function CardsDemo() {
             <StatsCard
               title="Job Placements"
               value="156"
-              change={{
-                value: "+8%",
-                trend: "up",
-                period: "this quarter"
-              }}
+              trend="up"
+              trendValue="+8%"
+              trendPeriod="this quarter"
               icon={<Briefcase className="h-6 w-6" />}
               color="success"
               description="This academic year"
@@ -84,11 +64,9 @@ export default function CardsDemo() {
             <StatsCard
               title="Active Programs"
               value="24"
-              change={{
-                value: "0%",
-                trend: "neutral",
-                period: "last month"
-              }}
+              trend="neutral"
+              trendValue="0%"
+              trendPeriod="last month"
               icon={<GraduationCap className="h-6 w-6" />}
               color="warning"
               description="Running programs"
@@ -96,11 +74,9 @@ export default function CardsDemo() {
             <StatsCard
               title="Success Rate"
               value="94%"
-              change={{
-                value: "+2%",
-                trend: "up",
-                period: "last year"
-              }}
+              trend="up"
+              trendValue="+2%"
+              trendPeriod="last year"
               icon={<Target className="h-6 w-6" />}
               color="success"
               description="Program completion"
@@ -110,7 +86,7 @@ export default function CardsDemo() {
 
         {/* Event Cards Section */}
         <section>
-          <h2 className="text-3xl font-bold mb-8 text-center">Event Cards</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-[#00338d]">Event Cards</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <EventCard
               title="Tech Innovation Summit 2025"
@@ -150,7 +126,7 @@ export default function CardsDemo() {
 
         {/* Program Cards Section */}
         <section>
-          <h2 className="text-3xl font-bold mb-8 text-center">Program Cards</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-[#00338d]">Program Cards</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ProgramCard
               title="Entrepreneurship Bootcamp"
@@ -190,7 +166,7 @@ export default function CardsDemo() {
 
         {/* Job Cards Section */}
         <section>
-          <h2 className="text-3xl font-bold mb-8 text-center">Job Cards</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-[#00338d]">Job Cards</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <JobCard
               title="Senior Software Engineer"
@@ -236,7 +212,7 @@ export default function CardsDemo() {
 
         {/* News Cards Section */}
         <section>
-          <h2 className="text-3xl font-bold mb-8 text-center">News Cards</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-[#00338d]">News Cards</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <NewsCard
               title="CIE Students Win National Innovation Challenge"
@@ -270,7 +246,7 @@ export default function CardsDemo() {
 
         {/* Alumni Cards Section */}
         <section>
-          <h2 className="text-3xl font-bold mb-8 text-center">Alumni Cards</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-[#00338d]">Alumni Cards</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AlumniCard
               name="Priya Sharma"
@@ -314,7 +290,7 @@ export default function CardsDemo() {
 
         {/* Success Story Cards Section */}
         <section>
-          <h2 className="text-3xl font-bold mb-8 text-center">Success Story Cards</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-[#00338d]">Success Story Cards</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <SuccessStoryCard
               title="From Student to Unicorn Founder"
@@ -349,7 +325,7 @@ export default function CardsDemo() {
 
         {/* Resource Cards Section */}
         <section>
-          <h2 className="text-3xl font-bold mb-8 text-center">Resource Cards</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-[#00338d]">Resource Cards</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ResourceCard
               title="Startup Business Plan Template"
@@ -392,7 +368,7 @@ export default function CardsDemo() {
 
         {/* Competition Cards Section */}
         <section>
-          <h2 className="text-3xl font-bold mb-8 text-center">Competition Cards</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-[#00338d]">Competition Cards</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <CompetitionCard
               title="National Hackathon 2025"
