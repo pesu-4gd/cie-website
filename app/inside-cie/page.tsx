@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Phone, HelpCircle, FileText, Users } from 'lucide-react';
 
-const MorePage = () => {
+const InsideCIEPage = () => {
   const sections = [
     {
       title: 'About CIE',
@@ -48,7 +48,7 @@ const MorePage = () => {
       {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          More Information
+          Inside CIE
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
           Discover additional resources, information about CIE, and ways to connect with us.
@@ -106,4 +106,4 @@ const MorePage = () => {
   );
 };
 
-export default MorePage;
+export default InsideCIEPage;

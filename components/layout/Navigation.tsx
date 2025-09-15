@@ -179,7 +179,7 @@ const navigationItems = [
       {
         title: 'Overview',
         items: [
-          { title: 'More Information', href: '/inside-cie', description: 'About CIE, research, contact, and additional resources' }
+          { title: 'Inside CIE', href: '/inside-cie', description: 'About CIE, research, contact, and additional resources' }
         ]
       },
       {
