@@ -45,9 +45,9 @@ export function HeroSection({
       {/* Background Elements */}
       {backgroundPattern && (
         <>
-          <div className="absolute top-10 left-10 w-20 h-20 bg-blue-200 rounded-full opacity-20 animate-float" />
-          <div className="absolute top-32 right-20 w-16 h-16 bg-purple-200 rounded-full opacity-20 animate-float" style={{ animationDelay: '1s' }} />
-          <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-pink-200 rounded-full opacity-20 animate-float" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-10 left-10 w-20 h-20 bg-blue-500 rounded-full opacity-20 animate-float" />
+          <div className="absolute top-32 right-20 w-16 h-16 bg-orange-500 rounded-full opacity-20 animate-float" style={{ animationDelay: '1s' }} />
+          <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-blue-600 rounded-full opacity-20 animate-float" style={{ animationDelay: '2s' }} />
         </>
       )}
       

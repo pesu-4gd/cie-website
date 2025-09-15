@@ -171,15 +171,15 @@ const navigationItems = [
     ]
   },
   {
-    title: 'More',
-    href: '/more',
-    icon: MoreHorizontal,
+    title: 'Inside CIE',
+    href: '/inside-cie',
+    icon: Microscope,
     description: 'About, Research & Contact',
     sections: [
       {
         title: 'Overview',
         items: [
-          { title: 'More Information', href: '/more', description: 'About CIE, research, contact, and additional resources' }
+          { title: 'More Information', href: '/inside-cie', description: 'About CIE, research, contact, and additional resources' }
         ]
       },
       {

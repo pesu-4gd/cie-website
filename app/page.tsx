@@ -40,7 +40,7 @@ export default function Home() {
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-4 leading-tight">
-              <span className="block text-white">Ideate • <span className="text-[#00338d]">Innovate</span> • Inspire</span>
+              <span className="block"><span className="text-[#383567]">Ideate</span> <span className="text-white">•</span> <span className="text-[#e75a2d]">Innovate</span> <span className="text-white">•</span> <span className="text-[#3999c2]">Inspire</span></span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-200 mb-6 max-w-3xl mx-auto leading-relaxed">
               Transform ideas into reality through entrepreneurship, technology, and meaningful impact at PES University.
@@ -86,16 +86,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/70 rounded-full mt-2"></div>
-          </div>
-        </motion.div>
+       
       </section>
 
       {/* Whiteboard Announcements Section */}
