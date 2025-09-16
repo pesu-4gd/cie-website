@@ -8,7 +8,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
@@ -16,19 +15,12 @@ import {
   Users, 
   Building2, 
   GraduationCap, 
-  MoreHorizontal,
   ChevronRight,
   ExternalLink,
-  Microscope,
-  Cpu,
-  Database,
-  Shield,
-  Wifi,
-  Brain,
-  Zap
+  Microscope
 } from 'lucide-react';
 
-// Navigation items configuration based on sitemap
+// Navigation items configuration based on user-provided mapping
 const navigationItems = [
   {
     title: 'Students',
@@ -39,7 +31,7 @@ const navigationItems = [
       {
         title: 'Overview',
         items: [
-          { title: 'Students Hub', href: '/students', description: 'Explore all student opportunities, programs, and resources' }
+          { title: 'Overview', href: '/students', description: 'Explore all student opportunities, programs, and resources' }
         ]
       },
       {
@@ -47,7 +39,7 @@ const navigationItems = [
         items: [
           { title: 'Summer Programs', href: '/students/programs/summer', description: 'Intensive technical & entrepreneurial courses' },
           { title: 'Bootcamp', href: '/students/programs/bootcamp', description: 'Annual intensive training' },
-          { title: 'Basecamp', href: '/students/programs/basecamp', description: 'Foundational startup knowledge' },
+          { title: 'Basecamp', href: '/students/programs/basecamp', description: 'Weekly entrepreneurship sessions with industry experts' },
           { title: 'PAML', href: '/students/programs/paml', description: 'Practical Approach to Machine Learning' },
           { title: 'PM', href: '/students/programs/pm', description: 'Product Management course' }
         ]
@@ -72,26 +64,12 @@ const navigationItems = [
             description: 'Research & innovation centers',
             isExpandable: true,
             subItems: [
-              { title: 'Center for Computer Networks and Cyber Security (CCNCS)', href: 'https://ccncs.pes.edu', description: 'Cybersecurity research and training' },
+              { title: 'Centre for Computer Networks and Cyber Security (CCNCS)', href: 'https://ccncs.pes.edu', description: 'Cybersecurity research and training' },
               { title: 'Centre for Heterogeneous and Intelligent Processing Systems (CHIPS)', href: 'https://chips.pes.edu', description: 'Advanced computing systems' },
               { title: 'Quantum and Nano Devices Lab (QuaNaD)', href: 'https://quanad.pes.edu', description: 'Quantum technology research' },
-              { title: 'Centre of Data Modelling, Analytics and Visualization (CoDMAV)', href: 'https://codmav.pes.edu', description: 'Data science and analytics' },
-              { title: 'Centre for Research in Space Science and Technology (CRSST)', href: 'https://crsst.pes.edu', description: 'Space technology research' },
-              { title: 'Centre for Robotics, Automation & Intelligent Systems (CRAIS)', href: 'https://crais.pes.edu', description: 'Robotics and automation' },
-              { title: 'Centre for Cloud Computing & Big Data', href: 'https://cloud.pes.edu', description: 'Cloud computing solutions' },
-              { title: 'Crucible of Research and Innovation (CORI)', href: 'https://cori.pes.edu', description: 'Innovation and research hub' },
-              { title: 'Center of Excellence in Information Security, Forensics, and Cyber Resilience (C-ISFCR)', href: 'https://c-isfcr.pes.edu', description: 'Information security research' },
-              { title: 'Center of Excellence in Internet of Things (C-IoT)', href: 'https://c-iot.pes.edu', description: 'IoT research and development' },
-              { title: 'Center for Pattern Recognition', href: 'https://pattern.pes.edu', description: 'Pattern recognition research' },
-              { title: 'Knowledge Analytics & Ontological Engineering (KANOE)', href: 'https://kanoe.pes.edu', description: 'Knowledge engineering' },
-              { title: 'Centre for Intelligent Systems', href: 'https://intelligent.pes.edu', description: 'AI and intelligent systems' },
-              { title: 'Laboratory of Photonics & Quantum Technology', href: 'https://photonics.pes.edu', description: 'Photonics research' },
-              { title: 'Center for Data Sciences and Applied Machine Learning (CDSAML)', href: 'https://cdsaml.pes.edu', description: 'Machine learning research' },
-              { title: 'Centre of Cognitive Computing and Computational Intelligence (C3I)', href: 'https://c3i.pes.edu', description: 'Cognitive computing research' },
-              { title: 'IoT Maker\'s Space', href: 'https://iotmakers.pes.edu', description: 'IoT prototyping and development' }
+              { title: 'Centre of Data Modelling, Analytics and Visualization (CoDMAV)', href: 'https://codmav.pes.edu', description: 'Data science and analytics' }
             ]
-          },
-          { title: 'FAQs for Students', href: '/students/faqs', description: 'Frequently asked questions' }
+          }
         ]
       }
     ]
@@ -105,13 +83,13 @@ const navigationItems = [
       {
         title: 'Overview',
         items: [
-          { title: 'Industry Hub', href: '/industry', description: 'Partnerships, collaborations, and opportunities' }
+          { title: 'Overview', href: '/industry', description: 'Partnerships, collaborations, and opportunities' }
         ]
       },
       {
         title: 'Collaboration',
         items: [
-          { title: 'About Industry Collaboration', href: '/industry', description: 'Overview of partnerships' },
+          { title: 'About Industry Collaboration', href: '/industry/about', description: 'Overview of partnerships' },
           { title: 'Collaboration Opportunities', href: '/industry/collaborations', description: 'Sponsorship, Mentorship, Research' }
         ]
       },
@@ -141,13 +119,13 @@ const navigationItems = [
       {
         title: 'Overview',
         items: [
-          { title: 'Alumni Hub', href: '/alumni', description: 'Connect with our alumni network and community' }
+          { title: 'Overview', href: '/alumni', description: 'Connect with our alumni network and community' }
         ]
       },
       {
         title: 'Community',
         items: [
-          { title: 'Welcome', href: '/alumni', description: 'Alumni community overview' },
+          { title: 'Welcome', href: '/alumni/welcome', description: 'Alumni community overview' },
           { title: 'News and Updates', href: '/alumni/news', description: 'Latest alumni achievements' },
           { title: 'Directory', href: '/alumni/directory', description: 'Find and connect with alumni' }
         ]
@@ -155,17 +133,17 @@ const navigationItems = [
       {
         title: 'Stay Connected',
         items: [
-          { title: 'Alumni Association', href: '/alumni/stay-connected', description: 'Join the association' },
+          { title: 'Alumni Association', href: '/alumni/association', description: 'Join the association' },
           { title: 'Newsletter Sign-up', href: '/alumni/newsletter', description: 'Stay updated with news' }
         ]
       },
       {
         title: 'Give Back',
         items: [
-          { title: 'Mentorship', href: '/alumni/give-back/mentorship', description: 'Mentor current students' },
-          { title: 'Donations', href: '/alumni/give-back/donations', description: 'Support CIE initiatives' },
-          { title: 'Invest (Alumni Angel Fund)', href: '/alumni/give-back/invest', description: 'Invest in student startups' },
-          { title: 'Resources for Alumni', href: '/alumni/resources', description: 'Career & business resources' }
+          { title: 'Mentorship', href: '/alumni/mentorship', description: 'Mentor current students' },
+          { title: 'Donations', href: '/alumni/donations', description: 'Support CIE initiatives' },
+          { title: 'Invest (Alumni Angel Fund)', href: '/alumni/angel-fund', description: 'Invest in student startups' },
+          { title: 'Resources for Alumni', href: '/alumni/resources', description: 'Alumni-specific resources' }
         ]
       }
     ]
@@ -174,28 +152,28 @@ const navigationItems = [
     title: 'Inside CIE',
     href: '/inside-cie',
     icon: Microscope,
-    description: 'About, Research & Contact',
+    description: 'About CIE & Information',
     sections: [
       {
         title: 'Overview',
         items: [
-          { title: 'Inside CIE', href: '/inside-cie', description: 'About CIE, research, contact, and additional resources' }
+          { title: 'Overview', href: '/inside-cie', description: 'Learn about Centre for Innovation and Entrepreneurship' }
         ]
       },
       {
         title: 'About CIE',
         items: [
-          { title: 'About CIE', href: '/about', description: 'Mission, vision & team' },
-          { title: 'Research and Publications', href: '/research', description: 'Academic research & publications' },
-          { title: 'Contact Us', href: '/contact', description: 'Get in touch with us' }
+          { title: 'About CIE', href: '/about', description: 'Our mission, vision, and values' },
+          { title: 'Research and Publications', href: '/research', description: 'Research initiatives and publications' },
+          { title: 'Contact Us', href: '/contact', description: 'Get in touch with our team' }
         ]
       },
       {
         title: 'Support & Information',
         items: [
           { title: 'General FAQs', href: '/faqs', description: 'Frequently asked questions' },
-          { title: 'Policies', href: '/policies', description: 'Privacy Policy & Terms of Use' },
-          { title: 'Careers', href: '/careers', description: 'Join our team' }
+          { title: 'Policies', href: '/policies', description: 'Institutional policies and guidelines' },
+          { title: 'Careers', href: '/careers', description: 'Join the CIE team' }
         ]
       }
     ]
@@ -209,144 +187,235 @@ interface NavigationProps {
 export const Navigation: React.FC<NavigationProps> = ({ className }) => {
   const pathname = usePathname();
   const [expandedSubmenu, setExpandedSubmenu] = useState<string | null>(null);
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
   return (
     <NavigationMenu className={cn('hidden lg:flex', className)}>
       <NavigationMenuList>
-        {navigationItems.map((item) => {
+        {navigationItems.map((item, itemIndex) => {
           const Icon = item.icon;
           const isActive = pathname.startsWith(item.href);
           
           return (
-            <NavigationMenuItem key={item.title}>
+            <NavigationMenuItem key={item.title} className="relative">
               <NavigationMenuTrigger 
                 className={cn(
-                  'h-12 px-6 py-3 text-base font-semibold transition-all duration-200',
-                  'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700',
-                  'focus:bg-gradient-to-r focus:from-blue-50 focus:to-indigo-50 focus:text-blue-700',
-                  'data-[state=open]:bg-gradient-to-r data-[state=open]:from-blue-100 data-[state=open]:to-indigo-100 data-[state=open]:text-blue-800',
-                  'rounded-lg border-2 border-transparent hover:border-blue-200 focus:border-blue-300',
-                  'shadow-sm hover:shadow-md',
-                  isActive && 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-blue-600'
+                  'h-12 px-6 py-3 text-base font-medium transition-all duration-200',
+                  'text-gray-700',
+                  'border-0 border-transparent',
+                  'relative overflow-hidden',
+                  // Active state with underline effect
+                  isActive ? [
+                    'text-pes-orange',
+                    'after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-pes-orange'
+                  ] : '',
+                  // Hover underline effect for non-active items
+                  !isActive && 'hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:right-0 hover:after:h-0.5 hover:after:bg-pes-orange hover:after:opacity-50'
                 )}
+                style={{
+                  color: isActive ? '#f07f1a' : undefined
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.color = '#f07f1a';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.color = '';
+                  }
+                }}
+                onFocus={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.color = '#f07f1a';
+                  }
+                }}
+                onBlur={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.color = '';
+                  }
+                }}
               >
                 <Icon className="w-5 h-5 mr-3" />
                 {item.title}
               </NavigationMenuTrigger>
               
               <NavigationMenuContent>
-                <div className="grid gap-4 p-8 md:w-[600px] lg:w-[900px] lg:grid-cols-3 bg-white border border-gray-100 rounded-xl shadow-2xl backdrop-blur-sm">
+                <div className="w-auto min-w-[400px] max-w-[800px] bg-white/95 backdrop-blur-sm rounded-xl shadow-sm p-6">
                   {/* Header */}
-                  <div className="lg:col-span-3 mb-6">
+                  <div className="mb-6">
                     <div className="flex items-center gap-4 mb-3">
-                      <div className="p-2 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg">
-                        <Icon className="w-6 h-6 text-white" />
+                      <div className="p-2 bg-gradient-to-r from-orange to-orange/80 rounded-lg">
+                        <Icon className="w-6 h-6 text-black" />
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
+                      <h3 className="text-xl font-bold text-pes-navy">{item.title}</h3>
                     </div>
                     <p className="text-base text-gray-600 leading-relaxed">{item.description}</p>
                   </div>
                   
                   {/* Sections */}
-                  {item.sections.map((section) => (
-                    <div key={section.title} className="space-y-4">
-                      <h4 className="text-base font-bold text-gray-800 border-b-2 border-gradient-to-r from-blue-500 to-indigo-500 pb-3">
-                        {section.title}
-                      </h4>
-                      <ul className="space-y-3">
-                        {section.items.map((subItem) => (
-                          <li key={subItem.href}>
-                            {subItem.isExpandable && subItem.subItems ? (
-                              <div className="relative">
-                                <div
-                                  className={cn(
-                                    'block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all duration-200 cursor-pointer',
-                                    'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:shadow-md',
-                                    'focus:bg-gradient-to-r focus:from-blue-50 focus:to-indigo-50 focus:shadow-md',
-                                    'border border-gray-200 hover:border-blue-300',
-                                    expandedSubmenu === subItem.title && 'bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-300'
-                                  )}
+                  <div className="space-y-2">
+                    {item.sections.map((section, index) => (
+                      <div key={section.title} className="relative">
+                        {/* Section Header - Clickable */}
+                        <div 
+                          className="flex items-center justify-between p-3 cursor-pointer transition-all duration-200 rounded-md"
+                          onMouseEnter={() => setExpandedSection(`${item.title}-${section.title}`)}
+                        >
+                          <h4 
+                            className="text-lg font-bold transition-colors"
+                            style={{
+                              color: expandedSection === `${item.title}-${section.title}` ? '#f07f1a' : '#00338d'
+                            }}
+                          >
+                            {section.title}
+                          </h4>
+                          <ChevronRight 
+                            className="w-5 h-5 transition-all duration-200"
+                            style={{
+                              color: expandedSection === `${item.title}-${section.title}` ? '#f07f1a' : '#9ca3af'
+                            }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </NavigationMenuContent>
+              
+              {/* External popouts positioned relative to this specific navigation item */}
+              {item.sections.map((section, sectionIndex) => (
+                expandedSection === `${item.title}-${section.title}` && (
+                  <div 
+                    key={`popout-${item.title}-${section.title}`}
+                    className="absolute left-full ml-4 w-96 bg-white/98 backdrop-blur-sm rounded-lg shadow-xl border border-gray-200 p-6"
+                    style={{
+                      top: `${60 + (sectionIndex * 60)}px`, // Position relative to the section within this nav item
+                      zIndex: 70 + (itemIndex * 10) + sectionIndex, // Unique z-index based on nav item and section
+                    }}
+                    onMouseEnter={() => setExpandedSection(`${item.title}-${section.title}`)}
+                    onMouseLeave={() => {
+                      setExpandedSection(null);
+                      setExpandedSubmenu(null);
+                    }}
+                  >
+                  <h5 className="text-lg font-bold text-pes-navy mb-4 pb-3 border-b border-gray-200">
+                    {section.title}
+                  </h5>
+                  <div className="space-y-3 max-h-96 overflow-y-auto">
+                      {section.items.map((subItem) => (
+                        <div key={subItem.href}>
+                          {subItem.isExpandable && subItem.subItems ? (
+                            /* Centers of Excellence - Special handling with third level popout */
+                            <div className="relative">
+                              <div
+                                className="p-3 rounded-md transition-all duration-200 cursor-pointer group/coe"
+                                onMouseEnter={() => setExpandedSubmenu(subItem.title)}
+                                onMouseLeave={() => setExpandedSubmenu(null)}
+                              >
+                                <div className="flex items-center justify-between">
+                                  <div>
+                                    <div 
+                                      className="text-base font-semibold transition-colors"
+                                      style={{
+                                        color: expandedSubmenu === subItem.title ? '#f07f1a' : '#1f2937'
+                                      }}
+                                    >
+                                      {subItem.title}
+                                    </div>
+                                    <p className="text-sm text-gray-600 mt-1">
+                                      {subItem.description}
+                                    </p>
+                                  </div>
+                                  <ChevronRight 
+                                    className="w-4 h-4 transition-colors"
+                                    style={{
+                                      color: expandedSubmenu === subItem.title ? '#f07f1a' : '#9ca3af'
+                                    }}
+                                  />
+                                </div>
+                              </div>
+                              
+                              {/* Centers of Excellence third-level popout */}
+                              {expandedSubmenu === subItem.title && (
+                                <div 
+                                  className="absolute left-full top-0 ml-4 w-[450px] bg-white/98 backdrop-blur-sm rounded-lg shadow-xl border border-gray-200 z-[70] p-6"
                                   onMouseEnter={() => setExpandedSubmenu(subItem.title)}
                                   onMouseLeave={() => setExpandedSubmenu(null)}
                                 >
-                                  <div className="flex items-center justify-between">
-                                    <div className="text-sm font-semibold leading-none hover:text-blue-700 transition-colors">
-                                      {subItem.title}
-                                    </div>
-                                    <ChevronRight className="w-4 h-4 text-gray-400 hover:text-blue-600" />
-                                  </div>
-                                  <p className="line-clamp-2 text-xs leading-snug text-gray-600">
-                                    {subItem.description}
-                                  </p>
-                                </div>
-                                
-                                {/* Centres of Excellence Submenu */}
-                                {expandedSubmenu === subItem.title && (
-                                  <div 
-                                    className="absolute left-full top-0 ml-2 w-96 bg-white border border-gray-200 rounded-xl shadow-xl z-50 p-4"
-                                    onMouseEnter={() => setExpandedSubmenu(subItem.title)}
-                                    onMouseLeave={() => setExpandedSubmenu(null)}
-                                  >
-                                    <h5 className="text-sm font-bold text-gray-800 mb-3 border-b pb-2">All Centres of Excellence</h5>
-                                    <div className="grid gap-2 max-h-80 overflow-y-auto">
-                                      {subItem.subItems.map((center) => (
-                                        <Link
-                                          key={center.href}
-                                          href={center.href}
-                                          target="_blank"
-                                          rel="noopener noreferrer"
-                                          className="block p-3 rounded-lg hover:bg-pes-navy/5 transition-colors group/center"
-                                        >
-                                          <div className="flex items-start justify-between">
-                                            <div className="flex-1">
-                                              <div className="text-xs font-medium text-gray-900 group-hover/center:text-pes-navy leading-tight">
-                                                {center.title}
-                                              </div>
-                                              <p className="text-xs text-gray-600 mt-1 leading-tight">
-                                                {center.description}
-                                              </p>
+                                  <h6 className="text-lg font-bold text-pes-navy mb-4 pb-3 border-b border-gray-200">
+                                    All Centres of Excellence
+                                  </h6>
+                                  <div className="space-y-2 max-h-80 overflow-y-auto">
+                                    {subItem.subItems.map((center) => (
+                                      <Link
+                                        key={center.href}
+                                        href={center.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="block p-3 rounded-md transition-all duration-200 group/center"
+                                        onMouseEnter={(e) => {
+                                          const title = e.currentTarget.querySelector('.font-medium') as HTMLElement;
+                                          const icon = e.currentTarget.querySelector('svg') as SVGSVGElement;
+                                          if (title) title.style.color = '#f07f1a';
+                                          if (icon) icon.style.color = '#f07f1a';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                          const title = e.currentTarget.querySelector('.font-medium') as HTMLElement;
+                                          const icon = e.currentTarget.querySelector('svg') as SVGSVGElement;
+                                          if (title) title.style.color = '';
+                                          if (icon) icon.style.color = '';
+                                        }}
+                                      >
+                                        <div className="flex items-start justify-between">
+                                          <div className="flex-1">
+                                            <div className="text-sm font-medium text-gray-900 leading-tight transition-colors">
+                                              {center.title}
                                             </div>
-                                            <ExternalLink className="w-3 h-3 text-gray-400 group-hover/center:text-blue-600 ml-2 flex-shrink-0" />
+                                            <p className="text-xs text-gray-600 mt-1 leading-relaxed transition-colors">
+                                              {center.description}
+                                            </p>
                                           </div>
-                                        </Link>
-                                      ))}
-                                    </div>
+                                          <ExternalLink className="w-4 h-4 text-gray-400 ml-2 flex-shrink-0 transition-colors" />
+                                        </div>
+                                      </Link>
+                                    ))}
                                   </div>
-                                )}
+                                </div>
+                              )}
+                            </div>
+                          ) : (
+                            /* Regular items */
+                            <Link
+                              href={subItem.href}
+                              className="block p-3 rounded-md transition-all duration-200 group"
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.color = '#f07f1a';
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.color = pathname === subItem.href ? '#f07f1a' : '';
+                              }}
+                              style={{
+                                color: pathname === subItem.href ? '#f07f1a' : undefined
+                              }}
+                            >
+                              <div className="text-base font-semibold transition-colors">
+                                {subItem.title}
                               </div>
-                            ) : (
-                              <NavigationMenuLink asChild>
-                                <Link
-                                  href={subItem.href}
-                                  className={cn(
-                                    'block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all duration-200',
-                                    'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:shadow-md',
-                                    'focus:bg-gradient-to-r focus:from-blue-50 focus:to-indigo-50 focus:shadow-md',
-                                    'border border-gray-200 hover:border-blue-300',
-                                    'group'
-                                  )}
-                                >
-                                  <div className="flex items-center justify-between">
-                                    <div className="text-sm font-semibold leading-none group-hover:text-blue-700 transition-colors">
-                                      {subItem.title}
-                                    </div>
-                                    {subItem.href.startsWith('http') && (
-                                      <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-600" />
-                                    )}
-                                  </div>
-                                  <p className="line-clamp-2 text-xs leading-snug text-gray-600">
-                                    {subItem.description}
-                                  </p>
-                                </Link>
-                              </NavigationMenuLink>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
+                              <p className="text-sm text-gray-600 mt-1 transition-colors">
+                                {subItem.description}
+                              </p>
+                              {subItem.href.startsWith('http') && (
+                                <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-pes-orange transition-colors inline-block mt-2" />
+                              )}
+                            </Link>
+                          )}
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </NavigationMenuContent>
+                  </div>
+                )
+              ))}
             </NavigationMenuItem>
           );
         })}
