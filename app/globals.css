@@ -196,6 +196,40 @@
     transform: none;
   }
   
+  /* Custom Scrollbar for Timeline */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(249 115 22) rgb(243 244 246);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgb(243 244 246);
+    border-radius: 3px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgb(249 115 22);
+    border-radius: 3px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgb(234 88 12);
+  }
+
+  /* Hide Scrollbar */
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   /* PES Hero Sections */
   .pes-hero {
     background: linear-gradient(135deg, rgb(30 58 138 / 0.1), rgb(249 115 22 / 0.1));

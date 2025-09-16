@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Users, 
   Clock, 
@@ -15,12 +15,17 @@ import {
   Calendar,
   Rocket,
   Globe,
-  Play
+  Play,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import { Button } from '@/components/design-system';
 import { Card } from '@/components/ui/card';
 
 const BootcampPage = () => {
+  const [currentTeamSlide, setCurrentTeamSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const stats = [
     { label: "Total Students", value: "30", icon: Users },
     { label: "Days of Intensive Learning", value: "7", icon: Clock },
@@ -82,6 +87,7 @@ const BootcampPage = () => {
       name: "Smart Luggage Security",
       members: ["D Yashaswi Shetty", "Omkar Metri", "Tejas Prashanth", "Parmesh Kaur"],
       description: "Lock smart luggage security system",
+      image: "/assets/bootcamp/team-7.jpg",
       category: "IoT"
     },
     {
@@ -89,9 +95,25 @@ const BootcampPage = () => {
       name: "Energy Management System",
       members: ["Shrushti Kaul", "Sumanth Rao", "Mohammed Sadiq K", "Khalandar Nawal Sheikh"],
       description: "End to end energy management system",
+      image: "/assets/bootcamp/team-8.jpg",
       category: "Energy"
     }
   ];
+
+  // Organize teams into groups of 3 for carousel
+  const teamsPerSlide = 3;
+  const teamSlides = [];
+  for (let i = 0; i < teams.length; i += teamsPerSlide) {
+    teamSlides.push(teams.slice(i, i + teamsPerSlide));
+  }
+
+  const nextTeamSlide = () => {
+    setCurrentTeamSlide((prev) => (prev + 1) % teamSlides.length);
+  };
+
+  const prevTeamSlide = () => {
+    setCurrentTeamSlide((prev) => (prev - 1 + teamSlides.length) % teamSlides.length);
+  };
 
   const experts = [
     {
@@ -247,7 +269,17 @@ const BootcampPage = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-pes-navy via-pes-navy-light to-pes-orange pt-24 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0 opacity-20">
+          <Image
+            src="/assets/bootcamp/bootcamp-by-numbers.jpg"
+            alt="Bootcamp Statistics"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-black/40" />
         <div className="absolute top-20 right-20 w-64 h-64 bg-pes-orange/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse" />
         <div className="absolute bottom-20 left-20 w-64 h-64 bg-pes-navy-light/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse [animation-delay:2s]" />
         
@@ -261,18 +293,17 @@ const BootcampPage = () => {
             <div className="mb-6">
               <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/10 text-white border border-white/20 backdrop-blur-sm">
                 <Calendar className="w-4 h-4 mr-2" />
-                CIE Bootcamp 2018 - A Legacy of Innovation
+                CIE Bootcamp - A Legacy of Innovation
               </span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight text-white">
-              <span className="bg-gradient-to-r from-white to-pes-orange-light bg-clip-text text-transparent">
-                Bootcamp 2018
-              </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+              <span className="text-white">CIE </span>
+              <span className="text-pes-orange-light">Bootcamp</span>
             </h1>
             
             <p className="text-xl sm:text-2xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed">
-              A transformative 7-day residential program that kickstarted the entrepreneurial journey of 30 students through intensive learning, expert mentorship, and hands-on business development.
+              An intensive entrepreneurship training program that transforms innovative ideas into successful startups through hands-on learning, expert mentorship, and real-world application.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -303,13 +334,14 @@ const BootcampPage = () => {
               Bootcamp by Numbers
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A comprehensive overview of the impact and scale of CIE Bootcamp 2018
+              A comprehensive overview of the impact and scale of CIE Bootcamp
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {stats.map((stat, index) => {
               const IconComponent = stat.icon;
+              console.log('Rendering stat:', stat.label, 'IconComponent:', IconComponent);
               return (
                 <motion.div
                   key={`stat-${stat.label}`}
@@ -319,8 +351,8 @@ const BootcampPage = () => {
                   viewport={{ once: true }}
                 >
                   <Card className="pes-card p-8 text-center group hover:shadow-xl transition-all duration-300">
-                    <div className="w-16 h-16 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      {IconComponent ? <IconComponent className="w-8 h-8 text-white" /> : <Users className="w-8 h-8 text-white" />}
                     </div>
                     <h3 className="text-4xl font-bold text-pes-navy mb-2">{stat.value}</h3>
                     <p className="text-gray-600 font-medium">{stat.label}</p>
@@ -329,26 +361,6 @@ const BootcampPage = () => {
               );
             })}
           </div>
-
-          {/* Bootcamp by Numbers Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mt-16 text-center"
-          >
-            <div className="relative max-w-4xl mx-auto">
-              <Image
-                src="/assets/bootcamp/bootcamp-by-numbers.jpg"
-                alt="Bootcamp 2018 Statistics Infographic"
-                width={800}
-                height={600}
-                className="rounded-2xl shadow-2xl mx-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl" />
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -363,7 +375,7 @@ const BootcampPage = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-pes-navy mb-6">
-              About CIE Bootcamp 2018
+              About CIE Bootcamp
             </h2>
             <div className="max-w-4xl mx-auto">
               <p className="text-xl text-gray-700 leading-relaxed mb-8">
@@ -371,21 +383,21 @@ const BootcampPage = () => {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <GraduationCap className="w-10 h-10 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-pes-navy mb-2">Learn</h3>
                   <p className="text-gray-600">Hands-on entrepreneurship education from industry experts</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Target className="w-10 h-10 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-pes-navy mb-2">Build</h3>
                   <p className="text-gray-600">Develop viable business models and prototypes</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <TrendingUp className="w-10 h-10 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-pes-navy mb-2">Pitch</h3>
@@ -411,71 +423,157 @@ const BootcampPage = () => {
               Teams and Ideas
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Meet the 8 innovative teams from Bootcamp 2018 and discover their groundbreaking solutions across diverse domains
+              Meet the innovative teams from CIE Bootcamp and discover their groundbreaking solutions across diverse domains
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {teams.map((team, teamIndex) => (
-              <motion.div
-                key={`team-${team.id}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: teamIndex * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="pes-card h-full group hover:shadow-2xl transition-all duration-500">
-                  {team.image && (
-                    <div className="relative h-48 overflow-hidden rounded-t-lg">
-                      <Image
-                        src={team.image}
-                        alt={`Team ${team.id} - ${team.name}`}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                      <div className="absolute top-4 right-4">
-                        <span className="bg-pes-orange text-white px-3 py-1 rounded-full text-sm font-semibold">
-                          {team.category}
-                        </span>
-                      </div>
-                    </div>
-                  )}
-                  
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-pes-navy font-bold text-lg">Team {team.id}</span>
-                      <div className="h-4 w-px bg-gray-300" />
-                      <span className="text-gray-600 text-sm">{team.members.length} Members</span>
-                    </div>
-                    
-                    <h3 className="text-xl font-bold text-pes-navy mb-3 leading-tight">
-                      {team.name}
-                    </h3>
-                    
-                    {team.description && (
-                      <p className="text-gray-600 mb-4 leading-relaxed">
-                        {team.description}
-                      </p>
-                    )}
-                    
-                    <div className="border-t pt-4">
-                      <h4 className="text-sm font-semibold text-gray-700 mb-2">Team Members:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {team.members.map((member, memberIndex) => (
-                          <span
-                            key={`member-${team.id}-${memberIndex}`}
-                            className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
-                          >
-                            {member}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+          <div className="relative">
+            {/* Carousel Navigation */}
+            <div className="flex justify-between items-center mb-8">
+              <div className="flex space-x-2">
+                {Array.from({ length: teamSlides.length }, (_, slideIndex) => (
+                  <button
+                    key={`teams-slide-${teamSlides.length}-${slideIndex}`}
+                    onClick={() => setCurrentTeamSlide(slideIndex)}
+                    aria-label={`Go to slide ${slideIndex + 1}`}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      slideIndex === currentTeamSlide 
+                        ? 'bg-pes-orange' 
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                  />
+                ))}
+              </div>
+              
+              <div className="flex gap-2">
+                <button
+                  onClick={prevTeamSlide}
+                  aria-label="Previous teams"
+                  className="p-2 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 text-pes-navy hover:bg-pes-navy hover:text-white"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={nextTeamSlide}
+                  aria-label="Next teams"
+                  className="p-2 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 text-pes-navy hover:bg-pes-navy hover:text-white"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Swipeable Teams Carousel */}
+            <div 
+              className="overflow-hidden"
+              onTouchStart={(e) => {
+                const touch = e.touches[0];
+                if (touch) {
+                  setTouchStart(touch.clientX);
+                }
+              }}
+              onTouchMove={(e) => {
+                if (touchStart === null) return;
+                const touch = e.touches[0];
+                if (touch) {
+                  setTouchEnd(touch.clientX);
+                }
+              }}
+              onTouchEnd={() => {
+                if (!touchStart || !touchEnd) return;
+                const distance = touchStart - touchEnd;
+                const isLeftSwipe = distance > 50;
+                const isRightSwipe = distance < -50;
+
+                if (isLeftSwipe && currentTeamSlide < teamSlides.length - 1) {
+                  setCurrentTeamSlide(currentTeamSlide + 1);
+                }
+                if (isRightSwipe && currentTeamSlide > 0) {
+                  setCurrentTeamSlide(currentTeamSlide - 1);
+                }
+                
+                setTouchStart(null);
+                setTouchEnd(null);
+              }}
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentTeamSlide}
+                  initial={{ opacity: 0, x: 300 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -300 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                  {teamSlides[currentTeamSlide]?.map((team, teamIndex) => (
+                    <motion.div
+                      key={`team-${team.id}`}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: teamIndex * 0.1 }}
+                    >
+                      <Card className="pes-card h-full group hover:shadow-2xl transition-all duration-500">
+                        {team.image && (
+                          <div className="relative h-48 overflow-hidden rounded-t-lg">
+                            <Image
+                              src={team.image}
+                              alt={`Team ${team.id} - ${team.name}`}
+                              fill
+                              className="object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                            <div className="absolute top-4 right-4">
+                              <span className="bg-pes-orange text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                {team.category}
+                              </span>
+                            </div>
+                          </div>
+                        )}
+                        
+                        <div className="p-6">
+                          <div className="flex items-center gap-2 mb-3">
+                            <span className="text-pes-navy font-bold text-lg">Team {team.id}</span>
+                            <div className="h-4 w-px bg-gray-300" />
+                            <span className="text-gray-600 text-sm">{team.members.length} Members</span>
+                          </div>
+                          
+                          <h3 className="text-xl font-bold text-pes-navy mb-3 leading-tight">
+                            {team.name}
+                          </h3>
+                          
+                          {team.description && (
+                            <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                              {team.description}
+                            </p>
+                          )}
+                          
+                          <div className="border-t pt-4">
+                            <h4 className="text-sm font-semibold text-gray-700 mb-2">Team Members:</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {team.members.map((member, memberIndex) => (
+                                <span
+                                  key={`member-${team.id}-${memberIndex}`}
+                                  className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs"
+                                >
+                                  {member}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Swipe Instruction */}
+            <div className="text-center mt-8">
+              <p className="text-sm text-gray-500">
+                Swipe with two fingers or use navigation buttons to see more teams
+              </p>
+            </div>
           </div>
 
           {/* Team Stats */}
@@ -512,8 +610,8 @@ const BootcampPage = () => {
       </section>
 
       {/* Daily Activities Timeline */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -521,113 +619,120 @@ const BootcampPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-pes-navy mb-6">
-              7-Day Journey: Daily Activities
+            <h2 className="text-3xl sm:text-4xl font-bold text-pes-navy mb-4">
+              7-Day Journey
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Follow the intensive 7-day residential program that transformed ideas into viable business proposals through structured learning and hands-on experience
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              An intensive residential program transforming ideas into business proposals
             </p>
           </motion.div>
 
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-pes-navy/20 hidden lg:block" />
-            
-            <div className="space-y-12">
-              {dailySchedule.map((day, dayIndex) => (
-                <motion.div
-                  key={`day-${day.day}`}
-                  initial={{ opacity: 0, x: dayIndex % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: dayIndex * 0.1 }}
-                  viewport={{ once: true }}
-                  className={`relative flex items-center ${
-                    dayIndex % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                  }`}
-                >
-                  {/* Timeline Dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-pes-orange rounded-full border-4 border-white shadow-lg z-10 hidden lg:block" />
-                  
-                  {/* Content Card */}
-                  <div className={`w-full lg:w-5/12 ${dayIndex % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
-                    <Card className="pes-card group hover:shadow-xl transition-all duration-300">
-                      <div className="p-6">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 bg-pes-gradient rounded-full flex items-center justify-center">
-                            <span className="text-white font-bold text-lg">D{day.day}</span>
-                          </div>
-                          <div>
-                            <h3 className="text-xl font-bold text-pes-navy">{day.title}</h3>
-                            <p className="text-pes-orange font-semibold">Day {day.day}</p>
-                          </div>
-                        </div>
-                        
-                        <div className="space-y-2">
-                          {day.activities.map((activity, activityIndex) => (
-                            <div
-                              key={`activity-${day.day}-${activityIndex}`}
-                              className="flex items-start gap-2 text-gray-700"
-                            >
-                              <div className="w-2 h-2 bg-pes-orange rounded-full mt-2 flex-shrink-0" />
-                              <span className="text-sm leading-relaxed">{activity}</span>
+          {/* Compact Timeline Window */}
+          <div className="relative overflow-hidden">
+            <div className="h-[800px] overflow-y-auto scrollbar-hide">
+              <div className="relative py-8">
+                {/* Central Timeline Line */}
+                <div className="absolute left-1/2 transform -translate-x-px top-8 bottom-8 w-1 bg-gradient-to-b from-pes-navy via-pes-orange to-pes-navy shadow-sm" />
+                
+                <div className="space-y-8">
+                  {dailySchedule.map((day, dayIndex) => (
+                    <motion.div
+                      key={`day-${day.day}`}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: dayIndex * 0.1 }}
+                      viewport={{ once: true }}
+                      className={`relative flex items-start ${dayIndex % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                    >
+                      {/* Timeline Card */}
+                      <div className={`w-5/12 ${dayIndex % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                        <div className="bg-gradient-to-br from-white to-gray-50 border-2 border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-pes-orange/50">
+                          {/* Day Header */}
+                          <div className={`flex items-center gap-3 mb-4 ${dayIndex % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
+                            <div className={`${dayIndex % 2 === 0 ? 'order-2' : 'order-1'}`}>
+                              <h3 className="text-xl font-bold text-pes-navy">
+                                {day.title}
+                              </h3>
+                              <span className="text-sm text-pes-orange font-semibold">
+                                Day {day.day}
+                              </span>
                             </div>
-                          ))}
+                            <div className={`${dayIndex % 2 === 0 ? 'order-1' : 'order-2'} w-14 h-14 bg-gradient-to-br from-pes-navy to-pes-orange rounded-xl flex items-center justify-center shadow-lg border-2 border-white/20`}>
+                              <div className="text-center">
+                                <div className="text-black font-bold text-lg leading-none">{day.day}</div>
+                                <div className="text-black/80 text-xs font-medium">DAY</div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* All Activities */}
+                          <div className="space-y-3">
+                            {day.activities.map((activity, activityIndex) => (
+                              <div
+                                key={`activity-${day.day}-${activityIndex}`}
+                                className={`flex items-start gap-3 text-gray-700 text-sm ${dayIndex % 2 === 0 ? 'justify-end text-right' : 'justify-start text-left'}`}
+                              >
+                                <div className={`w-2 h-2 bg-pes-orange rounded-full mt-2 flex-shrink-0 shadow-sm ${dayIndex % 2 === 0 ? 'order-2' : 'order-1'}`} />
+                                <span className={`leading-relaxed font-medium ${dayIndex % 2 === 0 ? 'order-1' : 'order-2'}`}>{activity}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </Card>
-                  </div>
-                </motion.div>
-              ))}
+
+                      {/* Connection Line to Central Timeline */}
+                      <div className={`absolute top-1/2 ${dayIndex % 2 === 0 ? 'right-1/2 mr-2' : 'left-1/2 ml-2'} w-8 h-0.5 bg-pes-orange shadow-sm`} />
+
+                      {/* Central Timeline Node */}
+                      <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-gradient-to-br from-pes-navy to-pes-orange rounded-full border-3 border-white shadow-xl z-10 ring-4 ring-pes-orange/10 flex items-center justify-center">
+                        <span className="text-black font-bold text-sm">{day.day}</span>
+                      </div>
+
+                      {/* Empty Space for Alternating Layout */}
+                      <div className="w-5/12" />
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Program Summary */}
+          {/* Compact Program Summary */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
             className="mt-16"
           >
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-pes-navy mb-4">Program Highlights</h3>
-                <p className="text-gray-600 max-w-2xl mx-auto">
-                  A comprehensive entrepreneurship education experience covering all aspects of startup development
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Lightbulb className="w-8 h-8 text-white" />
+            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-200">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div>
+                  <div className="w-12 h-12 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Lightbulb className="w-6 h-6 text-black" />
                   </div>
-                  <h4 className="font-semibold text-pes-navy mb-2">Ideation</h4>
-                  <p className="text-sm text-gray-600">Creative problem solving and innovation</p>
+                  <h4 className="font-semibold text-pes-navy text-sm">Ideation</h4>
                 </div>
                 
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Target className="w-8 h-8 text-white" />
+                <div>
+                  <div className="w-12 h-12 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Target className="w-6 h-6 text-black" />
                   </div>
-                  <h4 className="font-semibold text-pes-navy mb-2">Validation</h4>
-                  <p className="text-sm text-gray-600">Market research and customer insights</p>
+                  <h4 className="font-semibold text-pes-navy text-sm">Validation</h4>
                 </div>
                 
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Building2 className="w-8 h-8 text-white" />
+                <div>
+                  <div className="w-12 h-12 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Building2 className="w-6 h-6 text-black" />
                   </div>
-                  <h4 className="font-semibold text-pes-navy mb-2">Business Model</h4>
-                  <p className="text-sm text-gray-600">BMC development and strategy</p>
+                  <h4 className="font-semibold text-pes-navy text-sm">Business Model</h4>
                 </div>
                 
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-3">
-                    <TrendingUp className="w-8 h-8 text-white" />
+                <div>
+                  <div className="w-12 h-12 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-2">
+                    <TrendingUp className="w-6 h-6 text-black" />
                   </div>
-                  <h4 className="font-semibold text-pes-navy mb-2">Pitch</h4>
-                  <p className="text-sm text-gray-600">Presentation and investor readiness</p>
+                  <h4 className="font-semibold text-pes-navy text-sm">Pitch</h4>
                 </div>
               </div>
             </div>
@@ -636,7 +741,7 @@ const BootcampPage = () => {
       </section>
 
       {/* Industry Expert Sessions */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -666,7 +771,7 @@ const BootcampPage = () => {
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-12 h-12 bg-pes-gradient rounded-full flex items-center justify-center">
-                        <Building2 className="w-6 h-6 text-white" />
+                        <Building2 className="w-6 h-6 text-black" />
                       </div>
                       <div>
                         <h3 className="font-bold text-pes-navy text-lg leading-tight">{expert.name}</h3>
@@ -721,7 +826,7 @@ const BootcampPage = () => {
       </section>
 
       {/* Program Legacy & Impact */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -734,7 +839,7 @@ const BootcampPage = () => {
               The Culmination of Efforts
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Bootcamp 2018 concluded with remarkable final presentations judged by Dr. S. Raghunath from IIM-Bangalore and industry experts from Vantage Agora
+              CIE Bootcamp concluded with remarkable final presentations judged by leading industry experts and mentors
             </p>
           </motion.div>
 
@@ -749,7 +854,7 @@ const BootcampPage = () => {
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-pes-orange rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <Award className="w-4 h-4 text-white" />
+                    <Award className="w-4 h-4 text-black" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-pes-navy mb-1">100% Completion Rate</h4>
@@ -759,7 +864,7 @@ const BootcampPage = () => {
                 
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-pes-orange rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <TrendingUp className="w-4 h-4 text-white" />
+                    <TrendingUp className="w-4 h-4 text-black" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-pes-navy mb-1">8 Viable Business Models</h4>
@@ -769,7 +874,7 @@ const BootcampPage = () => {
                 
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-pes-orange rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <Users className="w-4 h-4 text-white" />
+                    <Users className="w-4 h-4 text-black" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-pes-navy mb-1">Strong Alumni Network</h4>
@@ -779,7 +884,7 @@ const BootcampPage = () => {
                 
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-pes-orange rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <Building2 className="w-4 h-4 text-white" />
+                    <Building2 className="w-4 h-4 text-black" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-pes-navy mb-1">Industry Connections</h4>
@@ -833,10 +938,10 @@ const BootcampPage = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-black mb-6">
               Ready to Start Your Entrepreneurial Journey?
             </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-black/90 mb-8 max-w-2xl mx-auto">
               Join the next generation of innovators and entrepreneurs at PES University's Centre for Innovation and Entrepreneurship. Experience the same transformative program that launched successful startups.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -844,19 +949,40 @@ const BootcampPage = () => {
                 <Rocket className="w-5 h-5 mr-2" />
                 Apply for Current Programs
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-pes-navy text-lg px-8 py-4 font-semibold">
+              <Button className="border-2 border-white text-black hover:bg-white hover:text-pes-navy text-lg px-8 py-4 font-semibold">
                 <Globe className="w-5 h-5 mr-2" />
                 Learn More About CIE
               </Button>
             </div>
             
             <div className="mt-8 pt-8 border-t border-white/20">
-              <p className="text-white/80 text-sm">
+              <p className="text-black/80 text-sm mb-6">
                 "CIE's Bootcamp was a massive success. It brought together diverse, driven and determined students and helped them grow into enthused entrepreneurs."
               </p>
-              <p className="text-white/90 font-semibold mt-2">
+              <p className="text-black/90 font-semibold mb-4">
                 - Prof. Sathya Prasad, Director, Centre for Innovation and Entrepreneurship
               </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 pt-6 border-t border-white/10">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-black mb-1">2018</div>
+                  <div className="text-black/80 text-sm">First Bootcamp</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-black mb-1">7 Days</div>
+                  <div className="text-black/80 text-sm">Intensive Training</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-black mb-1">100%</div>
+                  <div className="text-black/80 text-sm">Success Rate</div>
+                </div>
+              </div>
+              
+              <div className="mt-8 text-center">
+                <p className="text-black/70 text-sm">
+                  Continue the legacy of innovation and entrepreneurship at PES University
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
