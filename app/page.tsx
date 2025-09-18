@@ -48,7 +48,7 @@ export default function Home() {
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-4 leading-tight">
-              <span className="block"><span className="text-[#383567]">Ideate</span> <span className="text-white">•</span> <span className="text-[#e75a2d]">Innovate</span> <span className="text-white">•</span> <span className="text-[#3999c2]">Inspire</span></span>
+              <span className="block"><span className="text-[#FFFFFF]">Ideate</span> <span className="text-white">•</span> <span className="text-[#3999c2]">Innovate</span> <span className="text-white">•</span> <span className="text-[#e75a2d]">Inspire</span></span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-200 mb-6 max-w-3xl mx-auto leading-relaxed">
               Transform ideas into reality through entrepreneurship, technology, and meaningful impact at PES University.
@@ -111,6 +111,8 @@ export default function Home() {
               <button
                 onClick={() => setShowAnnouncementPopup(false)}
                 className="absolute top-3 right-3 w-6 h-6 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors"
+                title="Close announcement"
+                aria-label="Close announcement popup"
               >
                 <X className="w-3 h-3 text-white" />
               </button>

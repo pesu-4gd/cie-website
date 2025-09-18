@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components/design-system';
+import { HeroBackground } from '@/components/ui/hero-background';
 import { motion } from 'framer-motion';
 import { 
   Building2, 
@@ -166,7 +167,10 @@ export default function IndustryPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white py-20">
+      <HeroBackground
+        section="industry"
+        overlayOpacity={0.4}
+      >
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -200,7 +204,7 @@ export default function IndustryPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </HeroBackground>
 
       {/* Partnership Stats */}
       <section className="py-16 bg-white">

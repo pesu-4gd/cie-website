@@ -1,8 +1,12 @@
+'use client';
+
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { HeroBackground } from '@/components/ui/hero-background';
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Phone, HelpCircle, FileText, Users } from 'lucide-react';
+import { ArrowRight, BookOpen, Phone, HelpCircle, FileText, Users, Building } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const InsideCIEPage = () => {
   const sections = [
@@ -44,16 +48,37 @@ const InsideCIEPage = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      {/* Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Inside CIE
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Discover additional resources, information about CIE, and ways to connect with us.
-        </p>
-      </div>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <HeroBackground
+        section="inside-cie"
+        overlayOpacity={0.4}
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <div className="mb-6">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
+                <Building className="w-4 h-4 mr-2" />
+                Inside CIE
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+              Behind the Innovation
+              <span className="block text-blue-200">Discover Our Story</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8">
+              Discover additional resources, information about CIE, and ways to connect with us.
+            </p>
+          </motion.div>
+        </div>
+      </HeroBackground>
+
+      <div className="container mx-auto px-4 py-12">
 
       {/* Sections Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -101,6 +126,7 @@ const InsideCIEPage = () => {
             </Link>
           </Button>
         </div>
+      </div>
       </div>
     </div>
   );

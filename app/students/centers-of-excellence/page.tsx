@@ -9,7 +9,7 @@ import {
   Zap,
   Globe,
   Database,
-  ChipIcon,
+  CircuitBoard,
   Microscope,
   ArrowRight,
   BookOpen,
@@ -118,7 +118,7 @@ export default function CentersOfExcellencePage() {
       name: 'CHIPS (Centre for Hardware & Integrated Processor Systems)',
       acronym: 'CHIPS',
       description: 'Advanced research in computer hardware, processor design, and integrated systems.',
-      icon: ChipIcon,
+      icon: CircuitBoard,
       color: 'orange',
       researchAreas: [
         'Processor Design',

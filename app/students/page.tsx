@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/design-system';
-import { ModernCard } from '@/components/ui/modern-card';
+import { HeroBackground } from '@/components/ui/hero-background';
 import { motion } from 'framer-motion';
 import { 
   BookOpen, 
@@ -10,7 +10,6 @@ import {
   Lightbulb, 
   DollarSign, 
   Building2, 
-  Award, 
   Target,
   ArrowRight,
   GraduationCap,
@@ -21,6 +20,191 @@ import {
   Star
 } from 'lucide-react';
 import Link from 'next/link';
+import { useState, useRef, useEffect } from 'react';
+
+// Custom hook for the enhanced magic hover effect on individual letters
+const useEnhancedLetterHover = (text: string) => {
+  const [letterStates, setLetterStates] = useState(
+    Array(text.length).fill({ color: 'white', phase: 'rest' })
+  );
+  const timeoutRefs = useRef<NodeJS.Timeout[]>([]);
+  const isHoveringRef = useRef(false);
+
+  const handleMouseEnter = () => {
+    isHoveringRef.current = true;
+    // Clear any existing timeouts
+    timeoutRefs.current.forEach(ref => clearTimeout(ref));
+    timeoutRefs.current = [];
+    
+    // Create a wave effect by setting timeouts for each letter
+    const newLetterStates = [...letterStates];
+    
+    // First wave: white to orange (left to right)
+    text.split('').forEach((_, index) => {
+      timeoutRefs.current.push(setTimeout(() => {
+        if (!isHoveringRef.current) return;
+        newLetterStates[index] = { color: 'orange', phase: 'active' };
+        setLetterStates([...newLetterStates]);
+        
+        // After orange, transition to navy blue (from end to beginning)
+        if (index === text.length - 1) {
+          for (let i = text.length - 1; i >= 0; i--) {
+            timeoutRefs.current.push(setTimeout(() => {
+              if (!isHoveringRef.current) return;
+              newLetterStates[i] = { color: 'navy', phase: 'active' };
+              setLetterStates([...newLetterStates]);
+              
+              // After navy blue, transition back to white (left to right)
+              if (i === 0) {
+                for (let j = 0; j < text.length; j++) {
+                  timeoutRefs.current.push(setTimeout(() => {
+                    if (!isHoveringRef.current) return;
+                    newLetterStates[j] = { color: 'white', phase: 'rest' };
+                    setLetterStates([...newLetterStates]);
+                  }, j * 80)); // 80ms delay between each letter
+                }
+              }
+            }, (text.length - i) * 100)); // 100ms delay between each letter
+          }
+        }
+      }, index * 60)); // 60ms delay between each letter
+    });
+  };
+
+  const handleMouseLeave = () => {
+    isHoveringRef.current = false;
+    // Clear any existing timeouts
+    timeoutRefs.current.forEach(ref => clearTimeout(ref));
+    timeoutRefs.current = [];
+    
+    // Reset all letters with a reverse wave effect
+    const newLetterStates = [...letterStates];
+    for (let i = text.length - 1; i >= 0; i--) {
+      timeoutRefs.current.push(setTimeout(() => {
+        newLetterStates[i] = { color: 'white', phase: 'rest' };
+        setLetterStates([...newLetterStates]);
+      }, (text.length - i) * 30)); // 30ms delay between each letter
+    }
+  };
+
+  // Clean up timeouts on unmount
+  useEffect(() => {
+    return () => {
+      timeoutRefs.current.forEach(ref => clearTimeout(ref));
+      isHoveringRef.current = false;
+    };
+  }, []);
+
+  return { letterStates, handleMouseEnter, handleMouseLeave };
+};
+
+interface LetterState {
+  color: 'white' | 'orange' | 'navy';
+  phase: 'rest' | 'active';
+}
+
+interface EnhancedMagicTitleProps {
+  text: string;
+  className?: string;
+}
+
+// Component for text with enhanced magic hover effect on individual letters
+const EnhancedMagicTitle = ({ text, className = '' }: EnhancedMagicTitleProps) => {
+  const { letterStates, handleMouseEnter, handleMouseLeave } = useEnhancedLetterHover(text);
+  
+  return (
+    <div 
+      className={`flex flex-wrap justify-center ${className}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {text.split('').map((char, index) => {
+        const { color, phase }: LetterState = letterStates[index];
+        let colorClass = 'text-white';
+        
+        if (color === 'orange') {
+          colorClass = 'text-orange-500';
+        } else if (color === 'navy') {
+          colorClass = 'text-blue-400'; // Lighter navy blue
+        }
+        
+        return (
+          <span 
+            key={index}
+            className={`inline-block transition-all duration-500 ${colorClass} ${
+              phase === 'active' ? 'transform scale-110' : ''
+            }`}
+            style={{ 
+              transitionDelay: `${index * 10}ms`,
+              textShadow: phase === 'active' ? '0 0 12px currentColor' : 'none'
+            }}
+          >
+            {char === ' ' ? '\u00A0' : char}
+          </span>
+        );
+      })}
+    </div>
+  );
+};
+
+// Component for the subtitle with a smoother effect
+const EnhancedMagicSubtitle = ({ text, className = '' }: { text: string; className?: string }) => {
+  const [isHovering, setIsHovering] = useState(false);
+  const [colorPhase, setColorPhase] = useState(0); // 0: white, 1: orange, 2: navy blue
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+    
+    // Transition to orange
+    timeoutRef.current = setTimeout(() => {
+      setColorPhase(1);
+    }, 300);
+    
+    // Then to navy blue
+    timeoutRef.current = setTimeout(() => {
+      setColorPhase(2);
+    }, 1000);
+    
+    // Then back to original after 2 seconds
+    timeoutRef.current = setTimeout(() => {
+      setColorPhase(0);
+    }, 3000);
+  };
+  
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setColorPhase(0);
+  };
+  
+  // Clean up timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  let colorClass = 'text-blue-100';
+  if (colorPhase === 1) {
+    colorClass = 'text-orange-300';
+  } else if (colorPhase === 2) {
+    colorClass = 'text-blue-300';
+  }
+
+  return (
+    <p 
+      className={`${className} transition-all duration-1000 ${colorClass}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        textShadow: isHovering ? '0 0 8px rgba(255, 255, 255, 0.5)' : 'none'
+      }}
+    >
+      {text}
+    </p>
+  );
+};
 
 export default function StudentsPage() {
   const quickStats = [
@@ -161,7 +345,10 @@ export default function StudentsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-20">
+      <HeroBackground
+        section="students"
+        overlayOpacity={0.4}
+      >
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -175,17 +362,23 @@ export default function StudentsPage() {
                 Student Hub
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Your Innovation Journey
-              <span className="block text-blue-200">Starts Here</span>
+            
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 cursor-pointer">
+              <EnhancedMagicTitle text="Your Innovation Journey" />
+              <span className="block mt-4">
+                <EnhancedMagicTitle text="Starts Here" />
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Discover programs, connect with mentors, access resources, and transform your ideas into reality through CIE's comprehensive ecosystem.
-            </p>
+            
+            <EnhancedMagicSubtitle 
+              text="Discover programs, connect with mentors, access resources, and transform your ideas into reality through CIE's comprehensive ecosystem."
+              className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed"
+            />
           </motion.div>
         </div>
-      </section>
+      </HeroBackground>
 
+      {/* Rest of the page remains the same as before */}
       {/* Quick Stats */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
