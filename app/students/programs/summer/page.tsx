@@ -26,7 +26,7 @@ import {
   Code,
   Database,
   Smartphone,
-  PresentationChart,
+  Presentation,
   Coffee,
   Network
 } from 'lucide-react';
@@ -528,6 +528,7 @@ const SummerProgramPage = () => {
             
             <button
               onClick={prevProject}
+              title="Previous project"
               className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
             >
               <ChevronLeft className="w-6 h-6 text-gray-600" />
@@ -535,6 +536,7 @@ const SummerProgramPage = () => {
             
             <button
               onClick={nextProject}
+              title="Next project"
               className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
             >
               <ChevronRight className="w-6 h-6 text-gray-600" />
@@ -544,12 +546,14 @@ const SummerProgramPage = () => {
           <div className="flex justify-center mt-8 gap-2">
             {projectShowcase.map((_, index) => (
               <button
-                key={index}
-                onClick={() => setCurrentProjectSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentProjectSlide ? 'bg-orange-500' : 'bg-gray-300'
-                }`}
-              />
+                    key={index}
+                    onClick={() => setCurrentProjectSlide(index)}
+                    title={`Go to project ${index + 1}`}
+                    aria-label={`Go to project ${index + 1}`}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      index === currentProjectSlide ? 'bg-orange-500' : 'bg-gray-300'
+                    }`}
+                  />
             ))}
           </div>
         </div>
@@ -655,6 +659,7 @@ const SummerProgramPage = () => {
             
             <button
               onClick={prevTestimonial}
+              title="Previous testimonial"
               className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
             >
               <ChevronLeft className="w-6 h-6 text-gray-600" />
@@ -671,12 +676,13 @@ const SummerProgramPage = () => {
           <div className="flex justify-center mt-8 gap-2">
             {testimonials.map((_, index) => (
               <button
-                key={index}
-                onClick={() => setCurrentTestimonialSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentTestimonialSlide ? 'bg-orange-500' : 'bg-gray-300'
-                }`}
-              />
+                  key={index}
+                  onClick={() => setCurrentTestimonialSlide(index)}
+                  title={`Go to testimonial ${index + 1}`}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === currentTestimonialSlide ? 'bg-orange-500' : 'bg-gray-300'
+                  }`}
+                />
             ))}
           </div>
         </div>
