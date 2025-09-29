@@ -92,13 +92,16 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
 
               {/* Notifications */}
               <Button
+                asChild
                 variant="ghost"
                 size="sm"
                 className="hidden lg:flex h-10 w-10 p-0 relative rounded-full hover:bg-pes-navy/5 transition-all duration-200"
                 aria-label="Notifications"
               >
-                <Bell className="h-5 w-5 text-gray-600 hover:text-pes-navy" />
-                <span className="absolute -top-1 -right-1 h-3 w-3 bg-red-500 rounded-full border-2 border-white"></span>
+                <Link href="/announcements">
+                  <Bell className="h-5 w-5 text-gray-600 hover:text-pes-navy" />
+                  <span className="absolute -top-1 -right-1 h-3 w-3 bg-red-500 rounded-full border-2 border-white"></span>
+                </Link>
               </Button>
 
               {/* Contact Us Button */}

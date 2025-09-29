@@ -236,12 +236,12 @@ export default function ContactPage() {
                         DR
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-gray-900">Dr. Raghavendra P</h3>
-                        <p className="text-gray-600">Director, CIE</p>
+                        <h3 className="text-lg font-semibold text-gray-900">Madhukar Narasimha</h3>
+                        <p className="text-gray-600">Program Manager</p>
                         <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
                           <div className="flex items-center">
                             <Mail className="h-4 w-4 mr-1" />
-                            <span>director.cie@pes.edu</span>
+                            <span>cieoffice@pes.edu</span>
                           </div>
                         </div>
                       </div>
@@ -257,7 +257,7 @@ export default function ContactPage() {
                       </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-semibold text-gray-900">Prof. Sathya Prasad</h3>
-                        <p className="text-gray-600">Program Director</p>
+                        <p className="text-gray-600">Director, CIE</p>
                         <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
                           <div className="flex items-center">
                             <Mail className="h-4 w-4 mr-1" />

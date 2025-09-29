@@ -323,6 +323,7 @@ export default function EventsPage() {
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="border border-gray-300 rounded-md px-3 py-2 bg-white"
+                aria-label="Filter events by category"
               >
                 {eventCategories.map(category => (
                   <option key={category} value={category}>{category}</option>

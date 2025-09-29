@@ -372,33 +372,36 @@ function PartnersSection({ partners, searchTerm, setSearchTerm, selectedIndustry
               className="pl-10"
             />
           </div>
-          <select
-            value={selectedIndustry}
-            onChange={(e) => setSelectedIndustry(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            {industries.map(industry => (
-              <option key={industry} value={industry}>{industry}</option>
-            ))}
-          </select>
-          <select
-            value={selectedType}
-            onChange={(e) => setSelectedType(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            {partnershipTypes.map(type => (
-              <option key={type} value={type}>{type}</option>
-            ))}
-          </select>
-          <select
-            value={selectedStatus}
-            onChange={(e) => setSelectedStatus(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            {statuses.map(status => (
-              <option key={status} value={status}>{status}</option>
-            ))}
-          </select>
+            <select
+              value={selectedIndustry}
+              onChange={(e) => setSelectedIndustry(e.target.value)}
+              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label="Filter by industry"
+            >
+              {industries.map(industry => (
+                <option key={industry} value={industry}>{industry}</option>
+              ))}
+            </select>
+            <select
+              value={selectedType}
+              onChange={(e) => setSelectedType(e.target.value)}
+              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label="Filter by partnership type"
+            >
+              {partnershipTypes.map(type => (
+                <option key={type} value={type}>{type}</option>
+              ))}
+            </select>
+            <select
+              value={selectedStatus}
+              onChange={(e) => setSelectedStatus(e.target.value)}
+              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label="Filter by status"
+            >
+              {statuses.map(status => (
+                <option key={status} value={status}>{status}</option>
+              ))}
+            </select>
         </div>
       </div>
 

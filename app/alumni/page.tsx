@@ -1,17 +1,55 @@
 'use client';
 
-import { AlumniHero } from '@/components/ui/hero-section';
+import { HeroBackground } from '@/components/ui/hero-background';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Users, TrendingUp, Heart, Calendar, Search, UserPlus, DollarSign, Briefcase } from 'lucide-react';
+import { Users, TrendingUp, Heart, Calendar, Search, UserPlus, DollarSign, Briefcase, GraduationCap } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function AlumniPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Hero Section */}
-      <AlumniHero />
+      <HeroBackground
+        section="alumni"
+        overlayOpacity={0.4}
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <div className="mb-6">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
+                <GraduationCap className="w-4 h-4 mr-2" />
+                Alumni Network
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+              Stay Connected, Give Back
+              <span className="block text-blue-200">Grow Together</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8">
+              Join our thriving alumni community and continue your journey of innovation while helping shape the future of entrepreneurship.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold rounded-xl">
+                <Users className="w-5 h-5 mr-2" />
+                Join Network
+              </Button>
+              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+                <Heart className="w-5 h-5 mr-2" />
+                Give Back
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </HeroBackground>
 
       {/* Alumni Network Stats */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
