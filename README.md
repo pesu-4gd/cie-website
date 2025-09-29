@@ -1,3 +1,17 @@
+# cie-website
+
+## Docker
+
+Run the app and Postgres locally with Docker Compose:
+
+1. Build and start:
+
+	docker compose up --build
+
+2. The site will be available at http://localhost:3000
+
+Environment variables can be provided via a `.env` file or the compose `environment` section.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

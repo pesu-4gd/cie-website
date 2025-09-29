@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    image: cie_website:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+volumes:
+  cie-server:
