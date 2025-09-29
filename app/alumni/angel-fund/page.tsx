@@ -3,272 +3,164 @@
 import { Button } from '@/components/design-system';
 import { motion } from 'framer-motion';
 import { 
-  Rocket, 
   DollarSign,
+  Heart,
   Users,
-  Target,
-  Award,
-  BookOpen,
-  Lightbulb,
-  TrendingUp,
-  CheckCircle,
-  ArrowRight,
-  Calendar,
   Building2,
+  Rocket,
+  CheckCircle,
   Globe,
-  Star,
-  Briefcase,
-  FlaskConical,
   MessageCircle,
   Mail,
   UserPlus,
-  ChartBar
+  Trophy,
+  Lightbulb,
+  FileText
 } from 'lucide-react';
 
-export default function StudentStartupProgramPage() {
-  const programStats = [
-    { label: 'Startups Launched', value: '50+', icon: Rocket, color: 'blue' },
-    { label: 'Total Funding Raised', value: '₹2Cr+', icon: DollarSign, color: 'green' },
-    { label: 'Students Involved', value: '500+', icon: Users, color: 'purple' },
-    { label: 'Success Rate', value: '85%', icon: Target, color: 'orange' }
+export default function AlumniAngelFundPage() {
+  const fundStats = [
+    { label: 'Total Fund Size', value: '₹50Cr+', icon: DollarSign, color: 'green' as const },
+    { label: 'Investments Made', value: '25+', icon: Rocket, color: 'blue' as const },
+    { label: 'Alumni Investors', value: '100+', icon: Users, color: 'purple' as const },
+    { label: 'Portfolio Success Rate', value: '80%', icon: Trophy, color: 'orange' as const }
   ];
 
-  const fundingOpportunities = [
+  const investmentAreas = [
     {
-      title: 'Co-innovation Center (IHFC, IITD)',
-      amount: 'Up to ₹5 Lakh',
-      type: 'Grant',
-      description: 'Seed funding for innovative technology solutions with commercialization potential.',
-      eligibility: 'Students with validated prototypes',
-      process: 'Application → Pitch → Due Diligence → Funding',
-      timeline: '4-6 weeks',
-      color: 'blue'
+      title: 'Technology & Innovation',
+      description: 'AI, ML, IoT, Blockchain, and emerging technology solutions.',
+      icon: Lightbulb,
+      examples: ['EdTech platforms', 'FinTech solutions', 'HealthTech innovations', 'Industry 4.0 tools'],
+      percentage: '35%'
     },
     {
-      title: 'Cisco-Nasscom thingQbator',
-      amount: 'Up to ₹5 Lakh',
-      type: 'Incubation Funding',
-      description: 'Specialized funding for IoT and technology startups through industry partnership.',
-      eligibility: 'Tech startups in IoT, AI, or emerging tech',
-      process: 'Application → Technical Review → Presentation → Funding',
-      timeline: '6-8 weeks',
-      color: 'green'
+      title: 'Sustainability & Impact',
+      description: 'Clean energy, environmental solutions, and social impact ventures.',
+      icon: Globe,
+      examples: ['Renewable energy', 'Waste management', 'Sustainable agriculture', 'Social enterprises'],
+      percentage: '25%'
     },
     {
-      title: 'PESU Venture Labs',
-      amount: 'Up to $200K',
-      type: 'Venture Investment',
-      description: 'Larger scale funding for startups ready for market entry and scaling.',
-      eligibility: 'Startups with proven traction and growth potential',
-      process: 'Business Plan → Due Diligence → Term Sheet → Investment',
-      timeline: '8-12 weeks',
-      color: 'purple'
+      title: 'Healthcare & Biotech',
+      description: 'Medical devices, healthcare services, and biotechnology innovations.',
+      icon: Heart,
+      examples: ['Medical devices', 'Telemedicine', 'Drug discovery', 'Healthcare analytics'],
+      percentage: '20%'
     },
     {
-      title: 'CIE Ignite Prize Fund',
-      amount: '₹25K+ Prizes',
-      type: 'Competition Funding',
-      description: 'Cash prizes and seed funding for winners of our flagship ideathon.',
-      eligibility: '2nd year students participating in CIE Ignite',
-      process: 'Participate → Advance stages → Final pitch → Awards',
-      timeline: '4 months',
-      color: 'orange'
-    }
-  ];
-
-  const programBenefits = [
-    {
-      title: 'Comprehensive Mentorship',
-      description: 'Access to industry experts, successful entrepreneurs, and faculty mentors',
-      icon: Users,
-      features: [
-        'One-on-one mentoring sessions',
-        'Industry expert guidance',
-        'Peer mentorship programs',
-        'Alumni network connections'
-      ]
-    },
-    {
-      title: 'World-Class Facilities',
-      description: 'State-of-the-art makerspaces and prototyping facilities',
+      title: 'Business Services',
+      description: 'B2B solutions, enterprise software, and professional services.',
       icon: Building2,
-      features: [
-        '3D printing and rapid prototyping',
-        'Electronics lab and testing equipment',
-        'Software development resources',
-        'Co-working spaces for teams'
-      ]
-    },
-    {
-      title: 'Funding & Investment Access',
-      description: 'Multiple pathways to secure funding for your venture',
-      icon: DollarSign,
-      features: [
-        'Seed funding opportunities',
-        'Government grant access',
-        'Angel investor connections',
-        'VC network introductions'
-      ]
-    },
-    {
-      title: 'Market Access & Validation',
-      description: 'Support for testing and launching your products',
-      icon: Target,
-      features: [
-        'Customer discovery programs',
-        'Market research support',
-        'Pilot program opportunities',
-        'Launch strategy guidance'
-      ]
+      examples: ['SaaS platforms', 'Logistics solutions', 'HR tech', 'Consulting services'],
+      percentage: '20%'
     }
   ];
 
-  const successStories = [
+  const portfolioCompanies = [
     {
-      name: 'NeuRoar',
-      industry: 'HealthTech',
-      funding: '₹5 Lakh',
-      fundingSource: 'Cisco-Nasscom thingQbator',
-      description: 'AI-powered neurological diagnostic platform securing significant funding through CIE support.',
-      impact: 'Developed breakthrough diagnostic algorithms for early detection of neurological conditions',
-      founders: 'Biomedical Engineering Students',
-      currentStatus: 'Scaling operations, seeking Series A funding'
+      name: 'EduTech Innovations',
+      sector: 'Education Technology',
+      stage: 'Series A',
+      investment: '₹2.5Cr',
+      impact: '50,000+ students reached',
+      growth: '+300% YoY'
     },
     {
-      name: 'Greenifly',
-      industry: 'AgriTech',
-      funding: 'Venture Labs Investment',
-      fundingSource: 'PESU Venture Labs',
-      description: 'Sustainable agriculture technology startup leveraging IoT and AI for smart farming solutions.',
-      impact: 'Helping 500+ farmers increase crop yield by 30% through precision agriculture',
-      founders: 'Computer Science & Agriculture Engineering Students',
-      currentStatus: 'Expanding to 3 new states'
+      name: 'GreenEnergy Solutions',
+      sector: 'Clean Technology',
+      stage: 'Seed',
+      investment: '₹1.5Cr',
+      impact: '1000+ households powered',
+      growth: '+250% YoY'
     },
     {
-      name: 'TechFlow Solutions',
-      industry: 'SaaS',
-      funding: '₹15 Lakh',
-      fundingSource: 'Multiple Sources',
-      description: 'B2B SaaS platform streamlining business operations for SMEs.',
-      impact: 'Serving 200+ businesses with 40% efficiency improvements',
-      founders: 'MBA & Engineering Students',
-      currentStatus: 'Preparing for international expansion'
+      name: 'HealthCare Analytics',
+      sector: 'Healthcare Technology',
+      stage: 'Pre-Series A',
+      investment: '₹3Cr',
+      impact: '100+ hospitals served',
+      growth: '+400% YoY'
     }
   ];
 
-  const applicationProcess = [
+  const investmentProcess = [
     {
-      step: 1,
-      title: 'Submit Application',
-      description: 'Complete the online application with your business idea and team details',
-      duration: '1 week',
-      requirements: ['Business idea summary', 'Team member details', 'Market opportunity analysis']
+      step: '1',
+      title: 'Application Submission',
+      description: 'Startups submit detailed business plans and pitch decks.',
+      duration: '1 week'
     },
     {
-      step: 2,
-      title: 'Initial Review',
-      description: 'CIE team reviews applications and shortlists promising ventures',
-      duration: '2 weeks',
-      requirements: ['Application screening', 'Feasibility assessment', 'Team evaluation']
+      step: '2',
+      title: 'Initial Screening',
+      description: 'Alumni review committee evaluates applications for fit.',
+      duration: '2 weeks'
     },
     {
-      step: 3,
+      step: '3',
+      title: 'Due Diligence',
+      description: 'Comprehensive review of business model, team, and market.',
+      duration: '3-4 weeks'
+    },
+    {
+      step: '4',
       title: 'Pitch Presentation',
-      description: 'Present your idea to the CIE review committee and industry experts',
-      duration: '1 week',
-      requirements: ['10-minute pitch', 'Q&A session', 'Business model presentation']
+      description: 'Selected startups present to the alumni investor panel.',
+      duration: '1 week'
     },
     {
-      step: 4,
-      title: 'Onboarding & Support',
-      description: 'Successful applicants join the program with full ecosystem access',
-      duration: 'Ongoing',
-      requirements: ['Program orientation', 'Mentor matching', 'Resource allocation']
+      step: '5',
+      title: 'Investment Decision',
+      description: 'Final investment decision and terms negotiation.',
+      duration: '2 weeks'
     }
   ];
-
-  const getColorClasses = (color: string) => {
-    const colorMap = {
-      blue: 'from-blue-500 to-blue-600',
-      green: 'from-green-500 to-green-600',
-      purple: 'from-purple-500 to-purple-600',
-      orange: 'from-orange-500 to-orange-600',
-      red: 'from-red-500 to-red-600'
-    };
-    return colorMap[color as keyof typeof colorMap] || colorMap.blue;
-  };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#00338d] via-blue-700 to-[#f07f1a] text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="relative py-20 bg-gradient-to-br from-green-600 to-emerald-700 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center"
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/20 text-white border border-white/30">
-                <Rocket className="w-4 h-4 mr-2" />
-                Flagship Program
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-green-500/20 text-green-100 border border-green-400/30">
+                <DollarSign className="w-4 h-4 mr-2" />
+                Alumni Angel Fund
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Student Startup
-              <span className="block text-blue-200">Program</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+              Investing in the{' '}
+              <span className="block text-green-200">Next Generation</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Transform your ideas into thriving startups through CIE's flagship program. Access funding, mentorship, resources, and a supportive ecosystem designed for student entrepreneurs.
+            <p className="text-xl md:text-2xl text-green-100 max-w-4xl mx-auto leading-relaxed mb-8">
+              The PES Alumni Angel Fund connects successful alumni investors with promising 
+              startups, fostering innovation and creating sustainable impact across industries.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
-                <UserPlus className="w-5 h-5 mr-2" />
-                Apply Now
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+                <Rocket className="w-5 h-5 mr-2" />
+                Apply for Funding
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
-                <BookOpen className="w-5 h-5 mr-2" />
-                Learn More
+              <Button className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+                <UserPlus className="w-5 h-5 mr-2" />
+                Join as Investor
               </Button>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Program Stats */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
-          >
-            {programStats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-2xl border border-gray-200 text-center hover:shadow-lg transition-all duration-300"
-                >
-                  <div className={`w-12 h-12 bg-${stat.color}-100 rounded-xl flex items-center justify-center mx-auto mb-4`}>
-                    <IconComponent className={`w-6 h-6 text-${stat.color}-600`} />
-                  </div>
-                  <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                  <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Program Overview */}
+      {/* Fund Stats Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -277,353 +169,289 @@ export default function StudentStartupProgramPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Program <span className="text-[#00338d]">Overview</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Fund Performance & Impact
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A comprehensive ecosystem designed to support student entrepreneurs from ideation to market success.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Our alumni-driven angel fund has been making strategic investments in 
+              innovative startups while generating sustainable returns and social impact.
             </p>
           </motion.div>
 
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {fundStats.map((stat, index) => {
+              const IconComponent = stat.icon;
+              const colorClasses = {
+                green: 'bg-green-100 text-green-600',
+                blue: 'bg-blue-100 text-blue-600',
+                purple: 'bg-purple-100 text-purple-600',
+                orange: 'bg-orange-100 text-orange-600'
+              };
+              return (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
+                >
+                  <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center ${colorClasses[stat.color]}`}>
+                    <IconComponent className="w-8 h-8" />
+                  </div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
+                  <div className="text-gray-600 font-medium">{stat.label}</div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Areas Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Investment Focus Areas
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              We invest in high-potential startups across diverse sectors, leveraging our 
+              alumni expertise and industry connections to drive success.
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {investmentAreas.map((area, index) => {
+              const IconComponent = area.icon;
+              return (
+                <motion.div
+                  key={area.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-start gap-6">
+                    <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-8 h-8 text-green-600" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between mb-3">
+                        <h3 className="text-2xl font-bold text-gray-900">{area.title}</h3>
+                        <span className="text-sm font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">
+                          {area.percentage}
+                        </span>
+                      </div>
+                      <p className="text-gray-600 mb-6">{area.description}</p>
+                      <div className="grid grid-cols-2 gap-3">
+                        {area.examples.map((example) => (
+                          <div key={example} className="flex items-center gap-2">
+                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                            <span className="text-sm text-gray-700">{example}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Companies Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Portfolio Success Stories
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Our portfolio companies are scaling rapidly and making significant impact 
+              across their respective industries.
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {portfolioCompanies.map((company, index) => (
+              <motion.div
+                key={company.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
+              >
+                <div className="mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-4">
+                    <Building2 className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{company.name}</h3>
+                  <span className="inline-block text-sm font-medium text-green-600 bg-green-100 px-3 py-1 rounded-full mb-4">
+                    {company.sector}
+                  </span>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 font-medium">Investment:</span>
+                    <span className="text-green-600 font-bold">{company.investment}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 font-medium">Stage:</span>
+                    <span className="text-gray-900 font-semibold">{company.stage}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 font-medium">Growth:</span>
+                    <span className="text-emerald-600 font-bold">{company.growth}</span>
+                  </div>
+                  <div className="pt-4 border-t border-gray-200">
+                    <p className="text-gray-700 font-medium">Impact: {company.impact}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Process Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Investment Process
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Our streamlined process ensures thorough evaluation while maintaining 
+              efficient timelines for deserving startups.
+            </p>
+          </motion.div>
+
+          <div className="space-y-8">
+            {investmentProcess.map((process, index) => (
+              <motion.div
+                key={process.step}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`flex items-center gap-8 ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}
+              >
+                <div className="flex-1">
+                  <div className={`bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl border border-green-200 ${index % 2 === 1 ? 'text-right' : ''}`}>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{process.title}</h3>
+                    <p className="text-gray-600 mb-4">{process.description}</p>
+                    <span className="inline-block text-sm font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">
+                      Duration: {process.duration}
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+                  {process.step}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="py-20 bg-gradient-to-br from-green-600 to-emerald-700">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Get Started?
+              </h2>
+              <p className="text-xl text-green-100 mb-8">
+                Whether you're a startup seeking funding or an alumnus looking to invest, 
+                we're here to facilitate meaningful partnerships that drive innovation and success.
+              </p>
+              
               <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <Lightbulb className="w-6 h-6 text-blue-600" />
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                    <Rocket className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Open to All PES Students</h3>
-                    <p className="text-gray-600">No restrictions on year, branch, or background - all students with innovative ideas are welcome to participate and build their startups.</p>
+                    <h3 className="text-xl font-semibold text-white">For Startups</h3>
+                    <p className="text-green-100">Access funding, mentorship, and alumni network</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <Users className="w-6 h-6 text-green-600" />
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                    <DollarSign className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Comprehensive Support System</h3>
-                    <p className="text-gray-600">Access mentorship from industry experts, faculty guidance, peer support, and connections with successful entrepreneurs and investors.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <Building2 className="w-6 h-6 text-purple-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">World-Class Resources</h3>
-                    <p className="text-gray-600">State-of-the-art makerspaces, prototyping facilities, software resources, and access to advanced labs for development and testing.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <TrendingUp className="w-6 h-6 text-orange-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Scale & Growth Support</h3>
-                    <p className="text-gray-600">Beyond initial funding - ongoing support for scaling operations, market expansion, and connecting with growth-stage investors.</p>
+                    <h3 className="text-xl font-semibold text-white">For Alumni Investors</h3>
+                    <p className="text-green-100">Invest in promising startups and make impact</p>
                   </div>
                 </div>
               </div>
             </motion.div>
-
+            
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="bg-white rounded-3xl p-8 shadow-lg border border-gray-200"
+              className="bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/20"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Program Highlights</h3>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">No equity required for initial support</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">Flexible program structure for students</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">Multiple funding pathway options</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">Industry partnership opportunities</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">Global exposure and networking</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">IP protection and legal guidance</span>
-                </div>
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-white mb-2">Get Connected</h3>
+                <p className="text-green-100">Join our community of investors and innovators</p>
               </div>
               
-              <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl">
-                <div className="flex items-center mb-3">
-                  <Star className="w-5 h-5 text-yellow-500 mr-2" />
-                  <span className="font-bold text-gray-900">Success Rate: 85%</span>
+              <div className="space-y-4">
+                <Button className="w-full bg-white text-green-600 hover:bg-gray-100 py-4 rounded-xl font-semibold">
+                  <FileText className="w-5 h-5 mr-2" />
+                  Submit Application
+                </Button>
+                <Button className="w-full border-2 border-white text-white hover:bg-white hover:text-green-600 py-4 rounded-xl font-semibold bg-transparent">
+                  <UserPlus className="w-5 h-5 mr-2" />
+                  Join as Investor
+                </Button>
+                <Button className="w-full border-2 border-white text-white hover:bg-white hover:text-green-600 py-4 rounded-xl font-semibold bg-transparent">
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Schedule Consultation
+                </Button>
+              </div>
+              
+              <div className="mt-8 pt-8 border-t border-white/20 text-center">
+                <p className="text-green-100 mb-4">Questions? Contact us:</p>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-center gap-2 text-white">
+                    <Mail className="w-4 h-4" />
+                    <span>angelfund@pes.edu</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2 text-white">
+                    <MessageCircle className="w-4 h-4" />
+                    <span>+91 80 2672 7000</span>
+                  </div>
                 </div>
-                <p className="text-sm text-gray-600">
-                  85% of our program participants successfully launch their ventures or secure meaningful industry positions.
-                </p>
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Funding Opportunities */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Funding <span className="text-[#f07f1a]">Opportunities</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Multiple funding pathways to support your startup journey from idea validation to scaling.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {fundingOpportunities.map((funding, index) => (
-              <motion.div
-                key={funding.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${getColorClasses(funding.color)} rounded-2xl flex items-center justify-center`}>
-                    <DollarSign className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-gray-900">{funding.amount}</div>
-                    <div className={`text-sm px-2 py-1 bg-${funding.color}-100 text-${funding.color}-800 rounded-full`}>
-                      {funding.type}
-                    </div>
-                  </div>
-                </div>
-                
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{funding.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{funding.description}</p>
-                
-                <div className="space-y-3 mb-6">
-                  <div className="flex justify-between">
-                    <span className="text-sm font-medium text-gray-700">Eligibility:</span>
-                    <span className="text-sm text-gray-600">{funding.eligibility}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-sm font-medium text-gray-700">Timeline:</span>
-                    <span className="text-sm text-gray-600">{funding.timeline}</span>
-                  </div>
-                </div>
-                
-                <div className="mb-6">
-                  <h4 className="font-bold text-gray-900 mb-2">Application Process:</h4>
-                  <p className="text-sm text-gray-600">{funding.process}</p>
-                </div>
-                
-                <Button className={`w-full bg-gradient-to-r ${getColorClasses(funding.color)} text-white`}>
-                  Learn More
-                </Button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Success Stories */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Success <span className="text-[#00338d]">Stories</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real startups launched by our students, creating impact and driving innovation.
-            </p>
-          </motion.div>
-
-          <div className="space-y-8">
-            {successStories.map((story, index) => (
-              <motion.div
-                key={story.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-3xl p-8 shadow-lg border border-gray-200"
-              >
-                <div className="grid lg:grid-cols-3 gap-8">
-                  <div className="lg:col-span-2">
-                    <div className="flex items-center mb-4">
-                      <h3 className="text-2xl font-bold text-gray-900 mr-4">{story.name}</h3>
-                      <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                        {story.industry}
-                      </span>
-                    </div>
-                    
-                    <p className="text-gray-600 mb-4 leading-relaxed">{story.description}</p>
-                    
-                    <div className="mb-4">
-                      <h4 className="font-bold text-gray-900 mb-2">Impact Created:</h4>
-                      <p className="text-gray-600">{story.impact}</p>
-                    </div>
-                    
-                    <div className="flex items-center text-sm text-gray-500">
-                      <Users className="w-4 h-4 mr-2" />
-                      <span>{story.founders}</span>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-gray-50 rounded-2xl p-6">
-                    <div className="space-y-4">
-                      <div>
-                        <div className="text-sm font-medium text-gray-700 mb-1">Funding Received</div>
-                        <div className="text-xl font-bold text-green-600">{story.funding}</div>
-                        <div className="text-xs text-gray-500">{story.fundingSource}</div>
-                      </div>
-                      
-                      <div>
-                        <div className="text-sm font-medium text-gray-700 mb-1">Current Status</div>
-                        <div className="text-sm text-gray-600">{story.currentStatus}</div>
-                      </div>
-                      
-                      <Button className="w-full bg-[#00338d] hover:bg-blue-700 text-white text-sm">
-                        <ArrowRight className="w-4 h-4 mr-2" />
-                        Read Full Story
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Application Process */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Application <span className="text-[#f07f1a]">Process</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A straightforward 4-step process to join our startup ecosystem.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            {applicationProcess.map((step, index) => (
-              <motion.div
-                key={step.step}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative"
-              >
-                <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-[#00338d] to-[#f07f1a] rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl font-bold text-white">{step.step}</span>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">{step.description}</p>
-                  
-                  <div className="mb-4">
-                    <div className="text-sm font-medium text-gray-700 mb-2">Duration: {step.duration}</div>
-                    <div className="space-y-1">
-                      {step.requirements.map((req, idx) => (
-                        <div key={idx} className="text-xs text-gray-500 flex items-center">
-                          <CheckCircle className="w-3 h-3 mr-2 text-green-600" />
-                          {req}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                
-                {index < applicationProcess.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
-                    <ArrowRight className="w-6 h-6 text-gray-400" />
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Button className="bg-gradient-to-r from-[#00338d] to-[#f07f1a] text-white px-8 py-4 text-lg font-semibold rounded-xl">
-              <UserPlus className="w-5 h-5 mr-2" />
-              Start Your Application
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-[#00338d] to-[#f07f1a]">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Launch Your Startup?
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              Join hundreds of successful student entrepreneurs who have transformed their ideas into thriving businesses through our comprehensive support ecosystem.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
-                <Rocket className="w-5 h-5 mr-2" />
-                Apply Now
-              </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Schedule Consultation
-              </Button>
-            </div>
-            
-            <div className="mt-8">
-              <p className="text-blue-100 mb-4">Questions? We're here to help.</p>
-              <Button 
-                className="bg-transparent border border-white/30 text-white hover:bg-white/10 px-6 py-3 rounded-xl"
-                onClick={() => window.location.href = 'mailto:cieprogram@pes.edu'}
-              >
-                <Mail className="w-4 h-4 mr-2" />
-                Contact CIE Team
-              </Button>
-            </div>
-          </motion.div>
         </div>
       </section>
     </div>

@@ -504,6 +504,7 @@ function BrowseJobsSection({
             value={selectedLocation}
             onChange={(e) => setSelectedLocation(e.target.value)}
             className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            aria-label="Filter by location"
           >
             {locations.map(location => (
               <option key={location} value={location}>{location}</option>
@@ -513,6 +514,7 @@ function BrowseJobsSection({
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
             className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            aria-label="Filter by job type"
           >
             {jobTypes.map(type => (
               <option key={type} value={type}>{type}</option>
@@ -522,6 +524,7 @@ function BrowseJobsSection({
             value={selectedExperience}
             onChange={(e) => setSelectedExperience(e.target.value)}
             className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            aria-label="Filter by experience level"
           >
             {experienceLevels.map(level => (
               <option key={level} value={level}>{level}</option>
@@ -632,10 +635,12 @@ function BrowseJobsSection({
                       View Details
                       <ExternalLink className="h-4 w-4 ml-2" />
                     </Button>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                      Apply Now
-                      <ArrowRight className="h-4 w-4 ml-2" />
+                    <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700">
+                      <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
+                        Apply Now
+                      </a>
                     </Button>
+                    <ArrowRight className="h-4 w-4 ml-2" />
                   </div>
                 </div>
               </CardContent>

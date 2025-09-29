@@ -456,8 +456,8 @@ export default function ProgramsPage() {
                   <span className="font-medium">{program.duration}</span>
                 </div>
                 <p className="text-gray-600 mb-6">{program.focus}</p>
-                <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
-                  Apply Now
+                <Button asChild className="w-full bg-orange-600 hover:bg-orange-700 text-white">
+                  <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">Apply Now</a>
                 </Button>
               </motion.div>
             ))}
@@ -481,9 +481,11 @@ export default function ProgramsPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
-                <GraduationCap className="w-5 h-5 mr-2" />
-                Browse All Programs
+              <Button asChild className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+                <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
+                  <GraduationCap className="w-5 h-5 mr-2" />
+                  Browse All Programs
+                </a>
               </Button>
               <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
                 Contact Admissions

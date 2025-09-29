@@ -680,9 +680,11 @@ function ProgramsSection({ programs }: { programs: typeof mentorshipPrograms }) 
                     
                     <div className="pt-4 border-t">
                       <p className="text-sm text-gray-600 mb-2">Eligibility: {program.eligibility}</p>
-                      <Button className={`w-full bg-${program.color}-600 hover:bg-${program.color}-700`}>
-                        <ArrowRight className="h-4 w-4 mr-2" />
-                        Apply Now
+                      <Button asChild className={`w-full bg-${program.color}-600 hover:bg-${program.color}-700`}>
+                        <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
+                          <ArrowRight className="h-4 w-4 mr-2" />
+                          Apply Now
+                        </a>
                       </Button>
                     </div>
                   </div>

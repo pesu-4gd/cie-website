@@ -619,9 +619,11 @@ function OpportunitiesSection({
                     </div>
                     
                     <div className="flex space-x-2">
-                      <Button className="flex-1 bg-green-600 hover:bg-green-700">
-                        <FileText className="h-4 w-4 mr-2" />
-                        Apply Now
+                      <Button asChild className="flex-1 bg-green-600 hover:bg-green-700">
+                        <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
+                          <FileText className="h-4 w-4 mr-2" />
+                          Apply Now
+                        </a>
                       </Button>
                       <Button variant="outline" size="sm">
                         <Info className="h-4 w-4" />

@@ -224,9 +224,11 @@ export default function StudentStartupProgramPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
-                <UserPlus className="w-5 h-5 mr-2" />
-                Apply Now
+              <Button asChild className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+                <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
+                  <UserPlus className="w-5 h-5 mr-2" />
+                  Apply Now
+                </a>
               </Button>
               <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
                 <BookOpen className="w-5 h-5 mr-2" />
@@ -603,9 +605,11 @@ export default function StudentStartupProgramPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
-                <Rocket className="w-5 h-5 mr-2" />
-                Apply Now
+              <Button asChild className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+                <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
+                  <Rocket className="w-5 h-5 mr-2" />
+                  Apply Now
+                </a>
               </Button>
               <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
                 <MessageCircle className="w-5 h-5 mr-2" />

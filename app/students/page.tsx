@@ -357,8 +357,8 @@ export default function StudentsPage() {
             className="text-center"
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
-                <GraduationCap className="w-4 h-4 mr-2" />
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-900/60 text-white border border-blue-400/30">
+                <GraduationCap className="w-4 h-4 mr-2 text-orange-300" />
                 Student Hub
               </span>
             </div>

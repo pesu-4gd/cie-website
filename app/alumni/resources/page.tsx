@@ -3,272 +3,250 @@
 import { Button } from '@/components/design-system';
 import { motion } from 'framer-motion';
 import { 
-  Rocket, 
-  DollarSign,
-  Users,
-  Target,
-  Award,
   BookOpen,
-  Lightbulb,
-  TrendingUp,
+  Download,
+  FileText,
+  Video,
+  Users,
+  Building2,
   CheckCircle,
   ArrowRight,
-  Calendar,
-  Building2,
-  Globe,
-  Star,
-  Briefcase,
-  FlaskConical,
   MessageCircle,
   Mail,
+  Clock,
+  Star,
+  Lightbulb,
+  TrendingUp,
   UserPlus,
-  ChartBar
+  Globe,
+  Calendar,
+  Award,
+  Briefcase,
+  GraduationCap,
+  Network,
+  Link,
+  Search,
+  Filter,
+  ExternalLink
 } from 'lucide-react';
 
-export default function StudentStartupProgramPage() {
-  const programStats = [
-    { label: 'Startups Launched', value: '50+', icon: Rocket, color: 'blue' },
-    { label: 'Total Funding Raised', value: '₹2Cr+', icon: DollarSign, color: 'green' },
-    { label: 'Students Involved', value: '500+', icon: Users, color: 'purple' },
-    { label: 'Success Rate', value: '85%', icon: Target, color: 'orange' }
+export default function AlumniResourcesPage() {
+  const resourceStats = [
+    { label: 'Resource Categories', value: '12+', icon: BookOpen },
+    { label: 'Total Resources', value: '500+', icon: FileText },
+    { label: 'Monthly Downloads', value: '2,500+', icon: Download },
+    { label: 'Global Access', value: '50+ Countries', icon: Globe }
   ];
 
-  const fundingOpportunities = [
+  const resourceCategories = [
     {
-      title: 'Co-innovation Center (IHFC, IITD)',
-      amount: 'Up to ₹5 Lakh',
-      type: 'Grant',
-      description: 'Seed funding for innovative technology solutions with commercialization potential.',
-      eligibility: 'Students with validated prototypes',
-      process: 'Application → Pitch → Due Diligence → Funding',
-      timeline: '4-6 weeks',
-      color: 'blue'
+      title: 'Career Development',
+      description: 'Tools and resources for professional growth and career advancement.',
+      icon: Briefcase,
+      resourceCount: 85,
+      resources: [
+        'Resume templates and examples',
+        'Interview preparation guides',
+        'Salary negotiation strategies',
+        'Professional networking tips',
+        'Leadership development materials'
+      ]
     },
     {
-      title: 'Cisco-Nasscom thingQbator',
-      amount: 'Up to ₹5 Lakh',
-      type: 'Incubation Funding',
-      description: 'Specialized funding for IoT and technology startups through industry partnership.',
-      eligibility: 'Tech startups in IoT, AI, or emerging tech',
-      process: 'Application → Technical Review → Presentation → Funding',
-      timeline: '6-8 weeks',
-      color: 'green'
+      title: 'Business & Entrepreneurship',
+      description: 'Resources for starting and growing successful businesses and startups.',
+      icon: Lightbulb,
+      resourceCount: 120,
+      resources: [
+        'Business plan templates',
+        'Pitch deck examples',
+        'Market research guides',
+        'Funding and investor resources',
+        'Legal and compliance checklists'
+      ]
     },
     {
-      title: 'PESU Venture Labs',
-      amount: 'Up to $200K',
-      type: 'Venture Investment',
-      description: 'Larger scale funding for startups ready for market entry and scaling.',
-      eligibility: 'Startups with proven traction and growth potential',
-      process: 'Business Plan → Due Diligence → Term Sheet → Investment',
-      timeline: '8-12 weeks',
-      color: 'purple'
+      title: 'Professional Development',
+      description: 'Continuing education and skill enhancement resources.',
+      icon: TrendingUp,
+      resourceCount: 95,
+      resources: [
+        'Industry certification guides',
+        'Online course recommendations',
+        'Conference and event listings',
+        'Professional association memberships',
+        'Skill assessment tools'
+      ]
     },
     {
-      title: 'CIE Ignite Prize Fund',
-      amount: '₹25K+ Prizes',
-      type: 'Competition Funding',
-      description: 'Cash prizes and seed funding for winners of our flagship ideathon.',
-      eligibility: '2nd year students participating in CIE Ignite',
-      process: 'Participate → Advance stages → Final pitch → Awards',
-      timeline: '4 months',
-      color: 'orange'
-    }
-  ];
-
-  const programBenefits = [
+      title: 'Academic & Research',
+      description: 'Resources for pursuing higher education and research opportunities.',
+      icon: GraduationCap,
+      resourceCount: 70,
+      resources: [
+        'Graduate program guides',
+        'Research proposal templates',
+        'Academic writing resources',
+        'Scholarship and funding opportunities',
+        'Conference presentation tips'
+      ]
+    },
     {
-      title: 'Comprehensive Mentorship',
-      description: 'Access to industry experts, successful entrepreneurs, and faculty mentors',
+      title: 'Technology & Innovation',
+      description: 'Latest technology trends, tools, and innovation resources.',
+      icon: Star,
+      resourceCount: 110,
+      resources: [
+        'Technology trend reports',
+        'Software and tool recommendations',
+        'Innovation methodologies',
+        'Technical skill development',
+        'Open source project guides'
+      ]
+    },
+    {
+      title: 'Alumni Services',
+      description: 'Exclusive services and benefits available to alumni.',
       icon: Users,
-      features: [
-        'One-on-one mentoring sessions',
-        'Industry expert guidance',
-        'Peer mentorship programs',
-        'Alumni network connections'
-      ]
-    },
-    {
-      title: 'World-Class Facilities',
-      description: 'State-of-the-art makerspaces and prototyping facilities',
-      icon: Building2,
-      features: [
-        '3D printing and rapid prototyping',
-        'Electronics lab and testing equipment',
-        'Software development resources',
-        'Co-working spaces for teams'
-      ]
-    },
-    {
-      title: 'Funding & Investment Access',
-      description: 'Multiple pathways to secure funding for your venture',
-      icon: DollarSign,
-      features: [
-        'Seed funding opportunities',
-        'Government grant access',
-        'Angel investor connections',
-        'VC network introductions'
-      ]
-    },
-    {
-      title: 'Market Access & Validation',
-      description: 'Support for testing and launching your products',
-      icon: Target,
-      features: [
-        'Customer discovery programs',
-        'Market research support',
-        'Pilot program opportunities',
-        'Launch strategy guidance'
+      resourceCount: 45,
+      resources: [
+        'Alumni directory access',
+        'Event booking guidelines',
+        'Mentor matching system',
+        'Alumni discounts and offers',
+        'University facility access'
       ]
     }
   ];
 
-  const successStories = [
+  const featuredResources = [
     {
-      name: 'NeuRoar',
-      industry: 'HealthTech',
-      funding: '₹5 Lakh',
-      fundingSource: 'Cisco-Nasscom thingQbator',
-      description: 'AI-powered neurological diagnostic platform securing significant funding through CIE support.',
-      impact: 'Developed breakthrough diagnostic algorithms for early detection of neurological conditions',
-      founders: 'Biomedical Engineering Students',
-      currentStatus: 'Scaling operations, seeking Series A funding'
+      title: 'PES Alumni Career Guide 2024',
+      description: 'Comprehensive guide covering career transitions, industry insights, and professional development strategies.',
+      type: 'PDF Guide',
+      size: '2.5 MB',
+      downloads: '1,200+',
+      category: 'Career Development',
+      featured: true
     },
     {
-      name: 'Greenifly',
-      industry: 'AgriTech',
-      funding: 'Venture Labs Investment',
-      fundingSource: 'PESU Venture Labs',
-      description: 'Sustainable agriculture technology startup leveraging IoT and AI for smart farming solutions.',
-      impact: 'Helping 500+ farmers increase crop yield by 30% through precision agriculture',
-      founders: 'Computer Science & Agriculture Engineering Students',
-      currentStatus: 'Expanding to 3 new states'
+      title: 'Startup Funding Masterclass',
+      description: 'Video series featuring successful alumni entrepreneurs sharing funding strategies and investor insights.',
+      type: 'Video Series',
+      size: '4 hours',
+      downloads: '800+',
+      category: 'Entrepreneurship',
+      featured: true
     },
     {
-      name: 'TechFlow Solutions',
-      industry: 'SaaS',
-      funding: '₹15 Lakh',
-      fundingSource: 'Multiple Sources',
-      description: 'B2B SaaS platform streamlining business operations for SMEs.',
-      impact: 'Serving 200+ businesses with 40% efficiency improvements',
-      founders: 'MBA & Engineering Students',
-      currentStatus: 'Preparing for international expansion'
+      title: 'Technical Interview Preparation Kit',
+      description: 'Complete preparation package with coding challenges, system design problems, and interview tips.',
+      type: 'Resource Pack',
+      size: '150 MB',
+      downloads: '2,000+',
+      category: 'Career Development',
+      featured: true
     }
   ];
 
-  const applicationProcess = [
+  const digitalLibrary = [
     {
-      step: 1,
-      title: 'Submit Application',
-      description: 'Complete the online application with your business idea and team details',
-      duration: '1 week',
-      requirements: ['Business idea summary', 'Team member details', 'Market opportunity analysis']
+      title: 'Industry Reports',
+      description: 'Quarterly reports on technology, business, and market trends.',
+      items: 45,
+      lastUpdated: '2024-03-15'
     },
     {
-      step: 2,
-      title: 'Initial Review',
-      description: 'CIE team reviews applications and shortlists promising ventures',
-      duration: '2 weeks',
-      requirements: ['Application screening', 'Feasibility assessment', 'Team evaluation']
+      title: 'Alumni Publications',
+      description: 'Research papers, articles, and books published by alumni.',
+      items: 180,
+      lastUpdated: '2024-03-10'
     },
     {
-      step: 3,
-      title: 'Pitch Presentation',
-      description: 'Present your idea to the CIE review committee and industry experts',
-      duration: '1 week',
-      requirements: ['10-minute pitch', 'Q&A session', 'Business model presentation']
+      title: 'Video Library',
+      description: 'Recorded webinars, lectures, and alumni success story interviews.',
+      items: 75,
+      lastUpdated: '2024-03-12'
     },
     {
-      step: 4,
-      title: 'Onboarding & Support',
-      description: 'Successful applicants join the program with full ecosystem access',
-      duration: 'Ongoing',
-      requirements: ['Program orientation', 'Mentor matching', 'Resource allocation']
+      title: 'Templates & Tools',
+      description: 'Professional templates, calculators, and productivity tools.',
+      items: 120,
+      lastUpdated: '2024-03-08'
     }
   ];
 
-  const getColorClasses = (color: string) => {
-    const colorMap = {
-      blue: 'from-blue-500 to-blue-600',
-      green: 'from-green-500 to-green-600',
-      purple: 'from-purple-500 to-purple-600',
-      orange: 'from-orange-500 to-orange-600',
-      red: 'from-red-500 to-red-600'
-    };
-    return colorMap[color as keyof typeof colorMap] || colorMap.blue;
-  };
+  const exclusiveServices = [
+    {
+      title: 'Alumni Directory',
+      description: 'Searchable database of alumni contacts across industries and locations.',
+      access: 'Premium Members',
+      icon: Network
+    },
+    {
+      title: 'Career Counseling',
+      description: 'One-on-one career guidance sessions with professional counselors.',
+      access: 'All Alumni',
+      icon: UserPlus
+    },
+    {
+      title: 'Library Access',
+      description: 'Digital and physical access to university library resources.',
+      access: 'All Alumni',
+      icon: BookOpen
+    },
+    {
+      title: 'Research Collaboration',
+      description: 'Opportunities to collaborate on university research projects.',
+      access: 'Qualified Alumni',
+      icon: Award
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#00338d] via-blue-700 to-[#f07f1a] text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="relative py-20 bg-gradient-to-br from-emerald-600 to-teal-700 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center"
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/20 text-white border border-white/30">
-                <Rocket className="w-4 h-4 mr-2" />
-                Flagship Program
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-emerald-500/20 text-emerald-100 border border-emerald-400/30">
+                <BookOpen className="w-4 h-4 mr-2" />
+                Alumni Resources
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Student Startup
-              <span className="block text-blue-200">Program</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+              Your Professional{' '}
+              <span className="block text-emerald-200">Resource Hub</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Transform your ideas into thriving startups through CIE's flagship program. Access funding, mentorship, resources, and a supportive ecosystem designed for student entrepreneurs.
+            <p className="text-xl md:text-2xl text-emerald-100 max-w-4xl mx-auto leading-relaxed mb-8">
+              Access exclusive resources, tools, and services designed to support your
+              continued professional growth and career success as a PES University alumnus.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
-                <UserPlus className="w-5 h-5 mr-2" />
-                Apply Now
-              </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button className="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
                 <BookOpen className="w-5 h-5 mr-2" />
-                Learn More
+                Browse Resources
+              </Button>
+              <Button className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+                <Download className="w-5 h-5 mr-2" />
+                Featured Downloads
               </Button>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Program Stats */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
-          >
-            {programStats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-2xl border border-gray-200 text-center hover:shadow-lg transition-all duration-300"
-                >
-                  <div className={`w-12 h-12 bg-${stat.color}-100 rounded-xl flex items-center justify-center mx-auto mb-4`}>
-                    <IconComponent className={`w-6 h-6 text-${stat.color}-600`} />
-                  </div>
-                  <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                  <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Program Overview */}
+      {/* Resource Stats Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -277,112 +255,39 @@ export default function StudentStartupProgramPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Program <span className="text-[#00338d]">Overview</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Resource Library Impact
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A comprehensive ecosystem designed to support student entrepreneurs from ideation to market success.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Our comprehensive resource library serves alumni worldwide with
+              high-quality content for professional and personal development.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <Lightbulb className="w-6 h-6 text-blue-600" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {resourceStats.map((stat, index) => {
+              const IconComponent = stat.icon;
+              return (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-emerald-100 flex items-center justify-center">
+                    <IconComponent className="w-8 h-8 text-emerald-600" />
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Open to All PES Students</h3>
-                    <p className="text-gray-600">No restrictions on year, branch, or background - all students with innovative ideas are welcome to participate and build their startups.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <Users className="w-6 h-6 text-green-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Comprehensive Support System</h3>
-                    <p className="text-gray-600">Access mentorship from industry experts, faculty guidance, peer support, and connections with successful entrepreneurs and investors.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <Building2 className="w-6 h-6 text-purple-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">World-Class Resources</h3>
-                    <p className="text-gray-600">State-of-the-art makerspaces, prototyping facilities, software resources, and access to advanced labs for development and testing.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <TrendingUp className="w-6 h-6 text-orange-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Scale & Growth Support</h3>
-                    <p className="text-gray-600">Beyond initial funding - ongoing support for scaling operations, market expansion, and connecting with growth-stage investors.</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-white rounded-3xl p-8 shadow-lg border border-gray-200"
-            >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Program Highlights</h3>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">No equity required for initial support</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">Flexible program structure for students</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">Multiple funding pathway options</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">Industry partnership opportunities</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">Global exposure and networking</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">IP protection and legal guidance</span>
-                </div>
-              </div>
-              
-              <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl">
-                <div className="flex items-center mb-3">
-                  <Star className="w-5 h-5 text-yellow-500 mr-2" />
-                  <span className="font-bold text-gray-900">Success Rate: 85%</span>
-                </div>
-                <p className="text-sm text-gray-600">
-                  85% of our program participants successfully launch their ventures or secure meaningful industry positions.
-                </p>
-              </div>
-            </motion.div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
+                  <div className="text-gray-600 font-medium">{stat.label}</div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Funding Opportunities */}
+      {/* Resource Categories Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -391,56 +296,113 @@ export default function StudentStartupProgramPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Funding <span className="text-[#f07f1a]">Opportunities</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Resource Categories
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Multiple funding pathways to support your startup journey from idea validation to scaling.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Explore our organized collection of resources across key areas
+              of professional and personal development.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {fundingOpportunities.map((funding, index) => (
+          <div className="grid lg:grid-cols-2 gap-8">
+            {resourceCategories.map((category, index) => {
+              const IconComponent = category.icon;
+              return (
+                <motion.div
+                  key={category.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-start gap-6">
+                    <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-8 h-8 text-emerald-600" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between mb-3">
+                        <h3 className="text-2xl font-bold text-gray-900">{category.title}</h3>
+                        <span className="text-sm font-semibold text-emerald-600 bg-emerald-100 px-3 py-1 rounded-full">
+                          {category.resourceCount} items
+                        </span>
+                      </div>
+                      <p className="text-gray-600 mb-6">{category.description}</p>
+                      <div className="space-y-2 mb-6">
+                        {category.resources.map((resource) => (
+                          <div key={resource} className="flex items-start gap-2">
+                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                            <span className="text-sm text-gray-700">{resource}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-xl font-semibold">
+                        Explore Resources
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Resources Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-emerald-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Featured Resources
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Discover our most popular and highly-rated resources, curated
+              by alumni for alumni success.
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {featuredResources.map((resource, index) => (
               <motion.div
-                key={funding.title}
+                key={resource.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
-                <div className="flex items-center justify-between mb-6">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${getColorClasses(funding.color)} rounded-2xl flex items-center justify-center`}>
-                    <DollarSign className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-gray-900">{funding.amount}</div>
-                    <div className={`text-sm px-2 py-1 bg-${funding.color}-100 text-${funding.color}-800 rounded-full`}>
-                      {funding.type}
-                    </div>
-                  </div>
-                </div>
-                
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{funding.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{funding.description}</p>
-                
-                <div className="space-y-3 mb-6">
-                  <div className="flex justify-between">
-                    <span className="text-sm font-medium text-gray-700">Eligibility:</span>
-                    <span className="text-sm text-gray-600">{funding.eligibility}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-sm font-medium text-gray-700">Timeline:</span>
-                    <span className="text-sm text-gray-600">{funding.timeline}</span>
-                  </div>
-                </div>
-                
                 <div className="mb-6">
-                  <h4 className="font-bold text-gray-900 mb-2">Application Process:</h4>
-                  <p className="text-sm text-gray-600">{funding.process}</p>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800">
+                      {resource.category}
+                    </span>
+                    <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+                      {resource.type}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{resource.title}</h3>
+                  <p className="text-gray-600 mb-4">{resource.description}</p>
                 </div>
-                
-                <Button className={`w-full bg-gradient-to-r ${getColorClasses(funding.color)} text-white`}>
-                  Learn More
+
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div>
+                    <div className="text-sm text-gray-500">Size/Duration</div>
+                    <div className="font-semibold text-gray-900">{resource.size}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-500">Downloads</div>
+                    <div className="font-semibold text-emerald-600">{resource.downloads}</div>
+                  </div>
+                </div>
+
+                <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-semibold">
+                  <Download className="w-4 h-4 mr-2" />
+                  Download Resource
                 </Button>
               </motion.div>
             ))}
@@ -448,81 +410,7 @@ export default function StudentStartupProgramPage() {
         </div>
       </section>
 
-      {/* Success Stories */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Success <span className="text-[#00338d]">Stories</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real startups launched by our students, creating impact and driving innovation.
-            </p>
-          </motion.div>
-
-          <div className="space-y-8">
-            {successStories.map((story, index) => (
-              <motion.div
-                key={story.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-3xl p-8 shadow-lg border border-gray-200"
-              >
-                <div className="grid lg:grid-cols-3 gap-8">
-                  <div className="lg:col-span-2">
-                    <div className="flex items-center mb-4">
-                      <h3 className="text-2xl font-bold text-gray-900 mr-4">{story.name}</h3>
-                      <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                        {story.industry}
-                      </span>
-                    </div>
-                    
-                    <p className="text-gray-600 mb-4 leading-relaxed">{story.description}</p>
-                    
-                    <div className="mb-4">
-                      <h4 className="font-bold text-gray-900 mb-2">Impact Created:</h4>
-                      <p className="text-gray-600">{story.impact}</p>
-                    </div>
-                    
-                    <div className="flex items-center text-sm text-gray-500">
-                      <Users className="w-4 h-4 mr-2" />
-                      <span>{story.founders}</span>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-gray-50 rounded-2xl p-6">
-                    <div className="space-y-4">
-                      <div>
-                        <div className="text-sm font-medium text-gray-700 mb-1">Funding Received</div>
-                        <div className="text-xl font-bold text-green-600">{story.funding}</div>
-                        <div className="text-xs text-gray-500">{story.fundingSource}</div>
-                      </div>
-                      
-                      <div>
-                        <div className="text-sm font-medium text-gray-700 mb-1">Current Status</div>
-                        <div className="text-sm text-gray-600">{story.currentStatus}</div>
-                      </div>
-                      
-                      <Button className="w-full bg-[#00338d] hover:bg-blue-700 text-white text-sm">
-                        <ArrowRight className="w-4 h-4 mr-2" />
-                        Read Full Story
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Application Process */}
+      {/* Digital Library Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -531,64 +419,104 @@ export default function StudentStartupProgramPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Application <span className="text-[#f07f1a]">Process</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Digital Library
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A straightforward 4-step process to join our startup ecosystem.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Access our extensive digital collection of reports, publications,
+              videos, and tools available 24/7 from anywhere in the world.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            {applicationProcess.map((step, index) => (
+          <div className="grid lg:grid-cols-2 gap-8">
+            {digitalLibrary.map((library, index) => (
               <motion.div
-                key={step.step}
+                key={library.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative"
+                className="bg-gradient-to-r from-emerald-50 to-teal-50 p-8 rounded-3xl border border-emerald-200 hover:shadow-lg transition-all duration-300"
               >
-                <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-[#00338d] to-[#f07f1a] rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl font-bold text-white">{step.step}</span>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">{step.description}</p>
-                  
-                  <div className="mb-4">
-                    <div className="text-sm font-medium text-gray-700 mb-2">Duration: {step.duration}</div>
-                    <div className="space-y-1">
-                      {step.requirements.map((req, idx) => (
-                        <div key={idx} className="text-xs text-gray-500 flex items-center">
-                          <CheckCircle className="w-3 h-3 mr-2 text-green-600" />
-                          {req}
-                        </div>
-                      ))}
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{library.title}</h3>
+                    <p className="text-gray-600 mb-4">{library.description}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-500">
+                        <Calendar className="w-4 h-4 inline mr-1" />
+                        Updated: {new Date(library.lastUpdated).toLocaleDateString()}
+                      </span>
+                      <span className="text-lg font-bold text-emerald-600">
+                        {library.items} items
+                      </span>
                     </div>
                   </div>
-                </div>
-                
-                {index < applicationProcess.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
-                    <ArrowRight className="w-6 h-6 text-gray-400" />
+                  <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center ml-6">
+                    <BookOpen className="w-8 h-8 text-emerald-600" />
                   </div>
-                )}
+                </div>
               </motion.div>
             ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Button className="bg-gradient-to-r from-[#00338d] to-[#f07f1a] text-white px-8 py-4 text-lg font-semibold rounded-xl">
-              <UserPlus className="w-5 h-5 mr-2" />
-              Start Your Application
-            </Button>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-[#00338d] to-[#f07f1a]">
+      {/* Exclusive Services Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Exclusive Alumni Services
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Take advantage of exclusive services and benefits available
+              only to PES University alumni.
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {exclusiveServices.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-start gap-6">
+                    <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-8 h-8 text-emerald-600" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between mb-3">
+                        <h3 className="text-xl font-bold text-gray-900">{service.title}</h3>
+                        <span className="text-xs font-semibold text-emerald-600 bg-emerald-100 px-2 py-1 rounded-full">
+                          {service.access}
+                        </span>
+                      </div>
+                      <p className="text-gray-600 mb-6">{service.description}</p>
+                      <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-xl font-semibold">
+                        Access Service
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="py-20 bg-gradient-to-br from-emerald-600 to-teal-700">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -596,32 +524,62 @@ export default function StudentStartupProgramPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Launch Your Startup?
+              Start Exploring Today
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              Join hundreds of successful student entrepreneurs who have transformed their ideas into thriving businesses through our comprehensive support ecosystem.
+            <p className="text-xl text-emerald-100 max-w-3xl mx-auto mb-12">
+              Unlock your full potential with our comprehensive resource library.
+              Access exclusive content and services designed for your success.
             </p>
-            
+
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Search className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-white">Search Resources</h3>
+                <p className="text-emerald-100">Find exactly what you need</p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Download className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-white">Download & Use</h3>
+                <p className="text-emerald-100">Access resources instantly</p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Network className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-white">Connect & Share</h3>
+                <p className="text-emerald-100">Engage with the community</p>
+              </div>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
-                <Rocket className="w-5 h-5 mr-2" />
-                Apply Now
+              <Button className="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+                <BookOpen className="w-5 h-5 mr-2" />
+                Browse All Resources
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              <Button className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
                 <MessageCircle className="w-5 h-5 mr-2" />
-                Schedule Consultation
+                Contact Support
               </Button>
             </div>
-            
-            <div className="mt-8">
-              <p className="text-blue-100 mb-4">Questions? We're here to help.</p>
-              <Button 
-                className="bg-transparent border border-white/30 text-white hover:bg-white/10 px-6 py-3 rounded-xl"
-                onClick={() => window.location.href = 'mailto:cieprogram@pes.edu'}
-              >
-                <Mail className="w-4 h-4 mr-2" />
-                Contact CIE Team
-              </Button>
+
+            <div className="mt-8 text-center">
+              <p className="text-emerald-100 mb-2">Need help finding resources?</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center text-white">
+                <div className="flex items-center justify-center gap-2">
+                  <Mail className="w-4 h-4" />
+                  <span>resources@pes.edu</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <MessageCircle className="w-4 h-4" />
+                  <span>+91 80 2672 7000</span>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

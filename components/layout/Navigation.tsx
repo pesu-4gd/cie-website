@@ -35,7 +35,7 @@ interface NavigationSection {
     title: string;
     href: string;
     description: string;
-    icon?: React.ComponentType<any>;
+    icon?: React.ComponentType<{ className?: string }>;
     external?: boolean;
   }[];
 }
@@ -43,7 +43,7 @@ interface NavigationSection {
 interface NavigationItemProps {
   title: string;
   href: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string }>;
   description: string;
   sections: NavigationSection[];
   isActive: boolean;

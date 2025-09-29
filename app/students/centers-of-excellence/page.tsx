@@ -379,12 +379,12 @@ export default function CentersOfExcellencePage() {
                   
                   <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                     <Button 
-                      className={`bg-gradient-to-r ${getColorClasses(center.color)} text-white px-4 py-2 rounded-xl text-sm`}
-                      onClick={() => window.location.href = `mailto:${center.contact}`}
-                    >
-                      <Mail className="w-4 h-4 mr-2" />
-                      Contact Center
-                    </Button>
+                        className={`bg-gradient-to-r ${getColorClasses(center.color)} text-white px-4 py-2 rounded-xl text-sm`}
+                        onClick={() => window.location.href = `mailto:${center.contact}`}
+                      >
+                        <Mail className="w-4 h-4 mr-2" />
+                        Contact Center
+                      </Button>
                     <div className="text-sm text-gray-500">
                       {center.contact}
                     </div>
@@ -450,8 +450,8 @@ export default function CentersOfExcellencePage() {
                   </div>
                 </div>
                 
-                <Button className="w-full bg-[#00338d] hover:bg-blue-700 text-white">
-                  Apply Now
+                <Button asChild className="w-full bg-[#00338d] hover:bg-blue-700 text-white">
+                  <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">Apply Now</a>
                 </Button>
               </motion.div>
             ))}

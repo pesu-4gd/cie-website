@@ -325,8 +325,8 @@ export default function GiveBackPage() {
                 </p>
                 <div className="flex items-center justify-between">
                   <Badge variant="secondary">6 months commitment</Badge>
-                  <Button size="sm">
-                    Apply Now
+                  <Button asChild size="sm">
+                    <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">Apply Now</a>
                   </Button>
                 </div>
               </CardContent>
