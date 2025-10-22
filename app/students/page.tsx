@@ -1,7 +1,8 @@
 'use client';
 
 import { Button } from '@/components/design-system';
-import { HeroBackground } from '@/components/ui/hero-background';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
 import { motion } from 'framer-motion';
 import { 
   BookOpen, 
@@ -17,10 +18,22 @@ import {
   Globe,
   Heart,
   Briefcase,
-  Star
+  Star,
+  Sparkles
 } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
+import {
+  MorphingDialog,
+  MorphingDialogTrigger,
+  MorphingDialogContainer,
+  MorphingDialogContent,
+  MorphingDialogClose,
+  MorphingDialogTitle,
+  MorphingDialogDescription,
+} from '@/components/ui/morphing-dialog';
+
+const studentsColors = SECTION_COLORS.students;
 
 // Custom hook for the enhanced magic hover effect on individual letters
 const useEnhancedLetterHover = (text: string) => {
@@ -343,40 +356,80 @@ export default function StudentsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <HeroBackground
-        section="students"
-        overlayOpacity={0.4}
-      >
-        <div className="max-w-7xl mx-auto px-6">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section with Interactive Hexagonal Background */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+        <InteractiveHexagonBackground 
+          primaryColor={studentsColors.hero.background}
+          accentColor={studentsColors.hero.hexagonAccent}
+          className="absolute inset-0 z-0"
+        />
+        
+        {/* Hero Content - Centered */}
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+          {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white mb-8"
           >
-            <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-900/60 text-white border border-blue-400/30">
-                <GraduationCap className="w-4 h-4 mr-2 text-orange-300" />
-                Student Hub
-              </span>
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 cursor-pointer">
-              <EnhancedMagicTitle text="Your Innovation Journey" />
-              <span className="block mt-4">
-                <EnhancedMagicTitle text="Starts Here" />
-              </span>
-            </h1>
-            
-            <EnhancedMagicSubtitle 
-              text="Discover programs, connect with mentors, access resources, and transform your ideas into reality through CIE's comprehensive ecosystem."
-              className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed"
-            />
+            <GraduationCap className="w-4 h-4 mr-2" />
+            <span className="text-sm font-medium">Student Hub</span>
+          </motion.div>
+
+          {/* Title - Centered */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-7xl font-bold text-white mb-6"
+          >
+            Your Innovation Journey
+            <span className="block mt-4 bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
+              Starts Here
+            </span>
+          </motion.h1>
+
+          {/* Subtitle - Centered */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
+          >
+            Discover programs, connect with mentors, access resources, and transform your ideas into reality through CIE&apos;s comprehensive ecosystem.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <Link href="/students/programs">
+              <Button 
+                variant="cie" 
+                size="lg"
+                className="group bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white"
+              >
+                Explore Programs
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link href="/students/startup-program">
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+              >
+                Join Startup Program
+              </Button>
+            </Link>
           </motion.div>
         </div>
-      </HeroBackground>
+      </section>
 
       {/* Rest of the page remains the same as before */}
       {/* Quick Stats */}
@@ -411,13 +464,13 @@ export default function StudentsPage() {
       </section>
 
       {/* Main Sections Dashboard */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Explore Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Opportunities</span>
@@ -438,35 +491,81 @@ export default function StudentsPage() {
                   transition={{ duration: 0.6, delay: index * 0.05 }}
                   className={`${index >= 5 ? 'md:col-span-2 lg:col-span-3 xl:col-span-1' : ''}`}
                 >
-                  <Link href={section.href}>
-                    <div className="bg-white rounded-3xl p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 group cursor-pointer h-full">
-                      <div className={`w-16 h-16 bg-gradient-to-br ${getColorClasses(section.color)} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                        <IconComponent className="w-8 h-8 text-white" />
+                  <MorphingDialog
+                    transition={{
+                      type: 'spring',
+                      bounce: 0.05,
+                      duration: 0.25,
+                    }}
+                  >
+                    <MorphingDialogTrigger className="w-full h-full text-left">
+                      <div className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 group cursor-pointer h-full">
+                        <div className={`w-12 h-12 bg-gradient-to-br ${getColorClasses(section.color)} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                          <IconComponent className="w-6 h-6 text-white" />
+                        </div>
+                        
+                        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                          {section.title}
+                        </h3>
+                        
+                        <p className="text-gray-600 text-sm line-clamp-2">
+                          {section.description}
+                        </p>
+                        
+                        <div className="flex items-center text-blue-600 font-semibold mt-4 text-sm">
+                          <span>Learn More</span>
+                          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        </div>
                       </div>
-                      
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                        {section.title}
-                      </h3>
-                      
-                      <p className="text-gray-600 mb-4 leading-relaxed">
-                        {section.description}
-                      </p>
-                      
-                      <div className="space-y-2 mb-6">
-                        {section.highlights.map((highlight, idx) => (
-                          <div key={idx} className="flex items-center text-sm text-gray-500">
-                            <div className={`w-2 h-2 bg-${section.color}-500 rounded-full mr-3`} />
-                            <span>{highlight}</span>
-                          </div>
-                        ))}
-                      </div>
-                      
-                      <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-700">
-                        <span>Explore</span>
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </div>
-                  </Link>
+                    </MorphingDialogTrigger>
+
+                    <MorphingDialogContainer>
+                      <MorphingDialogContent
+                        className="pointer-events-auto relative flex h-auto w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl"
+                      >
+                        <div className="p-8">
+                          <MorphingDialogTitle className="mb-6">
+                            <div className={`w-16 h-16 bg-gradient-to-br ${getColorClasses(section.color)} rounded-2xl flex items-center justify-center mb-4`}>
+                              <IconComponent className="w-8 h-8 text-white" />
+                            </div>
+                            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+                              {section.title}
+                            </h2>
+                            <p className="text-lg text-gray-600">
+                              {section.description}
+                            </p>
+                          </MorphingDialogTitle>
+
+                          <MorphingDialogDescription
+                            disableLayoutAnimation
+                            variants={{
+                              initial: { opacity: 0, scale: 0.8, y: 100 },
+                              animate: { opacity: 1, scale: 1, y: 0 },
+                              exit: { opacity: 0, scale: 0.8, y: 100 },
+                            }}
+                          >
+                            <div className="space-y-4 mb-6">
+                              <h4 className="font-semibold text-gray-900">Key Highlights:</h4>
+                              {section.highlights.map((highlight, idx) => (
+                                <div key={idx} className="flex items-start">
+                                  <div className={`w-2 h-2 bg-${section.color}-500 rounded-full mr-3 mt-2 flex-shrink-0`} />
+                                  <span className="text-gray-700">{highlight}</span>
+                                </div>
+                              ))}
+                            </div>
+                            
+                            <Link href={section.href}>
+                              <Button className={`w-full bg-gradient-to-r ${getColorClasses(section.color)}`}>
+                                <span className="text-white">Explore {section.title}</span>
+                                <ArrowRight className="w-5 h-5 ml-2 text-white" />
+                              </Button>
+                            </Link>
+                          </MorphingDialogDescription>
+                        </div>
+                        <MorphingDialogClose className="text-gray-500 hover:text-gray-700" />
+                      </MorphingDialogContent>
+                    </MorphingDialogContainer>
+                  </MorphingDialog>
                 </motion.div>
               );
             })}
@@ -475,13 +574,13 @@ export default function StudentsPage() {
       </section>
 
       {/* Recent Updates */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Recent <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Updates</span>
@@ -491,7 +590,7 @@ export default function StudentsPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {recentUpdates.map((update, index) => (
               <motion.div
                 key={update.title}
@@ -510,29 +609,27 @@ export default function StudentsPage() {
                   </span>
                   {update.urgent && (
                     <div className="flex items-center text-red-600">
-                      <Star className="w-4 h-4 mr-1" />
-                      <span className="text-xs font-medium">Urgent</span>
+                      <Star className="w-4 h-4" />
                     </div>
                   )}
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
                   {update.title}
                 </h3>
                 
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600 text-sm line-clamp-2 mb-4">
                   {update.description}
                 </p>
                 
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-gray-500">
                     {new Date(update.date).toLocaleDateString('en-US', {
                       month: 'short',
-                      day: 'numeric',
-                      year: 'numeric'
+                      day: 'numeric'
                     })}
                   </span>
-                  <Button className="text-sm px-4 py-2">
+                  <Button className="text-sm px-3 py-1">
                     Learn More
                   </Button>
                 </div>
@@ -543,7 +640,7 @@ export default function StudentsPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-indigo-700">
+      <section className="py-16 bg-gradient-to-br from-blue-600 to-indigo-700">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

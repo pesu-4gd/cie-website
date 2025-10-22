@@ -367,21 +367,13 @@ const BootcampPage = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-pes-navy via-pes-navy-light to-pes-orange pt-24 pb-16 overflow-hidden min-h-screen">
-        {/* Background Image */}
+        {/* Gradient Background */}
         <motion.div
           initial={{ opacity: 0.1 }}
-          animate={{ opacity: 0.6 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1.0, delay: 0.2 }}
-          className="absolute inset-0 z-0"
-        >
-          <Image
-            src="/assets/bootcamp/bootcamp-by-numbers.jpg"
-            alt="Bootcamp Statistics"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-        </motion.div>
+          className="absolute inset-0 z-0 bg-gradient-to-br from-[#F15A29] via-[#FFC107] to-[#F15A29]"
+        />
         
         {/* Dark overlay */}
         <motion.div
@@ -513,16 +505,12 @@ const BootcampPage = () => {
                   aspectRatio: '1280/650'
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10" />
-                <Image
-                  src="/assets/bootcamp/bootcamp-by-numbers.jpg"
-                  alt="CIE Bootcamp 2018 - Students and Innovation"
-                  fill
-                  className="object-contain object-center transition-transform duration-700 hover:scale-105"
-                  priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 640px"
-                  style={{ objectFit: 'contain' }}
-                />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#F15A29] via-[#FFC107] to-[#F15A29] flex items-center justify-center">
+                  <div className="text-center text-white px-8">
+                    <h3 className="text-4xl lg:text-5xl font-bold mb-4">CIE Bootcamp</h3>
+                    <p className="text-xl lg:text-2xl opacity-90">Innovation in Action</p>
+                  </div>
+                </div>
               </motion.div>
 
               {/* Stats Widget Below Image */}

@@ -322,16 +322,11 @@ const BasecampPage = () => {
             viewport={{ once: true }}
             className="mb-12 flex justify-center"
           >
-            <div className="relative max-w-4xl w-full">
-              <Image
-                src="/assets/basecamp/Basecamp-by-Numbers.jpg"
-                alt="Basecamp 2018 by Numbers - Official Statistics"
-                width={800}
-                height={600}
-                className="rounded-2xl shadow-2xl w-full h-auto"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+            <div className="relative max-w-4xl w-full h-[400px] lg:h-[500px] rounded-2xl bg-gradient-to-br from-[#2B9EB3] to-[#3E3C6B] shadow-2xl flex items-center justify-center">
+              <div className="text-center text-white px-8">
+                <h3 className="text-4xl lg:text-5xl font-bold mb-4">CIE Basecamp</h3>
+                <p className="text-xl lg:text-2xl opacity-90">Foundation for Innovation</p>
+              </div>
             </div>
           </motion.div>
 

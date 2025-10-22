@@ -3,10 +3,13 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { HeroBackground } from '@/components/ui/hero-background';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Phone, HelpCircle, FileText, Users, Building } from 'lucide-react';
 import { motion } from 'framer-motion';
+
+const insideCieColors = SECTION_COLORS.insideCie;
 
 const InsideCIEPage = () => {
   const sections = [
@@ -48,35 +51,80 @@ const InsideCIEPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <HeroBackground
-        section="inside-cie"
-        overlayOpacity={0.4}
-      >
-        <div className="max-w-7xl mx-auto px-6">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section with Interactive Hexagonal Background */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+        <InteractiveHexagonBackground 
+          primaryColor={insideCieColors.hero.background}
+          accentColor={insideCieColors.hero.hexagonAccent}
+          className="absolute inset-0 z-0"
+        />
+        
+        {/* Hero Content - Centered */}
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+          {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white mb-8"
           >
-            <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
-                <Building className="w-4 h-4 mr-2" />
-                Inside CIE
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-              Behind the Innovation
-              <span className="block text-blue-200">Discover Our Story</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8">
-              Discover additional resources, information about CIE, and ways to connect with us.
-            </p>
+            <Building className="w-4 h-4 mr-2" />
+            <span className="text-sm font-medium">Inside CIE</span>
+          </motion.div>
+
+          {/* Title - Centered */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-7xl font-bold text-white mb-6"
+          >
+            Behind the Innovation
+            <span className="block mt-4 bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">
+              Discover Our Story
+            </span>
+          </motion.h1>
+
+          {/* Subtitle - Centered */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
+          >
+            Discover additional resources, information about CIE, and ways to connect with us.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <Link href="/about">
+              <Button 
+                variant="default" 
+                size="lg"
+                className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white"
+              >
+                Learn About CIE
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+              >
+                Contact Us
+              </Button>
+            </Link>
           </motion.div>
         </div>
-      </HeroBackground>
+      </section>
 
       <div className="container mx-auto px-4 py-12">
 

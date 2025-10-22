@@ -1,0 +1,36 @@
+[
+  {
+    "id": "job-001",
+    "title": "Software Engineer Intern",
+    "company": "TechCorp Solutions",
+    "location": "Bangalore, India",
+    "type": "internship",
+    "duration": "6 months",
+    "description": "Join our dynamic team to work on cutting-edge web applications",
+    "requirements": ["React.js", "Node.js", "JavaScript", "Git"],
+    "salary": "₹25,000/month",
+    "postedDate": "2025-01-15",
+    "applicationDeadline": "2025-02-15",
+    "contactEmail": "careers@techcorp.com",
+    "remote": false,
+    "experienceLevel": "entry",
+    "tags": ["software", "internship", "web-development"]
+  },
+  {
+    "id": "job-002",
+    "title": "Product Manager",
+    "company": "StartupXYZ",
+    "location": "Remote",
+    "type": "full-time",
+    "duration": "permanent",
+    "description": "Lead product strategy and development for our innovative platform",
+    "requirements": ["Product Management", "Agile", "Analytics", "Leadership"],
+    "salary": "₹8-12 LPA",
+    "postedDate": "2025-01-10",
+    "applicationDeadline": "2025-02-10",
+    "contactEmail": "hr@startupxyz.com",
+    "remote": true,
+    "experienceLevel": "mid",
+    "tags": ["product-management", "remote", "startup"]
+  }
+]

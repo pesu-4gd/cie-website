@@ -1,7 +1,8 @@
 'use client';
 
 import { Button } from '@/components/design-system';
-import { HeroBackground } from '@/components/ui/hero-background';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
 import { motion } from 'framer-motion';
 import { 
   Building2, 
@@ -25,6 +26,9 @@ import {
   MapPin
 } from 'lucide-react';
 import { useState } from 'react';
+import Link from 'next/link';
+
+const industryColors = SECTION_COLORS.industry;
 
 export default function IndustryPage() {
   const [activePartnership, setActivePartnership] = useState('sponsorship');
@@ -165,46 +169,77 @@ export default function IndustryPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <HeroBackground
-        section="industry"
-        overlayOpacity={0.4}
-      >
-        <div className="max-w-7xl mx-auto px-6">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section with Interactive Hexagonal Background */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+        <InteractiveHexagonBackground 
+          primaryColor={industryColors.hero.background}
+          accentColor={industryColors.hero.hexagonAccent}
+          className="absolute inset-0 z-0"
+        />
+        
+        {/* Hero Content - Centered */}
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+          {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white mb-8"
           >
-            <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
-                <Building2 className="w-4 h-4 mr-2" />
-                Industry Partnerships
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Partner with Innovation
-              <span className="block text-blue-200">Drive the Future</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8">
-              Join leading companies in shaping the next generation of innovators. Collaborate with CIE to access top talent, drive research, and create lasting impact.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold rounded-xl">
-                <Handshake className="w-5 h-5 mr-2" />
-                Explore Partnerships
-              </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
-                <Phone className="w-5 h-5 mr-2" />
-                Schedule a Meeting
-              </Button>
-            </div>
+            <Building2 className="w-4 h-4 mr-2" />
+            <span className="text-sm font-medium">Industry Partnerships</span>
+          </motion.div>
+
+          {/* Title - Centered */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-7xl font-bold text-white mb-6"
+          >
+            Partner with Innovation
+            <span className="block mt-4 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
+              Drive the Future
+            </span>
+          </motion.h1>
+
+          {/* Subtitle - Centered */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
+          >
+            Join leading companies in shaping the next generation of innovators. Collaborate with CIE to access top talent, drive research, and create lasting impact.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <Button 
+              variant="default" 
+              size="lg"
+              className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
+            >
+              <Handshake className="w-5 h-5 mr-2" />
+              Explore Partnerships
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              Schedule a Meeting
+            </Button>
           </motion.div>
         </div>
-      </HeroBackground>
+      </section>
 
       {/* Partnership Stats */}
       <section className="py-16 bg-white">
