@@ -1,11 +1,13 @@
-'use client';
+"use client";
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useImageSlideshow } from '@/lib/hooks/useImageSlideshow';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
 
 interface HeroBackgroundProps {
-  section: 'students' | 'alumni' | 'industry' | 'inside-cie';
+  section: 'students' | 'alumni' | 'industry' | 'inside-cie' | 'landing';
   children: React.ReactNode;
   className?: string;
   overlayOpacity?: number;
@@ -26,10 +28,20 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
     isLoading
   } = useImageSlideshow(section, intervalMs);
 
+  // map section prop to SECTION_COLORS key
+  const sectionKey = section === 'inside-cie' ? 'insideCie' : (section as keyof typeof SECTION_COLORS);
+  const colors = SECTION_COLORS[sectionKey as keyof typeof SECTION_COLORS] ?? SECTION_COLORS.landing;
+
   return (
     <section 
-      className={`relative min-h-screen flex items-center overflow-hidden ${className}`}
+      className={`relative h-[85vh] flex items-center overflow-hidden ${className}`}
     >
+      {/* Interactive hexagon layer */}
+      <InteractiveHexagonBackground
+        className="absolute inset-0 z-0"
+        primaryColor={colors.hero.background}
+        accentColor={colors.hero.hexagonAccent}
+      />
       {/* Image Slideshow Background */}
       <div className="absolute inset-0 z-0">
         {!isLoading && currentImage && (

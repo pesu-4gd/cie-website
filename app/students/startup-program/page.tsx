@@ -2,6 +2,8 @@
 
 import { Button } from '@/components/design-system';
 import { motion } from 'framer-motion';
+import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { 
   Rocket, 
   DollarSign,
@@ -26,6 +28,7 @@ import {
 } from 'lucide-react';
 
 export default function StudentStartupProgramPage() {
+  const studentsColors = SECTION_COLORS.students;
   const programStats = [
     { label: 'Startups Launched', value: '50+', icon: Rocket, color: 'blue' },
     { label: 'Total Funding Raised', value: '₹2Cr+', icon: DollarSign, color: 'green' },
@@ -199,10 +202,11 @@ export default function StudentStartupProgramPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen" style={{ background: studentsColors.gradient.css }}>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#00338d] via-blue-700 to-[#f07f1a] text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden" style={{ background: studentsColors.gradient.css }}>
+        <InteractiveHexagonBackground className="absolute inset-0 z-0" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -210,14 +214,14 @@ export default function StudentStartupProgramPage() {
             className="text-center"
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/20 text-white border border-white/30">
-                <Rocket className="w-4 h-4 mr-2" />
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium" style={{ background: studentsColors.primary, color: '#fff' }}>
+                <Rocket className="w-4 h-4 mr-2 text-white" />
                 Flagship Program
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
               Student Startup
-              <span className="block text-blue-200">Program</span>
+              <span className="block" style={{ color: studentsColors.accent }}>Program</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
               Transform your ideas into thriving startups through CIE's flagship program. Access funding, mentorship, resources, and a supportive ecosystem designed for student entrepreneurs.

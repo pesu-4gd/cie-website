@@ -7,6 +7,8 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { BookOpen, Download, ExternalLink, Search, Video, FileText, Code, Lightbulb, Users, Calendar, Star } from 'lucide-react';
 import { useState } from 'react';
+import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 
 interface Resource {
   id: string;
@@ -206,6 +208,7 @@ const categories = ['All', 'Learning Materials', 'Tools & Software', 'Video Tuto
 const types = ['All', 'PDF', 'Video', 'Tool', 'Template', 'Course', 'Toolkit'];
 
 export default function ResourcesPage() {
+  const studentsColors = SECTION_COLORS.students;
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [activeTab, setActiveTab] = useState('all');
@@ -241,15 +244,20 @@ export default function ResourcesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className={`min-h-screen ${studentsColors.gradient.tailwind}`}>
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
+        <InteractiveHexagonBackground
+          primaryColor={studentsColors.hero?.background}
+          accentColor={studentsColors.hero?.hexagonAccent}
+          className="absolute inset-0 z-0"
+        />
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
           <div className="mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-6">
+            <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 ${studentsColors.gradient.tailwind}`}>
               <BookOpen className="h-8 w-8 text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Learning Resources
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">

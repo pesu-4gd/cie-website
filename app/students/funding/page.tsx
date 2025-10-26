@@ -1,4 +1,4 @@
-'use client';
+ 'use client';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -38,6 +38,8 @@ import {
   Banknote
 } from 'lucide-react';
 import { useState } from 'react';
+import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 
@@ -258,6 +260,7 @@ const amounts = ['All', '< ₹1L', '₹1L - ₹3L', '₹3L - ₹5L', '> ₹5L'];
 const statuses = ['All', 'Open', 'Closing Soon', 'Closed'];
 
 export default function FundingPage() {
+  const studentsColors = SECTION_COLORS.students;
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedAmount, setSelectedAmount] = useState('All');
@@ -294,30 +297,31 @@ export default function FundingPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-green-600/10 to-blue-600/10" />
-        <div className="relative max-w-7xl mx-auto">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+        <InteractiveHexagonBackground className="absolute inset-0 z-0" />
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <Badge className="mb-4 bg-green-100 text-green-800 hover:bg-green-200">
-              <DollarSign className="h-4 w-4 mr-1" />
+            <Badge className="mb-4 bg-[#2B9EB3] text-white">
+              <DollarSign className="h-4 w-4 mr-1 text-white" />
               Funding & Scholarships
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Fund Your <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Innovation</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              Fund Your <span className={`${studentsColors.gradient.tailwind} bg-clip-text text-transparent`}>Innovation</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
               Discover funding opportunities, scholarships, and grants to support your academic journey, 
               research projects, and entrepreneurial ventures.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-green-600 hover:bg-green-700">
+              <Button size="lg" className={`bg-[transparent] ${studentsColors.gradient.tailwind} text-white`}>
                 <Search className="h-5 w-5 mr-2" />
                 Explore Opportunities
               </Button>
@@ -498,6 +502,7 @@ function OpportunitiesSection({
           <div className="flex items-center space-x-2">
             <Filter className="h-4 w-4 text-gray-500" />
             <select
+              aria-label="Filter by category"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
               className="border border-gray-300 rounded-md px-3 py-2 bg-white flex-1"
@@ -511,6 +516,7 @@ function OpportunitiesSection({
           <div className="flex items-center space-x-2">
             <Banknote className="h-4 w-4 text-gray-500" />
             <select
+              aria-label="Filter by amount"
               value={selectedAmount}
               onChange={(e) => setSelectedAmount(e.target.value)}
               className="border border-gray-300 rounded-md px-3 py-2 bg-white flex-1"
@@ -524,6 +530,7 @@ function OpportunitiesSection({
           <div className="flex items-center space-x-2">
             <Clock className="h-4 w-4 text-gray-500" />
             <select
+              aria-label="Filter by status"
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
               className="border border-gray-300 rounded-md px-3 py-2 bg-white flex-1"

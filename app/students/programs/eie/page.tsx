@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { 
   BookOpen, 
   Clock, 
@@ -193,9 +194,10 @@ export default function EIEPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
+        <InteractiveHexagonBackground className="absolute inset-0 z-0" />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10" />
-        <div className="relative max-w-7xl mx-auto">
+        <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

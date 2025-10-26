@@ -18,6 +18,8 @@ import {
   TrendingUp
 } from 'lucide-react';
 import { Button } from '@/components/design-system';
+import {InteractiveHexagonBackground} from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
 
 const BasecampPage = () => {
   const [currentSessionSlide, setCurrentSessionSlide] = useState(0);
@@ -269,9 +271,13 @@ const BasecampPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-orange-500/10"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
+        <InteractiveHexagonBackground
+          className="absolute inset-0 z-0"
+          primaryColor={SECTION_COLORS.students.hero.background}
+          accentColor={SECTION_COLORS.students.hero.hexagonAccent}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

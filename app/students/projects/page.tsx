@@ -6,6 +6,8 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Rocket, Users, Calendar, ExternalLink, Search, Filter, Star, Award, TrendingUp } from 'lucide-react';
+import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { useState } from 'react';
 
 interface Project {
@@ -114,6 +116,7 @@ const categories = ['All', 'AI/ML', 'Healthcare', 'Education', 'Sustainability',
 const statuses = ['All', 'Planning', 'In Progress', 'Completed'];
 
 export default function ProjectsPage() {
+  const studentsColors = SECTION_COLORS.students;
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedStatus, setSelectedStatus] = useState('All');
@@ -149,14 +152,15 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen" style={{ background: studentsColors.gradient.css }}>
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
+        <InteractiveHexagonBackground className="absolute inset-0 z-0" />
         <div className="max-w-7xl mx-auto text-center">
           <div className="mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-6">
-              <Rocket className="h-8 w-8 text-white" />
-            </div>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6" style={{ background: studentsColors.primary }}>
+                <Rocket className="h-8 w-8 text-white" />
+              </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Student Projects
             </h1>
@@ -173,25 +177,25 @@ export default function ProjectsPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <Card className="text-center">
               <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
+                <div className="text-3xl font-bold mb-2" style={{ color: studentsColors.primary }}>50+</div>
                 <div className="text-gray-600">Active Projects</div>
               </CardContent>
             </Card>
             <Card className="text-center">
               <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-green-600 mb-2">₹25L+</div>
+                <div className="text-3xl font-bold mb-2" style={{ color: studentsColors.accent }}>₹25L+</div>
                 <div className="text-gray-600">Total Funding</div>
               </CardContent>
             </Card>
             <Card className="text-center">
               <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-purple-600 mb-2">200+</div>
+                <div className="text-3xl font-bold mb-2" style={{ color: studentsColors.primary }}>200+</div>
                 <div className="text-gray-600">Students Involved</div>
               </CardContent>
             </Card>
             <Card className="text-center">
               <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-orange-600 mb-2">15+</div>
+                <div className="text-3xl font-bold mb-2" style={{ color: studentsColors.accent }}>15+</div>
                 <div className="text-gray-600">Awards Won</div>
               </CardContent>
             </Card>
@@ -200,7 +204,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Search and Filters */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8">
+  <section className="py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-4 mb-8">
             {/* Search */}
@@ -277,9 +281,9 @@ export default function ProjectsPage() {
                     <div className="flex items-start justify-between">
                       <div className="flex items-center space-x-2">
                         <span className="text-2xl">{getCategoryIcon(project.category)}</span>
-                        <Badge variant="secondary">{project.category}</Badge>
+                        <Badge variant="secondary" style={{ backgroundColor: `rgba(${hexToRgb(studentsColors.primary)}, 0.08)`, color: studentsColors.primary }}>{project.category}</Badge>
                       </div>
-                      <Badge className={getStatusColor(project.status)}>
+                      <Badge style={{ backgroundColor: studentsColors.accent, color: '#fff' }}>
                         {project.status}
                       </Badge>
                     </div>

@@ -3,6 +3,7 @@
 import { Button } from '@/components/design-system';
 import { ArrowRight, Users, Building2, GraduationCap, Play, Sparkles, Rocket, Calendar, BookOpen, BarChart3, Zap, X, Bell, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { SECTION_COLORS } from '@/styles/colors';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useState, useEffect } from 'react';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
@@ -32,7 +33,7 @@ export default function Home() {
 
         {/* Decorative Gradient Orbs */}
         <div className="absolute top-20 right-20 w-64 h-64 bg-[#2B9EB3]/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse pointer-events-none" />
-        <div className="absolute bottom-20 left-20 w-64 h-64 bg-[#F15A29]/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse pointer-events-none" style={{animationDelay: '2s'}} />
+  <div className="absolute bottom-20 left-20 w-64 h-64 bg-[#F15A29]/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse pointer-events-none" />
 
         {/* Hero Content */}
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -101,67 +102,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Announcement Popup */}
+      {/* Announcement Popup - replaced with compact themed notification (top-right) */}
       {showAnnouncementPopup && (
         <motion.div
-          initial={{ opacity: 0, x: 400, y: 100 }}
-          animate={{ opacity: 1, x: 0, y: 0 }}
-          exit={{ opacity: 0, x: 400, y: 100 }}
-          className="fixed bottom-6 right-6 z-50 max-w-sm w-80"
+          initial={{ opacity: 0, y: -100 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -100 }}
+          className="fixed top-6 right-6 z-50 max-w-sm w-80"
         >
-          <div className="bg-gradient-to-br from-[#2B9EB3] via-[#3E3C6B] to-[#F15A29] rounded-2xl shadow-2xl overflow-hidden border border-white/20">
-            {/* Header with close button */}
-            <div className="relative p-4 pb-2">
-              <button
-                onClick={() => setShowAnnouncementPopup(false)}
-                className="absolute top-3 right-3 w-6 h-6 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors"
-                title="Close announcement"
-                aria-label="Close announcement popup"
-              >
-                <X className="w-3 h-3 text-white" />
-              </button>
-              
-              {/* Animated bell icon */}
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-                  <Bell className="w-5 h-5 text-white animate-pulse" />
-                </div>
-                <div>
-                  <h3 className="text-white font-bold text-lg">New Updates!</h3>
-                  <p className="text-white/80 text-xs">CIE Announcements</p>
-                </div>
+          <div className={`relative rounded-md border px-4 py-3 bg-gradient-to-br from-[${SECTION_COLORS.landing.gradient.stops[0]}]/90 to-[${SECTION_COLORS.landing.gradient.stops[1]}]/90 text-white border-white/10 shadow-lg`}> 
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowAnnouncementPopup(false);
+              }}
+              className="absolute top-2 right-2 w-6 h-6 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors"
+              title="Close announcement"
+              aria-label="Close announcement"
+            >
+              <X className="w-3 h-3 text-white" />
+            </button>
+
+            <div className="flex gap-3 items-start">
+              <Users
+                className="shrink-0 mt-0.5 text-white/95"
+                size={16}
+                aria-hidden="true"
+              />
+              <div className="flex grow justify-between gap-3 items-center">
+                <p className="text-sm text-white font-medium">Join the Change Makers Society Club</p>
+                <a
+                  href="/announcements"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    globalThis.location.href = '/announcements';
+                  }}
+                  className="group text-sm font-medium whitespace-nowrap text-white/95 flex items-center gap-1"
+                >
+                  Link
+                  <ArrowRight className="ml-1 -mt-0.5 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5" size={16} aria-hidden="true" />
+                </a>
               </div>
             </div>
-
-            {/* Content */}
-            <div className="px-4 pb-4">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 mb-3">
-                <p className="text-white/90 text-sm leading-relaxed">
-                  🚀 Don&apos;t miss out on the latest opportunities, events, and important notices from CIE!
-                </p>
-              </div>
-              
-              {/* Action buttons */}
-              <div className="flex gap-2">
-                <button
-                  onClick={() => window.location.href = '/announcements'}
-                  className="flex-1 bg-[#2B9EB3] text-gray-100 hover:bg-[#3E3C6B] px-4 py-2 rounded-lg font-semibold text-sm transition-colors flex items-center justify-center"
-                >
-                  <Calendar className="w-4 h-4 mr-1" />
-                  View All
-                </button>
-                <button
-                  onClick={() => setShowAnnouncementPopup(false)}
-                  className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg font-semibold text-sm transition-colors"
-                >
-                  Later
-                </button>
-              </div>
-            </div>
-
-            {/* Decorative elements */}
-            <div className="absolute top-2 left-2 w-2 h-2 bg-white/30 rounded-full animate-ping"></div>
-            <div className="absolute bottom-2 right-8 w-1 h-1 bg-white/40 rounded-full animate-pulse"></div>
           </div>
         </motion.div>
       )}

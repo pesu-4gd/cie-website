@@ -2,6 +2,8 @@
 
 import { Button } from '@/components/design-system';
 import { motion } from 'framer-motion';
+import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { 
   BookOpen, 
   Clock, 
@@ -22,6 +24,7 @@ import {
 import { useState } from 'react';
 
 export default function ProgramsPage() {
+  const studentsColors = SECTION_COLORS.students;
   const [activeTab, setActiveTab] = useState('core');
 
   const programCategories = [
@@ -220,10 +223,11 @@ export default function ProgramsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden" style={{ background: studentsColors.gradient.css }}>
+        <InteractiveHexagonBackground className="absolute inset-0 z-0" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -231,7 +235,7 @@ export default function ProgramsPage() {
             className="text-center"
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium" style={{ backgroundColor: `rgba(${hexToRgb(studentsColors.primary)}, 0.12)`, color: studentsColors.primary }}>
                 <GraduationCap className="w-4 h-4 mr-2" />
                 Student Programs
               </span>
@@ -240,7 +244,7 @@ export default function ProgramsPage() {
               Transform Your Ideas
               <span className="block text-purple-200">Into Reality</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
               Comprehensive programs designed to nurture entrepreneurial thinking, innovation skills, and practical business knowledge.
             </p>
           </motion.div>

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import Image from 'next/image';
@@ -21,6 +21,8 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/design-system';
 import { Card } from '@/components/ui/card';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
 
 const BootcampPage = () => {
   const [currentTeamSlide, setCurrentTeamSlide] = useState(0);
@@ -363,10 +365,18 @@ const BootcampPage = () => {
     }
   ];
 
+  const studentsColors = SECTION_COLORS.students;
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-pes-navy via-pes-navy-light to-pes-orange pt-24 pb-16 overflow-hidden min-h-screen">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-pes-navy via-pes-navy-light to-pes-orange">
+        {/* Interactive Hexagonal Background */}
+        <InteractiveHexagonBackground
+          className="absolute inset-0 z-0"
+          primaryColor={studentsColors.hero.background}
+          accentColor={studentsColors.hero.hexagonAccent}
+        />
         {/* Gradient Background */}
         <motion.div
           initial={{ opacity: 0.1 }}

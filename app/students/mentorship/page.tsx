@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
+import { SECTION_COLORS } from '@/styles/colors';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { 
   Users, 
   Star, 
@@ -269,6 +271,7 @@ const locations = ['All', 'Bangalore', 'Mumbai', 'Delhi', 'Hyderabad', 'USA', 'E
 const companies = ['All', 'Google', 'Microsoft', 'Amazon', 'Flipkart', 'Startup', 'Consulting'];
 
 export default function MentorshipPage() {
+  const studentsColors = SECTION_COLORS.students;
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedExpertise, setSelectedExpertise] = useState('All');
   const [selectedLocation, setSelectedLocation] = useState('All');
@@ -287,30 +290,35 @@ export default function MentorshipPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <div className={`min-h-screen bg-gradient-to-br ${studentsColors.gradient.tailwind}`}>
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10" />
-        <div className="relative max-w-7xl mx-auto">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
+        <InteractiveHexagonBackground
+          className="absolute inset-0 z-0"
+          primaryColor={studentsColors.hero?.background}
+          accentColor={studentsColors.hero?.hexagonAccent}
+        />
+        <div className={`absolute inset-0 bg-gradient-to-r from-[${studentsColors.primary}]/10 to-[${studentsColors.secondary}]/10`} />
+            <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-200">
+            <Badge className={`mb-4 bg-[${studentsColors.primary}]/12 text-[${studentsColors.primary}]`}>
               <Users className="h-4 w-4 mr-1" />
               Mentorship Program
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Connect with <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Industry Mentors</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              Connect with <span className={`bg-clip-text text-transparent bg-gradient-to-r ${studentsColors.gradient.tailwind}`}>Industry Mentors</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Get personalized guidance from industry experts, successful entrepreneurs, and alumni 
               to accelerate your career and entrepreneurial journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <Button size="lg" className={`text-white bg-gradient-to-r ${studentsColors.gradient.tailwind}`}>
                 <MessageCircle className="h-5 w-5 mr-2" />
                 Find a Mentor
               </Button>
@@ -324,7 +332,7 @@ export default function MentorshipPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+  <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <motion.div
@@ -463,6 +471,7 @@ function MentorsSection({
   selectedCompany: string;
   setSelectedCompany: (company: string) => void;
 }) {
+  const studentsColors = SECTION_COLORS.students;
   return (
     <div className="space-y-8">
       {/* Search and Filters */}
@@ -476,11 +485,13 @@ function MentorsSection({
             className="pl-10"
           />
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="flex items-center space-x-2">
             <Filter className="h-4 w-4 text-gray-500" />
             <select
+              aria-label="Filter by expertise"
+              title="Filter by expertise"
               value={selectedExpertise}
               onChange={(e) => setSelectedExpertise(e.target.value)}
               className="border border-gray-300 rounded-md px-3 py-2 bg-white flex-1"
@@ -490,10 +501,11 @@ function MentorsSection({
               ))}
             </select>
           </div>
-          
+
           <div className="flex items-center space-x-2">
             <MapPin className="h-4 w-4 text-gray-500" />
             <select
+              aria-label="Filter by location"
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
               className="border border-gray-300 rounded-md px-3 py-2 bg-white flex-1"
@@ -503,10 +515,11 @@ function MentorsSection({
               ))}
             </select>
           </div>
-          
+
           <div className="flex items-center space-x-2">
             <Building2 className="h-4 w-4 text-gray-500" />
             <select
+              aria-label="Filter by company"
               value={selectedCompany}
               onChange={(e) => setSelectedCompany(e.target.value)}
               className="border border-gray-300 rounded-md px-3 py-2 bg-white flex-1"
@@ -537,21 +550,21 @@ function MentorsSection({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className={`h-full hover:shadow-lg transition-shadow ${mentor.featured ? 'ring-2 ring-blue-500' : ''}`}>
+                <Card className={'h-full hover:shadow-lg transition-shadow ' + (mentor.featured ? 'ring-2 ring-[' + studentsColors.primary + ']/20' : '')}>
                 {mentor.featured && (
-                  <div className="bg-blue-600 text-white text-center py-2 text-sm font-semibold">
+                  <div className={`text-white text-center py-2 text-sm font-semibold bg-[${studentsColors.primary}]`}>
                     <Star className="h-4 w-4 inline mr-1" />
                     Featured Mentor
                   </div>
                 )}
                 <CardHeader>
                   <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <User className="h-8 w-8 text-blue-600" />
+                    <div className={`w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-[${studentsColors.primary}]/10 to-[${studentsColors.secondary}]/10`}>
+                      <User className={`h-8 w-8 text-[${studentsColors.primary}]`} />
                     </div>
                     <div className="flex-1">
                       <CardTitle className="text-xl">{mentor.name}</CardTitle>
-                      <CardDescription className="text-blue-600 font-medium">
+                      <CardDescription className={`font-medium text-[${studentsColors.primary}]`}>
                         {mentor.title}
                       </CardDescription>
                       <p className="text-sm text-gray-600">{mentor.company}</p>
@@ -585,8 +598,8 @@ function MentorsSection({
                     </div>
                     
                     <div className="flex flex-wrap gap-1">
-                      {mentor.expertise.slice(0, 3).map((skill, idx) => (
-                        <Badge key={idx} variant="outline" className="text-xs">
+                      {mentor.expertise.slice(0, 3).map((skill) => (
+                        <Badge key={skill} variant="outline" className="text-xs">
                           {skill}
                         </Badge>
                       ))}
@@ -597,7 +610,7 @@ function MentorsSection({
                       )}
                     </div>
                     
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                    <Button className={`w-full text-white bg-gradient-to-r ${studentsColors.gradient.tailwind}`}>
                       <MessageCircle className="h-4 w-4 mr-2" />
                       Connect
                     </Button>
@@ -613,7 +626,7 @@ function MentorsSection({
 }
 
 // Programs Section Component
-function ProgramsSection({ programs }: { programs: typeof mentorshipPrograms }) {
+function ProgramsSection({ programs }: { readonly programs: typeof mentorshipPrograms }) {
   return (
     <div className="space-y-8">
       <div className="text-center">
@@ -669,8 +682,8 @@ function ProgramsSection({ programs }: { programs: typeof mentorshipPrograms }) 
                     <div>
                       <p className="text-gray-600 text-sm mb-2">Benefits:</p>
                       <ul className="space-y-1">
-                        {program.benefits.map((benefit, idx) => (
-                          <li key={idx} className="flex items-center space-x-2 text-sm">
+                        {program.benefits.map((benefit) => (
+                          <li key={benefit} className="flex items-center space-x-2 text-sm">
                             <CheckCircle className="h-4 w-4 text-green-600" />
                             <span>{benefit}</span>
                           </li>
@@ -699,7 +712,7 @@ function ProgramsSection({ programs }: { programs: typeof mentorshipPrograms }) 
 }
 
 // Success Stories Section Component
-function SuccessStoriesSection({ stories }: { stories: typeof successStories }) {
+function SuccessStoriesSection({ stories }: { readonly stories: typeof successStories }) {
   return (
     <div className="space-y-8">
       <div className="text-center">

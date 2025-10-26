@@ -1,8 +1,8 @@
 'use client';
 
-import { Container, H3, H4, P } from '@/components/design-system';
+import { Container, H4, P } from '@/components/design-system';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+// Input removed since newsletter is commented out
 import { 
   Facebook, 
   Twitter, 
@@ -12,7 +12,6 @@ import {
   Mail, 
   Phone, 
   MapPin,
-  ArrowRight,
   ExternalLink,
   Building
 } from 'lucide-react';
@@ -65,28 +64,30 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 border-t border-gray-800">
-      {/* Newsletter Section */}
-      <div className="bg-gray-800 border-b border-gray-700">
-        <Container className="py-12">
-          <div className="max-w-4xl mx-auto text-center">
-            <H3 className="mb-4 text-white">Stay Connected with CIE</H3>
-            <P className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Get the latest updates on programs, events, opportunities, and success stories from the Center for Innovation & Entrepreneurship.
-            </P>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <Input 
-                type="email" 
-                placeholder="Enter your email address" 
-                className="flex-1 bg-gray-700 border-gray-600 text-white placeholder:text-gray-400"
-              />
-              <Button className="bg-pes-navy hover:bg-pes-navy-dark text-white">
-                Subscribe
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+      {/*
+        Newsletter Section (commented out per request)
+        <div className="bg-gray-800 border-b border-gray-700">
+          <Container className="py-12">
+            <div className="max-w-4xl mx-auto text-center">
+              <H3 className="mb-4 text-white">Stay Connected with CIE</H3>
+              <P className="text-gray-300 mb-6 max-w-2xl mx-auto">
+                Get the latest updates on programs, events, opportunities, and success stories from the Center for Innovation & Entrepreneurship.
+              </P>
+              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <Input 
+                  type="email" 
+                  placeholder="Enter your email address" 
+                  className="flex-1 bg-gray-700 border-gray-600 text-white placeholder:text-gray-400"
+                />
+                <Button className="bg-pes-navy hover:bg-pes-navy-dark text-white">
+                  Subscribe
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
             </div>
-          </div>
-        </Container>
-      </div>
+          </Container>
+        </div>
+      */}
 
       {/* Main Footer Content */}
       <div className="bg-gray-900">
@@ -115,8 +116,10 @@ const Footer = () => {
                 <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
                   <Linkedin className="w-4 h-4" />
                 </Button>
-                <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
-                  <Twitter className="w-4 h-4" />
+                <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white" aria-label="X / Twitter">
+                  <svg className="w-4 h-4" viewBox="0 0 640 640" fill="currentColor" aria-hidden xmlns="http://www.w3.org/2000/svg">
+                    <path d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z" />
+                  </svg>
                 </Button>
                 <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
                   <Instagram className="w-4 h-4" />

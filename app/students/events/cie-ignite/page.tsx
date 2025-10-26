@@ -1,20 +1,28 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Rocket, Calendar, Users, Award, Clock, MapPin, ArrowRight, CheckCircle, AlertCircle } from 'lucide-react';
+import Image from 'next/image';
+import { Rocket, Calendar, Users, Award, Clock, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/design-system';
+import { SECTION_COLORS } from '@/styles/colors';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 
 export default function CIEIgnite() {
+  const studentsColors = SECTION_COLORS.students;
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-orange-600 to-red-700 overflow-hidden">
+      <section className="relative h-[85vh] overflow-hidden">
+        <InteractiveHexagonBackground primaryColor={studentsColors.hero?.background} accentColor={studentsColors.hero?.hexagonAccent} className="absolute inset-0 z-0" />
+
         <div className="absolute inset-0">
           <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
           <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <Image src="/assets/CIE Logo White Short.svg" alt="CIE Ignite" width={140} height={40} className="mx-auto mb-4" />
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -230,7 +238,7 @@ export default function CIEIgnite() {
               }
             ].map((stage, index) => (
               <motion.div
-                key={index}
+                key={stage.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -273,7 +281,7 @@ export default function CIEIgnite() {
                 Register Now
               </Button>
               <Button 
-                onClick={() => window.location.href = '/students/events'}
+                onClick={() => (globalThis.location.href = '/students/events')}
                 className="border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
               >
                 View All Events

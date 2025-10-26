@@ -1,10 +1,12 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { SECTION_COLORS } from '@/styles/colors';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { 
   Calendar, 
   Clock, 
@@ -160,6 +162,7 @@ const pastEvents = [
 const eventCategories = ['All', 'Competition', 'Workshop', 'Masterclass', 'Networking', 'Bootcamp', 'Summit', 'Hackathon'];
 
 export default function EventsPage() {
+  const studentsColors = SECTION_COLORS.students;
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [activeTab, setActiveTab] = useState('upcoming');
@@ -180,30 +183,34 @@ export default function EventsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10" />
-        <div className="relative max-w-7xl mx-auto">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B] text-white">
+        <InteractiveHexagonBackground
+          primaryColor={studentsColors.hero?.background}
+          accentColor={studentsColors.hero?.hexagonAccent}
+          className="absolute inset-0 z-0"
+        />
+        <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-200">
+            <Badge className="mb-4 bg-[#2B9EB3]/12 text-[#2B9EB3]">
               <Calendar className="h-4 w-4 mr-1" />
               Events & Programs
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Student <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Events</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              Student <span className={`bg-clip-text text-transparent bg-gradient-to-r ${studentsColors.gradient.tailwind}`}>Events</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
               Discover workshops, competitions, networking events, and learning opportunities 
               designed to accelerate your entrepreneurial journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <Button size="lg" className={`text-white ${studentsColors.gradient.tailwind}`}>
                 <Rocket className="h-5 w-5 mr-2" />
                 Register for CIE Ignite
               </Button>
@@ -219,28 +226,28 @@ export default function EventsPage() {
       {/* CIE Ignite Spotlight */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Card className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-0 overflow-hidden">
+            <Card className={`text-white border-0 overflow-hidden ${studentsColors.gradient.tailwind}`}>
               <CardContent className="p-8 md:p-12">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   <div>
-                    <Badge className="mb-4 bg-white/20 text-white hover:bg-white/30">
+                    <Badge className="mb-4" style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: '#fff' }}>
                       <Trophy className="h-4 w-4 mr-1" />
                       Flagship Event
                     </Badge>
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
                       CIE Ignite 2024
                     </h2>
-                    <p className="text-blue-100 text-lg mb-6">
+                    <p className="text-white/90 text-lg mb-6">
                       Our annual flagship startup challenge where 2nd-year students transform 
                       innovative ideas into viable business concepts through intensive mentorship 
                       and expert guidance.
                     </p>
-                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div className="grid grid-cols-2 gap-4 mb-6">
                       <div>
                         <p className="text-blue-200 text-sm">Prize Pool</p>
                         <p className="text-white font-bold text-xl">₹2,00,000</p>
@@ -250,12 +257,12 @@ export default function EventsPage() {
                         <p className="text-white font-bold text-xl">200+ Students</p>
                       </div>
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <Button className="bg-white text-blue-600 hover:bg-gray-100">
+                      <div className="flex flex-col sm:flex-row gap-3">
+                      <Button className="bg-white text-black hover:bg-gray-100">
                         <ArrowRight className="h-4 w-4 mr-2" />
                         Register Now
                       </Button>
-                      <Button variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
+                      <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black">
                         <BookOpen className="h-4 w-4 mr-2" />
                         Learn More
                       </Button>
@@ -283,7 +290,7 @@ export default function EventsPage() {
                       </div>
                       <p className="text-white font-semibold">156/200 Registered</p>
                       <div className="w-full bg-white/20 rounded-full h-2 mt-2">
-                        <div className="bg-white h-2 rounded-full" style={{ width: '78%' }}></div>
+                        <div className="bg-white h-2 rounded-full w-[78%]"></div>
                       </div>
                     </div>
                   </div>
@@ -453,8 +460,8 @@ function UpcomingEventsGrid({ events }: { events: typeof upcomingEvents }) {
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div 
-                    className="bg-blue-600 h-2 rounded-full" 
-                    style={{ width: `${(event.currentRegistrations / event.maxParticipants) * 100}%` }}
+                    className="bg-blue-600 h-2 rounded-full w-[var(--w)]" 
+                    style={{ ['--w' as any]: `${(event.currentRegistrations / event.maxParticipants) * 100}%` }}
                   ></div>
                 </div>
               </div>

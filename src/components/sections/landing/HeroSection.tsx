@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { HexagonBackground } from '@/components/ui/hexagon-background';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { HERO_CONTENT } from '@/data/landing';
+import { SECTION_COLORS } from '@/styles/colors';
 
 /**
  * Landing page hero section with interactive hexagonal background
@@ -13,14 +14,15 @@ export function HeroSection() {
   const { badge, title, subtitle, cta } = HERO_CONTENT;
   const Icon = badge.icon;
 
+  const landingColors = SECTION_COLORS.landing;
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
-      {/* Hexagonal Background */}
-      <HexagonBackground
-        className="absolute inset-0"
-        hexagonProps={{
-          className: 'before:bg-[#2B9EB3]/20 after:bg-[#3E3C6B]',
-        }}
+    <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+      {/* Interactive Hexagonal Background */}
+      <InteractiveHexagonBackground
+        className="absolute inset-0 z-0"
+        primaryColor={landingColors.hero.background}
+        accentColor={landingColors.hero.hexagonAccent}
       />
 
       {/* Content Container */}

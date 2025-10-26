@@ -15,7 +15,6 @@ import {
   Users, 
   Building2, 
   GraduationCap, 
-  ExternalLink,
   Microscope,
   BookOpen,
   Calendar,
@@ -59,6 +58,9 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
 }) => {
   const pathname = usePathname();
 
+  // Use the sections as defined by the StudentsNavigation component.
+  // Do not merge or remove the Community section — render sections as provided.
+  const normalizedSections: NavigationSection[] = sections.map((s) => ({ ...s, items: [...s.items] }));
   return (
     <NavigationMenuItem className="relative">
       <NavigationMenuTrigger 
@@ -93,28 +95,29 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
             </div>
           </div>
           
-          {/* Sections Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-            {sections.map((section) => (
-              <div key={section.title} className="space-y-3">
+          {/* Sections Grid: render the sections uniformly. Support 3 or 4 columns depending on how many sections are provided. */}
+          <div className={cn(
+            'grid grid-cols-2 gap-6 p-6 items-stretch',
+            normalizedSections.length >= 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
+          )}>
+            {normalizedSections.map((section) => (
+              <div key={section.title} className="flex flex-col h-full space-y-3">
                 <h4 className="text-sm font-semibold text-[#00338d] uppercase tracking-wide border-b border-gray-200 pb-2">
                   {section.title}
                 </h4>
-                <div className="space-y-1">
+
+                <div className="flex-1 space-y-1">
                   {section.items.map((item) => {
                     const ItemIcon = item.icon;
                     return (
                       <Link
                         key={item.href}
                         href={item.href}
-                        {...(item.external && {
-                          target: "_blank",
-                          rel: "noopener noreferrer"
-                        })}
+                        {...(item.external && { target: '_blank', rel: 'noopener noreferrer' })}
                         className={cn(
-                          "flex items-start gap-3 p-3 rounded-lg transition-all duration-200 group",
-                          "hover:bg-gray-50 border border-transparent hover:border-gray-200",
-                          pathname === item.href && "bg-[#f07f1a]/5 border-[#f07f1a]/20"
+                          'flex items-start gap-3 p-3 rounded-lg transition-all duration-200 group',
+                          'hover:bg-gray-50 border border-transparent hover:border-gray-200',
+                          pathname === item.href && 'bg-[#f07f1a]/5 border-[#f07f1a]/20'
                         )}
                       >
                         {ItemIcon && (
@@ -123,20 +126,15 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
                           </div>
                         )}
                         <div className="flex-1 min-w-0">
-                          <div className={cn(
-                            "text-sm font-semibold transition-colors duration-200",
-                            pathname === item.href 
-                              ? "text-[#f07f1a]" 
-                              : "text-gray-900 group-hover:text-[#f07f1a]"
-                          )}>
-                            {item.title}
-                            {item.external && (
-                              <ExternalLink className="w-3 h-3 inline ml-1 text-gray-400" />
+                          <div
+                            className={cn(
+                              'text-sm font-semibold transition-colors duration-200',
+                              pathname === item.href ? 'text-[#f07f1a]' : 'text-gray-900 group-hover:text-[#f07f1a]'
                             )}
+                          >
+                            {item.title}
                           </div>
-                          <p className="text-xs text-gray-600 mt-1 leading-relaxed">
-                            {item.description}
-                          </p>
+                          <p className="text-xs text-gray-600 mt-1 leading-relaxed">{item.description}</p>
                         </div>
                       </Link>
                     );
@@ -159,84 +157,95 @@ const StudentsNavigation: React.FC = () => {
     {
       title: 'Programs',
       items: [
-        { 
-          title: 'Overview', 
-          href: '/students', 
+        {
+          title: 'Overview',
+          href: '/students',
           description: 'Explore all student opportunities',
-          icon: BookOpen
+          icon: BookOpen,
         },
-        { 
-          title: 'Summer Programs', 
-          href: '/students/programs/summer', 
+        {
+          title: 'Summer Programs',
+          href: '/students/programs/summer',
           description: 'Intensive technical & entrepreneurial courses',
-          icon: Calendar
+          icon: Calendar,
         },
-        { 
-          title: 'Bootcamp', 
-          href: '/students/programs/bootcamp', 
+        {
+          title: 'Bootcamp',
+          href: '/students/programs/bootcamp',
           description: 'Annual intensive training',
-          icon: Trophy
+          icon: Trophy,
         },
-        { 
-          title: 'Basecamp', 
-          href: '/students/programs/basecamp', 
+        {
+          title: 'Basecamp',
+          href: '/students/programs/basecamp',
           description: 'Weekly entrepreneurship sessions',
-          icon: Users2
+          icon: Users2,
+        },
+      ],
+    },
+    {
+      title: 'Courses',
+      items: [
+        {
+          title: 'Courses Overview',
+          href: '/students/courses',
+          description: 'EIE Parts, PAML, Product Management and CIE Spark',
+          icon: BookOpen,
         }
-      ]
+      ],
     },
     {
       title: 'Resources',
       items: [
-        { 
-          title: 'Events', 
-          href: '/students/events', 
+        {
+          title: 'Events',
+          href: '/students/events',
           description: 'Upcoming & past events',
-          icon: Calendar
+          icon: Calendar,
         },
-        { 
-          title: 'Resources', 
-          href: '/students/resources', 
+        {
+          title: 'Resources',
+          href: '/students/resources',
           description: 'Guides, templates & online courses',
-          icon: BookOpen
+          icon: BookOpen,
         },
-        { 
-          title: 'Student Projects', 
-          href: '/students/projects', 
+        {
+          title: 'Student Projects',
+          href: '/students/projects',
           description: 'Current & past projects',
-          icon: Lightbulb
+          icon: Lightbulb,
         },
-        { 
-          title: 'Funding and Grants', 
-          href: '/students/funding', 
+        {
+          title: 'Funding and Grants',
+          href: '/students/funding',
           description: 'CiC, Mathworks & CiC Ready Program',
-          icon: Trophy
-        }
-      ]
+          icon: Trophy,
+        },
+      ],
     },
     {
       title: 'Community',
       items: [
-        { 
-          title: 'Mentorship', 
-          href: '/students/mentorship', 
+        {
+          title: 'Mentorship',
+          href: '/students/mentorship',
           description: 'Industry mentor connect',
-          icon: Users2
+          icon: Users2,
         },
-        { 
-          title: 'Student Clubs', 
-          href: '/students/clubs', 
+        {
+          title: 'Student Clubs',
+          href: '/students/clubs',
           description: 'E-Cell, CMS & more',
-          icon: Users
+          icon: Users,
         },
-        { 
-          title: 'Centres of Excellence', 
-          href: '/students/centers-of-excellence', 
+        {
+          title: 'Centres of Excellence',
+          href: '/students/centers-of-excellence',
           description: 'Research & innovation centers',
-          icon: Microscope
-        }
-      ]
-    }
+          icon: Microscope,
+        },
+      ],
+    },
   ];
 
   return (
@@ -552,6 +561,13 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
             { title: 'Events', href: '/students/events', description: 'Upcoming events' },
             { title: 'Resources', href: '/students/resources', description: 'Student resources' },
             { title: 'Mentorship', href: '/students/mentorship', description: 'Industry mentors' }
+          ]
+        }
+        ,
+        {
+          title: 'Courses',
+          items: [
+            { title: 'Courses Overview', href: '/students/courses', description: 'All courses & programs' }
           ]
         }
       ]

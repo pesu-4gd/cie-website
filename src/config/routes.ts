@@ -17,6 +17,12 @@ export const ROUTES = {
     mentorship: '/students/mentorship',
     funding: '/students/funding',
     projects: '/students/projects',
+    courses: '/students/courses',
+    eie1: '/students/courses/eie-1',
+    eie2: '/students/courses/eie-2',
+    productManagement: '/students/courses/product-management-ai',
+    paml: '/students/courses/paml',
+    cieSpark: '/students/courses/cie-spark',
     faqs: '/students/faqs',
   },
   
@@ -97,6 +103,18 @@ export const MAIN_NAV: NavItem[] = [
         title: 'Programs',
         href: ROUTES.students.programs,
         description: 'EIE, Bootcamp, Basecamp, and more',
+      },
+      {
+        title: 'Courses',
+        href: ROUTES.students.courses,
+        description: 'EIE Parts, PAML, Product Management and CIE Spark',
+        items: [
+          { title: 'EIE — Part 1', href: ROUTES.students.eie1, description: 'Essentials of Innovation & Entrepreneurship — Part 1' },
+          { title: 'EIE — Part 2', href: ROUTES.students.eie2, description: 'Essentials of Innovation & Entrepreneurship — Part 2' },
+          { title: 'Product Management (AI)', href: ROUTES.students.productManagement, description: 'Product Management in the AI Era' },
+          { title: 'PAML+', href: ROUTES.students.paml, description: 'Practical Approach to Machine Learning — Train the Trainer' },
+          { title: 'CIE Spark', href: ROUTES.students.cieSpark, description: 'Problem Validation Sprint for Semester 3' },
+        ],
       },
       {
         title: 'Student Clubs',

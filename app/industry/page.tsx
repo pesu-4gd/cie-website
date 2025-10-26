@@ -171,7 +171,7 @@ export default function IndustryPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Interactive Hexagonal Background */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+  <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
         <InteractiveHexagonBackground 
           primaryColor={industryColors.hero.background}
           accentColor={industryColors.hero.hexagonAccent}

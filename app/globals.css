@@ -419,3 +419,33 @@
     background-position: 100% 50%;
   }
 }
+
+/* Notification adaptive layout - the notification component sets CSS variables on :root
+   and toggles the `has-notification` class. Use these vars to adapt page layout. */
+:root {
+  --notification-width: 0rem;
+  --notification-collapsed-height: 0rem;
+  --notification-expanded-height: 0rem;
+  --notification-bg-alpha: 0;
+  --notification-radius: 0.75rem;
+  --notification-card-opacity-first: 0.5;
+  --notification-card-opacity-other: 0.22;
+}
+
+/* On larger screens, make room on the right for the notification widget */
+@media (min-width: 640px) {
+  .has-notification .page-main {
+    transition: padding-right 180ms ease;
+    /* add a small gap so content doesn't touch the widget */
+    padding-right: calc(var(--notification-width, 0rem) + 1rem);
+  }
+}
+
+/* On small screens, prefer not to push horizontal layout; instead allow bottom spacing */
+@media (max-width: 639px) {
+  .has-notification .page-main {
+    transition: padding-bottom 180ms ease;
+    padding-right: 0;
+    padding-bottom: calc(var(--notification-collapsed-height, 0rem) + 1rem);
+  }
+}

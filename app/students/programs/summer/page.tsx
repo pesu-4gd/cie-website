@@ -31,6 +31,8 @@ import {
   Network
 } from 'lucide-react';
 import { Button } from '@/components/design-system';
+import { SECTION_COLORS } from '@/styles/colors';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 
 const SummerProgramPage = () => {
   const [currentTestimonialSlide, setCurrentTestimonialSlide] = useState(0);
@@ -267,15 +269,22 @@ const SummerProgramPage = () => {
     );
   };
 
+  const studentsColors = SECTION_COLORS.students;
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 overflow-hidden">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
+        <InteractiveHexagonBackground
+          primaryColor={studentsColors.hero?.background}
+          accentColor={studentsColors.hero?.hexagonAccent}
+          className="absolute inset-0 z-0"
+        />
         <div className="absolute inset-0">
           <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
           <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -666,7 +675,10 @@ const SummerProgramPage = () => {
             </button>
             
             <button
+              type="button"
               onClick={nextTestimonial}
+              title="Next testimonial"
+              aria-label="Next testimonial"
               className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
             >
               <ChevronRight className="w-6 h-6 text-gray-600" />

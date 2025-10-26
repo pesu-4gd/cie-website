@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/design-system';
 import { motion } from 'framer-motion';
+import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
 import { 
   Cpu, 
   Atom, 
@@ -25,6 +26,7 @@ import {
 } from 'lucide-react';
 
 export default function CentersOfExcellencePage() {
+  const studentsColors = SECTION_COLORS.students;
   const stats = [
     { label: 'Research Centers', value: '8+', icon: Building2, color: 'blue' },
     { label: 'Active Projects', value: '50+', icon: FlaskConical, color: 'green' },
@@ -234,9 +236,9 @@ export default function CentersOfExcellencePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#00338d] via-indigo-700 to-[#f07f1a] text-white py-20">
+      <section className="text-white py-20" style={{ background: studentsColors.gradient.css }}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -245,7 +247,7 @@ export default function CentersOfExcellencePage() {
             className="text-center"
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/20 text-white border border-white/30">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium" style={{ backgroundColor: `rgba(${hexToRgb(studentsColors.primary)},0.12)`, color: studentsColors.primary }}>
                 <FlaskConical className="w-4 h-4 mr-2" />
                 Research Excellence
               </span>
@@ -280,8 +282,8 @@ export default function CentersOfExcellencePage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white p-6 rounded-2xl border border-gray-200 text-center hover:shadow-lg transition-all duration-300"
                 >
-                  <div className={`w-12 h-12 bg-${stat.color}-100 rounded-xl flex items-center justify-center mx-auto mb-4`}>
-                    <IconComponent className={`w-6 h-6 text-${stat.color}-600`} />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: `rgba(${hexToRgb(studentsColors.primary)}, 0.08)` }}>
+                    <IconComponent className="w-6 h-6" style={{ color: studentsColors.primary }} />
                   </div>
                   <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
                   <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
@@ -309,7 +311,7 @@ export default function CentersOfExcellencePage() {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-8">
             {centers.map((center, index) => {
               const IconComponent = center.icon;
               return (
@@ -321,7 +323,7 @@ export default function CentersOfExcellencePage() {
                   className="bg-white rounded-3xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-center mb-6">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${getColorClasses(center.color)} rounded-2xl flex items-center justify-center mr-4`}>
+                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center mr-4" style={{ background: studentsColors.gradient.css }}>
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
                     <div>
@@ -340,7 +342,7 @@ export default function CentersOfExcellencePage() {
                       <div className="space-y-2">
                         {center.researchAreas.slice(0, 3).map((area, idx) => (
                           <div key={idx} className="flex items-center text-sm text-gray-600">
-                            <div className={`w-2 h-2 bg-${center.color}-500 rounded-full mr-2`} />
+                            <div className="w-2 h-2 rounded-full mr-2" style={{ backgroundColor: studentsColors.accent }} />
                             <span>{area}</span>
                           </div>
                         ))}

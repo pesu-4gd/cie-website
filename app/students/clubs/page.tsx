@@ -3,6 +3,7 @@
 import { Button } from '@/components/design-system';
 import { ModernCard } from '@/components/ui/modern-card';
 import { motion } from 'framer-motion';
+import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
 import { 
   Users, 
   Calendar, 
@@ -23,6 +24,7 @@ import {
 import Link from 'next/link';
 
 export default function StudentClubsPage() {
+  const studentsColors = SECTION_COLORS.students;
   const clubStats = [
     { label: 'Active Members', value: '500+', icon: Users, color: 'blue' },
     { label: 'Events Organized', value: '50+', icon: Calendar, color: 'green' },
@@ -146,9 +148,9 @@ export default function StudentClubsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen" style={{ background: studentsColors.gradient.css }}>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#00338d] via-blue-700 to-[#f07f1a] text-white py-20">
+      <section className="text-white py-20" style={{ background: studentsColors.gradient.css }}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -157,14 +159,14 @@ export default function StudentClubsPage() {
             className="text-center"
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/20 text-white border border-white/30">
-                <Users className="w-4 h-4 mr-2" />
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium" style={{ background: studentsColors.primary, color: '#fff' }}>
+                <Users className="w-4 h-4 mr-2 text-white" />
                 Student Organizations
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
               Student Clubs
-              <span className="block text-blue-200">& Communities</span>
+              <span className="block" style={{ color: studentsColors.accent }}>& Communities</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
               Join vibrant student-led organizations to immerse yourself in entrepreneurship, sustainability, and drive meaningful impact on campus and beyond.
