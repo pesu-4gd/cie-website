@@ -13,7 +13,7 @@ const notifications = [
     time: 'just now',
     count: 2,
     href: '/announcements#1',
-  },
+    },
   {
     id: 2,
     title: 'NEW EIE Event Posted',
@@ -21,13 +21,13 @@ const notifications = [
     time: '1m 11s',
     href: '/announcements#2',
   },
-  {
-    id: 3,
-    title: 'Join the Change Maker Society',
-    subtitle: 'club registrations open',
-    time: '5m',
-    href: '/announcements#3',
-  },
+//   {
+//     id: 3,
+//     title: 'Join the Change Maker Society',
+//     subtitle: 'club registrations open',
+//     time: '5m',
+//     href: '/announcements#3',
+//   },
 ];
 
 const transition: Transition = {
@@ -126,23 +126,17 @@ export const NotificationListDemo: React.FC = () => {
   if (!visible) return null;
 
   return (
-    <div className="fixed top-6 right-6 z-50">
+    <div className="fixed bottom-6 right-6 z-50">
       <div
-        className={`rounded-3xl p-1 border border-white/8 shadow-lg bg-gradient-to-br ${SECTION_COLORS.landing.gradient.tailwind} w-80`}
-        // allow the widget width to be adapted by CSS variable --notification-width
-        style={{ width: 'var(--notification-width,20rem)' }}
+        className={`rounded-3xl p-1 border border-white/8 shadow-lg bg-gradient-to-br ${SECTION_COLORS.landing.gradient.tailwind} w-80 w-[var(--notification-width,20rem)]`}
       >
         <motion.div
-          className="relative rounded-2xl overflow-hidden text-white pt-4 px-3 pb-3"
-          // background uses CSS variable --notification-bg-alpha when present
-          style={{ backgroundColor: 'rgba(62,60,107,var(--notification-bg-alpha,0.92))', borderRadius: 'var(--notification-radius,1rem)' }}
+          className="relative rounded-2xl overflow-hidden text-white pt-4 px-3 pb-3 bg-[rgba(62,60,107,var(--notification-bg-alpha,0.92))] rounded-[var(--notification-radius,1rem)]"
           initial="collapsed"
-          animate={isExpanded ? 'expanded' : undefined}
-          whileHover="expanded"
-          onClick={() => {
-            // clicking the background (when expanded) collapses the deck
-            if (isExpanded) setIsExpanded(false);
-          }}
+          animate={isExpanded ? 'expanded' : 'collapsed'}
+          onHoverStart={() => setIsExpanded(true)}
+          // NOTE: intentionally do NOT collapse on hover end; user must close via the X button
+          transition={{ type: 'tween', duration: 0.18 }}
         >
           {/* Close button */}
           <button
@@ -158,50 +152,79 @@ export const NotificationListDemo: React.FC = () => {
             <X className="w-4 h-4" />
           </button>
 
-          <div className="relative h-48">{/* fixed height to contain stacked cards */}
-            {notifications.map((notification, i) => (
-              <motion.button
-                key={notification.id}
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  // if not expanded yet, expand instead of navigating
-                  if (!isExpanded) {
-                    setIsExpanded(true);
-                    return;
-                  }
-                  // when expanded, clicking navigates
-                  globalThis.location.href = notification.href;
-                }}
-                className="absolute left-3 right-3 h-14 text-left bg-[#2B9EB3]/8 rounded-lg px-3 py-2 shadow-sm transition-all duration-200 border border-white/8"
-                variants={getCardVariants(i)}
-                transition={transition}
-                style={{
-                  zIndex: notifications.length - i,
-                  // first card slightly more opaque by default; both values adapt via CSS vars
-                  opacity: i === 0 ? 'var(--notification-card-opacity-first,0.5)' : 'var(--notification-card-opacity-other,0.22)',
-                  WebkitTransform: 'translateZ(0)'
-                }}
-                whileHover={{ opacity: 1 }}
-                whileTap={{ scale: 0.995 }}
-              >
-                <div className="flex justify-between items-start">
-                  <h1 className="text-sm font-semibold text-white leading-tight truncate">{notification.title}</h1>
-                  {notification.count && (
-                    <div className="flex items-center text-xs gap-0.5 font-medium text-white/90">
-                      <RotateCcw className="w-3 h-3" />
-                      <span>{notification.count}</span>
+          <motion.div className="relative overflow-hidden" layout>
+            {/* Collapsed: absolutely stacked, overlapping cards. Expanded: normal flow list so container auto-sizes to content. */}
+            {!isExpanded ? (
+              <div className="relative h-14">{/* height to contain collapsed stack */}
+                {notifications.map((notification, i) => (
+                  <motion.button
+                    key={notification.id}
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      // if not expanded yet, expand instead of navigating
+                      if (!isExpanded) {
+                        setIsExpanded(true);
+                        return;
+                      }
+                      globalThis.location.href = notification.href;
+                    }}
+                    className="absolute left-3 right-3 h-14 text-left bg-[#2B9EB3]/8 rounded-lg px-3 py-2 shadow-sm transition-all duration-200 border border-white/8"
+                    variants={getCardVariants(i)}
+                    transition={transition}
+                    style={{
+                      zIndex: notifications.length - i,
+                      opacity: i === 0 ? 'var(--notification-card-opacity-first,0.5)' : 'var(--notification-card-opacity-other,0.22)',
+                      WebkitTransform: 'translateZ(0)'
+                    }}
+                    whileHover={{ opacity: 1 }}
+                    whileTap={{ scale: 0.995 }}
+                  >
+                    <div className="flex justify-between items-start">
+                      <h1 className="text-sm font-semibold text-white leading-tight truncate">{notification.title}</h1>
+                      {notification.count && (
+                        <div className="flex items-center text-xs gap-0.5 font-medium text-white/90">
+                          <RotateCcw className="w-3 h-3" />
+                          <span>{notification.count}</span>
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
-                <div className="text-xs text-white/70 font-medium mt-1 truncate">
-                  <span>{notification.time}</span>
-                  {' \u2022 '}
-                  <span>{notification.subtitle}</span>
-                </div>
-              </motion.button>
-            ))}
-          </div>
+                    <div className="text-xs text-white/70 font-medium mt-1 truncate">
+                      <span>{notification.time}</span>
+                      {' \u2022 '}
+                      <span>{notification.subtitle}</span>
+                    </div>
+                  </motion.button>
+                ))}
+              </div>
+            ) : (
+              <div className="flex flex-col gap-2 py-1">
+                {notifications.map((notification) => (
+                  <button
+                    key={notification.id}
+                    type="button"
+                    onClick={() => (globalThis.location.href = notification.href)}
+                    className="w-full text-left bg-[#2B9EB3]/8 rounded-lg px-3 py-2 shadow-sm transition-all duration-200 border border-white/8"
+                  >
+                    <div className="flex justify-between items-start">
+                      <h1 className="text-sm font-semibold text-white leading-tight truncate">{notification.title}</h1>
+                      {notification.count && (
+                        <div className="flex items-center text-xs gap-0.5 font-medium text-white/90">
+                          <RotateCcw className="w-3 h-3" />
+                          <span>{notification.count}</span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="text-xs text-white/70 font-medium mt-1 truncate">
+                      <span>{notification.time}</span>
+                      {' \u2022 '}
+                      <span>{notification.subtitle}</span>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            )}
+          </motion.div>
 
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-full bg-white/10 text-white text-xs flex items-center justify-center font-medium">

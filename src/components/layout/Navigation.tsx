@@ -410,12 +410,7 @@ const AlumniNavigation: React.FC = () => {
           description: 'Support CIE initiatives',
           icon: Heart
         },
-        { 
-          title: 'Alumni Angel Fund', 
-          href: '/alumni/angel-fund', 
-          description: 'Invest in student startups',
-          icon: Trophy
-        },
+        // Alumni Angel Fund removed
         { 
           title: 'Resources for Alumni', 
           href: '/alumni/resources', 

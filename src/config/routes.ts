@@ -30,7 +30,6 @@ export const ROUTES = {
     root: '/alumni',
     directory: '/alumni/directory',
     association: '/alumni/association',
-    angelFund: '/alumni/angel-fund',
     mentorship: '/alumni/mentorship',
     giveBack: '/alumni/give-back',
     donations: '/alumni/donations',
@@ -153,11 +152,7 @@ export const MAIN_NAV: NavItem[] = [
         href: ROUTES.alumni.association,
         description: 'Join the alumni association',
       },
-      {
-        title: 'Angel Fund',
-        href: ROUTES.alumni.angelFund,
-        description: 'Invest in student startups',
-      },
+      // Angel Fund removed
       {
         title: 'Mentorship',
         href: ROUTES.alumni.mentorship,
@@ -230,7 +225,7 @@ export const FOOTER_NAV = {
         { title: 'Alumni Network', href: ROUTES.alumni.root },
         { title: 'Give Back', href: ROUTES.alumni.giveBack },
         { title: 'Mentorship', href: ROUTES.alumni.mentorship },
-        { title: 'Angel Fund', href: ROUTES.alumni.angelFund },
+  // Angel Fund removed from footer
       ],
     },
     {

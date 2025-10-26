@@ -3,6 +3,7 @@
 import { Button } from '@/components/design-system';
 import { ArrowRight, Users, Building2, GraduationCap, Play, Sparkles, Rocket, Calendar, BookOpen, BarChart3, Zap, X, Bell, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
+import NotificationListDemo from '@/components/notifications/NotificationListDemo';
 import { SECTION_COLORS } from '@/styles/colors';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useState, useEffect } from 'react';
@@ -11,12 +12,19 @@ import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexago
 export default function Home() {
   const [activeTab, setActiveTab] = useState('overview');
   const [showAnnouncementPopup, setShowAnnouncementPopup] = useState(false);
+  const [showNotificationList, setShowNotificationList] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowAnnouncementPopup(true);
     }, 3000);
     return () => clearTimeout(timer);
+  }, []);
+
+  // Show the separate notification list after a short delay (independent of the banner)
+  useEffect(() => {
+    const t = setTimeout(() => setShowNotificationList(true), 4200);
+    return () => clearTimeout(t);
   }, []);
 
   return (
@@ -148,6 +156,9 @@ export default function Home() {
           </div>
         </motion.div>
       )}
+
+  {/* Separate NotificationListDemo instance (mounted independently) */}
+  {showNotificationList && <NotificationListDemo />}
 
       {/* Navigation Cards - Compact Design */}
       <section className="py-8 bg-white relative">
