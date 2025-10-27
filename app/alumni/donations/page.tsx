@@ -32,6 +32,7 @@ import {
 } from 'lucide-react';
 
 export default function AlumniDonationsPage() {
+  const GOOGLE_FORM_URL = 'https://forms.gle/REPLACE_WITH_GOOGLE_FORM';
   const donationStats = [
     { label: 'Total Donations', value: '₹15Cr+', icon: Heart },
     { label: 'Alumni Donors', value: '3,500+', icon: Users },
@@ -223,9 +224,12 @@ export default function AlumniDonationsPage() {
               build a stronger foundation for current and future generations of students.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+              <Button
+                className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl"
+                onClick={() => { const w = window.open(GOOGLE_FORM_URL, '_blank'); if (w) w.opener = null; }}
+              >
                 <Gift className="w-5 h-5 mr-2" />
-                Donate Now
+                Interested
               </Button>
               <Button className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
                 <Target className="w-5 h-5 mr-2" />
@@ -403,9 +407,12 @@ export default function AlumniDonationsPage() {
                         </p>
                       </div>
 
-                      <Button className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-xl font-semibold">
+                      <Button
+                        className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-xl font-semibold"
+                        onClick={() => { const w = window.open(GOOGLE_FORM_URL, '_blank'); if (w) w.opener = null; }}
+                      >
                         <Gift className="w-4 h-4 mr-2" />
-                        Donate Now
+                        Interested
                       </Button>
                     </div>
                   </div>
@@ -558,9 +565,12 @@ export default function AlumniDonationsPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+              <Button
+                className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl"
+                onClick={() => { const w = window.open(GOOGLE_FORM_URL, '_blank'); if (w) w.opener = null; }}
+              >
                 <Gift className="w-5 h-5 mr-2" />
-                Donate Now
+                Interested
               </Button>
               <Button className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
                 <Calendar className="w-5 h-5 mr-2" />
