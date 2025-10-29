@@ -9,6 +9,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { usePathname } from 'next/navigation';
 import {
   motion,
   AnimatePresence,
@@ -52,6 +53,7 @@ function MorphingDialogProvider({
   const [isOpen, setIsOpen] = useState(false);
   const uniqueId = useId();
   const triggerRef = useRef<HTMLButtonElement>(null!);
+  const pathname = usePathname();
 
   const contextValue = useMemo(
     () => ({
@@ -62,6 +64,21 @@ function MorphingDialogProvider({
     }),
     [isOpen, uniqueId]
   );
+
+  // Close dialog and ensure body scroll is restored on route changes
+  // This handles cases where a user navigates away while the dialog is open
+  // so the body overflow-hidden class doesn't persist when returning.
+  useEffect(() => {
+    if (pathname) {
+      setIsOpen(false);
+      try {
+        document.body.classList.remove('overflow-hidden');
+      } catch (e) {
+        // ignore in non-browser environments
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
 
   return (
     <MorphingDialogContext.Provider value={contextValue}>
@@ -96,7 +113,7 @@ function MorphingDialogTrigger({
   style,
   triggerRef,
 }: MorphingDialogTriggerProps) {
-  const { setIsOpen, isOpen, uniqueId } = useMorphingDialog();
+  const { setIsOpen, isOpen, uniqueId, triggerRef: contextTriggerRef } = useMorphingDialog();
 
   const handleClick = useCallback(() => {
     setIsOpen(!isOpen);
@@ -114,7 +131,17 @@ function MorphingDialogTrigger({
 
   return (
     <motion.button
-      ref={triggerRef}
+      // prefer an explicit ref passed to the Trigger, otherwise use the provider's ref
+      ref={(el: HTMLButtonElement | null) => {
+        // if a ref object was passed explicitly, update its .current
+        if (triggerRef && 'current' in triggerRef) {
+          (triggerRef as React.MutableRefObject<HTMLButtonElement | null>).current = el;
+        }
+        // always update the context triggerRef so the provider can restore focus
+        if (contextTriggerRef && 'current' in contextTriggerRef) {
+          (contextTriggerRef as React.MutableRefObject<HTMLButtonElement | null>).current = el;
+        }
+      }}
       layoutId={`dialog-${uniqueId}`}
       className={cn('relative cursor-pointer', className)}
       onClick={handleClick}

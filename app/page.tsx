@@ -3,7 +3,6 @@
 import { Button } from '@/components/design-system';
 import { ArrowRight, Users, Building2, GraduationCap, Play, Sparkles, Rocket, Calendar, BookOpen, BarChart3, Zap, X, Bell, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
-import NotificationListDemo from '@/components/notifications/NotificationListDemo';
 import { SECTION_COLORS } from '@/styles/colors';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useState, useEffect } from 'react';
@@ -11,21 +10,21 @@ import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexago
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('overview');
-  const [showAnnouncementPopup, setShowAnnouncementPopup] = useState(false);
-  const [showNotificationList, setShowNotificationList] = useState(false);
+  // Show the hero video player when the user clicks "WATCH STORY"
+  const [showVideo, setShowVideo] = useState(false);
+  const VIDEO_ID = 'L4nvEYLsST4';
 
+  // Close video on Escape key for accessibility
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowAnnouncementPopup(true);
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
+    if (!showVideo) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setShowVideo(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [showVideo]);
 
-  // Show the separate notification list after a short delay (independent of the banner)
-  useEffect(() => {
-    const t = setTimeout(() => setShowNotificationList(true), 4200);
-    return () => clearTimeout(t);
-  }, []);
+  // Notification widget removed from page (was previously auto-mounted after a delay)
 
   return (
     <div className="min-h-screen bg-white">
@@ -71,20 +70,24 @@ export default function Home() {
             
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
-              <button 
-                onClick={() => window.location.href = '/students/programs'}
-                className="bg-gradient-to-r from-[#F15A29] to-[#FFC107] hover:shadow-lg hover:shadow-orange-500/50 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center"
+              <Button
+                onClick={() => window.location.href = '/students'}
+                variant="cie"
+                size="lg"
+                className="group bg-gradient-to-r from-[#F15A29] to-[#FFC107] text-white"
               >
                 EXPLORE NOW
                 <ArrowRight className="ml-2 w-5 h-5" />
-              </button>
-              <button 
-                onClick={() => window.location.href = '/about'}
-                className="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 border-2 border-white/30 hover:border-white/50 backdrop-blur-sm flex items-center justify-center"
+              </Button>
+              <Button
+                onClick={() => setShowVideo(true)}
+                variant="cie"
+                size="lg"
+                className="bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all duration-300 border-2 border-white/30 hover:border-white/50 backdrop-blur-sm flex items-center justify-center"
               >
                 <Play className="mr-2 w-5 h-5" />
                 WATCH STORY
-              </button>
+              </Button>
             </div>
             
             {/* Quick Stats - Compact Grid */}
@@ -108,57 +111,32 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
-      </section>
+        {/* Video overlay: when showVideo is true, render the YouTube iframe covering the hero section */}
+        {showVideo && (
+          <div className="absolute inset-0 z-30 flex items-center justify-center bg-black/80">
+            <div className="relative w-full h-full">
+              {/* Close button */}
+              <button
+                aria-label="Close video"
+                onClick={() => setShowVideo(false)}
+                className="absolute right-4 top-4 z-40 rounded-full bg-white/20 hover:bg-white/30 p-2 text-white backdrop-blur-md"
+              >
+                <X className="w-5 h-5" />
+              </button>
 
-      {/* Announcement Popup - replaced with compact themed notification (top-right) */}
-      {showAnnouncementPopup && (
-        <motion.div
-          initial={{ opacity: 0, y: -100 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -100 }}
-          className="fixed top-6 right-6 z-50 max-w-sm w-80"
-        >
-          <div className={`relative rounded-md border px-4 py-3 bg-gradient-to-br from-[${SECTION_COLORS.landing.gradient.stops[0]}]/90 to-[${SECTION_COLORS.landing.gradient.stops[1]}]/90 text-white border-white/10 shadow-lg`}> 
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowAnnouncementPopup(false);
-              }}
-              className="absolute top-2 right-2 w-6 h-6 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors"
-              title="Close announcement"
-              aria-label="Close announcement"
-            >
-              <X className="w-3 h-3 text-white" />
-            </button>
-
-            <div className="flex gap-3 items-start">
-              <Users
-                className="shrink-0 mt-0.5 text-white/95"
-                size={16}
-                aria-hidden="true"
+              <iframe
+                title="CIE - Watch Story"
+                src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full border-0"
               />
-              <div className="flex grow justify-between gap-3 items-center">
-                <p className="text-sm text-white font-medium">Join the Change Makers Society Club</p>
-                <a
-                  href="/announcements"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    globalThis.location.href = '/announcements';
-                  }}
-                  className="group text-sm font-medium whitespace-nowrap text-white/95 flex items-center gap-1"
-                >
-                  Link
-                  <ArrowRight className="ml-1 -mt-0.5 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5" size={16} aria-hidden="true" />
-                </a>
-              </div>
             </div>
           </div>
-        </motion.div>
-      )}
+        )}
+      </section>
 
-  {/* Separate NotificationListDemo instance (mounted independently) */}
-  {showNotificationList && <NotificationListDemo />}
+  {/* NotificationListDemo removed from page (component still present in src/components/notifications) */}
 
       {/* Navigation Cards - Compact Design */}
       <section className="py-8 bg-white relative">
@@ -187,7 +165,7 @@ export default function Home() {
               className="group cursor-pointer"
               onClick={() => window.location.href = '/students'}
             >
-              <div className="bg-white rounded-2xl p-5 hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 h-56">
+              <div className="bg-white rounded-2xl p-5 hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 h-56 flex flex-col justify-between">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#2B9EB3] to-[#3E3C6B] rounded-lg flex items-center justify-center mr-4">
                     <GraduationCap className="w-6 h-6 text-white" />
@@ -212,7 +190,7 @@ export default function Home() {
               className="group cursor-pointer"
               onClick={() => window.location.href = '/industry'}
             >
-              <div className="bg-white rounded-2xl p-5 hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 h-56">
+              <div className="bg-white rounded-2xl p-5 hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 h-56 flex flex-col justify-between">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#F15A29] to-[#FFC107] rounded-lg flex items-center justify-center mr-4">
                     <Building2 className="w-6 h-6 text-white" />
@@ -237,7 +215,7 @@ export default function Home() {
               className="group cursor-pointer"
               onClick={() => window.location.href = '/alumni'}
             >
-              <div className="bg-white rounded-2xl p-5 hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 h-56">
+              <div className="bg-white rounded-2xl p-5 hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 h-56 flex flex-col justify-between">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#3E3C6B] to-[#F15A29] rounded-lg flex items-center justify-center mr-4">
                     <Users className="w-6 h-6 text-white" />
@@ -278,11 +256,11 @@ export default function Home() {
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-4">
               Explore our impact, programs, and success stories through interactive content tabs.
             </p>
-            <div className="flex items-center justify-center gap-2 text-sm text-[#2B9EB3] font-medium">
+            {/* <div className="flex items-center justify-center gap-2 text-sm text-[#2B9EB3] font-medium">
               <ArrowRight className="w-4 h-4 animate-bounce" />
               <span>Click tabs below to explore different sections</span>
               <ArrowRight className="w-4 h-4 animate-bounce" style={{animationDelay: '0.5s'}} />
-            </div>
+            </div> */}
           </motion.div>
 
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">

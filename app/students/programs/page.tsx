@@ -4,6 +4,17 @@ import { Button } from '@/components/design-system';
 import { motion } from 'framer-motion';
 import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import {
+  MorphingDialog,
+  MorphingDialogTrigger,
+  MorphingDialogContainer,
+  MorphingDialogContent,
+  MorphingDialogTitle,
+  MorphingDialogSubtitle,
+  MorphingDialogDescription,
+  MorphingDialogClose,
+} from '@/components/ui/morphing-dialog';
+import Link from 'next/link';
 import { 
   BookOpen, 
   Clock, 
@@ -240,14 +251,182 @@ export default function ProgramsPage() {
                 Student Programs
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl text-purple-200 font-bold mb-6">
               Transform Your Ideas
               <span className="block text-purple-200">Into Reality</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Comprehensive programs designed to nurture entrepreneurial thinking, innovation skills, and practical business knowledge.
+              The Centre for Innovation and Entrepreneurship (CIE) at PES University is a dynamic hub for fostering innovation, entrepreneurship, and technical excellence. Through signature programs, workshops, and international opportunities, CIE empowers students to transform ideas into impactful solutions.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Signature Programs (morphing dialog cards) */}
+      <section id="signature-programs" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Signature Programs</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">CIE’s signature programs provide structured learning and hands-on experience in entrepreneurship and innovation, tailored for students and aspiring entrepreneurs.</p>
+          </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-6 auto-rows-fr">
+              {/* Bootcamp */}
+              <MorphingDialog>
+              <div>
+                <MorphingDialogTrigger className="block">
+                  <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm cursor-pointer h-full flex flex-col justify-between">
+                    <h3 className="text-xl font-semibold mb-2">CIE Bootcamp 2018<span className="text-sm font-normal text-gray-500"></span></h3>
+                    <p className="text-gray-600 mb-3">Annual intensive training to accelerate entrepreneurial growth.</p>
+                    <div className="text-sm text-gray-500">Format: Multi-day immersive bootcamp
+                      course over a span of 7 days</div>
+                  </div>
+                </MorphingDialogTrigger>
+
+                <MorphingDialogContainer>
+                  <MorphingDialogContent
+                    className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-gray-200 bg-white sm:w-[560px]"
+                    style={{ borderRadius: '18px' }}
+                  >
+                    <div className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-start">
+                          <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-4 bg-[rgba(${hexToRgb(studentsColors.primary)},0.08)]`}>
+                            <GraduationCap className="w-6 h-6" style={{ color: studentsColors.primary }} />
+                          </div>
+                          <div>
+                            <MorphingDialogTitle className="text-2xl font-bold text-gray-900">CIE Bootcamp 2018 <span className="text-base font-normal text-gray-500"></span></MorphingDialogTitle>
+                            <MorphingDialogSubtitle className="text-sm text-gray-600 mt-2">Annual intensive training to accelerate entrepreneurial growth.</MorphingDialogSubtitle>
+                          </div>
+                        </div>
+                        <MorphingDialogClose className="text-gray-500">Close</MorphingDialogClose>
+                      </div>
+
+                      <MorphingDialogDescription className="mt-4 text-gray-700" disableLayoutAnimation>
+                        <p>
+                          Bootcamp is an annual intensive event designed to accelerate entrepreneurial growth through skill-building, mentorship, and hands-on team projects. Participants work in cross-functional teams and present final pitches to a panel of mentors.
+                        </p>
+
+                        <div className="mt-6 flex justify-end">
+                          <Link href="/students/programs/bootcamp">
+                            <Button className="bg-white border" style={{ borderColor: studentsColors.secondary }}>
+                              Learn More
+                            </Button>
+                          </Link>
+                        </div>
+                      </MorphingDialogDescription>
+                    </div>
+                  </MorphingDialogContent>
+                </MorphingDialogContainer>
+              </div>
+              </MorphingDialog>
+
+              {/* Basecamp */}
+              <MorphingDialog>
+              <div>
+                <MorphingDialogTrigger className="block">
+                  <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm cursor-pointer h-full flex flex-col justify-between">
+                    <h3 className="text-xl font-semibold mb-2">CIE Basecamp 2018 <span className="text-sm font-normal text-gray-500"></span></h3>
+                    <p className="text-gray-600 mb-3">Foundational weekly sessions leading into Bootcamp.</p>
+                    <div className="text-sm text-gray-500">Focus: Core startup principles & customer discovery</div>
+                  </div>
+                </MorphingDialogTrigger>
+
+                <MorphingDialogContainer>
+                  <MorphingDialogContent
+                    className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-gray-200 bg-white sm:w-[560px]"
+                    style={{ borderRadius: '18px' }}
+                  >
+                    <div className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-start">
+                          <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-4 bg-[rgba(${hexToRgb(studentsColors.primary)},0.08)]`}>
+                            <GraduationCap className="w-6 h-6" style={{ color: studentsColors.primary }} />
+                          </div>
+                          <div>
+                            <MorphingDialogTitle className="text-2xl font-bold text-gray-900">CIE Basecamp 2018 <span className="text-base font-normal text-gray-500"></span></MorphingDialogTitle>
+                            <MorphingDialogSubtitle className="text-sm text-gray-600 mt-2">Basecamp provides foundational sessions that prepare participants for intensive programs like Bootcamp. Topics include customer discovery, empathy mapping, and lean experimentation.</MorphingDialogSubtitle>
+                          </div>
+                        </div>
+                        <MorphingDialogClose className="text-gray-500">Close</MorphingDialogClose>
+                      </div>
+
+                      <MorphingDialogDescription className="mt-4 text-gray-700" disableLayoutAnimation>
+                        <p>
+                          Basecamp provides foundational sessions that prepare participants for intensive programs like Bootcamp. Topics include customer discovery, empathy mapping, and lean experimentation.
+                        </p>
+
+                        <div className="mt-6 flex justify-end">
+                          <Link href="/students/programs/basecamp">
+                            <Button className="bg-white border" style={{ borderColor: studentsColors.secondary }}>
+                              Learn More
+                            </Button>
+                          </Link>
+                        </div>
+                      </MorphingDialogDescription>
+                    </div>
+                  </MorphingDialogContent>
+                </MorphingDialogContainer>
+              </div>
+              </MorphingDialog>
+
+              {/* Summer Programs (dialog trigger) */}
+              <MorphingDialog>
+              <div>
+                <MorphingDialogTrigger className="block">
+                  <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm cursor-pointer h-full flex flex-col justify-between">
+                    <h3 className="text-xl font-semibold mb-2">Summer Programs</h3>
+                    <p className="text-gray-600 mb-3">Short-format, high-impact summer courses focused on hands-on learning and prototyping.</p>
+                    <div className="text-sm text-gray-500">Examples: 5-day workshops, 3-week intensives</div>
+                  </div>
+                </MorphingDialogTrigger>
+
+                <MorphingDialogContainer>
+                  <MorphingDialogContent
+                    className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-gray-200 bg-white sm:w-[560px]"
+                    style={{ borderRadius: '18px' }}
+                  >
+                    <div className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-start">
+                          <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-4 bg-[rgba(${hexToRgb(studentsColors.primary)},0.08)]`}>
+                            <GraduationCap className="w-6 h-6" style={{ color: studentsColors.primary }} />
+                          </div>
+                          <div>
+                            <MorphingDialogTitle className="text-2xl font-bold text-gray-900">Summer Programs</MorphingDialogTitle>
+                            <MorphingDialogSubtitle className="text-sm text-gray-600 mt-2">Short-format, high-impact summer courses focused on hands-on learning and prototyping.</MorphingDialogSubtitle>
+                          </div>
+                        </div>
+                        <MorphingDialogClose className="text-gray-500">Close</MorphingDialogClose>
+                      </div>
+
+                      <MorphingDialogDescription className="mt-4 text-gray-700" disableLayoutAnimation>
+                        <p>
+                          Our Summer Programs include short, intensive courses and workshops designed to provide practical skills in prototyping, AI, ML, and product development. They are open to PES students and external participants.
+                        </p>
+                        <ul className="list-disc pl-5 mt-3 text-gray-600">
+                          {summerPrograms.map((s) => (
+                            <li key={s.name} className="mb-1">{s.name} — {s.duration}: {s.focus}</li>
+                          ))}
+                        </ul>
+
+                        <div className="mt-6 flex justify-end">
+                          <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
+                            <Button style={{ backgroundColor: studentsColors.primary, color: '#fff' }}>Apply Now</Button>
+                          </a>
+                        </div>
+                      </MorphingDialogDescription>
+                    </div>
+                  </MorphingDialogContent>
+                </MorphingDialogContainer>
+              </div>
+              </MorphingDialog>
+            </div>
         </div>
       </section>
 
@@ -350,7 +529,7 @@ export default function ProgramsPage() {
                     <p className="text-gray-600 leading-relaxed">{program.description}</p>
                   </div>
                   <div className="flex items-center ml-4">
-                    <Star className="w-5 h-5 text-yellow-500 mr-1" />
+                    <Star className="w-5 h-5 mr-1" style={{ color: studentsColors.accent }} />
                     <span className="font-semibold text-gray-900">{program.rating}</span>
                   </div>
                 </div>
@@ -358,22 +537,22 @@ export default function ProgramsPage() {
                 {/* Program Meta */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                   <div className="text-center p-3 bg-gray-50 rounded-xl">
-                    <Clock className="w-5 h-5 text-blue-600 mx-auto mb-1" />
+                    <Clock className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
                     <div className="text-sm font-medium text-gray-900">{program.duration}</div>
                     <div className="text-xs text-gray-500">Duration</div>
                   </div>
                   <div className="text-center p-3 bg-gray-50 rounded-xl">
-                    <Award className="w-5 h-5 text-green-600 mx-auto mb-1" />
+                    <Award className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
                     <div className="text-sm font-medium text-gray-900">{program.level}</div>
                     <div className="text-xs text-gray-500">Level</div>
                   </div>
                   <div className="text-center p-3 bg-gray-50 rounded-xl">
-                    <Users className="w-5 h-5 text-purple-600 mx-auto mb-1" />
+                    <Users className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
                     <div className="text-sm font-medium text-gray-900">{program.students}</div>
                     <div className="text-xs text-gray-500">Students</div>
                   </div>
                   <div className="text-center p-3 bg-gray-50 rounded-xl">
-                    <MapPin className="w-5 h-5 text-orange-600 mx-auto mb-1" />
+                    <MapPin className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
                     <div className="text-sm font-medium text-gray-900">{program.format.split(' ')[0]}</div>
                     <div className="text-xs text-gray-500">Format</div>
                   </div>
@@ -410,11 +589,11 @@ export default function ProgramsPage() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <Button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
+                  <Button className="flex-1 text-white" style={{ backgroundColor: studentsColors.primary }}>
                     Enroll Now
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
-                  <Button className="flex-1 border border-gray-300 text-gray-700 hover:bg-gray-50 bg-white">
+                  <Button className="flex-1 bg-white" style={{ borderColor: studentsColors.secondary, color: studentsColors.secondary }}>
                     Learn More
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </Button>
@@ -425,49 +604,7 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* Summer Programs */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Summer <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">Programs</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Intensive summer programs designed to accelerate your learning and provide hands-on experience.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {summerPrograms.map((program, index) => (
-              <motion.div
-                key={program.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-3xl border border-orange-200 hover:shadow-lg transition-all duration-300"
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6">
-                  <Briefcase className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{program.name}</h3>
-                <div className="flex items-center text-orange-600 mb-4">
-                  <Clock className="w-4 h-4 mr-2" />
-                  <span className="font-medium">{program.duration}</span>
-                </div>
-                <p className="text-gray-600 mb-6">{program.focus}</p>
-                <Button asChild className="w-full bg-orange-600 hover:bg-orange-700 text-white">
-                  <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">Apply Now</a>
-                </Button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Summer Programs section removed — now surfaced in morphing dialogs above to avoid duplicate content */}
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-700">

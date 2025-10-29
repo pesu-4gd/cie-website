@@ -48,6 +48,7 @@ const fundingOpportunities = [
     id: '1',
     title: 'CiC MathWorks Innovation Grant',
     provider: 'Centre for Innovation & Collaboration (CiC)',
+    providerType: 'CIE',
     amount: '₹2,00,000',
     type: 'Innovation Grant',
     category: 'Research',
@@ -70,6 +71,7 @@ const fundingOpportunities = [
     id: '2',
     title: 'PES University Merit Scholarship',
     provider: 'PES University',
+    providerType: 'College',
     amount: '₹50,000 - ₹1,50,000',
     type: 'Merit Scholarship',
     category: 'Academic',
@@ -92,6 +94,7 @@ const fundingOpportunities = [
     id: '3',
     title: 'Startup Seed Fund',
     provider: 'PES Innovation Centre',
+    providerType: 'CIE',
     amount: '₹5,00,000',
     type: 'Seed Funding',
     category: 'Entrepreneurship',
@@ -114,6 +117,7 @@ const fundingOpportunities = [
     id: '4',
     title: 'Research Excellence Grant',
     provider: 'Department of Science & Technology',
+    providerType: 'Government',
     amount: '₹3,00,000',
     type: 'Research Grant',
     category: 'Research',
@@ -136,6 +140,7 @@ const fundingOpportunities = [
     id: '5',
     title: 'Women in Tech Scholarship',
     provider: 'Grace Hopper Foundation',
+    providerType: 'External',
     amount: '₹1,00,000',
     type: 'Diversity Scholarship',
     category: 'Diversity',
@@ -158,6 +163,7 @@ const fundingOpportunities = [
     id: '6',
     title: 'International Exchange Grant',
     provider: 'Global Education Office',
+    providerType: 'College',
     amount: '₹4,00,000',
     type: 'Exchange Grant',
     category: 'International',
@@ -258,6 +264,7 @@ const successStories = [
 const categories = ['All', 'Research', 'Academic', 'Entrepreneurship', 'Diversity', 'International'];
 const amounts = ['All', '< ₹1L', '₹1L - ₹3L', '₹3L - ₹5L', '> ₹5L'];
 const statuses = ['All', 'Open', 'Closing Soon', 'Closed'];
+const providerTypes = ['All', 'CIE', 'Government', 'College', 'External'];
 
 export default function FundingPage() {
   const studentsColors = SECTION_COLORS.students;
@@ -265,6 +272,7 @@ export default function FundingPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedAmount, setSelectedAmount] = useState('All');
   const [selectedStatus, setSelectedStatus] = useState('All');
+  const [selectedProvider, setSelectedProvider] = useState('All');
   const [activeTab, setActiveTab] = useState('opportunities');
 
   const filteredOpportunities = fundingOpportunities.filter(opportunity => {
@@ -273,6 +281,7 @@ export default function FundingPage() {
                          opportunity.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'All' || opportunity.category === selectedCategory;
     const matchesStatus = selectedStatus === 'All' || opportunity.status === selectedStatus;
+    const matchesProvider = selectedProvider === 'All' || (opportunity.providerType || 'External') === selectedProvider;
     
     let matchesAmount = true;
     if (selectedAmount !== 'All') {
@@ -293,7 +302,7 @@ export default function FundingPage() {
       }
     }
     
-    return matchesSearch && matchesCategory && matchesAmount && matchesStatus;
+    return matchesSearch && matchesCategory && matchesAmount && matchesStatus && matchesProvider;
   });
 
   return (
@@ -314,19 +323,19 @@ export default function FundingPage() {
               Funding & Scholarships
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Fund Your <span className={`${studentsColors.gradient.tailwind} bg-clip-text text-transparent`}>Innovation</span>
+              Fund Your <span className="text-white">Innovation</span>
             </h1>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
               Discover funding opportunities, scholarships, and grants to support your academic journey, 
               research projects, and entrepreneurial ventures.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className={`bg-[transparent] ${studentsColors.gradient.tailwind} text-white`}>
-                <Search className="h-5 w-5 mr-2" />
+              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
+                <Search className="h-5 w-5 mr-2 text-white" />
                 Explore Opportunities
               </Button>
-              <Button size="lg" variant="outline">
-                <Download className="h-5 w-5 mr-2" />
+              <Button size="lg" variant="outline" className="text-white border-white">
+                <Download className="h-5 w-5 mr-2 text-white" />
                 Application Guide
               </Button>
             </div>
@@ -417,6 +426,8 @@ export default function FundingPage() {
                 setSelectedAmount={setSelectedAmount}
                 selectedStatus={selectedStatus}
                 setSelectedStatus={setSelectedStatus}
+                selectedProvider={selectedProvider}
+                setSelectedProvider={setSelectedProvider}
               />
             </TabsContent>
 
@@ -472,7 +483,9 @@ function OpportunitiesSection({
   selectedAmount,
   setSelectedAmount,
   selectedStatus,
-  setSelectedStatus
+  setSelectedStatus,
+  selectedProvider,
+  setSelectedProvider
 }: {
   opportunities: typeof fundingOpportunities;
   searchTerm: string;
@@ -483,6 +496,8 @@ function OpportunitiesSection({
   setSelectedAmount: (amount: string) => void;
   selectedStatus: string;
   setSelectedStatus: (status: string) => void;
+  selectedProvider: string;
+  setSelectedProvider: (p: string) => void;
 }) {
   return (
     <div className="space-y-8">
@@ -498,7 +513,7 @@ function OpportunitiesSection({
           />
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+  <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           <div className="flex items-center space-x-2">
             <Filter className="h-4 w-4 text-gray-500" />
             <select
@@ -537,6 +552,20 @@ function OpportunitiesSection({
             >
               {statuses.map(status => (
                 <option key={status} value={status}>{status}</option>
+              ))}
+            </select>
+          </div>
+          
+          <div className="flex items-center space-x-2">
+            <Building2 className="h-4 w-4 text-gray-500" />
+            <select
+              aria-label="Filter by provider type"
+              value={selectedProvider}
+              onChange={(e) => setSelectedProvider(e.target.value)}
+              className="border border-gray-300 rounded-md px-3 py-2 bg-white flex-1"
+            >
+              {providerTypes.map(pt => (
+                <option key={pt} value={pt}>{pt}</option>
               ))}
             </select>
           </div>

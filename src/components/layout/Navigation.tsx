@@ -164,9 +164,9 @@ const StudentsNavigation: React.FC = () => {
           icon: BookOpen,
         },
         {
-          title: 'Summer Programs',
-          href: '/students/programs/summer',
-          description: 'Intensive technical & entrepreneurial courses',
+          title: 'Programs',
+          href: '/students/programs',
+          description: 'Explore all student programs and summer courses',
           icon: Calendar,
         },
         {
@@ -517,12 +517,23 @@ interface NavigationProps {
 
 export const Navigation: React.FC<NavigationProps> = ({ className }) => {
   return (
-    <NavigationMenu className={cn('hidden lg:flex', className)}>
-      <NavigationMenuList>
-        <StudentsNavigation />
-        <IndustryNavigation />
-        <AlumniNavigation />
-        <InsideCIENavigation />
+    <NavigationMenu className={cn('hidden lg:block', className)}>
+      {/* Use a 4-column grid constrained to a center width so top-level items
+          are evenly spaced across the center. Grid gives equal column widths
+          regardless of label length which produces visually even spacing. */}
+      <NavigationMenuList className="w-full max-w-4xl mx-auto grid grid-cols-4">
+        <div className="flex items-center justify-center">
+          <StudentsNavigation />
+        </div>
+        <div className="flex items-center justify-center">
+          <IndustryNavigation />
+        </div>
+        <div className="flex items-center justify-center">
+          <AlumniNavigation />
+        </div>
+        <div className="flex items-center justify-center">
+          <InsideCIENavigation />
+        </div>
       </NavigationMenuList>
     </NavigationMenu>
   );
@@ -542,14 +553,14 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
       href: '/students',
       icon: Users,
       sections: [
-        {
-          title: 'Programs',
-          items: [
-            { title: 'Overview', href: '/students', description: 'Explore opportunities' },
-            { title: 'Summer Programs', href: '/students/programs/summer', description: 'Intensive courses' },
-            { title: 'Bootcamp', href: '/students/programs/bootcamp', description: 'Annual training' }
-          ]
-        },
+            {
+              title: 'Programs',
+              items: [
+                { title: 'Overview', href: '/students', description: 'Explore opportunities' },
+                { title: 'Programs', href: '/students/programs', description: 'Explore all student programs' },
+                { title: 'Bootcamp', href: '/students/programs/bootcamp', description: 'Annual training' }
+              ]
+            },
         {
           title: 'Resources',
           items: [

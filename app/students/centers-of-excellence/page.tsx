@@ -1,8 +1,11 @@
-'use client';
+"use client";
 
+import { useState } from 'react';
 import { Button } from '@/components/design-system';
 import { motion } from 'framer-motion';
 import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
+import coeList from '../../../src/data/coe.json';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { 
   Cpu, 
   Atom, 
@@ -24,6 +27,17 @@ import {
   Link2,
   Mail
 } from 'lucide-react';
+
+interface CoEEntry {
+  name: string;
+  short?: string;
+  description?: string;
+  website?: string;
+}
+
+const coeListTyped = coeList as CoEEntry[];
+
+// Hex background removed in favor of shared `InteractiveHexagonBackground` used on the site root.
 
 export default function CentersOfExcellencePage() {
   const studentsColors = SECTION_COLORS.students;
@@ -235,18 +249,41 @@ export default function CentersOfExcellencePage() {
     return colorMap[color as keyof typeof colorMap] || colorMap.blue;
   };
 
+  const [mouse, setMouse] = useState({ x: 0.5, y: 0.5 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    setMouse({ x: (e.clientX - rect.left) / rect.width, y: (e.clientY - rect.top) / rect.height });
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="text-white py-20" style={{ background: studentsColors.gradient.css }}>
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Hero Section with interactive hex background */}
+      <section
+        className="relative text-white py-28 overflow-hidden"
+        onMouseMove={handleMouseMove}
+      >
+        {/* Interactive hex background (reuse site component for consistent visual language) */}
+        <InteractiveHexagonBackground
+          primaryColor={studentsColors.primary ?? '#00338d'}
+          accentColor={studentsColors.accent ?? '#2B9EB3'}
+          hexagonSize={72}
+          className="absolute inset-0 z-0"
+        />
+        {/* Decorative gradient layer for stronger contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#08203a] to-[#00338d] opacity-80" aria-hidden />
+        {/* Decorative orbs (subtle) */}
+        <div className="absolute top-16 right-16 w-56 h-56 bg-[#2B9EB3]/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse pointer-events-none" />
+        <div className="absolute bottom-16 left-16 w-56 h-56 bg-[#F15A29]/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <div className="mb-6">
+            <div className="mb-6 inline-block">
               <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium" style={{ backgroundColor: `rgba(${hexToRgb(studentsColors.primary)},0.12)`, color: studentsColors.primary }}>
                 <FlaskConical className="w-4 h-4 mr-2" />
                 Research Excellence
@@ -311,7 +348,7 @@ export default function CentersOfExcellencePage() {
             </p>
           </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8">
             {centers.map((center, index) => {
               const IconComponent = center.icon;
               return (
@@ -394,6 +431,29 @@ export default function CentersOfExcellencePage() {
                 </motion.div>
               );
             })}
+          </div>
+
+          {/* Simple listing of all CoEs from data file - exclude any already shown in `centers` to avoid duplicates */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-semibold mb-6">All Centers of Excellence</h3>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {coeListTyped
+                .filter((c) => {
+                  const names = centers.map((ct) => ct.name);
+                  const shorts = centers.map((ct) => ct.acronym);
+                  return !names.includes(c.name || '') && !shorts.includes(c.short || '');
+                })
+                .map((c) => (
+                  <article key={c.short ?? c.name} className="border rounded-2xl p-6 shadow-sm hover:shadow-lg transition bg-white">
+                    <h4 className="text-lg font-semibold text-indigo-800 mb-2">{c.name}</h4>
+                    <p className="text-sm text-gray-700 mb-4">{c.description}</p>
+                    <div className="flex items-center justify-between">
+                      <a href={c.website} target="_blank" rel="noopener noreferrer" className="text-indigo-600 font-medium hover:underline">Visit website</a>
+                      <a href="mailto:cieprogram@pes.edu" className="text-sm text-gray-600 hover:text-gray-800">Contact</a>
+                    </div>
+                  </article>
+                ))}
+            </div>
           </div>
         </div>
       </section>

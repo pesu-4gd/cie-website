@@ -1,0 +1,103 @@
+Programs at CIE: Igniting Innovation and Entrepreneurship
+The Centre for Innovation and Entrepreneurship (CIE) at PES University is a dynamic hub for fostering innovation, entrepreneurship, and technical excellence. Through a diverse range of programs, hackathons, workshops, and networking events, CIE empowers students, startups, and industry professionals to transform ideas into impactful solutions. Explore our signature programs, international opportunities, upcoming events, and highlights from past initiatives below, designed to inspire and equip the next generation of innovators.
+Signature Programs
+CIE’s signature programs provide structured learning and hands-on experience in entrepreneurship and innovation, tailored for students and aspiring entrepreneurs.
+CIE Bootcamp
+Description: An annual intensive training event designed to accelerate entrepreneurial growth through skill-building and networking.
+Format: Multi-day immersive bootcamp (e.g., Bootcamp 2018 was a 7-day residential program).
+Target Audience: Aspiring entrepreneurs and students, primarily from 4th and 6th semesters.
+Focus Areas: Entrepreneurship skills, startup strategies, ideation, Business Model Canvas, selling, and pitching.
+Key Benefit: Offers a high-energy environment to connect with mentors, peers, and industry experts while honing entrepreneurial skills.
+Example: Bootcamp 2018 engaged 30 students across eight teams, working on projects like bio-alternatives for plastic bottles and e-commerce solutions, with activities including idea validation and pitching.
+Link: CIE Bootcamp 2018
+CIE Basecamp
+Description: Foundational programs providing essential knowledge for startup development.
+Format: Structured weekly sessions leading to a bootcamp (e.g., Basecamp 2018).
+Target Audience: Early-stage entrepreneurs and students.
+Focus Areas: Core startup principles, business fundamentals, customer personas, and empathy mapping.
+Key Benefit: Lays the groundwork for participants to build and scale their startup ideas effectively.
+Example: Basecamp 2018 introduced entrepreneurship through guest entrepreneur talks, interactive activities, and live examples, preparing students for Bootcamp.
+Link: CIE Basecamp 2018
+Summer Programs
+Description: Intensive courses designed to enhance technical and entrepreneurial skills during the summer semester, offering immersive learning experiences.
+Format: Short-term, high-impact courses (e.g., 5-day or 8-week formats).
+Target Audience: PES students and external participants.
+Focus Areas: Technical expertise (AI/ML, IoT, prototyping) and entrepreneurial competencies.
+Key Benefit: Provides a focused environment for skill development and networking with like-minded innovators.
+Example: Summer Workshop (SWS) 2023 engaged 60 students in 15 projects across six tracks, including Edge Compute and AI/ML, with industry partners like NVIDIA, Intel, and Siemens.
+International Opportunities
+CIE facilitates access to prestigious international programs, providing PES students with global exposure and entrepreneurial insights.
+Berkeley Haas Global Access Program (BHGAP)
+Description: A semester-long business and entrepreneurship program at UC Berkeley’s Haas Business School, designed to immerse students in business, technology, and innovation.
+Program Overview: Comprises three core subjects and three electives (two program-specific, one from the UC Berkeley catalog), focusing on areas like Organizational Behavior, Marketing Analysis, and startup innovation. Open to business and non-business majors.
+Format: Experiential learning with visits to Silicon Valley companies, emphasizing student research, weekly papers, and a comprehensive term paper.
+Benefits: Offers deep insights into entrepreneurship, innovation, leadership, and Silicon Valley’s startup ecosystem, along with cultural immersion and networking opportunities.
+Student Testimonial: Meghana Ganesh, a final-year Computer Science student from PES University, participated in the BHGAP Spring 2020 cohort. She described the experience as transformative, highlighting UC Berkeley’s vibrant campus culture, diverse student body, flexible and interactive classes, and student-friendly professors. The program enhanced her understanding of entrepreneurship, leadership, and innovation while sharpening her communication, presentation, and networking skills. She noted, “Studying at UC Berkeley allowed me to experience a completely different style of education and gave me a chance to grow as a person and thrive in an international setting.”
+Link: BHGAP 2020 Student Abroad Program
+Upcoming Events
+CIE hosts a vibrant lineup of hackathons, workshops, and networking events to fuel your entrepreneurial journey.
+Dynamic Event Calendar: Visit the CIE website for real-time updates and registration forms.
+Planned Themes for 2025: Expect events focused on AI-driven innovation, deep tech, prototyping, and startup pitching.
+How to Join: Register via cieprogram@pes.edu or the CIE website for upcoming opportunities.
+Past Events
+CIE’s past events have shaped the entrepreneurial landscape at PES University, empowering students with practical skills and global exposure. Below are highlights from key initiatives.
+Foundation of Deeptech: STM32 Workshop (2024)
+Overview: A hands-on workshop bridging academia and industry, equipping 63 students with skills in embedded systems and AI-driven microcontroller applications.
+Format: Expert-led sessions with interactive labs.
+Outcomes: Enhanced technical proficiency, industry awareness, and innovation through actionable feedback.
+Impact: Strengthened PES University’s leadership in deep tech education.
+Sangam Networking Event (July 3-4, 2024)
+Overview: Over 100 participants explored Digital Twin-enabled solutions for transport, healthcare, environmental quality, and disaster response, leveraging AI-driven insights.
+Format: Interactive sessions fostering collaboration.
+Outcomes: Sparked innovative solutions and partnerships among students, startups, and industry professionals.
+Impact: Highlighted AI’s potential in addressing real-world challenges.
+CIE PAML Workshop: Practical Approach to Machine Learning (2024)
+Overview: A 4-weekend workshop led by CIE interns (Aditya Sharma, Sanraj Lachhiramka, Vanshika Jadhav, Shereen Anand) and Industry Mentor Mr. Prasanna Chandran, immersing students in AI and ML.
+Format: Fast-paced, hands-on coding exercises and interactive sessions, with networking opportunities during samosa breaks.
+Outcomes: Participants developed working ML models, with the top three projects receiving awards. A participant, Kunjal, noted, “Getting a bunch of like-minded people together to learn ML makes it so much easier.”
+Impact: Equipped students to excel in hackathons and tech-driven fields through collaborative learning.
+Cisco ThingQbator: Cohort 6 (2023)
+Overview: Eight PES University teams participated, with NeuRoar securing ₹5 Lakh incubation support among 1050 applications.
+Format: Competitive incubation program focused on innovative solutions.
+Outcomes: Provided funding and mentorship to scale student-led startups.
+Impact: Showcased PES students’ ability to compete nationally.
+Hult Prize Challenge 2020
+Overview: Hosted by CIE, the on-campus round engaged 24 PES student teams in a global competition supported by the UN and Bill Clinton Foundation.
+Format: Pitching competition with six judges, including Bindu Sastry and Suresh Narasimha.
+Outcomes: Team FUZE (Jaidev G, Kirthan Sanjay, Srivatsan H) advanced to regionals with a CO2-to-fuel solution. Runners-up included SupHerb (hemp-based eco-plastic) and Smart Mesh (CO2-absorbing mesh).
+Impact: Inspired students to address global sustainability challenges through entrepreneurship.
+BVJ Masterclass (November 2023)
+Overview: A masterclass on “Building and Scaling a Tech Startup” by BV Jagadeesh, a Silicon Valley legend, with guest entrepreneurs Rohith Ramesh, Radha Rajappa, and Raghav Kashyap.
+Format: Interactive sessions covering startup essentials, founder qualities, tech entrepreneurship patterns, and investor perspectives.
+Outcomes: Provided actionable insights for aspiring entrepreneurs.
+Impact: Inspired students with real-world strategies from a global tech pioneer.
+CIE Aarambh (August 2023)
+Overview: A Harvard Manage Mentor program completed by 58 students, focusing on workplace transition skills.
+Format: Self-paced online modules with interactive exercises, videos, and expert insights from Harvard Business School.
+Outcomes: Equipped students with leadership, communication, and strategic thinking skills, with digital badges awarded.
+Impact: Enhanced professional readiness for corporate and entrepreneurial careers.
+I-NCUBATE with GDC-IIT Madras (2023)
+Overview: A collaboration with GDC-IIT Madras, engaging five PES teams (17 students) in an 8-week Customer Development program.
+Format: Teams conducted 100 customer interviews, guided by faculty and industry mentors.
+Outcomes: Validated business ideas through real-world insights, emphasizing a “Get out of the building” approach.
+Impact: Strengthened ties with premier institutions and enhanced students’ market-ready skills.
+Xinova Connected Car Ideathon (2019)
+Overview: A full-day innovation brainstorm with Xinova and Honda, focusing on personalized services for Connected Cars using 5G and AI.
+Format: Team-based ideation, screening, and pitching.
+Outcomes: Two ideas reached the “Customer Review” stage, earning high praise.
+Impact: Showcased students’ ability to innovate at the intersection of AI and mobility.
+Prakalpa 2019
+Overview: CIE’s exhibit at PES University’s annual project exhibition, attracting ~430 visitors.
+Format: Workshops, project displays (e.g., student-built radio station, smart home assistant), and dioramas, led by 20 CIE student volunteers.
+Outcomes: Engaged visitors through interactive, team-based learning.
+Impact: Highlighted CIE’s innovative approach to entrepreneurial education.
+Summer Programs 2018
+Overview: A series of events enhancing technical and entrepreneurial skills.
+Events Included:
+Augmenting Your Reality (July 7, 2018): A talk by Dr. Shivakumar Sastry on Augmented Reality applications in space technology, featuring a Microsoft HoloLens demo.
+Connected Cars (July 14, 2018): A Xinova-led brainstorm session on personalized services for connected cars, with ideas pitched to a panel.
+Introduction to Prototyping (July 21, 2018): A skill-based meetup led by CIE interns Vishwas and Parthan, teaching 3D modeling with Fusion 360 to six participants.
+Impact: Provided hands-on learning in emerging technologies and entrepreneurship.
+Join the CIE Community
+CIE’s programs and events are your gateway to innovation, entrepreneurship, and global opportunities. From intensive bootcamps to transformative experiences like BHGAP, our initiatives empower you to shape the future. Stay updated on upcoming events and explore opportunities to engage with our vibrant community at the CIE website. Email cieprogram@pes.edu to register or learn more.
+

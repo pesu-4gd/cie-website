@@ -56,7 +56,8 @@ const InsideCIEPage = () => {
   <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
         <InteractiveHexagonBackground 
           primaryColor={insideCieColors.hero.background}
-          accentColor={insideCieColors.hero.hexagonAccent}
+          // Force the hexagon accent to a red/rose tone to match the new highlight
+          accentColor="#F43F5E"
           className="absolute inset-0 z-0"
         />
         
@@ -81,7 +82,7 @@ const InsideCIEPage = () => {
             className="text-5xl md:text-7xl font-bold text-white mb-6"
           >
             Behind the Innovation
-            <span className="block mt-4 bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">
+            <span className="block mt-4 bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent">
               Discover Our Story
             </span>
           </motion.h1>
@@ -107,7 +108,7 @@ const InsideCIEPage = () => {
               <Button 
                 variant="default" 
                 size="lg"
-                className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white"
+                className="group bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white"
               >
                 Learn About CIE
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />

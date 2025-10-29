@@ -16,9 +16,10 @@ import {
   Heart,
   Briefcase,
   Star,
+  Plus as PlusIcon,
 } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   MorphingDialog,
   MorphingDialogTrigger,
@@ -26,10 +27,11 @@ import {
   MorphingDialogContent,
   MorphingDialogClose,
   MorphingDialogTitle,
+  MorphingDialogSubtitle,
   MorphingDialogDescription,
 } from '@/components/ui/morphing-dialog';
 
-import { SECTION_COLORS } from '@/styles/colors';
+import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/design-system';
@@ -105,17 +107,14 @@ const useEnhancedLetterHover = (text: string) => {
 // Interactive Student Journey chart (graphical representation of semesters and milestones)
 const StudentJourneyChart = () => {
   const [hovered, setHovered] = useState<string | null>(null);
-  const [selected, setSelected] = useState<null | Milestone>(null);
+  const [selected, setSelected] = useState<null | { id: string; label: string; under: number; note: string }>(null);
   const [tooltip, setTooltip] = useState<{ x: number; y: number; text: string } | null>(null);
-  const containerRef = useRef<HTMLElement | null>(null);
   const svgRef = useRef<SVGSVGElement | null>(null);
   const milestoneRefs = useRef<Record<string, SVGRectElement | null>>({});
 
-  interface Milestone { id: string; label: string; under: number; note: string }
-
   const columns = ['Semester', '3', '4', 'Summer', '5', '6', 'Summer', '7', '8'];
 
-  const milestones: Milestone[] = [
+  const milestones = [
     { id: 'eiei', label: 'EIE-I', under: 1, note: 'Get your idea validated — CIE Ignite (Ideathon), up to ₹50K prizes + internships' },
     { id: 'eieii', label: 'EIE-II', under: 2, note: 'Prototype & refine problem statements; workshops & mentorship' },
     { id: 'intern1', label: 'CIE / CoE Internship', under: 3, note: 'Hands-on internships with Centers of Excellence or industry' },
@@ -126,176 +125,83 @@ const StudentJourneyChart = () => {
     { id: 'accelerate', label: 'Accelerate', under: 8, note: 'Accelerate: scale and demo to investors' }
   ];
 
-  // keyboard navigation: left/right to move focus between milestones
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-
-  const handler = (e: KeyboardEvent) => {
-      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
-      e.preventDefault();
-      const ids = milestones.map(m => m.id);
-      const currentIndex = hovered ? ids.indexOf(hovered) : -1;
-      let next = 0;
-      if (e.key === 'ArrowLeft') next = currentIndex <= 0 ? ids.length - 1 : currentIndex - 1;
-      if (e.key === 'ArrowRight') next = currentIndex === -1 ? 0 : (currentIndex + 1) % ids.length;
-      const targetId = ids[next];
-      setHovered(targetId);
-      const ref = milestoneRefs.current[targetId];
-      if (ref) ref.focus();
-    };
-
-    el.addEventListener('keydown', handler as any);
-    return () => el.removeEventListener('keydown', handler as any);
-  }, [hovered]);
-
   return (
-    <section className="py-6 px-2 sm:px-6 lg:px-8 bg-white" ref={containerRef} tabIndex={0} aria-label="Student journey interactive">
-      <div className="max-w-7xl mx-auto">
-        <div className="overflow-auto">
-          <div className="relative min-w-[1000px]">
-            <svg ref={svgRef} viewBox="0 0 1000 260" className="w-full h-[260px]" aria-label="Student journey timeline">
-              {/* Top row: semester boxes and connectors */}
-              {columns.map((col, idx) => {
-                const x = 60 + idx * 100;
-                const y = 50;
-                return (
-                  <g key={`col-${col}-${idx}`} transform={`translate(${x}, ${y})`}>
-                    <rect x={-38} y={-18} width={76} height={36} rx={8} fill="#e6f6ff" stroke="#bae6fd" strokeWidth={1} />
-                    <text x={0} y={4} textAnchor="middle" fontSize={12} fill="#0f172a" pointerEvents="none">{col}</text>
-                  </g>
-                );
-              })}
+    <div className="w-full overflow-x-auto">
+      <svg ref={svgRef} viewBox="0 0 1000 260" className="w-full h-[260px]" aria-label="Student journey timeline">
+        {/* Top row: semester boxes and connectors */}
+        {columns.map((col, idx) => {
+          const x = 60 + idx * 100;
+          const y = 50;
+          return (
+            <g key={`col-${col}-${idx}`} transform={`translate(${x}, ${y})`}>
+              <rect x={-38} y={-18} width={76} height={36} rx={8} fill="#e6f6ff" stroke="#bae6fd" strokeWidth={1} />
+              <text x={0} y={4} textAnchor="middle" fontSize={12} fill="#0f172a" pointerEvents="none">{col}</text>
+            </g>
+          );
+        })}
 
-              {/* connectors */}
-              {columns.map((_, idx) => {
-                if (idx === 0) return null;
-                const x1 = 60 + (idx - 1) * 100 + 38;
-                const x2 = 60 + idx * 100 - 38;
-                const y = 50;
-                return <line key={`connect-${columns[idx-1]}-${columns[idx]}`} x1={x1} y1={y} x2={x2} y2={y} stroke="#e2e8f0" strokeWidth={2} strokeLinecap="round" />;
-              })}
+        {/* connectors */}
+        {columns.map((_, idx) => {
+          if (idx === 0) return null;
+          const x1 = 60 + (idx - 1) * 100 + 38;
+          const x2 = 60 + idx * 100 - 38;
+          const y = 50;
+          return <line key={`connect-${idx}`} x1={x1} y1={y} x2={x2} y2={y} stroke="#e2e8f0" strokeWidth={2} strokeLinecap="round" />;
+        })}
 
-              {/* Milestone callouts (orange boxes below) with motion and accessibility */}
-              {milestones.map((m) => {
-                const idx = m.under;
-                const x = 60 + idx * 100;
-                const y = 140;
-                const isHovered = hovered === m.id;
-                return (
-                  <g key={m.id} transform={`translate(${x}, ${y})`}>
-                    <motion.rect
-                      x={-70}
-                      y={-26}
-                      width={140}
-                      height={52}
-                      rx={10}
-                      fill={isHovered ? '#ffedd5' : '#fff7ed'}
-                      stroke="#fb923c"
-                      strokeWidth={1}
-                      className="cursor-pointer"
-                      tabIndex={0}
-                      aria-label={`${m.label} milestone. ${m.note}`}
-                      ref={(r: any) => (milestoneRefs.current[m.id] = r)}
-                      onMouseEnter={(e: any) => {
-                        setHovered(m.id);
-                        const svg = svgRef.current;
-                        if (svg) {
-                          const rect = svg.getBoundingClientRect();
-                          setTooltip({ x: e.clientX - rect.left, y: e.clientY - rect.top, text: m.note });
-                        }
-                      }}
-                      onMouseMove={(e: any) => {
-                        const svg = svgRef.current;
-                        if (svg) {
-                          const rect = svg.getBoundingClientRect();
-                          setTooltip(prev => prev ? { x: e.clientX - rect.left, y: e.clientY - rect.top, text: prev.text } : null);
-                        }
-                      }}
-                      onMouseLeave={() => { setHovered(null); setTooltip(null); }}
-                      onClick={() => setSelected(m)}
-                      onKeyDown={(e: any) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          e.preventDefault();
-                          setSelected(m);
-                        }
-                      }}
-                      whileHover={{ scale: 1.03 }}
-                      transition={{ type: 'spring', stiffness: 250, damping: 20 }}
-                    />
-
-                    <text x={0} y={-2} textAnchor="middle" fontSize={14} fill="#92400e" pointerEvents="none" fontWeight={700}>{m.label}</text>
-                    {/* small dashed connector up to semester */}
-                    <line x1={0} y1={-26} x2={0} y2={-60} stroke="#e2e8f0" strokeWidth={2} strokeDasharray="4 4" />
-                  </g>
-                );
-              })}
-
-              {/* Footer dashed summary box */}
-              <g transform={`translate(500, 220)`}>
-                <rect x={-380} y={-22} width={760} height={44} rx={8} fill="none" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 6" />
-                <text x={0} y={6} textAnchor="middle" fontSize={13} fill="#0f172a">Build Tech, Business and Soft skills; discover your ‘True North’ — prototype, validate, and prepare to scale.</text>
-              </g>
-            </svg>
-
-            {/* Tooltip (rendered inside SVG for positioning and to avoid inline styles) */}
-            {tooltip && (
-              (() => {
-                const text = tooltip.text.length > 80 ? tooltip.text.slice(0, 77) + '...' : tooltip.text;
-                const tx = Math.min(760, tooltip.x);
-                const ty = Math.max(20, tooltip.y - 60);
-                return (
-                  <g transform={`translate(${tx}, ${ty})`} pointerEvents="none">
-                    <rect x={0} y={0} width={240} height={56} rx={8} fill="#ffffff" stroke="#e6e6e6" />
-                    <text x={12} y={18} fontSize={12} fill="#0f172a">{text}</text>
-                  </g>
-                );
-              })()
-            )}
-          </div>
-
-          <div className="mt-4 text-center text-sm text-gray-600">Hover a milestone for details, use ← → to move focus, press Enter to open details.</div>
-
-          {/* Mobile-friendly list of milestones */}
-          <div className="md:hidden mt-6 grid grid-cols-1 gap-3">
-            {milestones.map(m => (
-              <button
-                key={m.id}
-                type="button"
+        {/* Milestone callouts (orange boxes below) with motion and accessibility */}
+        {milestones.map((m) => {
+          const idx = m.under;
+          const x = 60 + idx * 100;
+          const y = 140;
+          const isHovered = hovered === m.id;
+          return (
+            <g key={m.id} transform={`translate(${x}, ${y})`}>
+              <rect
+                x={-70}
+                y={-26}
+                width={140}
+                height={52}
+                rx={10}
+                fill={isHovered ? '#ffedd5' : '#fff7ed'}
+                stroke="#fb923c"
+                strokeWidth={1}
+                className="cursor-pointer"
+                tabIndex={0}
+                aria-label={`${m.label} milestone. ${m.note}`}
+                ref={(r: SVGRectElement | null) => { milestoneRefs.current[m.id] = r; }}
+                onMouseEnter={(e: React.MouseEvent<SVGRectElement>) => {
+                  setHovered(m.id);
+                  const svg = svgRef.current;
+                  if (svg) {
+                    const rect = svg.getBoundingClientRect();
+                    setTooltip({ x: e.clientX - rect.left, y: e.clientY - rect.top, text: m.note });
+                  }
+                }}
+                onMouseMove={(e: React.MouseEvent<SVGRectElement>) => {
+                  const svg = svgRef.current;
+                  if (svg) {
+                    const rect = svg.getBoundingClientRect();
+                    setTooltip(prev => prev ? { x: e.clientX - rect.left, y: e.clientY - rect.top, text: prev.text } : null);
+                  }
+                }}
+                onMouseLeave={() => { setHovered(null); setTooltip(null); }}
                 onClick={() => setSelected(m)}
-                className="text-left p-4 rounded-lg border border-gray-200 bg-white hover:shadow transition"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="font-semibold text-gray-900">{m.label}</div>
-                  <div className="text-xs text-gray-500">Semester {m.under}</div>
-                </div>
-                <div className="text-sm text-gray-600 mt-2 line-clamp-2">{m.note}</div>
-              </button>
-            ))}
+              />
+              <text x={0} y={40} textAnchor="middle" fontSize={12} fill="#0f172a">{m.label}</text>
+            </g>
+          );
+        })}
+      </svg>
+      {/* Tooltip (positioned absolutely relative to svg container when needed) */}
+      {tooltip && (
+        <div className="relative -mt-[260px]" aria-hidden>
+          <div className="pointer-events-none">
+            <div className="text-xs bg-gray-800 text-white px-2 py-1 rounded">{tooltip.text}</div>
           </div>
-
-          {/* Desktop modal / details panel (open when selected) */}
-          {selected && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center">
-              <button type="button" aria-label="Close dialog" className="absolute inset-0 bg-black/40 focus:outline-none" onClick={() => setSelected(null)} />
-              <dialog open className="relative max-w-xl w-full bg-white rounded-xl shadow-lg p-6 z-10">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900">{selected.label}</h3>
-                    <p className="text-sm text-gray-600 mt-1">Semester: {selected.under}</p>
-                  </div>
-                  <button type="button" className="text-gray-500" onClick={() => setSelected(null)}>Close</button>
-                </div>
-                <div className="mt-4 text-sm text-gray-700">{selected.note}</div>
-                <div className="mt-4 flex justify-end">
-                  <a className="text-sm text-indigo-600 font-medium" href="/students/programs">Explore Programs →</a>
-                </div>
-              </dialog>
-            </div>
-          )}
         </div>
-      </div>
-    </section>
+      )}
+    </div>
   );
 };
 
@@ -411,6 +317,70 @@ const EnhancedMagicSubtitle = ({ text, className = '' }: { text: string; classNa
   );
 };
 
+// Small, reusable SectionCard component used on the Main Sections dashboard
+interface SectionType {
+  title: string;
+  description: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  href: string;
+  color?: string;
+  highlights?: string[];
+}
+
+const SectionCard: React.FC<{ section: SectionType; index: number }> = ({ section, index }) => {
+  const IconComponent = section.icon;
+  const [expanded, setExpanded] = useState(false);
+
+  const colorMap: Record<string, string> = {
+    blue: 'from-[#2B9EB3] to-[#3E3C6B]',
+    green: 'from-green-500 to-green-600',
+    red: 'from-[#F15A29] to-[#FFC107]',
+    indigo: 'from-indigo-500 to-blue-600',
+    purple: 'from-purple-500 to-indigo-500',
+    orange: 'from-orange-400 to-yellow-400',
+    yellow: 'from-yellow-400 to-orange-400',
+  };
+  const gradient = colorMap[section.color as string] || studentsColors.gradient.tailwind;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.04 }}
+      className="bg-white p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full"
+      onClick={() => setExpanded(!expanded)}
+    >
+      <div>
+        <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-gradient-to-br ${gradient}`}>
+          <IconComponent className="w-6 h-6 text-white" />
+        </div>
+        <h3 className="text-lg font-bold text-gray-900 mb-2">{section.title}</h3>
+        <p className="text-sm text-gray-600 mb-4">{section.description}</p>
+      </div>
+
+      <div className="mt-4 flex items-center justify-between">
+        {expanded ? (
+          <div className="text-sm text-gray-700">
+            <ul className="list-disc pl-4 space-y-1">
+              {section.highlights?.map((h: string, i: number) => (
+                <li key={i}>{h}</li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <div />
+        )}
+
+        <Link href={section.href} className="ml-4">
+          <Button size="sm" className="whitespace-nowrap">
+            Learn More
+          </Button>
+        </Link>
+      </div>
+    </motion.div>
+  );
+};
+
 export default function StudentsPage() {
   const quickStats = [
     { label: 'Active Programs', value: '15+', icon: BookOpen, color: 'blue' },
@@ -508,6 +478,7 @@ export default function StudentsPage() {
       description: 'Apply for comprehensive startup support with up to $200K funding through PESU Venture Labs',
       date: '2024-01-15',
       type: 'Program',
+      href: '/students/startup-program',
       urgent: true
     },
     {
@@ -515,6 +486,7 @@ export default function StudentsPage() {
       description: 'Join our flagship ideathon for 2nd-year students - ₹25K+ in prizes',
       date: '2024-01-12',
       type: 'Competition',
+      href: '/students/events',
       urgent: true
     },
     {
@@ -522,6 +494,7 @@ export default function StudentsPage() {
       description: 'Research opportunities now available across CRAIS, QuaNaD, and other CoEs',
       date: '2024-01-10',
       type: 'Research',
+      href: '/students/centers-of-excellence',
       urgent: false
     },
     {
@@ -529,6 +502,7 @@ export default function StudentsPage() {
       description: 'E-Cell and CMS are recruiting new members - leadership opportunities available',
       date: '2024-01-08',
       type: 'Clubs',
+      href: '/students/clubs',
       urgent: false
     }
   ];
@@ -565,11 +539,11 @@ export default function StudentsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-6"
+            className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg"
           >
             Your Innovation Journey{' '}
             <span
-              className={`block mt-4 bg-clip-text text-transparent bg-gradient-to-r ${studentsColors.gradient.tailwind}`}
+              className={`block mt-4 bg-clip-text text-transparent bg-gradient-to-r ${studentsColors.gradient.tailwind} drop-shadow-md`}
             >
               Starts Here
             </span>
@@ -580,7 +554,7 @@ export default function StudentsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-white mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-md"
           >
             Discover programs, connect with mentors, access resources, and transform your ideas into reality through CIE&apos;s comprehensive ecosystem.
           </motion.p>
@@ -666,104 +640,80 @@ export default function StudentsPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {mainSections.map((section, index) => {
-              const IconComponent = section.icon;
+              const Icon = section.icon as React.ComponentType<any>;
+              const lightBg = `rgba(${hexToRgb(studentsColors.primary)}, 0.08)`;
               return (
-                <motion.div
-                  key={section.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.05 }}
-                  className={`${index >= 5 ? 'md:col-span-2 lg:col-span-3 xl:col-span-1' : ''}`}
-                >
-                  <MorphingDialog
-                    transition={{
-                      type: 'spring',
-                      bounce: 0.05,
-                      duration: 0.25,
-                    }}
-                  >
-                    <MorphingDialogTrigger className="w-full h-full text-left">
-                      <div className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 group cursor-pointer h-full">
-                        <div
-                          className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 ${studentsColors.gradient.tailwind}`}
-                        >
-                          <IconComponent className="w-6 h-6 text-white" />
+                <MorphingDialog key={section.title}>
+                  <MorphingDialogTrigger>
+                    <div role="button" tabIndex={0} className="w-full text-left bg-white p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between">
+                      <div>
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-[rgba(${hexToRgb(studentsColors.primary)},0.08)]`}>
+                          <Icon className="w-6 h-6" style={{ color: studentsColors.primary }} />
                         </div>
-                        
-                        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                          {section.title}
-                        </h3>
-                        
-                        <p className="text-gray-600 text-sm line-clamp-2">
-                          {section.description}
-                        </p>
-                        
-                        <div className="flex items-center text-blue-600 font-semibold mt-4 text-sm">
-                          <span>Learn More</span>
-                          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                        </div>
+                        <h3 className="text-lg font-bold text-gray-900 mb-2">{section.title}</h3>
+                        <p className="text-sm text-gray-600 mb-4">{section.description}</p>
                       </div>
-                    </MorphingDialogTrigger>
 
-                    <MorphingDialogContainer>
-                      <MorphingDialogContent
-                        className="pointer-events-auto relative flex h-auto w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl"
-                      >
-                        <div className="p-8">
-                          <MorphingDialogTitle className="mb-6">
-                            <div
-                              className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${studentsColors.gradient.tailwind}`}
-                            >
-                              <IconComponent className="w-8 h-8 text-white" />
-                            </div>
-                            <h2 className="text-3xl font-bold text-gray-900 mb-3">
-                              {section.title}
-                            </h2>
-                            <p className="text-lg text-gray-600">
-                              {section.description}
-                            </p>
-                          </MorphingDialogTitle>
+                      <div className="mt-4 flex items-center justify-end">
+                        <span className="text-sm text-gray-500">Learn More</span>
+                      </div>
+                    </div>
+                  </MorphingDialogTrigger>
 
-                          <MorphingDialogDescription
-                            disableLayoutAnimation
-                            variants={{
-                              initial: { opacity: 0, scale: 0.8, y: 100 },
-                              animate: { opacity: 1, scale: 1, y: 0 },
-                              exit: { opacity: 0, scale: 0.8, y: 100 },
-                            }}
-                          >
-                            <div className="space-y-4 mb-6">
-                              <h4 className="font-semibold text-gray-900">Key Highlights:</h4>
-                              {section.highlights.map((highlight, idx) => (
-                                <div key={`${section.title}-highlight-${idx}`} className="flex items-start">
-                                  <div className="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0 bg-indigo-500" />
-                                  <span className="text-gray-700">{highlight}</span>
-                                </div>
-                              ))}
+                  <MorphingDialogContainer>
+                    <MorphingDialogContent
+                      style={{ borderRadius: '18px' }}
+                      className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-gray-200 bg-white sm:w-[560px]"
+                    >
+                      <div className="p-6">
+                        <div className="flex items-start justify-between">
+                          <div className="flex items-start">
+                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-4 bg-[rgba(${hexToRgb(studentsColors.primary)},0.08)]`}>
+                              <Icon className="w-6 h-6" style={{ color: studentsColors.primary }} />
                             </div>
-                            
-                            <Link href={section.href}>
-                              <Button className={`w-full text-white ${studentsColors.gradient.tailwind}`}>
-                                <span className="text-white">Explore {section.title}</span>
-                                <ArrowRight className="w-5 h-5 ml-2 text-white" />
-                              </Button>
-                            </Link>
-                          </MorphingDialogDescription>
+                            <div>
+                              <MorphingDialogTitle className="text-2xl font-bold text-gray-900">{section.title}</MorphingDialogTitle>
+                              <MorphingDialogSubtitle className="text-sm text-gray-600 mt-2">{section.description}</MorphingDialogSubtitle>
+                            </div>
+                          </div>
+                          <MorphingDialogClose className="text-gray-500">Close</MorphingDialogClose>
                         </div>
-                        <MorphingDialogClose className="text-gray-500 hover:text-gray-700" />
-                      </MorphingDialogContent>
-                    </MorphingDialogContainer>
-                  </MorphingDialog>
-                </motion.div>
+
+                        <MorphingDialogDescription
+                          disableLayoutAnimation
+                          variants={{
+                            initial: { opacity: 0, scale: 0.98, y: 20 },
+                            animate: { opacity: 1, scale: 1, y: 0 },
+                            exit: { opacity: 0, scale: 0.98, y: 20 },
+                          }}
+                        >
+                          <div className="mt-6">
+                            <ul className="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                              {section.highlights?.map((h: string, i: number) => (
+                                <li key={i}>{h}</li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          <div className="mt-6 flex justify-end">
+                            <Link href={section.href}>
+                              <Button className="cie-button cie-button-secondary">Learn More</Button>
+                            </Link>
+                          </div>
+                        </MorphingDialogDescription>
+                      </div>
+                    </MorphingDialogContent>
+                  </MorphingDialogContainer>
+                </MorphingDialog>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Student Journey Chart (interactive) */}
+      {/* Student Journey Chart (interactive) - removed per request
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -779,6 +729,7 @@ export default function StudentsPage() {
           <StudentJourneyChart />
         </div>
       </section>
+      */}
 
       {/* Recent Updates */}
       <section className="py-16 bg-white">
@@ -804,38 +755,70 @@ export default function StudentsPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${update.urgent ? 'bg-indigo-100 text-indigo-700' : 'bg-gray-100 text-gray-700'}`}>
-                    {update.type}
-                  </span>
-                  {update.urgent && (
-                    <div className="flex items-center text-indigo-500">
-                      <Star className="w-4 h-4" />
+                <MorphingDialog>
+                  <MorphingDialogTrigger>
+                    <div role="button" tabIndex={0} className="bg-white p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300 h-full">
+                      <div className="flex items-center justify-between mb-4">
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${update.urgent ? 'bg-indigo-100 text-indigo-700' : 'bg-gray-100 text-gray-700'}`}>
+                          {update.type}
+                        </span>
+                        {update.urgent && (
+                          <div className="flex items-center text-indigo-500">
+                            <Star className="w-4 h-4" />
+                          </div>
+                        )}
+                      </div>
+
+                      <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
+                        {update.title}
+                      </h3>
+
+                      <p className="text-gray-600 text-sm line-clamp-2 mb-4">
+                        {update.description}
+                      </p>
+
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-gray-500">
+                          {new Date(update.date).toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric'
+                          })}
+                        </span>
+                        <span className="text-sm text-gray-500">Learn More</span>
+                      </div>
                     </div>
-                  )}
-                </div>
-                
-                <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
-                  {update.title}
-                </h3>
-                
-                <p className="text-gray-600 text-sm line-clamp-2 mb-4">
-                  {update.description}
-                </p>
-                
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-500">
-                    {new Date(update.date).toLocaleDateString('en-US', {
-                      month: 'short',
-                      day: 'numeric'
-                    })}
-                  </span>
-                  <Button className="text-sm px-3 py-1">
-                    Learn More
-                  </Button>
-                </div>
+                  </MorphingDialogTrigger>
+
+                  <MorphingDialogContainer>
+                    <MorphingDialogContent className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-gray-200 bg-white sm:w-[520px]" style={{ borderRadius: '12px' }}>
+                      <div className="p-6">
+                        <div className="flex items-start justify-between">
+                          <div>
+                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${update.urgent ? 'bg-indigo-100 text-indigo-700' : 'bg-gray-100 text-gray-700'}`}>
+                              {update.type}
+                            </span>
+                            <MorphingDialogTitle className="text-2xl font-bold text-gray-900 mt-4">{update.title}</MorphingDialogTitle>
+                            <MorphingDialogSubtitle className="text-sm text-gray-600 mt-2">{new Date(update.date).toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })}</MorphingDialogSubtitle>
+                          </div>
+                          <MorphingDialogClose className="text-gray-500">Close</MorphingDialogClose>
+                        </div>
+
+                        <MorphingDialogDescription>
+                          <div className="mt-4 text-sm text-gray-700">
+                            {update.description}
+                          </div>
+
+                          <div className="mt-6 flex justify-end">
+                            <Link href={update.href}>
+                              <Button className="cie-button cie-button-secondary">Learn More</Button>
+                            </Link>
+                          </div>
+                        </MorphingDialogDescription>
+                      </div>
+                    </MorphingDialogContent>
+                  </MorphingDialogContainer>
+                </MorphingDialog>
               </motion.div>
             ))}
           </div>
@@ -850,21 +833,26 @@ export default function StudentsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: studentsColors.primary }}>
               Ready to Begin Your Journey?
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+            <p className="text-xl max-w-3xl mx-auto mb-8" style={{ color: studentsColors.primary }}>
               Join thousands of students who have transformed their ideas into successful ventures through CIE's comprehensive ecosystem.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
-                <Rocket className="w-5 h-5 mr-2" />
-                Join CIE Ignite
-              </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
-                Explore Programs
-              </Button>
+              <Link href="/students/startup-program">
+                <Button className="bg-white/10 hover:bg-white/20 px-8 py-4 text-lg font-semibold rounded-xl border" style={{ color: studentsColors.primary, borderColor: `${studentsColors.primary}33` }}>
+                  <Rocket className="w-5 h-5 mr-2" style={{ color: studentsColors.primary }} />
+                  Join CIE Ignite
+                </Button>
+              </Link>
+
+              <Link href="/students/programs">
+                <Button className="border-2 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent" style={{ color: studentsColors.primary, borderColor: studentsColors.primary }}>
+                  Explore Programs
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>

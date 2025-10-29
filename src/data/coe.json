@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Center for Computer Networks and Cyber Security (CCNCS)",
+    "short": "CCNCS",
+    "description": "Focuses on improving internet security and building protected next-generation ecosystems, addressing challenges in cybersecurity and network infrastructure.",
+    "website": "https://ccncs.pes.edu/"
+  },
+  {
+    "name": "Centre for Heterogeneous and Intelligent Processing Systems (CHIPS)",
+    "short": "CHIPS",
+    "description": "Researches heterogeneous computing using CPUs, GPUs, and FPGAs, supported by grants like CHIPS2Startup from MEITY, driving advancements in high-performance computing.",
+    "website": "https://chips.pes.edu/"
+  },
+  {
+    "name": "Quantum and Nano Devices Lab (QuaNaD)",
+    "short": "QuaNaD",
+    "description": "Explores quantum and nano technologies, focusing on innovative device development for applications in computing and materials science.",
+    "website": "https://quanad.pes.edu/"
+  },
+  {
+    "name": "Centre for Data Modelling, Analytics and Visualization (CoDMAV)",
+    "short": "CoDMAV",
+    "description": "Specializes in data modeling, analytics, and visualization techniques to derive insights from complex datasets, supporting AI and business intelligence applications.",
+    "website": "https://codmav.pes.edu/"
+  },
+  {
+    "name": "Centre for Research in Space Science and Technology (CRSST)",
+    "short": "CRSST",
+    "description": "Advances research in space science and technology, including satellite systems, astrophysics, and space exploration technologies.",
+    "website": "https://crsst.pes.edu/"
+  },
+  {
+    "name": "Centre for Robotics, Automation & Intelligent Systems (CRAIS)",
+    "short": "CRAIS",
+    "description": "Develops cutting-edge solutions in robotics, automation, and intelligent systems, integrating AI and IoT for real-world applications.",
+    "website": "https://crais.pes.edu/"
+  },
+  {
+    "name": "Centre for Cloud Computing & Big Data",
+    "short": "Cloud & Big Data",
+    "description": "Innovates in cloud computing architectures and big data analytics, enabling scalable and efficient data processing solutions.",
+    "website": "https://cloudbigdata.pes.edu/"
+  },
+  {
+    "name": "Crucible of Research and Innovation (CORI)",
+    "short": "CORI",
+    "description": "Combines faculty expertise and student enthusiasm to create leading-edge solutions across multiple disciplines, fostering interdisciplinary innovation.",
+    "website": "https://cori.pes.edu/"
+  },
+  {
+    "name": "Center of Excellence in Information Security, Forensics, and Cyber Resilience (C-ISFCR)",
+    "short": "C-ISFCR",
+    "description": "Provides facilities to test practical aspects of information security, focusing on forensics, cyber resilience, and threat mitigation.",
+    "website": "https://cisfcr.pes.edu/"
+  },
+  {
+    "name": "Center of Excellence in Internet of Things (C-IoT)",
+    "short": "C-IoT",
+    "description": "Drives the development of IoT solutions, integrating sensors, connectivity, and data analytics for smart applications.",
+    "website": "https://ciot.pes.edu/"
+  },
+  {
+    "name": "Center for Pattern Recognition",
+    "short": "Pattern Recognition",
+    "description": "Advances techniques in pattern analysis and machine learning for applications in image processing, speech recognition, and data mining.",
+    "website": "https://patternrecognition.pes.edu/"
+  },
+  {
+    "name": "Knowledge Analytics & Ontological Engineering (KANOE)",
+    "short": "KANOE",
+    "description": "Focuses on knowledge analytics, semantic technologies, and ontological engineering to enhance data interoperability and intelligence.",
+    "website": "https://kanoe.pes.edu/"
+  },
+  {
+    "name": "Centre for Intelligent Systems",
+    "short": "Intelligent Systems",
+    "description": "Researches AI-driven intelligent systems for automation, decision-making, and human-machine interaction.",
+    "website": "https://intelligentsystems.pes.edu/"
+  },
+  {
+    "name": "Laboratory of Photonics & Quantum Technology",
+    "short": "Photonics & Quantum",
+    "description": "Explores photonics and quantum technologies for applications in communication, sensing, and computing.",
+    "website": "https://photonicsquantum.pes.edu/"
+  },
+  {
+    "name": "Center for Data Sciences and Applied Machine Learning (CDSAML)",
+    "short": "CDSAML",
+    "description": "Applies machine learning to data sciences, enabling predictive analytics and decision support systems.",
+    "website": "https://cdsaml.pes.edu/"
+  },
+  {
+    "name": "Centre of Cognitive Computing and Computational Intelligence (C3I)",
+    "short": "C3I",
+    "description": "Innovates in cognitive computing and computational intelligence, focusing on AI systems that mimic human cognition.",
+    "website": "https://c3i.pes.edu/"
+  }
+]

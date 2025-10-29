@@ -16,9 +16,10 @@ export default function AlumniPage() {
     <div className="min-h-screen bg-white">
       {/* Hero Section with Interactive Hexagonal Background */}
   <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
-        <InteractiveHexagonBackground 
+          <InteractiveHexagonBackground 
           primaryColor={alumniColors.hero.background}
-          accentColor={alumniColors.hero.hexagonAccent}
+          // Use a yellow accent (amber) instead of the orange accent
+          accentColor="#F59E0B"
           className="absolute inset-0 z-0"
         />
         
@@ -69,7 +70,7 @@ export default function AlumniPage() {
               <Button 
                 variant="default" 
                 size="lg"
-                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
+                className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white"
               >
                 Alumni Directory
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
