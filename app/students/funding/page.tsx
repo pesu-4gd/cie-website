@@ -30,6 +30,7 @@ import {
   AlertCircle, 
   Search, 
   Filter,
+  MapPin,
   Calculator,
   PieChart,
   BarChart3,
@@ -40,9 +41,6 @@ import {
 import { useState } from 'react';
 import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
-import { Input } from '@/components/ui/input';
-import Link from 'next/link';
-
 const fundingOpportunities = [
   {
     id: '1',
@@ -268,6 +266,11 @@ const providerTypes = ['All', 'CIE', 'Government', 'College', 'External'];
 
 export default function FundingPage() {
   const studentsColors = SECTION_COLORS.students;
+
+  // expose primary color as a CSS variable for hero/button hover states
+  const cssVars = {
+    '--cie-blue': studentsColors.primary,
+  } as React.CSSProperties;
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedAmount, setSelectedAmount] = useState('All');
@@ -306,11 +309,15 @@ export default function FundingPage() {
   });
 
   return (
-    <div className="min-h-screen bg-white">
+  <div className="min-h-screen bg-white" style={cssVars}>
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
-        <InteractiveHexagonBackground className="absolute inset-0 z-0" />
-        <div className="absolute inset-0 bg-black/20" />
+        <InteractiveHexagonBackground
+          primaryColor={studentsColors.hero?.background}
+          accentColor={studentsColors.hero?.hexagonAccent}
+          className="absolute inset-0 z-0"
+        />
+  <div className="absolute inset-0 bg-black/200 pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -329,16 +336,18 @@ export default function FundingPage() {
               Discover funding opportunities, scholarships, and grants to support your academic journey, 
               research projects, and entrepreneurial ventures.
             </p>
+            {/* Hero CTAs removed per design request
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
-                <Search className="h-5 w-5 mr-2 text-white" />
+              <Button size="lg" className="bg-white text-[var(--cie-blue)]">
+                <Search className="h-5 w-5 mr-2 text-[var(--cie-blue)]" />
                 Explore Opportunities
               </Button>
-              <Button size="lg" variant="outline" className="text-white border-white">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 <Download className="h-5 w-5 mr-2 text-white" />
                 Application Guide
               </Button>
             </div>
+            */}
           </motion.div>
         </div>
       </section>
@@ -416,19 +425,20 @@ export default function FundingPage() {
             </TabsList>
 
             <TabsContent value="opportunities">
-              <OpportunitiesSection 
-                opportunities={filteredOpportunities}
-                searchTerm={searchTerm}
-                setSearchTerm={setSearchTerm}
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-                selectedAmount={selectedAmount}
-                setSelectedAmount={setSelectedAmount}
-                selectedStatus={selectedStatus}
-                setSelectedStatus={setSelectedStatus}
-                selectedProvider={selectedProvider}
-                setSelectedProvider={setSelectedProvider}
-              />
+                <OpportunitiesSection 
+                  opportunities={filteredOpportunities}
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
+                  selectedCategory={selectedCategory}
+                  setSelectedCategory={setSelectedCategory}
+                  selectedAmount={selectedAmount}
+                  setSelectedAmount={setSelectedAmount}
+                  selectedStatus={selectedStatus}
+                  setSelectedStatus={setSelectedStatus}
+                  selectedProvider={selectedProvider}
+                  setSelectedProvider={setSelectedProvider}
+                  studentsColors={studentsColors}
+                />
             </TabsContent>
 
             <TabsContent value="tips">
@@ -456,15 +466,13 @@ export default function FundingPage() {
             <p className="text-xl text-green-100 mb-8">
               Start your application today and take the first step towards realizing your potential
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100">
-                <FileText className="h-5 w-5 mr-2" />
-                Start Application
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-green-600">
-                <ExternalLink className="h-5 w-5 mr-2" />
-                Contact Support
-              </Button>
+            <div className="flex justify-center">
+              <a href="mailto:cieprogram@pes.edu" className="inline-block w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-green-600">
+                  <ExternalLink className="h-5 w-5 mr-2" />
+                  Contact Support
+                </Button>
+              </a>
             </div>
           </motion.div>
         </div>
@@ -485,7 +493,8 @@ function OpportunitiesSection({
   selectedStatus,
   setSelectedStatus,
   selectedProvider,
-  setSelectedProvider
+  setSelectedProvider,
+  studentsColors
 }: {
   opportunities: typeof fundingOpportunities;
   searchTerm: string;
@@ -498,14 +507,15 @@ function OpportunitiesSection({
   setSelectedStatus: (status: string) => void;
   selectedProvider: string;
   setSelectedProvider: (p: string) => void;
+  studentsColors: typeof SECTION_COLORS.students;
 }) {
   return (
     <div className="space-y-8">
-      {/* Search and Filters */}
+      {/* Search and Filters (preserve existing controls) */}
       <div className="space-y-4">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-          <Input
+          <input
             placeholder="Search funding opportunities..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -577,7 +587,7 @@ function OpportunitiesSection({
         </div>
       </div>
 
-      {/* Opportunities Grid */}
+      {/* Revamped Opportunities Grid using Programs-style cards */}
       {opportunities.length === 0 ? (
         <Card className="text-center py-12">
           <CardContent>
@@ -587,87 +597,68 @@ function OpportunitiesSection({
           </CardContent>
         </Card>
       ) : (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {opportunities.map((opportunity, index) => (
+        <div className="grid lg:grid-cols-2 gap-6">
+          {opportunities.map((opp, idx) => (
             <motion.div
-              key={opportunity.id}
+              key={opp.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: idx * 0.06 }}
+              className="bg-white rounded-3xl p-8 border border-gray-200 hover:shadow-xl transition-all duration-200"
             >
-              <Card className={`h-full hover:shadow-lg transition-shadow ${opportunity.featured ? 'ring-2 ring-green-500' : ''}`}>
-                {opportunity.featured && (
-                  <div className="bg-green-600 text-white text-center py-2 text-sm font-semibold">
-                    <Star className="h-4 w-4 inline mr-1" />
-                    Featured Opportunity
-                  </div>
-                )}
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <CardTitle className="text-xl mb-2">{opportunity.title}</CardTitle>
-                      <CardDescription className="text-blue-600 font-medium">
-                        {opportunity.provider}
-                      </CardDescription>
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{opp.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{opp.description}</p>
+                </div>
+                <div className="ml-4 text-right">
+                  <div className="text-sm font-semibold text-gray-900">{opp.amount}</div>
+                  <div className="text-xs text-gray-500">Amount</div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div className="text-center p-3 bg-gray-50 rounded-xl">
+                  <Clock className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
+                  <div className="text-sm font-medium text-gray-900">{opp.duration}</div>
+                  <div className="text-xs text-gray-500">Duration</div>
+                </div>
+                <div className="text-center p-3 bg-gray-50 rounded-xl">
+                  <Award className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
+                  <div className="text-sm font-medium text-gray-900">{opp.category}</div>
+                  <div className="text-xs text-gray-500">Category</div>
+                </div>
+                <div className="text-center p-3 bg-gray-50 rounded-xl">
+                  <Users className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
+                  <div className="text-sm font-medium text-gray-900">{opp.studentsSupported ?? '-'}</div>
+                  <div className="text-xs text-gray-500">Supported</div>
+                </div>
+                <div className="text-center p-3 bg-gray-50 rounded-xl">
+                  <MapPin className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
+                  <div className="text-sm font-medium text-gray-900">{opp.providerType}</div>
+                  <div className="text-xs text-gray-500">Provider</div>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="font-semibold text-gray-900 mb-3">Key Requirements</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
+                  {opp.requirements?.slice(0,6).map((r, i) => (
+                    <div key={i} className="flex items-center">
+                      <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                      <span>{r}</span>
                     </div>
-                    <Badge 
-                      variant={opportunity.status === 'Open' ? 'default' : opportunity.status === 'Closing Soon' ? 'destructive' : 'secondary'}
-                      className="ml-2"
-                    >
-                      {opportunity.status}
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="text-2xl font-bold text-green-600">{opportunity.amount}</div>
-                      <Badge variant="outline">{opportunity.type}</Badge>
-                    </div>
-                    
-                    <p className="text-sm text-gray-700 line-clamp-3">{opportunity.description}</p>
-                    
-                    <div className="space-y-2 text-sm">
-                      <div className="flex items-center space-x-2 text-gray-600">
-                        <Calendar className="h-4 w-4" />
-                        <span>Deadline: {new Date(opportunity.deadline).toLocaleDateString()}</span>
-                      </div>
-                      <div className="flex items-center space-x-2 text-gray-600">
-                        <Clock className="h-4 w-4" />
-                        <span>Duration: {opportunity.duration}</span>
-                      </div>
-                      <div className="flex items-center space-x-2 text-gray-600">
-                        <TrendingUp className="h-4 w-4" />
-                        <span>Success Rate: {opportunity.successRate}</span>
-                      </div>
-                    </div>
-                    
-                    <div className="pt-4 border-t">
-                      <p className="text-sm text-gray-600 mb-3">Key Benefits:</p>
-                      <ul className="space-y-1">
-                        {opportunity.benefits.slice(0, 3).map((benefit, idx) => (
-                          <li key={idx} className="flex items-center space-x-2 text-sm">
-                            <CheckCircle className="h-3 w-3 text-green-600 flex-shrink-0" />
-                            <span>{benefit}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div className="flex space-x-2">
-                      <Button asChild className="flex-1 bg-green-600 hover:bg-green-700">
-                        <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
-                          <FileText className="h-4 w-4 mr-2" />
-                          Apply Now
-                        </a>
-                      </Button>
-                      <Button variant="outline" size="sm">
-                        <Info className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                {/* Action button styled like Programs page */}
+                <Button className="w-full bg-white" style={{ borderColor: studentsColors.secondary, color: studentsColors.secondary }}>
+                  View Details
+                  <ExternalLink className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
             </motion.div>
           ))}
         </div>
