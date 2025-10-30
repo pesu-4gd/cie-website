@@ -14,9 +14,9 @@ import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexago
 const studentsColors = SECTION_COLORS.students;
 
 // expose primary color as a CSS variable for hover states
-const cssVars: React.CSSProperties = {
-  ['--cie-blue' as any]: studentsColors.primary,
-};
+const cssVars = {
+  '--cie-blue': studentsColors.primary,
+} as React.CSSProperties;
 
 export default function CoursesPage() {
   const programs = [

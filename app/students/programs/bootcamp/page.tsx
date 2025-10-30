@@ -374,10 +374,10 @@ const BootcampPage = () => {
   const studentsColors = SECTION_COLORS.students;
 
   // CSS variables allow using SECTION_COLORS in Tailwind arbitrary utilities
-  const cssVars: React.CSSProperties = {
-    ['--students-primary' as any]: studentsColors.primary,
-    ['--students-secondary' as any]: studentsColors.secondary,
-  };
+  const cssVars = {
+    '--students-primary': studentsColors.primary,
+    '--students-secondary': studentsColors.secondary,
+  } as React.CSSProperties;
 
   // Modal accessibility: lock body scroll, focus close button, and Esc to close
   useEffect(() => {
@@ -496,16 +496,16 @@ const BootcampPage = () => {
                 <Link href="/students" className="inline-block">
                   <Button className="pes-button-primary text-lg px-8 py-3 bg-[var(--students-primary)] text-white">
                     <Rocket className="w-5 h-5 mr-2" />
-                    Explore the Journey
+                    EXPLORE NOW
                   </Button>
                 </Link>
 
                 <Button
                   onClick={() => setShowVideo(true)}
-                  className="pes-button-primary text-lg px-8 py-3 bg-blue-500 text-white hover:bg-blue-600"
+                  className="pes-button-primary text-lg px-8 py-3 bg-[var(--students-secondary)] text-white hover:brightness-90"
                 >
                   <Play className="w-5 h-5 mr-2" />
-                  Watch Highlights
+                  WATCH STORY
                 </Button>
               </div>
 

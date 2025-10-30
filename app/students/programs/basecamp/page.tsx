@@ -12,6 +12,8 @@ import {
   Calendar,
   Rocket,
   Globe,
+  Play,
+  X,
   ChevronLeft,
   ChevronRight,
   BookOpen,
@@ -271,10 +273,42 @@ const BasecampPage = () => {
 
   const studentsColors = SECTION_COLORS.students;
 
-  const cssVars: React.CSSProperties = {
-    ['--students-primary' as any]: studentsColors.primary,
-    ['--students-secondary' as any]: studentsColors.secondary,
-  };
+  const cssVars = {
+    '--students-primary': studentsColors.primary,
+    '--students-secondary': studentsColors.secondary,
+  } as React.CSSProperties;
+
+  // Local UI state for hero video
+  const [showVideo, setShowVideo] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const previousActiveElement = useRef<HTMLElement | null>(null);
+
+  // Modal accessibility: lock body scroll, focus close button, and Esc to close
+  useEffect(() => {
+    if (showVideo) {
+      previousActiveElement.current = document.activeElement as HTMLElement | null;
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      const onKey = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') setShowVideo(false);
+        if (e.key === 'Tab') {
+          e.preventDefault();
+          closeButtonRef.current?.focus();
+        }
+      };
+
+      window.addEventListener('keydown', onKey);
+      setTimeout(() => closeButtonRef.current?.focus(), 50);
+
+      return () => {
+        window.removeEventListener('keydown', onKey);
+        document.body.style.overflow = originalOverflow;
+        previousActiveElement.current?.focus();
+      };
+    }
+    return;
+  }, [showVideo]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50" style={cssVars}>
@@ -285,6 +319,30 @@ const BasecampPage = () => {
           primaryColor={SECTION_COLORS.students.hero.background}
           accentColor={SECTION_COLORS.students.hero.hexagonAccent}
         />
+        {/* Video overlay (covers entire hero section) */}
+        {showVideo && (
+          <div className="absolute inset-0 z-30 flex items-center justify-center bg-black/80 p-4 pointer-events-auto">
+            <div className="relative w-full h-full">
+              <button
+                ref={closeButtonRef}
+                onClick={() => setShowVideo(false)}
+                aria-label="Close video"
+                className="absolute right-4 top-4 z-40 rounded-full bg-white/20 hover:bg-white/30 p-2 text-white backdrop-blur-md"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <iframe
+                src="https://www.youtube.com/embed/uHrF8T8H0KY?autoplay=1&rel=0&modestbranding=1"
+                title="CIE Basecamp Highlights"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full border-0"
+              />
+            </div>
+          </div>
+        )}
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -301,12 +359,20 @@ const BasecampPage = () => {
               direct interaction with fantastic entrepreneurs and start-ups!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/students/resources" className="inline-block">
-                <Button className="bg-white text-pes-navy border-2 border-pes-navy hover:bg-pes-navy hover:text-blue-500 px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300">
-                  <BookOpen className="w-5 h-5 mr-2" />
-                  Learning Resources
+              <Link href="/students" className="inline-block">
+                <Button className="pes-button-primary text-lg px-8 py-3 bg-[var(--students-primary)] text-white">
+                  <Rocket className="w-5 h-5 mr-2" />
+                  EXPLORE NOW
                 </Button>
               </Link>
+
+              <Button
+                onClick={() => setShowVideo(true)}
+                className="pes-button-primary text-lg px-8 py-3 bg-[var(--students-secondary)] text-white hover:brightness-90"
+              >
+                <Play className="w-5 h-5 mr-2" />
+                WATCH STORY
+              </Button>
             </div>
           </motion.div>
         </div>

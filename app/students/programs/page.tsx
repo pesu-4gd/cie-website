@@ -233,6 +233,19 @@ export default function ProgramsPage() {
     { name: 'Innovation Summer School', duration: '3 weeks', focus: 'Research & development' }
   ];
 
+  // Map specific program titles to course pages; return null to indicate "no Learn More" (e.g., Berkeley)
+  function getProgramHref(program: { title: string }) {
+    const t = program.title.toLowerCase();
+    if (t.includes('eie part 1')) return '/students/courses/eie-1';
+    if (t.includes('eie part 2')) return '/students/courses/eie-2';
+    if (t.includes('product management')) return '/students/courses/product-management-ai';
+    if (t.includes('paml')) return '/students/courses/paml';
+    // For Berkeley program, remove the Learn More action
+    if (t.includes('berkeley')) return null;
+    const slug = program.title.toLowerCase().replace(/[^a-z0-9]+/gi, '-').replace(/(^-|-$)/g, '');
+    return `/students/programs/${slug}`;
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -589,12 +602,18 @@ export default function ProgramsPage() {
 
                 {/* Action: only Learn More */}
                 <div>
-                  <Link href={`/students/programs/${program.title.toLowerCase().replace(/[^a-z0-9]+/gi, '-').replace(/(^-|-$)/g, '')}`}>
-                    <Button className="w-full bg-white" style={{ borderColor: studentsColors.secondary, color: studentsColors.secondary }}>
-                      Learn More
-                      <ExternalLink className="w-4 h-4 ml-2" />
-                    </Button>
-                  </Link>
+                  {(() => {
+                    const href = getProgramHref(program as { title: string });
+                    if (!href) return null;
+                    return (
+                      <Link href={href}>
+                        <Button className="w-full bg-white" style={{ borderColor: studentsColors.secondary, color: studentsColors.secondary }}>
+                          Learn More
+                          <ExternalLink className="w-4 h-4 ml-2" />
+                        </Button>
+                      </Link>
+                    );
+                  })()}
                 </div>
               </motion.div>
             ))}
