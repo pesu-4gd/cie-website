@@ -4,6 +4,7 @@ import { Button } from '@/components/design-system';
 import { ModernCard } from '@/components/ui/modern-card';
 import { motion } from 'framer-motion';
 import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { 
   Users, 
   Calendar, 
@@ -28,8 +29,8 @@ export default function StudentClubsPage() {
   const clubStats = [
     { label: 'Active Members', value: '500+', icon: Users, color: 'blue' },
     { label: 'Events Organized', value: '50+', icon: Calendar, color: 'green' },
-    { label: 'Success Stories', value: '25+', icon: Award, color: 'purple' },
-    { label: 'Volunteers', value: '100+', icon: Heart, color: 'red' }
+    { label: 'Success Stories', value: '25+', icon: Award, color: 'blue' },
+    { label: 'Volunteers', value: '100+', icon: Heart, color: 'green' }
   ];
 
   const featuredClubs = [
@@ -125,7 +126,7 @@ export default function StudentClubsPage() {
       value: '50+',
       description: 'Direct connections with industry leaders and mentors',
       icon: Target,
-      color: 'purple'
+      color: 'blue'
     },
     {
       metric: 'Student Startups Supported',
@@ -148,27 +149,37 @@ export default function StudentClubsPage() {
   };
 
   return (
-    <div className="min-h-screen" style={{ background: studentsColors.gradient.css }}>
-      {/* Hero Section */}
-      <section className="text-white py-20" style={{ background: studentsColors.gradient.css }}>
-        <div className="max-w-7xl mx-auto px-6">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section (interactive hexagon + themed overlay) */}
+      <section className="relative h-[65vh] flex items-center justify-center overflow-hidden px-6">
+        <InteractiveHexagonBackground
+          className="absolute inset-0 z-0"
+          primaryColor={studentsColors.hero?.background}
+          accentColor={studentsColors.hero?.hexagonAccent}
+        />
+
+        <div className={`absolute inset-0 pointer-events-none`} style={{ background: `linear-gradient(90deg, ${studentsColors.primary}11, ${studentsColors.secondary}11)` }} />
+
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <div className="mb-6">
+            <div className="mb-6 inline-flex items-center gap-3">
               <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium" style={{ background: studentsColors.primary, color: '#fff' }}>
                 <Users className="w-4 h-4 mr-2 text-white" />
                 Student Organizations
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
               Student Clubs
-              <span className="block" style={{ color: studentsColors.accent }}>& Communities</span>
+              <span className="block" style={{ color: studentsColors.accent }}>&nbsp;Communities</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+
+            <p className="text-xl md:text-2xl text-white/85 max-w-3xl mx-auto leading-relaxed">
               Join vibrant student-led organizations to immerse yourself in entrepreneurship, sustainability, and drive meaningful impact on campus and beyond.
             </p>
           </motion.div>
@@ -216,7 +227,7 @@ export default function StudentClubsPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our <span className="text-[#00338d]">Featured</span> Clubs
+              Our <span style={{ color: studentsColors.primary }}>Featured</span> Clubs
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Discover student-led organizations driving innovation, entrepreneurship, and sustainability impact.
@@ -311,7 +322,7 @@ export default function StudentClubsPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Upcoming <span className="text-[#f07f1a]">Events</span>
+              Upcoming <span style={{ color: studentsColors.accent }}>Events</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Stay updated with the latest club events, workshops, and networking opportunities.
@@ -391,7 +402,7 @@ export default function StudentClubsPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our <span className="text-[#00338d]">Impact</span>
+              Our <span style={{ color: studentsColors.primary }}>Impact</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Measuring success through student engagement, events organized, and community impact created.
@@ -423,35 +434,35 @@ export default function StudentClubsPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-[#00338d] to-[#f07f1a]">
+      <section className="py-20" style={{ background: studentsColors.gradient.css }}>
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Ready to Make an Impact?
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+            <p className="text-xl max-w-3xl mx-auto mb-8 text-white">
               Join our vibrant community of student leaders, innovators, and changemakers. Network, lead, and create meaningful impact through our student organizations.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+              <Button className="bg-white px-8 py-4 text-lg font-semibold rounded-xl border border-white" style={{ color: studentsColors.primary }}>
                 <UserPlus className="w-5 h-5 mr-2" />
                 Join E-Cell
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              <Button className="bg-transparent px-8 py-4 text-lg font-semibold rounded-xl text-white border border-white">
                 <Globe className="w-5 h-5 mr-2" />
                 Join CMS
               </Button>
             </div>
             
             <div className="mt-8">
-              <p className="text-blue-100 mb-4">Questions about joining?</p>
+              <p className="mb-4 text-white">Questions about joining?</p>
               <Button 
-                className="bg-transparent border border-white/30 text-white hover:bg-white/10 px-6 py-3 rounded-xl"
+                className="px-6 py-3 rounded-xl text-white border border-white"
                 onClick={() => window.location.href = 'mailto:cieprogram@pes.edu'}
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
