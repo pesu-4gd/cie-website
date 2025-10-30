@@ -12,37 +12,46 @@ import { SECTION_COLORS } from '@/styles/colors';
 const studentsColors = SECTION_COLORS.students;
 
 export default function ECellPage() {
+  // expose primary color as a CSS variable for hero/button hover states
+  const cssVars = {
+    '--cie-blue': studentsColors.primary,
+  } as React.CSSProperties;
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-white">
+    <div className="min-h-screen bg-white" style={cssVars}>
       {/* Hero */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
-        <InteractiveHexagonBackground className="absolute inset-0 z-0" primaryColor={studentsColors.primary} accentColor={studentsColors.accent} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(255,255,255,0.6)] to-[rgba(255,255,255,0.35)]" />
+        <InteractiveHexagonBackground
+          className="absolute inset-0 z-0"
+          primaryColor={studentsColors.hero?.background}
+          accentColor={studentsColors.hero?.hexagonAccent}
+        />
+        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Badge className="mb-4 bg-white/80 text-[rgba(0,0,0,0.75)] border border-white/30"> 
+            <Badge className="mb-4" style={{ background: studentsColors.primary, color: 'white' }}>
               <Users className="h-4 w-4 mr-1" />
               Student Club
             </Badge>
 
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Entrepreneurship Cell <span className="text-indigo-700">(E-Cell)</span>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Entrepreneurship Cell (<span style={{ color: studentsColors.accent }}> E-Cell </span>)
             </h1>
 
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-6">
+            <p className="text-lg text-gray-200 max-w-3xl mx-auto mb-6">
               A student-driven organization at PES University focused on developing an entrepreneurial mindset through events, workshops, and community engagement.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button size="lg" asChild className="bg-transparent border border-white text-white hover:bg-white/10">
+              <Button size="lg" asChild className="bg-white text-[var(--cie-blue)] px-6 py-3 rounded-xl font-semibold">
                 <a href="mailto:cieprogram@pes.edu">
                   <Mail className="h-4 w-4 mr-2" />
                   Contact E-Cell
                 </a>
               </Button>
 
-              <Button size="lg" asChild className="bg-indigo-700 text-white hover:bg-indigo-800">
-                <a href="https://www.linkedin.com" target="_blank" rel="noreferrer noopener">
+              <Button size="lg" className="border-white text-white hover:bg-white/10" asChild>
+                <a href="https://www.linkedin.com" target="_blank" rel="noreferrer noopener" className="inline-flex items-center">
                   <Linkedin className="h-4 w-4 mr-2" />
                   Visit LinkedIn
                 </a>
@@ -128,7 +137,7 @@ export default function ECellPage() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button asChild>
                   <a href="https://www.linkedin.com" target="_blank" rel="noreferrer noopener" className="flex items-center gap-2">
-                    <Linkedin className="h-4 w-4" />
+                    <Linkedin className="h-4 w-4" style={{ color: studentsColors.primary }} />
                     Join on LinkedIn
                   </a>
                 </Button>
@@ -140,12 +149,10 @@ export default function ECellPage() {
                   </a>
                 </Button>
 
-                <Link href="/courses/eie-1">
-                  <a className="inline-flex items-center gap-2 text-indigo-700 hover:underline ml-0 sm:ml-4 mt-2 sm:mt-0">
-                    <ArrowRight className="h-4 w-4" />
+                  <Link href="/course" className="inline-flex items-center gap-2 text-[var(--cie-blue)] hover:underline ml-0 sm:ml-4 mt-2 sm:mt-0">
+                    <ArrowRight className="h-4 w-4" style={{ color: studentsColors.primary }} />
                     Learn about related programs (EIE)
-                  </a>
-                </Link>
+                  </Link>
               </div>
             </CardContent>
           </Card>
