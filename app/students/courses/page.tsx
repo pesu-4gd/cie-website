@@ -13,6 +13,11 @@ import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexago
 
 const studentsColors = SECTION_COLORS.students;
 
+// expose primary color as a CSS variable for hover states
+const cssVars: React.CSSProperties = {
+  ['--cie-blue' as any]: studentsColors.primary,
+};
+
 export default function CoursesPage() {
   const programs = [
     {
@@ -46,7 +51,7 @@ export default function CoursesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" style={cssVars}>
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         <InteractiveHexagonBackground
           primaryColor={studentsColors.hero?.background}
@@ -74,27 +79,29 @@ export default function CoursesPage() {
       </section>
 
       <main className="max-w-7xl mx-auto px-6 py-12">
-        <section className="grid md:grid-cols-2 gap-6">
+  <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {programs.map((p) => {
             const Icon = p.icon;
             return (
-              <motion.article key={p.id} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-xl transition-all duration-200">
-                <div className="flex items-start gap-4">
-                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${studentsColors.gradient.tailwind}`}>
-                    <Icon className="w-6 h-6 text-white" />
+              <motion.article
+                key={p.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-xl transition-all duration-200 flex flex-col h-full"
+              >
+                <div className="mb-4">
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${studentsColors.gradient.tailwind}`}>
+                    <Icon className="w-5 h-5 text-white" />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900">{p.title}</h3>
-                    <p className="text-sm text-gray-600 mt-1">{p.subtitle}</p>
-                    <div className="mt-4 flex items-center gap-3">
-                      <Link href={p.href}>
-                        <Button className={`${studentsColors.gradient.tailwind} text-white`}>Know More</Button>
-                      </Link>
-                      {p.id.startsWith('eie') && (
-                        <div className="text-sm text-gray-500">Course: 2 credits • Pan-university • Project based</div>
-                      )}
-                    </div>
-                  </div>
+                </div>
+
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{p.title}</h3>
+                <p className="text-sm text-gray-600 mb-4 flex-grow">{p.subtitle}</p>
+
+                <div className="mt-4 flex justify-end">
+                  <Link href={p.href} className="text-sm text-gray-500 hover:text-[var(--cie-blue)]" aria-label={`Learn more about ${p.title}`}>
+                    Learn More
+                  </Link>
                 </div>
               </motion.article>
             );
@@ -103,22 +110,38 @@ export default function CoursesPage() {
 
         <section className="mt-12">
           <h4 className="text-2xl font-semibold text-gray-900 mb-4">Past Courses & Workshops</h4>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-white rounded-lg p-4 border border-gray-100">
-              <h5 className="font-semibold">CIE Level 1 — Getting Started with Entrepreneurship</h5>
-              <p className="text-sm text-gray-600 mt-2">Compact 5-day summer course introducing entrepreneurial mindset, business acumen and technology essentials. Open to PES students and non-students.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-white rounded-lg p-6 border border-gray-100 flex flex-col h-full">
+              <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-4 ${studentsColors.gradient.tailwind}`}>
+                <BookOpen className="w-4 h-4 text-white" />
+              </div>
+              <h5 className="font-semibold">Student Startup Program</h5>
+              <p className="text-sm text-gray-600 mt-2 flex-grow">Comprehensive program to transform your ideas into thriving startups</p>
+              <div className="mt-4 text-right">
+                <Link href="/students/startup-program" className="text-sm text-gray-500 hover:text-[var(--cie-blue)]">Learn More</Link>
+              </div>
             </div>
-            <div className="bg-white rounded-lg p-4 border border-gray-100">
-              <h5 className="font-semibold">CIE Level 2 — Building a Lean Startup</h5>
-              <p className="text-sm text-gray-600 mt-2">Advanced, practical course building on Level 1 with lean startup methodologies and business development techniques.</p>
+
+            <div className="bg-white rounded-lg p-6 border border-gray-100 flex flex-col h-full">
+              <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-4 ${studentsColors.gradient.tailwind}`}>
+                <BookOpen className="w-4 h-4 text-white" />
+              </div>
+              <h5 className="font-semibold">Programs</h5>
+              <p className="text-sm text-gray-600 mt-2 flex-grow">Explore our comprehensive range of courses and training programs</p>
+              <div className="mt-4 text-right">
+                <Link href="/students/programs" className="text-sm text-gray-500 hover:text-[var(--cie-blue)]">Learn More</Link>
+              </div>
             </div>
-            <div className="bg-white rounded-lg p-4 border border-gray-100">
-              <h5 className="font-semibold">CIE PADL — Practical Approach to Deep Learning</h5>
-              <p className="text-sm text-gray-600 mt-2">A semester elective leveraging OpenVINO and hardware accelerators to build real-world deep learning projects.</p>
-            </div>
-            <div className="bg-white rounded-lg p-4 border border-gray-100">
-              <h5 className="font-semibold">CIE PAML Workshop</h5>
-              <p className="text-sm text-gray-600 mt-2">Practical Approach to Machine Learning: 4-weekend workshop with projects, awards and industry mentorship.</p>
+
+            <div className="bg-white rounded-lg p-6 border border-gray-100 flex flex-col h-full">
+              <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-4 ${studentsColors.gradient.tailwind}`}>
+                <BookOpen className="w-4 h-4 text-white" />
+              </div>
+              <h5 className="font-semibold">Student Clubs</h5>
+              <p className="text-sm text-gray-600 mt-2 flex-grow">Join vibrant student-led organizations and drive meaningful impact</p>
+              <div className="mt-4 text-right">
+                <Link href="/students/clubs" className="text-sm text-gray-500 hover:text-[var(--cie-blue)]">Learn More</Link>
+              </div>
             </div>
           </div>
         </section>

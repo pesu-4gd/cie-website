@@ -587,16 +587,14 @@ export default function ProgramsPage() {
                   </div>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Button className="flex-1 text-white" style={{ backgroundColor: studentsColors.primary }}>
-                    Enroll Now
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                  <Button className="flex-1 bg-white" style={{ borderColor: studentsColors.secondary, color: studentsColors.secondary }}>
-                    Learn More
-                    <ExternalLink className="w-4 h-4 ml-2" />
-                  </Button>
+                {/* Action: only Learn More */}
+                <div>
+                  <Link href={`/students/programs/${program.title.toLowerCase().replace(/[^a-z0-9]+/gi, '-').replace(/(^-|-$)/g, '')}`}>
+                    <Button className="w-full bg-white" style={{ borderColor: studentsColors.secondary, color: studentsColors.secondary }}>
+                      Learn More
+                      <ExternalLink className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
                 </div>
               </motion.div>
             ))}
@@ -606,35 +604,7 @@ export default function ProgramsPage() {
 
       {/* Summer Programs section removed — now surfaced in morphing dialogs above to avoid duplicate content */}
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-700">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Start Learning?
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-              Join thousands of students who have transformed their careers through our comprehensive programs.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
-                <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
-                  <GraduationCap className="w-5 h-5 mr-2" />
-                  Browse All Programs
-                </a>
-              </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
-                Contact Admissions
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* Call to Action removed per design: Learn More is the single action for programs. */}
     </div>
   );
 }

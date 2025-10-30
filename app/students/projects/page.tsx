@@ -139,32 +139,23 @@ export default function ProjectsPage() {
     }
   };
 
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'AI/ML': return '🤖';
-      case 'Healthcare': return '🏥';
-      case 'Education': return '📚';
-      case 'Sustainability': return '🌱';
-      case 'Agriculture': return '🌾';
-      case 'FinTech': return '💰';
-      default: return '🚀';
-    }
-  };
+  
+
 
   return (
-    <div className="min-h-screen" style={{ background: studentsColors.gradient.css }}>
-      {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section (gradient) */}
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden" style={{ background: studentsColors.gradient.css }}>
         <InteractiveHexagonBackground className="absolute inset-0 z-0" />
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto text-center z-10">
           <div className="mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6" style={{ background: studentsColors.primary }}>
-                <Rocket className="h-8 w-8 text-white" />
-              </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6" style={{ background: studentsColors.primary }}>
+              <Rocket className="h-8 w-8 text-white" />
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Student Projects
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Discover innovative projects built by CIE students, from AI solutions to sustainable technologies.
             </p>
           </div>
@@ -280,7 +271,6 @@ export default function ProjectsPage() {
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div className="flex items-center space-x-2">
-                        <span className="text-2xl">{getCategoryIcon(project.category)}</span>
                         <Badge variant="secondary" style={{ backgroundColor: `rgba(${hexToRgb(studentsColors.primary)}, 0.08)`, color: studentsColors.primary }}>{project.category}</Badge>
                       </div>
                       <Badge style={{ backgroundColor: studentsColors.accent, color: '#fff' }}>
@@ -352,15 +342,14 @@ export default function ProjectsPage() {
                         </div>
                       )}
 
-                      {/* Action Buttons */}
+                      {/* Action Buttons (external demo link only) */}
                       <div className="flex space-x-2 pt-4">
-                        <Button size="sm" className="flex-1">
-                          View Details
-                        </Button>
                         {project.demoUrl && (
-                          <Button size="sm" variant="outline">
-                            <ExternalLink className="h-4 w-4" />
-                          </Button>
+                          <a href={project.demoUrl} target="_blank" rel="noreferrer">
+                            <Button size="sm" variant="outline">
+                              <ExternalLink className="h-4 w-4" />
+                            </Button>
+                          </a>
                         )}
                       </div>
                     </div>
@@ -373,7 +362,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      {/* <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">
             Have a Project Idea?
@@ -390,7 +379,7 @@ export default function ProjectsPage() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

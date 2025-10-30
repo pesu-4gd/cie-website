@@ -268,8 +268,15 @@ const BasecampPage = () => {
     }, 10000);
   };
 
+  const studentsColors = SECTION_COLORS.students;
+
+  const cssVars: React.CSSProperties = {
+    ['--students-primary' as any]: studentsColors.primary,
+    ['--students-secondary' as any]: studentsColors.secondary,
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50" style={cssVars}>
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         <InteractiveHexagonBackground
@@ -287,17 +294,17 @@ const BasecampPage = () => {
             <h1 className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-pes-navy via-blue-600 to-pes-orange bg-clip-text text-transparent mb-6">
               CIE Basecamp 2018
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed">
               Weekly sessions designed to introduce entrepreneurship and decode the start-up journey of 
               guest entrepreneurs. Interactive learning filled with fun activities, live examples, and 
               direct interaction with fantastic entrepreneurs and start-ups!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button className="bg-gradient-to-r from-pes-navy to-blue-600 hover:from-pes-navy/90 hover:to-blue-600/90 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button className="text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 bg-[var(--students-primary)]">
                 <Calendar className="w-5 h-5 mr-2" />
                 View Program Details
               </Button>
-              <Button variant="outline" className="border-2 border-pes-orange text-pes-orange hover:bg-pes-orange hover:text-white px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300">
+              <Button variant="outline" className="border-2 border-[color:var(--students-secondary)] text-[color:var(--students-secondary)] hover:bg-[var(--students-secondary)] hover:text-white px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300">
                 <BookOpen className="w-5 h-5 mr-2" />
                 Learning Resources
               </Button>
@@ -328,10 +335,18 @@ const BasecampPage = () => {
             viewport={{ once: true }}
             className="mb-12 flex justify-center"
           >
-            <div className="relative max-w-4xl w-full h-[400px] lg:h-[500px] rounded-2xl bg-gradient-to-br from-[#2B9EB3] to-[#3E3C6B] shadow-2xl flex items-center justify-center">
-              <div className="text-center text-white px-8">
-                <h3 className="text-4xl lg:text-5xl font-bold mb-4">CIE Basecamp</h3>
-                <p className="text-xl lg:text-2xl opacity-90">Foundation for Innovation</p>
+            <div className="relative max-w-4xl w-full h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/assets/Bootcamp-by-Numbers.jpg"
+                alt="CIE Basecamp by Numbers"
+                fill
+                className="object-cover [object-position:30%_20%]"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                <div className="text-center text-white px-8">
+                  <h3 className="text-4xl lg:text-5xl font-bold mb-4">CIE Basecamp</h3>
+                  <p className="text-xl lg:text-2xl opacity-90">Foundation for Innovation</p>
+                </div>
               </div>
             </div>
           </motion.div>

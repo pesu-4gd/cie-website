@@ -1,16 +1,17 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Users, 
-  Clock, 
-  Target, 
-  Award, 
-  Lightbulb, 
-  TrendingUp, 
-  Building2, 
+import {
+  Users,
+  Clock,
+  Target,
+  Award,
+  Lightbulb,
+  TrendingUp,
+  Building2,
   GraduationCap,
   Calendar,
   Rocket,
@@ -33,6 +34,10 @@ const BootcampPage = () => {
   const [isExpertAutoScrollPaused, setIsExpertAutoScrollPaused] = useState(false);
   const autoScrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const expertAutoScrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  // Local UI state for hero video
+  const [showVideo, setShowVideo] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const previousActiveElement = useRef<HTMLElement | null>(null);
   const stats = [
     { label: "Total Students", value: "30", icon: Users },
     { label: "Days of Intensive Learning", value: "7", icon: Clock },
@@ -131,7 +136,7 @@ const BootcampPage = () => {
       if (autoScrollIntervalRef.current) {
         clearInterval(autoScrollIntervalRef.current);
       }
-      
+
       autoScrollIntervalRef.current = setInterval(() => {
         if (!isAutoScrollPaused) {
           setCurrentTeamSlide((prev) => (prev + 1) % teamSlides.length);
@@ -154,7 +159,7 @@ const BootcampPage = () => {
   const handleManualNavigation = (callback: () => void) => {
     setIsAutoScrollPaused(true);
     callback();
-    
+
     // Resume auto-scroll after 10 seconds of no interaction
     setTimeout(() => {
       setIsAutoScrollPaused(false);
@@ -248,7 +253,7 @@ const BootcampPage = () => {
       if (expertAutoScrollIntervalRef.current) {
         clearInterval(expertAutoScrollIntervalRef.current);
       }
-      
+
       expertAutoScrollIntervalRef.current = setInterval(() => {
         if (!isExpertAutoScrollPaused) {
           setCurrentExpertSlide((prev) => (prev + 1) % expertSlides.length);
@@ -271,7 +276,7 @@ const BootcampPage = () => {
   const handleExpertManualNavigation = (callback: () => void) => {
     setIsExpertAutoScrollPaused(true);
     callback();
-    
+
     // Resume auto-scroll after 10 seconds of no interaction
     setTimeout(() => {
       setIsExpertAutoScrollPaused(false);
@@ -367,8 +372,50 @@ const BootcampPage = () => {
 
   const studentsColors = SECTION_COLORS.students;
 
+  // CSS variables allow using SECTION_COLORS in Tailwind arbitrary utilities
+  const cssVars: React.CSSProperties = {
+    ['--students-primary' as any]: studentsColors.primary,
+    ['--students-secondary' as any]: studentsColors.secondary,
+  };
+
+  // Modal accessibility: lock body scroll, focus close button, and Esc to close
+  useEffect(() => {
+    if (showVideo) {
+      // store previously focused element
+      previousActiveElement.current = document.activeElement as HTMLElement | null;
+      // lock body scroll
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      const onKey = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          setShowVideo(false);
+        }
+        // trap focus inside modal: since modal has only the close button as interactive control,
+        // keep focus on it when Tab is pressed
+        if (e.key === 'Tab') {
+          e.preventDefault();
+          closeButtonRef.current?.focus();
+        }
+      };
+
+      window.addEventListener('keydown', onKey);
+
+      // focus close button after mount
+      setTimeout(() => closeButtonRef.current?.focus(), 50);
+
+      return () => {
+        window.removeEventListener('keydown', onKey);
+        document.body.style.overflow = originalOverflow;
+        // restore focus
+        previousActiveElement.current?.focus();
+      };
+    }
+    return;
+  }, [showVideo]);
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" style={cssVars}>
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-pes-navy via-pes-navy-light to-pes-orange">
         {/* Interactive Hexagonal Background */}
@@ -377,6 +424,13 @@ const BootcampPage = () => {
           primaryColor={studentsColors.hero.background}
           accentColor={studentsColors.hero.hexagonAccent}
         />
+        {/* Hero image overlayed on top of the hex background */}
+        <Image
+          src="/assets/Bootcamp-by-Numbers.jpg"
+          alt="CIE Bootcamp by Numbers"
+          fill
+          className="absolute inset-0 z-10 object-cover [object-position:30%_20%]"
+        />
         {/* Gradient Background */}
         <motion.div
           initial={{ opacity: 0.1 }}
@@ -384,7 +438,7 @@ const BootcampPage = () => {
           transition={{ duration: 1.0, delay: 0.2 }}
           className="absolute inset-0 z-0 bg-gradient-to-br from-[#F15A29] via-[#FFC107] to-[#F15A29]"
         />
-        
+
         {/* Dark overlay */}
         <motion.div
           initial={{ opacity: 0.2 }}
@@ -392,7 +446,7 @@ const BootcampPage = () => {
           transition={{ duration: 1.0, delay: 0.3 }}
           className="absolute inset-0 bg-black/40"
         />
-        
+
         {/* Background gradient */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -400,93 +454,69 @@ const BootcampPage = () => {
           transition={{ duration: 1.0, delay: 0.4 }}
           className="absolute inset-0 bg-gradient-to-br from-pes-navy/80 via-blue-800/60 to-pes-orange/30"
         />
-        
+
         {/* Decorative Elements */}
         <div className="absolute top-20 right-20 w-64 h-64 bg-pes-orange/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse" />
         <div className="absolute bottom-20 left-20 w-64 h-64 bg-pes-navy-light/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse [animation-delay:2s]" />
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-          {/* Main layout */}
+
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+          {/* Centered hero content (text + CTA) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.0, delay: 0.5 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh] pt-24 pb-16"
+            className="flex flex-col items-center justify-center text-center min-h-[80vh] pt-24 pb-16 gap-8"
           >
-            {/* Left Side - Content */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.0, delay: 0.7 }}
-              className="text-left space-y-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="space-y-4 max-w-3xl"
             >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9 }}
-              >
-                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/10 text-white border border-white/20 backdrop-blur-sm">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  CIE Bootcamp 2018 - A Legacy of Innovation
-                </span>
-              </motion.div>
-              
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/10 text-white border border-white/20 backdrop-blur-sm">
+                <Calendar className="w-4 h-4 mr-2" />
+                CIE Bootcamp 2018 - A Legacy of Innovation
+              </span>
+
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.0, delay: 1.1 }}
-                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight"
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-white"
               >
-                <motion.span
-                  initial={{ color: "#ffffff" }}
-                  animate={{ color: "#1e3a8a" }}
-                  transition={{ duration: 0.8, delay: 1.3 }}
-                  className="transition-colors duration-800"
-                >
-                  CIE{" "}
-                </motion.span>
-                <motion.span
-                  initial={{ color: "#fb923c" }}
-                  animate={{ color: "#ea580c" }}
-                  transition={{ duration: 0.8, delay: 1.3 }}
-                  className="transition-colors duration-800"
-                >
-                  Bootcamp 2018
+                <motion.span className="block">
+                  CIE Bootcamp 2018
                 </motion.span>
               </motion.h1>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.3 }}
-                className="text-lg sm:text-xl lg:text-2xl text-black leading-relaxed max-w-2xl"
+                className="text-lg sm:text-xl lg:text-2xl text-white leading-relaxed"
               >
                 An intensive entrepreneurship training program that transforms innovative ideas into successful startups through hands-on learning, expert mentorship, and real-world application.
               </motion.p>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.5 }}
-                className="flex flex-col sm:flex-row gap-4"
-              >
-                <Button className="pes-button-primary text-lg px-8 py-4">
-                  <Rocket className="w-5 h-5 mr-2" />
-                  Explore the Journey
-                </Button>
-                <Button className="pes-button-outline text-lg px-8 py-4 bg-white/10 border-pes-navy/30 text-pes-navy hover:bg-pes-navy hover:text-white">
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/students" className="inline-block">
+                  <Button className="pes-button-primary text-lg px-8 py-3 bg-[var(--students-primary)] text-white">
+                    <Rocket className="w-5 h-5 mr-2" />
+                    Explore the Journey
+                  </Button>
+                </Link>
+
+                <Button
+                  onClick={() => setShowVideo(true)}
+                  className="pes-button-outline text-lg px-8 py-3 bg-white/10 border-[color:var(--students-secondary)] text-[color:var(--students-secondary)] hover:bg-[var(--students-secondary)] hover:text-white"
+                >
                   <Play className="w-5 h-5 mr-2" />
                   Watch Highlights
                 </Button>
-              </motion.div>
+              </div>
 
-              {/* Additional Info Cards */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.7 }}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8"
-              >
+              {/* Additional Info Cards (compact) */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8">
                 <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-white/20 shadow-lg">
                   <div className="text-2xl font-bold text-pes-navy">7</div>
                   <div className="text-gray-700 text-sm">Days Intensive</div>
@@ -499,52 +529,30 @@ const BootcampPage = () => {
                   <div className="text-2xl font-bold text-pes-navy">8</div>
                   <div className="text-gray-700 text-sm">Teams</div>
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
-
-            {/* Right Side - Image and Stats */}
-            <div className="space-y-6">
-              {/* Image Container */}
-              <motion.div
-                initial={{ opacity: 0, x: 50, scale: 0.9 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ duration: 1.0, delay: 1.2 }}
-                className="relative w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-100"
-                style={{ 
-                  minHeight: '400px',
-                  aspectRatio: '1280/650'
-                }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#F15A29] via-[#FFC107] to-[#F15A29] flex items-center justify-center">
-                  <div className="text-center text-white px-8">
-                    <h3 className="text-4xl lg:text-5xl font-bold mb-4">CIE Bootcamp</h3>
-                    <p className="text-xl lg:text-2xl opacity-90">Innovation in Action</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Stats Widget Below Image */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.9 }}
-                className="w-full"
-              >
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-gray-200">
-                  <div className="grid grid-cols-2 gap-4 text-center">
-                    <div>
-                      <div className="text-xl font-bold text-pes-navy">100%</div>
-                      <div className="text-gray-700 text-xs">Success Rate</div>
-                    </div>
-                    <div>
-                      <div className="text-xl font-bold text-pes-orange">12+</div>
-                      <div className="text-gray-700 text-xs">Industry Experts</div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
           </motion.div>
+          {/* Video modal for Watch Highlights */}
+          {showVideo && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+              <div className="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
+                <button
+                  ref={closeButtonRef}
+                  onClick={() => setShowVideo(false)}
+                  aria-label="Close video"
+                  className="absolute top-3 right-3 z-50 bg-white/10 hover:bg-white/20 text-white rounded-full p-2"
+                >
+                  ✕
+                </button>
+                <iframe
+                  src="https://www.youtube.com/embed/uHrF8T8H0KY?autoplay=1&rel=0"
+                  title="CIE Bootcamp Highlights"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -664,15 +672,14 @@ const BootcampPage = () => {
                     key={`teams-slide-${teamSlides.length}-${slideIndex}`}
                     onClick={() => handleManualNavigation(() => setCurrentTeamSlide(slideIndex))}
                     aria-label={`Go to slide ${slideIndex + 1}`}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      slideIndex === currentTeamSlide 
-                        ? 'bg-pes-orange' 
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${slideIndex === currentTeamSlide
+                        ? 'bg-pes-orange'
                         : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
+                      }`}
                   />
                 ))}
               </div>
-              
+
               <div className="flex gap-2">
                 <button
                   onClick={() => handleManualNavigation(prevTeamSlide)}
@@ -692,7 +699,7 @@ const BootcampPage = () => {
             </div>
 
             {/* Swipeable Teams Carousel */}
-            <section 
+            <section
               aria-label="Teams carousel"
               className="overflow-hidden"
               onMouseEnter={() => setIsAutoScrollPaused(true)}
@@ -723,10 +730,10 @@ const BootcampPage = () => {
                 if (isRightSwipe && currentTeamSlide > 0) {
                   setCurrentTeamSlide(currentTeamSlide - 1);
                 }
-                
+
                 setTouchStart(null);
                 setTouchEnd(null);
-                
+
                 // Resume auto-scroll after 5 seconds of no touch interaction
                 setTimeout(() => {
                   setIsAutoScrollPaused(false);
@@ -766,24 +773,24 @@ const BootcampPage = () => {
                             </div>
                           </div>
                         )}
-                        
+
                         <div className="p-6">
                           <div className="flex items-center gap-2 mb-3">
                             <span className="text-pes-navy font-bold text-lg">Team {team.id}</span>
                             <div className="h-4 w-px bg-gray-300" />
                             <span className="text-gray-600 text-sm">{team.members.length} Members</span>
                           </div>
-                          
+
                           <h3 className="text-xl font-bold text-pes-navy mb-3 leading-tight">
                             {team.name}
                           </h3>
-                          
+
                           {team.description && (
                             <p className="text-gray-600 mb-4 leading-relaxed text-sm">
                               {team.description}
                             </p>
                           )}
-                          
+
                           <div className="border-t pt-4">
                             <h4 className="text-sm font-semibold text-gray-700 mb-2">Team Members:</h4>
                             <div className="flex flex-wrap gap-2">
@@ -806,11 +813,11 @@ const BootcampPage = () => {
             </section>
 
             {/* Swipe Instruction */}
-            <div className="text-center mt-8">
-              <p className="text-sm text-gray-500">
-                Auto-scrolls every 3 seconds • Hover to pause • Swipe or use navigation buttons to browse Bootcamp 2018 teams
-              </p>
-            </div>
+            {/* <div className="text-center mt-8">
+                <p className="text-sm text-gray-500">
+                  Auto-scrolls every 3 seconds • Hover to pause • Swipe or use navigation buttons to browse Bootcamp 2018 teams
+                </p>
+              </div> */}
           </div>
 
           {/* Team Stats */}
@@ -870,7 +877,7 @@ const BootcampPage = () => {
               <div className="relative py-8">
                 {/* Central Timeline Line */}
                 <div className="absolute left-1/2 transform -translate-x-px top-8 bottom-8 w-0.5 bg-gray-600 shadow-sm" />
-                
+
                 <div className="space-y-8">
                   {dailySchedule.map((day, dayIndex) => (
                     <motion.div
@@ -903,7 +910,7 @@ const BootcampPage = () => {
                               </div>
                             </div>
                           </div>
-                          
+
                           {/* All Activities */}
                           <div className="space-y-3 px-6 pb-6">
                             {day.activities.map((activity, activityIndex) => (
@@ -952,21 +959,21 @@ const BootcampPage = () => {
                   </div>
                   <h4 className="font-semibold text-pes-navy text-sm">Ideation</h4>
                 </div>
-                
+
                 <div>
                   <div className="w-12 h-12 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-2">
                     <Target className="w-6 h-6 text-black" />
                   </div>
                   <h4 className="font-semibold text-pes-navy text-sm">Validation</h4>
                 </div>
-                
+
                 <div>
                   <div className="w-12 h-12 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-2">
                     <Building2 className="w-6 h-6 text-black" />
                   </div>
                   <h4 className="font-semibold text-pes-navy text-sm">Business Model</h4>
                 </div>
-                
+
                 <div>
                   <div className="w-12 h-12 bg-pes-gradient rounded-full flex items-center justify-center mx-auto mb-2">
                     <TrendingUp className="w-6 h-6 text-black" />
@@ -1023,18 +1030,17 @@ const BootcampPage = () => {
                 <button
                   key={`experts-slide-${expertSlides.length}-${slideIndex}`}
                   onClick={() => handleExpertManualNavigation(() => setCurrentExpertSlide(slideIndex))}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    currentExpertSlide === slideIndex 
-                      ? 'bg-pes-orange scale-125' 
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${currentExpertSlide === slideIndex
+                      ? 'bg-pes-orange scale-125'
                       : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
+                    }`}
                   aria-label={`Go to expert slide ${slideIndex + 1}`}
                 />
               ))}
             </div>
 
             {/* Expert Cards Container */}
-            <section 
+            <section
               aria-label="Expert cards carousel"
               className="relative overflow-hidden rounded-2xl"
               onMouseEnter={() => setIsExpertAutoScrollPaused(true)}
@@ -1067,13 +1073,13 @@ const BootcampPage = () => {
                               <p className="text-pes-orange font-semibold text-sm">{expert.company}</p>
                             </div>
                           </div>
-                          
+
                           <div className="mb-4">
                             <span className="bg-pes-navy/10 text-pes-navy px-3 py-1 rounded-full text-sm font-semibold">
                               {expert.topic}
                             </span>
                           </div>
-                          
+
                           <p className="text-gray-600 leading-relaxed text-sm">
                             {expert.description}
                           </p>
@@ -1087,11 +1093,11 @@ const BootcampPage = () => {
           </div>
 
           {/* Auto-scroll Instruction */}
-          <div className="text-center mt-8">
+          {/* <div className="text-center mt-8">
             <p className="text-sm text-gray-500">
               Auto-scrolls every 2 seconds • Hover to pause • Click navigation buttons or indicators to browse expert sessions
             </p>
-          </div>
+          </div> */}
 
           {/* Expert Stats */}
           <motion.div
@@ -1160,7 +1166,7 @@ const BootcampPage = () => {
                     <p className="text-gray-600">All 30 students successfully completed the 7-day intensive program</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-pes-orange rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <TrendingUp className="w-4 h-4 text-black" />
@@ -1170,7 +1176,7 @@ const BootcampPage = () => {
                     <p className="text-gray-600">Each team developed comprehensive BMCs ready for market validation</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-pes-orange rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <Users className="w-4 h-4 text-black" />
@@ -1180,7 +1186,7 @@ const BootcampPage = () => {
                     <p className="text-gray-600">Many participants became successful entrepreneurs and mentors</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-pes-orange rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <Building2 className="w-4 h-4 text-black" />
@@ -1206,17 +1212,17 @@ const BootcampPage = () => {
                     <div className="text-3xl font-bold text-pes-orange mb-2">5 min</div>
                     <div className="text-gray-600">Pitch Duration per Team</div>
                   </div>
-                  
+
                   <div className="text-center">
                     <div className="text-3xl font-bold text-pes-navy mb-2">Dr. S. Raghunath</div>
                     <div className="text-gray-600">IIM-Bangalore Chief Guest & Judge</div>
                   </div>
-                  
+
                   <div className="text-center">
                     <div className="text-3xl font-bold text-pes-orange mb-2">Vantage Agora</div>
                     <div className="text-gray-600">Industry Panel with COO Harsha Chaturvedi</div>
                   </div>
-                  
+
                   <div className="text-center">
                     <div className="text-3xl font-bold text-pes-navy mb-2">Expert Feedback</div>
                     <div className="text-gray-600">Personalized guidance for next steps</div>
@@ -1244,16 +1250,21 @@ const BootcampPage = () => {
               Join the next generation of innovators and entrepreneurs at PES University's Centre for Innovation and Entrepreneurship. Experience the same transformative program that launched successful startups.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-pes-navy hover:bg-gray-100 text-lg px-8 py-4 font-semibold">
-                <Rocket className="w-5 h-5 mr-2" />
-                Apply for Current Programs
-              </Button>
-              <Button className="border-2 border-white text-black hover:bg-white hover:text-pes-navy text-lg px-8 py-4 font-semibold">
-                <Globe className="w-5 h-5 mr-2" />
-                Learn More About CIE
-              </Button>
+              <Link href="/students/courses" className="inline-block">
+                <Button className="text-lg px-8 py-4 font-semibold bg-[var(--students-primary)] text-white">
+                  <Rocket className="w-5 h-5 mr-2" />
+                  Learn more about programs
+                </Button>
+              </Link>
+
+              <Link href="/inside-cie" className="inline-block">
+                <Button className="text-lg px-8 py-4 font-semibold border-2 border-[color:var(--students-secondary)] text-[color:var(--students-secondary)] bg-transparent">
+                  <Globe className="w-5 h-5 mr-2" />
+                  Learn more about CIE
+                </Button>
+              </Link>
             </div>
-            
+
             <div className="mt-8 pt-8 border-t border-white/20">
               <p className="text-black/80 text-sm mb-6">
                 "CIE's Bootcamp 2018 was a massive success. It brought together diverse, driven and determined students and helped them grow into enthused entrepreneurs."
@@ -1261,7 +1272,7 @@ const BootcampPage = () => {
               <p className="text-black/90 font-semibold mb-4">
                 - Prof. Sathya Prasad, Director, Centre for Innovation and Entrepreneurship
               </p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 pt-6 border-t border-white/10">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-black mb-1">2018</div>
@@ -1276,7 +1287,7 @@ const BootcampPage = () => {
                   <div className="text-black/80 text-sm">Success Rate</div>
                 </div>
               </div>
-              
+
               <div className="mt-8 text-center">
                 <p className="text-black/70 text-sm">
                   Continue the legacy of innovation and entrepreneurship at PES University
