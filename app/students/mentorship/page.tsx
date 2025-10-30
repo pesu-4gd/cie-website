@@ -66,7 +66,7 @@ const mentors = [
     company: 'Google',
     location: 'Bangalore, India',
     experience: '8+ years',
-    expertise: ['Product Management', 'AI/ML', 'Strategy', 'Team Leadership'],
+    expertise: ['Product Management', 'AI/ML', 'Business Strategy', 'Team Leadership'],
     bio: 'Experienced PM who has launched multiple AI-powered products at Google. Passionate about mentoring the next generation of product leaders.',
     education: 'MBA from IIM Bangalore, B.Tech from PES University',
     achievements: ['Led team of 15+ engineers', 'Launched 3 successful products', 'TEDx Speaker'],
@@ -106,8 +106,8 @@ const mentors = [
     company: 'Microsoft',
     location: 'Seattle, USA',
     experience: '12+ years',
-    expertise: ['Software Engineering', 'Cloud Computing', 'System Design', 'Technical Leadership'],
-    bio: 'Principal Engineer at Microsoft Azure team. Expert in distributed systems and cloud architecture. Mentor for technical career growth.',
+    expertise: ['Software Engineering', 'Cloud Computing', 'System Design Engineer', 'Technical Leadership'],
+    bio: 'Principal Engineer at Microsoft Azure team. Expert in distributed systems and cloud architecture. Mentor for technical career growth and paper publication.',
     education: 'MS from Carnegie Mellon, B.Tech from PES University',
     achievements: ['20+ patents filed', 'Microsoft Technical Fellow', 'Open source contributor'],
     menteeCount: 15,
@@ -206,7 +206,7 @@ const mentorshipPrograms = [
     eligibility: 'Students with startup ideas',
     nextCohort: 'April 2024',
     icon: Lightbulb,
-    color: 'green'
+    color: 'blue'
   },
   {
     id: '3',
@@ -219,7 +219,7 @@ const mentorshipPrograms = [
     eligibility: 'Final year students',
     nextCohort: 'February 2024',
     icon: GraduationCap,
-    color: 'purple'
+    color: 'blue'
   },
   {
     id: '4',
@@ -232,7 +232,7 @@ const mentorshipPrograms = [
     eligibility: 'CS/IT students',
     nextCohort: 'March 2024',
     icon: Target,
-    color: 'red'
+    color: 'blue'
   }
 ];
 
@@ -252,7 +252,7 @@ const successStories = [
     studentBatch: '2022',
     mentorName: 'Priya Nair',
     outcome: 'Founded successful startup',
-    story: 'My mentor helped me validate my business idea and guided me through the fundraising process. We raised $500K in seed funding.',
+    story: 'My mentor helped me validate my business idea and guided me through the fundraising process. We raised $500K in seed funding for the business idea.',
     image: '/success/kavya-patel.jpg'
   },
   {
@@ -261,7 +261,7 @@ const successStories = [
     studentBatch: '2023',
     mentorName: 'Arjun Patel',
     outcome: 'Senior Engineer at Amazon',
-    story: 'Technical mentorship helped me improve my system design skills and prepare for senior-level interviews at top tech companies.',
+    story: 'Technical mentorship helped me improve my system design skills and prepare for senior-level interviews at top tech companies allowing me to secure my role.',
     image: '/success/aditya-sharma.jpg'
   }
 ];
@@ -290,7 +290,7 @@ export default function MentorshipPage() {
   });
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br ${studentsColors.gradient.tailwind}`}>
+    <div className={`min-h-screen bg-white`}>
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
         <InteractiveHexagonBackground
@@ -298,7 +298,7 @@ export default function MentorshipPage() {
           primaryColor={studentsColors.hero?.background}
           accentColor={studentsColors.hero?.hexagonAccent}
         />
-        <div className={`absolute inset-0 bg-gradient-to-r from-[${studentsColors.primary}]/10 to-[${studentsColors.secondary}]/10`} />
+        <div className={`absolute inset-0 bg-gradient-to-r from-[${studentsColors.primary}]/10 to-[${studentsColors.secondary}]/10 pointer-events-none`} />
             <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -310,18 +310,24 @@ export default function MentorshipPage() {
               <Users className="h-4 w-4 mr-1" />
               Mentorship Program
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
               Connect with <span className={`bg-clip-text text-transparent bg-gradient-to-r ${studentsColors.gradient.tailwind}`}>Industry Mentors</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-white/85 max-w-3xl mx-auto mb-8">
               Get personalized guidance from industry experts, successful entrepreneurs, and alumni 
               to accelerate your career and entrepreneurial journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className={`text-white bg-gradient-to-r ${studentsColors.gradient.tailwind}`}>
+              {/* Replaced primary Button with a link that activates the Mentors tab */}
+              <a
+                href="#mentors"
+                onClick={() => setActiveTab('mentors')}
+                className={`inline-flex items-center justify-center px-6 py-3 rounded-md text-white bg-gradient-to-r ${studentsColors.gradient.tailwind}`}
+              >
                 <MessageCircle className="h-5 w-5 mr-2" />
                 Find a Mentor
-              </Button>
+              </a>
+
               <Button size="lg" variant="outline">
                 <Calendar className="h-5 w-5 mr-2" />
                 Join Program
@@ -419,7 +425,7 @@ export default function MentorshipPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-indigo-600">
+      {/* <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-indigo-600">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -444,7 +450,7 @@ export default function MentorshipPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
@@ -460,7 +466,7 @@ function MentorsSection({
   setSelectedLocation,
   selectedCompany,
   setSelectedCompany
-}: {
+}: Readonly<{
   mentors: Mentor[];
   searchTerm: string;
   setSearchTerm: (term: string) => void;
@@ -470,10 +476,10 @@ function MentorsSection({
   setSelectedLocation: (location: string) => void;
   selectedCompany: string;
   setSelectedCompany: (company: string) => void;
-}) {
+}>) {
   const studentsColors = SECTION_COLORS.students;
   return (
-    <div className="space-y-8">
+            <div id="mentors" className="space-y-8">
       {/* Search and Filters */}
       <div className="space-y-4">
         <div className="relative">
@@ -693,7 +699,7 @@ function ProgramsSection({ programs }: { readonly programs: typeof mentorshipPro
                     
                     <div className="pt-4 border-t">
                       <p className="text-sm text-gray-600 mb-2">Eligibility: {program.eligibility}</p>
-                      <Button asChild className={`w-full bg-${program.color}-600 hover:bg-${program.color}-700`}>
+                      <Button asChild className={`w-full bg-blue-600 hover:bg-blue-700`}>
                         <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
                           <ArrowRight className="h-4 w-4 mr-2" />
                           Apply Now

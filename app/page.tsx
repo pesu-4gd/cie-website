@@ -82,7 +82,7 @@ export default function Home() {
               <Button
                 onClick={() => setShowVideo(true)}
                 variant="cie"
-                size="lg"Choose 
+                size="lg"
                 className="bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all duration-300 border-2 border-white/30 hover:border-white/50 backdrop-blur-sm flex items-center justify-center"
               >
                 <Play className="mr-2 w-5 h-5" />
