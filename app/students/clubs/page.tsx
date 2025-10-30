@@ -336,7 +336,7 @@ export default function StudentClubsPage() {
                       ? 'bg-green-100 text-green-800' 
                       : 'bg-gray-100 text-gray-800'
                   }`}>
-                    {event.registrationOpen ? 'Registration Open' : 'Registration Closed'}
+                    {event.registrationOpen ? 'Registration Open' : 'Not available'}
                   </span>
                 </div>
                 
@@ -373,7 +373,7 @@ export default function StudentClubsPage() {
                   } text-white`}
                   disabled={!event.registrationOpen}
                 >
-                  {event.registrationOpen ? 'Register Now' : 'Registration Closed'}
+                  {event.registrationOpen ? 'Learn more' : 'Not available'}
                 </Button>
               </motion.div>
             ))}

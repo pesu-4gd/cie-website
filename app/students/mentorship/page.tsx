@@ -318,20 +318,14 @@ export default function MentorshipPage() {
               to accelerate your career and entrepreneurial journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {/* Replaced primary Button with a link that activates the Mentors tab */}
+              {/* Primary CTA: Join Program — styled like the previous "Find a Mentor" button and links to the canonical program contact email */}
               <a
-                href="#mentors"
-                onClick={() => setActiveTab('mentors')}
+                href="mailto:cieprogram@pes.edu"
                 className={`inline-flex items-center justify-center px-6 py-3 rounded-md text-white bg-gradient-to-r ${studentsColors.gradient.tailwind}`}
               >
-                <MessageCircle className="h-5 w-5 mr-2" />
-                Find a Mentor
-              </a>
-
-              <Button size="lg" variant="outline">
                 <Calendar className="h-5 w-5 mr-2" />
                 Join Program
-              </Button>
+              </a>
             </div>
           </motion.div>
         </div>

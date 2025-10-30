@@ -1099,7 +1099,7 @@ export default function CollaborationsPage() {
       </section>
 
       {/* Partnership Tiers */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1164,7 +1164,7 @@ export default function CollaborationsPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Partnership Timeline */}
       <section className="py-20 bg-white">

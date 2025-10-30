@@ -336,18 +336,14 @@ export default function FundingPage() {
               Discover funding opportunities, scholarships, and grants to support your academic journey, 
               research projects, and entrepreneurial ventures.
             </p>
-            {/* Hero CTAs removed per design request
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-[var(--cie-blue)]">
-                <Search className="h-5 w-5 mr-2 text-[var(--cie-blue)]" />
-                Explore Opportunities
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                <Download className="h-5 w-5 mr-2 text-white" />
-                Application Guide
+              <Button size="lg" asChild className="bg-white text-[var(--cie-blue)] px-6 py-3 rounded-xl font-semibold">
+                <a href="/students/funding/scholarships" aria-label="View Scholarships">
+                  <Search className="h-5 w-5 mr-2 text-[var(--cie-blue)]" />
+                  View Scholarships
+                </a>
               </Button>
             </div>
-            */}
           </motion.div>
         </div>
       </section>

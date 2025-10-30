@@ -3,8 +3,17 @@
 import { motion } from 'framer-motion';
 import { Award, Users, DollarSign, Calendar, FileText, CheckCircle, ArrowRight, GraduationCap, Heart, Target } from 'lucide-react';
 import { Button } from '@/components/design-system';
+import { SECTION_COLORS } from '@/styles/colors';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 
 export default function Scholarships() {
+  const studentsColors = SECTION_COLORS.students;
+
+  // expose primary color as a CSS variable for hover states
+  const cssVars = {
+    '--cie-blue': studentsColors.primary,
+  } as React.CSSProperties;
+
   const scholarshipPrograms = [
     {
       name: 'CIE Diversity Excellence Scholarship',
@@ -12,7 +21,7 @@ export default function Scholarships() {
       duration: '1 Academic Year',
       eligibility: 'Students from underrepresented communities',
       deadline: 'March 15, 2024',
-      description: 'Supporting talented students from diverse backgrounds to pursue innovation and entrepreneurship.',
+  description: 'Supporting talented students from diverse backgrounds to pursue innovation and entrepreneurship.',
       benefits: [
         'Full tuition support for CIE programs',
         'Mentorship from industry leaders',
@@ -47,7 +56,7 @@ export default function Scholarships() {
         'Community service involvement',
         'Recommendation letters'
       ],
-      color: 'purple',
+      color: 'green',
       status: 'open'
     },
     {
@@ -69,7 +78,7 @@ export default function Scholarships() {
         'Academic merit (GPA ≥ 7.5)',
         'Local endorsement letter'
       ],
-      color: 'orange',
+      color: 'green',
       status: 'open'
     }
   ];
@@ -103,15 +112,23 @@ export default function Scholarships() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-green-600 to-emerald-700 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+    <div className="min-h-screen" style={cssVars}>
+      {/* Hero Section (themed with interactive hexagon background) */}
+      <section className="relative h-[65vh] flex items-center justify-center overflow-hidden" style={{ background: studentsColors.gradient.css }}>
+        <InteractiveHexagonBackground
+          primaryColor={studentsColors.hero?.background}
+          accentColor={studentsColors.hero?.hexagonAccent}
+          className="absolute inset-0 z-0"
+        />
+
+        {/* subtle overlay shapes (allow pointer events through to hex bg) */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 right-20 w-64 h-64 bg-white/8 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/8 rounded-full blur-3xl" />
+          <div className={`absolute inset-0 bg-gradient-to-r from-[${studentsColors.primary}]/8 to-[${studentsColors.secondary}]/8 pointer-events-none`} />
         </div>
-        
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -125,9 +142,9 @@ export default function Scholarships() {
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Scholarship <span className="text-green-200">Programs</span>
+              Scholarship <span style={{ color: studentsColors.primary }}>Programs</span>
             </h1>
-            <p className="text-xl text-green-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: `${studentsColors.primary}cc` }}>
               Supporting talented students from all backgrounds to pursue innovation and entrepreneurship without financial barriers.
             </p>
           </motion.div>
@@ -144,7 +161,7 @@ export default function Scholarships() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-center bg-white p-6 rounded-2xl shadow-lg"
             >
-              <DollarSign className="w-8 h-8 text-green-600 mx-auto mb-4" />
+              <DollarSign className="w-8 h-8 mx-auto mb-4" style={{ color: studentsColors.primary }} />
               <div className="text-2xl font-bold text-gray-900 mb-2">₹1.65L</div>
               <div className="text-sm text-gray-600">Total Funding</div>
             </motion.div>
@@ -155,7 +172,7 @@ export default function Scholarships() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-center bg-white p-6 rounded-2xl shadow-lg"
             >
-              <Users className="w-8 h-8 text-blue-600 mx-auto mb-4" />
+              <Users className="w-8 h-8 mx-auto mb-4" style={{ color: studentsColors.primary }} />
               <div className="text-2xl font-bold text-gray-900 mb-2">3</div>
               <div className="text-sm text-gray-600">Active Programs</div>
             </motion.div>
@@ -166,7 +183,7 @@ export default function Scholarships() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-center bg-white p-6 rounded-2xl shadow-lg"
             >
-              <Calendar className="w-8 h-8 text-purple-600 mx-auto mb-4" />
+              <Calendar className="w-8 h-8 mx-auto mb-4" style={{ color: studentsColors.primary }} />
               <div className="text-2xl font-bold text-gray-900 mb-2">Open</div>
               <div className="text-sm text-gray-600">Applications</div>
             </motion.div>
@@ -177,7 +194,7 @@ export default function Scholarships() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-center bg-white p-6 rounded-2xl shadow-lg"
             >
-              <GraduationCap className="w-8 h-8 text-orange-600 mx-auto mb-4" />
+              <GraduationCap className="w-8 h-8 mx-auto mb-4" style={{ color: studentsColors.primary }} />
               <div className="text-2xl font-bold text-gray-900 mb-2">150+</div>
               <div className="text-sm text-gray-600">Recipients</div>
             </motion.div>
@@ -279,25 +296,18 @@ export default function Scholarships() {
                         <p className="text-gray-700 font-medium">{program.deadline}</p>
                       </div>
 
-                      <Button 
-                        className={`w-full py-3 rounded-xl font-semibold ${
-                          program.status === 'open' 
-                            ? 'bg-green-600 hover:bg-green-700 text-white' 
-                            : 'bg-gray-300 text-gray-600 cursor-not-allowed'
-                        }`}
-                        disabled={program.status !== 'open'}
-                      >
-                        {program.status === 'open' ? (
-                            <>
-                              <FileText className="w-4 h-4 mr-2" />
-                              <Button asChild>
-                                <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">Apply Now</a>
-                              </Button>
-                            </>
-                        ) : (
-                          'Applications Closed'
-                        )}
-                      </Button>
+                      {program.status === 'open' ? (
+                        <Button asChild className="w-full py-3 rounded-xl font-semibold text-white" style={{ backgroundColor: studentsColors.primary }}>
+                          <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full">
+                            <FileText className="w-4 h-4 mr-2" />
+                            Apply Now
+                          </a>
+                        </Button>
+                      ) : (
+                        <Button className="w-full py-3 rounded-xl font-semibold bg-gray-300 text-gray-600 cursor-not-allowed" disabled>
+                          Applications Closed
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -373,7 +383,7 @@ export default function Scholarships() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-green-600 to-emerald-700">
+  <section className="py-20" style={{ background: studentsColors.gradient.css }}>
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -388,15 +398,17 @@ export default function Scholarships() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild className="bg-white text-green-600 hover:bg-green-50 px-8 py-4 text-lg font-semibold rounded-xl">
-                <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
+              <Button asChild className="px-8 py-4 text-lg font-semibold rounded-xl text-white" style={{ backgroundColor: studentsColors.primary }}>
+                <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center">
                   <Award className="w-5 h-5 mr-2" />
                   Apply Now
                 </a>
               </Button>
+
               <Button 
                 onClick={() => window.location.href = '/contact'}
-                className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
+                className="border-2 text-white px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
+                style={{ borderColor: studentsColors.primary }}
               >
                 Get Help with Application
               </Button>
