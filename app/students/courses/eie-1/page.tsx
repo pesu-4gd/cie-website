@@ -38,10 +38,10 @@ export default function EIE1Page() {
 
           <div className="mt-6 flex justify-center gap-3">
             <Link href="/students/courses">
-              <Button variant="outline" className="border-white text-white hover:shadow-md transition">Back to Courses</Button>
+              <Button variant="outline" className="border-white text-white">Back to Courses</Button>
             </Link>
             <Link href="/students/programs">
-              <Button className={`${studentsColors.gradient.tailwind} border-white text-white shadow-sm hover:shadow-md transition`}>Explore Related Programs <ArrowRight className="w-4 h-4 ml-2"/></Button>
+              <Button className="bg-white text-blue-700">Explore Related Programs <ArrowRight className="w-4 h-4 ml-2"/></Button>
             </Link>
           </div>
         </div>
