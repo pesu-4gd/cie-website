@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Users, 
@@ -291,7 +292,7 @@ const BasecampPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-pes-navy via-blue-600 to-pes-orange bg-clip-text text-transparent mb-6">
+            <h1 className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-pes-navy via-blue-500 to-pes-orange bg-clip-text text-transparent mb-8">
               CIE Basecamp 2018
             </h1>
             <p className="text-xl lg:text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed">
@@ -300,14 +301,12 @@ const BasecampPage = () => {
               direct interaction with fantastic entrepreneurs and start-ups!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button className="text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 bg-[var(--students-primary)]">
-                <Calendar className="w-5 h-5 mr-2" />
-                View Program Details
-              </Button>
-              <Button variant="outline" className="border-2 border-[color:var(--students-secondary)] text-[color:var(--students-secondary)] hover:bg-[var(--students-secondary)] hover:text-white px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300">
-                <BookOpen className="w-5 h-5 mr-2" />
-                Learning Resources
-              </Button>
+              <Link href="/students/resources" className="inline-block">
+                <Button className="bg-white text-pes-navy border-2 border-pes-navy hover:bg-pes-navy hover:text-blue-500 px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300">
+                  <BookOpen className="w-5 h-5 mr-2" />
+                  Learning Resources
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>

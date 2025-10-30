@@ -17,6 +17,7 @@ import {
   Rocket,
   Globe,
   Play,
+  X,
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
@@ -418,46 +419,39 @@ const BootcampPage = () => {
     <div className="min-h-screen bg-white" style={cssVars}>
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-pes-navy via-pes-navy-light to-pes-orange">
-        {/* Interactive Hexagonal Background */}
+        {/* Interactive Hexagonal Background (base) */}
         <InteractiveHexagonBackground
           className="absolute inset-0 z-0"
           primaryColor={studentsColors.hero.background}
           accentColor={studentsColors.hero.hexagonAccent}
         />
-        {/* Hero image overlayed on top of the hex background */}
-        <Image
-          src="/assets/Bootcamp-by-Numbers.jpg"
-          alt="CIE Bootcamp by Numbers"
-          fill
-          className="absolute inset-0 z-10 object-cover [object-position:30%_20%]"
-        />
-        {/* Gradient Background */}
-        <motion.div
-          initial={{ opacity: 0.1 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.0, delay: 0.2 }}
-          className="absolute inset-0 z-0 bg-gradient-to-br from-[#F15A29] via-[#FFC107] to-[#F15A29]"
-        />
 
-        {/* Dark overlay */}
-        <motion.div
-          initial={{ opacity: 0.2 }}
-          animate={{ opacity: 0.4 }}
-          transition={{ duration: 1.0, delay: 0.3 }}
-          className="absolute inset-0 bg-black/40"
-        />
+        {/* (Removed background image + extra overlay layers) */}
+        {/* Keep only the base interactive hexagon background for visual parity with other pages */}
 
-        {/* Background gradient */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.0, delay: 0.4 }}
-          className="absolute inset-0 bg-gradient-to-br from-pes-navy/80 via-blue-800/60 to-pes-orange/30"
-        />
+        {/* Video overlay (covers entire hero section) */}
+        {showVideo && (
+          <div className="absolute inset-0 z-30 flex items-center justify-center bg-black/80 p-4 pointer-events-auto">
+            <div className="relative w-full h-full">
+              <button
+                ref={closeButtonRef}
+                onClick={() => setShowVideo(false)}
+                aria-label="Close video"
+                className="absolute right-4 top-4 z-40 rounded-full bg-white/20 hover:bg-white/30 p-2 text-white backdrop-blur-md"
+              >
+                <X className="w-5 h-5" />
+              </button>
 
-        {/* Decorative Elements */}
-        <div className="absolute top-20 right-20 w-64 h-64 bg-pes-orange/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse" />
-        <div className="absolute bottom-20 left-20 w-64 h-64 bg-pes-navy-light/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse [animation-delay:2s]" />
+              <iframe
+                src="https://www.youtube.com/embed/uHrF8T8H0KY?autoplay=1&rel=0&modestbranding=1"
+                title="CIE Bootcamp Highlights"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full border-0"
+              />
+            </div>
+          </div>
+        )}
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
           {/* Centered hero content (text + CTA) */}
@@ -508,7 +502,7 @@ const BootcampPage = () => {
 
                 <Button
                   onClick={() => setShowVideo(true)}
-                  className="pes-button-outline text-lg px-8 py-3 bg-white/10 border-[color:var(--students-secondary)] text-[color:var(--students-secondary)] hover:bg-[var(--students-secondary)] hover:text-white"
+                  className="pes-button-primary text-lg px-8 py-3 bg-blue-500 text-white hover:bg-blue-600"
                 >
                   <Play className="w-5 h-5 mr-2" />
                   Watch Highlights
@@ -532,27 +526,7 @@ const BootcampPage = () => {
               </div>
             </motion.div>
           </motion.div>
-          {/* Video modal for Watch Highlights */}
-          {showVideo && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-              <div className="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
-                <button
-                  ref={closeButtonRef}
-                  onClick={() => setShowVideo(false)}
-                  aria-label="Close video"
-                  className="absolute top-3 right-3 z-50 bg-white/10 hover:bg-white/20 text-white rounded-full p-2"
-                >
-                  ✕
-                </button>
-                <iframe
-                  src="https://www.youtube.com/embed/uHrF8T8H0KY?autoplay=1&rel=0"
-                  title="CIE Bootcamp Highlights"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  className="w-full h-full"
-                />
-              </div>
-            </div>
-          )}
+          {/* Video modal removed from inner container - overlay now sits directly under the section so it covers the whole hero */}
         </div>
       </section>
 
