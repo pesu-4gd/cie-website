@@ -1,6 +1,8 @@
 'use client';
 
-import { Button } from '@/components/design-system';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
+import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { 
   BookOpen,
@@ -31,6 +33,7 @@ import {
 } from 'lucide-react';
 
 export default function AlumniResourcesPage() {
+  const alumniColors = SECTION_COLORS.alumni;
   const resourceStats = [
     { label: 'Resource Categories', value: '12+', icon: BookOpen },
     { label: 'Total Resources', value: '500+', icon: FileText },
@@ -205,14 +208,21 @@ export default function AlumniResourcesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-emerald-600 to-teal-700 overflow-hidden">
-        <div className="absolute inset-0">
+      {/* Hero Section - standardized alumni overview hero (interactive hexagon background) */}
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+        <InteractiveHexagonBackground
+          primaryColor={alumniColors.hero.background}
+          // Use the same amber/yellow accent as the overview
+          accentColor="#F59E0B"
+          className="absolute inset-0 z-0"
+        />
+
+        <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
           <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -233,11 +243,11 @@ export default function AlumniResourcesPage() {
               continued professional growth and career success as a PES University alumnus.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+              <Button variant="default" size="lg" className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white">
                 <BookOpen className="w-5 h-5 mr-2" />
                 Browse Resources
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
                 <Download className="w-5 h-5 mr-2" />
                 Featured Downloads
               </Button>
