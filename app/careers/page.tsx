@@ -1,7 +1,9 @@
 'use client';
 
-import { Button } from '@/components/design-system';
+import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
 import { 
   Briefcase,
   Users,
@@ -271,21 +273,22 @@ export default function CareersPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-blue-600 to-purple-700 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-        </div>
+      {/* Hero Section (Inside CIE style) */}
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+        <InteractiveHexagonBackground
+          primaryColor={SECTION_COLORS.insideCie.hero.background}
+          accentColor="#F43F5E"
+          className="absolute inset-0 z-0"
+        />
 
-        <div className="relative max-w-7xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/10 backdrop-blur-sm text-white border border-white/20">
                 <Briefcase className="w-4 h-4 mr-2" />
                 Join Our Team
               </span>
@@ -294,16 +297,16 @@ export default function CareersPage() {
               Build the Future of{' '}
               <span className="block text-blue-200">Entrepreneurship Education</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-8">
               Join CIE and be part of a dynamic team that's shaping the next generation
               of entrepreneurs, innovators, and change-makers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+              <Button variant="default" size="lg" className="group bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white">
                 <Search className="w-5 h-5 mr-2" />
                 View Open Positions
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
                 <Building2 className="w-5 h-5 mr-2" />
                 Learn About CIE
               </Button>
@@ -458,6 +461,7 @@ export default function CareersPage() {
             <div className="flex-1">
               <label className="block text-sm font-medium text-gray-700 mb-2">Department</label>
               <select
+                aria-label="Department select"
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -473,6 +477,7 @@ export default function CareersPage() {
             <div className="flex-1">
               <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
               <select
+                aria-label="Location select"
                 value={selectedLocation}
                 onChange={(e) => setSelectedLocation(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"

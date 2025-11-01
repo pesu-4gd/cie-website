@@ -7,6 +7,8 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
 import {
   Search,
   BookOpen,
@@ -243,9 +245,15 @@ export default function ResearchPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-20">
-        <div className="container mx-auto px-4">
+      {/* Hero Section (Inside CIE style) */}
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B] text-white">
+        <InteractiveHexagonBackground
+          primaryColor={SECTION_COLORS.insideCie.hero.background}
+          accentColor="#F43F5E"
+          className="absolute inset-0 z-0"
+        />
+
+        <div className="relative z-10 container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -253,25 +261,25 @@ export default function ResearchPage() {
             className="text-center max-w-4xl mx-auto"
           >
             <h1 className="text-5xl font-bold mb-6">Research & Publications</h1>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-xl mb-8 text-white/90">
               Advancing knowledge through cutting-edge research in emerging technologies
             </p>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
               <div className="text-center">
                 <div className="text-3xl font-bold">150+</div>
-                <div className="text-blue-200">Publications</div>
+                <div className="text-white/80">Publications</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold">75+</div>
-                <div className="text-blue-200">Active Projects</div>
+                <div className="text-white/80">Active Projects</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold">40+</div>
-                <div className="text-blue-200">Faculty Researchers</div>
+                <div className="text-white/80">Faculty Researchers</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold">₹5Cr+</div>
-                <div className="text-blue-200">Research Funding</div>
+                <div className="text-white/80">Research Funding</div>
               </div>
             </div>
           </motion.div>

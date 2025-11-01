@@ -2,18 +2,24 @@
 
 import { motion } from 'framer-motion';
 import { Target, Lightbulb, Users, Award, Sparkles } from 'lucide-react';
-import { Button } from '@/components/design-system';
+import { Button } from '@/components/ui/button';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
+
+const insideCieColors = SECTION_COLORS.insideCie;
 
 export default function About() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative py-20 bg-gradient-to-br from-blue-600 to-indigo-700 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+        <InteractiveHexagonBackground
+          primaryColor={insideCieColors.hero.background}
+          // keep the warm accent used in inside-cie hero for the hexagon highlights
+          accentColor="#F43F5E"
+          className="absolute inset-0 z-0"
+        />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
