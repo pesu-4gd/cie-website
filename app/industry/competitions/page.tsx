@@ -3,6 +3,8 @@
 import React from 'react';
 import { Button } from '@/components/design-system';
 import { motion } from 'framer-motion';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
 import { 
   Trophy, 
   Rocket, 
@@ -132,13 +134,20 @@ export default function IndustryCompetitionsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-purple-600 to-indigo-700 overflow-hidden">
-        <div className="absolute inset-0">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-600 to-indigo-700">
+        <InteractiveHexagonBackground
+          primaryColor={SECTION_COLORS.industry.hero.background}
+          accentColor={SECTION_COLORS.industry.hero.hexagonAccent}
+          hexagonSize={72}
+          className="absolute inset-0 z-0"
+        />
+
+        <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
           <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -158,16 +167,23 @@ export default function IndustryCompetitionsPage() {
               Join industry-sponsored competitions where students solve real challenges, 
               win substantial prizes, and create solutions that shape the future.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
-                <Trophy className="w-5 h-5 mr-2" />
-                View Competitions
-              </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
-                <Handshake className="w-5 h-5 mr-2" />
-                Sponsor Competition
-              </Button>
-            </div>
+
+              <div className="flex gap-4">
+                <Button
+                  variant="default"
+                  size="lg"
+                  className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white px-6 py-3 text-base font-semibold rounded-lg"
+                >
+                  Learn More
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 px-6 py-3 text-base font-semibold rounded-lg"
+                >
+                  Register
+                </Button>
+              </div>
           </motion.div>
         </div>
       </section>
@@ -423,11 +439,19 @@ export default function IndustryCompetitionsPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+              <Button
+                variant="default"
+                size="lg"
+                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
+              >
                 <Handshake className="w-5 h-5 mr-2" />
                 Become a Sponsor
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+              >
                 <Trophy className="w-5 h-5 mr-2" />
                 Learn More
               </Button>

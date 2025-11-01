@@ -2,6 +2,8 @@
 
 import { Button } from '@/components/design-system';
 import { motion } from 'framer-motion';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
 import { 
   Building2,
   Users,
@@ -58,14 +60,22 @@ export default function IndustryContactPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-blue-600 to-indigo-700 overflow-hidden">
-        <div className="absolute inset-0">
+  {/* Hero Section */}
+  <section className="relative h-[85vh] flex items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-700 overflow-hidden">
+        {/* Hexagon Background behind content */}
+        <InteractiveHexagonBackground
+          primaryColor={SECTION_COLORS.industry.hero.background}
+          accentColor={SECTION_COLORS.industry.hero.hexagonAccent}
+          hexagonSize={72}
+          className="absolute inset-0 z-0"
+        />
+
+        <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
           <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
         </div>
-        
-        <div className="relative max-w-7xl mx-auto px-6 text-center">
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,11 +96,19 @@ export default function IndustryContactPage() {
               is here to discuss partnerships, talent solutions, and innovation initiatives.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+              <Button
+                variant="default"
+                size="lg"
+                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
+              >
                 <Send className="w-5 h-5 mr-2" />
                 Send Message
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+              >
                 <Calendar className="w-5 h-5 mr-2" />
                 Schedule Meeting
               </Button>
@@ -248,10 +266,10 @@ export default function IndustryContactPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="partnershipInterest" className="block text-sm font-medium text-gray-700 mb-2">
                   Partnership Interest *
                 </label>
-                <select className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all" required>
+                <select id="partnershipInterest" aria-required="true" className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all" required>
                   <option value="">Select partnership type</option>
                   <option value="technology">Technology Partnership</option>
                   <option value="talent">Talent Recruitment</option>
@@ -275,14 +293,17 @@ export default function IndustryContactPage() {
 
               <div className="flex items-start gap-3">
                 <input
+                  id="consent"
                   type="checkbox"
+                  title="Consent to privacy policy"
+                  aria-required="true"
                   className="mt-1 w-4 h-4 text-blue-600 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
                   required
                 />
-                <p className="text-sm text-gray-600">
+                <label htmlFor="consent" className="text-sm text-gray-600">
                   I agree to the processing of my personal data according to the 
                   <a href="/policies" className="text-blue-600 hover:text-blue-700 underline ml-1">Privacy Policy</a>.
-                </p>
+                </label>
               </div>
 
               <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-semibold text-lg">
@@ -422,15 +443,19 @@ export default function IndustryContactPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl"
+              <Button
+                variant="default"
+                size="lg"
+                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
                 onClick={() => window.location.href = 'mailto:industry@pes.edu'}
               >
                 <Mail className="w-5 h-5 mr-2" />
                 Email Us Now
               </Button>
-              <Button 
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
                 onClick={() => window.location.href = 'tel:+918026727000'}
               >
                 <Phone className="w-5 h-5 mr-2" />

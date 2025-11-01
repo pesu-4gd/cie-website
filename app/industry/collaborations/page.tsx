@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -45,6 +45,8 @@ import {
   BarChart3
 } from 'lucide-react';
 import { useState } from 'react';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 
@@ -1049,29 +1051,39 @@ export default function CollaborationsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-purple-500/20 text-purple-100 border border-purple-400/30">
-                <Handshake className="w-4 h-4 mr-2" />
-                Collaboration Opportunities
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Strategic Collaboration
-              <span className="block text-purple-200">Models</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-purple-100 max-w-4xl mx-auto leading-relaxed">
-              Discover flexible partnership models designed to maximize value for your organization while driving innovation in education and research.
-            </p>
-          </motion.div>
+  {/* Hero Section */}
+  <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white">
+        {/* Hexagon Background (behind content) */}
+        <InteractiveHexagonBackground
+          primaryColor={SECTION_COLORS.industry.hero.background}
+          accentColor={SECTION_COLORS.industry.hero.hexagonAccent}
+          hexagonSize={72}
+          className="absolute inset-0 z-0"
+        />
+
+        <div className="relative z-10">
+          <div className="max-w-7xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center"
+            >
+              <div className="mb-6">
+                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-purple-500/20 text-purple-100 border border-purple-400/30">
+                  <Handshake className="w-4 h-4 mr-2" />
+                  Collaboration Opportunities
+                </span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                Strategic Collaboration
+                <span className="block text-purple-200">Models</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-purple-100 max-w-4xl mx-auto leading-relaxed">
+                Discover flexible partnership models designed to maximize value for your organization while driving innovation in education and research.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -1232,15 +1244,27 @@ export default function CollaborationsPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+              <Button
+                variant="default"
+                size="lg"
+                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
+              >
                 <Handshake className="w-5 h-5 mr-2" />
                 Start Partnership
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+              >
                 <FileText className="w-5 h-5 mr-2" />
                 Download Partnership Guide
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Schedule Consultation
               </Button>

@@ -36,6 +36,8 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Link from 'next/link';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
 
 // Job Data
 const jobListings = [
@@ -253,9 +255,18 @@ export default function JobsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
-        <div className="relative max-w-7xl mx-auto">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
+        {/* Hex background behind content */}
+        <InteractiveHexagonBackground
+          primaryColor={SECTION_COLORS.industry.hero.background}
+          accentColor={SECTION_COLORS.industry.hero.hexagonAccent}
+          hexagonSize={72}
+          className="absolute inset-0 z-0"
+        />
+
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-blue-600/10 to-purple-600/10 z-10" />
+
+        <div className="relative z-20 max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -274,11 +285,19 @@ export default function JobsPage() {
               Access exclusive job postings from our industry partners.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <Button
+                variant="default"
+                size="lg"
+                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
+              >
                 <Search className="h-5 w-5 mr-2" />
                 Browse Jobs
               </Button>
-              <Button size="lg" variant="outline">
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+              >
                 <Upload className="h-5 w-5 mr-2" />
                 Upload Resume
               </Button>
@@ -403,11 +422,19 @@ export default function JobsPage() {
               Join thousands of students who have found their dream jobs through our platform
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+              <Button
+                variant="default"
+                size="lg"
+                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white px-6 py-3 text-base font-semibold rounded-lg"
+              >
                 <FileText className="h-5 w-5 mr-2" />
                 Create Profile
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 px-6 py-3 text-base font-semibold rounded-lg"
+              >
                 <Mail className="h-5 w-5 mr-2" />
                 Job Alerts
               </Button>

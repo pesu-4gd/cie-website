@@ -270,13 +270,13 @@ export default function StudentClubsPage() {
                         ))}
                       </div>
                       
-                      <Button 
-                        className={`bg-gradient-to-r ${getColorClasses(club.color)} text-white px-6 py-3 rounded-xl`}
-                        onClick={() => window.location.href = club.joinLink}
+                      <Link 
+                        href={club.joinLink}
+                        className={`inline-flex items-center justify-center bg-gradient-to-r ${getColorClasses(club.color)} text-white px-6 py-3 rounded-xl`}
                       >
                         <UserPlus className="w-4 h-4 mr-2" />
                         Join {club.title.split(' ')[0]}
-                      </Button>
+                      </Link>
                     </div>
                     
                     <div className="space-y-6">
@@ -449,14 +449,14 @@ export default function StudentClubsPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white px-8 py-4 text-lg font-semibold rounded-xl border border-white" style={{ color: studentsColors.primary }}>
+              <Link href="/students/clubs/e-cell" className="inline-flex items-center justify-center bg-white px-8 py-4 text-lg font-semibold rounded-xl border border-white" style={{ color: studentsColors.primary }}>
                 <UserPlus className="w-5 h-5 mr-2" />
                 Join E-Cell
-              </Button>
-              <Button className="bg-transparent px-8 py-4 text-lg font-semibold rounded-xl text-white border border-white">
+              </Link>
+              <Link href="/students/clubs/cms" className="inline-flex items-center justify-center bg-transparent px-8 py-4 text-lg font-semibold rounded-xl text-white border border-white">
                 <Globe className="w-5 h-5 mr-2" />
                 Join CMS
-              </Button>
+              </Link>
             </div>
             
             <div className="mt-8">

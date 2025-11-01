@@ -515,11 +515,19 @@ export default function IndustryPage() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+              <Button 
+                variant="default" 
+                size="lg"
+                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
+              >
                 <Handshake className="w-5 h-5 mr-2" />
                 Start Partnership
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+              >
                 <Calendar className="w-5 h-5 mr-2" />
                 Schedule Meeting
               </Button>
