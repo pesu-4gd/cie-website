@@ -113,8 +113,8 @@ export default function Scholarships() {
 
   return (
     <div className="min-h-screen" style={cssVars}>
-      {/* Hero Section (themed with interactive hexagon background) */}
-      <section className="relative h-[65vh] flex items-center justify-center overflow-hidden" style={{ background: studentsColors.gradient.css }}>
+  {/* Hero Section (themed with interactive hexagon background) */}
+  <section className="relative h-[85vh] flex items-center justify-center overflow-hidden" style={{ background: studentsColors.gradient.css }}>
         <InteractiveHexagonBackground
           primaryColor={studentsColors.hero?.background}
           accentColor={studentsColors.hero?.hexagonAccent}

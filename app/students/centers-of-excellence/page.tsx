@@ -71,7 +71,7 @@ export default function CentersOfExcellencePage() {
   return (
     <div className="min-h-screen bg-white">
       <section
-        className="relative text-white py-28 overflow-hidden"
+        className="relative h-[85vh] flex items-center justify-center text-white overflow-hidden"
         style={
           {
             ['--cie-blue']: studentsColors.primary,

@@ -18,8 +18,8 @@ export default function CMSPage() {
 
   return (
     <div className="min-h-screen bg-white" style={cssVars}>
-      {/* Hero */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
+  {/* Hero */}
+  <section className="relative h-[85vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
         <InteractiveHexagonBackground
           className="absolute inset-0 z-0"
           primaryColor={studentsColors.hero?.background}

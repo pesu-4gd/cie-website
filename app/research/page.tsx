@@ -264,7 +264,7 @@ export default function ResearchPage() {
             <p className="text-xl mb-8 text-white/90">
               Advancing knowledge through cutting-edge research in emerging technologies
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
+            {/* <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
               <div className="text-center">
                 <div className="text-3xl font-bold">150+</div>
                 <div className="text-white/80">Publications</div>
@@ -280,6 +280,24 @@ export default function ResearchPage() {
               <div className="text-center">
                 <div className="text-3xl font-bold">₹5Cr+</div>
                 <div className="text-white/80">Research Funding</div>
+              </div>
+            </div> */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
+              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="text-2xl font-bold text-white">150+</div>
+                <div className="text-xs text-gray-300">Publications</div>
+              </div>
+              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="text-2xl font-bold text-white">75+</div>
+                <div className="text-xs text-gray-300">Active Projects</div>
+              </div>
+              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="text-2xl font-bold text-white">40+</div>
+                <div className="text-xs text-gray-300">Researchers</div>
+              </div>
+              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="text-2xl font-bold text-white">₹5Cr+</div>
+                <div className="text-xs text-gray-300">Research Funding</div>
               </div>
             </div>
           </motion.div>
@@ -365,6 +383,8 @@ export default function ResearchPage() {
                 />
               </div>
               <select
+                aria-label="Filter publications by area"
+                title="Filter publications by area"
                 value={selectedArea}
                 onChange={(e) => setSelectedArea(e.target.value)}
                 className="px-3 py-2 border border-gray-300 rounded-md"
@@ -376,6 +396,8 @@ export default function ResearchPage() {
                 <option value="cybersecurity">Cybersecurity</option>
               </select>
               <select
+                aria-label="Filter publications by type"
+                title="Filter publications by type"
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
                 className="px-3 py-2 border border-gray-300 rounded-md"
@@ -562,7 +584,7 @@ export default function ResearchPage() {
       </div>
 
       {/* Call to Action */}
-      <section className="bg-gray-900 text-white py-16">
+      {/* <section className="bg-gray-900 text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Collaborate with Us</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -579,7 +601,7 @@ export default function ResearchPage() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

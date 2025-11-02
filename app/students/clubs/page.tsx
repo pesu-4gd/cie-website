@@ -150,8 +150,8 @@ export default function StudentClubsPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section (interactive hexagon + themed overlay) */}
-      <section className="relative h-[65vh] flex items-center justify-center overflow-hidden px-6">
+  {/* Hero Section (interactive hexagon + themed overlay) */}
+  <section className="relative h-[85vh] flex items-center justify-center overflow-hidden px-6">
         <InteractiveHexagonBackground
           className="absolute inset-0 z-0"
           primaryColor={studentsColors.hero?.background}
@@ -351,7 +351,7 @@ export default function StudentClubsPage() {
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-l font-bold text-gray-900 mb-3">
                   {event.title}
                 </h3>
                 
