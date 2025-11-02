@@ -18,7 +18,8 @@ import {
   ChevronRight,
   BookOpen,
   MessageSquare,
-  TrendingUp
+  TrendingUp,
+  ArrowRight
 } from 'lucide-react';
 import { Button } from '@/components/design-system';
 import {InteractiveHexagonBackground} from '@/components/ui/interactive-hexagon-background';
@@ -360,18 +361,28 @@ const BasecampPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/students" className="inline-block">
-                <Button className="pes-button-primary text-lg px-8 py-3 bg-[var(--students-primary)] text-white">
+                {/* <Button variant="default" size="lg" className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white">
                   <Rocket className="w-5 h-5 mr-2" />
-                  EXPLORE NOW
-                </Button>
+                  Explore Now
+                </Button> */}
+                <Button 
+                variant="cie" 
+                size="lg"
+                className={`group ${'bg-gradient-to-r ' + studentsColors.gradient.tailwind} text-white`}
+              >
+                Explore Programs
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
               </Link>
 
               <Button
                 onClick={() => setShowVideo(true)}
-                className="pes-button-primary text-lg px-8 py-3 bg-[var(--students-secondary)] text-white hover:brightness-90"
+                variant="outline"
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
               >
                 <Play className="w-5 h-5 mr-2" />
-                WATCH STORY
+                Watch Story
               </Button>
             </div>
           </motion.div>
