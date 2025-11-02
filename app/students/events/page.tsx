@@ -13,30 +13,48 @@ import {
   MapPin, 
   Users, 
   Award, 
-  ExternalLink,
-  Star,
   ArrowRight,
-  Lightbulb,
   Trophy,
-  Target,
   Rocket,
   BookOpen,
-  Video,
-  Coffee,
-  Briefcase,
-  Globe,
   Filter,
   Search
 } from 'lucide-react';
 import { useState } from 'react';
+import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 
-const upcomingEvents = [
+type EventItem = {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  time?: string;
+  endDate?: string;
+  endTime?: string;
+  location?: string;
+  category?: string;
+  type?: string;
+  registrationDeadline?: string;
+  maxParticipants?: number;
+  currentRegistrations?: number;
+  prizes?: string;
+  eligibility?: string;
+  featured?: boolean;
+  image?: string;
+  tags?: string[];
+  speaker?: string;
+  participants?: number;
+  winner?: string;
+  highlights?: string[];
+};
+
+const upcomingEvents: EventItem[] = [
   {
     id: '1',
     title: 'CIE Ignite 2024 - Ideathon',
-    description: 'Annual flagship startup challenge for 2nd-year students. Transform your ideas into viable business concepts.',
+    description: 'Annual flagship startup challenge for students. Transform your ideas into viable business concepts.',
     date: '2024-02-15',
     time: '09:00 AM',
     endDate: '2024-02-17',
@@ -47,10 +65,9 @@ const upcomingEvents = [
     registrationDeadline: '2024-02-10',
     maxParticipants: 200,
     currentRegistrations: 156,
-    prizes: '₹2,00,000 in total prizes',
     eligibility: '2nd year students from all branches',
     featured: true,
-    image: '/events/cie-ignite-2024.jpg',
+    image: '/assets/cie-ignite-white-bg.png',
     tags: ['startup', 'ideathon', 'competition', 'innovation']
   },
   {
@@ -125,7 +142,7 @@ const upcomingEvents = [
   }
 ];
 
-const pastEvents = [
+const pastEvents: EventItem[] = [
   {
     id: 'p1',
     title: 'CIE Ignite 2023',
@@ -135,7 +152,7 @@ const pastEvents = [
     participants: 180,
     winner: 'EcoTech Solutions - Sustainable packaging startup',
     highlights: ['15 finalist teams', '₹1,50,000 in prizes', '3 startups launched'],
-    image: '/events/cie-ignite-2023.jpg'
+    image: '/assets/cie-ignite-white-bg.png'
   },
   {
     id: 'p2',
@@ -144,7 +161,6 @@ const pastEvents = [
     date: '2023-11-15',
     category: 'Summit',
     participants: 300,
-    speakers: ['Kunal Shah (CRED)', 'Falguni Nayar (Nykaa)', 'Ritesh Agarwal (OYO)'],
     highlights: ['3 keynote sessions', '5 panel discussions', '50+ startups showcased']
   },
   {
@@ -161,6 +177,191 @@ const pastEvents = [
 
 const eventCategories = ['All', 'Competition', 'Workshop', 'Masterclass', 'Networking', 'Bootcamp', 'Summit', 'Hackathon'];
 
+// Helper function for category colors
+function getCategoryColor(category?: string): string {
+  const colors: Record<string, string> = {
+    'Competition': 'bg-red-100 text-red-800 hover:bg-red-200',
+    'Workshop': 'bg-blue-100 text-blue-800 hover:bg-blue-200',
+    'Masterclass': 'bg-purple-100 text-purple-800 hover:bg-purple-200',
+    'Networking': 'bg-green-100 text-green-800 hover:bg-green-200',
+    'Bootcamp': 'bg-orange-100 text-orange-800 hover:bg-orange-200',
+    'Summit': 'bg-indigo-100 text-indigo-800 hover:bg-indigo-200',
+    'Hackathon': 'bg-pink-100 text-pink-800 hover:bg-pink-200'
+  };
+  if (!category) return 'bg-gray-100 text-gray-800 hover:bg-gray-200';
+  return colors[category] || 'bg-gray-100 text-gray-800 hover:bg-gray-200';
+}
+
+// Upcoming Events Grid Component
+function UpcomingEventsGrid({ events }: { events: EventItem[] }) {
+  if (events.length === 0) {
+    return (
+      <Card className="text-center py-12">
+        <CardContent>
+          <Calendar className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">No Events Found</h3>
+          <p className="text-gray-600">No events match your search criteria. Try adjusting your filters.</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  return (
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {events.map((event, index) => (
+        <motion.div
+          key={event.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.08 }}
+        >
+          <Card className="h-full hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <div className="flex items-start justify-between">
+                <Badge className={getCategoryColor(event.category)}>
+                  {event.category}
+                </Badge>
+                <span className="text-sm text-gray-500">
+                  {new Date(event.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                  })}
+                </span>
+              </div>
+              <CardTitle className="text-lg">{event.title}</CardTitle>
+              <CardDescription>{event.description}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-2 text-sm text-gray-600">
+                  <Clock className="h-4 w-4" />
+                  <span>{event.time} - {event.endTime}</span>
+                </div>
+                <div className="flex items-center space-x-2 text-sm text-gray-600">
+                  <MapPin className="h-4 w-4" />
+                  <span>{event.location}</span>
+                </div>
+                {event.prizes && (
+                  <div className="flex items-center space-x-2 text-sm text-green-600">
+                    <Trophy className="h-4 w-4" />
+                    <span>{event.prizes}</span>
+                  </div>
+                )}
+                <div className="flex items-center space-x-2 text-sm text-gray-600">
+                  <Users className="h-4 w-4" />
+                  <span>{event.currentRegistrations}/{event.maxParticipants} registered</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    className="bg-blue-600 h-2 rounded-full"
+                    style={{ width: `${((event.currentRegistrations ?? 0) / Math.max(1, event.maxParticipants ?? 1)) * 100}%` }}
+                  />
+                </div>
+                {/* {event.speaker && (
+                  <div className="text-sm text-gray-700">
+                    <strong>Speaker:</strong> {event.speaker}
+                  </div>
+                )} */}
+              </div>
+            </CardContent>
+            <div className="p-4 pt-0">
+              <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                <Link href={`/students/events/${event.id}`}>Register Now</Link>
+              </Button>
+            </div>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
+// Past Events Grid Component
+function PastEventsGrid({ events }: { events: EventItem[] }) {
+  if (events.length === 0) {
+    return (
+      <Card className="text-center py-12">
+        <CardContent>
+          <Award className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">No Past Events Found</h3>
+          <p className="text-gray-600">No past events match your search criteria.</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  return (
+    <div className="grid md:grid-cols-2 gap-6">
+      {events.map((event, index) => (
+        <motion.div
+          key={event.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+        >
+          <Card className="h-full hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <div className="flex items-start justify-between">
+                <Badge className={getCategoryColor(event.category)}>
+                  {event.category}
+                </Badge>
+                <span className="text-sm text-gray-500">
+                  {new Date(event.date).toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'short', 
+                    day: 'numeric' 
+                  })}
+                </span>
+              </div>
+              <CardTitle className="text-xl">{event.title}</CardTitle>
+              <CardDescription>{event.description}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-2 text-sm text-gray-600">
+                  <Users className="h-4 w-4" />
+                  <span>{event.participants} participants</span>
+                </div>
+                {event.winner && (
+                  <div className="flex items-start space-x-2 text-sm">
+                    <Trophy className="h-4 w-4 text-yellow-500 mt-0.5" />
+                    <div>
+                      <p className="text-gray-600">Winner:</p>
+                      <p className="font-semibold text-gray-900">{event.winner}</p>
+                    </div>
+                  </div>
+                )}
+                {/* {event.speakers && (
+                  <div className="text-sm">
+                    <p className="text-gray-600 mb-1">Speakers:</p>
+                    <ul className="space-y-1">
+                      {event.speakers.map((speaker, idx) => (
+                        <li key={idx} className="text-gray-900">{speaker}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )} */}
+                <div className="text-sm">
+                  <p className="text-gray-600 mb-1">Highlights:</p>
+                  <ul className="space-y-1">
+                    {(event.highlights || []).map((highlight: string, idx: number) => (
+                      <li key={idx} className="flex items-center space-x-2">
+                        <ArrowRight className="h-3 w-3 text-blue-600" />
+                        <span className="text-gray-700">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
 export default function EventsPage() {
   const studentsColors = SECTION_COLORS.students;
   const [searchTerm, setSearchTerm] = useState('');
@@ -170,7 +371,7 @@ export default function EventsPage() {
   const filteredUpcomingEvents = upcomingEvents.filter(event => {
     const matchesSearch = event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          event.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         event.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+                         (event.tags ?? []).some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     const matchesCategory = selectedCategory === 'All' || event.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -191,7 +392,7 @@ export default function EventsPage() {
           accentColor={studentsColors.hero?.hexagonAccent}
           className="absolute inset-0 z-0"
         />
-        <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="relative z-10 max-w-7xl mx-auto px-4">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -210,11 +411,11 @@ export default function EventsPage() {
               designed to accelerate your entrepreneurial journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className={`text-white ${studentsColors.gradient.tailwind}`}>
+              <Button size="lg" className="bg-white text-[#3E3C6B] hover:bg-gray-100">
                 <Rocket className="h-5 w-5 mr-2" />
                 Register for CIE Ignite
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#3E3C6B]">
                 <Calendar className="h-5 w-5 mr-2" />
                 View Event Calendar
               </Button>
@@ -226,71 +427,87 @@ export default function EventsPage() {
       {/* CIE Ignite Spotlight */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-            <motion.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Card className={`text-white border-0 overflow-hidden ${studentsColors.gradient.tailwind}`}>
+            <Card className={`text-black border-0 overflow-hidden ${studentsColors.gradient.tailwind}`}>
               <CardContent className="p-8 md:p-12">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="grid md:grid-cols-3 gap-8 items-start">
+                  {/* Column 1: Image */}
+                  <div className="flex items-start md:items-center justify-center">
+                    <div className="w-36 h-36 md:w-56 md:h-56 rounded-lg overflow-hidden flex items-center justify-center bg-white p-4">
+                      <Image
+                        src="/assets/cie-ignite-white-bg.png"
+                        alt="CIE Ignite 2024"
+                        width={224}
+                        height={224}
+                        className="object-contain w-full h-full"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Column 2: Main content */}
                   <div>
-                    <Badge className="mb-4" style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: '#fff' }}>
+                    <Badge className="mb-4 bg-red-100 text-red-600">
                       <Trophy className="h-4 w-4 mr-1" />
                       Flagship Event
                     </Badge>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                      CIE Ignite 2024
-                    </h2>
-                    <p className="text-white/90 text-lg mb-6">
-                      Our annual flagship startup challenge where 2nd-year students transform 
-                      innovative ideas into viable business concepts through intensive mentorship 
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">CIE Ignite 2024</h2>
+                    <p className="text-black/90 text-lg mb-6 max-w-xl">
+                      Our annual flagship startup challenge where 2nd-year students transform
+                      innovative ideas into viable business concepts through intensive mentorship
                       and expert guidance.
                     </p>
-                      <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="grid grid-cols-2 gap-4 mb-6">
                       <div>
-                        <p className="text-blue-200 text-sm">Prize Pool</p>
-                        <p className="text-white font-bold text-xl">₹2,00,000</p>
+                        <p className="text-blue-600 text-sm font-medium">Prize Pool</p>
+                        <p className="text-black font-bold text-xl">₹2,00,000</p>
                       </div>
                       <div>
-                        <p className="text-blue-200 text-sm">Participants</p>
-                        <p className="text-white font-bold text-xl">200+ Students</p>
+                        <p className="text-blue-600 text-sm font-medium">Participants</p>
+                        <p className="text-black font-bold text-xl">200+ Students</p>
                       </div>
                     </div>
-                      <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3">
                       <Button className="bg-white text-black hover:bg-gray-100">
                         <ArrowRight className="h-4 w-4 mr-2" />
                         Register Now
                       </Button>
-                      <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black">
+                      <Button variant="outline" className="border-white text-black hover:bg-blue-600 hover:text-white hover:border-blue-600">
                         <BookOpen className="h-4 w-4 mr-2" />
                         Learn More
                       </Button>
                     </div>
                   </div>
+
+                  {/* Column 3: Info boxes */}
                   <div className="space-y-4">
                     <div className="bg-white/10 rounded-lg p-4">
                       <div className="flex items-center space-x-3 mb-2">
-                        <Calendar className="h-5 w-5 text-blue-200" />
-                        <span className="text-blue-100">Event Dates</span>
+                        <Calendar className="h-5 w-5 text-blue-600" />
+                        <span className="text-blue-600 font-medium">Event Dates</span>
                       </div>
-                      <p className="text-white font-semibold">February 15-17, 2024</p>
+                      <p className="text-black font-semibold">February 15-17, 2024</p>
                     </div>
+
                     <div className="bg-white/10 rounded-lg p-4">
                       <div className="flex items-center space-x-3 mb-2">
-                        <MapPin className="h-5 w-5 text-blue-200" />
-                        <span className="text-blue-100">Location</span>
+                        <MapPin className="h-5 w-5 text-blue-600" />
+                        <span className="text-blue-600 font-medium">Location</span>
                       </div>
-                      <p className="text-white font-semibold">CIE Innovation Hub</p>
+                      <p className="text-black font-semibold">CIE Innovation Hub</p>
                     </div>
+
                     <div className="bg-white/10 rounded-lg p-4">
                       <div className="flex items-center space-x-3 mb-2">
-                        <Users className="h-5 w-5 text-blue-200" />
-                        <span className="text-blue-100">Registration</span>
+                        <Users className="h-5 w-5 text-blue-600" />
+                        <span className="text-blue-600 font-medium">Registration</span>
                       </div>
-                      <p className="text-white font-semibold">156/200 Registered</p>
+                      <p className="text-black font-semibold">156/200 Registered</p>
                       <div className="w-full bg-white/20 rounded-full h-2 mt-2">
-                        <div className="bg-white h-2 rounded-full w-[78%]"></div>
+                        <div className="bg-blue-600 h-2 rounded-full w-[78%]"></div>
                       </div>
                     </div>
                   </div>
@@ -387,192 +604,4 @@ export default function EventsPage() {
       </section>
     </div>
   );
-}
-
-// Upcoming Events Grid Component
-function UpcomingEventsGrid({ events }: { events: typeof upcomingEvents }) {
-  if (events.length === 0) {
-    return (
-      <Card className="text-center py-12">
-        <CardContent>
-          <Calendar className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">No Events Found</h3>
-          <p className="text-gray-600">No events match your search criteria. Try adjusting your filters.</p>
-        </CardContent>
-      </Card>
-    );
-  }
-
-  return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {events.map((event, index) => (
-        <motion.div
-          key={event.id}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-        >
-          <Card className={`h-full hover:shadow-lg transition-shadow ${event.featured ? 'ring-2 ring-blue-500' : ''}`}>
-            {event.featured && (
-              <div className="bg-blue-600 text-white text-center py-2 text-sm font-semibold">
-                <Star className="h-4 w-4 inline mr-1" />
-                Featured Event
-              </div>
-            )}
-            <CardHeader>
-              <div className="flex items-start justify-between">
-                <Badge className={getCategoryColor(event.category)}>
-                  {event.category}
-                </Badge>
-                <Badge variant="outline">{event.type}</Badge>
-              </div>
-              <CardTitle className="text-xl">{event.title}</CardTitle>
-              <CardDescription>{event.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-2 text-sm text-gray-600">
-                  <Calendar className="h-4 w-4" />
-                  <span>{new Date(event.date).toLocaleDateString('en-US', { 
-                    weekday: 'short', 
-                    year: 'numeric', 
-                    month: 'short', 
-                    day: 'numeric' 
-                  })}</span>
-                </div>
-                <div className="flex items-center space-x-2 text-sm text-gray-600">
-                  <Clock className="h-4 w-4" />
-                  <span>{event.time} - {event.endTime}</span>
-                </div>
-                <div className="flex items-center space-x-2 text-sm text-gray-600">
-                  <MapPin className="h-4 w-4" />
-                  <span>{event.location}</span>
-                </div>
-                {event.prizes && (
-                  <div className="flex items-center space-x-2 text-sm text-green-600">
-                    <Trophy className="h-4 w-4" />
-                    <span>{event.prizes}</span>
-                  </div>
-                )}
-                <div className="flex items-center space-x-2 text-sm text-gray-600">
-                  <Users className="h-4 w-4" />
-                  <span>{event.currentRegistrations}/{event.maxParticipants} registered</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div 
-                    className="bg-blue-600 h-2 rounded-full w-[var(--w)]" 
-                    style={{ ['--w' as any]: `${(event.currentRegistrations / event.maxParticipants) * 100}%` }}
-                  ></div>
-                </div>
-              </div>
-              <div className="mt-4 pt-4 border-t">
-                <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                  Register Now
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
-
-// Past Events Grid Component
-function PastEventsGrid({ events }: { events: typeof pastEvents }) {
-  if (events.length === 0) {
-    return (
-      <Card className="text-center py-12">
-        <CardContent>
-          <Award className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">No Past Events Found</h3>
-          <p className="text-gray-600">No past events match your search criteria.</p>
-        </CardContent>
-      </Card>
-    );
-  }
-
-  return (
-    <div className="grid md:grid-cols-2 gap-6">
-      {events.map((event, index) => (
-        <motion.div
-          key={event.id}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-        >
-          <Card className="h-full hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <div className="flex items-start justify-between">
-                <Badge className={getCategoryColor(event.category)}>
-                  {event.category}
-                </Badge>
-                <span className="text-sm text-gray-500">
-                  {new Date(event.date).toLocaleDateString('en-US', { 
-                    year: 'numeric', 
-                    month: 'short', 
-                    day: 'numeric' 
-                  })}
-                </span>
-              </div>
-              <CardTitle className="text-xl">{event.title}</CardTitle>
-              <CardDescription>{event.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-2 text-sm text-gray-600">
-                  <Users className="h-4 w-4" />
-                  <span>{event.participants} participants</span>
-                </div>
-                {event.winner && (
-                  <div className="flex items-start space-x-2 text-sm">
-                    <Trophy className="h-4 w-4 text-yellow-500 mt-0.5" />
-                    <div>
-                      <p className="text-gray-600">Winner:</p>
-                      <p className="font-semibold text-gray-900">{event.winner}</p>
-                    </div>
-                  </div>
-                )}
-                {event.speakers && (
-                  <div className="text-sm">
-                    <p className="text-gray-600 mb-1">Speakers:</p>
-                    <ul className="space-y-1">
-                      {event.speakers.map((speaker, idx) => (
-                        <li key={idx} className="text-gray-900">{speaker}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                <div className="text-sm">
-                  <p className="text-gray-600 mb-1">Highlights:</p>
-                  <ul className="space-y-1">
-                    {event.highlights.map((highlight, idx) => (
-                      <li key={idx} className="flex items-center space-x-2">
-                        <ArrowRight className="h-3 w-3 text-blue-600" />
-                        <span className="text-gray-700">{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
-
-// Helper function for category colors
-function getCategoryColor(category: string) {
-  const colors: { [key: string]: string } = {
-    'Competition': 'bg-red-100 text-red-800 hover:bg-red-200',
-    'Workshop': 'bg-blue-100 text-blue-800 hover:bg-blue-200',
-    'Masterclass': 'bg-purple-100 text-purple-800 hover:bg-purple-200',
-    'Networking': 'bg-green-100 text-green-800 hover:bg-green-200',
-    'Bootcamp': 'bg-orange-100 text-orange-800 hover:bg-orange-200',
-    'Summit': 'bg-indigo-100 text-indigo-800 hover:bg-indigo-200',
-    'Hackathon': 'bg-pink-100 text-pink-800 hover:bg-pink-200'
-  };
-  return colors[category] || 'bg-gray-100 text-gray-800 hover:bg-gray-200';
 }
