@@ -243,20 +243,28 @@ const resourceCategories = {
 
 export default function ResourcesPage() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [activeCategory, setActiveCategory] = useState('entrepreneurship');
-  const [activeSubcategory, setActiveSubcategory] = useState('templates-guides');
+  const [activeCategory, setActiveCategory] = useState<string>('entrepreneurship');
+  const [activeSubcategory, setActiveSubcategory] = useState<string>('templates-guides');
   const [carouselIndex, setCarouselIndex] = useState(0);
 
-  const currentCategory = resourceCategories[activeCategory as keyof typeof resourceCategories];
-  const currentResources = (currentCategory?.subcategories as any)?.[activeSubcategory]?.resources || [];
+  // Helper to safely get resources for the active category/subcategory with proper typing
+  const getResourcesFor = (categoryKey: keyof typeof resourceCategories, subcategoryKey: string): Resource[] => {
+    const cat = resourceCategories[categoryKey];
+    if (!cat || !cat.subcategories) return [];
+    const subs = cat.subcategories as Record<string, { title: string; resources: Resource[] }>;
+    const sub = subs[subcategoryKey];
+    return sub?.resources ?? [];
+  };
 
-  const filteredResources = currentResources.filter((resource: any) =>
+  const currentResources: Resource[] = getResourcesFor(activeCategory as keyof typeof resourceCategories, activeSubcategory);
+
+  const filteredResources: Resource[] = currentResources.filter((resource) =>
     resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     resource.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   // Group resources into sets of 6 for carousel (2 rows of 3)
-  const resourceGroups: any[][] = [];
+  const resourceGroups: Resource[][] = [];
   for (let i = 0; i < filteredResources.length; i += 6) {
     resourceGroups.push(filteredResources.slice(i, i + 6));
   }
@@ -291,7 +299,7 @@ export default function ResourcesPage() {
       <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Category Tabs */}
-          <Tabs value={activeCategory} onValueChange={setActiveCategory} className="mb-8">
+          <Tabs value={activeCategory} onValueChange={(value: string) => setActiveCategory(value as 'entrepreneurship' | 'ai_ml')} className="mb-8">
             <TabsList className="mb-6 gap-1 bg-gray-100">
               <TabsTrigger
                 value="entrepreneurship"
@@ -311,7 +319,7 @@ export default function ResourcesPage() {
 
             {/* Entrepreneurship Resources */}
             <TabsContent value="entrepreneurship">
-              <Tabs value={activeSubcategory} onValueChange={setActiveSubcategory}>
+              <Tabs value={activeSubcategory} onValueChange={(value: string) => setActiveSubcategory(value)}>
                 <TabsList className="mb-6 gap-1 bg-gray-100">
                   <TabsTrigger
                     value="templates-guides"

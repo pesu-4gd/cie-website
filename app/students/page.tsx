@@ -642,7 +642,7 @@ export default function StudentsPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {mainSections.map((section, index) => {
-              const Icon = section.icon as React.ComponentType<any>;
+              const Icon = section.icon as React.ComponentType<React.SVGProps<SVGSVGElement>>;
               const lightBg = `rgba(${hexToRgb(studentsColors.primary)}, 0.08)`;
               return (
                 <MorphingDialog key={section.title}>
