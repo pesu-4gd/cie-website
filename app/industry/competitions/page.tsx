@@ -147,43 +147,45 @@ export default function IndustryCompetitionsPage() {
           <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="mb-6">
+            <div className="mb-8">
               <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-purple-500/20 text-purple-100 border border-purple-400/30">
                 <Trophy className="w-4 h-4 mr-2" />
                 Industry Competitions
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
               Compete, Innovate,
-              <span className="block text-purple-200">Win Big</span>
+              <span className="block mt-4 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">Win Big</span>
             </h1>
-            <p className="text-xl md:text-2xl text-purple-100 max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
               Join industry-sponsored competitions where students solve real challenges, 
               win substantial prizes, and create solutions that shape the future.
             </p>
 
-              <div className="flex gap-4">
-                <Button
-                  variant="default"
-                  size="lg"
-                  className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white px-6 py-3 text-base font-semibold rounded-lg"
-                >
-                  Learn More
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 px-6 py-3 text-base font-semibold rounded-lg"
-                >
-                  Register
-                </Button>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                variant="default"
+                size="lg"
+                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
+              >
+                <Trophy className="w-5 h-5 mr-2" />
+                Learn More
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+              >
+                <ArrowRight className="w-5 h-5 mr-2" />
+                Register
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -235,7 +237,11 @@ export default function IndustryCompetitionsPage() {
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-600">Deadline</span>
                     <span className="font-medium text-gray-900">
-                      {new Date(competition.deadline).toLocaleDateString()}
+                      {new Date(competition.deadline).toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'short', 
+                        day: 'numeric' 
+                      })}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
