@@ -694,9 +694,9 @@ function ProgramsSection({ programs }: { readonly programs: typeof mentorshipPro
                     <div className="pt-4 border-t">
                       <p className="text-sm text-gray-600 mb-2">Eligibility: {program.eligibility}</p>
                       <Button asChild className={`w-full bg-blue-600 hover:bg-blue-700`}>
-                        <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
+                        <a href="mailto:cieprogram@pes.edu">
                           <ArrowRight className="h-4 w-4 mr-2" />
-                          Apply Now
+                          Inquire
                         </a>
                       </Button>
                     </div>

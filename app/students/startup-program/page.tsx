@@ -231,17 +231,21 @@ export default function StudentStartupProgramPage() {
               {/* <Button asChild variant="default" size="lg" className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white">
                 <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
                   <UserPlus className="w-5 h-5 mr-2" />
-                  Apply Now
+                  Inquire
                 </a>
               </Button> */}
-              <Button 
-                              variant="cie" 
-                              size="lg"
-                              className={`group ${'bg-gradient-to-r ' + studentsColors.gradient.tailwind} text-white`}
-                            >
-                              Apply Now
-                              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                            </Button>
+              <Button
+                variant="cie"
+                size="lg"
+                className="group text-white"
+                style={{ background: studentsColors.primary }}
+                asChild
+              >
+                <a href="mailto:cieprogram@pes.edu" className="flex items-center">
+                  Inquire
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
               <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
                 <BookOpen className="w-5 h-5 mr-2" />
                 Learn More
@@ -618,9 +622,9 @@ export default function StudentStartupProgramPage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
-                <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
+                <a href="mailto:cieprogram@pes.edu" className="flex items-center">
                   <Rocket className="w-5 h-5 mr-2" />
-                  Apply Now
+                  Inquire
                 </a>
               </Button>
               <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">

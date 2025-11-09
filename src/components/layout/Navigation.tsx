@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -81,7 +81,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
       </NavigationMenuTrigger>
       
       <NavigationMenuContent>
-        <div className="w-auto min-w-[800px] max-w-[1000px] bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200">
+        <div className="w-auto min-w-[900px] max-w-[1200px] bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200">
           {/* Header */}
           <div className="px-6 py-4 border-b border-gray-100">
             <div className="flex items-center gap-4">
@@ -97,11 +97,11 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
           
           {/* Sections Grid: render the sections uniformly. Support 3 or 4 columns depending on how many sections are provided. */}
           <div className={cn(
-            'grid grid-cols-2 gap-6 p-6 items-stretch',
+            'grid grid-cols-2 gap-8 p-6 items-stretch',
             normalizedSections.length >= 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
           )}>
             {normalizedSections.map((section) => (
-              <div key={section.title} className="flex flex-col h-full space-y-3">
+              <div key={section.title} className="flex flex-col h-full space-y-3 min-w-0">
                 <h4 className="text-sm font-semibold text-[#00338d] uppercase tracking-wide border-b border-gray-200 pb-2">
                   {section.title}
                 </h4>
@@ -170,28 +170,34 @@ const StudentsNavigation: React.FC = () => {
           icon: Calendar,
         },
         {
-          title: 'Bootcamp',
-          href: '/students/programs/bootcamp',
-          description: 'Annual intensive training',
-          icon: Trophy,
-        },
-        {
-          title: 'Basecamp',
-          href: '/students/programs/basecamp',
-          description: 'Weekly entrepreneurship sessions',
-          icon: Users2,
+          title: 'Student Startup Program',
+          href: '/students/startup-program',
+          description: 'Student startup initiatives',
+          icon: Lightbulb,
         },
       ],
     },
     {
-      title: 'Courses',
+      title: 'Courses & Workshops',
       items: [
         {
           title: 'Courses Overview',
           href: '/students/courses',
-          description: 'EIE Parts, PAML, Product Management and CIE Spark',
+          description: 'EIE:1 & 2, Product Management',
           icon: BookOpen,
-        }
+        },
+        {
+          title: 'Workshops',
+          href: '/students/workshops',
+          description: 'Skills development and training sessions',
+          icon: Users2,
+        },
+        {
+          title: 'Student Projects',
+          href: '/students/projects',
+          description: 'Current & past projects',
+          icon: Lightbulb,
+        },
       ],
     },
     {
@@ -208,12 +214,6 @@ const StudentsNavigation: React.FC = () => {
           href: '/students/resources',
           description: 'Guides, templates & online courses',
           icon: BookOpen,
-        },
-        {
-          title: 'Student Projects',
-          href: '/students/projects',
-          description: 'Current & past projects',
-          icon: Lightbulb,
         },
         {
           title: 'Funding and Grants',
@@ -353,28 +353,16 @@ const AlumniNavigation: React.FC = () => {
       title: 'Community',
       items: [
         { 
-          title: 'Overview', 
-          href: '/alumni', 
-          description: 'Connect with our alumni network',
-          icon: GraduationCap
-        },
-        { 
           title: 'Welcome', 
           href: '/alumni/welcome', 
           description: 'Alumni community overview',
           icon: Users
         },
         { 
-          title: 'Directory', 
-          href: '/alumni/directory', 
-          description: 'Find and connect with alumni',
-          icon: Users2
-        },
-        { 
-          title: 'News and Updates', 
-          href: '/alumni/news', 
+          title: 'Success Stories', 
+          href: '/alumni/success-stories', 
           description: 'Latest alumni achievements',
-          icon: Info
+          icon: Trophy
         }
       ]
     },
@@ -410,7 +398,6 @@ const AlumniNavigation: React.FC = () => {
           description: 'Support CIE initiatives',
           icon: Heart
         },
-        // Alumni Angel Fund removed
         { 
           title: 'Resources for Alumni', 
           href: '/alumni/resources', 
@@ -546,34 +533,57 @@ interface MobileNavigationProps {
 
 export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onClose }) => {
   const pathname = usePathname();
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  const [expandedSubsection, setExpandedSubsection] = useState<string | null>(null);
 
-  const navigationItems = [
+  const toggleSection = (sectionTitle: string) => {
+    setExpandedSection(expandedSection === sectionTitle ? null : sectionTitle);
+    // Reset subsection when main section changes
+    if (expandedSection !== sectionTitle) {
+      setExpandedSubsection(null);
+    }
+  };
+
+  const toggleSubsection = (subsectionKey: string) => {
+    setExpandedSubsection(expandedSubsection === subsectionKey ? null : subsectionKey);
+  };
+
+  const navigationItems = useMemo(() => [
     {
       title: 'Students',
       href: '/students',
       icon: Users,
       sections: [
-            {
-              title: 'Programs',
-              items: [
-                { title: 'Overview', href: '/students', description: 'Explore opportunities' },
-                { title: 'Programs', href: '/students/programs', description: 'Explore all student programs' },
-                { title: 'Bootcamp', href: '/students/programs/bootcamp', description: 'Annual training' }
-              ]
-            },
+        {
+          title: 'Programs',
+          items: [
+            { title: 'Overview', href: '/students', description: 'Explore all student opportunities' },
+            { title: 'Programs', href: '/students/programs', description: 'Explore all student programs and summer courses' },
+            { title: 'Student Startup Program', href: '/students/startup-program', description: 'Student startup initiatives' }
+          ]
+        },
+        {
+          title: 'Courses & Workshops',
+          items: [
+            { title: 'Courses Overview', href: '/students/courses', description: 'EIE:1 & 2, Product Management' },
+            { title: 'Workshops', href: '/students/workshops', description: 'Skills development and training sessions' },
+            { title: 'Student Projects', href: '/students/projects', description: 'Current & past projects' }
+          ]
+        },
         {
           title: 'Resources',
           items: [
-            { title: 'Events', href: '/students/events', description: 'Upcoming events' },
-            { title: 'Resources', href: '/students/resources', description: 'Student resources' },
-            { title: 'Mentorship', href: '/students/mentorship', description: 'Industry mentors' }
+            { title: 'Events', href: '/students/events', description: 'Upcoming & past events' },
+            { title: 'Resources', href: '/students/resources', description: 'Guides, templates & online courses' },
+            { title: 'Funding and Grants', href: '/students/funding', description: 'CiC, Mathworks & CiC Ready Program' }
           ]
-        }
-        ,
+        },
         {
-          title: 'Courses',
+          title: 'Community',
           items: [
-            { title: 'Courses Overview', href: '/students/courses', description: 'All courses & programs' }
+            { title: 'Mentorship', href: '/students/mentorship', description: 'Industry mentor connect' },
+            { title: 'Student Clubs', href: '/students/clubs', description: 'E-Cell, CMS & more' },
+            { title: 'Centres of Excellence', href: '/students/centers-of-excellence', description: 'Research & innovation centers' }
           ]
         }
       ]
@@ -596,6 +606,13 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
             { title: 'Jobs', href: '/industry/jobs', description: 'Job postings' },
             { title: 'Events', href: '/industry/events', description: 'Corporate events' }
           ]
+        },
+        {
+          title: 'Success',
+          items: [
+            { title: 'Success Stories', href: '/industry/success-stories', description: 'Case studies & impact' },
+            { title: 'Contact', href: '/industry/contact', description: 'Get in touch with our team' }
+          ]
         }
       ]
     },
@@ -607,15 +624,23 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
         {
           title: 'Community',
           items: [
-            { title: 'Overview', href: '/alumni', description: 'Alumni network' },
-            { title: 'Directory', href: '/alumni/directory', description: 'Find alumni' }
+            { title: 'Welcome', href: '/alumni/welcome', description: 'Alumni community overview' },
+            { title: 'Success Stories', href: '/alumni/success-stories', description: 'Latest alumni achievements' }
+          ]
+        },
+        {
+          title: 'Stay Connected',
+          items: [
+            { title: 'Alumni Association', href: '/alumni/association', description: 'Join the association' },
+            { title: 'Newsletter Sign-up', href: '/alumni/newsletter', description: 'Stay updated with news' }
           ]
         },
         {
           title: 'Give Back',
           items: [
-            { title: 'Mentorship', href: '/alumni/mentorship', description: 'Mentor students' },
-            { title: 'Donations', href: '/alumni/donations', description: 'Support CIE' }
+            { title: 'Mentorship', href: '/alumni/mentorship', description: 'Mentor current students' },
+            { title: 'Donations', href: '/alumni/donations', description: 'Support CIE initiatives' },
+            { title: 'Resources for Alumni', href: '/alumni/resources', description: 'Alumni-specific resources' }
           ]
         }
       ]
@@ -626,62 +651,195 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
       icon: Microscope,
       sections: [
         {
-          title: 'About',
+          title: 'About CIE',
           items: [
-            { title: 'Overview', href: '/inside-cie', description: 'About CIE' },
-            { title: 'About', href: '/about', description: 'Our mission' },
-            { title: 'Contact', href: '/contact', description: 'Get in touch' }
+            { title: 'Overview', href: '/inside-cie', description: 'Learn about Centre for Innovation and Entrepreneurship' },
+            { title: 'About CIE', href: '/about', description: 'Our mission, vision, and values' },
+            { title: 'Research & Publications', href: '/research', description: 'Research initiatives and publications' }
+          ]
+        },
+        {
+          title: 'Support',
+          items: [
+            { title: 'Contact Us', href: '/contact', description: 'Get in touch with our team' },
+            { title: 'General FAQs', href: '/faqs', description: 'Frequently asked questions' },
+            { title: 'Policies', href: '/policies', description: 'Institutional policies and guidelines' }
+          ]
+        },
+        {
+          title: 'Join Us',
+          items: [
+            { title: 'Careers', href: '/careers', description: 'Join the CIE team' }
           ]
         }
       ]
     }
-  ];
+  ], []);
+
+  // Auto-expand the section that contains the current page
+  React.useEffect(() => {
+    if (isOpen) {
+      // Find the navigation item that contains the current page
+      const activeItem = navigationItems.find(item => 
+        item.sections.some(section => 
+          section.items.some(subItem => pathname === subItem.href)
+        )
+      );
+      
+      if (activeItem) {
+        setExpandedSection(activeItem.title);
+        
+        // Find and expand the subsection that contains the current page
+        const activeSection = activeItem.sections.find(section => 
+          section.items.some(subItem => pathname === subItem.href)
+        );
+        
+        if (activeSection) {
+          setExpandedSubsection(`${activeItem.title}-${activeSection.title}`);
+        }
+      }
+    } else {
+      // Reset expanded states when navigation closes
+      setExpandedSection(null);
+      setExpandedSubsection(null);
+    }
+  }, [isOpen, pathname, navigationItems]);
 
   if (!isOpen) return null;
 
   return (
-    <div className="lg:hidden fixed inset-0 z-50 bg-background">
+    <div className="lg:hidden fixed inset-0 z-50 bg-white">
       <div className="flex flex-col h-full">
-        <div className="flex-1 overflow-y-auto py-6 px-4">
-          <nav className="space-y-2">
+        {/* Header */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-gradient-to-r from-[#f07f1a] to-[#f07f1a]/80 rounded-lg flex items-center justify-center">
+              <Users className="w-5 h-5 text-white" />
+            </div>
+            <h2 className="text-lg font-bold text-[#00338d]">Content</h2>
+          </div>
+          <button 
+            onClick={onClose}
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            aria-label="Close navigation"
+          >
+            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Content */}
+        <div className="flex-1 overflow-y-auto">
+          <nav className="p-4">
             {navigationItems.map((item) => {
               const Icon = item.icon;
-              const isActive = pathname.startsWith(item.href);
+              // Check if current page is anywhere within this section's subsections
+              const isActive = item.sections.some(section => 
+                section.items.some(subItem => pathname === subItem.href)
+              );
+              const isExpanded = expandedSection === item.title;
               
               return (
-                <div key={item.title} className="space-y-2">
-                  <div className={cn(
-                    'w-full flex items-center p-3 rounded-lg',
-                    isActive && 'bg-accent text-accent-foreground'
-                  )}>
-                    <Icon className="w-5 h-5 mr-3" />
-                    <span className="font-medium">{item.title}</span>
-                  </div>
-                  
-                  {item.sections.map((section) => (
-                    <div key={section.title} className="ml-8 space-y-1">
-                      <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                        {section.title}
+                <div key={item.title} className="mb-4">
+                  {/* Main Section Header - Clickable to expand */}
+                  <button
+                    onClick={() => toggleSection(item.title)}
+                    className={cn(
+                      'w-full flex items-center justify-between gap-3 p-4 rounded-xl mb-2 transition-all duration-200',
+                      'border border-gray-200 hover:border-[#f07f1a]/30',
+                      isActive ? 'bg-[#f07f1a]/5 border-[#f07f1a]/30' : 'bg-white hover:bg-gray-50'
+                    )}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 bg-gradient-to-r from-[#f07f1a] to-[#f07f1a]/80 rounded-lg">
+                        <Icon className="w-5 h-5 text-white" />
                       </div>
-                      {section.items.map((subItem) => (
-                        <Link
-                          key={subItem.href}
-                          href={subItem.href}
-                          onClick={onClose}
-                          className={cn(
-                            'block p-2 rounded-md text-sm transition-colors',
-                            'hover:bg-accent hover:text-accent-foreground',
-                            pathname === subItem.href && 'bg-accent text-accent-foreground'
-                          )}
-                        >
-                          <div>{subItem.title}</div>
-                          <p className="text-xs text-muted-foreground mt-1">
-                            {subItem.description}
-                          </p>
-                        </Link>
-                      ))}
+                      <span className="font-semibold text-[#00338d] text-lg">{item.title}</span>
                     </div>
-                  ))}
+                    
+                    {/* Expand/Collapse Icon */}
+                    <svg 
+                      className={cn(
+                        "w-5 h-5 text-gray-600 transition-transform duration-200",
+                        isExpanded ? "transform rotate-180" : ""
+                      )}
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {/* Collapsible Content - Level 2: Subsections */}
+                  {isExpanded && (
+                    <div className="space-y-2 pl-4">
+                      {item.sections.map((section) => {
+                        const subsectionKey = `${item.title}-${section.title}`;
+                        const isSubsectionExpanded = expandedSubsection === subsectionKey;
+                        // Check if this subsection contains the current page
+                        const isSubsectionActive = section.items.some(subItem => pathname === subItem.href);
+                        
+                        return (
+                          <div key={section.title} className="border-l-2 border-gray-100 ml-2">
+                            {/* Subsection Header - Clickable to expand/collapse */}
+                            <button
+                              onClick={() => toggleSubsection(subsectionKey)}
+                              className={cn(
+                                "w-full flex items-center justify-between p-3 rounded-lg transition-all duration-200 ml-2",
+                                isSubsectionActive ? "bg-[#f07f1a]/10 hover:bg-[#f07f1a]/15" : "hover:bg-gray-50"
+                              )}
+                            >
+                              <h4 className={cn(
+                                "text-sm font-bold uppercase tracking-wide",
+                                isSubsectionActive ? "text-[#f07f1a]" : "text-[#00338d]"
+                              )}>
+                                {section.title}
+                              </h4>
+                              
+                              {/* Subsection Expand/Collapse Icon */}
+                              <svg 
+                                className={cn(
+                                  "w-4 h-4 transition-transform duration-200",
+                                  isSubsectionActive ? "text-[#f07f1a]" : "text-gray-600",
+                                  isSubsectionExpanded ? "transform rotate-180" : ""
+                                )}
+                                fill="none" 
+                                stroke="currentColor" 
+                                viewBox="0 0 24 24"
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </button>
+                            
+                            {/* Collapsible Content - Level 3: Individual Page Links */}
+                            {isSubsectionExpanded && (
+                              <div className="space-y-1 ml-4 pb-2">
+                                {section.items.map((subItem) => (
+                                  <Link
+                                    key={subItem.href}
+                                    href={subItem.href}
+                                    onClick={onClose}
+                                    className={cn(
+                                      'block p-3 rounded-lg transition-all duration-200 ml-2',
+                                      'border border-transparent hover:border-gray-200 hover:bg-gray-50',
+                                      pathname === subItem.href && 'bg-[#f07f1a]/5 border-[#f07f1a]/20'
+                                    )}
+                                  >
+                                    <div className="font-medium text-gray-900 mb-1 text-sm">{subItem.title}</div>
+                                    <p className="text-xs text-gray-600 leading-relaxed">
+                                      {subItem.description}
+                                    </p>
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
               );
             })}

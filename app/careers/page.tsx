@@ -551,9 +551,9 @@ export default function CareersPage() {
 
                   <div className="flex flex-col gap-3">
                     <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold">
-                      <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
+                      <a href="mailto:cieprogram@pes.edu">
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        Apply Now
+                        Inquire
                       </a>
                     </Button>
                     <Button className="border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-xl font-semibold bg-transparent">

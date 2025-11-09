@@ -348,8 +348,8 @@ export default function CentersOfExcellencePage() {
                 </div>
                 <div className="mt-6">
                   <Button asChild className="w-full">
-                    <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer" style={{ background: studentsColors.gradient.css, display: 'inline-block', padding: '0.75rem 1rem', color: '#fff', borderRadius: 12, textAlign: 'center' }}>
-                      Apply Now
+                    <a href="mailto:cieprogram@pes.edu" style={{ background: studentsColors.gradient.css, display: 'inline-block', padding: '0.75rem 1rem', color: '#fff', borderRadius: 12, textAlign: 'center' }}>
+                      Inquire
                     </a>
                   </Button>
                 </div>

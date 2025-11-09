@@ -429,8 +429,8 @@ export default function ProgramsPage() {
                         </ul>
 
                         <div className="mt-6 flex justify-end">
-                          <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
-                            <Button style={{ backgroundColor: studentsColors.primary, color: '#fff' }}>Apply Now</Button>
+                          <a href="mailto:cieprogram@pes.edu">
+                            <Button style={{ backgroundColor: studentsColors.primary, color: '#fff' }}>Inquire</Button>
                           </a>
                         </div>
                       </MorphingDialogDescription>

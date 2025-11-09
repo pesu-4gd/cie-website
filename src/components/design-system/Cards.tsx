@@ -105,6 +105,7 @@ interface ProgramCardProps {
   image?: string;
   onApply?: () => void;
   onLearnMore?: () => void;
+  inquireEmail?: string;
   className?: string;
 }
 
@@ -122,6 +123,7 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
   image,
   onApply,
   onLearnMore,
+  inquireEmail,
   className
 }) => (
   <Card variant="elevated" hover className={cn('max-w-sm', className)}>
@@ -179,9 +181,13 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
       )}
     </CardContent>
     <CardFooter className="gap-2">
-      {onApply && (
-        <Button variant="default" size="sm" onClick={onApply}>
-          Apply Now
+      {(onApply || inquireEmail) && (
+        <Button variant="default" size="sm" asChild={!!inquireEmail} onClick={!inquireEmail ? onApply : undefined}>
+          {inquireEmail ? (
+            <a href={`mailto:${inquireEmail}`}>Inquire</a>
+          ) : (
+            "Inquire"
+          )}
         </Button>
       )}
       {onLearnMore && (
@@ -383,6 +389,7 @@ interface JobCardProps {
   applicants?: number;
   onApply?: () => void;
   onViewDetails?: () => void;
+  inquireEmail?: string;
   className?: string;
 }
 
@@ -401,6 +408,7 @@ export const JobCard: React.FC<JobCardProps> = ({
   applicants,
   onApply,
   onViewDetails,
+  inquireEmail,
   className
 }) => {
   const experienceLevelColors = {
@@ -482,9 +490,13 @@ export const JobCard: React.FC<JobCardProps> = ({
         </div>
       </CardContent>
       <CardFooter className="gap-2">
-        {onApply && (
-          <Button variant="default" size="sm" onClick={onApply}>
-            Apply Now
+        {(onApply || inquireEmail) && (
+          <Button variant="default" size="sm" asChild={!!inquireEmail} onClick={!inquireEmail ? onApply : undefined}>
+            {inquireEmail ? (
+              <a href={`mailto:${inquireEmail}`}>Inquire</a>
+            ) : (
+              "Inquire"
+            )}
           </Button>
         )}
         {onViewDetails && (

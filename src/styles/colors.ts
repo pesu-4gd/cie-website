@@ -36,10 +36,10 @@ export const BRAND_COLORS = {
   
   // CIE Yellow - Optimism, success, highlight
   yellow: {
-    DEFAULT: '#FFC107',
-    dark: '#FFA000',
-    light: '#FFD54F',
-    rgb: '255, 193, 7',
+    DEFAULT: '#FFB020',
+    dark: '#E69900',
+    light: '#FFD686',
+    rgb: '255, 176, 32',
   },
 } as const;
 
@@ -57,16 +57,16 @@ export const GRADIENTS = {
   
   // Spark Gradient - Energy, Creativity, Ideas
   spark: {
-    css: 'linear-gradient(135deg, #FFC107 0%, #F15A29 50%, #3E3C6B 100%)',
-    tailwind: 'from-[#FFC107] via-[#F15A29] to-[#3E3C6B]',
-    stops: ['#FFC107', '#F15A29', '#3E3C6B'],
+    css: 'linear-gradient(135deg, #FFB020 0%, #F15A29 50%, #3E3C6B 100%)',
+    tailwind: 'from-[#FFB020] via-[#F15A29] to-[#3E3C6B]',
+    stops: ['#FFB020', '#F15A29', '#3E3C6B'],
   },
   
   // Ignite Gradient - Action, Launch, Transform
   ignite: {
-    css: 'linear-gradient(135deg, #F15A29 0%, #FFC107 100%)',
-    tailwind: 'from-[#F15A29] to-[#FFC107]',
-    stops: ['#F15A29', '#FFC107'],
+    css: 'linear-gradient(135deg, #F15A29 0%, #FFB020 100%)',
+    tailwind: 'from-[#F15A29] to-[#FFB020]',
+    stops: ['#F15A29', '#FFB020'],
   },
   
   // Ocean Gradient - Calm, Professional, Trust
