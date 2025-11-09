@@ -24,22 +24,22 @@ export default function CentersOfExcellencePage() {
 
   // Full overview list (from provided content) — used in the overview table below
   const centersOverview = [
-    { short: 'CCNCS', name: 'Center for Computer Networks and Cyber Security (CCNCS)', description: 'Focuses on improving internet security and building protected next-generation ecosystems, addressing challenges in cybersecurity and network infrastructure.' },
-    { short: 'CHIPS', name: 'Centre for Heterogeneous and Intelligent Processing Systems (CHIPS)', description: 'Researches heterogeneous computing using CPUs, GPUs, and FPGAs, supported by grants like CHIPS2Startup from MEITY, driving advancements in high-performance computing.' },
-    { short: 'QuaNaD', name: 'Quantum and Nano Devices Lab (QuaNaD)', description: 'Explores quantum and nano technologies, focusing on innovative device development for applications in computing and materials science.' },
-    { short: 'CoDMAV', name: 'Centre for Data Modelling, Analytics and Visualization (CoDMAV)', description: 'Specializes in data modeling, analytics, and visualization techniques to derive insights from complex datasets, supporting AI and business intelligence applications.' },
-    { short: 'CRSST', name: 'Centre for Research in Space Science and Technology (CRSST)', description: 'Advances research in space science and technology, including satellite systems, astrophysics, and space exploration technologies.' },
-    { short: 'CRAIS', name: 'Centre for Robotics, Automation & Intelligent Systems (CRAIS)', description: 'Develops cutting-edge solutions in robotics, automation, and intelligent systems, integrating AI and IoT for real-world applications.' },
-    { short: 'Cloud & Big Data', name: 'Centre for Cloud Computing & Big Data', description: 'Innovates in cloud computing architectures and big data analytics, enabling scalable and efficient data processing solutions.' },
-    { short: 'CORI', name: 'Crucible of Research and Innovation (CORI)', description: 'Combines faculty expertise and student enthusiasm to create leading-edge solutions across multiple disciplines, fostering interdisciplinary innovation.' },
-    { short: 'C-ISFCR', name: 'Center of Excellence in Information Security, Forensics, and Cyber Resilience (C-ISFCR)', description: 'Provides facilities to test practical aspects of information security, focusing on forensics, cyber resilience, and threat mitigation.' },
-    { short: 'C-IoT', name: 'Center of Excellence in Internet of Things (C-IoT)', description: 'Drives the development of IoT solutions, integrating sensors, connectivity, and data analytics for smart applications.' },
-    { short: 'Pattern Recognition', name: 'Center for Pattern Recognition', description: 'Advances techniques in pattern analysis and machine learning for applications in image processing, speech recognition, and data mining.' },
-    { short: 'KANOE', name: 'Knowledge Analytics & Ontological Engineering (KANOE)', description: 'Focuses on knowledge analytics, semantic technologies, and ontological engineering to enhance data interoperability and intelligence.' },
-    { short: 'Intelligent Systems', name: 'Centre for Intelligent Systems', description: 'Researches AI-driven intelligent systems for automation, decision-making, and human-machine interaction.' },
-    { short: 'Photonics & Quantum', name: 'Laboratory of Photonics & Quantum Technology', description: 'Explores photonics and quantum technologies for applications in communication, sensing, and computing.' },
-    { short: 'CDSAML', name: 'Center for Data Sciences and Applied Machine Learning (CDSAML)', description: 'Applies machine learning to data sciences, enabling predictive analytics and decision support systems.' },
-    { short: 'C3I', name: 'Centre of Cognitive Computing and Computational Intelligence (C3I)', description: 'Innovates in cognitive computing and computational intelligence, focusing on AI systems that mimic human cognition.' }
+  { short: 'CCNCS', name: 'Center for Computer Networks and Cyber Security (CCNCS)', description: 'Focuses on improving internet security and building protected next-generation ecosystems, addressing challenges in cybersecurity and network infrastructure.', logo: '/assets/ccncs.jpg', url: 'https://ccncs.pes.edu/' },
+  { short: 'CHIPS', name: 'Centre for Heterogeneous and Intelligent Processing Systems (CHIPS)', description: 'Researches heterogeneous computing using CPUs, GPUs, and FPGAs, supported by grants like CHIPS2Startup from MEITY, driving advancements in high-performance computing.', logo: '/assets/chips.jpg', url: 'https://chips.pes.edu/' },
+  { short: 'QuaNaD', name: 'Quantum and Nano Devices Lab (QuaNaD)', description: 'Explores quantum and nano technologies, focusing on innovative device development for applications in computing and materials science.', logo: '/assets/quanad.jpg', url: 'https://quanad.pes.edu/' },
+  { short: 'CoDMAV', name: 'Centre for Data Modelling, Analytics and Visualization (CoDMAV)', description: 'Specializes in data modeling, analytics, and visualization techniques to derive insights from complex datasets, supporting AI and business intelligence applications.', logo: '/assets/codmav.jpg', url: 'https://codmav.pes.edu/' },
+  { short: 'CRSST', name: 'Centre for Research in Space Science and Technology (CRSST)', description: 'Advances research in space science and technology, including satellite systems, astrophysics, and space exploration technologies.', logo: '/assets/crsst.jpg', url: 'https://crsst.pes.edu/' },
+  { short: 'CRAIS', name: 'Centre for Robotics, Automation & Intelligent Systems (CRAIS)', description: 'Develops cutting-edge solutions in robotics, automation, and intelligent systems, integrating AI and IoT for real-world applications.', logo: '/assets/rais.jpg', url: 'https://crais.pes.edu/' },
+  { short: 'Cloud & Big Data', name: 'Centre for Cloud Computing & Big Data', description: 'Innovates in cloud computing architectures and big data analytics, enabling scalable and efficient data processing solutions.', logo: '/assets/ccbd.jpg', url: 'https://cloudbigdata.pes.edu/' },
+  { short: 'CORI', name: 'Crucible of Research and Innovation (CORI)', description: 'Combines faculty expertise and student enthusiasm to create leading-edge solutions across multiple disciplines, fostering interdisciplinary innovation.', logo: '/assets/cori.jpg', url: 'https://cori.pes.edu/' },
+  { short: 'C-ISFCR', name: 'Center of Excellence in Information Security, Forensics, and Cyber Resilience (C-ISFCR)', description: 'Provides facilities to test practical aspects of information security, focusing on forensics, cyber resilience, and threat mitigation.', logo: '/assets/isfcr.jpg', url: 'https://cisfcr.pes.edu/' },
+  { short: 'C-IoT', name: 'Center of Excellence in Internet of Things (C-IoT)', description: 'Drives the development of IoT solutions, integrating sensors, connectivity, and data analytics for smart applications.', logo: '/assets/pesu-iot.jpg', url: 'https://ciot.pes.edu/' },
+  { short: 'Pattern Recognition', name: 'Center for Pattern Recognition', description: 'Advances techniques in pattern analysis and machine learning for applications in image processing, speech recognition, and data mining.', logo: '/assets/cprmi.jpg', url: 'https://patternrecognition.pes.edu/' },
+  { short: 'KANOE', name: 'Knowledge Analytics & Ontological Engineering (KANOE)', description: 'Focuses on knowledge analytics, semantic technologies, and ontological engineering to enhance data interoperability and intelligence.', logo: '/assets/kanoe.jpg', url: 'https://kanoe.pes.edu/' },
+  { short: 'Intelligent Systems', name: 'Centre for Intelligent Systems', description: 'Researches AI-driven intelligent systems for automation, decision-making, and human-machine interaction.', logo: '/assets/cis.jpg', url: 'https://intelligentsystems.pes.edu/' },
+  { short: 'Photonics & Quantum', name: 'Laboratory of Photonics & Quantum Technology', description: 'Explores photonics and quantum technologies for applications in communication, sensing, and computing.', logo: '/assets/lpqt.jpg', url: 'https://photonicsquantum.pes.edu/' },
+  { short: 'CDSAML', name: 'Center for Data Sciences and Applied Machine Learning (CDSAML)', description: 'Applies machine learning to data sciences, enabling predictive analytics and decision support systems.', logo: '/assets/cdsaml.jpg', url: 'https://cdsaml.pes.edu/' },
+  { short: 'C3I', name: 'Centre of Cognitive Computing and Computational Intelligence (C3I)', description: 'Innovates in cognitive computing and computational intelligence, focusing on AI systems that mimic human cognition.', logo: '/assets/c3i.jpg', url: 'https://c3i.pes.edu/' }
   ];
 
   const collaborationOpportunities = [
@@ -281,7 +281,22 @@ export default function CentersOfExcellencePage() {
                 <tbody>
                   {centersOverview.map((c) => (
                     <tr key={c.short} className="border-t last:border-b">
-                      <td className="px-6 py-4 align-top text-sm text-gray-800 font-semibold">{c.name}</td>
+                      <td className="px-6 py-4 align-top text-sm text-gray-800 font-semibold">
+                        <div className="flex items-center">
+                          {c.logo && (
+                            <img src={c.logo} alt={`${c.short} logo`} className="w-12 h-12 object-cover rounded-md mr-4" />
+                          )}
+                          <div className="text-sm font-semibold text-gray-800">
+                            {c.url ? (
+                              <a href={c.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                {c.name}
+                              </a>
+                            ) : (
+                              c.name
+                            )}
+                          </div>
+                        </div>
+                      </td>
                       <td className="px-6 py-4 align-top text-sm text-gray-700">{c.description}</td>
                       <td className="px-6 py-4 align-top text-sm text-gray-600">{c.short}</td>
                     </tr>

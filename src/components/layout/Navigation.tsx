@@ -188,7 +188,7 @@ const StudentsNavigation: React.FC = () => {
         },
         {
           title: 'Workshops',
-          href: '/students/workshops',
+          href: '/students/workshops/paml',
           description: 'Skills development and training sessions',
           icon: Users2,
         },
