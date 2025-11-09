@@ -3,11 +3,8 @@
 // Next.js only allows `export const metadata` from server components.
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { Button } from '@/components/design-system';
 import { SECTION_COLORS } from '@/styles/colors';
-import { ArrowRight } from 'lucide-react';
-import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import {
   Tabs,
   TabsContent,
@@ -127,6 +124,11 @@ export default function EIE1Page() {
                   <li>Develop foundational business skills.</li>
                   <li>Connect with peers for future collaborations.</li>
                 </ul>
+
+                <div className="mt-8 flex items-center gap-3">
+                  <Link href="/students/courses/eie-2"><Button className="bg-white text-blue-700">Go to EIE — Part 2</Button></Link>
+                  <Link href="/students/courses"><Button variant="outline" className="ml-auto border-black text-black">Back to Courses</Button></Link>
+                </div>
               </div>
             </TabsContent>
 
@@ -150,6 +152,11 @@ export default function EIE1Page() {
                 <li>Basic startup finance and pitching</li>
                 <li>AI and sustainability as drivers for innovation</li>
               </ul>
+
+              <div className="mt-8 flex items-center gap-3">
+                <Link href="/students/courses/eie-2"><Button className="bg-white text-blue-700">Go to EIE — Part 2</Button></Link>
+                <Link href="/students/courses"><Button variant="outline" className="ml-auto border-black text-black">Back to Courses</Button></Link>
+              </div>
             </TabsContent>
 
             <TabsContent value="cie-spark">
@@ -285,28 +292,28 @@ export default function EIE1Page() {
 
                   {/* Spark Logo/Branding */}
                   <div className="mt-8 text-center">
-                    <div className="inline-flex items-center">
-                      <svg className="w-12 h-12 mr-2" style={{ color: studentsColors.accent }} fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" />
-                      </svg>
-                      <div className="text-left">
-                        <p className="text-3xl font-bold" style={{ color: studentsColors.primary }}>SPARK</p>
-                        <p className="text-sm text-gray-600">by CIE</p>
-                      </div>
+                    <div className="inline-flex items-center justify-center">
+                      <Image 
+                        src="/assets/cie-spark-for-white-bg.png" 
+                        alt="CIE Spark Logo" 
+                        width={200} 
+                        height={200}
+                        className="h-75 w-auto"
+                      />
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-2xl p-6">
-                  <h4 className="text-2xl font-bold mb-3 flex items-center">
+                <div className="rounded-2xl p-6" style={{ background: `linear-gradient(to right, ${studentsColors.primary}15, ${studentsColors.accent}15)` }}>
+                  <h4 className="text-2xl font-bold mb-3 flex items-center" style={{ color: studentsColors.primary }}>
                     <span className="text-3xl mr-3"></span>
                     The Program That Flips Innovation Upside Down
                   </h4>
                   <p className="text-lg text-gray-700 leading-relaxed mb-3">Most innovation fails by solving the wrong problem. CIE Spark changes that.</p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-3">We're not another ideathon. We're a mandatory <strong>Problem Validation Sprint</strong> that teaches 4,000+ second-year students to find, validate, and fall in love with problems before building solutions. This is where real innovation begins.</p>
                   
-                  <div className="bg-white rounded-xl p-4 mt-4">
-                    <p className="text-lg font-semibold text-gray-900 mb-2">Spark → Ignite: The Complete Innovation Journey</p>
+                  <div className="bg-white rounded-xl p-4 mt-4 border-2" style={{ borderColor: studentsColors.primary }}>
+                    <p className="text-lg font-semibold mb-2" style={{ color: studentsColors.primary }}>Spark → Ignite: The Complete Innovation Journey</p>
                     <ul className="space-y-2 text-lg text-gray-700">
                       <li><strong>Semester 3: CIE Spark</strong> - Master problem discovery and validation</li>
                       <li><strong>Semester 4: CIE Ignite</strong> - Build and pitch solutions for validated problems</li>
@@ -315,14 +322,14 @@ export default function EIE1Page() {
                 </div>
 
                 <div>
-                  <h4 className="text-2xl font-bold mb-4 flex items-center">
+                  <h4 className="text-2xl font-bold mb-4 flex items-center" style={{ color: studentsColors.primary }}>
                     <span className="text-3xl mr-3"></span>
                     Why CIE Spark Exists
                   </h4>
                   
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-red-50 rounded-xl p-6">
-                      <h5 className="text-xl font-bold mb-3 text-red-800">The Problem with Traditional Innovation</h5>
+                    <div className="rounded-xl p-6 border-2" style={{ backgroundColor: `${studentsColors.secondary}10`, borderColor: studentsColors.secondary }}>
+                      <h5 className="text-xl font-bold mb-3" style={{ color: studentsColors.secondary }}>The Problem with Traditional Innovation</h5>
                       <ul className="space-y-2 text-base text-gray-700">
                         <li>• Students jump to solutions without validating real needs</li>
                         <li>• Brilliant minds work on ideas with no market demand</li>
@@ -330,8 +337,8 @@ export default function EIE1Page() {
                       </ul>
                     </div>
 
-                    <div className="bg-green-50 rounded-xl p-6">
-                      <h5 className="text-xl font-bold mb-3 text-green-800">Our Radical Approach</h5>
+                    <div className="rounded-xl p-6 border-2" style={{ backgroundColor: `${studentsColors.primary}10`, borderColor: studentsColors.primary }}>
+                      <h5 className="text-xl font-bold mb-3" style={{ color: studentsColors.primary }}>Our Radical Approach</h5>
                       <p className="text-base text-gray-700 leading-relaxed mb-3">We enforce a semester-long focus exclusively on Problem Discovery and Validation. Solution-building is explicitly forbidden until a problem is rigorously proven to be:</p>
                       <ul className="space-y-2 text-base text-gray-700">
                         <li><strong>Frequent</strong> - Affects many people regularly</li>
@@ -343,14 +350,14 @@ export default function EIE1Page() {
                 </div>
 
                 <div>
-                  <h4 className="text-2xl font-bold mb-4 flex items-center">
+                  <h4 className="text-2xl font-bold mb-4 flex items-center" style={{ color: studentsColors.primary }}>
                     <span className="text-3xl mr-3"></span>
                     The Spark Process: Three Phases of Validation
                   </h4>
 
                   <div className="space-y-4">
-                    <div className="border-l-4 border-blue-500 pl-6 py-3 bg-blue-50 rounded-r-xl">
-                      <h5 className="text-xl font-bold mb-2">Phase 1: Problem Hunting</h5>
+                    <div className="border-l-4 pl-6 py-3 rounded-r-xl" style={{ borderColor: studentsColors.primary, backgroundColor: `${studentsColors.primary}10` }}>
+                      <h5 className="text-xl font-bold mb-2" style={{ color: studentsColors.primary }}>Phase 1: Problem Hunting</h5>
                       <ul className="space-y-1 text-base text-gray-700">
                         <li>• Individual students become detectives</li>
                         <li>• Submit raw problem observations from daily life</li>
@@ -359,8 +366,8 @@ export default function EIE1Page() {
                       </ul>
                     </div>
 
-                    <div className="border-l-4 border-purple-500 pl-6 py-3 bg-purple-50 rounded-r-xl">
-                      <h5 className="text-xl font-bold mb-2">Phase 2: Team Formation</h5>
+                    <div className="border-l-4 pl-6 py-3 rounded-r-xl" style={{ borderColor: studentsColors.secondary, backgroundColor: `${studentsColors.secondary}10` }}>
+                      <h5 className="text-xl font-bold mb-2" style={{ color: studentsColors.secondary }}>Phase 2: Team Formation</h5>
                       <ul className="space-y-1 text-base text-gray-700">
                         <li>• Multidisciplinary squads unite around passion</li>
                         <li>• "Problem Dating" event to match with complementary skills</li>
@@ -369,8 +376,8 @@ export default function EIE1Page() {
                       </ul>
                     </div>
 
-                    <div className="border-l-4 border-orange-500 pl-6 py-3 bg-orange-50 rounded-r-xl">
-                      <h5 className="text-xl font-bold mb-2">Phase 3: Validation Sprint</h5>
+                    <div className="border-l-4 pl-6 py-3 rounded-r-xl" style={{ borderColor: studentsColors.accent, backgroundColor: `${studentsColors.accent}10` }}>
+                      <h5 className="text-xl font-bold mb-2" style={{ color: studentsColors.accent }}>Phase 3: Validation Sprint</h5>
                       <p className="text-base text-gray-700 mb-2 italic">Evidence over opinions</p>
                       <ul className="space-y-1 text-base text-gray-700">
                         <li>• Conduct 50+ customer interviews</li>
@@ -383,8 +390,8 @@ export default function EIE1Page() {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6">
-                  <h4 className="text-2xl font-bold mb-4 flex items-center">
+                <div className="rounded-2xl p-6" style={{ background: `linear-gradient(to right, ${studentsColors.primary}10, ${studentsColors.secondary}10)` }}>
+                  <h4 className="text-2xl font-bold mb-4 flex items-center" style={{ color: studentsColors.primary }}>
                     <span className="text-3xl mr-3"></span>
                     What Students Gain
                   </h4>
@@ -423,14 +430,14 @@ export default function EIE1Page() {
                 </div>
 
                 <div>
-                  <h4 className="text-2xl font-bold mb-4 flex items-center">
+                  <h4 className="text-2xl font-bold mb-4 flex items-center" style={{ color: studentsColors.primary }}>
                     <span className="text-3xl mr-3"></span>
                     Why Industry Partners Love Spark
                   </h4>
 
                   <div className="grid md:grid-cols-3 gap-4">
-                    <div className="bg-gray-50 rounded-xl p-5">
-                      <h5 className="text-lg font-bold mb-3">Access Curated Talent Pipeline</h5>
+                    <div className="rounded-xl p-5 border-2" style={{ backgroundColor: `${studentsColors.primary}08`, borderColor: studentsColors.primary }}>
+                      <h5 className="text-lg font-bold mb-3" style={{ color: studentsColors.primary }}>Access Curated Talent Pipeline</h5>
                       <ul className="space-y-1 text-sm text-gray-700">
                         <li>• Identify critical thinkers before they become founders</li>
                         <li>• Engage with evidence-based innovators</li>
@@ -438,8 +445,8 @@ export default function EIE1Page() {
                       </ul>
                     </div>
 
-                    <div className="bg-gray-50 rounded-xl p-5">
-                      <h5 className="text-lg font-bold mb-3">Strategic Intelligence</h5>
+                    <div className="rounded-xl p-5 border-2" style={{ backgroundColor: `${studentsColors.secondary}08`, borderColor: studentsColors.secondary }}>
+                      <h5 className="text-lg font-bold mb-3" style={{ color: studentsColors.secondary }}>Strategic Intelligence</h5>
                       <ul className="space-y-1 text-sm text-gray-700">
                         <li>• Access "Book of Validated Problems" - 20+ investable opportunities</li>
                         <li>• Insights from 4,000+ student observations</li>
@@ -447,8 +454,8 @@ export default function EIE1Page() {
                       </ul>
                     </div>
 
-                    <div className="bg-gray-50 rounded-xl p-5">
-                      <h5 className="text-lg font-bold mb-3">Partnership Opportunities</h5>
+                    <div className="rounded-xl p-5 border-2" style={{ backgroundColor: `${studentsColors.accent}08`, borderColor: studentsColors.accent }}>
+                      <h5 className="text-lg font-bold mb-3" style={{ color: studentsColors.accent }}>Partnership Opportunities</h5>
                       <p className="text-sm text-gray-700 mb-2"><strong>Problem Challenge Track:</strong> Submit your real-world business challenges. Top Spark teams will:</p>
                       <ul className="space-y-1 text-sm text-gray-700">
                         <li>• Conduct deep validation research</li>
@@ -459,7 +466,7 @@ export default function EIE1Page() {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-2xl p-8">
+                <div className="text-white rounded-2xl p-8" style={{ background: `linear-gradient(135deg, ${studentsColors.primary} 0%, ${studentsColors.secondary} 100%)` }}>
                   <h4 className="text-2xl font-bold mb-4 flex items-center">
                     <span className="text-3xl mr-3"></span>
                     Spark by the Numbers
@@ -489,14 +496,14 @@ export default function EIE1Page() {
                 </div>
 
                 <div>
-                  <h4 className="text-2xl font-bold mb-4 flex items-center">
+                  <h4 className="text-2xl font-bold mb-4 flex items-center" style={{ color: studentsColors.primary }}>
                     <span className="text-3xl mr-3"></span>
                     Program Timeline
                   </h4>
 
                   <div className="space-y-3">
-                    <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-xl">
-                      <h5 className="text-lg font-bold mb-2">August - December: CIE Spark</h5>
+                    <div className="border-l-4 p-4 rounded-r-xl" style={{ backgroundColor: `${studentsColors.primary}10`, borderColor: studentsColors.primary }}>
+                      <h5 className="text-lg font-bold mb-2" style={{ color: studentsColors.primary }}>August - December: CIE Spark</h5>
                       <ul className="space-y-1 text-base text-gray-700">
                         <li>• Phase 1: Individual Problem Hunting</li>
                         <li>• Phase 2: Multidisciplinary Team Formation</li>
@@ -504,34 +511,34 @@ export default function EIE1Page() {
                       </ul>
                     </div>
 
-                    <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-xl">
-                      <h5 className="text-lg font-bold mb-2">December: Grand Finale</h5>
+                    <div className="border-l-4 p-4 rounded-r-xl" style={{ backgroundColor: `${studentsColors.accent}10`, borderColor: studentsColors.accent }}>
+                      <h5 className="text-lg font-bold mb-2" style={{ color: studentsColors.accent }}>December: Grand Finale</h5>
                       <p className="text-base text-gray-700">Top 50 Announcement & Recognition</p>
                     </div>
 
-                    <div className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-xl">
-                      <h5 className="text-lg font-bold mb-2">January - April: CIE Ignite</h5>
+                    <div className="border-l-4 p-4 rounded-r-xl" style={{ backgroundColor: `${studentsColors.secondary}10`, borderColor: studentsColors.secondary }}>
+                      <h5 className="text-lg font-bold mb-2" style={{ color: studentsColors.secondary }}>January - April: CIE Ignite</h5>
                       <ul className="space-y-1 text-base text-gray-700">
                         <li>• Top Spark teams build solutions for validated problems</li>
                         <li>• Pretotyping, mentorship, and investor pitching</li>
                       </ul>
                     </div>
 
-                    <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-xl">
-                      <h5 className="text-lg font-bold mb-2">April: Demo Day</h5>
+                    <div className="border-l-4 p-4 rounded-r-xl" style={{ backgroundColor: `${studentsColors.primary}10`, borderColor: studentsColors.primary }}>
+                      <h5 className="text-lg font-bold mb-2" style={{ color: studentsColors.primary }}>April: Demo Day</h5>
                       <p className="text-base text-gray-700">Final pitches and showcase</p>
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <h4 className="text-2xl font-bold mb-4 flex items-center">
+                  <h4 className="text-2xl font-bold mb-4 flex items-center" style={{ color: studentsColors.primary }}>
                     <span className="text-3xl mr-3"></span>
                     Success Stories
                   </h4>
 
-                  <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-6">
-                    <h5 className="text-xl font-bold mb-4">Student Ventures Born from CIE</h5>
+                  <div className="rounded-2xl p-6" style={{ background: `linear-gradient(to right, ${studentsColors.primary}08, ${studentsColors.secondary}08)` }}>
+                    <h5 className="text-xl font-bold mb-4" style={{ color: studentsColors.primary }}>Student Ventures Born from CIE</h5>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="bg-white rounded-lg p-4 shadow-sm">
                         <h6 className="font-bold text-gray-900 mb-1">PocketCoach</h6>
@@ -564,8 +571,8 @@ export default function EIE1Page() {
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6 mt-4">
-                    <h5 className="text-xl font-bold mb-3">Industry Impact</h5>
+                  <div className="rounded-2xl p-6 mt-4" style={{ background: `linear-gradient(to right, ${studentsColors.secondary}10, ${studentsColors.accent}10)` }}>
+                    <h5 className="text-xl font-bold mb-3" style={{ color: studentsColors.secondary }}>Industry Impact</h5>
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-center">
                       <div className="bg-white rounded-lg p-3 shadow-sm">
                         <p className="font-semibold text-gray-900">Intel</p>
@@ -591,39 +598,44 @@ export default function EIE1Page() {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-2xl p-6">
-                  <h4 className="text-2xl font-bold mb-4 flex items-center">
+                <div className="rounded-2xl p-6" style={{ background: `linear-gradient(to right, ${studentsColors.primary}10, ${studentsColors.accent}10)` }}>
+                  <h4 className="text-2xl font-bold mb-4 flex items-center" style={{ color: studentsColors.primary }}>
                     <span className="text-3xl mr-3"></span>
                     Get Involved
                   </h4>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h5 className="text-lg font-bold mb-3">Students</h5>
+                      <h5 className="text-lg font-bold mb-3" style={{ color: studentsColors.primary }}>Students</h5>
                       <ul className="space-y-2 text-base text-gray-700">
-                        <li><strong>Email:</strong> <a href="mailto:cieprogram@pes.edu" className="text-blue-600 hover:underline">cieprogram@pes.edu</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:cieprogram@pes.edu" style={{ color: studentsColors.primary }} className="hover:underline">cieprogram@pes.edu</a></li>
                         <li><strong>Visit:</strong> CIE Office, PES University</li>
                         <li><strong>Follow:</strong> CIE PESU on social media</li>
                       </ul>
                     </div>
 
                     <div>
-                      <h5 className="text-lg font-bold mb-3">Industry Partners</h5>
+                      <h5 className="text-lg font-bold mb-3" style={{ color: studentsColors.primary }}>Industry Partners</h5>
                       <p className="text-base text-gray-700 italic mb-3">"Spark gives us a live feed of emerging market needs and connects us with talent that thinks differently. It's our most reliable innovation radar." <br />— InzpireU</p>
-                      <Button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+                      <Button style={{ background: `linear-gradient(to right, ${studentsColors.primary}, ${studentsColors.secondary})` }} className="text-white">
                         <a href="mailto:cieprogram@pes.edu">Become a Partner</a>
                       </Button>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-2xl p-8 text-center">
+                <div className="text-white rounded-2xl p-8 text-center" style={{ background: `linear-gradient(135deg, ${studentsColors.primary} 0%, ${studentsColors.secondary} 100%)` }}>
                   <h4 className="text-3xl font-bold mb-4 flex items-center justify-center">
                     <span className="text-4xl mr-3"></span>
                     Ready to Find Problems Worth Solving?
                   </h4>
                   <p className="text-lg mb-6 max-w-3xl mx-auto">CIE Spark isn't just a program—it's the foundation of a more innovative future. Whether you're a student ready to develop entrepreneurial muscles or an industry leader looking for fresh perspectives, your journey starts here.</p>
                   <p className="text-2xl font-bold">Because the world doesn't need more ideas. It needs more validated problems.</p>
+                </div>
+
+                <div className="mt-8 flex items-center gap-3">
+                  <Link href="/students/courses/eie-2"><Button className="bg-white text-blue-700">Go to EIE — Part 2</Button></Link>
+                  <Link href="/students/courses"><Button variant="outline" className="ml-auto border-black text-black">Back to Courses</Button></Link>
                 </div>
               </div>
             </TabsContent>
@@ -636,6 +648,11 @@ export default function EIE1Page() {
                 <li>VentureLab (Entrepreneurial Skillset and Mindset)</li>
                 <li>European Union (EU) Entrepreneurship Competencies</li>
               </ul>
+
+              <div className="mt-8 flex items-center gap-3">
+                <Link href="/students/courses/eie-2"><Button className="bg-white text-blue-700">Go to EIE — Part 2</Button></Link>
+                <Link href="/students/courses"><Button variant="outline" className="ml-auto border-black text-black">Back to Courses</Button></Link>
+              </div>
             </TabsContent>
 
             <TabsContent value="details">
@@ -697,7 +714,6 @@ export default function EIE1Page() {
 
                     <div className="mt-8 flex items-center gap-3">
                       <Link href="/students/courses/eie-2"><Button className="bg-white text-blue-700">Go to EIE — Part 2</Button></Link>
-                      <Link href="/students/courses/cie-spark"><Button variant="outline" className="border-gray-300">Learn about CIE Spark</Button></Link>
                       <Link href="/students/courses"><Button variant="outline" className="ml-auto border-black text-black">Back to Courses</Button></Link>
                     </div>
                   </div>
@@ -709,38 +725,10 @@ export default function EIE1Page() {
                     <aside className="border rounded-md bg-gray-50 p-4 shadow-sm">
                       <div className="flex flex-col items-center text-center">
                         <div className="w-40 h-40 mb-3 overflow-hidden rounded-full bg-gray-200">
-                          <Image src="/assets/sathya-prasad.png" alt="Prof Sathya Prasad" width={160} height={160} className="w-full h-full object-cover" />
-                        </div>
-                        <div className="text-xl font-semibold">Prof Sathya Prasad</div>
-                        <div className="text-sm text-gray-600">Instructor — Director, CIE (PESU)</div>
-                      </div>
-
-                      <div className="mt-4 text-sm text-gray-700">
-                        <table className="w-full text-sm text-gray-700">
-                          <tbody>
-                            <tr>
-                              <td className="align-top pr-2 font-medium text-gray-600" style={{width: '28%'}}>Email</td>
-                              <td><a className="text-indigo-600" href="mailto:sathya.prasad@pes.edu">sathya.prasad@pes.edu</a></td>
-                            </tr>
-                            <tr>
-                              <td className="align-top pr-2 font-medium text-gray-600">LinkedIn</td>
-                              <td><a className="text-indigo-600" href="https://www.linkedin.com/in/sathya-prasad" target="_blank" rel="noopener noreferrer">Sathya Prasad</a></td>
-                            </tr>
-                          </tbody>
-                        </table>
-
-                        <h6 className="mt-4 font-semibold">Professional summary</h6>
-                        <p className="text-sm">Experience: 30+ years including ~20 years at Intel in Product Management, Tech Innovation and R&amp;D. Leadership: Founding President, SEMI India; launched SOLARCON India; led product management for Intel’s first server SoC and established Intel India’s server development center. As founding Director of CIE, guided Lean Startup, Effectuation and Design Thinking frameworks; mentored and consulted across national and international programs. Education: Executive Management (MIT Sloan), MS (VLSI) — Arizona State University.</p>
-                      </div>
-                    </aside>
-
-                    <aside className="border rounded-md bg-gray-50 p-4 shadow-sm">
-                      <div className="flex flex-col items-center text-center">
-                        <div className="w-40 h-40 mb-3 overflow-hidden rounded-full bg-gray-200">
                           <Image src="/assets/raghavendra-deshmukh.png" alt="Raghavendra Deshmukh" width={160} height={160} className="w-full h-full object-cover" />
                         </div>
                         <div className="text-xl font-semibold">Raghavendra Deshmukh</div>
-                        <div className="text-sm text-gray-600">Co-Instructor — Industry Mentor, CIE (PESU)</div>
+                        <div className="text-sm text-gray-600">Instructor — Industry Mentor, CIE (PESU)</div>
                       </div>
 
                       <div className="mt-4 text-sm text-gray-700">
@@ -758,7 +746,45 @@ export default function EIE1Page() {
                         </table>
 
                         <h6 className="mt-4 font-semibold">Professional summary</h6>
-                        <p className="text-sm">Experience: ~30 years across Software Product Engineering, Product Management, Team Building, and Engineering Leadership at SAP, Walmart, Google, Wipro and Booking.com. Products: On‑Prem and Cloud solutions in Supply Chain Logistics, Blockchain Track &amp; Trace, Enterprise Blockchain Platforms, Cloud Services (GCP with SAP), Data Analytics, ETL/ELT, MDM, and Pharma Clinical Trials. Mentored founders and supported startup productization and sustainability initiatives. Expertise: Software Engineering, Analytics, Blockchain, GenAI (LLMs, RAG), Databases, and Cloud.</p>
+                        <ul className="text-sm space-y-2 mt-2">
+                          <li><strong>Experience:</strong> ~30 years across Software Product Engineering, Product Management, Team Building, and Engineering Leadership at SAP, Walmart, Google, Wipro and Booking.com.</li>
+                          <li><strong>Products:</strong> On‑Prem and Cloud solutions in Supply Chain Logistics, Blockchain Track &amp; Trace, Enterprise Blockchain Platforms, Cloud Services (GCP with SAP), Data Analytics, ETL/ELT, MDM, and Pharma Clinical Trials.</li>
+                          <li>Mentored founders and supported startup productization and sustainability initiatives.</li>
+                          <li><strong>Expertise:</strong> Software Engineering, Analytics, Blockchain, GenAI (LLMs, RAG), Databases, and Cloud.</li>
+                        </ul>
+                      </div>
+                    </aside>
+                    
+                    <aside className="border rounded-md bg-gray-50 p-4 shadow-sm">
+                      <div className="flex flex-col items-center text-center">
+                        <div className="w-40 h-40 mb-3 overflow-hidden rounded-full bg-gray-200">
+                          <Image src="/assets/sathya-prasad.png" alt="Prof Sathya Prasad" width={160} height={160} className="w-full h-full object-cover" />
+                        </div>
+                        <div className="text-xl font-semibold">Prof Sathya Prasad</div>
+                        <div className="text-sm text-gray-600">Co-Instructor — Director, CIE (PESU)</div>
+                      </div>
+
+                      <div className="mt-4 text-sm text-gray-700">
+                        <table className="w-full text-sm text-gray-700">
+                          <tbody>
+                            <tr>
+                              <td className="align-top pr-2 font-medium text-gray-600" style={{width: '28%'}}>Email</td>
+                              <td><a className="text-indigo-600" href="mailto:sathya.prasad@pes.edu">sathya.prasad@pes.edu</a></td>
+                            </tr>
+                            <tr>
+                              <td className="align-top pr-2 font-medium text-gray-600">LinkedIn</td>
+                              <td><a className="text-indigo-600" href="https://www.linkedin.com/in/sathya-prasad" target="_blank" rel="noopener noreferrer">Sathya Prasad</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <h6 className="mt-4 font-semibold">Professional summary</h6>
+                        <ul className="text-sm space-y-2 mt-2">
+                          <li><strong>Experience:</strong> 30+ years including ~20 years at Intel in Product Management, Tech Innovation and R&amp;D.</li>
+                          <li><strong>Leadership:</strong> Founding President, SEMI India; launched SOLARCON India; led product management for Intel's first server SoC and established Intel India's server development center.</li>
+                          <li>As founding Director of CIE, guided Lean Startup, Effectuation and Design Thinking frameworks; mentored and consulted across national and international programs.</li>
+                          <li><strong>Education:</strong> Executive Management (MIT Sloan), MS (VLSI) — Arizona State University.</li>
+                        </ul>
                       </div>
                     </aside>
                   </div>
