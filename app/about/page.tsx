@@ -42,6 +42,37 @@ export default function About() {
         </div>
       </section>
 
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              About <span className="text-blue-600">CIE</span>
+            </h2>
+            <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+              The Center for Innovation and Entrepreneurship (CIE) at PES University is dedicated to inspiring students and startups to develop innovative, world-changing ideas. By leveraging PES University's values and strengths, CIE fosters role-model entrepreneurs who create high-value products and solutions. Established to catalyze student-led startups, CIE equips students with the skills needed for Industry 4.0, complementing the PES SPIRIT with sustainable innovation and entrepreneurship ethos.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-2xl"
+          >
+            <div className="text-center">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                CIE at PES University, established over 7 years ago, is a hub for innovation, fostering student startups and industry collaborations. Our leadership team includes visionaries like Prof. Sathya Prasad, an MIT Sloan alumnus and founding Director of CIE, who brings extensive experience in product management and technology innovation.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -101,31 +132,128 @@ export default function About() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our <span className="text-blue-600">Values</span>
+              CIE <span className="text-blue-600">SPIRIT</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Building on the strong foundation of PES SPIRIT with sustainable innovation and entrepreneurship.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Building on PES Values — We complement the PES SPIRIT with sustainable innovation and entrepreneurship ethos, nurturing the next generation of innovators and entrepreneurs.
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-2xl"
-          >
-            <div className="text-center">
-              <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Award className="w-10 h-10 text-white" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+            >
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <Users className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Complement PES SPIRIT
-              </h3>
-              <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                We build upon PES University core values of excellence, integrity, and innovation by infusing sustainable entrepreneurship spirit and ethos into everything we do.
-              </p>
-            </div>
-          </motion.div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Student-Centric</h3>
+              <ul className="text-gray-600 space-y-2 text-sm">
+                <li>• <strong>2150+ innovators</strong> nurtured across 15 cohorts</li>
+                <li>• Students winning <strong>MoveInSync Mobility Hackathon, IBM TechXchange, Google Gen AI Exchange</strong></li>
+                <li>• <strong>526 students</strong> in Intel-PESU Research Innovation Contests</li>
+                <li>• <strong>147 teams</strong> selected/coached for SIH 2024</li>
+                <li>• Strong alumni network providing mentorship and career guidance</li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+            >
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <Target className="w-6 h-6 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Process-Oriented</h3>
+              <ul className="text-gray-600 space-y-2 text-sm">
+                <li>• Consistently achieving <strong>4+/5 course rating</strong> across programs</li>
+                <li>• Student-friendly onboarding through <strong>CIE Aarambh/Harvard ManageMentor</strong></li>
+                <li>• <strong>Nasscom Thingqbator</strong> program integration</li>
+                <li>• <strong>5 industry mentors</strong> providing courses, workshops & internships</li>
+                <li>• <strong>76 external paid internships</strong> facilitated (43 in 2024)</li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+            >
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <Award className="w-6 h-6 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Identity-Focused</h3>
+              <ul className="text-gray-600 space-y-2 text-sm">
+                <li>• Novel <strong>2-credit EIE course</strong> reaching ~4500 students (EC & RR campuses)</li>
+                <li>• <strong>UC Berkeley BHGAP</strong> semester abroad program</li>
+                <li>• <strong>Harvard ManageMentor</strong> program (58 completed, 20 enrolled for 2025)</li>
+                <li>• Strong brand built on PESU's innovation reputation</li>
+                <li>• Vibrant community of students, alumni, and industry partners</li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+            >
+              <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                <Lightbulb className="w-6 h-6 text-indigo-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Research-Driven</h3>
+              <ul className="text-gray-600 space-y-2 text-sm">
+                <li>• Research publications in top-tier conferences</li>
+                <li>• <strong>CIE Research Internship</strong> program with industry projects</li>
+                <li>• Partnerships with <strong>UC Berkeley, IIT Madras, IIT Delhi</strong></li>
+                <li>• Active grant and award acquisition</li>
+                <li>• Publications in Technology Management with IIM-Bangalore</li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+            >
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                <Sparkles className="w-6 h-6 text-orange-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Infrastructure-Rich</h3>
+              <ul className="text-gray-600 space-y-2 text-sm">
+                <li>• State-of-the-art prototyping resources</li>
+                <li>• Collaborative workspaces and board rooms</li>
+                <li>• Environment for ideation and experimentation</li>
+                <li>• Hackathons, workshops, and tinkering sessions</li>
+                <li>• <strong>Practical ML workshops</strong> by Industry Mentors</li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100"
+            >
+              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                <Target className="w-6 h-6 text-red-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Teaching Excellence</h3>
+              <ul className="text-gray-600 space-y-2 text-sm">
+                <li>• Best-in-class content and pedagogy</li>
+                <li>• Industry professionals through <strong>CIE Industry Mentor program</strong></li>
+                <li>• Multiple industry connects for real-world insights</li>
+                <li>• Continuously evolving courses and programs</li>
+                <li>• Comprehensive education preparing for future challenges</li>
+              </ul>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -152,8 +280,8 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="text-center bg-white p-6 rounded-2xl shadow-lg"
             >
-              <div className="text-3xl font-bold text-blue-600 mb-2">2159+</div>
-              <div className="text-gray-600">Students Graduated</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">2150+</div>
+              <div className="text-gray-600">Innovators Nurtured</div>
             </motion.div>
 
             <motion.div
@@ -162,8 +290,8 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-center bg-white p-6 rounded-2xl shadow-lg"
             >
-              <div className="text-3xl font-bold text-green-600 mb-2">50+</div>
-              <div className="text-gray-600">Startups Launched</div>
+              <div className="text-3xl font-bold text-green-600 mb-2">4500+</div>
+              <div className="text-gray-600">Students in EIE Course</div>
             </motion.div>
 
             <motion.div
@@ -172,8 +300,8 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-center bg-white p-6 rounded-2xl shadow-lg"
             >
-              <div className="text-3xl font-bold text-purple-600 mb-2">₹2Cr+</div>
-              <div className="text-gray-600">Funding Raised</div>
+              <div className="text-3xl font-bold text-purple-600 mb-2">526</div>
+              <div className="text-gray-600">Research Participants</div>
             </motion.div>
 
             <motion.div
@@ -182,10 +310,163 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-center bg-white p-6 rounded-2xl shadow-lg"
             >
-              <div className="text-3xl font-bold text-orange-600 mb-2">100+</div>
-              <div className="text-gray-600">Industry Partners</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">76</div>
+              <div className="text-gray-600">External Internships</div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Research & Publications */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Research & <span className="text-blue-600">Publications</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Explore our research contributions in Technology Management, including publications co-authored with IIM-Bangalore, and our partnerships with leading institutions like UC Berkeley, IIT Madras, and IIT Delhi.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl text-center"
+          >
+            <Lightbulb className="w-16 h-16 text-blue-600 mx-auto mb-4" />
+            <p className="text-gray-600 text-lg">
+              Detailed research publications and ongoing projects coming soon.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Us */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Get in <span className="text-blue-600">Touch</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+              Have questions or want to learn more about our programs? Reach out to us!
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="bg-white p-8 rounded-2xl text-center max-w-2xl mx-auto"
+          >
+            <div className="mb-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Email Us</h3>
+              <a href="mailto:cieinfo@pes.edu" className="text-blue-600 hover:text-blue-700 text-lg font-medium">
+                cieinfo@pes.edu
+              </a>
+            </div>
+            <p className="text-gray-600">
+              Contact form and additional contact details coming soon.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Frequently Asked <span className="text-blue-600">Questions</span>
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl mx-auto space-y-6"
+          >
+            <div className="bg-gray-50 p-6 rounded-xl">
+              <h3 className="text-lg font-bold text-gray-900 mb-2">What is CIE&apos;s mission?</h3>
+              <p className="text-gray-600">
+                CIE is dedicated to inspiring students to innovate, equipping them with entrepreneurial skills for Industry 4.0, and catalyzing student-led startups.
+              </p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-xl">
+              <h3 className="text-lg font-bold text-gray-900 mb-2">How can students get involved?</h3>
+              <p className="text-gray-600">
+                Students can participate through our EIE courses, CIE Spark, CIE Ignite programs, research internships, hackathons, and various workshops and mentorship opportunities.
+              </p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-xl">
+              <h3 className="text-lg font-bold text-gray-900 mb-2">What support does CIE provide to startups?</h3>
+              <p className="text-gray-600">
+                CIE provides mentorship, infrastructure, industry connections, funding facilitation, and comprehensive support throughout the startup journey.
+              </p>
+            </div>
+            <p className="text-center text-gray-600 mt-8">
+              More FAQs coming soon. For specific questions, please email us at <a href="mailto:cieinfo@pes.edu" className="text-blue-600 hover:text-blue-700">cieinfo@pes.edu</a>
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Policies */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              <span className="text-blue-600">Policies</span>
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Our privacy policy and terms of use will be available here soon.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Careers */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Join Our <span className="text-blue-600">Team</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+              Interested in working with CIE? Check back soon for open positions and opportunities to join our mission of fostering innovation and entrepreneurship.
+            </p>
+            <p className="text-gray-600">
+              Career opportunities coming soon.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -204,15 +485,15 @@ export default function About() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                onClick={() => window.location.href = '/students'}
+              {/* <Button 
+                onClick={() => globalThis.location.href = '/students'}
                 className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl"
               >
                 <Users className="w-5 h-5 mr-2" />
                 Join as Student
-              </Button>
+              </Button> */}
               <Button 
-                onClick={() => window.location.href = '/contact'}
+                onClick={() => globalThis.location.href = 'mailto:cieprogram@pes.edu'}
                 className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
               >
                 Get in Touch

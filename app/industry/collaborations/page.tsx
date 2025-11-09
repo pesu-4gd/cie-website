@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
+import { InfiniteSlider } from '@/components/core/infinite-slider';
 import { 
   Building2, 
   Handshake, 
@@ -1087,6 +1088,98 @@ export default function CollaborationsPage() {
         </div>
       </section>
 
+      {/* Industry Partners Logos - Infinite Slider */}
+      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Trusted by <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Industry Leaders</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Collaborating with top organizations to drive innovation and create impact
+            </p>
+          </motion.div>
+          
+          <InfiniteSlider gap={48} duration={30}>
+            <img
+              src='/assets/intel.jpg'
+              alt='Intel'
+              className='h-16 w-auto object-contain transition-all duration-300'
+            />
+            <img
+              src='/assets/microsoft.jpg'
+              alt='Microsoft'
+              className='h-16 w-auto object-contain transition-all duration-300'
+            />
+            <img
+              src='/assets/rapido.jpg'
+              alt='Rapido'
+              className='h-16 w-auto object-contain transition-all duration-300'
+            />
+            <img
+              src='/assets/4gd.jpg'
+              alt='4Good.AI'
+              className='h-16 w-auto object-contain transition-all duration-300'
+            />
+            <img
+              src='/assets/sima.jpg'
+              alt='SiMa.ai'
+              className='h-16 w-auto object-contain transition-all duration-300'
+            />
+            <img
+              src='/assets/agropak.jpg'
+              alt='Agropak'
+              className='h-16 w-auto object-contain transition-all duration-300'
+            />
+            <img
+              src='/assets/param.jpg'
+              alt='Param Foundation'
+              className='h-16 w-auto object-contain transition-all duration-300'
+            />
+            <img
+              src='/assets/mathworks.jpg'
+              alt='MathWorks'
+              className='h-16 w-auto object-contain transition-all duration-300'
+            />
+            <img
+              src='/assets/create.jpg'
+              alt='Create'
+              className='h-16 w-auto object-contain transition-all duration-300'
+            />
+            <img
+              src='/assets/moi.jpg'
+              alt='MOI'
+              className='h-16 w-auto object-contain transition-all duration-300'
+            />
+            <img
+              src='/assets/xinova.jpg'
+              alt='Xinova'
+              className='h-16 w-auto object-contain transition-all duration-300'
+            />
+            <img
+              src='/assets/inzpireu.jpg'
+              alt='InzpireU'
+              className='h-16 w-auto object-contain transition-all duration-300'
+            />
+            <img
+              src='/assets/cisco.jpg'
+              alt='Cisco'
+              className='h-16 w-auto object-contain transition-all duration-300'
+            />
+            <img
+              src='/assets/harman.jpg'
+              alt='Harman'
+              className='h-16 w-auto object-contain transition-all duration-300'
+            />
+          </InfiniteSlider>
+        </div>
+      </section>
+
       {/* Collaboration Models */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
@@ -1249,23 +1342,23 @@ export default function CollaborationsPage() {
                 size="lg"
                 className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
               >
-                <Handshake className="w-5 h-5 mr-2" />
+                <Handshake className="w-5 h-5 mr-2" href='mailto:cieprogram@pes.edu'/>
                 Start Partnership
               </Button>
-              <Button
+              {/* <Button
                 variant="outline"
                 size="lg"
                 className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
               >
                 <FileText className="w-5 h-5 mr-2" />
                 Download Partnership Guide
-              </Button>
+              </Button> */}
               <Button
                 variant="outline"
                 size="lg"
                 className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
               >
-                <Phone className="w-5 h-5 mr-2" />
+                <Phone className="w-5 h-5 mr-2" href='mailto:cieprogram@pes.edu'/>
                 Schedule Consultation
               </Button>
             </div>

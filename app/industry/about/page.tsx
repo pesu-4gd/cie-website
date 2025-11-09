@@ -336,20 +336,20 @@ export default function IndustryAboutPage() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
+              {/* <Button
                 variant="default"
                 size="lg"
                 className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white px-8 py-4 text-lg font-semibold rounded-xl"
               >
                 <ArrowRight className="w-5 h-5 mr-2" />
                 Get Started Today
-              </Button>
+              </Button> */}
               <Button
                 variant="outline"
                 size="lg"
                 className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 px-8 py-4 text-lg font-semibold rounded-xl"
               >
-                <Globe className="w-5 h-5 mr-2" />
+                <Globe className="w-5 h-5 mr-2"  href='mailto:cieprogram@pes.edu' />
                 Explore Opportunities
               </Button>
             </div>

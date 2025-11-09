@@ -398,12 +398,12 @@ const AlumniNavigation: React.FC = () => {
           description: 'Support CIE initiatives',
           icon: Heart
         },
-        { 
-          title: 'Resources for Alumni', 
-          href: '/alumni/resources', 
-          description: 'Alumni-specific resources',
-          icon: BookOpen
-        }
+        // { 
+        //   title: 'Resources for Alumni', 
+        //   href: '/alumni/resources', 
+        //   description: 'Alumni-specific resources',
+        //   icon: BookOpen
+        // }
       ]
     }
   ];
