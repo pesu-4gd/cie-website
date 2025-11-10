@@ -59,9 +59,9 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
                 aria-hidden="true"
               />
               <p className="text-sm flex-1">
-                Join the Change Makers Society Club - We just added something awesome to make your experience even better.
+                Latest Newsletter Update
               </p>
-              <a href="/announcements" className="group text-sm font-medium whitespace-nowrap flex items-center gap-1">
+              <a href="/alumni/newsletter" className="group text-sm font-medium whitespace-nowrap flex items-center gap-1">
                 Learn more
                 <ArrowRight
                   className="inline-flex opacity-60 transition-transform group-hover:translate-x-0.5"
@@ -105,16 +105,31 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
             {/* Logo */}
             <div className="flex items-center space-x-4">
               <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-                <Image 
-                  src="/assets/CIE Logo.png" 
-                  alt="CIE Logo" 
-                  width={120} 
-                  height={40} 
-                  className={cn(
-                    "transition-all duration-300",
-                    isScrolled ? "h-10 w-auto" : "h-12 w-auto"
-                  )}
-                />
+                <div className={cn(
+                  "relative transition-all duration-500 ease-in-out",
+                  isScrolled ? "h-12 w-[180px]" : "h-14 w-[210px]"
+                )}>
+                  <Image 
+                    src="/assets/cie-logo.png"
+                    alt="CIE Logo" 
+                    width={210} 
+                    height={56} 
+                    className={cn(
+                      "h-full w-full object-contain transition-opacity duration-500 ease-in-out",
+                      isScrolled ? "opacity-0" : "opacity-100"
+                    )}
+                  />
+                  <Image 
+                    src="/assets/cie-logo-with-line.png"
+                    alt="CIE Logo" 
+                    width={180} 
+                    height={100} 
+                    className={cn(
+                      "absolute top-0 left-0 h-full w-full object-contain transition-opacity duration-500 ease-in-out",
+                      isScrolled ? "opacity-100" : "opacity-0"
+                    )}
+                  />
+                </div>
               </Link>
             </div>
 

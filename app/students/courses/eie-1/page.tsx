@@ -162,15 +162,15 @@ export default function EIE1Page() {
             <TabsContent value="cie-spark">
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-3xl font-bold mb-4" style={{ color: studentsColors.primary }}>CIE Spark: Where Innovation Begins</h3>
-                  <p className="text-xl italic" style={{ color: studentsColors.accent }}>The Idea Validation Sprint for Tomorrow's Founders</p>
+                  <h3 className="text-3xl font-bold mb-4">CIE Spark: Where Innovation Begins</h3>
+                  <p className="text-xl italic text-gray-600">The Idea Validation Sprint for Tomorrow's Founders</p>
                   <p className="text-lg text-gray-600 mt-2">August - December</p>
-                  <p className="text-base text-gray-700 mt-2">CIE Spark empowers student innovators taking EIE-1 course, The Idea Validation Sprint for Tomorrow's Founders</p>
+                  <p className="text-lg text-gray-700 leading-relaxed mt-2">CIE Spark empowers student innovators taking EIE-1 course, The Idea Validation Sprint for Tomorrow's Founders</p>
                 </div>
 
                 {/* Program Highlights Section */}
                 <div className="rounded-2xl p-8" style={{ background: `linear-gradient(to right, ${studentsColors.primary}15, ${studentsColors.accent}15)` }}>
-                  <h4 className="text-2xl font-bold mb-6 text-center" style={{ color: studentsColors.primary }}>Program Highlights</h4>
+                  <h4 className="text-2xl font-bold mb-6 text-center text-gray-900">Program Highlights</h4>
                   
                   <div className="grid md:grid-cols-4 gap-6">
                     <div className="bg-white rounded-xl p-6 border-2 shadow-sm" style={{ borderColor: studentsColors.accent }}>
@@ -181,7 +181,7 @@ export default function EIE1Page() {
                           </svg>
                         </div>
                       </div>
-                      <h5 className="text-lg font-bold mb-2 text-center" style={{ color: studentsColors.primary }}>Problem Hunting</h5>
+                      <h5 className="text-lg font-bold mb-2 text-center text-gray-900">Problem Hunting</h5>
                       <p className="text-sm text-gray-700 text-center">Individual students become detectives</p>
                     </div>
 
@@ -193,7 +193,7 @@ export default function EIE1Page() {
                           </svg>
                         </div>
                       </div>
-                      <h5 className="text-lg font-bold mb-2 text-center" style={{ color: studentsColors.primary }}>Team Formation</h5>
+                      <h5 className="text-lg font-bold mb-2 text-center text-gray-900">Team Formation</h5>
                       <p className="text-sm text-gray-700 text-center">Multidisciplinary squads unite around passion</p>
                     </div>
 
@@ -205,7 +205,7 @@ export default function EIE1Page() {
                           </svg>
                         </div>
                       </div>
-                      <h5 className="text-lg font-bold mb-2 text-center" style={{ color: studentsColors.primary }}>Validation Sprint</h5>
+                      <h5 className="text-lg font-bold mb-2 text-center text-gray-900">Validation Sprint</h5>
                       <p className="text-sm text-gray-700 text-center">Evidence over opinions</p>
                     </div>
 
@@ -217,7 +217,7 @@ export default function EIE1Page() {
                           </svg>
                         </div>
                       </div>
-                      <h5 className="text-lg font-bold mb-2 text-center" style={{ color: studentsColors.primary }}>Attractive Awards</h5>
+                      <h5 className="text-lg font-bold mb-2 text-center text-gray-900">Attractive Awards</h5>
                       <p className="text-sm text-gray-700 text-center">Top 50 Teams: Published in "CIE Book of Validated Problems"</p>
                     </div>
                   </div>
@@ -225,13 +225,13 @@ export default function EIE1Page() {
 
                 {/* Program Structure Flow */}
                 <div className="rounded-2xl p-8" style={{ background: `linear-gradient(to bottom right, ${studentsColors.primary}10, ${studentsColors.accent}10)` }}>
-                  <h4 className="text-2xl font-bold mb-8 text-center" style={{ color: studentsColors.primary }}>Program Structure</h4>
+                  <h4 className="text-2xl font-bold mb-8 text-center text-gray-900">Program Structure</h4>
                   
                   <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
                     {/* Phase 1 */}
                     <div className="relative">
                       <div className="text-center mb-2">
-                        <span className="text-xl font-bold" style={{ color: studentsColors.primary }}>Phase 1</span>
+                        <span className="text-xl font-bold text-gray-900">Phase 1</span>
                       </div>
                       <div className="bg-white rounded-xl p-6 border-2 shadow-md w-48" style={{ borderColor: studentsColors.accent }}>
                         <p className="text-center font-semibold text-gray-900 mb-1">Individual</p>
@@ -249,7 +249,7 @@ export default function EIE1Page() {
                     {/* Phase 2 */}
                     <div className="relative">
                       <div className="text-center mb-2">
-                        <span className="text-xl font-bold" style={{ color: studentsColors.primary }}>Phase 2</span>
+                        <span className="text-xl font-bold text-gray-900">Phase 2</span>
                       </div>
                       <div className="bg-white rounded-xl p-6 border-2 shadow-md w-48" style={{ borderColor: studentsColors.accent }}>
                         <p className="text-center font-semibold text-gray-900 mb-1">Problem</p>
@@ -267,7 +267,7 @@ export default function EIE1Page() {
                     {/* Phase 3 */}
                     <div className="relative">
                       <div className="text-center mb-2">
-                        <span className="text-xl font-bold" style={{ color: studentsColors.primary }}>Phase 3</span>
+                        <span className="text-xl font-bold text-gray-900">Phase 3</span>
                       </div>
                       <div className="bg-white rounded-xl p-6 border-2 shadow-md w-48" style={{ borderColor: studentsColors.accent }}>
                         <p className="text-center font-semibold text-gray-900 mb-1">Idea</p>
@@ -305,7 +305,7 @@ export default function EIE1Page() {
                 </div>
 
                 <div className="rounded-2xl p-6" style={{ background: `linear-gradient(to right, ${studentsColors.primary}15, ${studentsColors.accent}15)` }}>
-                  <h4 className="text-2xl font-bold mb-3 flex items-center" style={{ color: studentsColors.primary }}>
+                  <h4 className="text-2xl font-bold mb-3 flex items-center text-gray-900">
                     <span className="text-3xl mr-3"></span>
                     The Program That Flips Innovation Upside Down
                   </h4>
@@ -313,7 +313,7 @@ export default function EIE1Page() {
                   <p className="text-lg text-gray-700 leading-relaxed mb-3">We're not another ideathon. We're a mandatory <strong>Problem Validation Sprint</strong> that teaches 4,000+ second-year students to find, validate, and fall in love with problems before building solutions. This is where real innovation begins.</p>
                   
                   <div className="bg-white rounded-xl p-4 mt-4 border-2" style={{ borderColor: studentsColors.primary }}>
-                    <p className="text-lg font-semibold mb-2" style={{ color: studentsColors.primary }}>Spark → Ignite: The Complete Innovation Journey</p>
+                    <p className="text-lg font-semibold mb-2 text-gray-900">Spark → Ignite: The Complete Innovation Journey</p>
                     <ul className="space-y-2 text-lg text-gray-700">
                       <li><strong>Semester 3: CIE Spark</strong> - Master problem discovery and validation</li>
                       <li><strong>Semester 4: CIE Ignite</strong> - Build and pitch solutions for validated problems</li>
@@ -322,14 +322,14 @@ export default function EIE1Page() {
                 </div>
 
                 <div>
-                  <h4 className="text-2xl font-bold mb-4 flex items-center" style={{ color: studentsColors.primary }}>
+                  <h4 className="text-2xl font-bold mb-4 flex items-center text-gray-900">
                     <span className="text-3xl mr-3"></span>
                     Why CIE Spark Exists
                   </h4>
                   
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="rounded-xl p-6 border-2" style={{ backgroundColor: `${studentsColors.secondary}10`, borderColor: studentsColors.secondary }}>
-                      <h5 className="text-xl font-bold mb-3" style={{ color: studentsColors.secondary }}>The Problem with Traditional Innovation</h5>
+                      <h5 className="text-xl font-bold mb-3 text-gray-900">The Problem with Traditional Innovation</h5>
                       <ul className="space-y-2 text-base text-gray-700">
                         <li>• Students jump to solutions without validating real needs</li>
                         <li>• Brilliant minds work on ideas with no market demand</li>
@@ -338,7 +338,7 @@ export default function EIE1Page() {
                     </div>
 
                     <div className="rounded-xl p-6 border-2" style={{ backgroundColor: `${studentsColors.primary}10`, borderColor: studentsColors.primary }}>
-                      <h5 className="text-xl font-bold mb-3" style={{ color: studentsColors.primary }}>Our Radical Approach</h5>
+                      <h5 className="text-xl font-bold mb-3 text-gray-900">Our Radical Approach</h5>
                       <p className="text-base text-gray-700 leading-relaxed mb-3">We enforce a semester-long focus exclusively on Problem Discovery and Validation. Solution-building is explicitly forbidden until a problem is rigorously proven to be:</p>
                       <ul className="space-y-2 text-base text-gray-700">
                         <li><strong>Frequent</strong> - Affects many people regularly</li>
@@ -350,14 +350,14 @@ export default function EIE1Page() {
                 </div>
 
                 <div>
-                  <h4 className="text-2xl font-bold mb-4 flex items-center" style={{ color: studentsColors.primary }}>
+                  <h4 className="text-2xl font-bold mb-4 flex items-center text-gray-900">
                     <span className="text-3xl mr-3"></span>
                     The Spark Process: Three Phases of Validation
                   </h4>
 
                   <div className="space-y-4">
                     <div className="border-l-4 pl-6 py-3 rounded-r-xl" style={{ borderColor: studentsColors.primary, backgroundColor: `${studentsColors.primary}10` }}>
-                      <h5 className="text-xl font-bold mb-2" style={{ color: studentsColors.primary }}>Phase 1: Problem Hunting</h5>
+                      <h5 className="text-xl font-bold mb-2 text-gray-900">Phase 1: Problem Hunting</h5>
                       <ul className="space-y-1 text-base text-gray-700">
                         <li>• Individual students become detectives</li>
                         <li>• Submit raw problem observations from daily life</li>
@@ -367,7 +367,7 @@ export default function EIE1Page() {
                     </div>
 
                     <div className="border-l-4 pl-6 py-3 rounded-r-xl" style={{ borderColor: studentsColors.secondary, backgroundColor: `${studentsColors.secondary}10` }}>
-                      <h5 className="text-xl font-bold mb-2" style={{ color: studentsColors.secondary }}>Phase 2: Team Formation</h5>
+                      <h5 className="text-xl font-bold mb-2 text-gray-900">Phase 2: Team Formation</h5>
                       <ul className="space-y-1 text-base text-gray-700">
                         <li>• Multidisciplinary squads unite around passion</li>
                         <li>• "Problem Dating" event to match with complementary skills</li>
@@ -377,7 +377,7 @@ export default function EIE1Page() {
                     </div>
 
                     <div className="border-l-4 pl-6 py-3 rounded-r-xl" style={{ borderColor: studentsColors.accent, backgroundColor: `${studentsColors.accent}10` }}>
-                      <h5 className="text-xl font-bold mb-2" style={{ color: studentsColors.accent }}>Phase 3: Validation Sprint</h5>
+                      <h5 className="text-xl font-bold mb-2 text-gray-900">Phase 3: Validation Sprint</h5>
                       <p className="text-base text-gray-700 mb-2 italic">Evidence over opinions</p>
                       <ul className="space-y-1 text-base text-gray-700">
                         <li>• Conduct 50+ customer interviews</li>
@@ -391,7 +391,7 @@ export default function EIE1Page() {
                 </div>
 
                 <div className="rounded-2xl p-6" style={{ background: `linear-gradient(to right, ${studentsColors.primary}10, ${studentsColors.secondary}10)` }}>
-                  <h4 className="text-2xl font-bold mb-4 flex items-center" style={{ color: studentsColors.primary }}>
+                  <h4 className="text-2xl font-bold mb-4 flex items-center text-gray-900">
                     <span className="text-3xl mr-3"></span>
                     What Students Gain
                   </h4>
@@ -430,14 +430,14 @@ export default function EIE1Page() {
                 </div>
 
                 <div>
-                  <h4 className="text-2xl font-bold mb-4 flex items-center" style={{ color: studentsColors.primary }}>
+                  <h4 className="text-2xl font-bold mb-4 flex items-center text-gray-900">
                     <span className="text-3xl mr-3"></span>
                     Why Industry Partners Love Spark
                   </h4>
 
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="rounded-xl p-5 border-2" style={{ backgroundColor: `${studentsColors.primary}08`, borderColor: studentsColors.primary }}>
-                      <h5 className="text-lg font-bold mb-3" style={{ color: studentsColors.primary }}>Access Curated Talent Pipeline</h5>
+                      <h5 className="text-lg font-bold mb-3 text-gray-900">Access Curated Talent Pipeline</h5>
                       <ul className="space-y-1 text-sm text-gray-700">
                         <li>• Identify critical thinkers before they become founders</li>
                         <li>• Engage with evidence-based innovators</li>
@@ -446,7 +446,7 @@ export default function EIE1Page() {
                     </div>
 
                     <div className="rounded-xl p-5 border-2" style={{ backgroundColor: `${studentsColors.secondary}08`, borderColor: studentsColors.secondary }}>
-                      <h5 className="text-lg font-bold mb-3" style={{ color: studentsColors.secondary }}>Strategic Intelligence</h5>
+                      <h5 className="text-lg font-bold mb-3 text-gray-900">Strategic Intelligence</h5>
                       <ul className="space-y-1 text-sm text-gray-700">
                         <li>• Access "Book of Validated Problems" - 20+ investable opportunities</li>
                         <li>• Insights from 4,000+ student observations</li>
@@ -455,7 +455,7 @@ export default function EIE1Page() {
                     </div>
 
                     <div className="rounded-xl p-5 border-2" style={{ backgroundColor: `${studentsColors.accent}08`, borderColor: studentsColors.accent }}>
-                      <h5 className="text-lg font-bold mb-3" style={{ color: studentsColors.accent }}>Partnership Opportunities</h5>
+                      <h5 className="text-lg font-bold mb-3 text-gray-900">Partnership Opportunities</h5>
                       <p className="text-sm text-gray-700 mb-2"><strong>Problem Challenge Track:</strong> Submit your real-world business challenges. Top Spark teams will:</p>
                       <ul className="space-y-1 text-sm text-gray-700">
                         <li>• Conduct deep validation research</li>
@@ -496,14 +496,14 @@ export default function EIE1Page() {
                 </div>
 
                 <div>
-                  <h4 className="text-2xl font-bold mb-4 flex items-center" style={{ color: studentsColors.primary }}>
+                  <h4 className="text-2xl font-bold mb-4 flex items-center text-gray-900">
                     <span className="text-3xl mr-3"></span>
                     Program Timeline
                   </h4>
 
                   <div className="space-y-3">
                     <div className="border-l-4 p-4 rounded-r-xl" style={{ backgroundColor: `${studentsColors.primary}10`, borderColor: studentsColors.primary }}>
-                      <h5 className="text-lg font-bold mb-2" style={{ color: studentsColors.primary }}>August - December: CIE Spark</h5>
+                      <h5 className="text-lg font-bold mb-2 text-gray-900">August - December: CIE Spark</h5>
                       <ul className="space-y-1 text-base text-gray-700">
                         <li>• Phase 1: Individual Problem Hunting</li>
                         <li>• Phase 2: Multidisciplinary Team Formation</li>
@@ -512,12 +512,12 @@ export default function EIE1Page() {
                     </div>
 
                     <div className="border-l-4 p-4 rounded-r-xl" style={{ backgroundColor: `${studentsColors.accent}10`, borderColor: studentsColors.accent }}>
-                      <h5 className="text-lg font-bold mb-2" style={{ color: studentsColors.accent }}>December: Grand Finale</h5>
+                      <h5 className="text-lg font-bold mb-2 text-gray-900">December: Grand Finale</h5>
                       <p className="text-base text-gray-700">Top 50 Announcement & Recognition</p>
                     </div>
 
                     <div className="border-l-4 p-4 rounded-r-xl" style={{ backgroundColor: `${studentsColors.secondary}10`, borderColor: studentsColors.secondary }}>
-                      <h5 className="text-lg font-bold mb-2" style={{ color: studentsColors.secondary }}>January - April: CIE Ignite</h5>
+                      <h5 className="text-lg font-bold mb-2 text-gray-900">January - April: CIE Ignite</h5>
                       <ul className="space-y-1 text-base text-gray-700">
                         <li>• Top Spark teams build solutions for validated problems</li>
                         <li>• Pretotyping, mentorship, and investor pitching</li>
@@ -525,20 +525,20 @@ export default function EIE1Page() {
                     </div>
 
                     <div className="border-l-4 p-4 rounded-r-xl" style={{ backgroundColor: `${studentsColors.primary}10`, borderColor: studentsColors.primary }}>
-                      <h5 className="text-lg font-bold mb-2" style={{ color: studentsColors.primary }}>April: Demo Day</h5>
+                      <h5 className="text-lg font-bold mb-2 text-gray-900">April: Demo Day</h5>
                       <p className="text-base text-gray-700">Final pitches and showcase</p>
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <h4 className="text-2xl font-bold mb-4 flex items-center" style={{ color: studentsColors.primary }}>
+                  <h4 className="text-2xl font-bold mb-4 flex items-center text-gray-900">
                     <span className="text-3xl mr-3"></span>
                     Success Stories
                   </h4>
 
                   <div className="rounded-2xl p-6" style={{ background: `linear-gradient(to right, ${studentsColors.primary}08, ${studentsColors.secondary}08)` }}>
-                    <h5 className="text-xl font-bold mb-4" style={{ color: studentsColors.primary }}>Student Ventures Born from CIE</h5>
+                    <h5 className="text-xl font-bold mb-4 text-gray-900">Student Ventures Born from CIE</h5>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="bg-white rounded-lg p-4 shadow-sm">
                         <h6 className="font-bold text-gray-900 mb-1">PocketCoach</h6>
@@ -572,7 +572,7 @@ export default function EIE1Page() {
                   </div>
 
                   <div className="rounded-2xl p-6 mt-4" style={{ background: `linear-gradient(to right, ${studentsColors.secondary}10, ${studentsColors.accent}10)` }}>
-                    <h5 className="text-xl font-bold mb-3" style={{ color: studentsColors.secondary }}>Industry Impact</h5>
+                    <h5 className="text-xl font-bold mb-3 text-gray-900">Industry Impact</h5>
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-center">
                       <div className="bg-white rounded-lg p-3 shadow-sm">
                         <p className="font-semibold text-gray-900">Intel</p>
@@ -599,23 +599,23 @@ export default function EIE1Page() {
                 </div>
 
                 <div className="rounded-2xl p-6" style={{ background: `linear-gradient(to right, ${studentsColors.primary}10, ${studentsColors.accent}10)` }}>
-                  <h4 className="text-2xl font-bold mb-4 flex items-center" style={{ color: studentsColors.primary }}>
+                  <h4 className="text-2xl font-bold mb-4 flex items-center text-gray-900">
                     <span className="text-3xl mr-3"></span>
                     Get Involved
                   </h4>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h5 className="text-lg font-bold mb-3" style={{ color: studentsColors.primary }}>Students</h5>
+                      <h5 className="text-lg font-bold mb-3 text-gray-900">Students</h5>
                       <ul className="space-y-2 text-base text-gray-700">
-                        <li><strong>Email:</strong> <a href="mailto:cieprogram@pes.edu" style={{ color: studentsColors.primary }} className="hover:underline">cieprogram@pes.edu</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:cieprogram@pes.edu" className="text-blue-600 hover:underline">cieprogram@pes.edu</a></li>
                         <li><strong>Visit:</strong> CIE Office, PES University</li>
                         <li><strong>Follow:</strong> CIE PESU on social media</li>
                       </ul>
                     </div>
 
                     <div>
-                      <h5 className="text-lg font-bold mb-3" style={{ color: studentsColors.primary }}>Industry Partners</h5>
+                      <h5 className="text-lg font-bold mb-3 text-gray-900">Industry Partners</h5>
                       <p className="text-base text-gray-700 italic mb-3">"Spark gives us a live feed of emerging market needs and connects us with talent that thinks differently. It's our most reliable innovation radar." <br />— InzpireU</p>
                       <Button style={{ background: `linear-gradient(to right, ${studentsColors.primary}, ${studentsColors.secondary})` }} className="text-white">
                         <a href="mailto:cieprogram@pes.edu">Become a Partner</a>
@@ -797,3 +797,16 @@ export default function EIE1Page() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

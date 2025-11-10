@@ -4,154 +4,164 @@ import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexago
 import { SECTION_COLORS } from '@/styles/colors';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { InView } from '@/components/core/in-view';
 import { 
   Mail,
   Calendar,
-  Users,
   TrendingUp,
   BookOpen,
   Building2,
   CheckCircle,
-  ArrowRight,
-  MessageCircle,
-  Clock,
   Star,
   Globe,
-  Award,
-  Briefcase,
-  GraduationCap,
   Network,
   Bell,
-  Eye,
   Share2,
   Download,
-  Archive,
-  Edit
+  Edit,
+  FileText,
+  ExternalLink
 } from 'lucide-react';
 
 export default function AlumniNewsletterPage() {
   const alumniColors = SECTION_COLORS.alumni;
   const newsletterStats = [
-    { label: 'Subscribers', value: '15,000+', icon: Users },
-    { label: 'Monthly Editions', value: '12', icon: Calendar },
-    { label: 'Open Rate', value: '68%', icon: Eye },
-    { label: 'Global Reach', value: '45+ Countries', icon: Globe }
+    { label: 'Issues Published', value: '10+', icon: FileText },
+    { label: 'Years Active', value: '6+', icon: Calendar },
+    { label: 'Community Reach', value: 'Global', icon: Globe },
+    { label: 'Latest Issue', value: 'Issue 10', icon: Star }
   ];
 
-  const recentEditions = [
+  // Newsletter editions with actual PDF links
+  const newsletterEditions = [
     {
-      title: 'PES Alumni Connect - March 2024',
-      subtitle: 'Innovation & Technology Special',
-      date: '2024-03-15',
-      highlights: [
-        'AI Research Breakthrough by Dr. Priya Sharma',
-        'Tech Startup Funding Success Stories',
-        'Upcoming Technology Summit Details',
-        'Career Opportunities in AI/ML'
-      ],
-      readTime: '8 min read',
-      downloads: '2,400',
+      issue: 10,
+      title: 'CIE Newsletter - Issue 10',
+      date: 'December 2023',
+      description: 'Latest updates from the Centre for Innovation and Entrepreneurship',
+      pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2023/12/CIE-Newsletter_Issue-8.pdf',
       featured: true
     },
     {
-      title: 'PES Alumni Connect - February 2024',
-      subtitle: 'Entrepreneurship & Leadership',
-      date: '2024-02-15',
-      highlights: [
-        'Alumni Startup Ecosystem Report',
-        'Leadership Development Programs',
-        'New Chapter Launches Worldwide',
-        'Mentorship Program Expansion'
-      ],
-      readTime: '7 min read',
-      downloads: '2,100',
+      issue: 9,
+      title: 'CIE Newsletter - Issue 9',
+      date: 'December 2023',
+      description: 'Innovation highlights and entrepreneurship success stories',
+      pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2023/12/CIE-Newsletter_Issue-8.pdf',
       featured: false
     },
     {
-      title: 'PES Alumni Connect - January 2024',
-      subtitle: 'New Year, New Opportunities',
-      date: '2024-01-15',
-      highlights: [
-        '2024 Career Outlook & Trends',
-        'Alumni Achievement Awards',
-        'Research Collaboration Opportunities',
-        'Professional Development Goals'
-      ],
-      readTime: '9 min read',
-      downloads: '2,600',
+      issue: 8,
+      title: 'CIE Newsletter - Issue 8',
+      date: 'December 2023',
+      description: 'Celebrating achievements and breakthroughs in innovation',
+      pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2023/12/CIE-Newsletter_Issue-8.pdf',
+      featured: false
+    },
+    {
+      issue: 7,
+      title: 'CIE Newsletter - Issue 7',
+      date: 'June 2023',
+      description: 'Mid-year innovation roundup and upcoming initiatives',
+      pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2023/07/CIE-Newsletter-Issue7_Jun2023.pdf',
+      featured: false
+    },
+    {
+      issue: 6,
+      title: 'CIE Newsletter - Issue 6',
+      date: 'August 2022',
+      description: 'Startup ecosystem updates and entrepreneurial journeys',
+      pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2022/08/CIE-Newsletter_Aug2022-1.pdf',
+      featured: false
+    },
+    {
+      issue: 5,
+      title: 'CIE Newsletter - Issue 5',
+      date: 'March 2020',
+      description: 'Innovation in challenging times and resilience stories',
+      pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2020/07/CIE-Newsletter_March2020.pdf',
+      featured: false
+    },
+    {
+      issue: 4,
+      title: 'CIE Newsletter - Issue 4',
+      date: 'September 2019',
+      description: 'Growing the innovation ecosystem and new ventures',
+      pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2019/09/cie_newsletter_web-1.pdf',
+      featured: false
+    },
+    {
+      issue: 3,
+      title: 'CIE Newsletter - Issue 3',
+      date: '2019',
+      description: 'Entrepreneurship education and startup success stories',
+      pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2019/pdf/CIE%20Newsletter_Issue3r.pdf',
+      featured: false
+    },
+    {
+      issue: 2,
+      title: 'CIE Newsletter - Issue 2',
+      date: 'September 2019',
+      description: 'Building connections and fostering innovation culture',
+      pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2019/09/CIE-Newsletter-Issue-2.pdf',
+      featured: false
+    },
+    {
+      issue: 1,
+      title: 'CIE Newsletter - Issue 1',
+      date: 'Q3 2018',
+      description: 'Inaugural edition - Launching the CIE newsletter',
+      pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2019/09/CIE-Newsletter-Q3-2018.pdf',
       featured: false
     }
   ];
 
   const newsletterSections = [
     {
-      title: 'Alumni Spotlight',
-      description: 'Featured stories of alumni achievements, career milestones, and success stories.',
+      title: 'Innovation Stories',
+      description: 'Showcasing groundbreaking projects, startup journeys, and innovative solutions from the CIE community.',
       icon: Star,
       frequency: 'Every Issue'
     },
     {
-      title: 'Industry Insights',
-      description: 'Latest trends, market analysis, and professional insights across various industries.',
+      title: 'Startup Spotlight',
+      description: 'Featured startups, their journey from ideation to launch, and success milestones achieved.',
       icon: TrendingUp,
-      frequency: 'Monthly'
+      frequency: 'Regular'
     },
     {
-      title: 'Career Opportunities',
-      description: 'Job openings, internship programs, and career advancement opportunities.',
-      icon: Briefcase,
-      frequency: 'Bi-weekly'
-    },
-    {
-      title: 'Events & Networking',
-      description: 'Upcoming alumni events, chapter meetings, and networking opportunities worldwide.',
+      title: 'Events & Workshops',
+      description: 'Upcoming events, workshops, bootcamps, and networking opportunities at CIE.',
       icon: Calendar,
       frequency: 'Every Issue'
     },
     {
-      title: 'Research & Innovation',
-      description: 'Latest research developments, publication announcements, and innovation highlights.',
-      icon: BookOpen,
-      frequency: 'Monthly'
+      title: 'Industry Partnerships',
+      description: 'Collaborations with industry leaders, mentorship programs, and partnership announcements.',
+      icon: Building2,
+      frequency: 'Regular'
     },
     {
-      title: 'University Updates',
-      description: 'News from campus, new programs, faculty achievements, and institutional developments.',
-      icon: GraduationCap,
+      title: 'Research & Development',
+      description: 'Latest research initiatives, technology developments, and academic collaborations.',
+      icon: BookOpen,
+      frequency: 'Regular'
+    },
+    {
+      title: 'Community Updates',
+      description: 'News from CIE, program updates, achievements, and upcoming opportunities.',
+      icon: Network,
       frequency: 'Every Issue'
     }
   ];
 
   const subscriptionBenefits = [
-    'Exclusive alumni news and updates',
-    'Early access to event registrations',
-    'Career opportunity notifications',
-    'Industry insights and reports',
-    'Networking event invitations',
-    'Professional development resources'
-  ];
-
-  const pastHighlights = [
-    {
-      month: 'December 2023',
-      title: 'Year in Review Special',
-      highlights: '50+ Alumni Success Stories, Annual Impact Report'
-    },
-    {
-      month: 'November 2023',
-      title: 'Global Alumni Conference',
-      highlights: 'Conference Highlights, Keynote Speeches, Networking Updates'
-    },
-    {
-      month: 'October 2023',
-      title: 'Innovation & Research',
-      highlights: 'Research Breakthroughs, Patent Achievements, Collaboration News'
-    },
-    {
-      month: 'September 2023',
-      title: 'Career Development Focus',
-      highlights: 'Industry Trends, Job Market Analysis, Skill Development Tips'
-    }
+    'Stay updated with latest CIE initiatives and programs',
+    'Early access to event registrations and workshops',
+    'Exclusive startup and innovation stories',
+    'Networking opportunities with industry partners',
+    'Access to mentorship and funding opportunities',
+    'First-hand updates on research and development'
   ];
 
   return (
@@ -195,7 +205,7 @@ export default function AlumniNewsletterPage() {
                 Subscribe Now
               </Button>
               <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
-                <Archive className="w-5 h-5 mr-2" />
+                <FileText className="w-5 h-5 mr-2" />
                 Browse Archives
               </Button>
             </div>
@@ -244,7 +254,7 @@ export default function AlumniNewsletterPage() {
         </div>
       </section>
 
-      {/* Recent Editions Section */}
+      {/* Newsletter Archive Section with InView */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -254,88 +264,100 @@ export default function AlumniNewsletterPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Recent Editions
+              Newsletter Archive
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Catch up on our latest newsletter editions featuring alumni achievements,
-              industry insights, and community updates.
+              Browse through all editions of the CIE Newsletter featuring innovation stories,
+              startup journeys, and community updates.
             </p>
           </motion.div>
 
-          <div className="space-y-8">
-            {recentEditions.map((edition, index) => (
-              <motion.div
-                key={edition.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`p-8 rounded-3xl border hover:shadow-xl transition-all duration-300 ${
-                  edition.featured
-                    ? 'bg-gradient-to-r from-blue-50 to-cyan-50 border-blue-200'
-                    : 'bg-white border-gray-200'
-                }`}
+          <div className="space-y-6">
+            {newsletterEditions.map((edition, index) => (
+              <InView
+                key={edition.issue}
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: 50,
+                    scale: 0.95,
+                    filter: 'blur(4px)',
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    filter: 'blur(0px)',
+                  },
+                }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.05 }}
+                viewOptions={{ margin: '0px 0px -100px 0px' }}
               >
-                <div className="grid lg:grid-cols-3 gap-8 items-center">
-                  <div className="lg:col-span-2">
-                    <div className="flex items-center gap-4 mb-4">
-                      {edition.featured && (
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                          Latest Edition
-                        </span>
-                      )}
-                      <span className="text-sm text-gray-500">
-                        <Clock className="w-4 h-4 inline mr-1" />
-                        {edition.readTime}
-                      </span>
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-                      {edition.title}
-                    </h3>
-                    <p className="text-lg text-blue-600 font-semibold mb-4">{edition.subtitle}</p>
-                    
-                    <div className="mb-6">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-3">In This Edition:</h4>
-                      <div className="grid md:grid-cols-2 gap-2">
-                        {edition.highlights.map((highlight) => (
-                          <div key={highlight} className="flex items-start gap-2">
-                            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                            <span className="text-sm text-gray-700">{highlight}</span>
+                <div
+                  className={`p-6 md:p-8 rounded-3xl border hover:shadow-xl transition-all duration-300 ${
+                    edition.featured
+                      ? 'bg-gradient-to-r from-blue-50 to-cyan-50 border-blue-200'
+                      : 'bg-white border-gray-200'
+                  }`}
+                >
+                  <div className="grid lg:grid-cols-4 gap-6 items-center">
+                    {/* Issue Number Badge */}
+                    <div className="lg:col-span-1 flex lg:justify-center">
+                      <div className="relative">
+                        <div className="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg">
+                          <div className="text-center">
+                            <div className="text-xs md:text-sm font-semibold text-blue-200 mb-1">ISSUE</div>
+                            <div className="text-3xl md:text-4xl font-bold text-white">{edition.issue}</div>
                           </div>
-                        ))}
+                        </div>
+                        {edition.featured && (
+                          <div className="absolute -top-2 -right-2 bg-yellow-500 rounded-full p-2">
+                            <Star className="w-4 h-4 text-white fill-white" />
+                          </div>
+                        )}
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4 text-sm text-gray-500">
-                        <span className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
-                          {new Date(edition.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                    {/* Content */}
+                    <div className="lg:col-span-2">
+                      {edition.featured && (
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 mb-3">
+                          Latest Edition
                         </span>
-                        <span className="flex items-center gap-1">
-                          <Download className="w-4 h-4" />
-                          {edition.downloads} downloads
-                        </span>
+                      )}
+                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+                        {edition.title}
+                      </h3>
+                      <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                        <Calendar className="w-4 h-4" />
+                        <span>{edition.date}</span>
                       </div>
-                      <div className="flex gap-3">
-                        <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold">
-                          <Eye className="w-4 h-4 mr-2" />
-                          Read Online
-                        </Button>
-                        <Button className="border border-blue-300 text-blue-600 hover:bg-blue-50 px-6 py-2 rounded-xl font-semibold bg-transparent">
-                          <Download className="w-4 h-4 mr-2" />
-                          Download PDF
-                        </Button>
-                      </div>
+                      <p className="text-gray-600 mb-4">{edition.description}</p>
                     </div>
-                  </div>
-                  
-                  <div className="lg:col-span-1">
-                    <div className="w-full h-64 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-2xl flex items-center justify-center">
-                      <Mail className="w-16 h-16 text-blue-600" />
+
+                    {/* Actions */}
+                    <div className="lg:col-span-1 flex flex-col gap-3">
+                      <a
+                        href={edition.pdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-xl font-semibold transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        <span>Open PDF</span>
+                      </a>
+                      <a
+                        href={edition.pdfUrl}
+                        download
+                        className="inline-flex items-center justify-center gap-2 border-2 border-blue-300 text-blue-600 hover:bg-blue-50 px-4 py-3 rounded-xl font-semibold transition-colors"
+                      >
+                        <Download className="w-4 h-4" />
+                        <span>Download</span>
+                      </a>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </InView>
             ))}
           </div>
         </div>
@@ -461,7 +483,7 @@ export default function AlumniNewsletterPage() {
         </div>
       </section>
 
-      {/* Past Highlights Section */}
+      {/* Quick Stats Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -471,46 +493,68 @@ export default function AlumniNewsletterPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Newsletter Archives
+              Newsletter Journey
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Browse through our past editions and catch up on important
-              alumni community developments and achievements.
+              From our first issue in 2018 to the latest edition, the CIE Newsletter
+              has been documenting innovation, entrepreneurship, and community growth.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {pastHighlights.map((highlight, index) => (
-              <motion.div
-                key={highlight.month}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">{highlight.title}</h3>
-                    <p className="text-sm text-blue-600 font-semibold">{highlight.month}</p>
-                  </div>
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                    <Archive className="w-6 h-6 text-blue-600" />
-                  </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <InView
+              variants={{
+                hidden: { opacity: 0, x: -30 },
+                visible: { opacity: 1, x: 0 },
+              }}
+              transition={{ duration: 0.6 }}
+              viewOptions={{ margin: '0px 0px -100px 0px' }}
+            >
+              <div className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300 text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <FileText className="w-8 h-8 text-blue-600" />
                 </div>
-                <p className="text-gray-600 mb-4">{highlight.highlights}</p>
-                <Button className="text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg font-semibold bg-transparent border border-blue-200">
-                  <Eye className="w-4 h-4 mr-2" />
-                  View Edition
-                </Button>
-              </motion.div>
-            ))}
-          </div>
+                <div className="text-4xl font-bold text-gray-900 mb-2">10+</div>
+                <div className="text-gray-600 font-medium">Issues Published</div>
+                <p className="text-sm text-gray-500 mt-2">Since Q3 2018</p>
+              </div>
+            </InView>
 
-          <div className="text-center mt-12">
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-semibold">
-              <Archive className="w-5 h-5 mr-2" />
-              View All Archives
-            </Button>
+            <InView
+              variants={{
+                hidden: { opacity: 0, y: 30, scale: 0.95 },
+                visible: { opacity: 1, y: 0, scale: 1 },
+              }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewOptions={{ margin: '0px 0px -100px 0px' }}
+            >
+              <div className="bg-gradient-to-br from-blue-600 to-cyan-600 p-8 rounded-3xl shadow-xl text-center text-white">
+                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Star className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-4xl font-bold mb-2">6+</div>
+                <div className="font-medium mb-2">Years of Stories</div>
+                <p className="text-sm text-blue-100">Innovation & Entrepreneurship</p>
+              </div>
+            </InView>
+
+            <InView
+              variants={{
+                hidden: { opacity: 0, x: 30 },
+                visible: { opacity: 1, x: 0 },
+              }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewOptions={{ margin: '0px 0px -100px 0px' }}
+            >
+              <div className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300 text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="w-8 h-8 text-green-600" />
+                </div>
+                <div className="text-4xl font-bold text-gray-900 mb-2">100+</div>
+                <div className="text-gray-600 font-medium">Success Stories</div>
+                <p className="text-sm text-gray-500 mt-2">Featured & Shared</p>
+              </div>
+            </InView>
           </div>
         </div>
       </section>
