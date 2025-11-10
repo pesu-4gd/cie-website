@@ -213,7 +213,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="group cursor-pointer"
-              onClick={() => window.location.href = '/alumni'}
+              onClick={() => window.location.href = '/alumni/welcome'}
             >
               <div className="bg-white rounded-2xl p-5 hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 h-56 flex flex-col justify-between">
                 <div className="flex items-center mb-4">

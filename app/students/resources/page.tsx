@@ -197,7 +197,7 @@ export default function ResourcesPage() {
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Fuel Your Entrepreneurial Journey
             </h1>
-            <p className="text-xl text-black-200 max-w-4xl mx-auto">
+            <p className="text-xl text-white max-w-4xl mx-auto">
               The Centre for Innovation and Entrepreneurship (CIE) at PES University is committed to empowering students, entrepreneurs, and professionals with the tools and knowledge needed to succeed in today's dynamic landscape.
             </p>
           </div>

@@ -31,9 +31,9 @@ export default function StudentStartupProgramPage() {
   const studentsColors = SECTION_COLORS.students;
   const programStats = [
     { label: 'Startups Launched', value: '50+', icon: Rocket, color: 'blue' },
-    { label: 'Total Funding Raised', value: '₹2Cr+', icon: DollarSign, color: 'green' },
-    { label: 'Students Involved', value: '500+', icon: Users, color: 'purple' },
-    { label: 'Success Rate', value: '85%', icon: Target, color: 'orange' }
+    { label: 'Total Funding Raised', value: '₹2Cr+', icon: DollarSign, color: 'blue' },
+    { label: 'Students Involved', value: '500+', icon: Users, color: 'blue' },
+    { label: 'Success Rate', value: '85%', icon: Target, color: 'blue' }
   ];
 
   const fundingOpportunities = [
@@ -55,7 +55,7 @@ export default function StudentStartupProgramPage() {
       eligibility: 'Tech startups in IoT, AI, or emerging tech',
       process: 'Application → Technical Review → Presentation → Funding',
       timeline: '6-8 weeks',
-      color: 'green'
+      color: 'blue'
     },
     {
       title: 'PESU Venture Labs',
@@ -65,7 +65,7 @@ export default function StudentStartupProgramPage() {
       eligibility: 'Startups with proven traction and growth potential',
       process: 'Business Plan → Due Diligence → Term Sheet → Investment',
       timeline: '8-12 weeks',
-      color: 'purple'
+      color: 'blue'
     },
     {
       title: 'CIE Ignite Prize Fund',
@@ -75,7 +75,7 @@ export default function StudentStartupProgramPage() {
       eligibility: '2nd year students participating in CIE Ignite',
       process: 'Participate → Advance stages → Final pitch → Awards',
       timeline: '4 months',
-      color: 'orange'
+      color: 'blue'
     }
   ];
 
@@ -246,10 +246,10 @@ export default function StudentStartupProgramPage() {
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
+              {/* <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
                 <BookOpen className="w-5 h-5 mr-2" />
                 Learn More
-              </Button>
+              </Button> */}
             </div>
           </motion.div>
         </div>
@@ -296,7 +296,7 @@ export default function StudentStartupProgramPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Program <span className="text-[#00338d]">Overview</span>
+              Program <span style={{ color: studentsColors.primary }}>Overview</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               A comprehensive ecosystem designed to support student entrepreneurs from ideation to market success.
@@ -321,8 +321,8 @@ export default function StudentStartupProgramPage() {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <Users className="w-6 h-6 text-green-600" />
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                    <Users className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Comprehensive Support System</h3>
@@ -331,8 +331,8 @@ export default function StudentStartupProgramPage() {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <Building2 className="w-6 h-6 text-purple-600" />
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                    <Building2 className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">World-Class Resources</h3>
@@ -341,8 +341,8 @@ export default function StudentStartupProgramPage() {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <TrendingUp className="w-6 h-6 text-orange-600" />
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                    <TrendingUp className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Scale & Growth Support</h3>
@@ -386,7 +386,7 @@ export default function StudentStartupProgramPage() {
                 </div>
               </div>
               
-              <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl">
+              <div className="mt-8 p-6 rounded-2xl" style={{ backgroundColor: `${studentsColors.primary}1A` }}>
                 <div className="flex items-center mb-3">
                   <Star className="w-5 h-5 text-yellow-500 mr-2" />
                   <span className="font-bold text-gray-900">Success Rate: 85%</span>
@@ -410,7 +410,7 @@ export default function StudentStartupProgramPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Funding <span className="text-[#f07f1a]">Opportunities</span>
+              Funding <span style={{ color: studentsColors.secondary }}>Opportunities</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Multiple funding pathways to support your startup journey from idea validation to scaling.
@@ -476,7 +476,7 @@ export default function StudentStartupProgramPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Success <span className="text-[#00338d]">Stories</span>
+              Success <span style={{ color: studentsColors.primary }}>Stories</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Real startups launched by our students, creating impact and driving innovation.
@@ -527,7 +527,7 @@ export default function StudentStartupProgramPage() {
                         <div className="text-sm text-gray-600">{story.currentStatus}</div>
                       </div>
                       
-                      <Button className="w-full bg-[#00338d] hover:bg-blue-700 text-white text-sm">
+                      <Button className="w-full text-white text-sm" style={{ background: studentsColors.primary }}>
                         <ArrowRight className="w-4 h-4 mr-2" />
                         Read Full Story
                       </Button>
@@ -550,7 +550,7 @@ export default function StudentStartupProgramPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Application <span className="text-[#f07f1a]">Process</span>
+              Application <span style={{ color: studentsColors.secondary }}>Process</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               A straightforward 4-step process to join our startup ecosystem.
@@ -567,7 +567,7 @@ export default function StudentStartupProgramPage() {
                 className="relative"
               >
                 <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-[#00338d] to-[#f07f1a] rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4" style={{ background: studentsColors.gradient.css }}>
                     <span className="text-2xl font-bold text-white">{step.step}</span>
                   </div>
                   
@@ -596,17 +596,17 @@ export default function StudentStartupProgramPage() {
             ))}
           </div>
           
-          <div className="text-center mt-12">
-            <Button className="bg-gradient-to-r from-[#00338d] to-[#f07f1a] text-white px-8 py-4 text-lg font-semibold rounded-xl">
+          {/* <div className="text-center mt-12">
+            <Button className="text-white px-8 py-4 text-lg font-semibold rounded-xl" style={{ background: studentsColors.primary }}>
               <UserPlus className="w-5 h-5 mr-2" />
               Start Your Application
             </Button>
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-[#00338d] to-[#f07f1a]">
+      <section className="py-20" style={{ background: studentsColors.gradient.css }}>
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -621,16 +621,16 @@ export default function StudentStartupProgramPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
-                <a href="mailto:cieprogram@pes.edu" className="flex items-center">
+              <Button asChild className="bg-white hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+                <a href="mailto:cieprogram@pes.edu" className="flex items-center" style={{ color: studentsColors.primary }}>
                   <Rocket className="w-5 h-5 mr-2" />
                   Inquire
                 </a>
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              {/* <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Schedule Consultation
-              </Button>
+              </Button> */}
             </div>
             
             <div className="mt-8">

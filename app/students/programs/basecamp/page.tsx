@@ -351,7 +351,7 @@ const BasecampPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-pes-navy via-blue-500 to-pes-orange bg-clip-text text-transparent mb-8">
+            <h1 className="text-5xl lg:text-7xl font-bold mb-8 text-[color:var(--students-primary)]">
               CIE Basecamp 2018
             </h1>
             <p className="text-xl lg:text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed">
@@ -365,14 +365,15 @@ const BasecampPage = () => {
                   <Rocket className="w-5 h-5 mr-2" />
                   Explore Now
                 </Button> */}
-                <Button 
-                variant="cie" 
-                size="lg"
-                className={`group ${'bg-gradient-to-r ' + studentsColors.gradient.tailwind} text-white`}
-              >
-                Explore Programs
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+                <Button
+                  variant="cie"
+                  size="lg"
+                  className="group text-white"
+                  style={{ backgroundColor: studentsColors.primary }}
+                >
+                  Explore Programs
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
               </Link>
 
               <Button
@@ -439,7 +440,7 @@ const BasecampPage = () => {
                   viewport={{ once: true }}
                   className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-pes-orange to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 bg-[color:var(--students-secondary)]">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
                   <div className="text-3xl font-bold text-pes-navy mb-2">{stat.value}</div>
@@ -491,7 +492,7 @@ const BasecampPage = () => {
                       whileHover={{ scale: 1.02 }}
                       className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
                     >
-                      <div className="relative h-48 bg-gradient-to-br from-blue-500 to-purple-600">
+                      <div className="relative h-48 bg-[color:var(--students-primary)]">
                         <div className="absolute inset-0 flex items-center justify-center">
                           <div className="text-center text-white">
                             <Calendar className="w-8 h-8 mx-auto mb-2" />
@@ -599,10 +600,10 @@ const BasecampPage = () => {
                     <motion.div
                       key={expert.name}
                       whileHover={{ scale: 1.02 }}
-                      className="bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300"
+                      className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300"
                     >
                       <div className="flex items-start gap-6">
-                        <div className="w-20 h-20 bg-gradient-to-br from-pes-navy to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <div className="w-20 h-20 bg-[color:var(--students-secondary)] rounded-2xl flex items-center justify-center flex-shrink-0">
                           <Users className="w-8 h-8 text-white" />
                         </div>
                         <div className="flex-1">
@@ -658,7 +659,7 @@ const BasecampPage = () => {
       </section>
 
       {/* Program Highlights */}
-      <section className="py-20 bg-gradient-to-br from-pes-navy to-blue-800 text-white">
+      <section className="py-20 bg-[color:var(--students-primary)] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -681,7 +682,7 @@ const BasecampPage = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-pes-orange to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-[color:var(--students-secondary)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <MessageSquare className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold mb-4">Interactive Learning</h3>
@@ -697,7 +698,7 @@ const BasecampPage = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-pes-orange to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-[color:var(--students-secondary)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <TrendingUp className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold mb-4">Feedback-Driven</h3>
@@ -713,7 +714,7 @@ const BasecampPage = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-pes-orange to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-[color:var(--students-secondary)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Globe className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold mb-4">Cross-Domain Exposure</h3>
@@ -726,7 +727,7 @@ const BasecampPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-orange-50 to-blue-50">
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -740,15 +741,17 @@ const BasecampPage = () => {
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Join our current programs and experience hands-on learning with industry experts
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-gradient-to-r from-pes-navy to-blue-600 hover:from-pes-navy/90 hover:to-blue-600/90 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {/* <Button className="bg-gradient-to-r from-pes-navy to-blue-600 hover:from-pes-navy/90 hover:to-blue-600/90 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300">
                 <Rocket className="w-5 h-5 mr-2" />
                 Explore Current Programs
-              </Button>
-              <Button variant="outline" className="border-2 border-pes-orange text-pes-orange hover:bg-pes-orange hover:text-white px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300">
-                <Users className="w-5 h-5 mr-2" />
-                Contact Us
-              </Button>
+              </Button> */}
+              <a href="mailto:cieprogram@pes.edu" className="inline-block">
+                <Button variant="outline" className="border-2 border-pes-orange text-pes-orange hover:bg-pes-orange hover:text-black px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300">
+                  <Users className="w-5 h-5 mr-2" />
+                  Contact Us
+                </Button>
+              </a>
             </div>
           </motion.div>
         </div>

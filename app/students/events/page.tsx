@@ -52,126 +52,71 @@ type EventItem = {
 
 const upcomingEvents: EventItem[] = [
   {
-    id: '1',
-    title: 'CIE Ignite 2024 - Ideathon',
-    description: 'Annual flagship startup challenge for students. Transform your ideas into viable business concepts.',
-    date: '2024-02-15',
+    id: 'u1',
+    title: 'E-Summit 2025',
+    description: 'Anticipated flagship summit hosted by E-Cell with competitions, workshops, and industry speakers to foster entrepreneurial spirit.',
+    date: '2025-11-01',
     time: '09:00 AM',
-    endDate: '2024-02-17',
+    endDate: '2025-11-02',
     endTime: '06:00 PM',
-    location: 'CIE Innovation Hub',
-    category: 'Competition',
+    location: 'PES University',
+    category: 'Summit',
     type: 'Flagship',
-    registrationDeadline: '2024-02-10',
-    maxParticipants: 200,
-    currentRegistrations: 156,
-    eligibility: '2nd year students from all branches',
-    featured: true,
-    image: '/assets/cie-ignite-white-bg.png',
-    tags: ['startup', 'ideathon', 'competition', 'innovation']
+    featured: false,
+    tags: ['esummit', 'entrepreneurship', 'competition']
   },
   {
-    id: '2',
-    title: 'Product Management Workshop',
-    description: 'Learn PM fundamentals in the AI era with industry experts from top tech companies.',
-    date: '2024-02-20',
-    time: '02:00 PM',
-    endDate: '2024-02-20',
-    endTime: '05:00 PM',
-    location: 'Virtual + CIE Seminar Hall',
+    id: 'u3',
+    title: 'Workshops & Hackathons (Series)',
+    description: 'A rolling series of hands-on workshops and hackathons focused on AI, IoT, sustainability, and applied machine learning.',
+    date: '2025-12-01',
+    time: '09:00 AM',
+    endDate: '2026-03-01',
+    endTime: '06:00 PM',
+    location: 'Hybrid (CIE + Virtual)',
     category: 'Workshop',
     type: 'Educational',
-    registrationDeadline: '2024-02-18',
-    maxParticipants: 100,
-    currentRegistrations: 67,
-    speaker: 'Rahul Sharma, Senior PM at Google',
     featured: false,
-    tags: ['product management', 'AI', 'workshop', 'career']
-  },
-  {
-    id: '3',
-    title: 'Startup Funding Masterclass',
-    description: 'Understanding venture capital, angel investment, and alternative funding sources.',
-    date: '2024-02-25',
-    time: '10:00 AM',
-    endDate: '2024-02-25',
-    endTime: '04:00 PM',
-    location: 'CIE Conference Room',
-    category: 'Masterclass',
-    type: 'Educational',
-    registrationDeadline: '2024-02-23',
-    maxParticipants: 80,
-    currentRegistrations: 45,
-    speaker: 'Priya Nair, Partner at Accel Ventures',
-    featured: false,
-    tags: ['funding', 'venture capital', 'investment', 'masterclass']
-  },
-  {
-    id: '4',
-    title: 'Alumni Entrepreneur Meet',
-    description: 'Network with successful alumni entrepreneurs and learn from their journey.',
-    date: '2024-03-05',
-    time: '06:00 PM',
-    endDate: '2024-03-05',
-    endTime: '08:30 PM',
-    location: 'CIE Auditorium',
-    category: 'Networking',
-    type: 'Community',
-    registrationDeadline: '2024-03-03',
-    maxParticipants: 150,
-    currentRegistrations: 89,
-    featured: false,
-    tags: ['alumni', 'networking', 'entrepreneurship', 'community']
-  },
-  {
-    id: '5',
-    title: 'Design Thinking Bootcamp',
-    description: 'Intensive 2-day bootcamp on human-centered design and innovation methodologies.',
-    date: '2024-03-12',
-    time: '09:00 AM',
-    endDate: '2024-03-13',
-    endTime: '05:00 PM',
-    location: 'CIE Design Lab',
-    category: 'Bootcamp',
-    type: 'Educational',
-    registrationDeadline: '2024-03-08',
-    maxParticipants: 60,
-    currentRegistrations: 34,
-    featured: false,
-    tags: ['design thinking', 'innovation', 'bootcamp', 'methodology']
+    tags: ['workshop', 'hackathon', 'ai', 'iot']
   }
 ];
 
 const pastEvents: EventItem[] = [
   {
-    id: 'p1',
-    title: 'CIE Ignite 2023',
-    description: 'Last year\'s flagship ideathon with 180+ participants and innovative solutions.',
-    date: '2023-02-16',
-    category: 'Competition',
-    participants: 180,
-    winner: 'EcoTech Solutions - Sustainable packaging startup',
-    highlights: ['15 finalist teams', '₹1,50,000 in prizes', '3 startups launched'],
-    image: '/assets/cie-ignite-white-bg.png'
-  },
-  {
-    id: 'p2',
-    title: 'Entrepreneurship Summit 2023',
-    description: 'Annual summit featuring industry leaders and successful entrepreneurs.',
-    date: '2023-11-15',
+    id: 'p-esummit-2023',
+    title: 'E-Summit 2023',
+    description: 'Flagship event hosted by E-Cell featuring competitions like Founder Fusion and Startup Valley, keynote by Rohit Agarwala, and 200+ attendees.',
+    date: '2023-11-04',
     category: 'Summit',
-    participants: 300,
-    highlights: ['3 keynote sessions', '5 panel discussions', '50+ startups showcased']
+    participants: 200,
+    highlights: ['Founder Fusion', 'Startup Valley', 'Keynote by Rohit Agarwala'],
   },
   {
-    id: 'p3',
-    title: 'Hackathon for Social Good',
-    description: '48-hour hackathon focused on solving social and environmental challenges.',
-    date: '2023-09-22',
-    category: 'Hackathon',
-    participants: 120,
-    winner: 'HealthBridge - Rural healthcare access platform',
-    highlights: ['20 teams', '₹75,000 in prizes', '2 solutions implemented']
+    id: 'p-diplomat-4',
+    title: 'Diplomat Wars 4.0',
+    description: 'A prestigious Model UN-style diplomacy competition hosted by PES MUN Society with 50 teams and international guest inaugurations.',
+    date: '2024-02-03',
+    category: 'Competition',
+    participants: 50,
+    highlights: ['Negotiation simulations', 'Leadership and public speaking'],
+  },
+  {
+    id: 'p-indonesia-visit',
+    title: 'Indonesian Delegation Visit to PES & CIE',
+    description: 'A delegation of 45 senior officials visited CIE; students showcased prototypes and engaged in a leadership workshop organized with Deloitte.',
+    date: '2025-04-01',
+    category: 'Visit',
+    participants: 45,
+    highlights: ['Industry delegation', 'Student prototype demonstrations'],
+  },
+  {
+    id: 'p-gvl-2018',
+    title: 'Global Venture Lab Conference 2018',
+    description: 'PES University featured at the 10th GVL Conference at UC Berkeley; CIE presented new initiatives and connected with international educators.',
+    date: '2018-01-01',
+    category: 'Conference',
+    participants: 50,
+    highlights: ['International educators', 'Best-practice sharing'],
   }
 ];
 
@@ -266,8 +211,8 @@ function UpcomingEventsGrid({ events }: { events: EventItem[] }) {
               </div>
             </CardContent>
             <div className="p-4 pt-0">
-              <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                <Link href={`/students/events/${event.id}`}>Register Now</Link>
+              <Button asChild className="w-full bg-white text-[#3E3C6B] hover:bg-gray-100">
+                <a href="mailto:cieprogram@pes.edu">Inquire </a>
               </Button>
             </div>
           </Card>
@@ -404,13 +349,13 @@ export default function EventsPage() {
               Events & Programs
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Student <span className={`bg-clip-text text-transparent bg-gradient-to-r ${studentsColors.gradient.tailwind}`}>Events</span>
+              Student <span style={{ color: studentsColors.primary }}>Events</span>
             </h1>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
               Discover workshops, competitions, networking events, and learning opportunities 
               designed to accelerate your entrepreneurial journey.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-[#3E3C6B] hover:bg-gray-100">
                 <Rocket className="h-5 w-5 mr-2" />
                 Register for CIE Ignite
@@ -419,7 +364,7 @@ export default function EventsPage() {
                 <Calendar className="h-5 w-5 mr-2" />
                 View Event Calendar
               </Button>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>
@@ -427,94 +372,7 @@ export default function EventsPage() {
       {/* CIE Ignite Spotlight */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <Card className={`text-black border-0 overflow-hidden ${studentsColors.gradient.tailwind}`}>
-              <CardContent className="p-8 md:p-12">
-                <div className="grid md:grid-cols-3 gap-8 items-start">
-                  {/* Column 1: Image */}
-                  <div className="flex items-start md:items-center justify-center">
-                    <div className="w-36 h-36 md:w-56 md:h-56 rounded-lg overflow-hidden flex items-center justify-center bg-white p-4">
-                      <Image
-                        src="/assets/cie-ignite-white-bg.png"
-                        alt="CIE Ignite 2024"
-                        width={224}
-                        height={224}
-                        className="object-contain w-full h-full"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Column 2: Main content */}
-                  <div>
-                    <Badge className="mb-4 bg-red-100 text-red-600">
-                      <Trophy className="h-4 w-4 mr-1" />
-                      Flagship Event
-                    </Badge>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">CIE Ignite 2024</h2>
-                    <p className="text-black/90 text-lg mb-6 max-w-xl">
-                      Our annual flagship startup challenge where 2nd-year students transform
-                      innovative ideas into viable business concepts through intensive mentorship
-                      and expert guidance.
-                    </p>
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div>
-                        <p className="text-blue-600 text-sm font-medium">Prize Pool</p>
-                        <p className="text-black font-bold text-xl">₹2,00,000</p>
-                      </div>
-                      <div>
-                        <p className="text-blue-600 text-sm font-medium">Participants</p>
-                        <p className="text-black font-bold text-xl">200+ Students</p>
-                      </div>
-                    </div>
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <Button className="bg-white text-black hover:bg-gray-100">
-                        <ArrowRight className="h-4 w-4 mr-2" />
-                        Register Now
-                      </Button>
-                      <Button variant="outline" className="border-white text-black hover:bg-blue-600 hover:text-white hover:border-blue-600">
-                        <BookOpen className="h-4 w-4 mr-2" />
-                        Learn More
-                      </Button>
-                    </div>
-                  </div>
-
-                  {/* Column 3: Info boxes */}
-                  <div className="space-y-4">
-                    <div className="bg-white/10 rounded-lg p-4">
-                      <div className="flex items-center space-x-3 mb-2">
-                        <Calendar className="h-5 w-5 text-blue-600" />
-                        <span className="text-blue-600 font-medium">Event Dates</span>
-                      </div>
-                      <p className="text-black font-semibold">February 15-17, 2024</p>
-                    </div>
-
-                    <div className="bg-white/10 rounded-lg p-4">
-                      <div className="flex items-center space-x-3 mb-2">
-                        <MapPin className="h-5 w-5 text-blue-600" />
-                        <span className="text-blue-600 font-medium">Location</span>
-                      </div>
-                      <p className="text-black font-semibold">CIE Innovation Hub</p>
-                    </div>
-
-                    <div className="bg-white/10 rounded-lg p-4">
-                      <div className="flex items-center space-x-3 mb-2">
-                        <Users className="h-5 w-5 text-blue-600" />
-                        <span className="text-blue-600 font-medium">Registration</span>
-                      </div>
-                      <p className="text-black font-semibold">156/200 Registered</p>
-                      <div className="w-full bg-white/20 rounded-full h-2 mt-2">
-                        <div className="bg-blue-600 h-2 rounded-full w-[78%]"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+          {/* CIE Ignite spotlight removed per request */}
         </div>
       </section>
 
@@ -579,7 +437,7 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {/* Newsletter Signup */}
+      {/* Contact / Email Us */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -587,18 +445,9 @@ export default function EventsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Never Miss an Event
-            </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Subscribe to our newsletter and get notified about upcoming events, workshops, and opportunities
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-              <Input placeholder="Enter your email" className="flex-1" />
-              <Button className="bg-blue-600 hover:bg-blue-700">
-                Subscribe
-              </Button>
-            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Email Us</h2>
+            <p className="text-lg text-gray-600 mb-6">For event inquiries, volunteering, or partnership opportunities, email us at</p>
+            <a href="mailto:cieprogram@pes.edu" className="text-lg font-medium text-blue-600">Email us for more details</a>
           </motion.div>
         </div>
       </section>

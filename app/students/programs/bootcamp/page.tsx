@@ -499,14 +499,15 @@ const BootcampPage = () => {
                     <Rocket className="w-5 h-5 mr-2" />
                     Explore Now
                   </Button> */}
-                  <Button 
-                variant="cie" 
-                size="lg"
-                className={`group ${'bg-gradient-to-r ' + studentsColors.gradient.tailwind} text-white`}
-              >
-                Explore Programs
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+                  <Button
+                    variant="cie"
+                    size="lg"
+                    className="group text-white"
+                    style={{ backgroundColor: studentsColors.primary }}
+                  >
+                    Explore Programs
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
                 </Link>
 
                 <Button

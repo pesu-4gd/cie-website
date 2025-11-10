@@ -543,7 +543,8 @@ export default function StudentsPage() {
           >
             Your Innovation Journey{' '}
             <span
-              className={`block mt-4 bg-clip-text text-transparent bg-gradient-to-r ${studentsColors.gradient.tailwind} drop-shadow-md`}
+              className="block mt-4 drop-shadow-md"
+              style={{ color: studentsColors.primary }}
             >
               Starts Here
             </span>
@@ -567,10 +568,11 @@ export default function StudentsPage() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link href="/students/programs">
-              <Button 
-                variant="cie" 
+              <Button
+                variant="cie"
                 size="lg"
-                className={`group ${'bg-gradient-to-r ' + studentsColors.gradient.tailwind} text-white`}
+                className="group text-white hover:opacity-95 transition-opacity"
+                style={{ background: studentsColors.primary, borderColor: `${studentsColors.primary}33` }}
               >
                 Explore Programs
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -841,12 +843,12 @@ export default function StudentsPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/students/startup-program">
+              {/* <Link href="/students/startup-program">
                 <Button className="bg-white/10 hover:bg-white/20 px-8 py-4 text-lg font-semibold rounded-xl border" style={{ color: studentsColors.primary, borderColor: `${studentsColors.primary}33` }}>
                   <Rocket className="w-5 h-5 mr-2" style={{ color: studentsColors.primary }} />
                   Join CIE Ignite
                 </Button>
-              </Link>
+              </Link> */}
 
               <Link href="/students/programs">
                 <Button className="border-2 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent" style={{ color: studentsColors.primary, borderColor: studentsColors.primary }}>

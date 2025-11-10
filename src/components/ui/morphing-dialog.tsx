@@ -221,6 +221,14 @@ function MorphingDialogContent({
       document.body.classList.remove('overflow-hidden');
       triggerRef.current?.focus();
     }
+    // Ensure we always remove the overflow-hidden class if this component unmounts
+    return () => {
+      try {
+        document.body.classList.remove('overflow-hidden');
+      } catch (e) {
+        // ignore in non-browser environments
+      }
+    };
   }, [isOpen, triggerRef]);
 
   const handleClickOutside = useCallback(
@@ -243,6 +251,37 @@ function MorphingDialogContent({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen, handleClickOutside]);
+
+  // Defensive: if a link inside the dialog content is clicked, proactively
+  // remove the body overflow lock and close the dialog *before* navigation
+  // completes. This avoids cases where client navigation or animation timing
+  // could leave `document.body` with `overflow-hidden`.
+  useEffect(() => {
+    const handleInternalLinkClick = (e: MouseEvent) => {
+      try {
+        const target = e.target as HTMLElement | null;
+        const anchor = target?.closest?.('a[href]');
+        if (anchor) {
+          document.body.classList.remove('overflow-hidden');
+          setIsOpen(false);
+        }
+      } catch (err) {
+        // ignore - defensive
+      }
+    };
+
+    const node = containerRef.current;
+    if (isOpen && node) {
+      node.addEventListener('click', handleInternalLinkClick);
+    }
+    return () => {
+      try {
+        node?.removeEventListener('click', handleInternalLinkClick);
+      } catch (e) {
+        // ignore
+      }
+    };
+  }, [isOpen, setIsOpen]);
 
   return (
     <motion.div
