@@ -106,27 +106,29 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
             <div className="flex items-center space-x-4">
               <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
                 <div className={cn(
-                  "relative transition-all duration-500 ease-in-out",
-                  isScrolled ? "h-12 w-[180px]" : "h-14 w-[210px]"
+                  "relative transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]",
+                  isScrolled ? "h-12 w-[280px]" : "h-14 w-[180px]"
                 )}>
                   <Image 
                     src="/assets/cie-logo.png"
                     alt="CIE Logo" 
-                    width={210} 
+                    width={180} 
                     height={56} 
+                    priority
                     className={cn(
-                      "h-full w-full object-contain transition-opacity duration-500 ease-in-out",
-                      isScrolled ? "opacity-0" : "opacity-100"
+                      "absolute inset-0 h-full w-full object-contain transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]",
+                      isScrolled ? "opacity-0 scale-[0.85] blur-[2px]" : "opacity-100 scale-100 blur-0"
                     )}
                   />
                   <Image 
                     src="/assets/cie-logo-with-line.png"
                     alt="CIE Logo" 
-                    width={180} 
-                    height={100} 
+                    width={280} 
+                    height={48} 
+                    priority
                     className={cn(
-                      "absolute top-0 left-0 h-full w-full object-contain transition-opacity duration-500 ease-in-out",
-                      isScrolled ? "opacity-100" : "opacity-0"
+                      "absolute inset-0 h-full w-full object-contain transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]",
+                      isScrolled ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-[1.15] blur-[2px]"
                     )}
                   />
                 </div>
