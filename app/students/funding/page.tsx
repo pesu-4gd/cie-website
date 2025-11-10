@@ -304,14 +304,14 @@ export default function FundingPage() {
               and startups with funding, tools and mentorship to turn ideas into impact. Explore
               opportunities, resources and application guidance below.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="bg-white text-[var(--cie-blue)] px-6 py-3 rounded-xl font-semibold">
                 <a href="/students/funding/scholarships" aria-label="View Scholarships">
                   <Search className="h-5 w-5 mr-2 text-[var(--cie-blue)]" />
                   View Scholarships
                 </a>
               </Button>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>
