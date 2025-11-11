@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Search, 
@@ -11,11 +11,9 @@ import {
   Building2, 
   Users, 
   Briefcase, 
-  Filter, 
   Star, 
   ExternalLink, 
   Mail, 
-  Phone, 
   Globe, 
   ChevronRight, 
   BookmarkPlus, 
@@ -26,8 +24,6 @@ import {
   Zap,
   CheckCircle,
   ArrowRight,
-  FileText,
-  Upload,
   Plus
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -35,7 +31,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import Link from 'next/link';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { SECTION_COLORS } from '@/styles/colors';
 
@@ -225,7 +220,7 @@ export default function JobsPage() {
   const [selectedType, setSelectedType] = useState('All');
   const [selectedExperience, setSelectedExperience] = useState('All');
   const [selectedSalary, setSelectedSalary] = useState('All');
-  const [activeTab, setActiveTab] = useState('browse');
+  const [activeTab, setActiveTab] = useState('employers');
   const [savedJobs, setSavedJobs] = useState<number[]>([]);
 
   const locations = ['All', 'Bangalore', 'Mumbai', 'Hyderabad', 'Pune', 'Chennai', 'Delhi'];
@@ -353,47 +348,22 @@ export default function JobsPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-8">
-              {/* <TabsTrigger value="browse" className="text-lg py-3">
-                <Search className="h-5 w-5 mr-2" />
-                Current Opportunities
-              </TabsTrigger>
-              <TabsTrigger value="categories" className="text-lg py-3">
-                <Target className="h-5 w-5 mr-2" />
-                Student Skills
-              </TabsTrigger> */}
-              <TabsTrigger value="employers" className="text-lg py-3">
+            <TabsList className="grid w-full grid-cols-2 mb-8 bg-white">
+              <TabsTrigger 
+                value="employers" 
+                className="text-lg py-3 data-[state=active]:bg-white data-[state=active]:text-orange-600 data-[state=active]:border-orange-600 data-[state=active]:border-2 rounded-xl"
+              >
                 <Building2 className="h-5 w-5 mr-2" />
                 Partner Companies
               </TabsTrigger>
-              <TabsTrigger value="post" className="text-lg py-3">
+              <TabsTrigger 
+                value="post" 
+                className="text-lg py-3 data-[state=active]:bg-white data-[state=active]:text-orange-600 data-[state=active]:border-orange-600 data-[state=active]:border-2 rounded-xl"
+              >
                 <Plus className="h-5 w-5 mr-2" />
                 Post Opportunity
               </TabsTrigger>
             </TabsList>
-
-            <TabsContent value="browse">
-              <BrowseJobsSection 
-                jobs={filteredJobs}
-                searchTerm={searchTerm}
-                setSearchTerm={setSearchTerm}
-                selectedLocation={selectedLocation}
-                setSelectedLocation={setSelectedLocation}
-                selectedType={selectedType}
-                setSelectedType={setSelectedType}
-                selectedExperience={selectedExperience}
-                setSelectedExperience={setSelectedExperience}
-                locations={locations}
-                jobTypes={jobTypes}
-                experienceLevels={experienceLevels}
-                savedJobs={savedJobs}
-                toggleSaveJob={toggleSaveJob}
-              />
-            </TabsContent>
-
-            <TabsContent value="categories">
-              <CategoriesSection categories={jobCategories} />
-            </TabsContent>
 
             <TabsContent value="employers">
               <EmployersSection employers={topEmployers} />
@@ -874,13 +844,13 @@ function PostJobSection() {
             
             <div className="pt-4">
               <div className="text-sm text-gray-600 mb-2">Contact Information:</div>
-              <div className="text-base font-semibold text-purple-600 mb-1">cieinfo@pes.edu</div>
+              <div className="text-base font-semibold text-blue-600 mb-1">cieinfo@pes.edu</div>
               <div className="text-sm text-gray-500">CIE office at PES University RR/EC Campus</div>
             </div>
             
             <a
               href="mailto:cieinfo@pes.edu"
-              className="inline-flex items-center justify-center w-full px-4 py-2 border border-purple-600 text-purple-600 hover:bg-purple-50 rounded-lg font-medium transition-colors"
+              className="inline-flex items-center justify-center w-full px-4 py-2 border border-orange-600 text-orange-600 hover:bg-orange-50 rounded-lg font-medium transition-colors"
             >
               <Plus className="h-4 w-4 mr-2" />
               Express Interest
