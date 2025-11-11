@@ -212,7 +212,7 @@ function UpcomingEventsGrid({ events }: { events: EventItem[] }) {
             </CardContent>
             <div className="p-4 pt-0">
               <Button asChild className="w-full bg-white text-[#3E3C6B] hover:bg-gray-100">
-                <a href="mailto:cieprogram@pes.edu">Inquire </a>
+                <a href="mailto:cieprogram@pes.edu">Enquire </a>
               </Button>
             </div>
           </Card>

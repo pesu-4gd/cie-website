@@ -300,7 +300,7 @@ export default function Scholarships() {
                         <Button asChild className="w-full py-3 rounded-xl font-semibold text-white" style={{ backgroundColor: studentsColors.primary }}>
                           <a href="mailto:cieprogram@pes.edu" className="inline-flex items-center justify-center w-full">
                             <FileText className="w-4 h-4 mr-2" />
-                            Inquire
+                            Enquire
                           </a>
                         </Button>
                       ) : (
@@ -401,7 +401,7 @@ export default function Scholarships() {
               <Button asChild className="px-8 py-4 text-lg font-semibold rounded-xl text-white" style={{ backgroundColor: studentsColors.primary }}>
                 <a href="mailto:cieprogram@pes.edu" className="inline-flex items-center">
                   <Award className="w-5 h-5 mr-2" />
-                  Inquire
+                  Enquire
                 </a>
               </Button>
 

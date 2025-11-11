@@ -553,7 +553,7 @@ export default function CareersPage() {
                     <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold">
                       <a href="mailto:cieprogram@pes.edu">
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        Inquire
+                        Enquire
                       </a>
                     </Button>
                     <Button className="border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-xl font-semibold bg-transparent">

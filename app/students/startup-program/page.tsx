@@ -45,7 +45,8 @@ export default function StudentStartupProgramPage() {
       eligibility: 'Students with validated prototypes',
       process: 'Application → Pitch → Due Diligence → Funding',
       timeline: '4-6 weeks',
-      color: 'blue'
+      color: 'blue',
+      url: 'https://www.linkedin.com/posts/center-for-innovation-and-entrepreneurship-pes-university_collaboration-innovation-pesucie-activity-7378301893535596544-P_MX?utm_source=share&utm_medium=member_desktop&rcm=ACoAADKTR78B4gtGNGLckkfjUtcckOl7W0iWKEE'
     },
     {
       title: 'Cisco-Nasscom thingQbator',
@@ -55,7 +56,8 @@ export default function StudentStartupProgramPage() {
       eligibility: 'Tech startups in IoT, AI, or emerging tech',
       process: 'Application → Technical Review → Presentation → Funding',
       timeline: '6-8 weeks',
-      color: 'blue'
+      color: 'blue',
+      url: 'https://www.linkedin.com/posts/center-for-innovation-and-entrepreneurship-pes-university_we-at-cie-are-thrilled-to-announce-the-activity-7032962036888215552-EmB8?utm_source=share&utm_medium=member_desktop&rcm=ACoAADKTR78B4gtGNGLckkfjUtcckOl7W0iWKEE'
     },
     {
       title: 'PESU Venture Labs',
@@ -65,7 +67,8 @@ export default function StudentStartupProgramPage() {
       eligibility: 'Startups with proven traction and growth potential',
       process: 'Business Plan → Due Diligence → Term Sheet → Investment',
       timeline: '8-12 weeks',
-      color: 'blue'
+      color: 'blue',
+      url: 'https://www.linkedin.com/company/pesu-venture-labs/'
     },
     {
       title: 'CIE Ignite Prize Fund',
@@ -75,7 +78,8 @@ export default function StudentStartupProgramPage() {
       eligibility: '2nd year students participating in CIE Ignite',
       process: 'Participate → Advance stages → Final pitch → Awards',
       timeline: '4 months',
-      color: 'blue'
+      color: 'blue',
+      url: 'https://www.linkedin.com/posts/center-for-innovation-and-entrepreneurship-pes-university_studentinnovation-careerready-industrymentorship-activity-7303635458356363264-kTcT?utm_source=share&utm_medium=member_desktop&rcm=ACoAADKTR78B4gtGNGLckkfjUtcckOl7W0iWKEE'
     }
   ];
 
@@ -231,7 +235,7 @@ export default function StudentStartupProgramPage() {
               {/* <Button asChild variant="default" size="lg" className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white">
                 <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
                   <UserPlus className="w-5 h-5 mr-2" />
-                  Inquire
+                  Enquire
                 </a>
               </Button> */}
               <Button
@@ -242,7 +246,7 @@ export default function StudentStartupProgramPage() {
                 asChild
               >
                 <a href="mailto:cieprogram@pes.edu" className="flex items-center">
-                  Inquire
+                  Enquire
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
@@ -457,8 +461,10 @@ export default function StudentStartupProgramPage() {
                   <p className="text-sm text-gray-600">{funding.process}</p>
                 </div>
                 
-                <Button className={`w-full bg-gradient-to-r ${getColorClasses(funding.color)} text-white`}>
-                  Learn More
+                <Button asChild className={`w-full bg-gradient-to-r ${getColorClasses(funding.color)} text-white`}>
+                  <a href={funding.url} target="_blank" rel="noopener noreferrer">
+                    Learn More
+                  </a>
                 </Button>
               </motion.div>
             ))}
@@ -527,10 +533,10 @@ export default function StudentStartupProgramPage() {
                         <div className="text-sm text-gray-600">{story.currentStatus}</div>
                       </div>
                       
-                      <Button className="w-full text-white text-sm" style={{ background: studentsColors.primary }}>
+                      {/* <Button className="w-full text-white text-sm" style={{ background: studentsColors.primary }}>
                         <ArrowRight className="w-4 h-4 mr-2" />
                         Read Full Story
-                      </Button>
+                      </Button> */}
                     </div>
                   </div>
                 </div>
@@ -624,7 +630,7 @@ export default function StudentStartupProgramPage() {
               <Button asChild className="bg-white hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
                 <a href="mailto:cieprogram@pes.edu" className="flex items-center" style={{ color: studentsColors.primary }}>
                   <Rocket className="w-5 h-5 mr-2" />
-                  Inquire
+                  Enquire
                 </a>
               </Button>
               {/* <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">

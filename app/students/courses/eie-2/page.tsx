@@ -499,78 +499,87 @@ export default function EIE2Page() {
                     <p className="mt-3 text-gray-700">Class Schedule: 2 hours weekly, hybrid (MS Teams + occasional in-person sessions), with CIE Ignite contributing 10% of the grade.</p>
                     <p className="mt-2 text-gray-700">Faculty: Led by CIE — Prof. Sathya Prasad (RR Campus) and Prof. Lakshmeesha (EC Campus), with support from departments across PESU.</p>
 
+                    {/* <h4 className="text-xl font-semibold mt-6">Assessment and Grading</h4>
+                    <p className="mt-2 text-gray-700">CIE Ignite Ideathon: 10% 
+                    • 2 Internal Assessments (ISAs): 20% each 
+                    • End-Semester Assessment (ESA): 50%</p> */}
                     <h4 className="text-xl font-semibold mt-6">Assessment and Grading</h4>
-                    <p className="mt-2 text-gray-700">CIE Ignite Ideathon: 10% • 2 Internal Assessments (ISAs): 20% each • End-Semester Assessment (ESA): 50%</p>
+                    <ul className="mt-2 text-gray-700 space-y-1">
+                      <li>• CIE Ignite Ideathon: 10%</li>
+                      <li>• 2 Internal Assessments (ISAs): 20% each</li>
+                      <li>• End-Semester Assessment (ESA): 50%</li>
+                    </ul>
+
                   </div>
                 </div>
 
                 <div className="md:col-span-1">
                   <div className="space-y-6 md:sticky md:top-24">
                     <aside className="border rounded-md bg-gray-50 p-4 shadow-sm">
-                                          <div className="flex flex-col items-center text-center">
-                                            <div className="w-40 h-40 mb-3 overflow-hidden rounded-full bg-gray-200">
-                                              <Image src="/assets/raghavendra-deshmukh.png" alt="Raghavendra Deshmukh" width={160} height={160} className="w-full h-full object-cover" />
-                                            </div>
-                                            <div className="text-xl font-semibold">Raghavendra Deshmukh</div>
-                                            <div className="text-sm text-gray-600">Instructor — Industry Mentor, CIE (PESU)</div>
-                                          </div>
-                    
-                                          <div className="mt-4 text-sm text-gray-700">
-                                            <table className="w-full text-sm text-gray-700">
-                                              <tbody>
-                                                <tr>
-                                                  <td className="align-top pr-2 font-medium text-gray-600" style={{width: '28%'}}>Email</td>
-                                                  <td><a className="text-indigo-600" href="mailto:raghavendradeshmukh@pes.edu">raghavendradeshmukh@pes.edu</a></td>
-                                                </tr>
-                                                <tr>
-                                                  <td className="align-top pr-2 font-medium text-gray-600">LinkedIn</td>
-                                                  <td><a className="text-indigo-600" href="https://www.linkedin.com/in/raghavendradeshmukh" target="_blank" rel="noopener noreferrer">Raghavendra Deshmukh</a></td>
-                                                </tr>
-                                              </tbody>
-                                            </table>
-                    
-                                            <h6 className="mt-4 font-semibold">Professional summary</h6>
-                                            <ul className="text-sm space-y-2 mt-2">
-                                              <li><strong>Experience:</strong> ~30 years across Software Product Engineering, Product Management, Team Building, and Engineering Leadership at SAP, Walmart, Google, Wipro and Booking.com.</li>
-                                              <li><strong>Products:</strong> On‑Prem and Cloud solutions in Supply Chain Logistics, Blockchain Track &amp; Trace, Enterprise Blockchain Platforms, Cloud Services (GCP with SAP), Data Analytics, ETL/ELT, MDM, and Pharma Clinical Trials.</li>
-                                              <li>Mentored founders and supported startup productization and sustainability initiatives.</li>
-                                              <li><strong>Expertise:</strong> Software Engineering, Analytics, Blockchain, GenAI (LLMs, RAG), Databases, and Cloud.</li>
-                                            </ul>
-                                          </div>
-                                        </aside>
-                                        
-                                        <aside className="border rounded-md bg-gray-50 p-4 shadow-sm">
-                                          <div className="flex flex-col items-center text-center">
-                                            <div className="w-40 h-40 mb-3 overflow-hidden rounded-full bg-gray-200">
-                                              <Image src="/assets/sathya-prasad.png" alt="Prof Sathya Prasad" width={160} height={160} className="w-full h-full object-cover" />
-                                            </div>
-                                            <div className="text-xl font-semibold">Prof Sathya Prasad</div>
-                                            <div className="text-sm text-gray-600">Co-Instructor — Director, CIE (PESU)</div>
-                                          </div>
-                    
-                                          <div className="mt-4 text-sm text-gray-700">
-                                            <table className="w-full text-sm text-gray-700">
-                                              <tbody>
-                                                <tr>
-                                                  <td className="align-top pr-2 font-medium text-gray-600" style={{width: '28%'}}>Email</td>
-                                                  <td><a className="text-indigo-600" href="mailto:sathya.prasad@pes.edu">sathya.prasad@pes.edu</a></td>
-                                                </tr>
-                                                <tr>
-                                                  <td className="align-top pr-2 font-medium text-gray-600">LinkedIn</td>
-                                                  <td><a className="text-indigo-600" href="https://www.linkedin.com/in/sathya-prasad" target="_blank" rel="noopener noreferrer">Sathya Prasad</a></td>
-                                                </tr>
-                                              </tbody>
-                                            </table>
-                    
-                                            <h6 className="mt-4 font-semibold">Professional summary</h6>
-                                            <ul className="text-sm space-y-2 mt-2">
-                                              <li><strong>Experience:</strong> 30+ years including ~20 years at Intel in Product Management, Tech Innovation and R&amp;D.</li>
-                                              <li><strong>Leadership:</strong> Founding President, SEMI India; launched SOLARCON India; led product management for Intel's first server SoC and established Intel India's server development center.</li>
-                                              <li>As founding Director of CIE, guided Lean Startup, Effectuation and Design Thinking frameworks; mentored and consulted across national and international programs.</li>
-                                              <li><strong>Education:</strong> Executive Management (MIT Sloan), MS (VLSI) — Arizona State University.</li>
-                                            </ul>
-                                          </div>
-                                        </aside>
+                      <div className="flex flex-col items-center text-center">
+                        <div className="w-40 h-40 mb-3 overflow-hidden rounded-full bg-gray-200">
+                          <Image src="/assets/raghavendra-deshmukh.png" alt="Raghavendra Deshmukh" width={160} height={160} className="w-full h-full object-cover" />
+                        </div>
+                        <div className="text-xl font-semibold">Raghavendra Deshmukh</div>
+                        <div className="text-sm text-gray-600">Instructor — Industry Mentor, CIE (PESU)</div>
+                      </div>
+
+                      <div className="mt-4 text-sm text-gray-700">
+                        <table className="w-full text-sm text-gray-700">
+                          <tbody>
+                            <tr>
+                              <td className="align-top pr-2 font-medium text-gray-600" style={{width: '28%'}}>Email</td>
+                              <td><a className="text-indigo-600" href="mailto:raghavendradeshmukh@pes.edu">raghavendradeshmukh@pes.edu</a></td>
+                            </tr>
+                            <tr>
+                              <td className="align-top pr-2 font-medium text-gray-600">LinkedIn</td>
+                              <td><a className="text-indigo-600" href="https://www.linkedin.com/in/raghavendradeshmukh" target="_blank" rel="noopener noreferrer">Raghavendra Deshmukh</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <h6 className="mt-4 font-semibold">Professional summary</h6>
+                        <ul className="text-sm space-y-2 mt-2">
+                          <li><strong>Experience:</strong> ~30 years across Software Product Engineering, Product Management, Team Building, and Engineering Leadership at SAP, Walmart, Google, Wipro and Booking.com.</li>
+                          <li><strong>Products:</strong> On‑Prem and Cloud solutions in Supply Chain Logistics, Blockchain Track &amp; Trace, Enterprise Blockchain Platforms, Cloud Services (GCP with SAP), Data Analytics, ETL/ELT, MDM, and Pharma Clinical Trials.</li>
+                          <li>Mentored founders and supported startup productization and sustainability initiatives.</li>
+                          <li><strong>Expertise:</strong> Software Engineering, Analytics, Blockchain, GenAI (LLMs, RAG), Databases, and Cloud.</li>
+                        </ul>
+                      </div>
+                    </aside>
+
+                    <aside className="border rounded-md bg-gray-50 p-4 shadow-sm">
+                      <div className="flex flex-col items-center text-center">
+                        <div className="w-40 h-40 mb-3 overflow-hidden rounded-full bg-gray-200">
+                          <Image src="/assets/sathya-prasad.png" alt="Prof Sathya Prasad" width={160} height={160} className="w-full h-full object-cover" />
+                        </div>
+                        <div className="text-xl font-semibold">Prof Sathya Prasad</div>
+                        <div className="text-sm text-gray-600">Co-Instructor — Director, CIE (PESU)</div>
+                      </div>
+
+                      <div className="mt-4 text-sm text-gray-700">
+                        <table className="w-full text-sm text-gray-700">
+                          <tbody>
+                            <tr>
+                              <td className="align-top pr-2 font-medium text-gray-600" style={{width: '28%'}}>Email</td>
+                              <td><a className="text-indigo-600" href="mailto:sathya.prasad@pes.edu">sathya.prasad@pes.edu</a></td>
+                            </tr>
+                            <tr>
+                              <td className="align-top pr-2 font-medium text-gray-600">LinkedIn</td>
+                              <td><a className="text-indigo-600" href="https://www.linkedin.com/in/sathya-prasad" target="_blank" rel="noopener noreferrer">Sathya Prasad</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <h6 className="mt-4 font-semibold">Professional summary</h6>
+                        <ul className="text-sm space-y-2 mt-2">
+                          <li><strong>Experience:</strong> 30+ years including ~20 years at Intel in Product Management, Tech Innovation and R&amp;D.</li>
+                          <li><strong>Leadership:</strong> Founding President, SEMI India; launched SOLARCON India; led product management for Intel's first server SoC and established Intel India's server development center.</li>
+                          <li>As founding Director of CIE, guided Lean Startup, Effectuation and Design Thinking frameworks; mentored and consulted across national and international programs.</li>
+                          <li><strong>Education:</strong> Executive Management (MIT Sloan), MS (VLSI) — Arizona State University.</li>
+                        </ul>
+                      </div>
+                    </aside>
                   </div>
                 </div>
               </div>

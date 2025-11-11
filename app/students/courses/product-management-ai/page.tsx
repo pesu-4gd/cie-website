@@ -215,7 +215,7 @@ export default function ProductManagementAIPage() {
                         </ul>
                       </div>
                     </aside>
-                    
+
                     <aside className="border rounded-md bg-gray-50 p-4 shadow-sm">
                       <div className="flex flex-col items-center text-center">
                         <div className="w-40 h-40 mb-3 overflow-hidden rounded-full bg-gray-200">

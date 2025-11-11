@@ -49,12 +49,12 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
   return (
     <>
       {/* Announcement Banner - Only on Homepage */}
-      {isHomePage && showBanner && (
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-white text-foreground border-b border-gray-200">
+          {isHomePage && showBanner && (
+            <div className="fixed top-0 left-0 right-0 z-[60] bg-[#F15A29] text-white border-b border-transparent">
           <div className="container mx-auto px-6 sm:px-8 lg:px-12">
             <div className="flex items-center gap-3 py-2">
               <Bell
-                className="shrink-0 opacity-60"
+                className="shrink-0 opacity-60 text-white"
                 size={16}
                 aria-hidden="true"
               />
@@ -77,7 +77,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
               >
                 <X
                   size={16}
-                  className="opacity-60 transition-opacity group-hover:opacity-100"
+                  className="opacity-60 transition-opacity group-hover:opacity-100 text-white"
                   aria-hidden="true"
                 />
               </Button>

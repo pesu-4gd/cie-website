@@ -153,7 +153,7 @@ export default function PamlPage() {
 
               <div className="mt-6">
                 <h4 className="text-lg font-semibold">Join the PAML Train-the-Trainer Program</h4>
-                <p className="text-gray-700 mt-2">Inquire at <a href="mailto:cieprogram@pes.edu" className="text-blue-600 hover:underline">cieprogram@pes.edu</a> to become a PAML+ Teaching Assistant — master ML, develop teaching skills, and mentor future innovators.</p>
+                <p className="text-gray-700 mt-2">Enquire at <a href="mailto:cieprogram@pes.edu" className="text-blue-600 hover:underline">cieprogram@pes.edu</a> to become a PAML+ Teaching Assistant — master ML, develop teaching skills, and mentor future innovators.</p>
 
                 <div className="mt-6 flex items-center gap-3">
                   <Link href="/students/courses/eie-1"><Button className="bg-white text-blue-700">Go to EIE — Part 1</Button></Link>

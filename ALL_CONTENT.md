@@ -1123,7 +1123,7 @@ Students can engage with these centers through various pathways:
 CIE Programs: Participate in EIE courses or the CIE Ignite Ideathon to connect with CoE projects.
 Research Projects: Apply for research opportunities by contacting center coordinators or faculty leads.
 Workshops and Events: Attend CoE-organized hackathons, seminars, or bootcamps announced via the CIE website.
-Direct Contact: Email cieprogram@pes.edu to inquire about internships, projects, or collaborations.
+Direct Contact: Email cieprogram@pes.edu to Enquire about internships, projects, or collaborations.
 Student Clubs: Join E-Cell or CMS to network with CoE researchers and participate in related events.
 Contact Us
 For more information or to explore opportunities with the Centers of Excellence:
@@ -1452,7 +1452,7 @@ Explore Opportunities: Review the CIE website for program details and announceme
 Register for Programs: Submit applications for specific programs (e.g., Train-the-Trainer for PAML) via email to cieprogram@pes.edu or the PES University student portal.
 Contact Centers or Clubs: Reach out to CoE coordinators or E-Cell/CMS leaders for internships or mentorship roles.
 Attend CIE Events: Participate in EIE courses, hackathons, or workshops to connect with opportunities.
-Follow Up: Email cieprogram@pes.edu for personalized guidance or to inquire about unlisted roles.
+Follow Up: Email cieprogram@pes.edu for personalized guidance or to Enquire about unlisted roles.
 Why Engage with CIE?
 Skill Development: Build teaching, technical, and leadership skills through hands-on roles.
 Networking: Connect with industry experts, alumni, and peers to expand your professional network.

@@ -192,12 +192,6 @@ const StudentsNavigation: React.FC = () => {
           description: 'Skills development and training sessions',
           icon: Users2,
         },
-        {
-          title: 'Student Projects',
-          href: '/students/projects',
-          description: 'Current & past projects',
-          icon: Lightbulb,
-        },
       ],
     },
     {

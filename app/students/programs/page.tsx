@@ -317,7 +317,7 @@ export default function ProgramsPage() {
                             <MorphingDialogSubtitle className="text-sm text-gray-600 mt-2">Annual intensive training to accelerate entrepreneurial growth.</MorphingDialogSubtitle>
                           </div>
                         </div>
-                        <MorphingDialogClose className="text-gray-500">Close</MorphingDialogClose>
+                        <MorphingDialogClose className="text-gray-500">X</MorphingDialogClose>
                       </div>
 
                       <MorphingDialogDescription className="mt-4 text-gray-700" disableLayoutAnimation>
@@ -366,7 +366,7 @@ export default function ProgramsPage() {
                             <MorphingDialogSubtitle className="text-sm text-gray-600 mt-2">Basecamp provides foundational sessions that prepare participants for intensive programs like Bootcamp. Topics include customer discovery, empathy mapping, and lean experimentation.</MorphingDialogSubtitle>
                           </div>
                         </div>
-                        <MorphingDialogClose className="text-gray-500">Close</MorphingDialogClose>
+                        <MorphingDialogClose className="text-gray-500">X</MorphingDialogClose>
                       </div>
 
                       <MorphingDialogDescription className="mt-4 text-gray-700" disableLayoutAnimation>
@@ -415,7 +415,7 @@ export default function ProgramsPage() {
                             <MorphingDialogSubtitle className="text-sm text-gray-600 mt-2">Short-format, high-impact summer courses focused on hands-on learning and prototyping.</MorphingDialogSubtitle>
                           </div>
                         </div>
-                        <MorphingDialogClose className="text-gray-500">Close</MorphingDialogClose>
+                        <MorphingDialogClose className="text-gray-500">X</MorphingDialogClose>
                       </div>
 
                       <MorphingDialogDescription className="mt-4 text-gray-700" disableLayoutAnimation>
@@ -430,7 +430,7 @@ export default function ProgramsPage() {
 
                         <div className="mt-6 flex justify-end">
                           <a href="mailto:cieprogram@pes.edu">
-                            <Button style={{ backgroundColor: studentsColors.primary, color: '#fff' }}>Inquire</Button>
+                            <Button style={{ backgroundColor: studentsColors.primary, color: '#fff' }}>Enquire</Button>
                           </a>
                         </div>
                       </MorphingDialogDescription>
@@ -462,7 +462,7 @@ export default function ProgramsPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-center"
             >
-              <div className="text-4xl font-bold text-green-600 mb-2">2,159</div>
+              <div className="text-4xl font-bold text-orange-600 mb-2">2,159</div>
               <div className="text-gray-600 font-medium">Students Trained</div>
             </motion.div>
             <motion.div
@@ -471,7 +471,7 @@ export default function ProgramsPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-center"
             >
-              <div className="text-4xl font-bold text-purple-600 mb-2">95%</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">95%</div>
               <div className="text-gray-600 font-medium">Success Rate</div>
             </motion.div>
             <motion.div
@@ -497,7 +497,7 @@ export default function ProgramsPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Choose Your <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Learning Path</span>
+              Choose Your <span className="bg-gradient-to-r from-[#3E3C6B] to-[#2B9EB3] bg-clip-text text-transparent">Learning Path</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Explore our diverse range of programs designed to meet different learning objectives and career goals.

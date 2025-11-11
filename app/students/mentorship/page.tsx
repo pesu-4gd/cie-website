@@ -696,7 +696,7 @@ function ProgramsSection({ programs }: { readonly programs: typeof mentorshipPro
                       <Button asChild className={`w-full bg-blue-600 hover:bg-blue-700`}>
                         <a href="mailto:cieprogram@pes.edu">
                           <ArrowRight className="h-4 w-4 mr-2" />
-                          Inquire
+                          Enquire
                         </a>
                       </Button>
                     </div>

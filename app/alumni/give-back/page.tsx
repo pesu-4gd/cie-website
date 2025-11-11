@@ -341,7 +341,7 @@ export default function GiveBackPage() {
                 <div className="flex items-center justify-between">
                   <Badge variant="secondary">6 months commitment</Badge>
                   <Button asChild size="sm">
-                    <a href="mailto:cieprogram@pes.edu">Inquire</a>
+                    <a href="mailto:cieprogram@pes.edu">Enquire</a>
                   </Button>
                 </div>
               </CardContent>

@@ -105,7 +105,7 @@ interface ProgramCardProps {
   image?: string;
   onApply?: () => void;
   onLearnMore?: () => void;
-  inquireEmail?: string;
+  EnquireEmail?: string;
   className?: string;
 }
 
@@ -123,7 +123,7 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
   image,
   onApply,
   onLearnMore,
-  inquireEmail,
+  EnquireEmail,
   className
 }) => (
   <Card variant="elevated" hover className={cn('max-w-sm', className)}>
@@ -181,12 +181,12 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
       )}
     </CardContent>
     <CardFooter className="gap-2">
-      {(onApply || inquireEmail) && (
-        <Button variant="default" size="sm" asChild={!!inquireEmail} onClick={!inquireEmail ? onApply : undefined}>
-          {inquireEmail ? (
-            <a href={`mailto:${inquireEmail}`}>Inquire</a>
+      {(onApply || EnquireEmail) && (
+        <Button variant="default" size="sm" asChild={!!EnquireEmail} onClick={!EnquireEmail ? onApply : undefined}>
+          {EnquireEmail ? (
+            <a href={`mailto:${EnquireEmail}`}>Enquire</a>
           ) : (
-            "Inquire"
+            "Enquire"
           )}
         </Button>
       )}
@@ -389,7 +389,7 @@ interface JobCardProps {
   applicants?: number;
   onApply?: () => void;
   onViewDetails?: () => void;
-  inquireEmail?: string;
+  EnquireEmail?: string;
   className?: string;
 }
 
@@ -408,7 +408,7 @@ export const JobCard: React.FC<JobCardProps> = ({
   applicants,
   onApply,
   onViewDetails,
-  inquireEmail,
+  EnquireEmail,
   className
 }) => {
   const experienceLevelColors = {
@@ -490,12 +490,12 @@ export const JobCard: React.FC<JobCardProps> = ({
         </div>
       </CardContent>
       <CardFooter className="gap-2">
-        {(onApply || inquireEmail) && (
-          <Button variant="default" size="sm" asChild={!!inquireEmail} onClick={!inquireEmail ? onApply : undefined}>
-            {inquireEmail ? (
-              <a href={`mailto:${inquireEmail}`}>Inquire</a>
+        {(onApply || EnquireEmail) && (
+          <Button variant="default" size="sm" asChild={!!EnquireEmail} onClick={!EnquireEmail ? onApply : undefined}>
+            {EnquireEmail ? (
+              <a href={`mailto:${EnquireEmail}`}>Enquire</a>
             ) : (
-              "Inquire"
+              "Enquire"
             )}
           </Button>
         )}

@@ -721,7 +721,7 @@ export default function EIE1Page() {
 
                 {/* Right column: infoboxes (sticky on md+) */}
                 <div className="md:col-span-1">
-                  <div className="space-y-6 md:sticky md:top-24">
+                  <div className="space-y-6 md:top-24">
                     <aside className="border rounded-md bg-gray-50 p-4 shadow-sm">
                       <div className="flex flex-col items-center text-center">
                         <div className="w-40 h-40 mb-3 overflow-hidden rounded-full bg-gray-200">
