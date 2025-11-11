@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import {
@@ -706,12 +707,13 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
       <div className="flex flex-col h-full">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gradient-to-r from-[#f07f1a] to-[#f07f1a]/80 rounded-lg flex items-center justify-center">
-              <Users className="w-5 h-5 text-white" />
+            <div className="flex items-center gap-3">
+                {/* Use the colored CIE logo (with line) so it remains visible on white background and scale it appropriately */}
+                <div className="flex items-center justify-center min-w-[140px]">
+                  <Image src="/assets/cie-logo-with-line.png" alt="CIE Logo" width={140} height={42} className="object-contain" />
+                </div>
+              <h2 className="text-lg font-bold text-[#00338d]"></h2>
             </div>
-            <h2 className="text-lg font-bold text-[#00338d]"></h2>
-          </div>
           <button 
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -746,10 +748,14 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
                     )}
                   >
                     <div className="flex items-center gap-3">
-                      <div className="p-2 bg-gradient-to-r from-[#f07f1a] to-[#f07f1a]/80 rounded-lg">
-                        <Icon className="w-5 h-5 text-white" />
+                      {/* Icon: transparent background; icon turns orange when section is active */}
+                      <div className="p-2 rounded-lg flex items-center justify-center">
+                        <Icon className={cn("w-5 h-5 transition-colors", isActive ? "text-[#f07f1a]" : "text-black")} />
                       </div>
-                      <span className="font-semibold text-[#00338d] text-lg">{item.title}</span>
+                      <span className={cn(
+                        'font-semibold text-lg',
+                        isActive ? 'text-[#f07f1a] border-b-2 border-[#f07f1a] pb-1' : 'text-[#00338d]'
+                      )}>{item.title}</span>
                     </div>
                     
                     {/* Expand/Collapse Icon */}
@@ -821,7 +827,10 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
                                       pathname === subItem.href && 'bg-[#f07f1a]/5 border-[#f07f1a]/20'
                                     )}
                                   >
-                                    <div className="font-medium text-gray-900 mb-1 text-sm">{subItem.title}</div>
+                                    <div className={cn(
+                                      'font-medium mb-1 text-sm',
+                                      pathname === subItem.href ? 'text-[#f07f1a]' : 'text-gray-900'
+                                    )}>{subItem.title}</div>
                                     <p className="text-xs text-gray-600 leading-relaxed">
                                       {subItem.description}
                                     </p>

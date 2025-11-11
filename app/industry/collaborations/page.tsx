@@ -749,117 +749,83 @@ export default function CollaborationsPage() {
   const collaborationModels = [
     {
       id: 'sponsorship',
-      title: 'Event Sponsorship & Brand Visibility',
+      title: 'Sponsorship: Amplify Your Brand and Support Innovation',
       icon: Star,
-      description: 'Gain brand visibility through strategic event sponsorships and student engagement',
+      description: 'Sponsor CIE programs and events for visibility among talented students while supporting future entrepreneurs',
       features: [
-        'Brand visibility at major events',
-        'Direct student engagement opportunities',
-        'Networking with faculty and industry',
-        'Talent scouting and recruitment'
+        'Event sponsorship for high-impact programs like hackathons and E-Summit',
+        'CIE Ignite Sponsorship with funding and internship opportunities',
+        'Startup funding via CIE Funds for early-stage ventures',
+        'Brand visibility among tech-savvy student audience'
       ],
       events: [
-        { name: 'CIE Ignite (Annual Flagship)', audience: '1000+ attendees', frequency: 'Annual' },
-        { name: 'Industry Connect Series', audience: '200-300 per event', frequency: 'Quarterly' },
-        { name: 'Innovation Showcase', audience: '500+ attendees', frequency: 'Bi-annual' },
-        { name: 'Startup Demo Days', audience: '150-200 per event', frequency: 'Monthly' }
+        { name: 'Decypher 2020 Hackathon', audience: '80 teams participated', frequency: 'Annual' },
+        { name: 'E-Summit', audience: '200+ students', frequency: 'Annual' },
+        { name: 'CIE Ignite Ideathon', audience: 'EIE Part II students', frequency: 'Semester-long (Jan-Apr)' },
+        { name: 'CIE Funds Program', audience: 'Student startups', frequency: 'Ongoing' }
       ],
-      investment: '₹50K - ₹5L per event',
-      roi: '10x brand reach & lead generation'
+      investment: '₹25K - ₹5L per event/program',
+      roi: 'Brand visibility and early access to innovative talent'
     },
     {
       id: 'mentorship',
-      title: 'Industry Mentorship Program',
+      title: 'Mentorship: Shape the Next Generation of Innovators',
       icon: Users,
-      description: 'Guide students through one-on-one mentorship and expert sessions',
+      description: 'Share expertise by mentoring PES students and helping them navigate entrepreneurial challenges',
       features: [
-        'Structured mentorship program',
-        'AMA sessions with students',
-        'Project guidance and feedback',
-        'Talent identification opportunities'
+        'CIE Industry IM Program for one-on-one mentorship',
+        'Lead workshops on industry topics like AI and cybersecurity',
+        'Participate in Ask Me Anything (AMA) sessions',
+        'Guide students on business strategies and career development'
       ],
       programs: [
-        { name: 'CIE Industry IM Program', commitment: '2-3 hours/month', students: '10-15 per mentor' },
-        { name: 'AMA Sessions', commitment: '1 hour/quarter', audience: '50-100 students' },
-        { name: 'CIE Ignite Mentorship', commitment: '4-6 hours/event', teams: '5-8 teams' },
-        { name: 'Capstone Project Guidance', commitment: '1 semester', projects: '2-3 projects' }
+        { name: 'CIE Industry IM Program', commitment: 'One-on-one mentorship', students: 'Startup teams and career explorers' },
+        { name: 'Industry Workshops', commitment: 'Workshop sessions', audience: 'Students and faculty' },
+        { name: 'Intel AMA Sessions', commitment: 'Since 2018', focus: 'AI and IoT trends' },
+        { name: 'AI for Road Safety Webinar', commitment: 'Expert sessions', example: 'Dr. Anbumani Subramanian' }
       ],
-      investment: 'Time commitment only',
-      roi: 'Direct access to top 10% talent'
+      investment: 'Time commitment and expertise sharing',
+      roi: 'Shape future tech leaders and build talent connections'
     },
     {
       id: 'research',
-      title: 'Research Partnerships',
+      title: 'Research Partnerships: Co-Develop Cutting-Edge Solutions',
       icon: Lightbulb,
-      description: 'Collaborate on cutting-edge research and innovation projects',
+      description: 'Collaborate with CIE Centers of Excellence and student teams on industry-defined challenges',
       features: [
-        'Joint research projects',
-        'Access to university facilities',
-        'Co-publication opportunities',
-        'IP sharing agreements'
+        'Capstone Project with Industry Partner (CPIP)',
+        'Collaboration with Centers of Excellence (CHIPS, CCNCS)',
+        'Joint research in AI, IoT, cybersecurity, and computing',
+        'Access to prototypes with commercial potential'
       ],
       areas: [
-        { name: 'CRAIS (AI & Robotics)', focus: 'Machine Learning, Computer Vision', faculty: '8+ researchers' },
-        { name: 'C-IoT (Internet of Things)', focus: 'Smart Systems, Edge Computing', faculty: '6+ researchers' },
-        { name: 'CHIPS (Hardware)', focus: 'Semiconductor, VLSI Design', faculty: '10+ researchers' },
-        { name: 'CCNCS (Quantum Computing)', focus: 'Quantum Algorithms, Cryptography', faculty: '5+ researchers' }
+        { name: 'CPIP Projects', focus: 'Industry-defined problems, semester-long solutions', example: 'Predictive maintenance reducing downtime by 15%' },
+        { name: 'CHIPS Collaboration', focus: 'Heterogeneous computing and high-performance systems', support: 'CHIPS2Startup MEITY grant' },
+        { name: 'CCNCS Partnership', focus: 'Cybersecurity and network security', example: 'Next-generation firewall prototype' },
+        { name: 'Student Teams', focus: 'Automation, data analytics, sustainability', outcome: 'Actionable solutions and prototypes' }
       ],
       investment: '₹2-10 lakhs per project',
-      roi: 'Breakthrough innovations and patents'
+      roi: 'Cutting-edge solutions and early tech access'
     },
     {
-      id: 'cpip',
-      title: 'Capstone Project with Industry Partner (CPIP)',
-      icon: Target,
-      description: 'Students solve real industry challenges as their capstone projects',
+      id: 'success-stories',
+      title: 'Proven Success Stories',
+      icon: Award,
+      description: 'Join established partnerships that have delivered impactful programs and innovations',
       features: [
-        'Real-world problem solving',
-        'Dedicated student teams',
-        'Faculty supervision',
-        'Deliverable solutions'
+        'Intel partnership since 2018 with AMA sessions',
+        'Cisco ThingQbator program with ₹5 Lakh funding',
+        'CPIP projects delivering real-world solutions',
+        'Global recognition at UC Berkeley conference'
       ],
-      process: [
-        { step: 'Problem Definition', duration: '2 weeks', description: 'Industry partner defines challenge' },
-        { step: 'Team Formation', duration: '1 week', description: 'Students form interdisciplinary teams' },
-        { step: 'Solution Development', duration: '12 weeks', description: 'Teams develop and test solutions' },
-        { step: 'Final Presentation', duration: '1 week', description: 'Teams present solutions to industry' }
+      examples: [
+        { partner: 'Intel', program: 'AMA Sessions since 2018', impact: 'AI and IoT insights inspiring smart city solutions' },
+        { partner: 'Cisco', program: 'ThingQbator Sponsorship', impact: 'NeuRoar secured ₹5 Lakh funding' },
+        { partner: 'Industry CPIP', program: 'Predictive Maintenance', impact: '15% downtime reduction' },
+        { partner: 'CIE Funds', program: 'Greenifly Startup', impact: 'Agritech venture scaling from capstone project' }
       ],
-      investment: '₹1-3 lakhs per project',
-      roi: 'Ready-to-implement solutions'
-    },
-    {
-      id: 'coe',
-      title: 'Centers of Excellence Collaboration',
-      icon: Building2,
-      description: 'Partner with specialized research centers for deep technical collaboration',
-      features: [
-        'Access to specialized labs',
-        'Joint research initiatives',
-        'Student exchange programs',
-        'Technology transfer opportunities'
-      ],
-      centers: [
-        { 
-          name: 'CRAIS', 
-          specialization: 'AI & Robotics', 
-          facilities: '10+ labs with GPU clusters',
-          projects: '25+ active research projects'
-        },
-        { 
-          name: 'C-IoT', 
-          specialization: 'Internet of Things', 
-          facilities: 'IoT testbeds and sensor networks',
-          projects: '15+ smart city initiatives'
-        },
-        { 
-          name: 'CHIPS', 
-          specialization: 'Hardware & Semiconductors', 
-          facilities: 'Clean room and fabrication lab',
-          projects: '20+ chip design projects'
-        }
-      ],
-      investment: '₹5-25 lakhs annually',
-      roi: 'Access to cutting-edge research'
+      investment: 'Proven partnership models',
+      roi: 'Established success with measurable impact'
     }
   ];
 
@@ -1071,17 +1037,17 @@ export default function CollaborationsPage() {
               className="text-center"
             >
               <div className="mb-6">
-                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-purple-500/20 text-purple-100 border border-purple-400/30">
+                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-600/20 text-white border border-orange-400/30">
                   <Handshake className="w-4 h-4 mr-2" />
                   Collaboration Opportunities
                 </span>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Strategic Collaboration
-                <span className="block text-purple-200">Models</span>
+                <span className="block text-orange-400">Models</span>
               </h1>
-              <p className="text-xl md:text-2xl text-purple-100 max-w-4xl mx-auto leading-relaxed">
-                Discover flexible partnership models designed to maximize value for your organization while driving innovation in education and research.
+              <p className="text-xl md:text-2xl text-white-100 max-w-4xl mx-auto leading-relaxed">
+                The Centre for Innovation and Entrepreneurship (CIE) at PES University offers industry partners a range of collaboration models to drive innovation, engage with top talent, and contribute to the entrepreneurial ecosystem.
               </p>
             </motion.div>
           </div>
@@ -1098,7 +1064,7 @@ export default function CollaborationsPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Trusted by <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Industry Leaders</span>
+              Trusted by <span className="bg-gradient-to-r from-orange-600 to-[#f47b56] bg-clip-text text-transparent">Industry Leaders</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Collaborating with top organizations to drive innovation and create impact
@@ -1190,16 +1156,144 @@ export default function CollaborationsPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Collaboration <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Models</span>
+              Collaboration <span className="bg-gradient-to-r from-orange-600 to-[#f47b56] bg-clip-text text-transparent">Models</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose from our comprehensive range of collaboration models, each designed to deliver specific outcomes and value.
+              Whether your organization seeks to sponsor impactful events, mentor innovators, or co-develop solutions, CIE provides proven frameworks with established partnerships like Intel and Cisco.
             </p>
           </motion.div>
 
-          <div className="space-y-12">
-        
-          </div>
+          <Tabs defaultValue="sponsorship" className="w-full">
+            <TabsList className="grid w-full grid-cols-4 mb-8 bg-white p-1 rounded-l">
+              {collaborationModels.map((model) => {
+                const IconComponent = model.icon;
+                const getTabLabel = (id: string) => {
+                  switch(id) {
+                    case 'sponsorship': return 'Sponsorship';
+                    case 'mentorship': return 'Mentorship';
+                    case 'research': return 'Research';
+                    case 'success-stories': return 'Success Stories';
+                    default: return model.title.split(':')[0];
+                  }
+                };
+                
+                return (
+                  <TabsTrigger
+                    key={model.id}
+                    value={model.id}
+                    className="flex items-center gap-2 px-4 py-3 rounded-xl data-[state=active]:bg-white data-[state=active]:text-orange-600 data-[state=active]:shadow-sm transition-all duration-200 border-transparent data-[state=active]:border-orange-200"
+                  >
+                    <IconComponent className="w-4 h-4" />
+                    <span className="hidden sm:inline text-sm font-medium">
+                      {getTabLabel(model.id)}
+                    </span>
+                  </TabsTrigger>
+                );
+              })}
+            </TabsList>
+
+            {collaborationModels.map((model) => {
+              const IconComponent = model.icon;
+              return (
+                <TabsContent key={model.id} value={model.id}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg"
+                  >
+                    <div className="flex items-start gap-6 mb-6">
+                      <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <IconComponent className="w-8 h-8 text-orange-600" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-3">{model.title}</h3>
+                        <p className="text-lg text-gray-600 leading-relaxed">{model.description}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="grid lg:grid-cols-2 gap-8">
+                      <div>
+                        <h4 className="text-lg font-semibold text-gray-900 mb-4">Key Features</h4>
+                        <ul className="space-y-3">
+                          {model.features.map((feature, idx) => (
+                            <li key={idx} className="flex items-start gap-3">
+                              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                              <span className="text-gray-700">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                          {model.id === 'success-stories' ? 'Success Examples' : 
+                           model.id === 'research' ? 'Collaboration Areas' :
+                           model.id === 'mentorship' ? 'Program Details' : 'Event Opportunities'}
+                        </h4>
+                        <div className="space-y-3">
+                          {model.id === 'sponsorship' && model.events?.map((event, idx) => (
+                            <div key={idx} className="p-3 bg-gray-50 rounded-lg">
+                              <div className="font-medium text-gray-900">{event.name}</div>
+                              <div className="text-sm text-gray-600">{event.audience} • {event.frequency}</div>
+                            </div>
+                          ))}
+                          
+                          {model.id === 'mentorship' && model.programs?.map((program, idx) => (
+                            <div key={idx} className="p-3 bg-gray-50 rounded-lg">
+                              <div className="font-medium text-gray-900">{program.name}</div>
+                              <div className="text-sm text-gray-600">{program.commitment}</div>
+                              {program.students && <div className="text-xs text-gray-500">Target: {program.students}</div>}
+                              {program.audience && <div className="text-xs text-gray-500">Audience: {program.audience}</div>}
+                              {program.focus && <div className="text-xs text-gray-500">Focus: {program.focus}</div>}
+                              {program.example && <div className="text-xs text-gray-500">Example: {program.example}</div>}
+                            </div>
+                          ))}
+                          
+                          {model.id === 'research' && model.areas?.map((area, idx) => (
+                            <div key={idx} className="p-3 bg-gray-50 rounded-lg">
+                              <div className="font-medium text-gray-900">{area.name}</div>
+                              <div className="text-sm text-gray-600">{area.focus}</div>
+                              {area.example && <div className="text-xs text-gray-500">Example: {area.example}</div>}
+                              {area.support && <div className="text-xs text-gray-500">Support: {area.support}</div>}
+                              {area.outcome && <div className="text-xs text-gray-500">Outcome: {area.outcome}</div>}
+                            </div>
+                          ))}
+                          
+                          {model.id === 'success-stories' && model.examples?.map((example, idx) => (
+                            <div key={idx} className="p-3 bg-gray-50 rounded-lg">
+                              <div className="font-medium text-gray-900">{example.partner}</div>
+                              <div className="text-sm text-gray-600">{example.program}</div>
+                              <div className="text-xs text-gray-500">Impact: {example.impact}</div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-8 pt-6 border-t border-gray-200 flex items-center justify-between">
+                      <div>
+                        <div className="text-sm text-gray-500">Investment</div>
+                        <div className="font-semibold text-gray-900">{model.investment}</div>
+                      </div>
+                      <div>
+                        <div className="text-sm text-gray-500">Expected ROI</div>
+                        <div className="font-semibold text-green-600">{model.roi}</div>
+                      </div>
+                      <div className="flex gap-3">
+                        <a
+                          href="mailto:cieinfo@pes.edu"
+                          className="inline-flex items-center justify-center px-4 py-2 border border-orange-600 text-orange-600 hover:bg-orange-50 rounded-lg font-medium transition-colors duration-200"
+                        >
+                          Learn More
+                        </a>
+                      </div>
+                    </div>
+                  </motion.div>
+                </TabsContent>
+              );
+            })}
+          </Tabs>
         </div>
       </section>
 
@@ -1281,7 +1375,7 @@ export default function CollaborationsPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Partnership <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">Timeline</span>
+              Partnership <span className="bg-gradient-to-r from-orange-600 to-[#f47b56] bg-clip-text text-transparent">Timeline</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our streamlined process ensures quick partnership setup and immediate value delivery.
@@ -1289,7 +1383,7 @@ export default function CollaborationsPage() {
           </motion.div>
 
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-green-500 rounded-full"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-orange-500 to-[#f47b56] rounded-full"></div>
             
             {[
               { week: 'Week 1', title: 'Initial Discussion', description: 'Partnership goals and model selection' },
@@ -1308,13 +1402,13 @@ export default function CollaborationsPage() {
               >
                 <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8'}`}>
                   <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg">
-                    <div className="text-blue-600 font-semibold mb-2">{phase.week}</div>
+                    <div className="text-orange-600 font-semibold mb-2">{phase.week}</div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{phase.title}</h3>
                     <p className="text-gray-600">{phase.description}</p>
                   </div>
                 </div>
                 
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-orange-600 rounded-full border-4 border-white shadow-lg"></div>
               </motion.div>
             ))}
           </div>
@@ -1322,7 +1416,7 @@ export default function CollaborationsPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-purple-600 to-pink-700">
+      <section className="py-20 bg-gradient-to-br from-orange-600 to-[#f47b56]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1332,19 +1426,18 @@ export default function CollaborationsPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Ready to Collaborate?
             </h2>
-            <p className="text-xl text-purple-100 max-w-3xl mx-auto mb-8">
-              Let's create a partnership that drives innovation, develops talent, and delivers measurable value for your organization.
+            <p className="text-xl text-orange-100 max-w-3xl mx-auto mb-8">
+              Partner with CIE to drive innovation, access top talent, and shape the future of entrepreneurship. Contact cieinfo@pes.edu to submit your interest today.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                variant="default"
-                size="lg"
-                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
+              <a
+                href="mailto:cieprogram@pes.edu"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-xl group bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-semibold"
               >
-                <Handshake className="w-5 h-5 mr-2" href='mailto:cieprogram@pes.edu'/>
+                <Handshake className="w-5 h-5 mr-2" />
                 Start Partnership
-              </Button>
+              </a>
               {/* <Button
                 variant="outline"
                 size="lg"
@@ -1353,14 +1446,13 @@ export default function CollaborationsPage() {
                 <FileText className="w-5 h-5 mr-2" />
                 Download Partnership Guide
               </Button> */}
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+              <a
+                href="mailto:cieprogram@pes.edu"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 font-semibold"
               >
-                <Phone className="w-5 h-5 mr-2" href='mailto:cieprogram@pes.edu'/>
+                <Phone className="w-5 h-5 mr-2" />
                 Schedule Consultation
-              </Button>
+              </a>
             </div>
           </motion.div>
         </div>

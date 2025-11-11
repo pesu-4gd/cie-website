@@ -194,29 +194,29 @@ const jobListings = [
 ];
 
 const jobStats = {
-  totalJobs: 156,
-  activeEmployers: 45,
-  placementsThisYear: 89,
-  averageSalary: '₹12.5 LPA'
+  totalJobs: 25,
+  activeEmployers: 8,
+  placementsThisYear: 45,
+  averageSalary: 'Industry-Ready'
 };
 
 const topEmployers = [
-  { name: 'TechCorp Solutions', jobs: 12, logo: '/api/placeholder/40/40' },
-  { name: 'Analytics Pro', jobs: 8, logo: '/api/placeholder/40/40' },
-  { name: 'InnovateTech', jobs: 6, logo: '/api/placeholder/40/40' },
-  { name: 'CloudFirst Systems', jobs: 5, logo: '/api/placeholder/40/40' },
-  { name: 'DesignStudio', jobs: 4, logo: '/api/placeholder/40/40' }
+  { name: 'Intel Corporation', jobs: 8, logo: '/assets/intel-removebg-preview.png', website: 'https://www.intel.com/content/www/us/en/homepage.html' },
+  { name: 'Cisco Systems', jobs: 6, logo: '/assets/cisco-removebg-preview.png', website: 'https://www.cisco.com/site/in/en/index.html' },
+  { name: 'Microsoft', jobs: 5, logo: '/assets/microsoft-removebg-preview.png', website: 'https://www.microsoft.com/en-in' },
+  { name: '4Good.AI', jobs: 4, logo: '/assets/4gd-removebg-preview.png', website: 'https://4gd.ai/' },
+  { name: 'SiMa.ai', jobs: 3, logo: '/assets/sima-removebg-preview.png', website: 'https://sima.ai/' }
 ];
 
 const jobCategories = [
-  { name: 'Software Development', count: 45, icon: '💻' },
-  { name: 'Data Science & Analytics', count: 23, icon: '📊' },
-  { name: 'Product Management', count: 18, icon: '🚀' },
-  { name: 'DevOps & Cloud', count: 15, icon: '☁️' },
-  { name: 'Design & UX', count: 12, icon: '🎨' },
-  { name: 'Cybersecurity', count: 10, icon: '🔒' },
-  { name: 'AI & Machine Learning', count: 8, icon: '🤖' },
-  { name: 'Mobile Development', count: 7, icon: '📱' }
+  { name: 'AI & Machine Learning', count: 150, icon: '🤖' },
+  { name: 'IoT & Smart Systems', count: 120, icon: '🌐' },
+  { name: 'Cybersecurity', count: 95, icon: '�' },
+  { name: 'Software Development', count: 180, icon: '💻' },
+  { name: 'Data Analytics', count: 110, icon: '📊' },
+  { name: 'Product Innovation', count: 85, icon: '�' },
+  { name: 'Entrepreneurship', count: 200, icon: '💡' },
+  { name: 'Business Strategy', count: 75, icon: '�' }
 ];
 
 export default function JobsPage() {
@@ -264,7 +264,7 @@ export default function JobsPage() {
           className="absolute inset-0 z-0"
         />
 
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-blue-600/10 to-purple-600/10 z-10" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-blue-600/10 to-purple=-600/10 z-10" />
 
         <div className="relative z-20 max-w-7xl mx-auto">
           <motion.div 
@@ -273,18 +273,17 @@ export default function JobsPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-200">
+            <Badge className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-600/20 text-white border-orange-400/30">
               <Briefcase className="h-4 w-4 mr-1" />
               Industry Job Portal
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Find Your <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Dream Career</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              Connect with <span className="bg-gradient-to-r from-orange-600 to-orange-600 bg-clip-text text-transparent">Skilled PES Students</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Connect with top employers and discover exciting career opportunities. 
-              Access exclusive job postings from our industry partners.
+            <p className="text-xl text-white max-w-3xl mx-auto mb-8">
+              The Centre for Innovation and Entrepreneurship (CIE) at PES University offers industry partners the opportunity to connect with talented students equipped with entrepreneurial and technical expertise through programs like EIE courses and CIE Ignite Ideathon.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 variant="default"
                 size="lg"
@@ -301,7 +300,7 @@ export default function JobsPage() {
                 <Upload className="h-5 w-5 mr-2" />
                 Upload Resume
               </Button>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>
@@ -316,8 +315,8 @@ export default function JobsPage() {
               transition={{ duration: 0.5 }}
               className="text-center"
             >
-              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">{jobStats.totalJobs}</div>
-              <div className="text-gray-600">Active Jobs</div>
+              <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">{jobStats.totalJobs}</div>
+              <div className="text-gray-600">Available Opportunities</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -325,7 +324,7 @@ export default function JobsPage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-center"
             >
-              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">{jobStats.activeEmployers}</div>
+              <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">{jobStats.activeEmployers}</div>
               <div className="text-gray-600">Partner Companies</div>
             </motion.div>
             <motion.div
@@ -334,8 +333,8 @@ export default function JobsPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-center"
             >
-              <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">{jobStats.placementsThisYear}</div>
-              <div className="text-gray-600">Placements This Year</div>
+              <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">{jobStats.placementsThisYear}</div>
+              <div className="text-gray-600">Student Placements</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -344,7 +343,7 @@ export default function JobsPage() {
               className="text-center"
             >
               <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">{jobStats.averageSalary}</div>
-              <div className="text-gray-600">Average Salary</div>
+              <div className="text-gray-600">Graduates</div>
             </motion.div>
           </div>
         </div>
@@ -354,22 +353,22 @@ export default function JobsPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-4 mb-8">
-              <TabsTrigger value="browse" className="text-lg py-3">
+            <TabsList className="grid w-full grid-cols-2 mb-8">
+              {/* <TabsTrigger value="browse" className="text-lg py-3">
                 <Search className="h-5 w-5 mr-2" />
-                Browse Jobs
+                Current Opportunities
               </TabsTrigger>
               <TabsTrigger value="categories" className="text-lg py-3">
                 <Target className="h-5 w-5 mr-2" />
-                Categories
-              </TabsTrigger>
+                Student Skills
+              </TabsTrigger> */}
               <TabsTrigger value="employers" className="text-lg py-3">
                 <Building2 className="h-5 w-5 mr-2" />
-                Top Employers
+                Partner Companies
               </TabsTrigger>
               <TabsTrigger value="post" className="text-lg py-3">
                 <Plus className="h-5 w-5 mr-2" />
-                Post Job
+                Post Opportunity
               </TabsTrigger>
             </TabsList>
 
@@ -408,7 +407,7 @@ export default function JobsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-orange-600 to-yellow-600">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -416,28 +415,26 @@ export default function JobsPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Launch Your Career?
+              Ready to Connect with PES Talent?
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Join thousands of students who have found their dream jobs through our platform
+            <p className="text-xl text-orange-100 mb-8">
+              Join industry leaders like Intel and Cisco in building your talent pipeline with skilled PES students
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                variant="default"
-                size="lg"
-                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white px-6 py-3 text-base font-semibold rounded-lg"
-              >
-                <FileText className="h-5 w-5 mr-2" />
-                Create Profile
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 px-6 py-3 text-base font-semibold rounded-lg"
+              <a
+                href="mailto:cieinfo@pes.edu"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white text-orange-600 hover:bg-orange-50 rounded-lg font-semibold transition-colors"
               >
                 <Mail className="h-5 w-5 mr-2" />
-                Job Alerts
-              </Button>
+                Submit Interest
+              </a>
+              <a
+                href="mailto:cieinfo@pes.edu"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
+              >
+                <Users className="h-5 w-5 mr-2" />
+                Partner with CIE
+              </a>
             </div>
           </motion.div>
         </div>
@@ -479,6 +476,7 @@ interface Employer {
   name: string;
   jobs: number;
   logo: string;
+  website: string;
 }
 
 // Component Sections
@@ -650,7 +648,7 @@ function BrowseJobsSection({
                   <div className="flex items-center gap-4 text-sm text-gray-500">
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
-                      Posted {new Date(job.postedDate).toLocaleDateString()}
+                      Posted {job.postedDate}
                     </div>
                     <div className="flex items-center">
                       <Users className="h-4 w-4 mr-1" />
@@ -693,11 +691,11 @@ function CategoriesSection({ categories }: { categories: JobCategory[] }) {
             <CardHeader className="text-center">
               <div className="text-4xl mb-4">{category.icon}</div>
               <CardTitle className="text-lg">{category.name}</CardTitle>
-              <CardDescription>{category.count} open positions</CardDescription>
+              <CardDescription>{category.count} skilled students</CardDescription>
             </CardHeader>
             <CardContent>
               <Button className="w-full">
-                Explore Jobs
+                View Students
                 <ChevronRight className="h-4 w-4 ml-2" />
               </Button>
             </CardContent>
@@ -729,12 +727,16 @@ function EmployersSection({ employers }: { employers: Employer[] }) {
             <Card className="h-full hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
-                    <Building2 className="h-8 w-8 text-gray-600" />
+                  <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center overflow-hidden">
+                    <img 
+                      src={employer.logo} 
+                      alt={`${employer.name} logo`}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div>
                     <CardTitle className="text-xl">{employer.name}</CardTitle>
-                    <CardDescription>{employer.jobs} active jobs</CardDescription>
+                    <CardDescription>{employer.jobs} active opportunities</CardDescription>
                   </div>
                 </div>
               </CardHeader>
@@ -755,13 +757,24 @@ function EmployersSection({ employers }: { employers: Employer[] }) {
                 </div>
                 
                 <div className="flex gap-2 mt-4">
-                  <Button size="sm" className="flex-1">
-                    View Jobs
+                  <a 
+                    href={employer.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center flex-1 px-3 py-2 bg-orange-600 hover:bg-orange-700 text-white text-sm font-medium rounded-md transition-colors"
+                  >
+                    Learn More
                     <ChevronRight className="h-4 w-4 ml-2" />
-                  </Button>
-                  <Button size="sm" variant="outline">
+                  </a>
+                  <a 
+                    href={employer.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit ${employer.name} website`}
+                    className="inline-flex items-center justify-center px-3 py-2 border border-gray-300 hover:bg-gray-50 text-gray-700 text-sm font-medium rounded-md transition-colors"
+                  >
                     <Globe className="h-4 w-4" />
-                  </Button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -776,9 +789,9 @@ function PostJobSection() {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Post a Job Opening</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">Post Internship & Job Opportunities</h2>
         <p className="text-xl text-gray-600">
-          Connect with talented students and recent graduates from our programs
+          Connect with talented PES students equipped with entrepreneurial and technical expertise
         </p>
       </div>
 
@@ -787,42 +800,45 @@ function PostJobSection() {
           <CardHeader>
             <CardTitle className="flex items-center">
               <Building2 className="h-5 w-5 mr-2" />
-              For Employers
+              Why Hire PES Students?
             </CardTitle>
             <CardDescription>
-              Post job openings and connect with our talent pool
+              PES students are uniquely prepared for tech-driven industries
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-3">
               <div className="flex items-center text-sm">
                 <CheckCircle className="h-4 w-4 mr-3 text-green-500" />
-                <span>Access to 1000+ qualified candidates</span>
+                <span>Entrepreneurial mindset through EIE courses</span>
               </div>
               <div className="flex items-center text-sm">
                 <CheckCircle className="h-4 w-4 mr-3 text-green-500" />
-                <span>Featured job posting options</span>
+                <span>Technical expertise in AI/ML, IoT, cybersecurity</span>
               </div>
               <div className="flex items-center text-sm">
                 <CheckCircle className="h-4 w-4 mr-3 text-green-500" />
-                <span>Direct candidate communication</span>
+                <span>Hands-on experience from CIE Ignite Ideathon</span>
               </div>
               <div className="flex items-center text-sm">
                 <CheckCircle className="h-4 w-4 mr-3 text-green-500" />
-                <span>Analytics and reporting</span>
+                <span>Industry exposure through Intel & Cisco partnerships</span>
               </div>
             </div>
             
             <div className="pt-4">
-              <div className="text-sm text-gray-600 mb-2">Pricing:</div>
-              <div className="text-2xl font-bold text-blue-600 mb-1">₹5,000</div>
-              <div className="text-sm text-gray-500">per job posting (30 days)</div>
+              <div className="text-sm text-gray-600 mb-2">Success Stories:</div>
+              <div className="text-base font-semibold text-blue-600 mb-1">Cisco ThingQbator</div>
+              <div className="text-sm text-gray-500">8 PES teams secured internships in 2024</div>
             </div>
             
-            <Button className="w-full mt-4">
-              <Plus className="h-4 w-4 mr-2" />
-              Post Job
-            </Button>
+            <a
+              href="mailto:cieinfo@pes.edu"
+              className="inline-flex items-center justify-center w-full px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg font-medium transition-colors"
+            >
+              <Mail className="h-4 w-4 mr-2" />
+              Contact CIE
+            </a>
           </CardContent>
         </Card>
 
@@ -830,70 +846,73 @@ function PostJobSection() {
           <CardHeader>
             <CardTitle className="flex items-center">
               <Users className="h-5 w-5 mr-2" />
-              Partnership Program
+              Submit Your Interest
             </CardTitle>
             <CardDescription>
-              Become a preferred hiring partner with exclusive benefits
+              Express interest in posting internship and job opportunities
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-3">
               <div className="flex items-center text-sm">
                 <CheckCircle className="h-4 w-4 mr-3 text-green-500" />
-                <span>Unlimited job postings</span>
+                <span>Dedicated job posting system under development</span>
               </div>
               <div className="flex items-center text-sm">
                 <CheckCircle className="h-4 w-4 mr-3 text-green-500" />
-                <span>Priority candidate access</span>
+                <span>Direct connection with qualified candidates</span>
               </div>
               <div className="flex items-center text-sm">
                 <CheckCircle className="h-4 w-4 mr-3 text-green-500" />
-                <span>Campus recruitment events</span>
+                <span>Engagement through CIE events and hackathons</span>
               </div>
               <div className="flex items-center text-sm">
                 <CheckCircle className="h-4 w-4 mr-3 text-green-500" />
-                <span>Dedicated account manager</span>
+                <span>Access to industry-ready graduates</span>
               </div>
             </div>
             
             <div className="pt-4">
-              <div className="text-sm text-gray-600 mb-2">Annual Partnership:</div>
-              <div className="text-2xl font-bold text-purple-600 mb-1">₹50,000</div>
-              <div className="text-sm text-gray-500">per year + benefits</div>
+              <div className="text-sm text-gray-600 mb-2">Contact Information:</div>
+              <div className="text-base font-semibold text-purple-600 mb-1">cieinfo@pes.edu</div>
+              <div className="text-sm text-gray-500">CIE office at PES University RR/EC Campus</div>
             </div>
             
-            <Button className="w-full mt-4" variant="outline">
-              <Mail className="h-4 w-4 mr-2" />
-              Contact Us
-            </Button>
+            <a
+              href="mailto:cieinfo@pes.edu"
+              className="inline-flex items-center justify-center w-full px-4 py-2 border border-purple-600 text-purple-600 hover:bg-purple-50 rounded-lg font-medium transition-colors"
+            >
+              <Plus className="h-4 w-4 mr-2" />
+              Express Interest
+            </a>
           </CardContent>
         </Card>
       </div>
 
-      <div className="mt-12 p-8 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
+      <div className="mt-12 p-8 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl border border-orange-200">
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Recruit From CIE?</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">Benefits of Partnering with CIE</h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <TrendingUp className="h-6 w-6 text-blue-600" />
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <TrendingUp className="h-6 w-6 text-orange-600" />
               </div>
-              <h4 className="font-semibold mb-2">Top Talent</h4>
-              <p className="text-sm text-gray-600">Access to the brightest minds in engineering and technology</p>
+              <h4 className="font-semibold mb-2">Skilled Talent Pool</h4>
+              <p className="text-sm text-gray-600">Access students with entrepreneurial and technical expertise in high-demand fields</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Award className="h-6 w-6 text-green-600" />
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <Award className="h-6 w-6 text-orange-600" />
               </div>
               <h4 className="font-semibold mb-2">Industry Ready</h4>
-              <p className="text-sm text-gray-600">Students trained with real-world projects and industry exposure</p>
+              <p className="text-sm text-gray-600">Students trained through real-world projects and industry collaborations</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Target className="h-6 w-6 text-purple-600" />
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <Target className="h-6 w-6 text-orange-600" />
               </div>
-              <h4 className="font-semibold mb-2">Diverse Skills</h4>
-              <p className="text-sm text-gray-600">Wide range of specializations from AI to cybersecurity</p>
+              <h4 className="font-semibold mb-2">Early Engagement</h4>
+              <p className="text-sm text-gray-600">Build talent pipeline through CIE events and engagement programs</p>
             </div>
           </div>
         </div>

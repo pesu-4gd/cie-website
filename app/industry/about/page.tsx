@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/design-system';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { SECTION_COLORS } from '@/styles/colors';
 import { 
@@ -103,22 +104,20 @@ export default function IndustryAboutPage() {
               solve real-world challenges, and create meaningful partnerships.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                variant="default"
-                size="lg"
-                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
+              <a
+                href="mailto:cieinfo@pes.edu"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-xl group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white font-semibold"
               >
                 <Handshake className="w-5 h-5 mr-2" />
                 Start Partnership
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+              </a>
+              <Link
+                href="/industry/collaborations"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 font-semibold"
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Learn More
-              </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -153,8 +152,8 @@ export default function IndustryAboutPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-blue-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-blue-600" />
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-orange-100 flex items-center justify-center">
+                    <IconComponent className="w-8 h-8 text-orange-600" />
                   </div>
                   <div className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
                   <div className="text-gray-600 font-medium">{stat.label}</div>
@@ -194,8 +193,8 @@ export default function IndustryAboutPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-16 h-16 mb-6 rounded-2xl bg-blue-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-blue-600" />
+                  <div className="w-16 h-16 mb-6 rounded-2xl bg-orange-100 flex items-center justify-center">
+                    <IconComponent className="w-8 h-8 text-orange-600" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{type.title}</h3>
                   <p className="text-gray-600 mb-6">{type.description}</p>
@@ -233,8 +232,8 @@ export default function IndustryAboutPage() {
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Target className="w-6 h-6 text-blue-600" />
+                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Target className="w-6 h-6 text-orange-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Innovation Focus</h3>
@@ -243,8 +242,8 @@ export default function IndustryAboutPage() {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Users className="w-6 h-6 text-green-600" />
+                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Users className="w-6 h-6 text-orange-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Talent Access</h3>
@@ -253,8 +252,8 @@ export default function IndustryAboutPage() {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <TrendingUp className="w-6 h-6 text-purple-600" />
+                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <TrendingUp className="w-6 h-6 text-orange-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Proven Results</h3>
@@ -271,7 +270,7 @@ export default function IndustryAboutPage() {
               className="bg-white p-8 rounded-3xl shadow-xl border border-gray-200"
             >
               <div className="text-center mb-8">
-                <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-gradient-to-r from-orange-600 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Rocket className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Ready to Collaborate?</h3>
@@ -279,7 +278,7 @@ export default function IndustryAboutPage() {
               </div>
               
               <div className="space-y-4">
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-semibold">
+                <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-xl font-semibold">
                   <Mail className="w-5 h-5 mr-2" />
                   Contact Partnership Team
                 </Button>
@@ -294,7 +293,7 @@ export default function IndustryAboutPage() {
       </section>
 
       {/* Contact CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-indigo-700">
+      <section className="py-20 bg-gradient-to-br from-orange-600 to-orange-400">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -344,14 +343,13 @@ export default function IndustryAboutPage() {
                 <ArrowRight className="w-5 h-5 mr-2" />
                 Get Started Today
               </Button> */}
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 px-8 py-4 text-lg font-semibold rounded-xl"
+              <a
+                href="mailto:cieprogram@pes.edu"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-orange/20"
               >
-                <Globe className="w-5 h-5 mr-2"  href='mailto:cieprogram@pes.edu' />
+                <Globe className="w-5 h-5 mr-2" />
                 Explore Opportunities
-              </Button>
+              </a>
             </div>
             
             <div className="mt-8">

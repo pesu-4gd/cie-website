@@ -51,7 +51,7 @@ export default function ECellPage() {
               </Button>
 
               <Button size="lg" className="border-white text-white hover:bg-white/10" asChild>
-                <a href="https://www.linkedin.com" target="_blank" rel="noreferrer noopener" className="inline-flex items-center">
+                <a href="https://www.linkedin.com/company/pes-ecell/" target="_blank" rel="noreferrer noopener" className="inline-flex items-center">
                   <Linkedin className="h-4 w-4 mr-2" />
                   Visit LinkedIn
                 </a>
@@ -136,7 +136,7 @@ export default function ECellPage() {
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button asChild>
-                  <a href="https://www.linkedin.com" target="_blank" rel="noreferrer noopener" className="flex items-center gap-2">
+                  <a href="https://www.linkedin.com/company/pes-ecell/" target="_blank" rel="noreferrer noopener" className="flex items-center gap-2">
                     <Linkedin className="h-4 w-4" style={{ color: studentsColors.primary }} />
                     Join on LinkedIn
                   </a>

@@ -56,7 +56,7 @@ const fundingOpportunities = [
     description: 'A CSR-backed program that enables students to build scalable solutions using IoT, AR, ML and AI, with seed funding, tooling and mentorship from industry experts.',
     requirements: ['Project proposal', 'Prototype demo', 'Team details', 'Mentor endorsement'],
     benefits: ['Seed funding up to ₹5 Lakh', 'Access to tools and platforms', 'Mentorship from Cisco/NASSCOM', 'Networking opportunities'],
-    applicationProcess: 'Register via CIE or email cieprogram@pes.edu with a project proposal; shortlisted teams pitch to industry panels.',
+    applicationProcess: 'Email cieprogram@pes.edu with a project proposal; shortlisted teams pitch to industry panels.',
     contactEmail: 'cieprogram@pes.edu',
     featured: true,
     tags: ['thingQbator', 'iot', 'ai', 'seed'],
@@ -73,7 +73,7 @@ const fundingOpportunities = [
     category: 'Research / Education',
     deadline: 'Year-round',
     duration: 'Ongoing',
-    eligibility: 'All PES University students and faculty',
+    eligibility: 'All PES University students and faculty can apply for access',
     description: 'Campus-wide access to MATLAB & Simulink and add-ons for prototyping, research and competitions, plus training resources and competition opportunities.',
     requirements: ['PES University email to register with MathWorks'],
     benefits: ['Free MATLAB/Simulink access', 'Training resources', 'Competition opportunities'],
@@ -119,7 +119,7 @@ const fundingOpportunities = [
     description: 'Structured incubation supporting prototype development, IP registration and startup formation with technical and commercial mentorship.',
     requirements: ['Techno-commercial proposal', 'Academic credentials', 'Prototype/plan'],
     benefits: ['Prototype funding', 'Lab & tooling access', 'Mentorship and networking'],
-    applicationProcess: 'Submit techno-commercial proposals via CIE website or email cieprogram@pes.edu; shortlisted candidates may be invited to pitch.',
+    applicationProcess: 'Email cieprogram@pes.edu; shortlisted candidates may be invited to pitch.',
     contactEmail: 'cieprogram@pes.edu',
     featured: false,
     tags: ['cic', 'robotics', 'incubation'],
@@ -150,18 +150,18 @@ const fundingOpportunities = [
   {
     id: 'f6',
     title: 'Hackathons & Competitions',
-    provider: 'Various (Smart India Hackathon, Hult Prize, CIE Hackathons)',
+    provider: 'Various Organizers',
     providerType: 'External',
-    amount: 'Prizes / Sponsorships (varies)',
+    amount: 'Prizes/Sponsorships (varies)',
     type: 'Competitions / Hackathons',
     category: 'Various',
     deadline: 'Varies',
     duration: 'Event-based',
     eligibility: 'Program dependent',
-    description: 'Hackathons and competitions (e.g., Smart India Hackathon, Hult Prize, CIE Decypher) provide prize money, recognition and pathways to external accelerators.',
-    requirements: ['Project pitch or prototype depending on the event'],
+    description: 'Hackathons and competitions (e.g.,Smart India Hackathon, Hult Prize, CIE Decypher) provide prize money, recognition and pathways to external accelerators.',
+    requirements: ['Project/Prototype pitch based on event'],
     benefits: ['Cash prizes, internships, networking and visibility'],
-    applicationProcess: 'Register via CIE or the event platform; prepare a project pitch or prototype.',
+    applicationProcess: 'Email cieprogram@pes.edu; prepare a project pitch or prototype.',
     contactEmail: 'cieprogram@pes.edu',
     featured: false,
     tags: ['hackathon', 'competition', 'hult', 'sih'],
@@ -769,10 +769,12 @@ function ApplicationTipsSection({ tips }: { tips: typeof applicationTips }) {
                 Schedule a consultation or attend our weekly application workshops.
               </p>
               <div className="flex space-x-3">
-                <Button className="bg-blue-600 text-white hover:bg-blue-700" >
-                  <Calendar className="h-4 w-4 mr-2 text-white" href="mailto:cieprograms@pes.edu" />
-                  Schedule Consultation
-                </Button>
+                <a href="mailto:cieprogram@pes.edu" className="inline-block">
+                  <Button className="bg-blue-600 text-white hover:bg-blue-700">
+                    <Calendar className="h-4 w-4 mr-2 text-white" />
+                    Schedule Consultation
+                  </Button>
+                </a>
                 {/* <Button variant="outline">
                   <Users className="h-4 w-4 mr-2" />
                   Join Workshop

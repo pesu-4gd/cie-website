@@ -99,7 +99,7 @@ export default function StudentClubsPage() {
       title: 'Startup Pitch Night',
       club: 'E-Cell',
       date: '2025-02-20',
-      description: 'Monthly event where student entrepreneurs pitch to a panel of investors and mentors.',
+      description: 'Monthly event where student entrepreneurs pitch to a panel of investors and mentors and receive feedback.',
       type: 'Networking',
       expectedAttendees: '100+',
       registrationOpen: false
@@ -133,7 +133,7 @@ export default function StudentClubsPage() {
       value: '30+',
       description: 'Startups launched through club initiatives and support',
       icon: TrendingUp,
-      color: 'orange'
+      color: 'green'
     }
   ];
 
@@ -376,7 +376,7 @@ export default function StudentClubsPage() {
                   </div>
                 </div>
                 
-                <Button 
+                {/* <Button 
                   className={`w-full ${
                     event.registrationOpen 
                       ? 'bg-[#00338d] hover:bg-blue-700' 
@@ -385,7 +385,7 @@ export default function StudentClubsPage() {
                   disabled={!event.registrationOpen}
                 >
                   {event.registrationOpen ? 'Learn more' : 'Not available'}
-                </Button>
+                </Button> */}
               </motion.div>
             ))}
           </div>
