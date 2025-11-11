@@ -128,22 +128,64 @@ const fundingOpportunities = [
   },
   {
     id: 'f5',
-    title: 'Other Grants & Competitions',
-    provider: 'Various (Industry / Government / NGOs)',
+    title: 'Harman International — Sponsored Projects',
+    provider: 'Harman International',
     providerType: 'External',
-    amount: 'Varies',
-    type: 'Grants / Competitions',
-    category: 'Various',
-    deadline: 'Varies',
-    duration: 'Varies',
-    eligibility: 'Program dependent',
-    description: 'CIE partners with industry and external organizations to provide hackathons, competitions and sponsored grants (e.g., Harman, Smart India Hackathon, Hult Prize).',
-    requirements: ['Depends on the program; typically a project pitch or application'],
-    benefits: ['Prizes, sponsorships, internships and visibility'],
-    applicationProcess: 'Monitor CIE announcements or email cieprogram@pes.edu for details.',
+    amount: 'Varies (project-dependent)',
+    type: 'Corporate Sponsorship / Grant',
+    category: 'Automotive / IoT / Consumer Electronics',
+    deadline: 'Announced via CIE',
+    duration: 'Project-based',
+    eligibility: 'PES University students with projects in automotive tech, IoT, or related fields',
+    description: 'Potential funding or sponsorship for projects aligned with automotive and consumer electronics, leveraging Harman’s technical expertise and industry channels.',
+    requirements: ['Project summary', 'Technical plan', 'Team credentials'],
+    benefits: ['Grants, internships or project sponsorship', 'Access to Harman technical resources and mentorship'],
+    applicationProcess: 'Details announced via CIE; contact cieprogram@pes.edu for updates.',
     contactEmail: 'cieprogram@pes.edu',
     featured: false,
-    tags: ['hackathon', 'sponsorship', 'external'],
+    tags: ['harman', 'automotive', 'iot'],
+    studentsSupported: 0,
+    status: 'Open'
+  },
+  {
+    id: 'f6',
+    title: 'Hackathons & Competitions',
+    provider: 'Various (Smart India Hackathon, Hult Prize, CIE Hackathons)',
+    providerType: 'External',
+    amount: 'Prizes / Sponsorships (varies)',
+    type: 'Competitions / Hackathons',
+    category: 'Various',
+    deadline: 'Varies',
+    duration: 'Event-based',
+    eligibility: 'Program dependent',
+    description: 'Hackathons and competitions (e.g., Smart India Hackathon, Hult Prize, CIE Decypher) provide prize money, recognition and pathways to external accelerators.',
+    requirements: ['Project pitch or prototype depending on the event'],
+    benefits: ['Cash prizes, internships, networking and visibility'],
+    applicationProcess: 'Register via CIE or the event platform; prepare a project pitch or prototype.',
+    contactEmail: 'cieprogram@pes.edu',
+    featured: false,
+    tags: ['hackathon', 'competition', 'hult', 'sih'],
+    studentsSupported: 0,
+    status: 'Open'
+  },
+  {
+    id: 'f7',
+    title: 'External Incubators & Accelerators',
+    provider: 'GDC-IITM (I-NCUBATE), Microsoft WISE, etc.',
+    providerType: 'External',
+    amount: 'Varies (typically grants or seed support)',
+    type: 'Incubation / Acceleration',
+    category: 'Incubation / Mentorship',
+    deadline: 'Announced via CIE or partner portals',
+    duration: 'Program dependent',
+    eligibility: 'Market-ready or validated ideas; some programs target specific groups (e.g., women developers)',
+    description: 'External incubators like GDC-IIT Madras (I-NCUBATE) and Microsoft WISE offer funding, mentorship and go-to-market support to promising teams.',
+    requirements: ['Pitch deck', 'Validation evidence', 'Team details'],
+    benefits: ['Mentorship, funding, access to partner networks and commercialization support'],
+    applicationProcess: 'Applications announced via CIE; typically submit a proposal or apply on the partner portal.',
+    contactEmail: 'cieprogram@pes.edu',
+    featured: false,
+    tags: ['incubator', 'accelerator', 'i-ncubate', 'microsoft-wise'],
     studentsSupported: 0,
     status: 'Open'
   }
@@ -479,23 +521,58 @@ export default function FundingPage() {
               </div> */}
             </article>
 
-            {/* Other Grants */}
+            {/* Harman International */}
             <article className="rounded-2xl border p-6 shadow-sm bg-white">
               <header className="flex items-start justify-between">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Other Grants & Competitions</h3>
-                  <p className="text-sm text-gray-500 mt-1">Hackathons, sponsored grants and external incubators</p>
+                  <h3 className="text-lg font-semibold text-gray-900">Harman International — Sponsored Projects</h3>
+                  <p className="text-sm text-gray-500 mt-1">Potential corporate sponsorships for automotive and consumer electronics projects</p>
                 </div>
                 <span className="text-sm font-medium text-gray-700">Varies</span>
               </header>
 
-              <p className="mt-4 text-gray-600 text-sm">CIE partners with industry and government programs (Harman, Smart India Hackathon, Hult Prize) to provide sponsorships, prizes and pathways to external accelerators.</p>
+              <p className="mt-4 text-gray-600 text-sm">Potential funding or sponsorship for projects aligned with automotive and consumer electronics, leveraging Harman’s expertise. Benefits include grants, internships, and access to Harman's technical resources.</p>
 
-              {/* <div className="mt-4">
-                <a href="mailto:cieprogram@pes.edu" className="inline-block">
-                  <Button variant="outline">Contact CIE</Button>
-                </a>
-              </div> */}
+              <ul className="mt-4 text-sm text-gray-600 space-y-2">
+                <li>Eligibility: PES University students with projects in automotive tech, IoT, or related fields</li>
+                <li>Application Process: Details announced via CIE; contact <a className="text-[var(--cie-blue)]" href="mailto:cieprogram@pes.edu">cieprogram@pes.edu</a> for updates</li>
+              </ul>
+            </article>
+
+            {/* Hackathons & Competitions */}
+            <article className="rounded-2xl border p-6 shadow-sm bg-white">
+              <header className="flex items-start justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">Hackathons & Competitions</h3>
+                  <p className="text-sm text-gray-500 mt-1">Smart India Hackathon, Hult Prize, CIE events</p>
+                </div>
+                <span className="text-sm font-medium text-gray-700">Varies</span>
+              </header>
+
+              <p className="mt-4 text-gray-600 text-sm">National and international hackathons provide cash prizes, recognition and pathways to acceleration. Examples: Smart India Hackathon (cash prizes), Hult Prize (global exposure), and CIE Decypher (seed funding & networking).</p>
+
+              <ul className="mt-4 text-sm text-gray-600 space-y-2">
+                <li>Application Process: Register through CIE or the event platform; prepare a project pitch or prototype</li>
+                <li>Benefits: Prizes, internships, visibility and potential accelerator referrals</li>
+              </ul>
+            </article>
+
+            {/* External Incubators & Accelerators */}
+            <article className="rounded-2xl border p-6 shadow-sm bg-white">
+              <header className="flex items-start justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">External Incubators & Accelerators</h3>
+                  <p className="text-sm text-gray-500 mt-1">GDC-IIT Madras (I-NCUBATE), Microsoft WISE and partner accelerators</p>
+                </div>
+                <span className="text-sm font-medium text-gray-700">Varies</span>
+              </header>
+
+              <p className="mt-4 text-gray-600 text-sm">Programs like GDC-IIT Madras (I-NCUBATE) and Microsoft WISE offer funding, mentorship and commercialization support for market-ready ideas. Some programs provide targeted support (e.g., women-focused initiatives).</p>
+
+              <ul className="mt-4 text-sm text-gray-600 space-y-2">
+                <li>Eligibility: Market-ready or validated ideas; program-dependent</li>
+                <li>Application Process: Announced via CIE; typically submit a proposal or apply on the partner portal</li>
+              </ul>
             </article>
           </div>
 
@@ -610,159 +687,36 @@ function OpportunitiesSection({
 }) {
   return (
     <div className="space-y-8">
-      {/* Search and Filters (preserve existing controls) */}
-      <div className="space-y-4">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-          <input
-            placeholder="Search funding opportunities..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10"
-          />
-        </div>
-        
-  <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-          <div className="flex items-center space-x-2">
-            <Filter className="h-4 w-4 text-gray-500" />
-            <select
-              aria-label="Filter by category"
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="border border-gray-300 rounded-md px-3 py-2 bg-white flex-1"
-            >
-              {categories.map(category => (
-                <option key={category} value={category}>{category}</option>
-              ))}
-            </select>
-          </div>
-          
-          <div className="flex items-center space-x-2">
-            <Banknote className="h-4 w-4 text-gray-500" />
-            <select
-              aria-label="Filter by amount"
-              value={selectedAmount}
-              onChange={(e) => setSelectedAmount(e.target.value)}
-              className="border border-gray-300 rounded-md px-3 py-2 bg-white flex-1"
-            >
-              {amounts.map(amount => (
-                <option key={amount} value={amount}>{amount}</option>
-              ))}
-            </select>
-          </div>
-          
-          <div className="flex items-center space-x-2">
-            <Clock className="h-4 w-4 text-gray-500" />
-            <select
-              aria-label="Filter by status"
-              value={selectedStatus}
-              onChange={(e) => setSelectedStatus(e.target.value)}
-              className="border border-gray-300 rounded-md px-3 py-2 bg-white flex-1"
-            >
-              {statuses.map(status => (
-                <option key={status} value={status}>{status}</option>
-              ))}
-            </select>
-          </div>
-          
-          <div className="flex items-center space-x-2">
-            <Building2 className="h-4 w-4 text-gray-500" />
-            <select
-              aria-label="Filter by provider type"
-              value={selectedProvider}
-              onChange={(e) => setSelectedProvider(e.target.value)}
-              className="border border-gray-300 rounded-md px-3 py-2 bg-white flex-1"
-            >
-              {providerTypes.map(pt => (
-                <option key={pt} value={pt}>{pt}</option>
-              ))}
-            </select>
-          </div>
-          
-          {/* <Button variant="outline" className="w-full">
-            <Download className="h-4 w-4 mr-2" />
-            Export Results
-          </Button> */}
-        </div>
-      </div>
+      {/* Filters removed by request — showing articles only */}
 
       {/* Revamped Opportunities Grid using Programs-style cards */}
-      {opportunities.length === 0 ? (
-        <Card className="text-center py-12">
-          <CardContent>
-            <DollarSign className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">No Opportunities Found</h3>
-            <p className="text-gray-600">No funding opportunities match your search criteria. Try adjusting your filters.</p>
-          </CardContent>
-        </Card>
-      ) : (
-        <div className="grid lg:grid-cols-2 gap-6">
-          {opportunities.map((opp, idx) => (
-            <motion.div
-              key={opp.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: idx * 0.06 }}
-              className="bg-white rounded-3xl p-8 border border-gray-200 hover:shadow-xl transition-all duration-200"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{opp.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{opp.description}</p>
-                </div>
-                <div className="ml-4 text-right">
-                  <div className="text-sm font-semibold text-gray-900">{opp.amount}</div>
-                  <div className="text-xs text-gray-500">Amount</div>
-                </div>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {opportunities.map((opp) => (
+          <article key={opp.id} className="rounded-2xl border p-6 shadow-sm bg-white">
+            <header className="flex items-start justify-between">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">{opp.title}</h3>
+                <p className="text-sm text-gray-500 mt-1">{opp.provider}</p>
               </div>
+              <span className="text-sm font-medium text-[var(--cie-blue)]">{opp.amount}</span>
+            </header>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                <div className="text-center p-3 bg-gray-50 rounded-xl">
-                  <Clock className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
-                  <div className="text-sm font-medium text-gray-900">{opp.duration}</div>
-                  <div className="text-xs text-gray-500">Duration</div>
-                </div>
-                <div className="text-center p-3 bg-gray-50 rounded-xl">
-                  <Award className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
-                  <div className="text-sm font-medium text-gray-900">{opp.category}</div>
-                  <div className="text-xs text-gray-500">Category</div>
-                </div>
-                <div className="text-center p-3 bg-gray-50 rounded-xl">
-                  <Users className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
-                  <div className="text-sm font-medium text-gray-900">{opp.studentsSupported ?? '-'}</div>
-                  <div className="text-xs text-gray-500">Supported</div>
-                </div>
-                <div className="text-center p-3 bg-gray-50 rounded-xl">
-                  <MapPin className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
-                  <div className="text-sm font-medium text-gray-900">{opp.providerType}</div>
-                  <div className="text-xs text-gray-500">Provider</div>
-                </div>
-              </div>
+            <p className="mt-4 text-gray-600 text-sm">{opp.description}</p>
 
-              <div className="mb-6">
-                <h4 className="font-semibold text-gray-900 mb-3">Key Requirements</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
-                  {opp.requirements?.slice(0,6).map((r, i) => (
-                    <div key={i} className="flex items-center">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                      <span>{r}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <ul className="mt-4 text-sm text-gray-600 space-y-2">
+              {opp.eligibility && <li><strong>Eligibility:</strong> {opp.eligibility}</li>}
+              {opp.requirements && <li><strong>Requirements:</strong> {opp.requirements.join(', ')}</li>}
+              {opp.applicationProcess && <li><strong>Apply:</strong> {opp.applicationProcess}</li>}
+            </ul>
 
-              {/* <div> */}
-                {/* Action button styled like Programs page */}
-                {/* <Button className="w-full bg-white" style={{ borderColor: studentsColors.secondary, color: studentsColors.secondary }}>
-                  View Details
-                  <ExternalLink className="w-4 h-4 ml-2" />
-                </Button> */}
-             {/* </div> */}
-
-            </motion.div>
-          ))}
-        </div>
-      )}
+            <div className="mt-4">
+              <a href={`mailto:${opp.contactEmail ?? 'cieprogram@pes.edu'}`} className="inline-block">
+                <Button className="bg-[var(--cie-blue)] text-white">Contact CIE</Button>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   );
 }

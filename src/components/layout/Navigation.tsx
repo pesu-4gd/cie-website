@@ -710,7 +710,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
             <div className="w-8 h-8 bg-gradient-to-r from-[#f07f1a] to-[#f07f1a]/80 rounded-lg flex items-center justify-center">
               <Users className="w-5 h-5 text-white" />
             </div>
-            <h2 className="text-lg font-bold text-[#00338d]">Content</h2>
+            <h2 className="text-lg font-bold text-[#00338d]"></h2>
           </div>
           <button 
             onClick={onClose}
