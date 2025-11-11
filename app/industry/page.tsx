@@ -199,7 +199,7 @@ export default function IndustryPage() {
             className="text-5xl md:text-7xl font-bold text-white mb-6"
           >
             Partner with Innovation
-            <span className="block mt-4 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
+            <span className="block mt-4 bg-gradient-to-r from-orange-600 to-orange-600 bg-clip-text text-transparent">
               Drive the Future
             </span>
           </motion.h1>

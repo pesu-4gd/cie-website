@@ -97,7 +97,7 @@ export default function IndustryAboutPage() {
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
               Partnering for
-              <span className="block text-blue-200">Innovation Excellence</span>
+              <span className="block bg-gradient-to-r from-orange-600 to-yellow-500 bg-clip-text text-transparent">Innovation Excellence</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8">
               CIE connects industry leaders with talented students and cutting-edge research to drive innovation, 

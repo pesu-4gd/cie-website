@@ -202,20 +202,20 @@ export default function IndustryEventsPage() {
               <Button
                 variant="default"
                 size="lg"
-                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
+                className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white"
                 onClick={() => window.open('mailto:cieinfo@pes.edu')}
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 Submit Interest
               </Button>
-              <Button
+              {/* <Button
                 variant="outline"
                 size="lg"
                 className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Learn More
-              </Button>
+              </Button> */}
             </div>
           </motion.div>
         </div>
@@ -447,11 +447,18 @@ export default function IndustryEventsPage() {
                     Subscribe to the CIE Newsletter or follow us on LinkedIn and X for updates on the event calendar launch and upcoming activities.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                    <Button 
+                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                      onClick={() => window.open('/alumni/newsletter', '_blank')}
+                    >
                       <Mail className="w-4 h-4 mr-2" />
                       Subscribe to Newsletter
                     </Button>
-                    <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+                    <Button 
+                      variant="outline" 
+                      className="border-blue-600 text-blue-600 hover:bg-blue-50"
+                      onClick={() => window.open('https://www.linkedin.com/company/center-for-innovation-and-entrepreneurship-pes-university/', '_blank')}
+                    >
                       <Globe className="w-4 h-4 mr-2" />
                       Follow on Social Media
                     </Button>
@@ -579,15 +586,15 @@ export default function IndustryEventsPage() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-center bg-blue-50 p-8 rounded-3xl border border-blue-200"
+                    className="text-center bg-orange-50 p-8 rounded-3xl border border-orange-200"
                   >
-                    <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <MessageCircle className="w-8 h-8 text-blue-600" />
+                    <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <MessageCircle className="w-8 h-8 text-orange-600" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4">3. Next Steps</h3>
                     <p className="text-gray-600">
                       A CIE representative will review your inquiry, discuss logistics, and confirm participation 
-                      or event details within <span className="font-semibold text-blue-700">5–7 business days</span>.
+                      or event details within <span className="font-semibold text-orange-700">5–7 business days</span>.
                     </p>
                   </motion.div>
                 </div>
@@ -608,7 +615,7 @@ export default function IndustryEventsPage() {
       </section>
 
       {/* Contact and Benefits Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-indigo-700">
+      <section className="py-20 bg-gradient-to-br from-orange-400 to-orange-600">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -687,8 +694,18 @@ export default function IndustryEventsPage() {
               <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
                 <h3 className="text-xl font-semibold mb-4 text-white">Stay Connected</h3>
                 <div className="space-y-3 text-blue-100 text-sm">
-                  <p>• Subscribe to the CIE Newsletter for updates</p>
-                  <p>• Follow us on LinkedIn, Spotify and Instagram</p>
+                  <p>• <button 
+                      onClick={() => window.open('/alumni/newsletter', '_blank')}
+                      className="text-blue-200 hover:text-white underline"
+                    >
+                      Subscribe to the CIE Newsletter
+                    </button> for updates</p>
+                  <p>• <button 
+                      onClick={() => window.open('https://www.linkedin.com/company/center-for-innovation-and-entrepreneurship-pes-university/', '_blank')}
+                      className="text-blue-200 hover:text-white underline"
+                    >
+                      Follow us on LinkedIn
+                    </button></p>
                   <p>• Visit CIE PES University for latest information</p>
                 </div>
               </div>
@@ -698,7 +715,7 @@ export default function IndustryEventsPage() {
               <Button
                 variant="default"
                 size="lg"
-                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
+                className="group bg-gradient-to-r from-orange-500 to-orange-500 hover:from-orange-400 hover:to-orange-400 text-white"
                 onClick={() => window.open('mailto:cieinfo@pes.edu')}
               >
                 <Mail className="w-5 h-5 mr-2" />

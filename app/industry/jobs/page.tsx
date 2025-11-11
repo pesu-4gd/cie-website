@@ -273,7 +273,7 @@ export default function JobsPage() {
               Industry Job Portal
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Connect with <span className="bg-gradient-to-r from-orange-600 to-orange-600 bg-clip-text text-transparent">Skilled PES Students</span>
+              Connect with <span className="bg-gradient-to-r from-orange-600 to-yellow-400 bg-clip-text text-transparent">Skilled PES Students</span>
             </h1>
             <p className="text-xl text-white max-w-3xl mx-auto mb-8">
               The Centre for Innovation and Entrepreneurship (CIE) at PES University offers industry partners the opportunity to connect with talented students equipped with entrepreneurial and technical expertise through programs like EIE courses and CIE Ignite Ideathon.

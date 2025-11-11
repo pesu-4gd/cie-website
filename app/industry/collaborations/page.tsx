@@ -1044,7 +1044,7 @@ export default function CollaborationsPage() {
               </div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Strategic Collaboration
-                <span className="block text-orange-400">Models</span>
+                <span className="block bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent">Models</span>
               </h1>
               <p className="text-xl md:text-2xl text-white-100 max-w-4xl mx-auto leading-relaxed">
                 The Centre for Innovation and Entrepreneurship (CIE) at PES University offers industry partners a range of collaboration models to drive innovation, engage with top talent, and contribute to the entrepreneurial ecosystem.
