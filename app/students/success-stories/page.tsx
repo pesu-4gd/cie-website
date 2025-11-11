@@ -1,7 +1,5 @@
 'use client';
 
-import { useState } from 'react';
-import Image from 'next/image';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { SECTION_COLORS } from '@/styles/colors';
 import { Button } from '@/components/ui/button';
@@ -10,23 +8,29 @@ import {
   Rocket,
   Trophy,
   Building2,
+  Globe,
   Users,
   TrendingUp,
+  Award,
   Lightbulb,
   CheckCircle,
+  ArrowRight,
   ExternalLink,
   DollarSign,
+  Target,
+  Zap,
+  Star,
   Code,
   Cpu,
   Brain,
   Shield,
+  Music,
   ChefHat,
   Dumbbell
 } from 'lucide-react';
 
-export default function AlumniSuccessStoriesPage() {
-  const alumniColors = SECTION_COLORS.alumni;
-  const [selectedStartupIndex, setSelectedStartupIndex] = useState(0);
+export default function StudentSuccessStoriesPage() {
+  const studentsColors = SECTION_COLORS.students;
 
   const successStats = [
     { label: 'Active Startups', value: '50+', icon: Rocket },
@@ -52,8 +56,7 @@ export default function AlumniSuccessStoriesPage() {
       impact: 'Democratizing professional sports coaching, with growing adoption by schools and sports organizations across India.',
       linkedin: 'https://www.linkedin.com/company/pocketcoach-technologies-pvt-ltd/',
       icon: Dumbbell,
-      logo: '/assets/pocket-coach.jpg',
-      color: 'from-amber-500 to-yellow-600'
+      color: 'from-green-500 to-emerald-600'
     },
     {
       name: 'Epicure Robotics',
@@ -71,8 +74,7 @@ export default function AlumniSuccessStoriesPage() {
       impact: 'Revolutionizing the food service industry by introducing affordable, reliable robotic automation technologies.',
       linkedin: 'https://www.linkedin.com/company/epicure-robotics/',
       icon: ChefHat,
-      logo: '/assets/epicure-robotics.jpg',
-      color: 'from-yellow-500 to-amber-600'
+      color: 'from-orange-500 to-red-600'
     },
     {
       name: 'Aalap AI',
@@ -90,8 +92,7 @@ export default function AlumniSuccessStoriesPage() {
       impact: 'Bridging tradition and technology in music while revolutionizing legal assistance with specialized AI tools.',
       linkedin: 'https://www.linkedin.com/company/aalapai/',
       icon: Brain,
-      logo: '/assets/aalap-ai.jpg',
-      color: 'from-amber-400 to-yellow-500'
+      color: 'from-purple-500 to-pink-600'
     },
     {
       name: 'Authify',
@@ -109,8 +110,7 @@ export default function AlumniSuccessStoriesPage() {
       impact: 'Enhancing smart city initiatives and enterprise data security through innovative behavioral enforcement technology.',
       linkedin: 'https://www.linkedin.com/company/authifytech/',
       icon: Shield,
-      logo: '/assets/authify.jpg',
-      color: 'from-yellow-600 to-amber-700'
+      color: 'from-blue-500 to-indigo-600'
     }
   ];
 
@@ -121,8 +121,7 @@ export default function AlumniSuccessStoriesPage() {
       description: 'Creative solution studio focused on product design, IoT, and cybersecurity, collaborating with research labs and industry mentors.',
       founders: 'PES University Students',
       linkedin: 'https://www.linkedin.com/company/draft42/',
-      icon: Code,
-      logo: '/assets/draft42.jpg'
+      icon: Code
     },
     {
       name: 'SmartChakra',
@@ -130,8 +129,7 @@ export default function AlumniSuccessStoriesPage() {
       description: 'Developing smart connected devices for wellness, consumer automation, and healthcare verticals.',
       founders: 'Tarakesh Mogallapalli, Manjunath Gangadhar',
       linkedin: 'https://www.linkedin.com/company/smartchakra/',
-      icon: Cpu,
-      logo: '/assets/smartchakra.jpg'
+      icon: Cpu
     },
     {
       name: 'Zeru Finance',
@@ -139,8 +137,7 @@ export default function AlumniSuccessStoriesPage() {
       description: 'Innovative fintech solutions focusing on supply chain traceability, accountability, and transparent operations.',
       founders: 'PES University Students',
       linkedin: 'https://www.linkedin.com/company/zerufinance/',
-      icon: TrendingUp,
-      logo: '/assets/zeru.jpg'
+      icon: TrendingUp
     }
   ];
 
@@ -183,10 +180,10 @@ export default function AlumniSuccessStoriesPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#2B9EB3]">
         <InteractiveHexagonBackground
-          primaryColor={alumniColors.hero.background}
-          accentColor="#F59E0B"
+          primaryColor={studentsColors.hero.background}
+          accentColor={studentsColors.hero.hexagonAccent}
           className="absolute inset-0 z-0"
         />
 
@@ -202,17 +199,17 @@ export default function AlumniSuccessStoriesPage() {
             transition={{ duration: 0.8 }}
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-yellow-500/20 text-amber-200 border border-yellow-400/30">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/20 text-white border border-white/30">
                 <Trophy className="w-4 h-4 mr-2" />
-                Alumni Success Stories
+                Student Success Stories
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
               From Campus to{' '}
-              <span className="block bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">Unicorn Dreams</span>
+              <span className="block text-yellow-300">Unicorn Dreams</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8">
-              Discover how PES University alumni are building innovative startups that are
+            <p className="text-xl md:text-2xl text-teal-100 max-w-4xl mx-auto leading-relaxed mb-8">
+              Discover how PES University students are building innovative startups that are
               transforming industries and creating impact across India and beyond.
             </p>
           </motion.div>
@@ -232,7 +229,7 @@ export default function AlumniSuccessStoriesPage() {
               Startup Ecosystem Impact
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our alumni entrepreneurs are creating real-world impact through innovative
+              Our student entrepreneurs are creating real-world impact through innovative
               solutions and successful ventures.
             </p>
           </motion.div>
@@ -248,8 +245,8 @@ export default function AlumniSuccessStoriesPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-yellow-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-amber-500" />
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-teal-100 flex items-center justify-center">
+                    <IconComponent className="w-8 h-8 text-teal-600" />
                   </div>
                   <div className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
                   <div className="text-gray-600 font-medium">{stat.label}</div>
@@ -273,141 +270,86 @@ export default function AlumniSuccessStoriesPage() {
               Featured Success Stories
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Meet the alumni-led startups that have gained national recognition,
+              Meet the student-led startups that have gained national recognition,
               funding, and are making significant industry impact.
             </p>
           </motion.div>
 
-          {/* Vertical Tabs Layout */}
-          <div className="grid lg:grid-cols-4 gap-8">
-            {/* Left Sidebar - Vertical Tabs */}
-            <div className="lg:col-span-1">
-              <div className="bg-white rounded-3xl border border-gray-200 p-4 sticky top-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4 px-2">Companies</h3>
-                <div className="space-y-2">
-                  {featuredStartups.map((startup, index) => {
-                    return (
-                      <button
-                        key={startup.name}
-                        onClick={() => setSelectedStartupIndex(index)}
-                        className={`w-full text-left p-4 rounded-2xl transition-all duration-300 ${
-                          selectedStartupIndex === index
-                            ? 'bg-gradient-to-r from-amber-400 to-yellow-500 text-white shadow-lg'
-                            : 'hover:bg-yellow-50 text-gray-700'
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden ${
-                            selectedStartupIndex === index
-                              ? 'bg-white/20'
-                              : 'bg-white'
-                          }`}>
-                            <Image
-                              src={startup.logo}
-                              alt={startup.name}
-                              width={40}
-                              height={40}
-                              className="object-contain"
-                            />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className={`font-semibold text-sm ${
-                              selectedStartupIndex === index ? 'text-white' : 'text-gray-900'
-                            }`}>
-                              {startup.name}
-                            </div>
-                          </div>
+          <div className="space-y-12">
+            {featuredStartups.map((startup, index) => {
+              const IconComponent = startup.icon;
+              return (
+                <motion.div
+                  key={startup.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white rounded-3xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className="grid lg:grid-cols-3 gap-0">
+                    {/* Startup Icon/Visual */}
+                    <div className={`lg:col-span-1 bg-gradient-to-br ${startup.color} p-12 flex items-center justify-center`}>
+                      <div className="text-center">
+                        <div className="w-24 h-24 mx-auto mb-6 rounded-3xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                          <IconComponent className="w-12 h-12 text-white" />
                         </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            {/* Right Content Area - Selected Startup Details */}
-            <div className="lg:col-span-3">
-              <motion.div
-                key={selectedStartupIndex}
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-xl"
-              >
-                {(() => {
-                  const startup = featuredStartups[selectedStartupIndex];
-                  return (
-                    <div className="grid lg:grid-cols-3 gap-0">
-                      {/* Startup Logo/Visual */}
-                      <div className={`lg:col-span-1 bg-gradient-to-br ${startup.color} p-12 flex items-center justify-center`}>
-                        <div className="text-center">
-                          <div className="w-32 h-32 mx-auto mb-6 rounded-3xl bg-white flex items-center justify-center p-4 shadow-lg">
-                            <Image
-                              src={startup.logo}
-                              alt={startup.name}
-                              width={120}
-                              height={120}
-                              className="object-contain"
-                            />
-                          </div>
-                          <h3 className="text-3xl font-bold text-white mb-2">{startup.name}</h3>
-                          <p className="text-white/90 text-sm font-medium">{startup.tagline}</p>
-                        </div>
-                      </div>
-
-                      {/* Startup Details */}
-                      <div className="lg:col-span-2 p-8 lg:p-12">
-                        <div className="mb-6">
-                          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-50 text-amber-800 mb-4">
-                            {startup.sector}
-                          </span>
-                          <p className="text-gray-700 leading-relaxed mb-6">
-                            {startup.description}
-                          </p>
-                        </div>
-
-                        <div className="mb-6">
-                          <h4 className="font-semibold text-gray-900 mb-3">Key Achievements</h4>
-                          <ul className="space-y-2">
-                            {startup.achievements.map((achievement) => (
-                              <li key={achievement} className="flex items-start gap-3">
-                                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                                <span className="text-gray-700 text-sm">{achievement}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="bg-yellow-50 p-4 rounded-xl border border-yellow-200 mb-6">
-                          <p className="text-sm text-amber-900">
-                            <span className="font-semibold">Impact:</span> {startup.impact}
-                          </p>
-                        </div>
-
-                        <div className="mb-6 pb-6 border-b border-gray-200">
-                          <p className="text-sm text-gray-600 mb-1">
-                            <span className="font-semibold text-gray-900">Founders:</span> {startup.founders}
-                          </p>
-                          <p className="text-sm text-gray-600">
-                            {startup.foundersTitle}
-                          </p>
-                        </div>
-
-                        <div className="flex gap-4">
-                          <Button 
-                            className="bg-amber-400 hover:bg-amber-500 text-white px-6 py-2 rounded-xl font-semibold"
-                            onClick={() => window.open(startup.linkedin, '_blank')}
-                          >
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            View LinkedIn
-                          </Button>
-                        </div>
+                        <h3 className="text-3xl font-bold text-white mb-2">{startup.name}</h3>
+                        <p className="text-white/90 text-sm font-medium">{startup.tagline}</p>
                       </div>
                     </div>
-                  );
-                })()}
-              </motion.div>
-            </div>
+
+                    {/* Startup Details */}
+                    <div className="lg:col-span-2 p-8 lg:p-12">
+                      <div className="mb-6">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-teal-100 text-teal-800 mb-4">
+                          {startup.sector}
+                        </span>
+                        <p className="text-gray-700 leading-relaxed mb-6">
+                          {startup.description}
+                        </p>
+                      </div>
+
+                      <div className="mb-6">
+                        <h4 className="font-semibold text-gray-900 mb-3">Key Achievements</h4>
+                        <ul className="space-y-2">
+                          {startup.achievements.map((achievement) => (
+                            <li key={achievement} className="flex items-start gap-3">
+                              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                              <span className="text-gray-700 text-sm">{achievement}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="bg-teal-50 p-4 rounded-xl border border-teal-200 mb-6">
+                        <p className="text-sm text-teal-900">
+                          <span className="font-semibold">Impact:</span> {startup.impact}
+                        </p>
+                      </div>
+
+                      <div className="mb-6 pb-6 border-b border-gray-200">
+                        <p className="text-sm text-gray-600 mb-1">
+                          <span className="font-semibold text-gray-900">Founders:</span> {startup.founders}
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          {startup.foundersTitle}
+                        </p>
+                      </div>
+
+                      <div className="flex gap-4">
+                        <Button 
+                          className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-xl font-semibold"
+                          onClick={() => window.open(startup.linkedin, '_blank')}
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          View LinkedIn
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -422,16 +364,17 @@ export default function AlumniSuccessStoriesPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              More Alumni Ventures
+              More Student Ventures
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Additional innovative startups founded by PES University alumni,
+              Additional innovative startups founded by PES University students,
               each making their mark in their respective industries.
             </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-3 gap-8">
             {otherStartups.map((startup, index) => {
+              const IconComponent = startup.icon;
               return (
                 <motion.div
                   key={startup.name}
@@ -440,17 +383,11 @@ export default function AlumniSuccessStoriesPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-6 border border-gray-200 p-3">
-                    <Image
-                      src={startup.logo}
-                      alt={startup.name}
-                      width={80}
-                      height={80}
-                      className="object-contain"
-                    />
+                  <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mb-6">
+                    <IconComponent className="w-8 h-8 text-teal-600" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{startup.name}</h3>
-                  <span className="inline-block text-sm font-medium text-amber-600 mb-4">
+                  <span className="inline-block text-sm font-medium text-teal-600 mb-4">
                     {startup.sector}
                   </span>
                   <p className="text-gray-600 mb-6">
@@ -462,7 +399,7 @@ export default function AlumniSuccessStoriesPage() {
                     </p>
                   </div>
                   <Button 
-                    className="w-full bg-amber-400 hover:bg-amber-500 text-white py-3 rounded-xl font-semibold"
+                    className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-xl font-semibold"
                     onClick={() => window.open(startup.linkedin, '_blank')}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
@@ -504,8 +441,8 @@ export default function AlumniSuccessStoriesPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6">
-                    <IconComponent className="w-8 h-8 text-amber-500" />
+                  <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mb-6">
+                    <IconComponent className="w-8 h-8 text-teal-600" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{support.title}</h3>
                   <p className="text-gray-600 mb-6">{support.description}</p>
@@ -525,33 +462,27 @@ export default function AlumniSuccessStoriesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-amber-50 to-yellow-50">
+      <section className="py-20 bg-gradient-to-br from-teal-600 to-cyan-700">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Ready to Start Your Journey?
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-12">
+            <p className="text-xl text-teal-100 max-w-3xl mx-auto mb-12">
               Join PES University's thriving entrepreneurial ecosystem and transform
               your innovative ideas into successful ventures.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                className="bg-amber-400 hover:bg-amber-500 text-white px-8 py-4 text-lg font-semibold rounded-xl"
-                onClick={() => window.location.href = 'mailto:cieinfo@pes.edu?subject=Application%20for%20Incubation'}
-              >
+              <Button className="bg-white text-teal-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
                 <Rocket className="w-5 h-5 mr-2" />
                 Apply for Incubation
               </Button>
-              <Button 
-                className="border-2 border-amber-400 text-amber-600 hover:bg-amber-400 hover:text-white px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
-                onClick={() => window.location.href = 'mailto:cieinfo@pes.edu?subject=Connect%20with%20CIE'}
-              >
+              <Button className="border-2 border-white text-white hover:bg-white hover:text-teal-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
                 <Users className="w-5 h-5 mr-2" />
                 Connect with CIE
               </Button>

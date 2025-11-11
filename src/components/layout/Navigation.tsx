@@ -193,6 +193,12 @@ const StudentsNavigation: React.FC = () => {
           description: 'Skills development and training sessions',
           icon: Users2,
         },
+         {
+          title: 'Resources',
+          href: '/students/resources',
+          description: 'Guides, templates & online courses',
+          icon: BookOpen,
+        },
       ],
     },
     {
@@ -205,16 +211,16 @@ const StudentsNavigation: React.FC = () => {
           icon: Calendar,
         },
         {
-          title: 'Resources',
-          href: '/students/resources',
-          description: 'Guides, templates & online courses',
-          icon: BookOpen,
-        },
-        {
           title: 'Funding and Grants',
           href: '/students/funding',
           description: 'CiC, Mathworks & CiC Ready Program',
           icon: Trophy,
+        },
+        {
+          title: 'Centres of Excellence',
+          href: '/students/centers-of-excellence',
+          description: 'Research & innovation centers',
+          icon: Microscope,
         },
       ],
     },
@@ -233,12 +239,7 @@ const StudentsNavigation: React.FC = () => {
           description: 'E-Cell, CMS & more',
           icon: Users,
         },
-        {
-          title: 'Centres of Excellence',
-          href: '/students/centers-of-excellence',
-          description: 'Research & innovation centers',
-          icon: Microscope,
-        },
+    
       ],
     },
   ];
@@ -364,12 +365,12 @@ const AlumniNavigation: React.FC = () => {
     {
       title: 'Stay Connected',
       items: [
-        { 
-          title: 'Alumni Association', 
-          href: '/alumni/association', 
-          description: 'Join the association',
-          icon: Users
-        },
+        // { 
+        //   title: 'Alumni Association', 
+        //   href: '/alumni/association', 
+        //   description: 'Join the association',
+        //   icon: Users
+        // },
         { 
           title: 'Newsletter Sign-up', 
           href: '/alumni/newsletter', 

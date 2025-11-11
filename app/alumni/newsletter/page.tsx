@@ -186,28 +186,33 @@ export default function AlumniNewsletterPage() {
             transition={{ duration: 0.8 }}
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-yellow-500/20 text-amber-200 border border-yellow-400/30">
                 <Mail className="w-4 h-4 mr-2" />
                 Alumni Newsletter
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
               PES Alumni{' '}
-              <span className="block text-blue-200">Connect Newsletter</span>
+              <span className="block bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">Connect Newsletter</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8">
               Stay connected with your alumni community through our monthly newsletter
               featuring success stories, opportunities, and university updates.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="default" size="lg" className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white">
+              <Button 
+                variant="default" 
+                size="lg" 
+                className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white"
+                onClick={() => window.location.href = 'mailto:newsletter@pes.edu?subject=Subscribe%20to%20Alumni%20Newsletter'}
+              >
                 <Bell className="w-5 h-5 mr-2" />
                 Subscribe Now
               </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
+              {/* <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
                 <FileText className="w-5 h-5 mr-2" />
                 Browse Archives
-              </Button>
+              </Button> */}
             </div>
           </motion.div>
         </div>
@@ -242,8 +247,8 @@ export default function AlumniNewsletterPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-blue-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-blue-600" />
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-yellow-100 flex items-center justify-center">
+                    <IconComponent className="w-8 h-8 text-amber-500" />
                   </div>
                   <div className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
                   <div className="text-gray-600 font-medium">{stat.label}</div>
@@ -296,7 +301,7 @@ export default function AlumniNewsletterPage() {
                 <div
                   className={`p-6 md:p-8 rounded-3xl border hover:shadow-xl transition-all duration-300 ${
                     edition.featured
-                      ? 'bg-gradient-to-r from-blue-50 to-cyan-50 border-blue-200'
+                      ? 'bg-gradient-to-r from-amber-50 to-yellow-50 border-yellow-200'
                       : 'bg-white border-gray-200'
                   }`}
                 >
@@ -304,14 +309,14 @@ export default function AlumniNewsletterPage() {
                     {/* Issue Number Badge */}
                     <div className="lg:col-span-1 flex lg:justify-center">
                       <div className="relative">
-                        <div className="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg">
+                        <div className="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-2xl flex items-center justify-center shadow-lg">
                           <div className="text-center">
-                            <div className="text-xs md:text-sm font-semibold text-blue-200 mb-1">ISSUE</div>
+                            <div className="text-xs md:text-sm font-semibold text-yellow-100 mb-1">ISSUE</div>
                             <div className="text-3xl md:text-4xl font-bold text-white">{edition.issue}</div>
                           </div>
                         </div>
                         {edition.featured && (
-                          <div className="absolute -top-2 -right-2 bg-yellow-500 rounded-full p-2">
+                          <div className="absolute -top-2 -right-2 bg-green-500 rounded-full p-2">
                             <Star className="w-4 h-4 text-white fill-white" />
                           </div>
                         )}
@@ -321,7 +326,7 @@ export default function AlumniNewsletterPage() {
                     {/* Content */}
                     <div className="lg:col-span-2">
                       {edition.featured && (
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 mb-3">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-yellow-50 text-amber-800 mb-3">
                           Latest Edition
                         </span>
                       )}
@@ -341,7 +346,7 @@ export default function AlumniNewsletterPage() {
                         href={edition.pdfUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-xl font-semibold transition-colors"
+                        className="inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-500 text-white px-4 py-3 rounded-xl font-semibold transition-colors"
                       >
                         <ExternalLink className="w-4 h-4" />
                         <span>Open PDF</span>
@@ -349,7 +354,7 @@ export default function AlumniNewsletterPage() {
                       <a
                         href={edition.pdfUrl}
                         download
-                        className="inline-flex items-center justify-center gap-2 border-2 border-blue-300 text-blue-600 hover:bg-blue-50 px-4 py-3 rounded-xl font-semibold transition-colors"
+                        className="inline-flex items-center justify-center gap-2 border-2 border-yellow-300 text-amber-600 hover:bg-yellow-50 px-4 py-3 rounded-xl font-semibold transition-colors"
                       >
                         <Download className="w-4 h-4" />
                         <span>Download</span>
@@ -393,13 +398,13 @@ export default function AlumniNewsletterPage() {
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-8 h-8 text-blue-600" />
+                    <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-8 h-8 text-amber-500" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-3">
                         <h3 className="text-xl font-bold text-gray-900">{section.title}</h3>
-                        <span className="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded-full">
+                        <span className="text-xs font-semibold text-amber-600 bg-yellow-50 px-2 py-1 rounded-full">
                           {section.frequency}
                         </span>
                       </div>
@@ -444,39 +449,15 @@ export default function AlumniNewsletterPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-3xl border border-blue-200"
+              className="bg-gradient-to-br from-white to-white p-8 rounded-3xl "
             >
               <div className="text-center mb-8">
-                <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Mail className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Subscribe Today</h3>
-                <p className="text-gray-600">Join 15,000+ alumni receiving our newsletter</p>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-                <div className="flex items-center gap-3">
-                  <input type="checkbox" id="privacy" className="rounded" />
-                  <label htmlFor="privacy" className="text-sm text-gray-600">
-                    I agree to receive newsletter updates and alumni communications
-                  </label>
-                </div>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold">
-                  <Bell className="w-5 h-5 mr-2" />
-                  Subscribe to Newsletter
-                </Button>
-                <div className="text-center">
-                  <p className="text-sm text-gray-500">
-                    Free subscription • Monthly delivery • Unsubscribe anytime
-                  </p>
-                </div>
+                <img 
+                  src="/assets/cie-logo.png" 
+                  alt="CIE Logo" 
+                  className="w-100 h-100 object-contain mx-auto mb-4"
+                />
+                
               </div>
             </motion.div>
           </div>
@@ -511,8 +492,8 @@ export default function AlumniNewsletterPage() {
               viewOptions={{ margin: '0px 0px -100px 0px' }}
             >
               <div className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <FileText className="w-8 h-8 text-blue-600" />
+                <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <FileText className="w-8 h-8 text-amber-500" />
                 </div>
                 <div className="text-4xl font-bold text-gray-900 mb-2">10+</div>
                 <div className="text-gray-600 font-medium">Issues Published</div>
@@ -528,13 +509,13 @@ export default function AlumniNewsletterPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewOptions={{ margin: '0px 0px -100px 0px' }}
             >
-              <div className="bg-gradient-to-br from-blue-600 to-cyan-600 p-8 rounded-3xl shadow-xl text-center text-white">
+              <div className="bg-gradient-to-br from-amber-500 to-yellow-600 p-8 rounded-3xl shadow-xl text-center text-white">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Star className="w-8 h-8 text-white" />
                 </div>
                 <div className="text-4xl font-bold mb-2">6+</div>
                 <div className="font-medium mb-2">Years of Stories</div>
-                <p className="text-sm text-blue-100">Innovation & Entrepreneurship</p>
+                <p className="text-sm text-yellow-100">Innovation & Entrepreneurship</p>
               </div>
             </InView>
 
@@ -547,8 +528,8 @@ export default function AlumniNewsletterPage() {
               viewOptions={{ margin: '0px 0px -100px 0px' }}
             >
               <div className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="w-8 h-8 text-amber-500" />
                 </div>
                 <div className="text-4xl font-bold text-gray-900 mb-2">100+</div>
                 <div className="text-gray-600 font-medium">Success Stories</div>
@@ -560,7 +541,7 @@ export default function AlumniNewsletterPage() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-cyan-700">
+      <section className="py-20 bg-gradient-to-br from-amber-500 to-yellow-600">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -570,33 +551,33 @@ export default function AlumniNewsletterPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Stay Connected
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-12">
+            <p className="text-xl text-yellow-100 max-w-3xl mx-auto mb-12">
               Don't miss out on alumni achievements, opportunities, and community updates.
               Subscribe to our newsletter and be part of the conversation.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <Button className="bg-white text-amber-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
                 <Bell className="w-5 h-5 mr-2" />
                 Subscribe Now
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              <Button className="border-2 border-white text-white hover:bg-white hover:text-amber-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
                 <Share2 className="w-5 h-5 mr-2" />
                 Share Newsletter
               </Button>
-            </div>
+            </div> */}
 
             <div className="text-center">
-              <p className="text-blue-100 mb-4">Questions or suggestions for our newsletter?</p>
+              <p className="text-yellow-100 mb-4">Questions or suggestions for our newsletter?</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center text-white">
                 <div className="flex items-center justify-center gap-2">
                   <Mail className="w-4 h-4" />
                   <span>newsletter@pes.edu</span>
                 </div>
-                <div className="flex items-center justify-center gap-2">
+                {/* <div className="flex items-center justify-center gap-2">
                   <Edit className="w-4 h-4" />
                   <span>Submit Content Ideas</span>
-                </div>
+                </div> */}
               </div>
             </div>
           </motion.div>

@@ -211,28 +211,33 @@ export default function AlumniWelcomePage() {
             transition={{ duration: 0.8 }}
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-yellow-500/20 text-amber-200 border border-yellow-400/30">
                 <Users className="w-4 h-4 mr-2" />
                 Alumni Network
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
               Welcome to the{' '}
-              <span className="block text-blue-200">CIE Alumni Family</span>
+              <span className="block bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">CIE Alumni Family</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8">
               Join a vibrant global community of entrepreneurs, innovators, and change-makers
               who are shaping the future across industries and continents.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="default" size="lg" className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white">
+              <Button 
+                variant="default" 
+                size="lg" 
+                className="group bg-gradient-to-r from-amber-500 to-amber-600 hover:from-yellow-400 hover:to-amber-400 text-white"
+                onClick={() => (window.location.href = 'mailto:alumni@pes.edu?subject=Join Alumni Network')}
+              >
                 <UserPlus className="w-5 h-5 mr-2" />
                 Join the Network
               </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
+              {/* <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
                 <Calendar className="w-5 h-5 mr-2" />
                 Upcoming Events
-              </Button>
+              </Button> */}
             </div>
           </motion.div>
         </div>
@@ -252,8 +257,8 @@ export default function AlumniWelcomePage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-200"
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-blue-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-blue-600" />
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-yellow-100 flex items-center justify-center">
+                    <IconComponent className="w-8 h-8 text-amber-500" />
                   </div>
                   <div className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
                   <div className="text-gray-600 font-medium">{stat.label}</div>
@@ -294,8 +299,8 @@ export default function AlumniWelcomePage() {
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-8 h-8 text-blue-600" />
+                    <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-8 h-8 text-amber-500" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
@@ -318,7 +323,7 @@ export default function AlumniWelcomePage() {
       </section>
 
       {/* Featured Events */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-20 bg-gradient-to-br from-white to-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -345,7 +350,7 @@ export default function AlumniWelcomePage() {
                 className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
                 <div className="mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-500 rounded-2xl flex items-center justify-center mb-4">
                     <Calendar className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">{event.title}</h3>
@@ -360,8 +365,8 @@ export default function AlumniWelcomePage() {
                     </div>
                   </div>
                   <p className="text-gray-600 mb-4">{event.description}</p>
-                  <div className="bg-blue-50 p-4 rounded-xl border border-blue-200 mb-4">
-                    <p className="text-sm text-blue-800 font-semibold">{event.attendees}</p>
+                  <div className="bg-white p-4 rounded-xl border border-yellow-200 mb-4">
+                    <p className="text-sm text-amber-800 font-semibold">{event.attendees}</p>
                   </div>
                 </div>
 
@@ -377,9 +382,8 @@ export default function AlumniWelcomePage() {
                   </ul>
                 </div>
 
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold">
-                  <ArrowRight className="w-4 h-4 mr-2" />
-                  Register Now
+                <Button className="w-full bg-amber-400 hover:bg-amber-500 text-white py-3 rounded-xl font-semibold">
+                  Enquire About This Event
                 </Button>
               </motion.div>
             ))}
@@ -388,7 +392,7 @@ export default function AlumniWelcomePage() {
       </section>
 
       {/* Success Stories */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -437,10 +441,10 @@ export default function AlumniWelcomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Giving Back Opportunities */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -469,16 +473,16 @@ export default function AlumniWelcomePage() {
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-8 h-8 text-green-600" />
+                    <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-8 h-8 text-amber-600" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{opportunity.title}</h3>
                       <p className="text-gray-600 mb-4">{opportunity.description}</p>
-                      <div className="bg-green-50 p-4 rounded-xl border border-green-200 mb-6">
-                        <p className="text-sm text-green-800 font-semibold">Impact: {opportunity.impact}</p>
+                      <div className="bg-yellow-50 p-4 rounded-xl border border-yellow-200 mb-6">
+                        <p className="text-sm text-amber-800 font-semibold">Impact: {opportunity.impact}</p>
                       </div>
-                      <Button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold">
+                      <Button className="bg-amber-400 hover:bg-amber-500 text-white px-6 py-3 rounded-xl font-semibold">
                         <HandHeart className="w-4 h-4 mr-2" />
                         Get Involved
                       </Button>
@@ -492,17 +496,17 @@ export default function AlumniWelcomePage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-700">
+      <section className="py-20 bg-gradient-to-br from-amber-50 to-amber-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-amber-800 mb-6">
               Stay Connected, Stay Inspired
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-12">
+            <p className="text-xl text-amber-800 max-w-3xl mx-auto mb-12">
               Join our thriving alumni community and be part of a network that's
               changing the world, one innovation at a time.
             </p>
@@ -510,50 +514,52 @@ export default function AlumniWelcomePage() {
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Network className="w-8 h-8 text-white" />
+                  <Network className="w-8 h-8 text-amber-800" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Global Network</h3>
-                <p className="text-blue-100">Connect with 5,000+ alumni worldwide</p>
+                <h3 className="text-xl font-semibold mb-2 text-amber-800">Global Network</h3>
+                <p className="text-amber-800">Connect with 5,000+ alumni worldwide</p>
               </div>
 
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Lightbulb className="w-8 h-8 text-white" />
+                  <Lightbulb className="w-8 h-8 text-amber-800" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Innovation Hub</h3>
-                <p className="text-blue-100">Access to cutting-edge resources and opportunities</p>
+                <h3 className="text-xl font-semibold mb-2 text-amber-800">Innovation Hub</h3>
+                <p className="text-amber-800">Access to cutting-edge resources and opportunities</p>
               </div>
 
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-white" />
+                  <Heart className="w-8 h-8 text-amber-800" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Meaningful Impact</h3>
-                <p className="text-blue-100">Make a difference in future generations</p>
+                <h3 className="text-xl font-semibold mb-2 text-amber-800">Meaningful Impact</h3>
+                <p className="text-amber-800">Make a difference in future generations</p>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+              <Button 
+                className="text-amber-400 hover:bg-white px-8 py-4 text-lg font-semibold rounded-xl"
+                onClick={() => (window.location.href = 'mailto:alumni@pes.edu?subject=Join Alumni Network')}
+              >
                 <UserPlus className="w-5 h-5 mr-2" />
                 Join Alumni Network
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              <Button 
+                className="border-2 border-white text-amber-400 hover:bg-white hover:text-amber-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
+                onClick={() => (window.location.href = 'mailto:alumni@pes.edu?subject=Contact Alumni Relations')}
+              >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Contact Alumni Relations
               </Button>
             </div>
 
             <div className="text-center">
-              <p className="text-blue-100 mb-4">Questions about joining our alumni community?</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center text-white">
+              <p className="text-amber-500 mb-4">Questions about joining our alumni community?</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center text-amber-400">
                 <div className="flex items-center justify-center gap-2">
                   <Mail className="w-4 h-4" />
                   <span>alumni@cie.edu</span>
-                </div>
-                <div className="flex items-center justify-center gap-2">
-                  <MessageCircle className="w-4 h-4" />
-                  <span>+91 80 2672 7000</span>
                 </div>
               </div>
             </div>

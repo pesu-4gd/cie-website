@@ -212,27 +212,37 @@ export default function AlumniMentorshipPage() {
             transition={{ duration: 0.8 }}
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-purple-500/20 text-purple-100 border border-purple-400/30">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-yellow-500/20 text-amber-200 border border-yellow-400/30">
                 <HandHeart className="w-4 h-4 mr-2" />
                 Alumni Mentorship
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
               Guiding the Next{' '}
-              <span className="block text-purple-200">Generation Forward</span>
+              <span className="block bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">Generation Forward</span>
             </h1>
-            <p className="text-xl md:text-2xl text-purple-100 max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-yellow-100 max-w-4xl mx-auto leading-relaxed mb-8">
               Connect with experienced alumni mentors or share your expertise by mentoring 
               students and recent graduates on their professional journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="default" size="lg" className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white">
+              <Button 
+                variant="default" 
+                size="lg" 
+                className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white"
+                onClick={() => window.location.href = 'mailto:mentorship@pes.edu?subject=Enquiry%20about%20Mentee%20Program'}
+              >
                 <UserPlus className="w-5 h-5 mr-2" />
-                Find a Mentor
+                Enquire about mentee
               </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+                onClick={() => window.location.href = 'mailto:mentorship@pes.edu?subject=Enquiry%20about%20Becoming%20a%20Mentor'}
+              >
                 <HandHeart className="w-5 h-5 mr-2" />
-                Become a Mentor
+                Enquire about mentorship
               </Button>
             </div>
           </motion.div>
@@ -268,8 +278,8 @@ export default function AlumniMentorshipPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-purple-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-purple-600" />
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-yellow-100 flex items-center justify-center">
+                    <IconComponent className="w-8 h-8 text-amber-500" />
                   </div>
                   <div className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
                   <div className="text-gray-600 font-medium">{stat.label}</div>
@@ -310,8 +320,8 @@ export default function AlumniMentorshipPage() {
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-8 h-8 text-purple-600" />
+                    <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-8 h-8 text-amber-500" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{program.title}</h3>
@@ -353,7 +363,7 @@ export default function AlumniMentorshipPage() {
       </section>
 
       {/* Featured Mentors Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-purple-50">
+      {/* <section className="py-20 bg-gradient-to-br from-gray-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -420,10 +430,10 @@ export default function AlumniMentorshipPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Success Stories Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -470,7 +480,7 @@ export default function AlumniMentorshipPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* How It Works Section */}
       <section className="py-20 bg-gray-50">
@@ -503,13 +513,13 @@ export default function AlumniMentorshipPage() {
                   <div className={`bg-white p-8 rounded-3xl border border-gray-200 ${index % 2 === 1 ? 'text-right' : ''}`}>
                     <h3 className="text-2xl font-bold text-gray-900 mb-3">{process.title}</h3>
                     <p className="text-gray-600 mb-4">{process.description}</p>
-                    <span className="inline-block text-sm font-semibold text-purple-600 bg-purple-100 px-3 py-1 rounded-full">
+                    <span className="inline-block text-sm font-semibold text-amber-600 bg-yellow-50 px-3 py-1 rounded-full">
                       Duration: {process.duration}
                     </span>
                   </div>
                 </div>
 
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+                <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-2xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
                   {process.step}
                 </div>
               </motion.div>
@@ -519,7 +529,7 @@ export default function AlumniMentorshipPage() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-600 to-indigo-700">
+      <section className="py-20 bg-gradient-to-br from-amber-500 to-yellow-600">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -529,7 +539,7 @@ export default function AlumniMentorshipPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-purple-100 max-w-3xl mx-auto mb-12">
+            <p className="text-xl text-yellow-100 max-w-3xl mx-auto mb-12">
               Join our mentorship community and be part of a network that 
               empowers personal and professional growth for everyone.
             </p>
@@ -540,9 +550,12 @@ export default function AlumniMentorshipPage() {
                   <UserPlus className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">Looking for Guidance?</h3>
-                <p className="text-purple-100 mb-4">Connect with experienced alumni mentors</p>
-                <Button className="bg-white text-purple-600 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold">
-                  Find a Mentor
+                <p className="text-yellow-100 mb-4">Connect with experienced alumni mentors</p>
+                <Button 
+                  className="bg-white text-amber-600 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold"
+                  onClick={() => window.location.href = 'mailto:mentorship@pes.edu?subject=Enquiry%20about%20Mentee%20Program'}
+                >
+                  Enquire about mentee
                 </Button>
               </div>
 
@@ -551,23 +564,22 @@ export default function AlumniMentorshipPage() {
                   <HandHeart className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">Want to Give Back?</h3>
-                <p className="text-purple-100 mb-4">Share your expertise as a mentor</p>
-                <Button className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-6 py-3 rounded-xl font-semibold bg-transparent">
-                  Become a Mentor
+                <p className="text-yellow-100 mb-4">Share your expertise as a mentor</p>
+                <Button 
+                  className="border-2 border-white text-white hover:bg-white hover:text-amber-600 px-6 py-3 rounded-xl font-semibold bg-transparent"
+                  onClick={() => window.location.href = 'mailto:mentorship@pes.edu?subject=Enquiry%20about%20Becoming%20a%20Mentor'}
+                >
+                  Enquire about mentorship
                 </Button>
               </div>
             </div>
 
             <div className="text-center">
-              <p className="text-purple-100 mb-4">Questions about our mentorship programs?</p>
+              <p className="text-yellow-100 mb-4">Questions about our mentorship programs?</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <div className="flex items-center justify-center gap-2 text-white">
                   <Mail className="w-4 h-4" />
                   <span>mentorship@pes.edu</span>
-                </div>
-                <div className="flex items-center justify-center gap-2 text-white">
-                  <MessageCircle className="w-4 h-4" />
-                  <span>+91 80 2672 7000</span>
                 </div>
               </div>
             </div>
