@@ -203,7 +203,7 @@ export default function IndustryEventsPage() {
                 variant="default"
                 size="lg"
                 className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
-                onClick={() => window.open('mailto:cieinfo@pes.edu?subject=Industry Event Interest – [Your Company Name]&body=Dear CIE Team,%0A%0AI am interested in participating or hosting an event with CIE.%0A%0AEvent Details:%0A- Type of event (webinar/networking event/workshop):%0A- Proposed topic or theme:%0A- Target audience:%0A- Preferred timeline:%0A- Additional support needed:%0A%0AThank you for your time.%0A%0ABest regards,', '_blank')}
+                onClick={() => window.open('mailto:cieinfo@pes.edu')}
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 Submit Interest
@@ -331,10 +331,10 @@ export default function IndustryEventsPage() {
                           <div>
                             <div className="flex items-center gap-4 mb-6">
                               <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${
-                                eventType.featured ? 'bg-orange-100' : 'bg-blue-100'
+                                eventType.featured ? 'bg-orange-100' : 'bg-orange-100'
                               }`}>
                                 <IconComponent className={`w-8 h-8 ${
-                                  eventType.featured ? 'text-orange-600' : 'text-blue-600'
+                                  eventType.featured ? 'text-orange-600' : 'text-orange-600'
                                 }`} />
                               </div>
                               <div>
@@ -379,9 +379,9 @@ export default function IndustryEventsPage() {
                                 className={`w-full py-3 rounded-xl font-semibold ${
                                   eventType.featured 
                                     ? 'bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white' 
-                                    : 'bg-blue-600 hover:bg-blue-700 text-white'
+                                    : 'bg-orange-600 hover:bg-orange-700 text-white'
                                 }`}
-                                onClick={() => window.open('mailto:cieinfo@pes.edu?subject=Industry Event Interest – [Your Company Name]&body=Dear CIE Team,%0A%0AI am interested in hosting a ' + eventType.title.toLowerCase() + ' with CIE.%0A%0AEvent Details:%0A- Type: ' + eventType.title + '%0A- Proposed topic or theme:%0A- Target audience:%0A- Preferred timeline:%0A- Additional support needed:%0A%0AThank you for your time.%0A%0ABest regards,', '_blank')}
+                                onClick={() => window.open('mailto:cieinfo@pes.edu')}
                               >
                                 <Mail className="w-4 h-4 mr-2" />
                                 Express Interest
@@ -425,7 +425,7 @@ export default function IndustryEventsPage() {
                         <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                           {event.type}
                         </span>
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 ml-2">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white text-orange-600 ml-2 border border-orange-200">
                           {event.status}
                         </span>
                       </div>
@@ -485,11 +485,11 @@ export default function IndustryEventsPage() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: index * 0.1 }}
-                        className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
+                        className="bg-gradient-to-br from-white to-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                       >
                         <div className="flex items-center gap-3 mb-6">
-                          <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
-                            <IconComponent className="w-6 h-6 text-blue-600" />
+                          <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
+                            <IconComponent className="w-6 h-6 text-orange-600" />
                           </div>
                           <div>
                             <h3 className="text-xl font-bold text-gray-900">{story.title}</h3>
@@ -504,9 +504,9 @@ export default function IndustryEventsPage() {
                             <p className="text-blue-800 text-sm">{story.achievement}</p>
                           </div>
 
-                          <div className="p-4 bg-green-50 rounded-xl">
-                            <h4 className="font-semibold text-green-900 mb-2">Impact</h4>
-                            <p className="text-green-800 text-sm">{story.impact}</p>
+                          <div className="p-4 bg-orange-50 rounded-xl">
+                            <h4 className="font-semibold text-orange-600 mb-2">Impact</h4>
+                            <p className="text-orange-800 text-sm">{story.impact}</p>
                           </div>
                         </div>
                       </motion.div>
@@ -556,19 +556,19 @@ export default function IndustryEventsPage() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="text-center bg-green-50 p-8 rounded-3xl border border-green-200"
+                    className="text-center bg-orange-50 p-8 rounded-3xl border border-orange-200"
                   >
-                    <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <Mail className="w-8 h-8 text-green-600" />
+                    <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <Mail className="w-8 h-8 text-orange-600" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4">2. Submit Your Interest</h3>
                     <p className="text-gray-600 mb-4">
-                      Email <span className="font-semibold text-green-700">cieinfo@pes.edu</span> with 
+                      Email <span className="font-semibold text-orange-700">cieinfo@pes.edu</span> with 
                       the subject line "Industry Event Interest – [Your Company Name]."
                     </p>
                     <Button 
-                      className="w-full bg-green-600 hover:bg-green-700 text-white"
-                      onClick={() => window.open('mailto:cieinfo@pes.edu?subject=Industry Event Interest – [Your Company Name]&body=Dear CIE Team,%0A%0AI am interested in participating or hosting an event with CIE.%0A%0AEvent Details:%0A- Type of event (webinar/networking event/workshop):%0A- Proposed topic or theme:%0A- Target audience:%0A- Preferred timeline:%0A- Additional support needed:%0A%0AThank you for your time.%0A%0ABest regards,', '_blank')}
+                      className="w-full bg-orange-600 hover:bg-orange-400 text-white"
+                      onClick={() => window.open('mailto:cieinfo@pes.edu')}
                     >
                       <Mail className="w-4 h-4 mr-2" />
                       Send Email
@@ -699,7 +699,7 @@ export default function IndustryEventsPage() {
                 variant="default"
                 size="lg"
                 className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
-                onClick={() => window.open('mailto:cieinfo@pes.edu?subject=Industry Event Interest – [Your Company Name]&body=Dear CIE Team,%0A%0AI am interested in participating or hosting an event with CIE.%0A%0AEvent Details:%0A- Type of event (webinar/networking event/workshop):%0A- Proposed topic or theme:%0A- Target audience:%0A- Preferred timeline:%0A- Additional support needed:%0A%0AThank you for your time.%0A%0ABest regards,', '_blank')}
+                onClick={() => window.open('mailto:cieinfo@pes.edu')}
               >
                 <Mail className="w-5 h-5 mr-2" />
                 Submit Interest
@@ -708,7 +708,7 @@ export default function IndustryEventsPage() {
                 variant="outline"
                 size="lg"
                 className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
-                onClick={() => window.open('mailto:cieinfo@pes.edu?subject=General Inquiry about CIE Events&body=Dear CIE Team,%0A%0AI would like to learn more about CIE\'s industry events and collaboration opportunities.%0A%0APlease provide information about:%0A- Upcoming events schedule%0A- Partnership opportunities%0A- Event hosting options%0A- Contact person for further discussion%0A%0AThank you for your time.%0A%0ABest regards,', '_blank')}
+                onClick={() => window.open('mailto:cieinfo@pes.edu')}
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Contact Us
