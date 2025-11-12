@@ -206,7 +206,7 @@ export default function AlumniNewsletterPage() {
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-              PES Alumni{' '}
+              CIE Alumni{' '}
               <span className="block bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">Connect Newsletter</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8">
