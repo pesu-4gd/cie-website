@@ -199,14 +199,14 @@ export default function StudentSuccessStoriesPage() {
             transition={{ duration: 0.8 }}
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/20 text-white border border-white/30">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
                 <Trophy className="w-4 h-4 mr-2" />
                 Student Success Stories
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-              From Campus to{' '}
-              <span className="block text-yellow-300">Unicorn Dreams</span>
+              From Campus{' '}
+              <span className="block text-[#2B9EB3]">to Unicorn Dreams</span>
             </h1>
             <p className="text-xl md:text-2xl text-teal-100 max-w-4xl mx-auto leading-relaxed mb-8">
               Discover how PES University students are building innovative startups that are

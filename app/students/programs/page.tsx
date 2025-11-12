@@ -259,14 +259,14 @@ export default function ProgramsPage() {
             className="text-center"
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium" style={{ backgroundColor: `rgba(${hexToRgb(studentsColors.primary)}, 0.12)`, color: studentsColors.primary }}>
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
                 <GraduationCap className="w-4 h-4 mr-2" />
                 Student Programs
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl text-purple-200 font-bold mb-6">
-              Transform Your Ideas
-              <span className="block text-purple-200">Into Reality</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+              Transform Your Ideas{' '}
+              <span className="block text-[#2B9EB3]">Into Reality</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
               The Centre for Innovation and Entrepreneurship (CIE) at PES University is a dynamic hub for fostering innovation, entrepreneurship, and technical excellence. Through signature programs, workshops, and international opportunities, CIE empowers students to transform ideas into impactful solutions.

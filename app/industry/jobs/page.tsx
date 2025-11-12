@@ -268,10 +268,10 @@ export default function JobsPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <Badge className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-600/20 text-white border-orange-400/30">
-              <Briefcase className="h-4 w-4 mr-1" />
+            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-500/20 text-orange-100 border border-orange-400/30 mb-4">
+              <Briefcase className="h-4 w-4 mr-2" />
               Industry Job Portal
-            </Badge>
+            </span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Connect with <span className="bg-gradient-to-r from-orange-600 to-yellow-400 bg-clip-text text-transparent">Skilled PES Students</span>
             </h1>

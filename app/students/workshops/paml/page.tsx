@@ -30,10 +30,8 @@ export default function PamlPage() {
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
           <div className="flex items-center justify-center gap-4">
             <Image src="/assets/CIE Logo White Short.svg" alt="CIE logo" width={120} height={48} className="object-contain" />
-            <motion.h1 initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="text-3xl md:text-4xl font-bold">PAML — Train the Trainer (CIE)</motion.h1>
+            <motion.h1 initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="text-3xl md:text-5xl font-bold">CIE Workshop</motion.h1>
           </div>
-
-          <p className="mt-4 max-w-2xl mx-auto text-base md:text-lg">The Train-the-Trainer for Practical Approach to Machine Learning (PAML) program prepares motivated 4th and 6th semester students to become teaching assistants for the PAML workshop. Guided by industry mentor Mr. Prasanna Chandran, students gain ML expertise and teaching experience.</p>
 
           <div className="mt-6 flex justify-center gap-3">
             <Link href="/students/courses">
@@ -43,6 +41,25 @@ export default function PamlPage() {
               <Button className="bg-white text-blue-700">Related Programs <ArrowRight className="w-4 h-4 ml-2"/></Button>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* PAML Content Section */}
+      <section className="bg-gradient-to-br from-blue-50 to-white py-16">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              PAML — Train the Trainer
+            </h2>
+            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              The Train-the-Trainer for Practical Approach to Machine Learning (PAML) program prepares motivated 4th and 6th semester students to become teaching assistants for the PAML workshop. Guided by industry mentor Mr. Prasanna Chandran, students gain ML expertise and teaching experience.
+            </p>
+          </motion.div>
         </div>
       </section>
 

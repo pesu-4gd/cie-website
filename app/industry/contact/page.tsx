@@ -82,7 +82,7 @@ export default function IndustryContactPage() {
             transition={{ duration: 0.8 }}
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-500/20 text-orange-100 border border-orange-400/30">
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Industry Contact
               </span>

@@ -17,16 +17,6 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import React, { useState, useRef, useEffect } from 'react';
-import {
-  MorphingDialog,
-  MorphingDialogTrigger,
-  MorphingDialogContainer,
-  MorphingDialogContent,
-  MorphingDialogClose,
-  MorphingDialogTitle,
-  MorphingDialogSubtitle,
-  MorphingDialogDescription,
-} from '@/components/ui/morphing-dialog';
 
 import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
@@ -212,6 +202,133 @@ interface EnhancedMagicTitleProps {
   className?: string;
 }
 
+// Vertical Tab Carousel Component
+const VerticalTabCarousel = ({ sections }: { sections: SectionType[] }) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const colorMap: Record<string, string> = {
+    blue: 'from-[#2B9EB3] to-[#2B9EB3]',
+    green: 'from-[#2B9EB3] to-[#2B9EB3]',
+    red: 'from-[#2B9EB3] to-[#2B9EB3]',
+    indigo: 'from-[#2B9EB3] to-[#2B9EB3]',
+    purple: 'from-[#2B9EB3] to-[#2B9EB3]',
+    orange: 'from-[#2B9EB3] to-[#2B9EB3]',
+    yellow: 'from-[#2B9EB3] to-[#2B9EB3]',
+  };
+
+  return (
+    <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
+      {/* Left Sidebar - Vertical Tabs */}
+      <div className="lg:col-span-3">
+        <div className="bg-white rounded-3xl border border-gray-200 p-3 sticky top-6">
+          <h3 className="text-base font-bold text-gray-900 mb-3 px-2">Categories</h3>
+          <div className="space-y-1.5">
+            {sections.map((section, index) => {
+              const Icon = section.icon;
+              const gradient = colorMap[section.color || 'blue'] || studentsColors.gradient.tailwind;
+              return (
+                <button
+                  key={section.title}
+                  onClick={() => setSelectedIndex(index)}
+                  className={`w-full text-left p-3 rounded-xl transition-all duration-300 ${
+                    selectedIndex === index
+                      ? `bg-gradient-to-r ${gradient} text-white shadow-lg`
+                      : 'hover:bg-gray-50 text-gray-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                      selectedIndex === index
+                        ? 'bg-white/20'
+                        : 'bg-gray-100'
+                    }`}>
+                      <Icon className={`w-4.5 h-4.5 ${
+                        selectedIndex === index ? 'text-white' : 'text-gray-600'
+                      }`} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className={`font-semibold text-xs leading-tight ${
+                        selectedIndex === index ? 'text-white' : 'text-gray-900'
+                      }`}>
+                        {section.title}
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Right Content Area - Selected Section Details */}
+      <div className="lg:col-span-9 flex items-center justify-center">
+        <motion.div
+          key={selectedIndex}
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-xl w-full"
+        >
+          {(() => {
+            const section = sections[selectedIndex];
+            const Icon = section.icon;
+            const gradient = colorMap[section.color || 'blue'] || studentsColors.gradient.tailwind;
+            
+            return (
+              <div className="flex flex-col lg:flex-row min-h-[480px]">
+                {/* Section Icon/Visual */}
+                <div className={`lg:w-1/3 bg-gradient-to-br ${gradient} p-8 lg:p-10 flex items-center justify-center`}>
+                  <div className="text-center w-full">
+                    <div className="w-24 h-24 lg:w-28 lg:h-28 mx-auto mb-5 rounded-3xl bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                      <Icon className="w-14 h-14 lg:w-16 lg:h-16 text-white" />
+                    </div>
+                    <h3 className="text-lg lg:text-xl font-bold text-white px-4 leading-tight">{section.title}</h3>
+                  </div>
+                </div>
+
+                {/* Section Details */}
+                <div className="lg:w-2/3 p-6 lg:p-10 flex flex-col justify-center">
+                  <div className="mb-6">
+                    <p className="text-gray-700 leading-relaxed text-sm lg:text-base">
+                      {section.description}
+                    </p>
+                  </div>
+
+                  <div className="mb-6">
+                    <h4 className="font-semibold text-gray-900 mb-3 text-sm lg:text-base">Key Highlights</h4>
+                    <ul className="space-y-2.5">
+                      {section.highlights?.map((highlight, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5">
+                          <div className={`w-5 h-5 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 bg-gradient-to-r ${gradient}`}>
+                            <ArrowRight className="w-3.5 h-3.5 text-white" />
+                          </div>
+                          <span className="text-gray-700 text-xs lg:text-sm leading-relaxed">{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="pt-5 border-t border-gray-200">
+                    <Link href={section.href} className="block">
+                      <Button 
+                        className={`w-full bg-gradient-to-r ${gradient} hover:opacity-90 text-white px-6 py-2.5 rounded-xl font-semibold transition-all flex items-center justify-center text-sm lg:text-base`}
+                      >
+                        Learn More
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
 // Component for text with enhanced magic hover effect on individual letters
 const EnhancedMagicTitle = ({ text, className = '' }: EnhancedMagicTitleProps) => {
   const { letterStates, handleMouseEnter, handleMouseLeave } = useEnhancedLetterHover(text);
@@ -329,7 +446,7 @@ const SectionCard: React.FC<{ section: SectionType; index: number }> = ({ sectio
   const [expanded, setExpanded] = useState(false);
 
   const colorMap: Record<string, string> = {
-    blue: 'from-[#2B9EB3] to-[#3E3C6B]',
+    blue: 'from-[#2B9EB3] to-[#2B9EB3]',
     green: 'from-green-500 to-green-600',
     red: 'from-[#F15A29] to-[#FFC107]',
     indigo: 'from-indigo-500 to-blue-600',
@@ -388,7 +505,7 @@ export default function StudentsPage() {
 
   const mainSections = [
     {
-      title: 'Student Startup Program Overview',
+      title: 'Student Startup Program',
       description: 'Transform your ideas into thriving startups with funding, mentorship, and resources',
       icon: Rocket,
       href: '/students/startup-program',
@@ -412,7 +529,7 @@ export default function StudentsPage() {
       highlights: ['CRAIS: Robotics & Intelligent Systems', 'QuaNaD: Quantum & Nano Devices', 'Focus on AI, IoT, quantum tech', 'Access advanced labs & industry partners']
     },
     {
-      title: 'Frequently Asked Questions (FAQs)',
+      title: 'FAQs',
       description: 'Clear answers on mandatory EIE courses and Student Startup Program',
       icon: BookOpen,
       href: '/students/faqs',
@@ -420,7 +537,7 @@ export default function StudentsPage() {
       highlights: ['Why EIE is required', 'How it integrates with your major', 'Funding opportunities explained', 'Get clarity on CIE offerings']
     },
     {
-      title: 'Be a Part of CIE: TAs, Interns, and Mentors',
+      title: 'Be a Part of CIE',
       description: 'Take active roles as Teaching Assistants, interns, or mentors',
       icon: Users,
       href: '/students/mentorship',
@@ -428,7 +545,7 @@ export default function StudentsPage() {
       highlights: ['Assist in PAML workshops', 'Intern with Centers of Excellence', 'Mentor peers through E-Cell & CMS', 'Hands-on experience & networking']
     },
     {
-      title: 'CIE Industry Mentor Program for Mentorship',
+      title: 'Industry Mentor Program',
       description: 'Connect with industry leaders for personalized guidance',
       icon: Briefcase,
       href: '/students/mentorship',
@@ -503,14 +620,15 @@ export default function StudentsPage() {
         {/* Hero Content - Centered */}
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           {/* Badge */}
-            <motion.div
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white mb-8"
           >
-            <GraduationCap className="w-4 h-4 mr-2" />
-            <span className="text-sm font-medium">Student Hub</span>
+            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30 mb-8">
+              <GraduationCap className="w-4 h-4 mr-2" />
+              Student Hub
+            </span>
           </motion.div>
 
           {/* Title - Centered */}
@@ -604,9 +722,9 @@ export default function StudentsPage() {
         </div>
       </section> */}
 
-      {/* Main Sections Dashboard */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Main Sections Dashboard - Vertical Tab Carousel */}
+      <section className="py-10 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -621,76 +739,8 @@ export default function StudentsPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mainSections.map((section, index) => {
-              const Icon = section.icon as React.ComponentType<React.SVGProps<SVGSVGElement>>;
-              const lightBg = `rgba(${hexToRgb(studentsColors.primary)}, 0.08)`;
-              return (
-                <MorphingDialog key={section.title}>
-                  <MorphingDialogTrigger>
-                    <div role="button" tabIndex={0} className="w-full text-left bg-white p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between">
-                      <div>
-                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-[rgba(${hexToRgb(studentsColors.primary)},0.08)]`}>
-                          <Icon className="w-6 h-6" style={{ color: studentsColors.primary }} />
-                        </div>
-                        <h3 className="text-lg font-bold text-gray-900 mb-2">{section.title}</h3>
-                        <p className="text-sm text-gray-600 mb-4">{section.description}</p>
-                      </div>
-
-                      <div className="mt-4 flex items-center justify-end">
-                        <span className="text-sm text-gray-500 hover:text-[#268295] transition-colors cursor-pointer hover:border-b-2 hover:border-[#268295]">Learn More</span>
-                      </div>
-                    </div>
-                  </MorphingDialogTrigger>
-
-                  <MorphingDialogContainer>
-                    <MorphingDialogContent
-                      style={{ borderRadius: '18px' }}
-                      className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-gray-200 bg-white sm:w-[560px]"
-                    >
-                      <div className="p-6">
-                        <div className="flex items-start justify-between">
-                          <div className="flex items-start">
-                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-4 bg-[rgba(${hexToRgb(studentsColors.primary)},0.08)]`}>
-                              <Icon className="w-6 h-6" style={{ color: studentsColors.primary }} />
-                            </div>
-                            <div>
-                              <MorphingDialogTitle className="text-2xl font-bold text-gray-900">{section.title}</MorphingDialogTitle>
-                              <MorphingDialogSubtitle className="text-sm text-gray-600 mt-2">{section.description}</MorphingDialogSubtitle>
-                            </div>
-                          </div>
-                          <MorphingDialogClose className="text-gray-500">Close</MorphingDialogClose>
-                        </div>
-
-                        <MorphingDialogDescription
-                          disableLayoutAnimation
-                          variants={{
-                            initial: { opacity: 0, scale: 0.98, y: 20 },
-                            animate: { opacity: 1, scale: 1, y: 0 },
-                            exit: { opacity: 0, scale: 0.98, y: 20 },
-                          }}
-                        >
-                          <div className="mt-6">
-                            <ul className="list-disc pl-5 space-y-2 text-sm text-gray-700">
-                              {section.highlights?.map((h: string, i: number) => (
-                                <li key={i}>{h}</li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          <div className="mt-6 flex justify-end">
-                            <Link href={section.href}>
-                              <Button className="cie-button cie-button-secondary">Learn More</Button>
-                            </Link>
-                          </div>
-                        </MorphingDialogDescription>
-                      </div>
-                    </MorphingDialogContent>
-                  </MorphingDialogContainer>
-                </MorphingDialog>
-              );
-            })}
-          </div>
+          {/* Vertical Tabs Layout */}
+          <VerticalTabCarousel sections={mainSections} />
         </div>
       </section>
 
@@ -824,9 +874,9 @@ export default function StudentsPage() {
             <div className="mt-12 pt-8 border-t border-white/20">
               <p className="text-blue-100 mb-4">Stay Connected</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm text-blue-100">
-                <span>📧 cieprogram@pes.edu</span>
+                <span> cieprogram@pes.edu</span>
                 <span className="hidden sm:inline">•</span>
-                <span>📍 CIE Office, PES University RR/EC Campus</span>
+                <span> CIE Office, PES University RR/EC Campus</span>
               </div>
             </div>
           </motion.div>

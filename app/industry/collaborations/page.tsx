@@ -813,16 +813,16 @@ export default function CollaborationsPage() {
       icon: Award,
       description: 'Join established partnerships that have delivered impactful programs and innovations',
       features: [
-        'Intel partnership since 2018 with AMA sessions',
-        'Cisco ThingQbator program with ₹5 Lakh funding',
-        'CPIP projects delivering real-world solutions',
+        'Alumni startup ecosystem with national recognition',
+        'PocketCoach won Karnataka Elevate 2024 (₹30 Lakh)',
+        'Multiple VC-funded alumni ventures',
         'Global recognition at UC Berkeley conference'
       ],
       examples: [
-        { partner: 'Intel', program: 'AMA Sessions since 2018', impact: 'AI and IoT insights inspiring smart city solutions' },
-        { partner: 'Cisco', program: 'ThingQbator Sponsorship', impact: 'NeuRoar secured ₹5 Lakh funding' },
-        { partner: 'Industry CPIP', program: 'Predictive Maintenance', impact: '15% downtime reduction' },
-        { partner: 'CIE Funds', program: 'Greenifly Startup', impact: 'Agritech venture scaling from capstone project' }
+        { partner: 'PocketCoach', program: 'Karnataka Elevate Winner', impact: 'AI-powered sports training with ₹30 Lakh grant' },
+        { partner: 'Epicure Robotics', program: '100x.VC Funded', impact: 'Automated food kiosks with robotics technology' },
+        { partner: 'Aalap AI', program: 'Market Success', impact: '850+ users for AI legal tech and Carnatic music generation' },
+        { partner: 'Authify', program: 'Revenue Milestone', impact: 'Data security and smart city solutions achieving national milestones' }
       ],
       investment: 'Proven partnership models',
       roi: 'Established success with measurable impact'
@@ -1037,7 +1037,7 @@ export default function CollaborationsPage() {
               className="text-center"
             >
               <div className="mb-6">
-                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-600/20 text-white border border-orange-400/30">
+                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-500/20 text-orange-100 border border-orange-400/30">
                   <Handshake className="w-4 h-4 mr-2" />
                   Collaboration Opportunities
                 </span>

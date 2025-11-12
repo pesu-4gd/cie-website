@@ -124,14 +124,14 @@ export default function IndustryPage() {
       ]
     },
     {
-      company: 'Cisco Systems',
-      partnership: 'ThingQbator Program & Funding',
+      company: 'Alumni Startup Success',
+      partnership: 'CIE Incubation & Support',
       duration: 'Ongoing',
-      impact: 'Cohort 6: Eight PES teams including NeuRoar secured ₹5 Lakh in funding',
+      impact: 'Alumni startups PocketCoach, Epicure Robotics, Aalap AI, Authify achieving national recognition',
       outcomes: [
-        'Top CIE teams receive Cisco ThingQbator funding',
-        'Real-world IoT and networking project development',
-        'Direct pathway from ideation to implementation'
+        'PocketCoach won Karnataka Elevate 2024 (₹30 Lakh grant)',
+        'Epicure Robotics funded by 100x.VC for robotic food kiosks',
+        'Alumni ventures creating jobs and innovative solutions'
       ]
     },
     {
@@ -185,10 +185,11 @@ export default function IndustryPage() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white mb-8"
           >
-            <Building2 className="w-4 h-4 mr-2" />
-            <span className="text-sm font-medium">Industry Partnerships</span>
+            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-500/20 text-orange-100 border border-orange-400/30 mb-8">
+              <Building2 className="w-4 h-4 mr-2" />
+              Industry Partnerships
+            </span>
           </motion.div>
 
           {/* Title - Centered */}

@@ -116,14 +116,14 @@ export default function CentersOfExcellencePage() {
             className="text-center"
           >
             <div className="mb-6 inline-block">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium" style={{ backgroundColor: `rgba(${hexToRgb(studentsColors.primary)},0.12)`, color: studentsColors.primary }}>
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
                 <FlaskConical className="w-4 h-4 mr-2" />
                 Research Excellence
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-              Centers of Excellence at PES University
-              <span className="block text-white/90 text-lg font-medium mt-2">Driving Innovation and Research</span>
+              Centers of Excellence{' '}
+              <span className="block" style={{ color: studentsColors.accent }}>at PES University</span>
             </h1>
           </motion.div>
         </div>

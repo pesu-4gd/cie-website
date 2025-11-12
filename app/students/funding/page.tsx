@@ -235,36 +235,36 @@ const applicationTips = [
 const successStories = [
   {
     id: 's1',
-    studentName: 'NeuRoar',
-    batch: 'Cohort 5',
-    grantReceived: 'Cisco-NASSCOM thingQbator',
-    amount: '₹5,00,000',
-    projectTitle: 'NeuRoar (Assistive AI)',
-    outcome: 'Seed funded and accelerated',
-    description: 'One of four PES teams that secured full seed funding in thingQbator Cohort 5, demonstrating strong social impact and technical merit.',
-    image: '/success/neuroar.jpg'
+    studentName: 'PocketCoach',
+    batch: '2024',
+    grantReceived: 'Karnataka Elevate',
+    amount: '₹30,00,000',
+    projectTitle: 'AI-Powered Sports Training Platform',
+    outcome: 'Winner of Karnataka Elevate 2024',
+    description: 'AI-powered online sports training platform providing expert coaching programs. Also received Start-Up India Seed Fund through IIM Bangalore and Top 30 in Campus Founders cohort.',
+    image: '/assets/pocket-coach.jpg'
   },
   {
     id: 's2',
-    studentName: 'Greenifly',
-    batch: '2022',
-    grantReceived: 'PESU Venture Labs',
-    amount: 'Seed funding',
-    projectTitle: 'Multispectral Agritech Drones',
-    outcome: 'Commercialised from capstone project',
-    description: 'Transitioned from a university project to a startup focused on NPK analysis using multispectral drone data.',
-    image: '/success/greenifly.jpg'
+    studentName: 'Epicure Robotics',
+    batch: '2024',
+    grantReceived: '100x.VC',
+    amount: 'VC Funding',
+    projectTitle: 'Automated Food Kiosks with Robotics',
+    outcome: 'Funded by 100x.VC',
+    description: 'Builds fully automated food kiosks using proprietary gantry-based technology (PARK) for fast, precise, and customizable food preparation with in-house R&D and manufacturing.',
+    image: '/assets/epicure-robotics.jpg'
   },
   {
     id: 's3',
-    studentName: 'Team FUZE',
-    batch: '2020',
-    grantReceived: 'Hult Prize / External',
-    amount: 'Regional recognition',
-    projectTitle: 'CO2-to-Fuel Conversion',
-    outcome: 'Advanced to regionals and gained funding/recognition',
-    description: 'A social-impact project that advanced through Hult Prize rounds, showcasing CIE support for interdisciplinary teams.',
-    image: '/success/fuze.jpg'
+    studentName: 'Aalap AI',
+    batch: '2024',
+    grantReceived: 'Market Success',
+    amount: '850+ Users',
+    projectTitle: 'AI for Legal Tech & Carnatic Music',
+    outcome: 'First text-to-Carnatic music generation in India',
+    description: 'Developed India\'s first text-to-music Carnatic music generation model and an AI assistant for legal and paralegal functions, trained on instruction data for Indian legal tasks.',
+    image: '/assets/aalap-ai.jpg'
   }
 ];
 
@@ -334,12 +334,13 @@ export default function FundingPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <Badge className="mb-4 bg-[#2B9EB3] text-white">
-              <DollarSign className="h-4 w-4 mr-1 text-white" />
+            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30 mb-4">
+              <DollarSign className="h-4 w-4 mr-2" />
               Funding & Scholarships
-            </Badge>
+            </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Funding and Grants at CIE: Fueling Student Innovation
+              Funding and Grants at CIE:{' '}
+              <span className="block text-[#2B9EB3]">Fueling Student Innovation</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8">
               The Centre for Innovation and Entrepreneurship (CIE) at PES University supports students
@@ -426,7 +427,7 @@ export default function FundingPage() {
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {/* thingQbator */}
-            <article className="rounded-2xl border p-6 shadow-sm bg-white">
+            {/* <article className="rounded-2xl border p-6 shadow-sm bg-white">
               <header className="flex items-start justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Cisco-NASSCOM thingQbator</h3>
@@ -446,11 +447,11 @@ export default function FundingPage() {
                 <a href="mailto:cieprogram@pes.edu" className="inline-block">
                   <Button className="bg-[var(--cie-blue)] text-white">Enquire / Apply</Button>
                 </a>
-              </div> */}
-            </article>
+              </div> 
+            </article> */}
 
             {/* MathWorks */}
-            <article className="rounded-2xl border p-6 shadow-sm bg-white">
+            {/* <article className="rounded-2xl border p-6 shadow-sm bg-white">
               <header className="flex items-start justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">MathWorks Program</h3>
@@ -470,11 +471,11 @@ export default function FundingPage() {
                 <a href="mailto:cieprogram@pes.edu" className="inline-block">
                   <Button variant="outline">Get Support</Button>
                 </a>
-              </div> */}
-            </article>
+              </div> 
+            </article> */}
 
             {/* PESU Venture Labs */}
-            <article className="rounded-2xl border p-6 shadow-sm bg-white">
+            {/* <article className="rounded-2xl border p-6 shadow-sm bg-white">
               <header className="flex items-start justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">PESU Venture Labs</h3>
@@ -490,15 +491,15 @@ export default function FundingPage() {
                 <li>Apply: Submit a detailed proposal to <a className="text-[var(--cie-blue)]" href="mailto:cieprogram@pes.edu">cieprogram@pes.edu</a></li>
               </ul>
 
-              {/* <div className="mt-4">
+              <div className="mt-4">
                 <a href="mailto:cieprogram@pes.edu" className="inline-block">
                   <Button className="bg-[var(--cie-blue)] text-white">Submit Proposal</Button>
                 </a>
-              </div> */}
-            </article>
+              </div>
+            </article> */}
 
             {/* CiC Ready */}
-            <article className="rounded-2xl border p-6 shadow-sm bg-white">
+            {/* <article className="rounded-2xl border p-6 shadow-sm bg-white">
               <header className="flex items-start justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Co-Innovation Center (CiC)</h3>
@@ -518,11 +519,11 @@ export default function FundingPage() {
                 <a href="mailto:cieprogram@pes.edu" className="inline-block">
                   <Button variant="outline">Learn More</Button>
                 </a>
-              </div> */}
-            </article>
+              </div> 
+            </article> */}
 
             {/* Harman International */}
-            <article className="rounded-2xl border p-6 shadow-sm bg-white">
+            {/* <article className="rounded-2xl border p-6 shadow-sm bg-white">
               <header className="flex items-start justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Harman International — Sponsored Projects</h3>
@@ -537,10 +538,10 @@ export default function FundingPage() {
                 <li>Eligibility: PES University students with projects in automotive tech, IoT, or related fields</li>
                 <li>Application Process: Details announced via CIE; contact <a className="text-[var(--cie-blue)]" href="mailto:cieprogram@pes.edu">cieprogram@pes.edu</a> for updates</li>
               </ul>
-            </article>
+            </article> */}
 
             {/* Hackathons & Competitions */}
-            <article className="rounded-2xl border p-6 shadow-sm bg-white">
+            {/* <article className="rounded-2xl border p-6 shadow-sm bg-white">
               <header className="flex items-start justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Hackathons & Competitions</h3>
@@ -555,10 +556,10 @@ export default function FundingPage() {
                 <li>Application Process: Register through CIE or the event platform; prepare a project pitch or prototype</li>
                 <li>Benefits: Prizes, internships, visibility and potential accelerator referrals</li>
               </ul>
-            </article>
+            </article> */}
 
             {/* External Incubators & Accelerators */}
-            <article className="rounded-2xl border p-6 shadow-sm bg-white">
+            {/* <article className="rounded-2xl border p-6 shadow-sm bg-white">
               <header className="flex items-start justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">External Incubators & Accelerators</h3>
@@ -573,7 +574,7 @@ export default function FundingPage() {
                 <li>Eligibility: Market-ready or validated ideas; program-dependent</li>
                 <li>Application Process: Announced via CIE; typically submit a proposal or apply on the partner portal</li>
               </ul>
-            </article>
+            </article> */}
           </div>
 
           <div className="mt-8 bg-slate-50 rounded-2xl p-6">

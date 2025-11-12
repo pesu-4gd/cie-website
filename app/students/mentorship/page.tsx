@@ -214,10 +214,10 @@ export default function MentorshipPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <Badge className={`mb-4 bg-[${studentsColors.primary}]/12 text-[${studentsColors.primary}]`}>
-              <Users className="h-4 w-4 mr-1" />
+            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30 mb-4">
+              <Users className="h-4 w-4 mr-2" />
               Mentorship Program
-            </Badge>
+            </span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
               Connect with <span className={`text-[${studentsColors.primary}]`}>Industry Mentors</span>
             </h1>
@@ -297,10 +297,10 @@ export default function MentorshipPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <Badge className={`mb-4 bg-[${studentsColors.primary}]/12 text-[${studentsColors.primary}]`}>
-              <Star className="h-4 w-4 mr-1" />
+            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-600 border border-blue-400/30 mb-4">
+              <Star className="h-4 w-4 mr-2" />
               Our Mentors
-            </Badge>
+            </span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">CIE Industry Mentors</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Meet our distinguished mentors from leading technology companies who are guiding our students

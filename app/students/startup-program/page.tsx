@@ -311,13 +311,13 @@ export default function StudentStartupProgramPage() {
             className="text-center"
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium" style={{ background: studentsColors.primary, color: '#fff' }}>
-                <Rocket className="w-4 h-4 mr-2 text-white" />
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
+                <Rocket className="w-4 h-4 mr-2" />
                 Student Startup Program
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-              Student Startup Program:
+              Student Startup Program:{' '}
               <span className="block" style={{ color: studentsColors.accent }}>Your Path to Entrepreneurial Success</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">

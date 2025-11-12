@@ -168,8 +168,8 @@ export default function StudentClubsPage() {
             className="text-center"
           >
             <div className="mb-6 inline-flex items-center gap-3">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium" style={{ background: studentsColors.primary, color: '#fff' }}>
-                <Users className="w-4 h-4 mr-2 text-white" />
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
+                <Users className="w-4 h-4 mr-2" />
                 Student Organizations
               </span>
             </div>

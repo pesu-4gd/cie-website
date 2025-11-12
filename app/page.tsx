@@ -91,7 +91,7 @@ export default function Home() {
             </div>
             
             {/* Quick Stats - Compact Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
+            {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
               <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <div className="text-2xl font-bold text-white">2159+</div>
                 <div className="text-xs text-gray-300">Students</div>
@@ -108,7 +108,7 @@ export default function Home() {
                 <div className="text-2xl font-bold text-white">100+</div>
                 <div className="text-xs text-gray-300">Partners</div>
               </div>
-            </div>
+            </div> */}
           </motion.div>
         </div>
         {/* Video overlay: when showVideo is true, render the YouTube iframe covering the hero section */}
@@ -217,7 +217,7 @@ export default function Home() {
             >
               <div className="bg-white rounded-2xl p-5 hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 h-56 flex flex-col justify-between">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#3E3C6B] to-[#F15A29] rounded-lg flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-amber-400 rounded-lg flex items-center justify-center mr-4">
                     <Users className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">Alumni</h3>
@@ -225,7 +225,7 @@ export default function Home() {
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                   Stay connected with our thriving network, give back to the community, and access exclusive resources.
                 </p>
-                <button className="flex items-center text-[#3E3C6B] hover:text-[#F15A29] font-semibold">
+                <button className="flex items-center text-yellow-400 hover:text-amber-600 font-semibold">
                   <span>Connect Now</span>
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -500,22 +500,22 @@ export default function Home() {
                   <div className="w-12 h-12 bg-gradient-to-br from-[#2B9EB3] to-[#3E3C6B] rounded-full flex items-center justify-center mx-auto mb-4">
                     <Building2 className="w-6 h-6 text-white" />
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-2">Cisco ThingQbator</h5>
-                  <p className="text-gray-600 text-sm">NeuRoar secured ₹5 Lakh funding through successful collaboration.</p>
+                  <h5 className="font-bold text-gray-900 mb-2">PocketCoach</h5>
+                  <p className="text-gray-600 text-sm">Alumni startup won Karnataka Elevate 2024 with ₹30 Lakh grant.</p>
                 </div>
                 <div className="text-center bg-gray-50 p-5 rounded-2xl">
                   <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Award className="w-6 h-6 text-white" />
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-2">Intel Partnership</h5>
-                  <p className="text-gray-600 text-sm">7-month contest with Intel technologists mentoring students.</p>
+                  <h5 className="font-bold text-gray-900 mb-2">Epicure Robotics</h5>
+                  <p className="text-gray-600 text-sm">Alumni startup funded by 100x.VC for automated food kiosks.</p>
                 </div>
                 <div className="text-center bg-gray-50 p-5 rounded-2xl">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#F15A29] to-[#FFC107] rounded-full flex items-center justify-center mx-auto mb-4">
                     <Rocket className="w-6 h-6 text-white" />
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-2">Beckn-ONIX</h5>
-                  <p className="text-gray-600 text-sm">Open network protocols and digital commerce collaboration.</p>
+                  <h5 className="font-bold text-gray-900 mb-2">Aalap AI</h5>
+                  <p className="text-gray-600 text-sm">First text-to-Carnatic music AI and legal tech assistant with 850+ users.</p>
                 </div>
               </div>
             </TabsContent>

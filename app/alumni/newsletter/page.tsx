@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+import Image from 'next/image';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { SECTION_COLORS } from '@/styles/colors';
 import { Button } from '@/components/ui/button';
@@ -25,6 +27,8 @@ import {
 
 export default function AlumniNewsletterPage() {
   const alumniColors = SECTION_COLORS.alumni;
+  const [selectedIssue, setSelectedIssue] = React.useState(0);
+
   const newsletterStats = [
     { label: 'Issues Published', value: '10+', icon: FileText },
     { label: 'Years Active', value: '6+', icon: Calendar },
@@ -40,6 +44,7 @@ export default function AlumniNewsletterPage() {
       date: 'December 2023',
       description: 'Latest updates from the Centre for Innovation and Entrepreneurship',
       pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2023/12/CIE-Newsletter_Issue-8.pdf',
+      image: '/assets/issue-10.jpg',
       featured: true
     },
     {
@@ -48,6 +53,7 @@ export default function AlumniNewsletterPage() {
       date: 'December 2023',
       description: 'Innovation highlights and entrepreneurship success stories',
       pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2023/12/CIE-Newsletter_Issue-8.pdf',
+      image: '/assets/issue-9.jpg',
       featured: false
     },
     {
@@ -56,6 +62,7 @@ export default function AlumniNewsletterPage() {
       date: 'December 2023',
       description: 'Celebrating achievements and breakthroughs in innovation',
       pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2023/12/CIE-Newsletter_Issue-8.pdf',
+      image: '/assets/issue-8.jpg',
       featured: false
     },
     {
@@ -64,6 +71,7 @@ export default function AlumniNewsletterPage() {
       date: 'June 2023',
       description: 'Mid-year innovation roundup and upcoming initiatives',
       pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2023/07/CIE-Newsletter-Issue7_Jun2023.pdf',
+      image: '/assets/issue-7.jpg',
       featured: false
     },
     {
@@ -72,6 +80,7 @@ export default function AlumniNewsletterPage() {
       date: 'August 2022',
       description: 'Startup ecosystem updates and entrepreneurial journeys',
       pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2022/08/CIE-Newsletter_Aug2022-1.pdf',
+      image: '/assets/issue-6.jpg',
       featured: false
     },
     {
@@ -80,6 +89,7 @@ export default function AlumniNewsletterPage() {
       date: 'March 2020',
       description: 'Innovation in challenging times and resilience stories',
       pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2020/07/CIE-Newsletter_March2020.pdf',
+      image: '/assets/issue-5.jpg',
       featured: false
     },
     {
@@ -88,6 +98,7 @@ export default function AlumniNewsletterPage() {
       date: 'September 2019',
       description: 'Growing the innovation ecosystem and new ventures',
       pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2019/09/cie_newsletter_web-1.pdf',
+      image: '/assets/issue-4.jpg',
       featured: false
     },
     {
@@ -96,6 +107,7 @@ export default function AlumniNewsletterPage() {
       date: '2019',
       description: 'Entrepreneurship education and startup success stories',
       pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2019/pdf/CIE%20Newsletter_Issue3r.pdf',
+      image: '/assets/issue-3.jpg',
       featured: false
     },
     {
@@ -104,6 +116,7 @@ export default function AlumniNewsletterPage() {
       date: 'September 2019',
       description: 'Building connections and fostering innovation culture',
       pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2019/09/CIE-Newsletter-Issue-2.pdf',
+      image: '/assets/issue-2.jpg',
       featured: false
     },
     {
@@ -112,6 +125,7 @@ export default function AlumniNewsletterPage() {
       date: 'Q3 2018',
       description: 'Inaugural edition - Launching the CIE newsletter',
       pdfUrl: 'https://cie.pes.edu/wp-content/uploads/2019/09/CIE-Newsletter-Q3-2018.pdf',
+      image: '/assets/issue-1.jpg',
       featured: false
     }
   ];
@@ -218,48 +232,7 @@ export default function AlumniNewsletterPage() {
         </div>
       </section>
 
-      {/* Newsletter Stats Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Newsletter Impact
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our newsletter connects thousands of alumni worldwide with relevant
-              content, opportunities, and community updates.
-            </p>
-          </motion.div>
-
-          {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {newsletterStats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-yellow-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-amber-500" />
-                  </div>
-                  <div className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
-                </motion.div>
-              );
-            })}
-          </div> */}
-        </div>
-      </section>
-
-      {/* Newsletter Archive Section with InView */}
+      {/* Newsletter Impact and Archive Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -269,101 +242,188 @@ export default function AlumniNewsletterPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Newsletter Archive
+              Newsletter Impact and Archive
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Browse through all editions of the CIE Newsletter featuring innovation stories,
-              startup journeys, and community updates.
+              Our newsletter connects thousands of alumni worldwide with relevant content, opportunities, and community updates. 
+              Browse through all editions of the CIE Newsletter featuring innovation stories, startup journeys, and community updates.
             </p>
           </motion.div>
 
-          <div className="space-y-6">
-            {newsletterEditions.map((edition, index) => (
-              <InView
-                key={edition.issue}
-                variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 50,
-                    scale: 0.95,
-                    filter: 'blur(4px)',
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    filter: 'blur(0px)',
-                  },
-                }}
-                transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.05 }}
-                viewOptions={{ margin: '0px 0px -100px 0px' }}
+          {/* Newsletter Grid Layout - Sidebar Style */}
+          <div className="flex flex-col lg:flex-row gap-50 items-start">
+            {/* Left Sidebar - Newsletter Selection Cards */}
+            <div className="w-full lg:w-80 flex-shrink-0 space-y-6">
+              {/* Issue 10 - HORIZONTAL Rectangular Card */}
+              <motion.button
+                onClick={() => setSelectedIssue(0)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className={`w-full rounded-xl border-2 transition-all duration-300 overflow-hidden flex ${
+                  selectedIssue === 0
+                    ? 'border-yellow-400 shadow-xl'
+                    : 'border-gray-200 hover:border-yellow-300 hover:shadow-md'
+                }`}
               >
-                <div
-                  className={`p-6 md:p-8 rounded-3xl border hover:shadow-xl transition-all duration-300 ${
-                    edition.featured
-                      ? 'bg-gradient-to-r from-amber-50 to-yellow-50 border-yellow-200'
-                      : 'bg-white border-gray-200'
-                  }`}
-                >
-                  <div className="grid lg:grid-cols-4 gap-6 items-center">
-                    {/* Issue Number Badge */}
-                    <div className="lg:col-span-1 flex lg:justify-center">
-                      <div className="relative">
-                        <div className="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-2xl flex items-center justify-center shadow-lg">
-                          <div className="text-center">
-                            <div className="text-xs md:text-sm font-semibold text-yellow-100 mb-1">ISSUE</div>
-                            <div className="text-3xl md:text-4xl font-bold text-white">{edition.issue}</div>
-                          </div>
-                        </div>
-                        {edition.featured && (
-                          <div className="absolute -top-2 -right-2 bg-green-500 rounded-full p-2">
-                            <Star className="w-4 h-4 text-white fill-white" />
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="lg:col-span-2">
-                      {edition.featured && (
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-yellow-50 text-amber-800 mb-3">
-                          Latest Edition
-                        </span>
-                      )}
-                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-                        {edition.title}
-                      </h3>
-                      <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
-                        <Calendar className="w-4 h-4" />
-                        <span>{edition.date}</span>
-                      </div>
-                      <p className="text-gray-600 mb-4">{edition.description}</p>
-                    </div>
-
-                    {/* Actions */}
-                    <div className="lg:col-span-1 flex flex-col gap-3">
-                      <a
-                        href={edition.pdfUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-500 text-white px-4 py-3 rounded-xl font-semibold transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        <span>Open PDF</span>
-                      </a>
-                      <a
-                        href={edition.pdfUrl}
-                        download
-                        className="inline-flex items-center justify-center gap-2 border-2 border-yellow-300 text-amber-600 hover:bg-yellow-50 px-4 py-3 rounded-xl font-semibold transition-colors"
-                      >
-                        <Download className="w-4 h-4" />
-                        <span>Download</span>
-                      </a>
-                    </div>
+                {/* Newsletter Cover Image - Horizontal Layout */}
+                <div className="relative w-3/5 aspect-square bg-gradient-to-br from-amber-100 to-yellow-100 flex-shrink-0">
+                  <Image
+                    src={newsletterEditions[0].image}
+                    alt={newsletterEditions[0].title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className={`absolute top-2 right-2 w-8 h-8 rounded-lg flex items-center justify-center shadow-lg ${
+                    selectedIssue === 0
+                      ? 'bg-gradient-to-br from-amber-500 to-yellow-600'
+                      : 'bg-white/90 backdrop-blur-sm'
+                  }`}>
+                    <span className={`text-xs font-bold ${
+                      selectedIssue === 0 ? 'text-white' : 'text-gray-700'
+                    }`}>
+                      10
+                    </span>
+                  </div>
+                  <div className="absolute top-2 left-2 bg-green-500 text-white px-1.5 py-0.5 rounded text-[10px] font-bold">
+                    Latest
                   </div>
                 </div>
-              </InView>
-            ))}
+
+                {/* Card Content - Horizontal Layout */}
+                <div className={`flex-1 p-3 flex flex-col justify-center ${
+                  selectedIssue === 0
+                    ? 'bg-gradient-to-br from-amber-50 to-yellow-50'
+                    : 'bg-white'
+                }`}>
+                  <h3 className={`text-xs font-bold mb-1 ${
+                    selectedIssue === 0 ? 'text-gray-900' : 'text-gray-700'
+                  }`}>
+                    Issue 10
+                  </h3>
+                  <p className="text-[10px] text-gray-500 mb-1">{newsletterEditions[0].date}</p>
+                  <p className={`text-[10px] line-clamp-2 ${
+                    selectedIssue === 0 ? 'text-gray-600' : 'text-gray-500'
+                  }`}>
+                    {newsletterEditions[0].description}
+                  </p>
+                </div>
+              </motion.button>
+
+              {/* Issues 9-1 - VERTICAL Rectangular Cards in 3x3 Grid */}
+              <div className="grid grid-cols-3 gap-2">
+                {newsletterEditions.slice(1).map((edition, index) => (
+                  <motion.button
+                    key={edition.issue}
+                    onClick={() => setSelectedIssue(index + 1)}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.03 }}
+                    className={`relative flex flex-col rounded-lg border-2 transition-all duration-300 overflow-hidden ${
+                      selectedIssue === index + 1
+                        ? 'border-yellow-400 shadow-lg'
+                        : 'border-gray-200 hover:border-yellow-300 hover:shadow-md'
+                    }`}
+                  >
+                    {/* Newsletter Cover Image - VERTICAL */}
+                    <div className="relative w-full aspect-[3/4.9] bg-gradient-to-br from-amber-100 to-yellow-100">
+                      <Image
+                        src={edition.image}
+                        alt={edition.title}
+                        fill
+                        className="object-cover"
+                      />
+                      <div className={`absolute top-1.5 right-1.5 w-9 h-9 rounded flex items-center justify-center shadow-md ${
+                        selectedIssue === index + 1
+                          ? 'bg-gradient-to-br from-amber-500 to-yellow-600'
+                          : 'bg-white/90 backdrop-blur-sm'
+                      }`}>
+                        <span className={`text-sm font-bold ${
+                          selectedIssue === index + 1 ? 'text-white' : 'text-gray-700'
+                        }`}>
+                          {edition.issue}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Card Content */}
+                    <div className={`p-2.5 ${
+                      selectedIssue === index + 1
+                        ? 'bg-gradient-to-br from-amber-50 to-yellow-50'
+                        : 'bg-white'
+                    }`}>
+                      <p className="text-sm font-bold text-gray-700 text-center">Issue {edition.issue}</p>
+                    </div>
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Side - Large VERTICAL Detail Card */}
+            <motion.div
+              key={selectedIssue}
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex-1 max-w-md mx-auto lg:mx-0 rounded-2xl border-2 border-gray-200 overflow-hidden shadow-xl bg-white"
+            >
+              {/* Newsletter Cover Image - VERTICAL Large */}
+              <div className="relative w-full aspect-[3/4] bg-gradient-to-br from-amber-100 to-yellow-100">
+                <Image
+                  src={newsletterEditions[selectedIssue].image}
+                  alt={newsletterEditions[selectedIssue].title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-4 right-4 w-14 h-14 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <div className="text-center">
+                    <div className="text-[10px] font-semibold text-yellow-100">ISSUE</div>
+                    <div className="text-xl font-bold text-white">{newsletterEditions[selectedIssue].issue}</div>
+                  </div>
+                </div>
+                {newsletterEditions[selectedIssue].featured && (
+                  <div className="absolute top-4 left-4 bg-green-500 text-white px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-2">
+                    <Star className="w-3 h-3 fill-white" />
+                    Latest Edition
+                  </div>
+                )}
+              </div>
+
+              {/* Newsletter Content */}
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  {newsletterEditions[selectedIssue].title}
+                </h3>
+                <p className="text-gray-500 mb-3 flex items-center gap-2 text-sm">
+                  <Calendar className="w-4 h-4" />
+                  {newsletterEditions[selectedIssue].date}
+                </p>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {newsletterEditions[selectedIssue].description}
+                </p>
+                
+                {/* Action Buttons */}
+                <div className="flex gap-3">
+                  <a
+                    href={newsletterEditions[selectedIssue].pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 rounded-xl font-semibold transition-colors shadow-lg"
+                  >
+                    <ExternalLink className="w-5 h-5" />
+                    <span>View PDF</span>
+                  </a>
+                  <a
+                    href={newsletterEditions[selectedIssue].pdfUrl}
+                    download
+                    className="flex-1 inline-flex items-center justify-center gap-2 border-2 border-teal-500 text-teal-600 hover:bg-teal-50 px-6 py-3 rounded-xl font-semibold transition-colors"
+                  >
+                    <Download className="w-5 h-5" />
+                    <span>Download</span>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

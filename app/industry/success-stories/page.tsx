@@ -106,21 +106,21 @@ export default function IndustrySuccessStoriesPage() {
     },
     {
       title: 'Research Collaboration',
-      description: 'Academic-industry research partnerships',
+      description: 'Academic-industry research partnerships for cutting-edge advancements',
       icon: FileText,
       successCount: '10+',
       examples: ['Published papers', 'Joint research projects', 'Innovation studies']
     },
     {
       title: 'Talent Pipeline',
-      description: 'Recruitment and skill development programs',
+      description: 'Recruitment, training, and skill development programs for students and professionals',
       icon: Users,
       successCount: '100+',
       examples: ['Industry mentorship', 'Internship programs', 'Skill workshops']
     },
     {
       title: 'Startup Incubation',
-      description: 'Supporting student startups to become successful companies',
+      description: 'Supporting student startups to become successful companies through funding and mentorship',
       icon: Rocket,
       successCount: '50+',
       examples: ['Funding support', 'Mentorship programs', 'Market access']
@@ -193,7 +193,7 @@ export default function IndustrySuccessStoriesPage() {
         </div>
       </section>
 
-      {/* Impact Metrics Section */}
+      {/* Partnership Impact and Featured Success Stories Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -203,52 +203,12 @@ export default function IndustrySuccessStoriesPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Partnership Impact
+              Partnership Impact and Featured Success Stories
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Numbers that showcase the real-world impact of our industry collaborations 
-              and the success of our partnership ecosystem.
-            </p>
-          </motion.div>
-
-          {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {impactMetrics.map((metric, index) => {
-              const IconComponent = metric.icon;
-              return (
-                <motion.div
-                  key={metric.label}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-orange-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-orange-600" />
-                  </div>
-                  <div className="text-4xl font-bold text-gray-900 mb-2">{metric.value}</div>
-                  <div className="text-gray-600 font-medium">{metric.label}</div>
-                </motion.div>
-              );
-            })}
-          </div> */}
-        </div>
-      </section>
-
-      {/* Success Stories Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Featured Success Stories
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Real partnerships, real results. Read how global industry leaders like Intel, Cisco, 
-              and HCL Tech have achieved breakthrough success through collaboration with CIE.
+              Real partnerships, real results. Discover how global industry leaders like Intel, Cisco, 
+              and HCL Tech have achieved breakthrough success through collaboration with CIE, creating 
+              measurable impact across innovation, talent development, and startup growth.
             </p>
           </motion.div>
 
@@ -499,10 +459,10 @@ export default function IndustrySuccessStoriesPage() {
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{type.title}</h3>
                   <p className="text-gray-600 mb-4">{type.description}</p>
                   
-                  <div className="text-center mb-4">
+                  {/* <div className="text-center mb-4">
                     <span className="text-2xl font-bold text-orange-600">{type.successCount}</span>
                     <p className="text-sm text-gray-500">Success Stories</p>
-                  </div>
+                  </div> */}
                   
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2 text-sm">Examples:</h4>

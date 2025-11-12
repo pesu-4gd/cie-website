@@ -219,48 +219,7 @@ export default function AlumniSuccessStoriesPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Startup Ecosystem Impact
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our alumni entrepreneurs are creating real-world impact through innovative
-              solutions and successful ventures.
-            </p>
-          </motion.div>
-
-          {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {successStats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-yellow-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-amber-500" />
-                  </div>
-                  <div className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
-                </motion.div>
-              );
-            })}
-          </div> */}
-        </div>
-      </section>
-
-      {/* Featured Startups Section */}
+      {/* Startup Ecosystem Impact and Success Stories Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -270,11 +229,11 @@ export default function AlumniSuccessStoriesPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Featured Success Stories
+              Startup Ecosystem Impact and Success Stories
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Meet the alumni-led startups that have gained national recognition,
-              funding, and are making significant industry impact.
+              Our alumni entrepreneurs are creating real-world impact through innovative solutions and successful ventures. 
+              Meet the alumni-led startups that have gained national recognition, funding, and are making significant industry impact.
             </p>
           </motion.div>
 

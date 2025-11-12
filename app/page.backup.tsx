@@ -524,22 +524,22 @@ export default function Home() {
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Building2 className="w-6 h-6 text-blue-600" />
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-2">Cisco ThingQbator</h5>
-                  <p className="text-gray-600 text-sm">NeuRoar secured ₹5 Lakh funding through successful collaboration.</p>
+                  <h5 className="font-bold text-gray-900 mb-2">PocketCoach</h5>
+                  <p className="text-gray-600 text-sm">Alumni startup won Karnataka Elevate 2024 with ₹30 Lakh grant.</p>
                 </div>
                 <div className="text-center bg-gray-50 p-5 rounded-2xl">
                   <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Award className="w-6 h-6 text-green-600" />
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-2">Intel Partnership</h5>
-                  <p className="text-gray-600 text-sm">7-month contest with Intel technologists mentoring students.</p>
+                  <h5 className="font-bold text-gray-900 mb-2">Epicure Robotics</h5>
+                  <p className="text-gray-600 text-sm">Alumni startup funded by 100x.VC for automated food kiosks.</p>
                 </div>
                 <div className="text-center bg-gray-50 p-5 rounded-2xl">
                   <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Rocket className="w-6 h-6 text-purple-600" />
                   </div>
-                  <h5 className="font-bold text-gray-900 mb-2">Beckn-ONIX</h5>
-                  <p className="text-gray-600 text-sm">Open network protocols and digital commerce collaboration.</p>
+                  <h5 className="font-bold text-gray-900 mb-2">Aalap AI</h5>
+                  <p className="text-gray-600 text-sm">First text-to-Carnatic music AI and legal tech assistant with 850+ users.</p>
                 </div>
               </div>
             </TabsContent>

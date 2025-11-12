@@ -29,13 +29,13 @@ export default function CMSPage() {
 
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Badge className="mb-4" style={{ background: studentsColors.primary, color: 'white' }}>
-              <Users className="h-4 w-4 mr-1" />
+            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30 mb-4">
+              <Users className="h-4 w-4 mr-2" />
               Student Club
-            </Badge>
+            </span>
 
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Changemakers’ Society (<span style={{ color: studentsColors.accent }}>CMS</span>)
+              Changemakers' Society (<span style={{ color: studentsColors.accent }}>CMS</span>)
             </h1>
 
             <p className="text-lg text-gray-200 max-w-3xl mx-auto mb-6">

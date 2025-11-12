@@ -90,7 +90,7 @@ export default function IndustryAboutPage() {
             transition={{ duration: 0.8 }}
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-500/20 text-orange-100 border border-orange-400/30">
                 <Building2 className="w-4 h-4 mr-2" />
                 Industry Collaboration
               </span>
@@ -123,7 +123,7 @@ export default function IndustryAboutPage() {
         </div>
       </section>
 
-      {/* Statistics Section */}
+      {/* Partnership Impact and Opportunities Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -133,52 +133,11 @@ export default function IndustryAboutPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Partnership Impact
+              Partnership Impact and Opportunities
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our industry collaborations have created significant value for both partners and students, 
-              driving innovation and fostering entrepreneurial success.
-            </p>
-          </motion.div>
-
-          {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {collaborationStats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-orange-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-orange-600" />
-                  </div>
-                  <div className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
-                </motion.div>
-              );
-            })}
-          </div> */}
-        </div>
-      </section>
-
-      {/* Partnership Types Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Partnership Opportunities
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Explore various ways to collaborate with CIE and leverage our ecosystem 
-              of innovation, talent, and research excellence.
+              Our industry collaborations have created significant value for both partners and students. 
+              Explore various ways to collaborate with CIE and leverage our ecosystem of innovation, talent, and research excellence.
             </p>
           </motion.div>
 

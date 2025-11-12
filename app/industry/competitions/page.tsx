@@ -156,7 +156,7 @@ export default function IndustryCompetitionsPage() {
             transition={{ duration: 0.8 }}
           >
             <div className="mb-8">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-500/20 text-white border border-orange-400/30">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-orange-500/20 text-orange-100 border border-orange-400/30">
                 <Trophy className="w-4 h-4 mr-2" />
                 Industry Engagement
               </span>

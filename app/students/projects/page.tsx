@@ -140,7 +140,8 @@ export default function ProjectsPage() {
               <Rocket className="h-8 w-8 text-white" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Student Projects
+              Student{' '}
+              <span className="text-[#2B9EB3]">Projects</span>
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Discover innovative projects built by CIE students, from AI solutions to sustainable technologies.

@@ -204,15 +204,13 @@ export default function EIEPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-200">
-              <GraduationCap className="h-4 w-4 mr-1" />
+            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30 mb-4">
+              <GraduationCap className="h-4 w-4 mr-2" />
               Academic Program
-            </Badge>
+            </span>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Entrepreneurship & Innovation <br />
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Education (EIE)
-              </span>
+              Entrepreneurship & Innovation{' '}
+              <span className="block text-[#2B9EB3]">Education (EIE)</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Comprehensive two-part program designed to transform students into confident entrepreneurs 
