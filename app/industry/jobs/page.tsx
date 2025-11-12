@@ -301,7 +301,7 @@ export default function JobsPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <motion.div
@@ -342,7 +342,7 @@ export default function JobsPage() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Main Content */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">

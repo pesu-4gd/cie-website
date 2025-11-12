@@ -244,7 +244,7 @@ export default function AlumniWelcomePage() {
       </section>
 
       {/* Alumni Stats */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {alumniStats.map((stat, index) => {
@@ -267,7 +267,7 @@ export default function AlumniWelcomePage() {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Network Benefits */}
       <section className="py-20 bg-white">

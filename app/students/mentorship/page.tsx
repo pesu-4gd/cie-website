@@ -276,7 +276,7 @@ export default function MentorshipPage() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {programStats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -289,7 +289,7 @@ export default function MentorshipPage() {
                 <div className="text-gray-600">{stat.label}</div>
               </motion.div>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
 

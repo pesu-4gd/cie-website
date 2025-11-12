@@ -125,9 +125,6 @@ export default function CentersOfExcellencePage() {
               Centers of Excellence at PES University
               <span className="block text-white/90 text-lg font-medium mt-2">Driving Innovation and Research</span>
             </h1>
-            <p className="text-lg md:text-xl text-white/85 max-w-4xl mx-auto leading-relaxed">
-              PES University’s Centers of Excellence (CoEs) are hubs for cutting-edge research and innovation, offering students unparalleled opportunities to engage in transformative projects. Aligned with the Centre for Innovation and Entrepreneurship (CIE) and other university divisions, these centers focus on fields like artificial intelligence, cybersecurity, quantum technology, and sustainability. They provide access to advanced facilities, industry partnerships, and expert mentorship, empowering students to contribute to groundbreaking solutions.
-            </p>
           </motion.div>
         </div>
       </section>
@@ -139,32 +136,29 @@ export default function CentersOfExcellencePage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            className="text-center mb-16"
           >
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-2xl border border-gray-200 text-center hover:shadow-lg transition-all duration-300"
-                >
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: `rgba(${hexToRgb(studentsColors.primary)}, 0.08)` }}>
-                    <IconComponent className="w-6 h-6" style={{ color: studentsColors.primary }} />
-                  </div>
-                  <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                  <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-                </motion.div>
-              );
-            })}
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              About Our Centers of Excellence
+            </h2>
+            <div className="max-w-5xl mx-auto space-y-4">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                PES University's Centers of Excellence (CoEs) are hubs for cutting-edge research and innovation, offering students unparalleled opportunities to engage in transformative projects.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Aligned with the Centre for Innovation and Entrepreneurship (CIE) and other university divisions, these centers focus on fields like artificial intelligence, cybersecurity, quantum technology, and sustainability.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                They provide access to advanced facilities, industry partnerships, and expert mentorship, empowering students to contribute to groundbreaking solutions.
+              </p>
+            </div>
           </motion.div>
+          
         </div>
       </section>
 
       {/* Centers Grid */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-1 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -280,7 +274,7 @@ export default function CentersOfExcellencePage() {
                 </thead>
                 <tbody>
                   {centersOverview.map((c) => (
-                    <tr key={c.short} className="border-t last:border-b">
+                    <tr key={c.short} className="border-t last:border-b hover:bg-[#b7e2ec]">
                       <td className="px-6 py-4 align-top text-sm text-gray-800 font-semibold">
                         <div className="flex items-center">
                           {c.logo && (
@@ -298,7 +292,7 @@ export default function CentersOfExcellencePage() {
                         </div>
                       </td>
                       <td className="px-6 py-4 align-top text-sm text-gray-700">{c.description}</td>
-                      <td className="px-6 py-4 align-top text-sm text-gray-600">{c.short}</td>
+                      <td className="px-6 py-4 align-top text-sm text-gray-600 hover:text-[#268295]">{c.short}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -416,14 +410,14 @@ export default function CentersOfExcellencePage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="bg-white p-8 rounded-2xl border border-gray-200 shadow-lg"
             >
-              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
-                <BookOpen className="w-6 h-6 text-green-600" />
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                <BookOpen className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Publications & Patents</h3>
               <p className="text-gray-600 mb-4">
                 100+ research publications in top-tier conferences and journals with 15+ patents filed.
               </p>
-              <div className="text-sm text-green-600 font-medium">
+              <div className="text-sm text-blue-600 font-medium">
                 IEEE, ACM, Nature, Science, USPTO
               </div>
             </motion.div>
@@ -434,14 +428,14 @@ export default function CentersOfExcellencePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-white p-8 rounded-2xl border border-gray-200 shadow-lg"
             >
-              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                <Users className="w-6 h-6 text-purple-600" />
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                <Users className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Student Success</h3>
               <p className="text-gray-600 mb-4">
                 200+ students engaged in research with 50+ securing placements in top companies and PhD programs.
               </p>
-              <div className="text-sm text-purple-600 font-medium">
+              <div className="text-sm text-blue-600 font-medium">
                 Google, Amazon, Microsoft, Stanford, MIT
               </div>
             </motion.div>

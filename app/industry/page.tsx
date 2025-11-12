@@ -241,7 +241,7 @@ export default function IndustryPage() {
       </section>
 
       {/* Partnership Stats */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {partnershipStats.map((stat, index) => {
@@ -262,7 +262,7 @@ export default function IndustryPage() {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Partnership Opportunities */}
       <section className="py-20 bg-gray-50">
@@ -291,8 +291,8 @@ export default function IndustryPage() {
                   onClick={() => setActivePartnership(type.id)}
                   className={`flex items-center px-6 py-3 mx-2 mb-4 rounded-xl font-semibold transition-all duration-300 ${
                     activePartnership === type.id
-                      ? 'bg-blue-600 text-white shadow-lg'
-                      : 'bg-white text-gray-600 hover:bg-blue-50 hover:text-blue-600'
+                      ? 'bg-orange-600 text-white shadow-lg'
+                      : 'bg-white text-gray-600 hover:bg-orange-50 hover:text-orange-600'
                   }`}
                 >
                   <IconComponent className="w-5 h-5 mr-2" />
@@ -315,8 +315,8 @@ export default function IndustryPage() {
                   className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg"
                 >
                   <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mr-6">
-                      <IconComponent className="w-8 h-8 text-blue-600" />
+                    <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mr-6">
+                      <IconComponent className="w-8 h-8 text-orange-600" />
                     </div>
                     <div>
                       <h3 className="text-3xl font-bold text-gray-900 mb-2">{type.title}</h3>
@@ -354,7 +354,7 @@ export default function IndustryPage() {
 
                   <div className="mt-8 pt-6 border-t border-gray-200">
                     <div className="flex flex-col sm:flex-row gap-4">
-                      {/* <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl">
+                      {/* <Button className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl">
                         Get Started
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button> */}
@@ -397,7 +397,7 @@ export default function IndustryPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-3xl border border-gray-200 hover:shadow-lg transition-all duration-300"
+                className="bg-gradient-to-br from-gray-50 to-orange-50 p-8 rounded-3xl border border-gray-200 hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center mr-4">
@@ -486,7 +486,7 @@ export default function IndustryPage() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Ready to Partner with CIE?
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-12">
+            <p className="text-xl text-orange-100 max-w-3xl mx-auto mb-12">
               Partner with CIE to drive innovation, access top talent, and shape the future of entrepreneurship. Contact us to explore collaboration opportunities.
             </p>
             
@@ -496,7 +496,7 @@ export default function IndustryPage() {
                   <Mail className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Email Us</h3>
-                <p className="text-blue-100">cieinfo@pes.edu</p>
+                <p className="text-orange-100">cieinfo@pes.edu</p>
               </div>
               
               <div className="text-center">
@@ -504,7 +504,7 @@ export default function IndustryPage() {
                   <Phone className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Call Us</h3>
-                <p className="text-blue-100">Schedule a consultation</p>
+                <p className="text-orange-100">Schedule a consultation</p>
               </div>
               
               <div className="text-center">
@@ -512,7 +512,7 @@ export default function IndustryPage() {
                   <MapPin className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
-                <p className="text-blue-100">CIE Office, PES University RR/EC Campus</p>
+                <p className="text-orange-100">CIE Office, PES University RR/EC Campus</p>
               </div>
             </div>
             

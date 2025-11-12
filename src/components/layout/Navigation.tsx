@@ -228,7 +228,7 @@ const StudentsNavigation: React.FC = () => {
       title: 'Community',
       items: [
         {
-          title: 'Mentorship',
+          title: 'Industry Mentors',
           href: '/students/mentorship',
           description: 'Industry mentor connect',
           icon: Users2,

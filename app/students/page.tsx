@@ -7,8 +7,6 @@ import {
   Users, 
   Lightbulb, 
   DollarSign, 
-  Building2, 
-  Target,
   ArrowRight,
   GraduationCap,
   Rocket,
@@ -16,7 +14,6 @@ import {
   Heart,
   Briefcase,
   Star,
-  Plus as PlusIcon,
 } from 'lucide-react';
 import Link from 'next/link';
 import React, { useState, useRef, useEffect } from 'react';
@@ -383,127 +380,109 @@ const SectionCard: React.FC<{ section: SectionType; index: number }> = ({ sectio
 
 export default function StudentsPage() {
   const quickStats = [
-    { label: 'Active Programs', value: '15+', icon: BookOpen, color: 'blue' },
-    { label: 'Students Enrolled', value: '2,159', icon: Users, color: 'green' },
-    { label: 'Success Rate', value: '95%', icon: Target, color: 'purple' },
-    { label: 'Industry Partners', value: '100+', icon: Building2, color: 'orange' }
+    { label: 'Hands-On Learning', value: 'EIE Courses', icon: BookOpen, color: 'blue', description: 'Build entrepreneurial skills through mandatory EIE courses, hackathons, and CIE Ignite Ideathon' },
+    { label: 'Funding Available', value: 'Up to ₹5L', icon: DollarSign, color: 'green', description: 'Access funding through Co-innovation Center, Cisco-Nasscom thingQbator, or $200K via PESU Venture Labs' },
+    { label: 'Global Exposure', value: 'International', icon: Globe, color: 'purple', description: 'Showcase innovations to global delegates and engage with platforms like Global Venture Lab Conference' },
+    { label: 'Mentorship', value: 'Industry Experts', icon: Users, color: 'orange', description: 'Connect with industry leaders, faculty, and alumni through CIE Industry Mentor Program' }
   ];
 
   const mainSections = [
     {
-      title: 'Student Startup Program',
-      description: 'Comprehensive program to transform your ideas into thriving startups',
+      title: 'Student Startup Program Overview',
+      description: 'Transform your ideas into thriving startups with funding, mentorship, and resources',
       icon: Rocket,
       href: '/students/startup-program',
       color: 'blue',
-      highlights: ['Up to $200K Funding', 'Industry Mentorship', 'Prototype Development', 'Market Validation Support']
-    },
-    {
-      title: 'Programs',
-      description: 'Explore our comprehensive range of courses and training programs',
-      icon: BookOpen,
-      href: '/students/programs',
-      color: 'green',
-      highlights: ['EIE Part 1 & 2', 'Product Management in AI Era', 'PAML Workshop', 'Summer Programs']
+      highlights: ['Open to all PES students', 'Funding, mentorship & makerspaces', 'Access PESU Venture Labs funding', 'CIE Ignite Ideathon opportunities']
     },
     {
       title: 'Student Clubs',
-      description: 'Join vibrant student-led organizations and drive meaningful impact',
+      description: 'Join vibrant student-led clubs to immerse yourself in entrepreneurship and sustainability',
       icon: Heart,
       href: '/students/clubs',
       color: 'red',
-      highlights: ['E-Cell Leadership', 'CMS Sustainability', 'Event Organization', 'Alumni Network']
+      highlights: ['E-Cell: E-Summit events', 'CMS: Sustainability initiatives', 'CIE Ignite S01 Grand Finale with 20+ volunteers', 'Network, lead, and make impact']
     },
     {
       title: 'Centers of Excellence',
       description: 'Engage with cutting-edge research and innovation opportunities',
-      icon: Globe,
+      icon: Lightbulb,
       href: '/students/centers-of-excellence',
       color: 'indigo',
-      highlights: ['CRAIS Robotics', 'QuaNaD Quantum Tech', 'C-IoT Smart Systems', 'CHIPS Hardware']
+      highlights: ['CRAIS: Robotics & Intelligent Systems', 'QuaNaD: Quantum & Nano Devices', 'Focus on AI, IoT, quantum tech', 'Access advanced labs & industry partners']
     },
     {
-      title: 'Events',
-      description: 'Join workshops, competitions, and networking sessions',
-      icon: Calendar,
-      href: '/students/events',
+      title: 'Frequently Asked Questions (FAQs)',
+      description: 'Clear answers on mandatory EIE courses and Student Startup Program',
+      icon: BookOpen,
+      href: '/students/faqs',
       color: 'purple',
-      highlights: ['CIE Ignite Ideathon', 'Hackathons', 'Industry AMAs', 'Networking Sessions']
+      highlights: ['Why EIE is required', 'How it integrates with your major', 'Funding opportunities explained', 'Get clarity on CIE offerings']
     },
     {
-      title: 'Resources',
-      description: 'Access guides, templates, and learning materials',
-      icon: Lightbulb,
-      href: '/students/resources',
-      color: 'orange',
-      highlights: ['Entrepreneurship Guides', 'AI/ML Resources', 'Design Tools', 'Legal Templates']
-    },
-    {
-      title: 'Mentorship',
-      description: 'Connect with industry experts and alumni mentors',
+      title: 'Be a Part of CIE: TAs, Interns, and Mentors',
+      description: 'Take active roles as Teaching Assistants, interns, or mentors',
       icon: Users,
       href: '/students/mentorship',
       color: 'green',
-      highlights: ['Industry Mentors', 'Alumni Network', 'Peer Mentoring', 'Career Guidance']
+      highlights: ['Assist in PAML workshops', 'Intern with Centers of Excellence', 'Mentor peers through E-Cell & CMS', 'Hands-on experience & networking']
     },
     {
-      title: 'Funding',
-      description: 'Discover grants, scholarships, and startup funding',
-      icon: DollarSign,
-      href: '/students/funding',
-      color: 'yellow',
-      highlights: ['CiC Grants', 'Mathworks Funding', 'Startup Grants', 'Scholarship Programs']
-    },
-    {
-      title: 'Projects',
-      description: 'Showcase your work and explore student innovations',
+      title: 'CIE Industry Mentor Program for Mentorship',
+      description: 'Connect with industry leaders for personalized guidance',
       icon: Briefcase,
-      href: '/students/projects',
-      color: 'blue',
-      highlights: ['Capstone Projects', 'Research Work', 'Startup Ideas', 'Portfolio Showcase']
+      href: '/students/mentorship',
+      color: 'orange',
+      highlights: ['Partners: Cisco, Intel, Deloitte', 'One-on-one mentorship', 'Startup development & market strategies', 'Networking events & workshops']
     },
     {
-      title: 'FAQs',
-      description: 'Get answers to frequently asked questions about CIE programs',
-      icon: Star,
-      href: '/students/faqs',
+      title: 'Events',
+      description: 'Stay updated on exciting events from student-led summits to global conferences',
+      icon: Calendar,
+      href: '/students/events',
       color: 'purple',
-      highlights: ['EIE Course Info', 'Program Details', 'Funding Questions', 'Application Process']
+      highlights: ['E-Summit 2023 & Founder Fusion', 'CIE Ignite Ideathon 2026', 'Global Venture Lab Conference', 'Compete, learn, and network']
+    },
+    {
+      title: 'Success Stories',
+      description: 'Discover how CIE students built impactful startups',
+      icon: Star,
+      href: '/students/success-stories',
+      color: 'yellow',
+      highlights: ['PocketCoach: AI upskilling', 'Epicure Robotics: Food automation', 'Authify: NFC authentication', 'Zeru: Universal reputation system']
     }
   ];
 
-  const recentUpdates = [
+  const whyCIE = [
     {
-      title: 'Student Startup Program Applications Open',
-      description: 'Apply for comprehensive startup support with up to $200K funding through PESU Venture Labs',
-      date: '2024-01-15',
-      type: 'Program',
-      href: '/students/startup-program',
-      urgent: true
+      title: 'Hands-On Learning',
+      description: 'Build entrepreneurial skills through EIE courses, hackathons, and the CIE Ignite Ideathon',
+      icon: BookOpen,
+      color: 'blue'
     },
     {
-      title: 'CIE Ignite 2025 Registration Open',
-      description: 'Join our flagship ideathon for 2nd-year students - ₹25K+ in prizes',
-      date: '2024-01-12',
-      type: 'Competition',
-      href: '/students/events',
-      urgent: true
+      title: 'Funding Opportunities',
+      description: 'Access up to ₹5 Lakh through Co-innovation Center or $200K via PESU Venture Labs to fuel your startup',
+      icon: DollarSign,
+      color: 'green'
     },
     {
-      title: 'New Centers of Excellence Collaboration',
-      description: 'Research opportunities now available across CRAIS, QuaNaD, and other CoEs',
-      date: '2024-01-10',
-      type: 'Research',
-      href: '/students/centers-of-excellence',
-      urgent: false
+      title: 'Mentorship & Networking',
+      description: 'Connect with industry experts, faculty, and alumni through CIE Industry Mentor Program to guide your journey',
+      icon: Users,
+      color: 'orange'
     },
     {
-      title: 'Student Clubs Recruitment Drive',
-      description: 'E-Cell and CMS are recruiting new members - leadership opportunities available',
-      date: '2024-01-08',
-      type: 'Clubs',
-      href: '/students/clubs',
-      urgent: false
+      title: 'Global Exposure',
+      description: 'Showcase innovations to international delegates or engage with global platforms like the Global Venture Lab Conference',
+      icon: Globe,
+      color: 'purple'
+    },
+    {
+      title: 'Community Impact',
+      description: 'Join student clubs like E-Cell and CMS to drive entrepreneurial and sustainability initiatives on campus and beyond',
+      icon: Heart,
+      color: 'red'
     }
   ];
 
@@ -541,12 +520,12 @@ export default function StudentsPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg"
           >
-            Your Innovation Journey{' '}
+            Unleash Your{' '}
             <span
               className="block mt-4 drop-shadow-md"
               style={{ color: studentsColors.primary }}
             >
-              Starts Here
+              Entrepreneurial Potential
             </span>
           </motion.h1>
 
@@ -557,7 +536,7 @@ export default function StudentsPage() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl text-white mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-md"
           >
-            Discover programs, connect with mentors, access resources, and transform your ideas into reality through CIE&apos;s comprehensive ecosystem.
+            A dynamic platform designed to empower you to turn your innovative ideas into impactful solutions. From EIE courses to student-led clubs, cutting-edge research, and global events—CIE connects you to the tools, mentorship, and community you need to thrive.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -567,24 +546,24 @@ export default function StudentsPage() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Link href="/students/programs">
+            <Link href="/students/startup-program">
               <Button
                 variant="cie"
                 size="lg"
                 className="group text-white hover:opacity-95 transition-opacity"
                 style={{ background: studentsColors.primary, borderColor: `${studentsColors.primary}33` }}
               >
-                Explore Programs
+                Discover the Student Startup Program
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link href="/students/startup-program">
+            <Link href="/students/events">
               <Button 
                 variant="outline" 
                 size="lg"
                 className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
               >
-                Join Startup Program
+                Explore CIE Events
               </Button>
             </Link>
           </motion.div>
@@ -593,7 +572,7 @@ export default function StudentsPage() {
 
       {/* Rest of the page remains the same as before */}
           {/* Quick Stats */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -623,7 +602,7 @@ export default function StudentsPage() {
             })}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Main Sections Dashboard */}
       <section className="py-16 bg-gray-50">
@@ -635,10 +614,10 @@ export default function StudentsPage() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Explore Your{' '}<span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Opportunities</span>
+              Explore the{' '}<span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Students Section</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Navigate through our comprehensive ecosystem designed to support your entrepreneurial and innovation journey.
+              Navigate through our comprehensive ecosystem designed to support your entrepreneurial and innovation journey—from startup programs to clubs, research, and global events.
             </p>
           </motion.div>
 
@@ -659,7 +638,7 @@ export default function StudentsPage() {
                       </div>
 
                       <div className="mt-4 flex items-center justify-end">
-                        <span className="text-sm text-gray-500">Learn More</span>
+                        <span className="text-sm text-gray-500 hover:text-[#268295] transition-colors cursor-pointer hover:border-b-2 hover:border-[#268295]">Learn More</span>
                       </div>
                     </div>
                   </MorphingDialogTrigger>
@@ -743,118 +722,112 @@ export default function StudentsPage() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Recent{' '}<span className={`bg-clip-text text-transparent bg-gradient-to-r ${studentsColors.gradient.tailwind}`}>Updates</span>
+              Why{' '}<span className={`bg-clip-text text-transparent bg-gradient-to-r ${studentsColors.gradient.tailwind}`}>CIE for Students?</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Stay informed about the latest opportunities, programs, and announcements.
+              CIE is more than a center—it&apos;s a launchpad for your entrepreneurial dreams.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {recentUpdates.map((update, index) => (
-              <motion.div
-                key={update.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <MorphingDialog>
-                  <MorphingDialogTrigger>
-                    <div role="button" tabIndex={0} className="bg-white p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300 h-full">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${update.urgent ? 'bg-indigo-100 text-indigo-700' : 'bg-gray-100 text-gray-700'}`}>
-                          {update.type}
-                        </span>
-                        {update.urgent && (
-                          <div className="flex items-center text-indigo-500">
-                            <Star className="w-4 h-4" />
-                          </div>
-                        )}
-                      </div>
-
-                      <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
-                        {update.title}
-                      </h3>
-
-                      <p className="text-gray-600 text-sm line-clamp-2 mb-4">
-                        {update.description}
-                      </p>
-
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-gray-500">
-                          {new Date(update.date).toLocaleDateString('en-US', {
-                            month: 'short',
-                            day: 'numeric'
-                          })}
-                        </span>
-                        <span className="text-sm text-gray-500">Learn More</span>
-                      </div>
-                    </div>
-                  </MorphingDialogTrigger>
-
-                  <MorphingDialogContainer>
-                    <MorphingDialogContent className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-gray-200 bg-white sm:w-[520px]" style={{ borderRadius: '12px' }}>
-                      <div className="p-6">
-                        <div className="flex items-start justify-between">
-                          <div>
-                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${update.urgent ? 'bg-indigo-100 text-indigo-700' : 'bg-gray-100 text-gray-700'}`}>
-                              {update.type}
-                            </span>
-                            <MorphingDialogTitle className="text-2xl font-bold text-gray-900 mt-4">{update.title}</MorphingDialogTitle>
-                            <MorphingDialogSubtitle className="text-sm text-gray-600 mt-2">{new Date(update.date).toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })}</MorphingDialogSubtitle>
-                          </div>
-                          <MorphingDialogClose className="text-gray-500">Close</MorphingDialogClose>
-                        </div>
-
-                        <MorphingDialogDescription>
-                          <div className="mt-4 text-sm text-gray-700">
-                            {update.description}
-                          </div>
-
-                          <div className="mt-6 flex justify-end">
-                            <Link href={update.href}>
-                              <Button className="cie-button cie-button-secondary">Learn More</Button>
-                            </Link>
-                          </div>
-                        </MorphingDialogDescription>
-                      </div>
-                    </MorphingDialogContent>
-                  </MorphingDialogContainer>
-                </MorphingDialog>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {whyCIE.map((item, index) => {
+              const IconComponent = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white p-8 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-[rgba(${hexToRgb(studentsColors.primary)},0.08)]`}>
+                    <IconComponent className="w-8 h-8" style={{ color: studentsColors.primary }} />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 leading-relaxed">
+                    {item.description}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-  <section className={`py-16 ${studentsColors.gradient.tailwind}`}>
+      <section className="py-20 bg-gradient-to-br from-blue-600 to-indigo-700">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: studentsColors.primary }}>
-              Ready to Begin Your Journey?
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              How to Get Started
             </h2>
-            <p className="text-xl max-w-3xl mx-auto mb-8" style={{ color: studentsColors.primary }}>
-              Join thousands of students who have transformed their ideas into successful ventures through CIE's comprehensive ecosystem.
+            <p className="text-xl max-w-3xl mx-auto mb-12 text-blue-100">
+              Your entrepreneurial journey begins here. Choose your path and dive in.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {/* <Link href="/students/startup-program">
-                <Button className="bg-white/10 hover:bg-white/20 px-8 py-4 text-lg font-semibold rounded-xl border" style={{ color: studentsColors.primary, borderColor: `${studentsColors.primary}33` }}>
-                  <Rocket className="w-5 h-5 mr-2" style={{ color: studentsColors.primary }} />
-                  Join CIE Ignite
-                </Button>
-              </Link> */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
+                <Rocket className="w-8 h-8 text-white mb-3 mx-auto" />
+                <h3 className="font-bold text-white mb-2">Join a Program</h3>
+                <p className="text-sm text-blue-100">Enroll in Student Startup Program or EIE courses</p>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
+                <Heart className="w-8 h-8 text-white mb-3 mx-auto" />
+                <h3 className="font-bold text-white mb-2">Engage with Clubs</h3>
+                <p className="text-sm text-blue-100">Connect with E-Cell or CMS for events</p>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
+                <Lightbulb className="w-8 h-8 text-white mb-3 mx-auto" />
+                <h3 className="font-bold text-white mb-2">Explore Research</h3>
+                <p className="text-sm text-blue-100">Collaborate with Centers of Excellence</p>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
+                <Calendar className="w-8 h-8 text-white mb-3 mx-auto" />
+                <h3 className="font-bold text-white mb-2">Attend Events</h3>
+                <p className="text-sm text-blue-100">Join hackathons and global conferences</p>
+              </div>
+            </div>
 
-              <Link href="/students/programs">
-                <Button className="border-2 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent" style={{ color: studentsColors.primary, borderColor: studentsColors.primary }}>
-                  Explore Programs
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/students/startup-program">
+                <Button 
+                  size="lg"
+                  className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg font-semibold rounded-xl"
+                >
+                  Start Your Journey
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
+
+              <Link href="/contact">
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-xl"
+                >
+                  Contact Us
+                </Button>
+              </Link>
+            </div>
+
+            <div className="mt-12 pt-8 border-t border-white/20">
+              <p className="text-blue-100 mb-4">Stay Connected</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm text-blue-100">
+                <span>📧 cieprogram@pes.edu</span>
+                <span className="hidden sm:inline">•</span>
+                <span>📍 CIE Office, PES University RR/EC Campus</span>
+              </div>
             </div>
           </motion.div>
         </div>

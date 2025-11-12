@@ -158,7 +158,7 @@ export default function ContactPage() {
                 </Card>
 
               
-                <Card className="hover:shadow-lg transition-shadow duration-300 border-2 hover:border-red-200 group">
+                <Card className="hover:shadow-lg transition-shadow duration-300 border-2 hover:border-black group">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
                       <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0">

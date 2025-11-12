@@ -444,7 +444,7 @@ export default function ProgramsPage() {
       </section>
 
       {/* Program Stats */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <motion.div
@@ -485,7 +485,7 @@ export default function ProgramsPage() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Program Categories */}
       <section className="py-20 bg-gray-50">
@@ -607,7 +607,7 @@ export default function ProgramsPage() {
                     if (!href) return null;
                     return (
                       <Link href={href}>
-                        <Button className="w-full bg-white" style={{ borderColor: studentsColors.secondary, color: studentsColors.secondary }}>
+                        <Button className="w-full bg-white hover:bg-[#4cafc5] border border-[#4cafc5] hover:border-green-600 transition-all duration-300" style={{ borderColor: studentsColors.secondary, color: studentsColors.secondary }}>
                           Learn More
                           <ExternalLink className="w-4 h-4 ml-2" />
                         </Button>

@@ -328,24 +328,6 @@ export default function ResearchPage() {
                 <div className="text-white/80">Research Funding</div>
               </div>
             </div> */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="text-2xl font-bold text-white">9+</div>
-                <div className="text-xs text-gray-300">Publications</div>
-              </div>
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="text-2xl font-bold text-white">75+</div>
-                <div className="text-xs text-gray-300">Active Projects</div>
-              </div>
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="text-2xl font-bold text-white">40+</div>
-                <div className="text-xs text-gray-300">Researchers</div>
-              </div>
-              <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="text-2xl font-bold text-white">₹5Cr+</div>
-                <div className="text-xs text-gray-300">Research Funding</div>
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>

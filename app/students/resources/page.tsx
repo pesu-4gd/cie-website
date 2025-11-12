@@ -325,7 +325,7 @@ export default function ResourcesPage() {
               <CardContent className="pt-6">
                 <h3 className="text-xl font-semibold text-black-900 mb-2">Explore More</h3>
                 <p className="text-black-600 mb-4">
-                  Our resource library is continuously updated to provide the latest tools and insights. Visit the CIE website or contact{' '}
+                  Our resource library is continuously updated to provide the latest tools and insights. Contact{' '}
                   <a href="mailto:cieprogram@pes.edu" className="text-teal-600 hover:underline">
                     cieprogram@pes.edu
                   </a>{' '}

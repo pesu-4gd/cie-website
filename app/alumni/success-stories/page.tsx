@@ -237,7 +237,7 @@ export default function AlumniSuccessStoriesPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {successStats.map((stat, index) => {
               const IconComponent = stat.icon;
               return (
@@ -256,7 +256,7 @@ export default function AlumniSuccessStoriesPage() {
                 </motion.div>
               );
             })}
-          </div>
+          </div> */}
         </div>
       </section>
 

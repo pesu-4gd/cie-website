@@ -187,7 +187,7 @@ export default function StudentClubsPage() {
       </section>
 
       {/* Quick Stats */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -215,7 +215,7 @@ export default function StudentClubsPage() {
             })}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Featured Clubs */}
       <section className="py-20 bg-gray-50">
@@ -409,7 +409,7 @@ export default function StudentClubsPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          {/* <div className="grid md:grid-cols-4 gap-6">
             {impactMetrics.map((metric, index) => {
               const IconComponent = metric.icon;
               return (
@@ -429,7 +429,7 @@ export default function StudentClubsPage() {
                 </motion.div>
               );
             })}
-          </div>
+          </div> */}
         </div>
       </section>
 

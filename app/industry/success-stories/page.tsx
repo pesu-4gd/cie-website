@@ -211,7 +211,7 @@ export default function IndustrySuccessStoriesPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {impactMetrics.map((metric, index) => {
               const IconComponent = metric.icon;
               return (
@@ -230,7 +230,7 @@ export default function IndustrySuccessStoriesPage() {
                 </motion.div>
               );
             })}
-          </div>
+          </div> */}
         </div>
       </section>
 

@@ -236,7 +236,7 @@ export default function AlumniNewsletterPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {newsletterStats.map((stat, index) => {
               const IconComponent = stat.icon;
               return (
@@ -255,7 +255,7 @@ export default function AlumniNewsletterPage() {
                 </motion.div>
               );
             })}
-          </div>
+          </div> */}
         </div>
       </section>
 

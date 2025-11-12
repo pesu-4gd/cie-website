@@ -274,7 +274,7 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -314,7 +314,7 @@ export default function About() {
               <div className="text-3xl font-bold bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent mb-2">76</div>
               <div className="text-gray-600">External Internships</div>
             </motion.div>
-          </div>
+          </div> */}
         </div>
       </section>
 

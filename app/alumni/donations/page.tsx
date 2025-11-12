@@ -38,9 +38,9 @@ export default function AlumniDonationsPage() {
   const GOOGLE_FORM_URL = 'https://forms.gle/REPLACE_WITH_GOOGLE_FORM';
   const donationStats = [
     { label: 'Donations', value: '', icon: Heart },
-    { label: 'Alumni Donors', value: '', icon: Users },
-    { label: 'Scholarships Funded', value: '', icon: GraduationCap },
-    { label: 'Projects Supported', value: '', icon: Building2 }
+    { label: 'Become Alumni Donors', value: '', icon: Users },
+    { label: 'Fund Scholarships', value: '', icon: GraduationCap },
+    { label: 'Support Projects', value: '', icon: Building2 }
   ];
 
   const donationImpacts = [
@@ -393,7 +393,7 @@ export default function AlumniDonationsPage() {
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{option.title}</h3>
                       <p className="text-gray-600 mb-6">{option.description}</p>
 
-                      <div className="mb-6">
+                      {/* <div className="mb-6">
                         <h4 className="font-semibold text-gray-900 mb-3">Suggested Amounts</h4>
                         <div className="grid grid-cols-2 gap-3">
                           {option.suggestedAmounts.map((amount) => (
@@ -405,7 +405,7 @@ export default function AlumniDonationsPage() {
                             </button>
                           ))}
                         </div>
-                      </div>
+                      </div> */}
 
                       <div className="mb-6">
                         <p className="text-sm text-gray-600">

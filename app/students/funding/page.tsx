@@ -359,7 +359,7 @@ export default function FundingPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
             <motion.div
@@ -409,7 +409,7 @@ export default function FundingPage() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Main Content */}
       {/* Overview / Detailed Content moved out of hero - formatted cards */}
@@ -502,12 +502,12 @@ export default function FundingPage() {
               <header className="flex items-start justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Co-Innovation Center (CiC)</h3>
-                  <p className="text-sm text-gray-500 mt-1">IHFC & PESU incubation program</p>
+                  <p className="text-sm text-gray-500 mt-1">IHFC & PESU Pre-incubation program</p>
                 </div>
                 <span className="text-sm font-medium text-yellow-600">Incubation</span>
               </header>
 
-              <p className="mt-4 text-gray-600 text-sm">CiC-Ready is a 6-month incubation focusing on robotics, AI and IoT — includes prototype support, IP assistance and mentoring to help teams form startups.</p>
+              <p className="mt-4 text-gray-600 text-sm">CiC-Ready Program is a 6-month incubation focusing on robotics, AI and IoT — includes prototype support, IP assistance and mentoring to help teams form startups.</p>
 
               <ul className="mt-4 text-sm text-gray-600 space-y-2">
                 <li>Eligibility: Students with robotics / AI / IoT projects</li>

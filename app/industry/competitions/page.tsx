@@ -561,7 +561,7 @@ function HowToProposeSection() {
             <p className="text-gray-700"> Email: cieinfo@pes.edu</p>
             <p className="text-gray-700"> Office: Centre for Innovation and Entrepreneurship</p>
             <p className="text-gray-700"> Location: PES University RR/EC Campus</p>
-            <p className="text-gray-700"> Website: Visit CIE PES University for latest information</p>
+            {/* <p className="text-gray-700"> Website: Visit CIE PES University for latest information</p> */}
           </div>
         </div>
       </div>
