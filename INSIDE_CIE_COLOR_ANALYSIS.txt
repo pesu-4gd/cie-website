@@ -1,0 +1,338 @@
+================================================================================
+INSIDE CIE PAGE - COLOR SCHEME DOCUMENTATION
+================================================================================
+Date: November 12, 2025
+Page: app/inside-cie/page.tsx
+Purpose: Complete documentation of the Inside CIE page color implementation
+================================================================================
+
+1. OVERVIEW
+================================================================================
+The Inside CIE page uses a RED/ROSE color scheme combined with Navy base.
+
+INSIDE CIE COLOR PALETTE:
+- Primary: Red/Rose shades (Tailwind red-400 through red-700)
+- Secondary: #3E3C6B (Navy - Professional base)
+- Accent: #F43F5E (Rose-500 - Vibrant highlight)
+- Hero Background: #3E3C6B (Navy)
+- Hexagon Accent: #F43F5E (Rose-500)
+- Primary Gradient: Red-500 (#ef4444) to Rose-600 (#e11d48)
+
+================================================================================
+
+2. DETAILED COLOR USAGE BREAKDOWN
+================================================================================
+
+A. HERO SECTION
+--------------------------------------------------------------------------------
+Background:
+  • Color: #3E3C6B (Navy)
+  • Class: bg-[#3E3C6B]
+  • Purpose: Professional, authoritative foundation
+  
+Interactive Hexagon Accent:
+  • Color: #F43F5E (Rose-500)
+  • Property: accentColor="#F43F5E"
+  • Purpose: Vibrant animated background element
+  
+Badge:
+  • Colors: White with 10% opacity, white border with 20% opacity
+  • Classes: bg-white/10 border-white/20
+  • Purpose: Semi-transparent label with subtle border
+  
+Title Gradient:
+  • Colors: Red-400 (#f87171) to Rose-400 (#fb7185)
+  • Classes: from-red-400 to-rose-400
+  • Purpose: Eye-catching, warm gradient on "Discover Our Story"
+  
+Body Text:
+  • Colors: White and White with 90% opacity
+  • Classes: text-white, text-white/90
+  • Purpose: High contrast readable text on navy background
+  
+Primary CTA Button:
+  • Default: Red-500 (#ef4444) to Rose-600 (#e11d48) gradient
+  • Hover: Red-600 (#dc2626) to Rose-700 (#be123c) gradient
+  • Classes: from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700
+  • Purpose: Strong, action-oriented primary call-to-action
+  
+Secondary CTA Button:
+  • Colors: White 10% opacity background, white 20% opacity border
+  • Classes: bg-white/10 border-white/20 hover:bg-white/20
+  • Purpose: Subtle, secondary action button
+
+--------------------------------------------------------------------------------
+
+B. SECTION CARDS
+--------------------------------------------------------------------------------
+Icon Background Gradient:
+  • Colors: Red-500 (#ef4444) to Rose-500 (#f43f5e)
+  • Classes: from-red-500 to-rose-500
+  • Purpose: Vibrant circular gradient backgrounds for icons
+  
+Title Text:
+  • Default: Gray-900 (#111827)
+  • Hover: Red-700 (#b91c1c)
+  • Classes: text-gray-900 group-hover:text-red-700
+  • Purpose: Dark text with red highlight on hover
+  
+Card Border:
+  • Default: 2px border
+  • Hover: Red-200 (#fecaca)
+  • Classes: border-2 hover:border-red-200
+  • Purpose: Subtle red border accent on interaction
+  
+Card Button:
+  • Hover: Red-600 (#dc2626) background
+  • Classes: group-hover:bg-red-600
+  • Purpose: Button color matches card hover state
+
+--------------------------------------------------------------------------------
+
+C. ADDITIONAL INFO SECTION
+--------------------------------------------------------------------------------
+Background Gradient:
+  • Colors: Red-50 (#fef2f2) to Rose-50 (#fff1f2)
+  • Classes: from-red-50 to-rose-50
+  • Purpose: Very light red/rose tinted background
+  
+Button Gradient:
+  • Default: Red-600 (#dc2626) to Rose-600 (#e11d48)
+  • Hover: Red-700 (#b91c1c) to Rose-700 (#be123c)
+  • Classes: from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700
+  • Purpose: Strong, consistent call-to-action styling
+
+================================================================================
+
+3. COLOR PSYCHOLOGY & DESIGN INTENT
+================================================================================
+
+RED/ROSE SCHEME CHARACTERISTICS:
+- Red: Energy, passion, importance, boldness, attention
+- Rose: Warmth, approachability, modern sophistication
+- Navy (#3E3C6B): Authority, professionalism, trust, stability
+- Combined Message: "Important, dynamic information presented professionally"
+
+COLOR MEANINGS IN THIS CONTEXT:
+- Red (#ef4444): Commands attention, indicates significance
+- Rose (#f43f5e): Adds modern flair, softens pure red intensity
+- Navy Base: Provides professional, trustworthy foundation
+- Light Red/Rose tints: Create welcoming, non-threatening backgrounds
+
+EMOTIONAL IMPACT:
+- Bold & Confident: Red/rose conveys strength and certainty
+- Dynamic: Energetic color choice suggests active organization
+- Modern: Rose tones add contemporary sophistication
+- Professional: Navy base maintains business credibility
+
+================================================================================
+
+4. COLOR COMPARISON WITH OTHER SECTIONS
+================================================================================
+
+SECTION COLOR THEMES:
+• Students Section: Teal (#2B9EB3) - Innovation, technology
+• Alumni Section: Orange (#F15A29) + Yellow - Energy, optimism
+• Industry Section: Orange (#F15A29) + Teal - Professional energy
+• Inside CIE Section: Red/Rose - Bold, important, dynamic
+
+INSIDE CIE DISTINCTION:
+The red/rose color scheme creates a unique visual identity for the Inside CIE
+section, distinguishing it from other areas of the website. This creates:
+- Clear visual separation between sections
+- Memorable brand moment for organizational information
+- Distinct personality for "behind the scenes" content
+
+================================================================================
+
+5. TECHNICAL IMPLEMENTATION
+================================================================================
+
+TAILWIND COLOR CLASSES USED:
+• red-400: #f87171 - Light red for text gradients
+• red-500: #ef4444 - Primary red for gradients and backgrounds
+• red-600: #dc2626 - Medium red for hover states
+• red-700: #b91c1c - Dark red for hover text
+• rose-400: #fb7185 - Light rose for text gradients
+• rose-500: #f43f5e - Primary rose for accents and hexagons
+• rose-600: #e11d48 - Medium rose for gradients
+• rose-700: #be123c - Dark rose for hover states
+• red-50: #fef2f2 - Very light red for backgrounds
+• rose-50: #fff1f2 - Very light rose for backgrounds
+• red-200: #fecaca - Light red for borders
+
+NAVY BASE:
+• #3E3C6B - Custom hex value for navy background
+• Provides professional foundation throughout
+
+GRADIENT PATTERNS:
+1. Hero Title: red-400 → rose-400 (light to light)
+2. Primary Buttons: red-500 → rose-600 (medium to medium-dark)
+3. Button Hovers: red-600 → rose-700 (medium-dark to dark)
+4. Card Icons: red-500 → rose-500 (medium to medium)
+5. Section Background: red-50 → rose-50 (very light to very light)
+
+================================================================================
+
+6. VISUAL HIERARCHY & USER PERCEPTION
+================================================================================
+
+RED/ROSE IMPLEMENTATION STRATEGY:
+Priority Level: HIGH - Commands immediate attention
+Emotional Tone: Bold, confident, important, dynamic
+User Perception: "This is significant organizational information"
+Visual Weight: Strong, memorable, distinctive
+
+COLOR INTENSITY LEVELS:
+1. Darkest (red-700, rose-700): Interactive hover states - highest emphasis
+2. Medium (red-600, rose-600): Primary buttons - strong calls-to-action
+3. Standard (red-500, rose-500): Icons and gradients - brand identity
+4. Light (red-400, rose-400): Title gradients - welcoming highlights
+5. Lightest (red-50, rose-50): Backgrounds - subtle tinting
+
+CONTRAST STRATEGY:
+• Navy (#3E3C6B) background creates strong contrast with red/rose
+• White text maintains readability
+• Light backgrounds (red-50/rose-50) provide gentle color presence
+• Gradients add depth and visual interest
+
+================================================================================
+
+7. ACCESSIBILITY & READABILITY
+================================================================================
+
+CONTRAST RATIOS:
+• Navy Background (#3E3C6B) + White Text: Excellent contrast (WCAG AAA)
+• White Background + Red-700 Text (#b91c1c): Good contrast (WCAG AA)
+• White Background + Red-600 Buttons (#dc2626): Good contrast
+• Light backgrounds (red-50/rose-50): Subtle, non-distracting
+
+COLOR CONSIDERATIONS:
+• Red/Rose on White: Clear visibility for most users
+• Navy Base: Provides consistent, high-contrast foundation
+• Gradients: Primarily decorative, not relied upon for information
+• Text Colors: Primarily black/white for maximum readability
+
+VISUAL ACCESSIBILITY:
+• Strong contrast maintained throughout
+• Text always uses navy/black or white (not red/rose)
+• Red/rose used for decorative elements and highlights
+• Icon backgrounds provide clear visual cues
+
+================================================================================
+
+8. IMPLEMENTATION EXAMPLES
+================================================================================
+
+HERO SECTION CODE:
+```tsx
+// Hexagon Accent
+<InteractiveHexagonBackground 
+  accentColor="#F43F5E"  // Rose-500
+/>
+
+// Title Gradient
+<span className="bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent">
+  Discover Our Story
+</span>
+
+// Primary Button
+<Button className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700">
+  Learn About CIE
+</Button>
+```
+
+CARD SECTION CODE:
+```tsx
+// Icon Background
+<div className="bg-gradient-to-r from-red-500 to-rose-500">
+  <Icon />
+</div>
+
+// Card Hover States
+<Card className="border-2 hover:border-red-200">
+  <CardTitle className="text-gray-900 group-hover:text-red-700">
+    {title}
+  </CardTitle>
+  <Button className="group-hover:bg-red-600">
+    Learn More
+  </Button>
+</Card>
+```
+
+ADDITIONAL INFO SECTION:
+```tsx
+// Light Background
+<div className="bg-gradient-to-r from-red-50 to-rose-50">
+  <Button className="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700">
+    Contact Our Team
+  </Button>
+</div>
+```
+
+================================================================================
+
+9. COMPLETE COLOR CODE REFERENCE
+================================================================================
+
+RED SHADES:
+- red-50: #fef2f2 - Very light red (backgrounds)
+- red-200: #fecaca - Light red (borders)
+- red-400: #f87171 - Light-medium red (text gradients)
+- red-500: #ef4444 - Medium red (primary elements)
+- red-600: #dc2626 - Medium-dark red (hover states)
+- red-700: #b91c1c - Dark red (text hover, intense actions)
+
+ROSE SHADES:
+- rose-50: #fff1f2 - Very light rose (backgrounds)
+- rose-400: #fb7185 - Light-medium rose (text gradients)
+- rose-500: #f43f5e - Medium rose (accents, hexagons)
+- rose-600: #e11d48 - Medium-dark rose (gradients)
+- rose-700: #be123c - Dark rose (hover states)
+
+NAVY BASE:
+- Navy: #3E3C6B - Primary background color (custom hex)
+
+WHITE/OPACITY:
+- white: #ffffff - Text on navy
+- white/90: rgba(255, 255, 255, 0.9) - Subtitle text
+- white/10: rgba(255, 255, 255, 0.1) - Subtle backgrounds
+- white/20: rgba(255, 255, 255, 0.2) - Borders and hover states
+
+GRAYS (for cards):
+- gray-900: #111827 - Dark text
+- gray-600: #4b5563 - Description text
+
+================================================================================
+
+10. COLOR SCHEME SUMMARY
+================================================================================
+
+INSIDE CIE RED/ROSE PALETTE CHARACTERISTICS:
+
+PRIMARY THEME: Bold & Dynamic
+- Red conveys importance, energy, and confidence
+- Rose adds modern sophistication and warmth
+- Navy provides professional, stable foundation
+
+VISUAL IDENTITY:
+- Distinctive from other sections (Teal, Orange/Yellow)
+- Memorable and attention-grabbing
+- Modern and confident aesthetic
+
+USE CASES:
+- Hero gradients: Light to light (red-400 to rose-400)
+- Primary actions: Medium gradients (red-500 to rose-600)
+- Hover states: Darker gradients (red-600 to rose-700)
+- Backgrounds: Very light tints (red-50 to rose-50)
+- Accents: Single colors (rose-500 for hexagons)
+
+CONSISTENCY PATTERN:
+- Always uses Navy (#3E3C6B) as foundation
+- Always pairs red with rose (not pure red alone)
+- Always uses gradients for depth and visual interest
+- Always maintains white text on navy for readability
+
+================================================================================
+END OF DOCUMENTATION
+================================================================================

@@ -304,7 +304,9 @@ export default function ResearchPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl font-bold mb-6">Research & Publications</h1>
+            <h1 className="text-5xl font-bold mb-6">Research & <span className="block mt-4 bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent">
+              Publications
+            </span></h1>
             <p className="text-xl mb-8 text-white/90">
               Advancing knowledge through cutting-edge research in emerging technologies
             </p>
@@ -350,16 +352,14 @@ export default function ResearchPage() {
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-12">
-        <Tabs defaultValue="areas" className="w-full">
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="areas">Research Areas</TabsTrigger>
+        <Tabs defaultValue="publications" className="w-full">
+          <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="publications">Publications</TabsTrigger>
             <TabsTrigger value="faculty">Faculty</TabsTrigger>
-            <TabsTrigger value="projects">Projects</TabsTrigger>
           </TabsList>
 
           {/* Research Areas Tab */}
-          <TabsContent value="areas" className="space-y-8">
+          {/* <TabsContent value="areas" className="space-y-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Areas</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
@@ -403,12 +403,14 @@ export default function ResearchPage() {
                 </motion.div>
               ))}
             </div>
-          </TabsContent>
+          </TabsContent> */}
 
           {/* Publications Tab */}
           <TabsContent value="publications" className="space-y-8">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Publications</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Publications</span>
+              </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Explore our latest research publications and academic contributions
               </p>
@@ -460,15 +462,15 @@ export default function ResearchPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <Card className="hover:shadow-lg transition-shadow">
+                  <Card className="hover:shadow-lg transition-shadow border-2 hover:border-black group">
                     <CardHeader>
                       <div className="flex justify-between items-start">
                         <div className="flex-1">
-                          <CardTitle className="text-lg mb-2">{pub.title}</CardTitle>
+                          <CardTitle className="text-lg mb-2 group-hover:text-red-700 transition-colors">{pub.title}</CardTitle>
                           <div className="flex flex-wrap gap-2 mb-3">
-                            <Badge variant="outline">{pub.area}</Badge>
-                            <Badge variant="outline">{pub.type}</Badge>
-                            <Badge variant="outline">{pub.year}</Badge>
+                            <Badge variant="outline" className="border-red-200 text-red-600">{pub.area}</Badge>
+                            <Badge variant="outline" className="border-rose-200 text-rose-600">{pub.type}</Badge>
+                            <Badge variant="outline" className="border-red-200 text-red-600">{pub.year}</Badge>
                           </div>
                           <p className="text-sm text-gray-600 mb-2">
                             Authors: {pub.authors.join(', ')}
@@ -486,7 +488,7 @@ export default function ResearchPage() {
                           {pub.url && (
                             <Button 
                               size="sm" 
-                              variant="outline"
+                              className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white"
                               onClick={() => globalThis.open(pub.url, '_blank')}
                             >
                               <ExternalLink className="h-4 w-4 mr-1" />
@@ -505,7 +507,9 @@ export default function ResearchPage() {
           {/* Faculty Tab */}
           <TabsContent value="faculty" className="space-y-8">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Faculty</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Research Faculty</span>
+              </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Meet our distinguished faculty members leading cutting-edge research
               </p>
@@ -519,7 +523,7 @@ export default function ResearchPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <Card className="h-full hover:shadow-lg transition-shadow">
+                  <Card className="h-full hover:shadow-lg transition-shadow border-2 hover:border-black group">
                     <CardHeader className="text-center">
                       <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden">
                         {faculty.image ? (
@@ -530,8 +534,8 @@ export default function ResearchPage() {
                           </div>
                         )}
                       </div>
-                      <CardTitle className="text-lg">{faculty.name}</CardTitle>
-                      <CardDescription>{faculty.designation}</CardDescription>
+                      <CardTitle className="text-lg group-hover:text-red-700 transition-colors">{faculty.name}</CardTitle>
+                      <CardDescription className="text-red-600">{faculty.designation}</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-3">
@@ -547,7 +551,7 @@ export default function ResearchPage() {
                           <p className="text-sm font-medium text-gray-700 mb-1">Research Interests:</p>
                           <div className="flex flex-wrap gap-1">
                             {faculty.researchInterests.map((interest) => (
-                              <Badge key={interest} variant="secondary" className="text-xs">
+                              <Badge key={interest} className="text-xs bg-red-100 text-red-700 hover:bg-black">
                                 {interest}
                               </Badge>
                             ))}
@@ -562,8 +566,7 @@ export default function ResearchPage() {
                         {faculty.linkedin && (
                           <Button 
                             size="sm" 
-                            variant="outline" 
-                            className="w-full"
+                            className="w-full bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white"
                             onClick={() => globalThis.open(faculty.linkedin, '_blank')}
                           >
                             LinkedIn Profile
@@ -578,7 +581,7 @@ export default function ResearchPage() {
           </TabsContent>
 
           {/* Projects Tab */}
-          <TabsContent value="projects" className="space-y-8">
+          {/* <TabsContent value="projects" className="space-y-8">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Ongoing Projects</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
@@ -640,7 +643,7 @@ export default function ResearchPage() {
                 </motion.div>
               ))}
             </div>
-          </TabsContent>
+          </TabsContent> */}
         </Tabs>
       </div>
 

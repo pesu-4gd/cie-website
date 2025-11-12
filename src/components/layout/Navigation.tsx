@@ -472,6 +472,12 @@ const InsideCIENavigation: React.FC = () => {
       title: 'Join Us',
       items: [
         { 
+          title: 'Team', 
+          href: '/inside-cie/team', 
+          description: 'Meet our leadership team',
+          icon: Users2
+        },
+        { 
           title: 'Careers', 
           href: '/careers', 
           description: 'Join the CIE team',
@@ -665,6 +671,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
         {
           title: 'Join Us',
           items: [
+            { title: 'Team', href: '/inside-cie/team', description: 'Meet our leadership team' },
             { title: 'Careers', href: '/careers', description: 'Join the CIE team' }
           ]
         }
