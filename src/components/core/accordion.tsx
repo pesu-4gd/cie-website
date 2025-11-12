@@ -1,13 +1,13 @@
 'use client';
 
 import * as React from 'react';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { motion, AnimatePresence, Variants, Transition } from 'framer-motion';
 import { createContext, useContext } from 'react';
 
 interface AccordionContextValue {
   expandedValue: string | null;
   onValueChange: (value: string) => void;
-  transition?: any;
+  transition?: Transition;
   variants?: Variants;
 }
 
@@ -27,7 +27,7 @@ const AccordionItemContext = createContext<
 interface AccordionProps {
   children: React.ReactNode;
   className?: string;
-  transition?: any;
+  transition?: Transition;
   variants?: Variants;
 }
 
@@ -140,7 +140,7 @@ export function AccordionContent({
     },
   };
 
-  const defaultTransition = {
+  const defaultTransition: Transition = {
     type: 'spring',
     stiffness: 120,
     damping: 20,

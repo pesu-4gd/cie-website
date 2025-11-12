@@ -335,7 +335,7 @@ export default function IndustryCompetitionsPage() {
 function OpportunitiesSection({ opportunities }: { opportunities: Array<{
   title: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   format: string;
   example: string;
   benefits: string[];
@@ -439,7 +439,7 @@ function SuccessStoriesSection({ stories }: { stories: Array<{
   description: string;
   achievement: string;
   impact: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
 }> }) {
   return (
     <div className="space-y-8">
