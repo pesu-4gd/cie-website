@@ -1,12 +1,461 @@
 'use client';
 
 import { Button } from '@/components/design-system';
-import { ArrowRight, Users, Building2, GraduationCap, Play, Sparkles, Rocket, Calendar, BookOpen, BarChart3, Zap, X, Bell, Award } from 'lucide-react';
+import { ArrowRight, Users, Building2, GraduationCap, Play, Sparkles, Rocket, BookOpen, BarChart3, Zap, X, Award, Globe, Briefcase, FileText, Lightbulb } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { SECTION_COLORS } from '@/styles/colors';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useState, useEffect } from 'react';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+
+// Programs Radial View Component
+const ProgramsRadialView = () => {
+  const [activeProgram, setActiveProgram] = useState<number | null>(null);
+
+  const programs = [
+    { id: 0, name: 'CIE Product Management for the AI Era', borderColor: 'border-[#F15A29]', textColor: 'text-gray-800' },
+    { id: 1, name: 'CIE Practical Approach to Deep Learning', borderColor: 'border-[#2B9EB3]', textColor: 'text-gray-800' },
+    { id: 2, name: 'CIE EIE I – Getting Started with Entrepreneurship', borderColor: 'border-[#F15A29]', textColor: 'text-white', bgGradient: 'from-[#F15A29] to-[#FFC107]', filled: true },
+    { id: 3, name: 'CIE EIE II – Building a Lean Start-Up Company or Project', borderColor: 'border-[#2B9EB3]', textColor: 'text-white', bgGradient: 'from-[#2B9EB3] to-[#3E3C6B]', filled: true },
+    { id: 4, name: 'CIE Practical Approach to Machine Learning', borderColor: 'border-[#F15A29]', textColor: 'text-gray-800' },
+    { id: 5, name: 'CIE BIOS Firmware Course', borderColor: 'border-[#2B9EB3]', textColor: 'text-gray-800' },
+  ];
+
+  return (
+    <div className="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-7xl mx-auto">
+      {/* Left Side - PROGRAMS Title with Large Circle */}
+      <div className="flex-shrink-0 relative">
+        <div className="relative">
+          {/* Large Orange Circle */}
+          <div className="w-64 h-64 bg-white  rounded-full flex items-center justify-center shadow-md">
+            <h3 className="text-4xl font-bold text-orange-500 tracking-wider">PROGRAMS</h3>
+          </div>
+          {/* Light Pink Background Circles */}
+          {/* <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-pink-100 rounded-full -z-10 opacity-50" />
+          <div className="absolute -top-8 -right-8 w-32 h-32 bg-pink-100 rounded-full -z-10 opacity-30" /> */}
+        </div>
+      </div>
+
+      {/* Right Side - Program Pills with Semi-Circle Radial Layout */}
+      <div className="flex-1 flex flex-col items-center lg:items-start gap-4 w-full max-w-2xl">
+        {/* Row 1 */}
+        <div className="flex justify-center lg:justify-start w-full">
+          <motion.button
+            onClick={() => setActiveProgram(0)}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0 }}
+            className={`bg-white border-2 rounded-full px-6 py-3 transition-all duration-300 cursor-pointer ${
+              programs[0].borderColor
+            } ${
+              activeProgram === 0 
+                ? 'shadow-xl scale-105 opacity-100' 
+                : activeProgram !== null
+                ? 'opacity-40 hover:opacity-70 hover:shadow-lg'
+                : 'opacity-100 hover:opacity-90 hover:shadow-lg'
+            }`}
+          >
+            <span className={`text-sm font-medium ${programs[0].textColor}`}>
+              {programs[0].name}
+            </span>
+          </motion.button>
+        </div>
+
+        {/* Row 2 */}
+        <div className="flex justify-center lg:justify-start w-full">
+          <motion.button
+            onClick={() => setActiveProgram(1)}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className={`bg-white border-2 rounded-full px-6 py-3 transition-all duration-300 cursor-pointer ${
+              programs[1].borderColor
+            } ${
+              activeProgram === 1 
+                ? 'shadow-xl scale-105 opacity-100' 
+                : activeProgram !== null
+                ? 'opacity-40 hover:opacity-70 hover:shadow-lg'
+                : 'opacity-100 hover:opacity-90 hover:shadow-lg'
+            }`}
+          >
+            <span className={`text-sm font-medium ${programs[1].textColor}`}>
+              {programs[1].name}
+            </span>
+          </motion.button>
+        </div>
+
+        {/* Row 3 - EIE I */}
+        <div className="flex justify-center lg:justify-start w-full">
+          <motion.button
+            onClick={() => setActiveProgram(2)}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className={`bg-gradient-to-r ${programs[2].bgGradient} rounded-full px-6 py-3 transition-all duration-300 cursor-pointer ${
+              activeProgram === 2 
+                ? 'shadow-xl scale-105 opacity-100' 
+                : activeProgram !== null
+                ? 'opacity-40 hover:opacity-70 hover:shadow-lg'
+                : 'opacity-100 hover:opacity-90 hover:shadow-lg'
+            }`}
+          >
+            <span className={`text-sm font-semibold ${programs[2].textColor}`}>
+              {programs[2].name}
+            </span>
+          </motion.button>
+        </div>
+        
+        {/* Row 4 - EIE II */}
+        <div className="flex justify-center lg:justify-start w-full">
+          <motion.button
+            onClick={() => setActiveProgram(3)}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className={`bg-gradient-to-r ${programs[3].bgGradient} rounded-full px-6 py-3 transition-all duration-300 cursor-pointer ${
+              activeProgram === 3 
+                ? 'shadow-xl scale-105 opacity-100' 
+                : activeProgram !== null
+                ? 'opacity-40 hover:opacity-70 hover:shadow-lg'
+                : 'opacity-100 hover:opacity-90 hover:shadow-lg'
+            }`}
+          >
+            <span className={`text-sm font-semibold ${programs[3].textColor}`}>
+              {programs[3].name}
+            </span>
+          </motion.button>
+        </div>
+
+        {/* Row 5 */}
+        <div className="flex justify-center lg:justify-start w-full">
+          <motion.button
+            onClick={() => setActiveProgram(4)}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className={`bg-white border-2 rounded-full px-6 py-3 transition-all duration-300 cursor-pointer ${
+              programs[4].borderColor
+            } ${
+              activeProgram === 4 
+                ? 'shadow-xl scale-105 opacity-100' 
+                : activeProgram !== null
+                ? 'opacity-40 hover:opacity-70 hover:shadow-lg'
+                : 'opacity-100 hover:opacity-90 hover:shadow-lg'
+            }`}
+          >
+            <span className={`text-sm font-medium ${programs[4].textColor}`}>
+              {programs[4].name}
+            </span>
+          </motion.button>
+        </div>
+
+        {/* Row 6 */}
+        <div className="flex justify-center lg:justify-start w-full">
+          <motion.button
+            onClick={() => setActiveProgram(5)}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className={`bg-white border-2 rounded-full px-6 py-3 transition-all duration-300 cursor-pointer ${
+              programs[5].borderColor
+            } ${
+              activeProgram === 5 
+                ? 'shadow-xl scale-105 opacity-100' 
+                : activeProgram !== null
+                ? 'opacity-40 hover:opacity-70 hover:shadow-lg'
+                : 'opacity-100 hover:opacity-90 hover:shadow-lg'
+            }`}
+          >
+            <span className={`text-sm font-medium ${programs[5].textColor}`}>
+              {programs[5].name}
+            </span>
+          </motion.button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Academic collaborators carousel (infinite scrolling)
+const AcademicCarousel = () => {
+  const images = [
+    '/assets/cic-removebg-preview.png',
+    '/assets/d-coe-removebg-preview.png',
+    '/assets/gdc-removebg-preview.png',
+    '/assets/harvard-removebg-preview.png',
+    '/assets/iit-sine-removebg-preview.png',
+    '/assets/iitb-removebg-preview.png',
+    '/assets/iitm-removebg-preview.png',
+    '/assets/ucb-removebg-preview.png',
+  ];
+
+  // duplicate the array to create seamless looping
+  const slides = [...images, ...images];
+
+  return (
+    <div className="w-full">
+      <div className="overflow-hidden">
+        <ul
+          className="flex items-center gap-6 slider will-change-transform"
+          aria-label="Academic collaborators carousel"
+        >
+          {slides.map((src, idx) => (
+            <li key={`${src}-${idx}`} className="flex-shrink-0">
+              <button
+                type="button"
+                aria-label={`Open partner ${idx % images.length + 1}`}
+                className="p-0 bg-transparent border-0"
+              >
+                <img
+                  src={src}
+                  alt={`Partner ${idx % images.length + 1}`}
+                  className="h-20 w-auto object-contain rounded-md shadow-sm bg-white p-2"
+                />
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <style>{`
+        .slider {
+          animation: scrollLinear 24s linear infinite;
+        }
+        .slider:hover {
+          animation-play-state: paused;
+        }
+        @keyframes scrollLinear {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+      `}</style>
+    </div>
+  );
+};
+
+// Student Journey Radial Navigation - Semi-circle design matching image 1
+// const StudentJourneyRadial = () => {
+//   const [activeStep, setActiveStep] = useState<number | null>(null);
+
+//   const steps = [
+//     {
+//       id: 1,
+//       number: '1',
+//       title: 'Inspiration and Ideation',
+//       description: 'CIE programs help students with best for innovation',
+//       color: 'blue'
+//     },
+//     {
+//       id: 2,
+//       number: '2',
+//       title: 'PESU Center of Excellence',
+//       description: 'Centers of Excellence support students with resources and mentorship',
+//       color: 'orange'
+//     },
+//     {
+//       id: 3,
+//       number: '3',
+//       title: 'Interdisciplinary Collaboration',
+//       description: 'EIE and other courses encourage EIE and EEE students to refine ideas',
+//       color: 'blue'
+//     },
+//     {
+//       id: 4,
+//       number: '4',
+//       title: 'Funding and Mentorship',
+//       description: 'PESU Venture Labs funds students and CIE connects them to investors',
+//       color: 'orange'
+//     },
+//     {
+//       id: 5,
+//       number: '5',
+//       title: 'Launch and Market Entry',
+//       description: 'CIE student incubated together with industry and alumni support',
+//       color: 'blue'
+//     },
+//     {
+//       id: 6,
+//       number: '6',
+//       title: 'PESU Venture Labs',
+//       description: 'After prototyping, students can get support from PESU Venture Labs',
+//       color: 'orange'
+//     },
+//     {
+//       id: 7,
+//       number: '7',
+//       title: 'Career Launchpad',
+//       description: 'Leverage CIE to launch startups or join top businesses',
+//       color: 'blue'
+//     }
+//   ];
+
+//   return (
+//     <div className="w-full py-16 relative bg-gradient-to-b from-white to-gray-50">
+//       <div className="max-w-5xl mx-auto px-6">
+//         <div className="relative flex flex-col items-center">
+//           {/* Cards positioned above semi-circle - Only show when clicked */}
+//           <div className="relative w-full h-64 mb-4">
+//             {steps.map((step, idx) => {
+//               const isActive = activeStep === step.id;
+              
+//               // Position cards directly above their corresponding segment
+//               // Using same degree allocation as segments: 25,25,25,30,25,25,25
+//               const segmentDegrees = [25, 25, 25, 30, 25, 25, 25];
+              
+//               // Calculate cumulative angle to segment center
+//               let cumulativeAngle = 0;
+//               for (let i = 0; i < idx; i++) {
+//                 cumulativeAngle += segmentDegrees[i];
+//               }
+//               const segmentCenter = 180 - cumulativeAngle - segmentDegrees[idx] / 2;
+              
+//               // Convert to positioning coordinates
+//               const angle = segmentCenter - 90; // Adjust for coordinate system
+//               const angleRad = (angle * Math.PI) / 180;
+//               const radius = 300; // Distance from center for card placement
+              
+//               const x = 50 + (radius / 4.5) * Math.sin(angleRad);
+//               const y = 55 - (radius / 4.5) * Math.cos(angleRad);
+              
+//               return (
+//                 <motion.div
+//                   key={step.id}
+//                   initial={{ opacity: 0, scale: 0.3, y: 30 }}
+//                   animate={{
+//                     opacity: isActive ? 1 : 0,
+//                     scale: isActive ? 1 : 0.3,
+//                     y: isActive ? 0 : 30
+//                   }}
+//                   transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+//                   className="absolute pointer-events-none"
+//                   style={{
+//                     left: `${x}%`,
+//                     top: `${y}%`,
+//                     transform: 'translate(-50%, -50%)',
+//                     zIndex: isActive ? 50 : 0
+//                   }}
+//                 >
+//                   <div className={`p-6 rounded-2xl border-2 bg-white shadow-2xl w-64 ${
+//                     step.color === 'blue' ? 'border-[#2B9EB3]' : 'border-[#F15A29]'
+//                   }`}>
+//                     <div className="text-center">
+//                       <div className={`text-4xl font-bold mb-3 ${
+//                         step.color === 'blue' ? 'text-[#2B9EB3]' : 'text-[#F15A29]'
+//                       }`}>
+//                         {step.number}
+//                       </div>
+//                       <h3 className="font-bold text-lg text-gray-900 mb-3">{step.title}</h3>
+//                       <p className="text-sm text-gray-600 leading-relaxed">{step.description}</p>
+//                     </div>
+//                   </div>
+//                 </motion.div>
+//               );
+//             })}
+//           </div>
+
+//           {/* Semi-circle with segments and CIE logo in center */}
+//           <div className="relative">
+//             <svg viewBox="0 0 600 340" className="w-full max-w-3xl h-auto">
+//               {/* Create 7 semi-circle segments with custom degrees: 25,25,25,30,25,25,25 */}
+//               {steps.map((step, idx) => {
+//                 // Custom degree allocation for each segment
+//                 const segmentDegrees = [25, 25, 25, 30, 25, 25, 25];
+                
+//                 // Calculate cumulative start angle
+//                 let cumulativeAngle = 0;
+//                 for (let i = 0; i < idx; i++) {
+//                   cumulativeAngle += segmentDegrees[i];
+//                 }
+                
+//                 const segmentAngle = segmentDegrees[idx];
+//                 const startAngle = 180 - cumulativeAngle;
+//                 const endAngle = startAngle - segmentAngle;
+                
+//                 const startRad = (startAngle * Math.PI) / 180;
+//                 const endRad = (endAngle * Math.PI) / 180;
+                
+//                 const innerRadius = 150;
+//                 const outerRadius = 240;
+                
+//                 const centerX = 300;
+//                 const centerY = 300;
+                
+//                 const x1 = centerX + innerRadius * Math.cos(startRad);
+//                 const y1 = centerY - innerRadius * Math.sin(startRad);
+//                 const x2 = centerX + outerRadius * Math.cos(startRad);
+//                 const y2 = centerY - outerRadius * Math.sin(startRad);
+//                 const x3 = centerX + outerRadius * Math.cos(endRad);
+//                 const y3 = centerY - outerRadius * Math.sin(endRad);
+//                 const x4 = centerX + innerRadius * Math.cos(endRad);
+//                 const y4 = centerY - innerRadius * Math.sin(endRad);
+                
+//                 // Smooth path with proper arc flags
+//                 const pathData = `
+//                   M ${x1.toFixed(2)},${y1.toFixed(2)}
+//                   L ${x2.toFixed(2)},${y2.toFixed(2)}
+//                   A ${outerRadius},${outerRadius} 0 0 0 ${x3.toFixed(2)},${y3.toFixed(2)}
+//                   L ${x4.toFixed(2)},${y4.toFixed(2)}
+//                   A ${innerRadius},${innerRadius} 0 0 1 ${x1.toFixed(2)},${y1.toFixed(2)}
+//                   Z
+//                 `;
+                
+//                 // Calculate position for number label (center of segment)
+//                 const labelAngle = startAngle - segmentAngle / 2;
+//                 const labelRadius = 195;
+//                 const labelX = centerX + labelRadius * Math.cos(labelAngle * Math.PI / 180);
+//                 const labelY = centerY - labelRadius * Math.sin(labelAngle * Math.PI / 180);
+                
+//                 return (
+//                   <g key={step.id}>
+//                     <path
+//                       d={pathData}
+//                       fill={step.color === 'blue' ? '#2B9EB3' : '#F15A29'}
+//                       className={`cursor-pointer transition-all duration-300 ${
+//                         activeStep === step.id ? 'opacity-100 brightness-110' : 'opacity-95 hover:opacity-100 hover:brightness-105'
+//                       }`}
+//                       onClick={() => setActiveStep(activeStep === step.id ? null : step.id)}
+//                       strokeWidth="0"
+//                       shapeRendering="geometricPrecision"
+//                     />
+//                     {/* Number labels on segments */}
+//                     <text
+//                       x={labelX}
+//                       y={labelY}
+//                       fill="white"
+//                       fontSize="22"
+//                       fontWeight="bold"
+//                       textAnchor="middle"
+//                       dominantBaseline="middle"
+//                       className="cursor-pointer select-none"
+//                       onClick={() => setActiveStep(activeStep === step.id ? null : step.id)}
+//                     >
+//                       {step.number}
+//                     </text>
+//                   </g>
+//                 );
+//               })}
+              
+//               {/* CIE Logo/Image in center - perfectly centered */}
+//               <image
+//                 href="/assets/CIE Logo Short.svg"
+//                 x="225"
+//                 y="215"
+//                 width="150"
+//                 height="150"
+//                 className="pointer-events-none"
+//               />
+//             </svg>
+
+//             {/* "OUR STUDENT JOURNEY" text below the semi-circle - closer to arc */}
+//             <div className="absolute left-1/2 -translate-x-1/2 text-center" style={{ top: '85%' }}>
+//               <div className="text-sm font-bold text-gray-600 tracking-wide">OUR STUDENT</div>
+//               <div className="text-base font-bold text-[#F15A29] tracking-wide">JOURNEY</div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -287,199 +736,212 @@ export default function Home() {
                   <span className="hidden sm:inline">Programs</span>
                   <span className="sm:hidden">Learn</span>
                 </TabsTrigger>
-                <TabsTrigger 
-                  value="ignite" 
-                  className="inline-flex items-center justify-center whitespace-nowrap rounded-xl px-3 py-2 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-[#F15A29] data-[state=active]:text-white data-[state=active]:shadow-sm hover:bg-orange-50 hover:text-[#F15A29]"
-                >
-                  <Rocket className="w-4 h-4 mr-2" />
-                  <span className="hidden sm:inline">CIE Ignite</span>
-                  <span className="sm:hidden">Ignite</span>
-                </TabsTrigger>
+                {/* Ignite tab removed per request */}
                 <TabsTrigger 
                   value="partners" 
                   className="inline-flex items-center justify-center whitespace-nowrap rounded-xl px-3 py-2 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-[#3E3C6B] data-[state=active]:text-white data-[state=active]:shadow-sm hover:bg-purple-50 hover:text-[#3E3C6B]"
                 >
                   <Building2 className="w-4 h-4 mr-2" />
-                  <span className="hidden sm:inline">Partners</span>
-                  <span className="sm:hidden">Work</span>
+                    <span className="hidden sm:inline">Academic collaborators</span>
+                    <span className="sm:hidden">Collaborators</span>
                 </TabsTrigger>
                 <TabsTrigger 
                   value="updates" 
                   className="inline-flex items-center justify-center whitespace-nowrap rounded-xl px-3 py-2 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-[#FFC107] data-[state=active]:text-white data-[state=active]:shadow-sm hover:bg-yellow-50 hover:text-[#FFC107]"
                 >
                   <Zap className="w-4 h-4 mr-2" />
-                  <span className="hidden sm:inline">Updates</span>
-                  <span className="sm:hidden">News</span>
+                    <span className="hidden sm:inline">Success stories</span>
+                    <span className="sm:hidden">Stories</span>
                 </TabsTrigger>
               </TabsList>
             </motion.div>
 
             {/* Overview Tab */}
             <TabsContent value="overview" className="space-y-6">
-              <div className="grid lg:grid-cols-2 gap-6 items-center">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    CIE <span className="text-[#2B9EB3]">By Numbers</span>
-                  </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    Since 2018, we&apos;ve been empowering students to transform ideas into reality. Here&apos;s our impact in numbers.
-                  </p>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl text-center">
-                      <div className="text-2xl font-bold text-[#2B9EB3] mb-1">2159+</div>
-                      <div className="text-sm text-gray-700">Students Graduated</div>
-                    </div>
-                    <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-xl text-center">
-                      <div className="text-2xl font-bold text-green-600 mb-1">41+</div>
-                      <div className="text-sm text-gray-700">Cohorts</div>
-                    </div>
-                    <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-xl text-center">
-                      <div className="text-2xl font-bold text-[#3E3C6B] mb-1">50+</div>
-                      <div className="text-sm text-gray-700">Startups</div>
-                    </div>
-                    <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-xl text-center">
-                      <div className="text-2xl font-bold text-[#F15A29] mb-1">₹2Cr+</div>
-                      <div className="text-sm text-gray-700">Funding</div>
-                    </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {/* Students Graduated */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0 }}
+                  className="bg-white border-2 border-[#2B9EB3] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <GraduationCap className="w-12 h-12 text-[#2B9EB3] mb-3" />
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">6715</div>
+                    <div className="text-sm text-gray-700 font-medium">Students Graduated</div>
                   </div>
-                </div>
-                <div className="relative bg-gradient-to-br from-[#2B9EB3] to-[#3E3C6B] rounded-2xl shadow-lg p-12 flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <h3 className="text-3xl font-bold mb-4">CIE Impact</h3>
-                    <p className="text-lg opacity-90">Empowering Innovation & Entrepreneurship</p>
+                </motion.div>
+
+                {/* Cohorts */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="bg-white border-2 border-[#F15A29] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <Users className="w-12 h-12 text-[#F15A29] mb-3" />
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">61</div>
+                    <div className="text-sm text-gray-700 font-medium">Cohorts</div>
                   </div>
-                </div>
+                </motion.div>
+
+                {/* Industry/Startup Placements */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="bg-white border-2 border-[#2B9EB3] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <Building2 className="w-12 h-12 text-[#2B9EB3] mb-3" />
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">32</div>
+                    <div className="text-sm text-gray-700 font-medium">Industry/Startup Placements</div>
+                  </div>
+                </motion.div>
+
+                {/* International Exchange Program */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="bg-white border-2 border-[#F15A29] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <Globe className="w-12 h-12 text-[#F15A29] mb-3" />
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">2</div>
+                    <div className="text-sm text-gray-700 font-medium">International Exchange Program</div>
+                  </div>
+                </motion.div>
+
+                {/* Industry Grants/Awards */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="bg-white border-2 border-[#2B9EB3] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <Award className="w-12 h-12 text-[#2B9EB3] mb-3" />
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">₹13.9M</div>
+                    <div className="text-sm text-gray-700 font-medium">Industry Grants/Awards</div>
+                  </div>
+                </motion.div>
+
+                {/* Students Participating in Industry Programs */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  className="bg-white border-2 border-[#F15A29] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <Users className="w-12 h-12 text-[#F15A29] mb-3" />
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">1900+</div>
+                    <div className="text-sm text-gray-700 font-medium">Students Participating in Industry Programs</div>
+                  </div>
+                </motion.div>
+
+                {/* Industry/Startup Internships */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                  className="bg-white border-2 border-[#2B9EB3] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <Briefcase className="w-12 h-12 text-[#2B9EB3] mb-3" />
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">98</div>
+                    <div className="text-sm text-gray-700 font-medium">Industry/Startup Internships</div>
+                  </div>
+                </motion.div>
+
+                {/* International Publications & Conference Speakerships */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.7 }}
+                  className="bg-white border-2 border-[#F15A29] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <FileText className="w-12 h-12 text-[#F15A29] mb-3" />
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">12</div>
+                    <div className="text-sm text-gray-700 font-medium">International Publications & Conference Speakerships</div>
+                  </div>
+                </motion.div>
+
+                {/* Harvard Manage Mentor */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                  className="bg-white border-2 border-[#2B9EB3] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <Award className="w-12 h-12 text-[#2B9EB3] mb-3" />
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">78</div>
+                    <div className="text-sm text-gray-700 font-medium">Harvard Manage Mentor</div>
+                  </div>
+                </motion.div>
+
+                {/* Industry Programs */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.9 }}
+                  className="bg-white border-2 border-[#F15A29] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <BookOpen className="w-12 h-12 text-[#F15A29] mb-3" />
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">11</div>
+                    <div className="text-sm text-gray-700 font-medium">Industry Programs</div>
+                  </div>
+                </motion.div>
+
+                {/* Courses */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1 }}
+                  className="bg-white border-2 border-[#2B9EB3] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <BookOpen className="w-12 h-12 text-[#2B9EB3] mb-3" />
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">8</div>
+                    <div className="text-sm text-gray-700 font-medium">Courses</div>
+                  </div>
+                </motion.div>
+
+                {/* Capstone Projects with Industry Partner (CPIP) */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1.1 }}
+                  className="bg-white border-2 border-[#F15A29] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <Lightbulb className="w-12 h-12 text-[#F15A29] mb-3" />
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">17</div>
+                    <div className="text-sm text-gray-700 font-medium">Capstone Projects with Industry Partner (CPIP)</div>
+                  </div>
+                </motion.div>
               </div>
             </TabsContent>
 
             {/* Programs Tab */}
-            <TabsContent value="programs" className="space-y-4">
-              <div className="grid lg:grid-cols-3 gap-4">
-                <div className="bg-white p-5 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#2B9EB3] to-[#3E3C6B] rounded-xl flex items-center justify-center mb-4">
-                    <BookOpen className="w-6 h-6 text-white" />
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">10 Industry Programs</h4>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Comprehensive programs designed with industry input, from entrepreneurship fundamentals to advanced tech skills.
-                  </p>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex items-center">
-                      <div className="w-2 h-2 bg-[#2B9EB3] rounded-full mr-2" />
-                      Lean Startup Methodology
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-2 h-2 bg-[#2B9EB3] rounded-full mr-2" />
-                      Deep Learning & ML
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="bg-white p-5 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-4">
-                    <GraduationCap className="w-6 h-6 text-white" />
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">Student Excellence</h4>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Our students consistently achieve remarkable success through comprehensive support and mentorship.
-                  </p>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex items-center">
-                      <div className="w-2 h-2 bg-green-600 rounded-full mr-2" />
-                      57 Harvard Mentees
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-2 h-2 bg-green-600 rounded-full mr-2" />
-                      50 Industry Internships
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="bg-white p-5 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#F15A29] to-[#FFC107] rounded-xl flex items-center justify-center mb-4">
-                    <Award className="w-6 h-6 text-white" />
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">Industry Recognition</h4>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Significant recognition from industry leaders, resulting in substantial funding and opportunities.
-                  </p>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex items-center">
-                      <div className="w-2 h-2 bg-[#F15A29] rounded-full mr-2" />
-                      ₹6.5M+ Industry Grants
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-2 h-2 bg-[#F15A29] rounded-full mr-2" />
-                      Global Recognition
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            <TabsContent value="programs" className="space-y-6">
+              <ProgramsRadialView />
             </TabsContent>
 
-            {/* CIE Ignite Tab */}
-            <TabsContent value="ignite" className="space-y-4">
-              <div className="grid lg:grid-cols-2 gap-6 items-center">
-                <div>
-                  <div className="mb-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-orange-100 text-[#F15A29]">
-                      <Sparkles className="w-4 h-4 mr-2" />
-                      Flagship Program
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    <span className="bg-gradient-to-r from-[#F15A29] to-[#FFC107] bg-clip-text text-transparent">CIE Ignite</span> Ideathon
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Transform your ideas into reality through our flagship semester-long startup challenge, exclusively for 2nd-year students.
-                  </p>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-[#F15A29] rounded-full mt-2" />
-                      <div>
-                        <h5 className="font-semibold text-gray-900">Bridge Theory & Practice</h5>
-                        <p className="text-gray-600 text-sm">Turn EIE learnings into actionable solutions</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-[#F15A29] rounded-full mt-2" />
-                      <div>
-                        <h5 className="font-semibold text-gray-900">Interdisciplinary Teams</h5>
-                        <p className="text-gray-600 text-sm">Build diverse teams with peers from all streams</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-gradient-to-br from-[#F15A29] to-[#FFC107] p-5 rounded-2xl text-white">
-                  <h4 className="text-xl font-bold mb-4">Program Highlights</h4>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold mb-1">4</div>
-                      <div className="text-sm opacity-90">Stages</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold mb-1">₹25K+</div>
-                      <div className="text-sm opacity-90">Prizes</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold mb-1">220+</div>
-                      <div className="text-sm opacity-90">Students</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold mb-1">40+</div>
-                      <div className="text-sm opacity-90">Teams</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </TabsContent>
+            {/* Ignite tab removed */}
 
-            {/* Partners Tab */}
+            {/* Academic collaborators Tab (replaces Partners) */}
             <TabsContent value="partners" className="space-y-4">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+              {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl text-center">
                   <div className="text-2xl font-bold text-[#2B9EB3] mb-1">100+</div>
-                  <div className="text-sm text-gray-700">Partners</div>
+                  <div className="text-sm text-gray-700">Academic collaborators</div>
                 </div>
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-xl text-center">
                   <div className="text-2xl font-bold text-green-600 mb-1">₹6.5M+</div>
@@ -493,73 +955,43 @@ export default function Home() {
                   <div className="text-2xl font-bold text-[#F15A29] mb-1">20+</div>
                   <div className="text-sm text-gray-700">Active</div>
                 </div>
-              </div>
-              
-              <div className="grid md:grid-cols-3 gap-4">
-                <div className="text-center bg-gray-50 p-5 rounded-2xl">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#2B9EB3] to-[#3E3C6B] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Building2 className="w-6 h-6 text-white" />
-                  </div>
-                  <h5 className="font-bold text-gray-900 mb-2">PocketCoach</h5>
-                  <p className="text-gray-600 text-sm">Alumni startup won Karnataka Elevate 2024 with ₹30 Lakh grant.</p>
-                </div>
-                <div className="text-center bg-gray-50 p-5 rounded-2xl">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Award className="w-6 h-6 text-white" />
-                  </div>
-                  <h5 className="font-bold text-gray-900 mb-2">Epicure Robotics</h5>
-                  <p className="text-gray-600 text-sm">Alumni startup funded by 100x.VC for automated food kiosks.</p>
-                </div>
-                <div className="text-center bg-gray-50 p-5 rounded-2xl">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#F15A29] to-[#FFC107] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Rocket className="w-6 h-6 text-white" />
-                  </div>
-                  <h5 className="font-bold text-gray-900 mb-2">Aalap AI</h5>
-                  <p className="text-gray-600 text-sm">First text-to-Carnatic music AI and legal tech assistant with 850+ users.</p>
-                </div>
+              </div> */}
+
+              {/* Infinite carousel of partner logos */}
+              <div className="w-full">
+                <AcademicCarousel />
               </div>
             </TabsContent>
 
-            {/* Updates Tab */}
+            {/* Success stories Tab (replaces Updates) */}
             <TabsContent value="updates" className="space-y-4">
-              <div className="space-y-3">
-                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-5 rounded-2xl border border-blue-200">
-                  <div className="flex flex-col md:flex-row md:items-center gap-4">
-                    <div className="flex-1">
-                      <div className="text-sm text-[#2B9EB3] font-medium mb-1">Success Story</div>
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">CIE Startup Raises $2M in Series A</h4>
-                      <p className="text-gray-600 text-sm">TechFlow, incubated at CIE, successfully closes Series A funding round.</p>
-                    </div>
-                    <div className="text-sm text-gray-500">January 15, 2024</div>
-                  </div>
-                </div>
-                
-                <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-5 rounded-2xl border border-green-200">
-                  <div className="flex flex-col md:flex-row md:items-center gap-4">
-                    <div className="flex-1">
-                      <div className="text-sm text-green-600 font-medium mb-1">Upcoming Event</div>
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">Innovation Summit 2024</h4>
-                      <p className="text-gray-600 text-sm">Join industry leaders and entrepreneurs at our annual summit.</p>
-                    </div>
-                    <div className="text-sm text-gray-500">February 20, 2024</div>
-                  </div>
-                </div>
+              <div className="grid md:grid-cols-3 gap-4">
+                <article className="bg-white p-5 rounded-2xl shadow-sm">
+                  <img src="/assets/pocket-coach.jpg" alt="PocketCoach success" className="w-36 h-36 object-cover rounded-md mb-3" />
+                  <h4 className="text-lg font-bold text-gray-900 mb-1">PocketCoach wins Karnataka Elevate</h4>
+                  <p className="text-sm text-gray-600">Alumni startup PocketCoach won Karnataka Elevate 2024 and received a ₹30 Lakh grant to scale their coaching platform.</p>
+                  <div className="mt-3 text-sm text-gray-500">March 02, 2024</div>
+                </article>
 
-                <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-5 rounded-2xl border border-purple-200">
-                  <div className="flex flex-col md:flex-row md:items-center gap-4">
-                    <div className="flex-1">
-                      <div className="text-sm text-[#3E3C6B] font-medium mb-1">Announcement</div>
-                      <h4 className="text-xl font-bold text-gray-900 mb-2">New AI Research Lab Launched</h4>
-                      <p className="text-gray-600 text-sm">State-of-the-art facility for AI research and applications.</p>
-                    </div>
-                    <div className="text-sm text-gray-500">January 10, 2024</div>
-                  </div>
-                </div>
+                <article className="bg-white p-5 rounded-2xl shadow-sm">
+                  <img src="/assets/epicure-robotics.jpg" alt="Epicure Robotics" className="w-full h-36 object-cover rounded-md mb-3" />
+                  <h4 className="text-lg font-bold text-gray-900 mb-1">Epicure Robotics raises funding</h4>
+                  <p className="text-sm text-gray-600">Epicure Robotics secured backing from 100x.VC for their automated food kiosk solutions, accelerating product builds.</p>
+                  <div className="mt-3 text-sm text-gray-500">October 12, 2023</div>
+                </article>
+
+                <article className="bg-white p-5 rounded-2xl shadow-sm">
+                  <img src="/assets/aalap-ai.jpg" alt="Aalap AI" className="w-90 h-36 object-cover rounded-md mb-3" />
+                  <h4 className="text-lg font-bold text-gray-900 mb-1">Aalap AI launches music-first product</h4>
+                  <p className="text-sm text-gray-600">Aalap AI shipped a novel text-to-Carnatic music experience and is gaining traction with 850+ users.</p>
+                  <div className="mt-3 text-sm text-gray-500">July 08, 2023</div>
+                </article>
               </div>
             </TabsContent>
           </Tabs>
         </div>
       </section>
+
 
       {/* Call to Action Section */}
       <section className="py-12 bg-gradient-to-br from-[#2B9EB3] via-[#3E3C6B] to-[#F15A29] relative overflow-hidden">

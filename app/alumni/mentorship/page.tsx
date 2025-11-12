@@ -249,7 +249,7 @@ export default function AlumniMentorshipPage() {
         </div>
       </section>
 
-      {/* Mentorship Stats Section */}
+      {/* Mentorship Impact and Program Section (merged) */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -259,15 +259,14 @@ export default function AlumniMentorshipPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Mentorship Impact
+              Mentorship Impact and Program
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our mentorship program has created meaningful connections and 
-              transformative outcomes for thousands of participants worldwide.
+              Our mentorship program has created meaningful connections and transformative outcomes for thousands of participants worldwide. Choose from specialized mentorship programs designed to address different career stages and professional development needs.
             </p>
           </motion.div>
 
-          {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {mentorshipStats.map((stat, index) => {
               const IconComponent = stat.icon;
               return (
@@ -287,26 +286,6 @@ export default function AlumniMentorshipPage() {
               );
             })}
           </div> */}
-        </div>
-      </section>
-
-      {/* Mentorship Programs Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Mentorship Programs
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Choose from specialized mentorship programs designed to address 
-              different career stages and professional development needs.
-            </p>
-          </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {mentorshipPrograms.map((program, index) => {
