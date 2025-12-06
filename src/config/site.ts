@@ -10,9 +10,10 @@ export const SITE_CONFIG = {
   ogImage: '/og-image.png',
   links: {
     twitter: 'https://twitter.com/cie_pesu',
-    linkedin: 'https://linkedin.com/company/cie-pesu',
-    instagram: 'https://instagram.com/cie_pesu',
-    youtube: 'https://youtube.com/@cie_pesu',
+    linkedin: 'https://www.linkedin.com/company/pes-ecell',
+    instagram: 'https://www.instagram.com/cie.pesu/',
+    youtube: 'https://www.youtube.com/@CIEPodcast-PESU',
+    spotify: 'https://open.spotify.com/show/2SPdUtKAl4f0CmXrNqhzAc?si=689ca57784514d26',
   },
   contact: {
     email: 'cie@pes.edu',

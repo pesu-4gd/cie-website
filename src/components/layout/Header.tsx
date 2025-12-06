@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
                 aria-hidden="true"
               />
               <p className="text-sm flex-1">
-                Latest Newsletter Update
+                Newsletter Issue 10 - Robotics and Healthcare
               </p>
               <a href="/alumni/newsletter" className="group text-sm font-medium whitespace-nowrap flex items-center gap-1">
                 Learn more

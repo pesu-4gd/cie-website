@@ -3,18 +3,8 @@
 import { Container, H4, P } from '@/components/design-system';
 import { Button } from '@/components/ui/button';
 // Input removed since newsletter is commented out
-import { 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin, 
-  Youtube, 
-  Mail, 
-  Phone, 
-  MapPin,
-  ExternalLink,
-  Building
-} from 'lucide-react';
+import { Instagram, Linkedin, Youtube } from 'lucide-react';
+import { SITE_CONFIG } from '@/config/site';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -54,13 +44,7 @@ const Footer = () => {
     { name: 'Accessibility', href: '/policies/accessibility' }
   ];
 
-  const socialLinks = [
-    { name: 'Facebook', icon: Facebook, href: 'https://facebook.com/pesuniversity', color: 'hover:text-blue-600' },
-    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/pesuniversity', color: 'hover:text-blue-400' },
-    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/pesuniversity', color: 'hover:text-pink-600' },
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/school/pesuniversity', color: 'hover:text-blue-700' },
-    { name: 'YouTube', icon: Youtube, href: 'https://youtube.com/pesuniversity', color: 'hover:text-red-600' }
-  ];
+  
 
   return (
     <footer className="bg-gray-900 border-t border-gray-800">
@@ -112,21 +96,38 @@ const Footer = () => {
                 Empowering the next generation of innovators and entrepreneurs through cutting-edge programs, 
                 mentorship, and real-world opportunities.
               </P>
-              <div className="flex gap-4">
-                <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
-                  <Linkedin className="w-4 h-4" />
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white" aria-label="X / Twitter">
-                  <svg className="w-4 h-4" viewBox="0 0 640 640" fill="currentColor" aria-hidden xmlns="http://www.w3.org/2000/svg">
-                    <path d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z" />
-                  </svg>
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
-                  <Instagram className="w-4 h-4" />
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
-                  <Youtube className="w-4 h-4" />
-                </Button>
+              <div className="flex gap-3">
+                <a href={SITE_CONFIG.links.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
+                    <Linkedin className="w-4 h-4" />
+                  </Button>
+                </a>
+
+                <a href={SITE_CONFIG.links.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
+                  <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
+                    <svg className="w-4 h-4" viewBox="0 0 640 640" fill="currentColor" aria-hidden xmlns="http://www.w3.org/2000/svg">
+                      <path d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z" />
+                    </svg>
+                  </Button>
+                </a>
+
+                <a href={SITE_CONFIG.links.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
+                    <Instagram className="w-4 h-4" />
+                  </Button>
+                </a>
+
+                <a href={SITE_CONFIG.links.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                  <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
+                    <Youtube className="w-4 h-4" />
+                  </Button>
+                </a>
+
+                <a href={SITE_CONFIG.links.spotify} target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+                  <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white p-2">
+                    <Image src="/assets/spotify.svg" alt="Spotify" width={20} height={20} />
+                  </Button>
+                </a>
               </div>
             </div>
 
