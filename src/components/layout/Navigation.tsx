@@ -724,7 +724,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
   if (!isOpen) return null;
 
   return (
-    <div className="lg:hidden fixed top-0 left-0 right-0 bottom-0 z-50 bg-white flex flex-col" style={{ height: '100vh', height: '100dvh' }}>
+    <div className="lg:hidden fixed top-0 left-0 right-0 bottom-0 z-50 bg-white flex flex-col h-screen">
       {/* Header - Fixed at top */}
       <div className="flex-none flex items-center justify-between p-4 border-b border-gray-200 bg-white">
             <div className="flex items-center gap-3">
