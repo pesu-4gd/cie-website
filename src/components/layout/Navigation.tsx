@@ -189,7 +189,7 @@ const StudentsNavigation: React.FC = () => {
         },
         {
           title: 'Workshops',
-          href: '/students/workshops/paml',
+          href: '/students/workshops',
           description: 'Skills development and training sessions',
           icon: Users2,
         },
@@ -238,6 +238,12 @@ const StudentsNavigation: React.FC = () => {
           href: '/students/clubs',
           description: 'E-Cell, CMS & more',
           icon: Users,
+        },
+        {
+          title: 'Newsletter',
+          href: '/alumni/newsletter',
+          description: 'CIE updates & stories',
+          icon: BookOpen,
         },
     
       ],
@@ -316,6 +322,12 @@ const IndustryNavigation: React.FC = () => {
           href: '/industry/success-stories', 
           description: 'Case studies & impact',
           icon: Trophy
+        },
+        { 
+          title: 'Newsletter', 
+          href: '/alumni/newsletter', 
+          description: 'CIE updates & stories',
+          icon: BookOpen
         },
         { 
           title: 'Contact for Industry', 
@@ -569,23 +581,23 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
           items: [
             { title: 'Courses Overview', href: '/students/courses', description: 'EIE:1 & 2, Product Management' },
             { title: 'Workshops', href: '/students/workshops', description: 'Skills development and training sessions' },
-            { title: 'Student Projects', href: '/students/projects', description: 'Current & past projects' }
+            { title: 'Resources', href: '/students/resources', description: 'Guides, templates & online courses' }
           ]
         },
         {
           title: 'Resources',
           items: [
             { title: 'Events', href: '/students/events', description: 'Upcoming & past events' },
-            { title: 'Resources', href: '/students/resources', description: 'Guides, templates & online courses' },
-            { title: 'Funding and Grants', href: '/students/funding', description: 'CiC, Mathworks & CiC Ready Program' }
+            { title: 'Funding and Grants', href: '/students/funding', description: 'CiC, Mathworks & CiC Ready Program' },
+            { title: 'Centres of Excellence', href: '/students/centers-of-excellence', description: 'Research & innovation centers' }
           ]
         },
         {
           title: 'Community',
           items: [
-            { title: 'Mentorship', href: '/students/mentorship', description: 'Industry mentor connect' },
+            { title: 'Industry Mentors', href: '/students/mentorship', description: 'Industry mentor connect' },
             { title: 'Student Clubs', href: '/students/clubs', description: 'E-Cell, CMS & more' },
-            { title: 'Centres of Excellence', href: '/students/centers-of-excellence', description: 'Research & innovation centers' }
+            { title: 'Newsletter', href: '/alumni/newsletter', description: 'CIE updates & stories' }
           ]
         }
       ]
@@ -598,22 +610,25 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
         {
           title: 'Collaboration',
           items: [
-            { title: 'Overview', href: '/industry', description: 'Industry partnerships' },
-            { title: 'Collaborations', href: '/industry/collaborations', description: 'Partnership opportunities' }
+            { title: 'Overview', href: '/industry', description: 'Partnerships & collaborations overview' },
+            { title: 'About Industry Collaboration', href: '/industry/about', description: 'Overview of partnerships' },
+            { title: 'Collaboration Opportunities', href: '/industry/collaborations', description: 'Sponsorship, Mentorship, Research' }
           ]
         },
         {
           title: 'Opportunities',
           items: [
-            { title: 'Jobs', href: '/industry/jobs', description: 'Job postings' },
-            { title: 'Events', href: '/industry/events', description: 'Corporate events' }
+            { title: 'Internships and Jobs', href: '/industry/jobs', description: 'Job postings & internship opportunities' },
+            { title: 'Competitions', href: '/industry/competitions', description: 'Hackathon, Workshop, Scholarships' },
+            { title: 'Events for Industry', href: '/industry/events', description: 'Corporate events & summits' }
           ]
         },
         {
           title: 'Success',
           items: [
             { title: 'Success Stories', href: '/industry/success-stories', description: 'Case studies & impact' },
-            { title: 'Contact', href: '/industry/contact', description: 'Get in touch with our team' }
+            { title: 'Newsletter', href: '/alumni/newsletter', description: 'CIE updates & stories' },
+            { title: 'Contact for Industry', href: '/industry/contact', description: 'Get in touch with our team' }
           ]
         }
       ]
@@ -633,7 +648,6 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
         {
           title: 'Stay Connected',
           items: [
-            { title: 'Alumni Association', href: '/alumni/association', description: 'Join the association' },
             { title: 'Newsletter Sign-up', href: '/alumni/newsletter', description: 'Stay updated with news' }
           ]
         },
@@ -641,8 +655,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
           title: 'Give Back',
           items: [
             { title: 'Mentorship', href: '/alumni/mentorship', description: 'Mentor current students' },
-            { title: 'Donations', href: '/alumni/donations', description: 'Support CIE initiatives' },
-            { title: 'Resources for Alumni', href: '/alumni/resources', description: 'Alumni-specific resources' }
+            { title: 'Donations', href: '/alumni/donations', description: 'Support CIE initiatives' }
           ]
         }
       ]
@@ -711,10 +724,9 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
   if (!isOpen) return null;
 
   return (
-    <div className="lg:hidden fixed inset-0 z-50 bg-white">
-      <div className="flex flex-col h-full">
-        {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
+    <div className="lg:hidden fixed top-0 left-0 right-0 bottom-0 z-50 bg-white flex flex-col" style={{ height: '100vh', height: '100dvh' }}>
+      {/* Header - Fixed at top */}
+      <div className="flex-none flex items-center justify-between p-4 border-b border-gray-200 bg-white">
             <div className="flex items-center gap-3">
                 {/* Use the colored CIE logo (with line) so it remains visible on white background and scale it appropriately */}
                 <div className="flex items-center justify-center min-w-[140px]">
@@ -733,9 +745,9 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
           </button>
         </div>
 
-        {/* Content */}
-        <div className="flex-1 overflow-y-auto">
-          <nav className="p-4">
+      {/* Content - Scrollable area */}
+      <div className="flex-1 overflow-y-scroll" style={{ WebkitOverflowScrolling: 'touch' }}>
+        <nav className="p-4 pb-32">
             {navigationItems.map((item) => {
               const Icon = item.icon;
               // Check if current page is anywhere within this section's subsections
@@ -857,7 +869,6 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, onCl
           </nav>
         </div>
       </div>
-    </div>
   );
 };
 

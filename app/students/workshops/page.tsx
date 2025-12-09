@@ -68,11 +68,11 @@ export default function PamlPage() {
           <div className="mt-6 grid md:grid-cols-3 gap-6">
             <div className="md:col-span-2">
               <Tabs defaultValue="overview">
-                <TabsList className="grid grid-cols-4 gap-2 mb-4">
+                <TabsList className="flex flex-wrap gap-2 mb-4 w-full">
                   <TabsTrigger
                     value="overview"
                     style={{ ['--tab-color']: tabColors.overview } as React.CSSProperties}
-                    className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                    className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
                   >
                     Overview
                   </TabsTrigger>
@@ -80,7 +80,7 @@ export default function PamlPage() {
                   <TabsTrigger
                     value="what"
                     style={{ ['--tab-color']: tabColors.what } as React.CSSProperties}
-                    className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                    className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
                   >
                     What You Will Do
                   </TabsTrigger>
@@ -88,7 +88,7 @@ export default function PamlPage() {
                   <TabsTrigger
                     value="sessions"
                     style={{ ['--tab-color']: tabColors.sessions } as React.CSSProperties}
-                    className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                    className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
                   >
                     Session Plans
                   </TabsTrigger>
@@ -96,14 +96,14 @@ export default function PamlPage() {
                   <TabsTrigger
                     value="logistics"
                     style={{ ['--tab-color']: tabColors.logistics } as React.CSSProperties}
-                    className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                    className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
                   >
                     Logistics & Instructor
                   </TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="overview">
-                  <h3 className="text-2xl font-semibold">PAML Train-the-Trainer — Jan–Apr 2025</h3>
+                  <h3 className="text-2xl font-semibold mt-9">PAML Train-the-Trainer — Jan–Apr 2025</h3>
                   <p className="mt-3 text-gray-700">The PAML program at PES University's CIE blends machine learning fundamentals with pedagogy so participants can teach and mentor during the PAML+ summer workshop. Targeted at 4th and 6th semester ECE, CSE and AIML students with strong Python skills.</p>
 
                   <div className="mt-6">
@@ -113,7 +113,7 @@ export default function PamlPage() {
                 </TabsContent>
 
                 <TabsContent value="what">
-                  <h3 className="text-2xl font-semibold">What You Will Do</h3>
+                  <h3 className="text-2xl font-semibold mt-9">What You Will Do</h3>
                   <div className="mt-3 text-gray-700">
                     <ul className="list-disc pl-6 space-y-2">
                       <li>Learn and teach ML concepts: supervised/unsupervised learning, models, and deployment basics.</li>
@@ -125,7 +125,7 @@ export default function PamlPage() {
                 </TabsContent>
 
                 <TabsContent value="sessions">
-                  <h3 className="text-2xl font-semibold">PAML Session Plans (Highlights)</h3>
+                  <h3 className="text-2xl font-semibold mt-9">PAML Session Plans (Highlights)</h3>
                   <div className="mt-3 text-gray-700 space-y-4">
                     <div>
                       <h5 className="font-semibold">Session 1: Introduction & Data Preparation</h5>
@@ -159,7 +159,7 @@ export default function PamlPage() {
                 </TabsContent>
 
                 <TabsContent value="logistics">
-                  <h3 className="text-2xl font-semibold">Engagement, Logistics & Instructor</h3>
+                  <h3 className="text-2xl font-semibold mt-9">Engagement, Logistics & Instructor</h3>
                   <div className="mt-3 text-gray-700 space-y-3">
                     <p>Schedule: Weekly 2-hour sessions from Jan 29 to Apr 16. Summer Workshop: 1-week intensive (Jun–Jul) followed by project execution.</p>
                     <p>Eligibility: 4th/6th semester ECE, CSE, AIML students with strong Python skills and availability in Summer 2025.</p>
@@ -214,6 +214,175 @@ export default function PamlPage() {
           </div>
         </section>
       </main>
+
+      {/* Summer Workshop 2025 Section */}
+      <section className="bg-gradient-to-br from-white to-white py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Summer Workshop 2025
+            </h2>
+            <p className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto">
+              An intensive 8-week program bringing together students, mentors, and industry experts to build innovative projects across cutting-edge domains.
+            </p>
+          </motion.div>
+
+          {/* Images */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-white"
+            >
+              <Image 
+                src="/assets/sw2025 (1).png" 
+                alt="Summer Workshop 2025" 
+                fill 
+                className="object-contain"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-white"
+            >
+              <Image 
+                src="/assets/sw2025 (2).png" 
+                alt="Summer Workshop 2025 Projects" 
+                fill 
+                className="object-contain"
+              />
+            </motion.div>
+          </div>
+
+          {/* Domains */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-200 mb-8"
+          >
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">Domains Covered</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+              {[
+                'Computer Vision',
+                'VR-Based Remote Systems',
+                'Video Degradation Simulation',
+                'Brain-Computer Interfaces',
+                'Skin Cancer Detection',
+                'Edge Computing & Scalable Deep Learning',
+                'Financial Technology (Fintech)',
+                'Generative AI & AI Agents',
+                'Blockchain & Web3'
+              ].map((domain, index) => (
+                <motion.div
+                  key={domain}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="flex items-center gap-3 bg-gradient-to-r from-blue-50 to-blue-50 p-3 md:p-4 rounded-xl border border-blue-200"
+                >
+                  <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-sm md:text-base text-gray-800 font-medium">{domain}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {/* Participants */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-200"
+            >
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Program Details</h3>
+              <div className="space-y-3 md:space-y-4">
+                <div className="flex justify-between items-center py-2 md:py-3 border-b border-gray-100">
+                  <span className="text-sm md:text-base text-gray-600">Duration</span>
+                  <span className="text-base md:text-lg font-bold text-blue-600">8 weeks</span>
+                </div>
+                <div className="flex justify-between items-center py-2 md:py-3 border-b border-gray-100">
+                  <span className="text-sm md:text-base text-gray-600">Students</span>
+                  <span className="text-base md:text-lg font-bold text-gray-900">62</span>
+                </div>
+                <div className="flex justify-between items-center py-2 md:py-3 border-b border-gray-100">
+                  <span className="text-sm md:text-base text-gray-600">Teaching Assistants</span>
+                  <span className="text-base md:text-lg font-bold text-gray-900">7</span>
+                </div>
+                <div className="flex justify-between items-center py-2 md:py-3 border-b border-gray-100">
+                  <span className="text-sm md:text-base text-gray-600">Industry Mentors</span>
+                  <span className="text-base md:text-lg font-bold text-gray-900">4</span>
+                </div>
+                <div className="flex justify-between items-center py-2 md:py-3 border-b border-gray-100">
+                  <span className="text-sm md:text-base text-gray-600">Alumni Mentors</span>
+                  <span className="text-base md:text-lg font-bold text-gray-900">2</span>
+                </div>
+                <div className="flex justify-between items-center py-2 md:py-3 border-b border-gray-100">
+                  <span className="text-sm md:text-base text-gray-600">CIE Ignite S01 Teams</span>
+                  <span className="text-base md:text-lg font-bold text-gray-900">3</span>
+                </div>
+                <div className="flex justify-between items-center py-2 md:py-3">
+                  <span className="text-sm md:text-base text-gray-600">CIE Core Team Members</span>
+                  <span className="text-base md:text-lg font-bold text-gray-900">3</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Outcomes */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 md:p-8 shadow-lg text-white"
+            >
+              <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Outcomes</h3>
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-xl md:text-2xl font-bold">11</span>
+                  </div>
+                  <div>
+                    <h4 className="text-base md:text-lg font-semibold">Innovative Projects</h4>
+                    <p className="text-sm md:text-base text-blue-100">Built and showcased by participants</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-base md:text-lg font-semibold">Cross-functional Collaboration</h4>
+                    <p className="text-sm md:text-base text-blue-100">Between students, mentors, and alumni</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-base md:text-lg font-semibold">Hands-on Learning</h4>
+                    <p className="text-sm md:text-base text-blue-100">Fast-paced, real-world environment</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

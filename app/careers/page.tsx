@@ -526,7 +526,7 @@ export default function CareersPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button 
                 className="border-2 border-white text-white px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
-                onClick={() => globalThis.location.href = 'mailto:careers@cie.edu?subject=Career Inquiry'}
+                onClick={() => globalThis.location.href = 'mailto:cieoffice@pes.edu?subject=Career Inquiry'}
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Contact HR Team
@@ -538,7 +538,7 @@ export default function CareersPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center text-white">
                 <div className="flex items-center justify-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <span>careers@cie.edu</span>
+                  <span>cieoffice@pes.edu</span>
                 </div>
               </div>
             </div>

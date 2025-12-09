@@ -30,11 +30,11 @@ export default function EIE1Page() {
           <p className="mt-3 text-gray-700">At PES University's Centre for Innovation and Entrepreneurship (CIE), we empower students to become the innovators and entrepreneurs of tomorrow. Our programs blend theoretical knowledge with practical experience, preparing students and industry professionals to thrive in a rapidly evolving world. The Essentials of Innovation and Entrepreneurship (EIE) course provides a foundational understanding of entrepreneurial principles, while CIE Ignite, our flagship Ideathon, offers a platform to apply these skills in real-world challenges.</p> */}
 
           <Tabs defaultValue="welcome">
-            <TabsList className="grid grid-cols-5 gap-2 mb-4">
+            <TabsList className="flex flex-wrap gap-2 mb-4 w-full">
               <TabsTrigger
                 value="welcome"
                 style={{ ['--tab-color']: tabColors.welcome } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 Welcome
               </TabsTrigger>
@@ -42,7 +42,7 @@ export default function EIE1Page() {
               <TabsTrigger
                 value="objectives"
                 style={{ ['--tab-color']: tabColors.objectives } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 Course Objectives
               </TabsTrigger>
@@ -50,7 +50,7 @@ export default function EIE1Page() {
               <TabsTrigger
                 value="details"
                 style={{ ['--tab-color']: tabColors.details } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 Course Details
               </TabsTrigger>
@@ -58,7 +58,7 @@ export default function EIE1Page() {
               <TabsTrigger
                 value="cie-spark"
                 style={{ ['--tab-color']: tabColors.references } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 CIE Spark
               </TabsTrigger>
@@ -66,14 +66,14 @@ export default function EIE1Page() {
               <TabsTrigger
                 value="references"
                 style={{ ['--tab-color']: tabColors.references } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 References
               </TabsTrigger>
             </TabsList>
 
             <TabsContent value="welcome">
-              <h3 className="text-3xl font-bold mb-4">Welcome to CIE</h3>
+              <h3 className="text-3xl font-bold mb-4 mt-9">Welcome to CIE</h3>
               <p className="mt-3 text-lg text-gray-700 leading-relaxed">At PES University's Centre for Innovation and Entrepreneurship (CIE), we empower students to become the innovators and entrepreneurs of tomorrow. Our programs blend theoretical knowledge with practical experience, preparing students and industry professionals to thrive in a rapidly evolving world. The Essentials of Innovation and Entrepreneurship (EIE) course provides a foundational understanding of entrepreneurial principles, while CIE Spark, our flagship Ideathon, offers a platform to apply these skills in real-world challenges.</p>
 
               <div className="mt-6">
@@ -133,7 +133,7 @@ export default function EIE1Page() {
             </TabsContent>
 
             <TabsContent value="objectives">
-              <h3 className="text-3xl font-bold mb-4">Course Objectives</h3>
+              <h3 className="text-3xl font-bold mb-4 mt-9">Course Objectives</h3>
               <p className="mt-3 text-lg text-gray-700 leading-relaxed">The EIE course aims to:</p>
 
               <ul className="list-disc pl-6 text-lg text-gray-700 mt-3 space-y-2">
@@ -162,7 +162,7 @@ export default function EIE1Page() {
             <TabsContent value="cie-spark">
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-3xl font-bold mb-4">CIE Spark: Where Innovation Begins</h3>
+                  <h3 className="text-3xl font-bold mb-4 mt-9">CIE Spark: Where Innovation Begins</h3>
                   <p className="text-xl italic text-gray-600">The Idea Validation Sprint for Tomorrow's Founders</p>
                   <p className="text-lg text-gray-600 mt-2">August - December</p>
                   <p className="text-lg text-gray-700 leading-relaxed mt-2">CIE Spark empowers student innovators taking EIE-1 course, The Idea Validation Sprint for Tomorrow's Founders</p>
@@ -641,13 +641,63 @@ export default function EIE1Page() {
             </TabsContent>
 
             <TabsContent value="references">
-              <h3 className="text-3xl font-bold mb-4">References</h3>
+              <h3 className="text-3xl font-bold mb-4 mt-9">References</h3>
               <ul className="list-disc pl-6 text-lg text-gray-700 mt-3 space-y-2">
                 <li>Technology Ventures: From Idea to Enterprise by McGraw Hill</li>
                 <li>PES University 'CIE Level1' Course - Getting Started With Entrepreneurship</li>
                 <li>VentureLab (Entrepreneurial Skillset and Mindset)</li>
                 <li>European Union (EU) Entrepreneurship Competencies</li>
               </ul>
+
+              {/* FAQ about CIE Spark */}
+              <h3 className="text-3xl font-bold mb-4 mt-12">FAQ about CIE Spark</h3>
+              <div className="space-y-6">
+                <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2">What is CIE Spark?</h4>
+                  <p className="text-lg text-gray-700 leading-relaxed">CIE Spark is an Idea/Problem Validation Sprint for all 2nd-year students at PES University. It&apos;s not an ideathon – it&apos;s a structured program that teaches you to find, validate, and fall in love with problems before thinking about solutions.</p>
+                </div>
+
+                <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2">Who can participate?</h4>
+                  <ul className="list-disc pl-6 text-lg text-gray-700 space-y-1">
+                    <li>All 2nd-year undergraduate students from all disciplines</li>
+                    <li>As part of the EIE-I (Essentials of Innovation & Entrepreneurship) course</li>
+                    <li>Teams of 3-5 students with maximum diversity across departments</li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2">What are the program phases?</h4>
+                  <ul className="list-disc pl-6 text-lg text-gray-700 space-y-1">
+                    <li>Phase 1: Individual Problem Hunting</li>
+                    <li>Phase 2: Multidisciplinary Team Formation</li>
+                    <li>Phase 3: Problem Validation Sprint & Deck Submission</li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2">What happens after CIE Spark?</h4>
+                  <ul className="list-disc pl-6 text-lg text-gray-700 space-y-1">
+                    <li>Successful teams advance to CIE Ignite to build solutions</li>
+                    <li>All participants receive completion certificates</li>
+                    <li>Access to industry mentorship continues</li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2">How much time commitment is required?</h4>
+                  <ul className="list-disc pl-6 text-lg text-gray-700 space-y-1">
+                    <li>Approximately 1-3 hours per week during the program</li>
+                    <li>Additional time for team meetings and validation work</li>
+                    <li>Designed to complement your academic schedule</li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2">Are there any costs to participate?</h4>
+                  <p className="text-lg text-gray-700 leading-relaxed">No, CIE Spark is completely free for all PES University students. All resources, workshops, and mentorship are provided at no cost.</p>
+                </div>
+              </div>
 
               <div className="mt-8 flex items-center gap-3">
                 <Link href="/students/courses/eie-2"><Button className="bg-white text-blue-700">Go to EIE — Part 2</Button></Link>
@@ -659,7 +709,7 @@ export default function EIE1Page() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Main content */}
                 <div className="md:col-span-2">
-                  <h3 className="text-3xl font-bold mb-4">EIE Part 1 — Modules</h3>
+                  <h3 className="text-3xl font-bold mb-4 mt-9">EIE Part 1 — Modules</h3>
                   <div className="overflow-x-auto mt-4">
                     <table className="w-full text-left table-auto border-collapse">
                       <thead>

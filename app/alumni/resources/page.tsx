@@ -243,11 +243,11 @@ export default function AlumniResourcesPage() {
               continued professional growth and career success as a PES University alumnus.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="default" size="lg" className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white">
+              <Button variant="default" size="lg" className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Request%20for%20Alumni%20Resources'}>
                 <BookOpen className="w-5 h-5 mr-2" />
                 Browse Resources
               </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
+              <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Request%20for%20Featured%20Downloads'}>
                 <Download className="w-5 h-5 mr-2" />
                 Featured Downloads
               </Button>
@@ -346,7 +346,7 @@ export default function AlumniResourcesPage() {
                           </div>
                         ))}
                       </div>
-                      <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-xl font-semibold">
+                      <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-xl font-semibold" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Request%20for%20Alumni%20Resources'}>
                         Explore Resources
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
@@ -410,7 +410,7 @@ export default function AlumniResourcesPage() {
                   </div>
                 </div>
 
-                <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-semibold">
+                <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-semibold" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Request%20to%20Download%20Resource'}>
                   <Download className="w-4 h-4 mr-2" />
                   Download Resource
                 </Button>
@@ -512,7 +512,7 @@ export default function AlumniResourcesPage() {
                         </span>
                       </div>
                       <p className="text-gray-600 mb-6">{service.description}</p>
-                      <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-xl font-semibold">
+                      <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-xl font-semibold" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Request%20for%20Alumni%20Service%20Access'}>
                         Access Service
                         <ExternalLink className="w-4 h-4 ml-2" />
                       </Button>
@@ -568,11 +568,11 @@ export default function AlumniResourcesPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+              <Button className="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Request%20for%20Alumni%20Resources'}>
                 <BookOpen className="w-5 h-5 mr-2" />
                 Browse All Resources
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              <Button className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Alumni%20Resources%20Support'}>
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Contact Support
               </Button>

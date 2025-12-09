@@ -324,7 +324,7 @@ export default function AlumniDirectoryPage() {
                           </Button>
                         </Link>
                       )}
-                      <Button size="sm" className="ml-auto">
+                      <Button size="sm" className="ml-auto" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Connect%20with%20Alumni'}>
                         Connect
                       </Button>
                     </div>
@@ -360,10 +360,10 @@ export default function AlumniDirectoryPage() {
             Update your profile and share your achievements with the CIE community.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary">
+            <Button size="lg" variant="secondary" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Update%20Alumni%20Profile'}>
               Update Profile
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-blue-600">
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-blue-600" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Join%20Alumni%20Network'}>
               Join Alumni Network
             </Button>
           </div>

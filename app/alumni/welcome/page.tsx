@@ -382,7 +382,7 @@ export default function AlumniWelcomePage() {
                   </ul>
                 </div>
 
-                <Button className="w-full bg-amber-400 hover:bg-amber-500 text-white py-3 rounded-xl font-semibold">
+                <Button className="w-full bg-amber-400 hover:bg-amber-500 text-white py-3 rounded-xl font-semibold" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Enquiry%20About%20Alumni%20Event'}>
                   Enquire About This Event
                 </Button>
               </motion.div>
@@ -482,7 +482,7 @@ export default function AlumniWelcomePage() {
                       <div className="bg-yellow-50 p-4 rounded-xl border border-yellow-200 mb-6">
                         <p className="text-sm text-amber-800 font-semibold">Impact: {opportunity.impact}</p>
                       </div>
-                      <Button className="bg-amber-400 hover:bg-amber-500 text-white px-6 py-3 rounded-xl font-semibold">
+                      <Button className="bg-amber-400 hover:bg-amber-500 text-white px-6 py-3 rounded-xl font-semibold" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Interest%20in%20Getting%20Involved'}>
                         <HandHeart className="w-4 h-4 mr-2" />
                         Get Involved
                       </Button>
@@ -540,14 +540,14 @@ export default function AlumniWelcomePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button 
                 className="text-amber-400 hover:bg-white px-8 py-4 text-lg font-semibold rounded-xl"
-                onClick={() => (window.location.href = 'mailto:alumni@pes.edu?subject=Join Alumni Network')}
+                onClick={() => (window.location.href = 'mailto:cieoffice@pes.edu?subject=Join Alumni Network')}
               >
                 <UserPlus className="w-5 h-5 mr-2" />
                 Join Alumni Network
               </Button>
               <Button 
                 className="border-2 border-white text-amber-400 hover:bg-white hover:text-amber-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
-                onClick={() => (window.location.href = 'mailto:alumni@pes.edu?subject=Contact Alumni Relations')}
+                onClick={() => (window.location.href = 'mailto:cieoffice@pes.edu?subject=Contact Alumni Relations')}
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Contact Alumni Relations
@@ -559,7 +559,7 @@ export default function AlumniWelcomePage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center text-amber-400">
                 <div className="flex items-center justify-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <span>alumni@cie.edu</span>
+                  <span>cieoffice@pes.edu</span>
                 </div>
               </div>
             </div>

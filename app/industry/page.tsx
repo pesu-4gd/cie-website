@@ -475,6 +475,36 @@ export default function IndustryPage() {
         </div>
       </section>
 
+      {/* Stay Updated Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-3xl p-8 md:p-12 border border-orange-100"
+          >
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="text-center md:text-left">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                  Stay Updated with CIE
+                </h3>
+                <p className="text-gray-600 max-w-xl">
+                  Get the latest updates on innovation, startup success stories, and partnership opportunities through our newsletter.
+                </p>
+              </div>
+              <Link
+                href="/alumni/newsletter"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold transition-all shadow-lg hover:shadow-xl"
+              >
+                <Mail className="w-5 h-5 mr-2" />
+                Read Our Newsletter
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section className="py-20 bg-gradient-to-br from-orange-600 to-orange-400">
         <div className="max-w-7xl mx-auto px-6">

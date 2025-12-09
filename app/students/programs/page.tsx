@@ -541,10 +541,6 @@ export default function ProgramsPage() {
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">{program.title}</h3>
                     <p className="text-gray-600 leading-relaxed">{program.description}</p>
                   </div>
-                  <div className="flex items-center ml-4">
-                    <Star className="w-5 h-5 mr-1" style={{ color: studentsColors.accent }} />
-                    <span className="font-semibold text-gray-900">{program.rating}</span>
-                  </div>
                 </div>
 
                 {/* Program Meta */}

@@ -14,6 +14,7 @@ import {
   Heart,
   Briefcase,
   Star,
+  Mail,
 } from 'lucide-react';
 import Link from 'next/link';
 import React, { useState, useRef, useEffect } from 'react';
@@ -521,6 +522,14 @@ export default function StudentsPage() {
       highlights: ['E-Cell: E-Summit events', 'CMS: Sustainability initiatives', 'CIE Ignite S01 Grand Finale with 20+ volunteers', 'Network, lead, and make impact']
     },
     {
+      title: 'Newsletter',
+      description: 'Stay informed with the latest updates, events, and opportunities from CIE',
+      icon: Mail,
+      href: '/alumni/newsletter',
+      color: 'teal',
+      highlights: ['Monthly updates on CIE activities', 'Event announcements & recaps', 'Student success spotlights', 'Opportunities & deadlines']
+    },
+    {
       title: 'Centers of Excellence',
       description: 'Engage with cutting-edge research and innovation opportunities',
       icon: Lightbulb,
@@ -540,7 +549,7 @@ export default function StudentsPage() {
       title: 'Be a Part of CIE',
       description: 'Take active roles as Teaching Assistants, interns, or mentors',
       icon: Users,
-      href: '/students/mentorship',
+      href: '/students/be-a-part-of-cie',
       color: 'green',
       highlights: ['Assist in PAML workshops', 'Intern with Centers of Excellence', 'Mentor peers through E-Cell & CMS', 'Hands-on experience & networking']
     },

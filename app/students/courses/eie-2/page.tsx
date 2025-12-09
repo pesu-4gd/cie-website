@@ -28,11 +28,11 @@ export default function EIE2Page() {
       <main className="max-w-7xl mx-auto px-6 py-12">
         <section className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
           <Tabs defaultValue="welcome">
-            <TabsList className="grid grid-cols-5 gap-2 mb-4">
+            <TabsList className="flex flex-wrap gap-2 mb-4 w-full">
               <TabsTrigger
                 value="welcome"
                 style={{ ['--tab-color']: tabColors.welcome } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 Welcome
               </TabsTrigger>
@@ -40,7 +40,7 @@ export default function EIE2Page() {
               <TabsTrigger
                 value="objectives"
                 style={{ ['--tab-color']: tabColors.objectives } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 Course Objectives
               </TabsTrigger>
@@ -48,7 +48,7 @@ export default function EIE2Page() {
               <TabsTrigger
                 value="details"
                 style={{ ['--tab-color']: tabColors.details } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 Course Details
               </TabsTrigger>
@@ -56,7 +56,7 @@ export default function EIE2Page() {
               <TabsTrigger
                 value="ignite"
                 style={{ ['--tab-color']: tabColors.ignite } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 CIE Ignite
               </TabsTrigger>
@@ -64,14 +64,14 @@ export default function EIE2Page() {
               <TabsTrigger
                 value="references"
                 style={{ ['--tab-color']: tabColors.references } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 References
               </TabsTrigger>
             </TabsList>
 
             <TabsContent value="welcome">
-              <h3 className="text-3xl font-bold mb-4">Welcome to CIE</h3>
+              <h3 className="text-3xl font-bold mb-4 mt-9">Welcome to CIE</h3>
               <p className="mt-3 text-lg text-gray-700 leading-relaxed">At PES University's Centre for Innovation and Entrepreneurship (CIE), we empower students to become the innovators and entrepreneurs of tomorrow. Our programs blend theoretical knowledge with practical experience, preparing students and industry professionals to thrive in a rapidly evolving world. The Essentials of Innovation and Entrepreneurship (EIE) course provides a foundational understanding of entrepreneurial principles, while CIE Ignite, our flagship Ideathon, offers a platform to apply these skills in real-world challenges.</p>
 
               <div className="mt-6">
@@ -132,7 +132,7 @@ export default function EIE2Page() {
             </TabsContent>
 
             <TabsContent value="objectives">
-              <h3 className="text-2xl font-semibold">Course Objectives</h3>
+              <h3 className="text-2xl font-semibold mt-9">Course Objectives</h3>
               <p className="mt-3 text-gray-700">EIE Part II aims to:</p>
               <ul className="list-disc pl-6 text-gray-700 mt-2">
                 <li>Deepen students' I&amp;E mindset and practical skills for starting ventures.</li>
@@ -154,7 +154,7 @@ export default function EIE2Page() {
                   {/* <div className="flex items-center gap-4 mb-4">
                     <Image src="/assets/cie-ignite-white-bg.png" alt="CIE Ignite Logo" width={200} height={100} className="h-20 w-auto" />
                   </div> */}
-                  <h3 className="text-3xl font-bold mb-4">CIE Ignite: Where Solutions Take Flight</h3>
+                  <h3 className="text-3xl font-bold mb-4 mt-9">CIE Ignite: Where Solutions Take Flight</h3>
                   <p className="text-xl italic text-gray-600">The Solution Sprint Turning Validated Problems into Market-Ready Ventures</p>
                 </div>
 
@@ -443,7 +443,7 @@ export default function EIE2Page() {
             </TabsContent>
 
             <TabsContent value="references">
-              <h3 className="text-2xl font-semibold">References</h3>
+              <h3 className="text-2xl font-semibold mt-9">References</h3>
               <ul className="list-disc pl-6 text-gray-700 mt-2">
                 <li>Technology Ventures: From Idea to Enterprise by McGraw Hill</li>
                 <li>PES University 'CIE Level 2' Course - Getting Started With Entrepreneurship</li>
@@ -460,7 +460,7 @@ export default function EIE2Page() {
             <TabsContent value="details">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="md:col-span-2">
-                  <h3 className="text-2xl font-semibold">Course Outline &amp; Modules</h3>
+                  <h3 className="text-2xl font-semibold mt-9">Course Outline &amp; Modules</h3>
                   <div className="overflow-x-auto mt-3">
                     <table className="w-full text-left table-auto border-collapse">
                       <thead>

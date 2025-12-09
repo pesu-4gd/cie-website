@@ -967,24 +967,45 @@ export default function Home() {
             <TabsContent value="updates" className="space-y-4">
               <div className="grid md:grid-cols-3 gap-4">
                 <article className="bg-white p-5 rounded-2xl shadow-sm">
-                  <img src="/assets/pocket-coach.jpg" alt="PocketCoach success" className="w-36 h-36 object-cover rounded-md mb-3" />
+                  <img src="/assets/pocket-coach.jpg" alt="PocketCoach success" className="w-36 h-36 object-contain rounded-md mb-3 bg-gray-50" />
                   <h4 className="text-lg font-bold text-gray-900 mb-1">PocketCoach wins Karnataka Elevate</h4>
                   <p className="text-sm text-gray-600">Alumni startup PocketCoach won Karnataka Elevate 2024 and received a ₹30 Lakh grant to scale their coaching platform.</p>
                   <div className="mt-3 text-sm text-gray-500">March 02, 2024</div>
                 </article>
 
                 <article className="bg-white p-5 rounded-2xl shadow-sm">
-                  <img src="/assets/epicure-robotics.jpg" alt="Epicure Robotics" className="w-full h-36 object-cover rounded-md mb-3" />
+                  <img src="/assets/epicure-robotics.jpg" alt="Epicure Robotics" className="w-36 h-36 object-contain rounded-md mb-3 bg-gray-50" />
                   <h4 className="text-lg font-bold text-gray-900 mb-1">Epicure Robotics raises funding</h4>
                   <p className="text-sm text-gray-600">Epicure Robotics secured backing from 100x.VC for their automated food kiosk solutions, accelerating product builds.</p>
                   <div className="mt-3 text-sm text-gray-500">October 12, 2023</div>
                 </article>
 
                 <article className="bg-white p-5 rounded-2xl shadow-sm">
-                  <img src="/assets/aalap-ai.jpg" alt="Aalap AI" className="w-90 h-36 object-cover rounded-md mb-3" />
+                  <img src="/assets/aalap-ai.jpg" alt="Aalap AI" className="w-36 h-36 object-contain rounded-md mb-3 bg-gray-50" />
                   <h4 className="text-lg font-bold text-gray-900 mb-1">Aalap AI launches music-first product</h4>
                   <p className="text-sm text-gray-600">Aalap AI shipped a novel text-to-Carnatic music experience and is gaining traction with 850+ users.</p>
                   <div className="mt-3 text-sm text-gray-500">July 08, 2023</div>
+                </article>
+
+                <article className="bg-white p-5 rounded-2xl shadow-sm">
+                  <img src="/assets/authify.jpg" alt="Authify" className="w-36 h-36 object-contain rounded-md mb-3 bg-gray-50" />
+                  <h4 className="text-lg font-bold text-gray-900 mb-1">Authify breaks revenue milestones</h4>
+                  <p className="text-sm text-gray-600">Deep tech startup Authify broke national revenue milestones in their first quarter and was featured on national television.</p>
+                  <div className="mt-3 text-sm text-gray-500">May 15, 2023</div>
+                </article>
+
+                <article className="bg-white p-5 rounded-2xl shadow-sm">
+                  <img src="/assets/smartchakra.jpg" alt="SmartChakra" className="w-36 h-36 object-contain rounded-md mb-3 bg-gray-50" />
+                  <h4 className="text-lg font-bold text-gray-900 mb-1">SmartChakra expands IoT portfolio</h4>
+                  <p className="text-sm text-gray-600">SmartChakra expanded into wellness and healthcare verticals with their smart connected devices ecosystem.</p>
+                  <div className="mt-3 text-sm text-gray-500">February 20, 2023</div>
+                </article>
+
+                <article className="bg-white p-5 rounded-2xl shadow-sm">
+                  <img src="/assets/zeru.jpg" alt="Zeru Finance" className="w-36 h-36 object-contain rounded-md mb-3 bg-gray-50" />
+                  <h4 className="text-lg font-bold text-gray-900 mb-1">Zeru Finance pioneers supply chain transparency</h4>
+                  <p className="text-sm text-gray-600">Zeru Finance launched innovative fintech solutions for supply chain traceability and transparent operations.</p>
+                  <div className="mt-3 text-sm text-gray-500">January 10, 2023</div>
                 </article>
               </div>
             </TabsContent>

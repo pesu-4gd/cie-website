@@ -194,18 +194,18 @@ export default function IndustrySuccessStoriesPage() {
       </section>
 
       {/* Partnership Impact and Featured Success Stories Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-12 md:py-20 bg-gray-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-8 md:mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Partnership Impact and Featured Success Stories
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
               Real partnerships, real results. Discover how global industry leaders like Intel, Cisco, 
               and HCL Tech have achieved breakthrough success through collaboration with CIE, creating 
               measurable impact across innovation, talent development, and startup growth.
@@ -213,29 +213,91 @@ export default function IndustrySuccessStoriesPage() {
           </motion.div>
 
           {/* Carousel Navigation - Moved to top */}
-          <div className="flex justify-center items-center mb-8 space-x-4">
+          <div className="flex justify-center items-center mb-6 md:mb-8 overflow-x-auto pb-2 -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0">
+            <div className="flex space-x-2 md:space-x-4 min-w-max md:min-w-0">
+              {successStories.map((story, index) => (
+                <button
+                  key={story.company}
+                  onClick={() => setCarouselIndex(index)}
+                  className={`px-3 py-2 md:px-6 md:py-3 rounded-lg text-xs md:text-sm font-medium transition-all duration-300 whitespace-nowrap ${
+                    index === carouselIndex
+                      ? 'bg-orange-600 text-white shadow-md'
+                      : 'bg-gray-100 text-gray-700 hover:bg-orange-100 hover:text-orange-700'
+                  }`}
+                >
+                  {story.company}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile: Show selected story directly */}
+          <div className="md:hidden">
             {successStories.map((story, index) => (
-              <button
-                key={story.company}
-                onClick={() => setCarouselIndex(index)}
-                className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${
-                  index === carouselIndex
-                    ? 'bg-orange-600 text-white shadow-md'
-                    : 'bg-gray-100 text-gray-700 hover:bg-orange-100 hover:text-orange-700'
-                }`}
-              >
-                {story.company}
-              </button>
+              index === carouselIndex && (
+                <motion.div 
+                  key={story.company}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white rounded-2xl shadow-lg border border-gray-100 p-4"
+                >
+                  {/* Header */}
+                  <div className="text-center mb-4">
+                    {story.featured && (
+                      <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800 mb-3">
+                        <Star className="w-3 h-3 mr-1" />
+                        Featured
+                      </div>
+                    )}
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{story.company}</h3>
+                    <div className="flex flex-wrap justify-center gap-2 mb-4">
+                      <span className="px-2 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-medium">
+                        {story.industry}
+                      </span>
+                      <span className="px-2 py-1 rounded-full bg-gray-100 text-gray-800 text-xs font-medium">
+                        {story.year}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  {/* Story */}
+                  <div className="mb-4">
+                    <h4 className="text-base font-semibold text-gray-900 mb-2">Partnership Story</h4>
+                    <p className="text-sm text-gray-700 leading-relaxed">{story.story}</p>
+                  </div>
+                  
+                  {/* Quote */}
+                  <blockquote className="border-l-4 border-orange-500 pl-3 py-2 bg-orange-50 rounded-r-lg mb-4">
+                    <p className="text-gray-700 italic text-sm">&quot;{story.quote}&quot;</p>
+                    <cite className="text-xs font-medium text-orange-800">— {story.spokesperson}</cite>
+                  </blockquote>
+                  
+                  {/* Impact */}
+                  <div>
+                    <h4 className="text-base font-semibold text-gray-900 mb-2">Key Impact</h4>
+                    <ul className="space-y-2">
+                      {story.impact.map((impact, impactIndex) => (
+                        <li key={impactIndex} className="flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-700 text-sm">{impact}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              )
             ))}
           </div>
 
-          <div className="relative w-full overflow-hidden">
+          {/* Desktop: Use Carousel */}
+          <div className="hidden md:block relative w-full">
             <Carousel index={carouselIndex} onIndexChange={setCarouselIndex}>
               <CarouselContent className="flex">
                 {successStories.map((story, index) => (
                   <CarouselItem key={story.company} className="w-full flex-shrink-0">
-                    <div className="w-full px-4">
-                      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-10 max-w-6xl mx-auto min-h-[500px]">
+                    <div className="w-full">
+                      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-10 mx-auto">
                         <motion.div
                           initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -274,7 +336,7 @@ export default function IndustrySuccessStoriesPage() {
                               </div>
                               
                               <blockquote className="border-l-4 border-orange-500 pl-6 py-4 bg-orange-50 rounded-r-xl">
-                                <p className="text-gray-700 italic mb-2 text-lg">"{story.quote}"</p>
+                                <p className="text-gray-700 italic mb-2 text-lg">&quot;{story.quote}&quot;</p>
                                 <cite className="text-sm font-medium text-orange-800">— {story.spokesperson}</cite>
                               </blockquote>
                             </div>

@@ -33,7 +33,7 @@ const mentors2025 = [
     id: '1',
     name: 'Prasanna Chandran',
     companies: 'Greywiz, NTT Data',
-    experience: '30 years',
+    experience: '30 years Exp.',
     domain: 'Cloud, Analytics, Software',
     expertise: ['GenAI, AI/ML', 'Software Architecture', 'Data Modernisation', 'Computer Vision'],
     image: '/assets/prasann-chandran.png'
@@ -42,7 +42,7 @@ const mentors2025 = [
     id: '2',
     name: 'Nagendra Prasad',
     company: 'Wipro',
-    experience: '30 years',
+    experience: '30 years Exp.',
     domain: 'Telco, Mobile, Auto',
     expertise: ['Connected Car / AI', 'V2V, V2X Testing', 'Embedded Systems', 'Computer Vision'],
     image: '/assets/nagendra-prasad.png'
@@ -51,7 +51,7 @@ const mentors2025 = [
     id: '3',
     name: 'Raghavendra Deshmukh',
     companies: 'SAP, Google',
-    experience: '29 years',
+    experience: '29 years Exp.',
     domain: 'Software Products',
     expertise: ['Blockchain', 'AI – LLMs, RAG', 'Cloud, Distributed Systems', 'Product Management'],
     image: '/assets/raghavendra-deshmukh-prof-pic.png'
@@ -60,7 +60,7 @@ const mentors2025 = [
     id: '4',
     name: 'Radhakrishnan Mahalikudi',
     companies: 'Nvidia, AMD',
-    experience: '35 years',
+    experience: '35 years Exp.',
     domain: 'Silicon, Semiconductors',
     expertise: ['Processor', 'Memory Architecture', 'SOC Architecture', 'Silicon Verification'],
     image: '/assets/radhakrishnan-mahalikudi.png'
@@ -69,7 +69,7 @@ const mentors2025 = [
     id: '5',
     name: 'Kuldeep Simha',
     company: 'Intel',
-    experience: '28 years',
+    experience: '28 years Exp.',
     domain: 'Silicon, Semiconductors',
     expertise: ['VLSI Design', 'CPU Design', 'IP/SoC Development', 'Silicon & Systems'],
     image: '/assets/kuldeep-simha.png'
@@ -82,7 +82,7 @@ const mentors2024 = [
     id: '1',
     name: 'M.G. Jayaram',
     company: 'TCS',
-    experience: '36 years',
+    experience: '36 years Exp.',
     domain: 'IT Services',
     expertise: ['Projects/Program', 'IPR Strategy', 'Process Design', 'Consulting'],
     image: '/assets/mg-jayaram.png'
@@ -91,7 +91,7 @@ const mentors2024 = [
     id: '2',
     name: 'Nagendra Prasad',
     company: 'WIPRO',
-    experience: '30 years',
+    experience: '30 years Exp.',
     domain: 'Telco, Mobile, Auto',
     expertise: ['Connected Car / AI', 'V2V, V2X Testing', 'Embedded Systems', 'Computer Vision'],
     image: '/assets/nagendra-prasad.png'
@@ -100,7 +100,7 @@ const mentors2024 = [
     id: '3',
     name: 'Prasanna Chandran',
     company: 'NTT DATA',
-    experience: '30 years',
+    experience: '30 years Exp.',
     domain: 'Cloud, Analytics, Software',
     expertise: ['GenAI, AI/ML', 'Software Architecture', 'Data Modernization', 'Computer Vision'],
     image: '/assets/prasann-chandran.png'
@@ -109,7 +109,7 @@ const mentors2024 = [
     id: '4',
     name: 'Raghavendra Deshmukh',
     companies: 'SAP, Walmart',
-    experience: '25 years',
+    experience: '25 years Exp.',
     domain: 'Software Products',
     expertise: ['Blockchain', 'AI – LLMs, RAG', 'Cloud, Distributed Systems', 'Product Management'],
     image: '/assets/raghavendra-deshmukh-prof-pic.png'
@@ -118,7 +118,7 @@ const mentors2024 = [
     id: '5',
     name: 'Rajesh Banginwar',
     company: 'INTEL',
-    experience: '30 years',
+    experience: '30 years Exp.',
     domain: 'Platforms, Systems',
     expertise: ['Security: Hardware & Software', 'IoT, Edge Compute', 'Embedded Systems', 'Computer Architecture, Operating Systems'],
     image: '/assets/rajesh-banginwar.png'

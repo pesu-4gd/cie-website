@@ -295,7 +295,7 @@ export default function AlumniAssociationPage() {
                     </div>
 
                     <div className="mt-6">
-                      <Button className="bg-amber-400 hover:bg-amber-500 text-white px-6 py-2 rounded-xl font-semibold text-sm">
+                      <Button className="bg-amber-400 hover:bg-amber-500 text-white px-6 py-2 rounded-xl font-semibold text-sm" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Connect%20with%20Alumni%20Chapter'}>
                         Connect with Chapter
                       </Button>
                     </div>
@@ -404,7 +404,7 @@ export default function AlumniAssociationPage() {
                   </div>
                 </div>
 
-                <Button className="w-full bg-amber-400 hover:bg-amber-500 text-white py-3 rounded-xl font-semibold">
+                <Button className="w-full bg-amber-400 hover:bg-amber-500 text-white py-3 rounded-xl font-semibold" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Enquiry%20About%20Alumni%20Event'}>
                   Learn More
                 </Button>
               </motion.div>
@@ -503,14 +503,14 @@ export default function AlumniAssociationPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 className="text-amber-400 hover:bg-white px-8 py-4 text-lg font-semibold rounded-xl"
-                onClick={() => (window.location.href = 'mailto:alumni@pes.edu?subject=Alumni Association Membership')}
+                onClick={() => (window.location.href = 'mailto:cieoffice@pes.edu?subject=Alumni Association Membership')}
               >
                 <UserPlus className="w-5 h-5 mr-2" />
                 Become a Member
               </Button>
               <Button 
                 className="border-2 border-white text-amber-400 hover:bg-white hover:text-amber-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
-                onClick={() => (window.location.href = 'mailto:alumni@pes.edu?subject=Alumni Events Information')}
+                onClick={() => (window.location.href = 'mailto:cieoffice@pes.edu?subject=Alumni Events Information')}
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 Learn About Events

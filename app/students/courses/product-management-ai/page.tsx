@@ -25,11 +25,11 @@ export default function ProductManagementAIPage() {
       <main className="max-w-7xl mx-auto px-6 py-12">
         <section className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
           <Tabs defaultValue="overview">
-            <TabsList className="grid grid-cols-4 gap-2 mb-4">
+            <TabsList className="flex flex-wrap gap-2 mb-4 w-full">
               <TabsTrigger
                 value="overview"
                 style={{ ['--tab-color']: tabColors.overview } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 Overview
               </TabsTrigger>
@@ -37,7 +37,7 @@ export default function ProductManagementAIPage() {
               <TabsTrigger
                 value="objectives"
                 style={{ ['--tab-color']: tabColors.objectives } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 Course Objectives
               </TabsTrigger>
@@ -45,7 +45,7 @@ export default function ProductManagementAIPage() {
               <TabsTrigger
                 value="modules"
                 style={{ ['--tab-color']: tabColors.modules } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 Course Modules
               </TabsTrigger>
@@ -53,14 +53,14 @@ export default function ProductManagementAIPage() {
               <TabsTrigger
                 value="details"
                 style={{ ['--tab-color']: tabColors.details } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 Course Details
               </TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview">
-              <h3 className="text-3xl font-bold mb-4">Product Management in the AI Era</h3>
+              <h3 className="text-3xl font-bold mb-4 mt-9">Product Management in the AI Era</h3>
               <p className="mt-3 text-lg text-gray-700 leading-relaxed">Welcome to Product Management in the AI Era, a 2-credit Special Topic course offered by the Centre for Innovation and Entrepreneurship (CIE) at PES University for 8th-semester students. This course introduces the critical skills of product management in the context of Artificial Intelligence (AI), empowering students to create impactful products that align technology, customer needs, and business goals. Open to all Engineering and Design students, it prepares participants for high-demand roles as Product Managers (PMs), often dubbed 'mini-CEOs,' in industries and startups worldwide.</p>
 
               <div className="mt-6">
@@ -80,7 +80,7 @@ export default function ProductManagementAIPage() {
             </TabsContent>
 
             <TabsContent value="objectives">
-              <h3 className="text-3xl font-bold mb-4">Course Objectives</h3>
+              <h3 className="text-3xl font-bold mb-4 mt-9">Course Objectives</h3>
               <ul className="mt-3 list-disc pl-6 text-lg text-gray-700 space-y-2">
                 <li>Introduce core concepts of product management, including roles and responsibilities.</li>
                 <li>Equip students with skills in user research, market analysis, and product roadmap development.</li>
@@ -103,7 +103,7 @@ export default function ProductManagementAIPage() {
             </TabsContent>
 
             <TabsContent value="modules">
-              <h3 className="text-3xl font-bold mb-4">Course Structure & Modules</h3>
+              <h3 className="text-3xl font-bold mb-4 mt-9">Course Structure & Modules</h3>
               <p className="mt-3 text-lg text-gray-700 leading-relaxed">This 2-credit course is designed for 8th-semester students and delivered in a hybrid format, primarily online (evenings or Saturdays) with 3-4 in-person sessions. The pedagogy emphasizes project-based learning, case discussions, and a final product definition/pitch project.</p>
 
               <div className="overflow-x-auto mt-6">
@@ -149,7 +149,7 @@ export default function ProductManagementAIPage() {
             <TabsContent value="details">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="md:col-span-2">
-                  <h3 className="text-2xl font-semibold">Course Structure</h3>
+                  <h3 className="text-2xl font-semibold mt-9">Course Structure</h3>
                   <p className="mt-3 text-gray-700">This 2-credit course is designed for 8th-semester students and delivered in a hybrid format, primarily online (evenings or Saturdays) with 3-4 in-person sessions (Saturdays, subject to availability). The pedagogy emphasizes project-based learning, case discussions, and a final product definition/pitch project.</p>
 
                   <div className="mt-8">

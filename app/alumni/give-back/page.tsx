@@ -132,7 +132,7 @@ export default function GiveBackPage() {
                   <Badge variant="secondary">High Impact</Badge>
                 </div>
 
-                <Button className="w-full">
+                <Button className="w-full" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Interest%20in%20Becoming%20a%20Mentor'}>
                   Become a Mentor
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
@@ -184,7 +184,7 @@ export default function GiveBackPage() {
                   <div className="text-2xl font-bold text-purple-700">₹5 Lakhs</div>
                 </div>
 
-                <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                <Button className="w-full bg-purple-600 hover:bg-purple-700" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Interest%20in%20Alumni%20Angel%20Fund'}>
                   Join Angel Fund
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
@@ -234,7 +234,7 @@ export default function GiveBackPage() {
                   <Badge variant="secondary">Impact Reports</Badge>
                 </div>
 
-                <Button className="w-full" variant="outline">
+                <Button className="w-full" variant="outline" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Interest%20in%20Making%20a%20Donation'}>
                   Make a Donation
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
@@ -361,7 +361,7 @@ export default function GiveBackPage() {
                 </p>
                 <div className="flex items-center justify-between">
                   <Badge variant="secondary">2 days event</Badge>
-                  <Button size="sm">
+                  <Button size="sm" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Interest%20in%20CIE%20Ignite%20Ideathon%20Judge%20Panel'}>
                     Join Panel
                   </Button>
                 </div>
@@ -381,10 +381,10 @@ export default function GiveBackPage() {
             Your journey with CIE doesn't end at graduation. Join us in shaping the future of entrepreneurship and innovation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary">
+            <Button size="lg" variant="secondary" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Interest%20in%20Mentoring'}>
               Start Mentoring Today
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-blue-600">
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-blue-600" onClick={() => window.location.href = 'mailto:cieoffice@pes.edu?subject=Exploring%20Alumni%20Give%20Back%20Options'}>
               Explore All Options
             </Button>
           </div>

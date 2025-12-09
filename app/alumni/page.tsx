@@ -5,7 +5,7 @@ import { SECTION_COLORS } from '@/styles/colors';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Users, TrendingUp, Heart, Calendar, Search, UserPlus, DollarSign, Briefcase, GraduationCap, ArrowRight } from 'lucide-react';
+import { Users, TrendingUp, Heart, Calendar, Search, UserPlus, DollarSign, Briefcase, GraduationCap, ArrowRight, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -245,6 +245,45 @@ export default function AlumniPage() {
                 <Link href="/alumni/stay-connected">
                   <Button className="w-full" variant="outline">
                     Join Network
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Newsletter */}
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <div className="flex items-center space-x-3">
+                  <div className="bg-amber-100 p-3 rounded-lg">
+                    <Mail className="h-6 w-6 text-amber-600" />
+                  </div>
+                  <div>
+                    <CardTitle>CIE Newsletter</CardTitle>
+                    <CardDescription>Innovation updates</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Stay updated with innovation stories, startup success journeys, and community updates from CIE.
+                </p>
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center text-sm text-gray-600">
+                    <span className="w-2 h-2 bg-amber-500 rounded-full mr-2"></span>
+                    10+ Issues Published
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <span className="w-2 h-2 bg-amber-500 rounded-full mr-2"></span>
+                    Success Stories
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <span className="w-2 h-2 bg-amber-500 rounded-full mr-2"></span>
+                    Community Updates
+                  </div>
+                </div>
+                <Link href="/alumni/newsletter">
+                  <Button className="w-full bg-amber-500 hover:bg-amber-600 text-white">
+                    Read Newsletter
                   </Button>
                 </Link>
               </CardContent>

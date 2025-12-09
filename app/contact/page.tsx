@@ -59,8 +59,8 @@ export default function ContactPage() {
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">Email</h3>
                 <p className="text-gray-600 text-sm">
-                  <a href="mailto:cieinfo@pes.edu" className="hover:text-red-600 transition-colors">
-                    cieinfo@pes.edu
+                  <a href="mailto:cieprogram@pes.edu" className="hover:text-red-600 transition-colors">
+                    cieprogram@pes.edu
                   </a><br />
                   General Inquiries
                 </p>
@@ -117,7 +117,7 @@ export default function ContactPage() {
                   </p>
                   <Button 
                     className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white"
-                    onClick={() => globalThis.location.href = 'mailto:cieinfo@pes.edu'}
+                    onClick={() => globalThis.location.href = 'mailto:cieprogram@pes.edu'}
                   >
                     <Mail className="h-4 w-4 mr-2" />
                     Email Us
@@ -195,7 +195,7 @@ export default function ContactPage() {
                         <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
                           <div className="flex items-center">
                             <Mail className="h-4 w-4 mr-1" />
-                            <span>cieinfo@pes.edu</span>
+                            <span>cieprogram@pes.edu</span>
                           </div>
                         </div>
                       </div>
@@ -218,7 +218,7 @@ export default function ContactPage() {
                     <Button 
                       size="sm" 
                       className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white"
-                      onClick={() => globalThis.location.href = 'mailto:cieinfo@pes.edu?subject=Student Programs Inquiry'}
+                      onClick={() => globalThis.location.href = 'mailto:cieprogram@pes.edu?subject=Student Programs Inquiry'}
                     >
                       Contact
                     </Button>
@@ -231,7 +231,7 @@ export default function ContactPage() {
                     <Button 
                       size="sm" 
                       className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white"
-                      onClick={() => globalThis.location.href = 'mailto:cieinfo@pes.edu?subject=Industry Partnership Inquiry'}
+                      onClick={() => globalThis.location.href = 'mailto:cieprogram@pes.edu?subject=Industry Partnership Inquiry'}
                     >
                       Contact
                     </Button>
@@ -336,7 +336,7 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  For urgent matters, please call our main office at +91 80 2672 7272 during office hours (9 AM - 5 PM, Monday to Friday). For non-urgent inquiries, email us at cieinfo@pes.edu.
+                  For urgent matters, please call our main office at +91 80 2672 7272 during office hours (9 AM - 5 PM, Monday to Friday). For non-urgent inquiries, email us at cieprogram@pes.edu.
                 </p>
               </CardContent>
             </Card>

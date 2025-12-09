@@ -47,11 +47,11 @@ export default function CieIgnitePage() {
           <div className="mt-6 grid md:grid-cols-3 gap-6">
             <div className="md:col-span-2">
               <Tabs defaultValue="overview">
-                <TabsList className="grid grid-cols-4 gap-2 mb-4">
+                <TabsList className="flex flex-wrap gap-2 mb-4 w-full">
                   <TabsTrigger
                     value="overview"
                     style={{ ['--tab-color']: tabColors.overview } as React.CSSProperties}
-                    className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                    className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
                   >
                     Overview
                   </TabsTrigger>
@@ -59,7 +59,7 @@ export default function CieIgnitePage() {
                   <TabsTrigger
                     value="pathways"
                     style={{ ['--tab-color']: tabColors.pathways } as React.CSSProperties}
-                    className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                    className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
                   >
                     Pathways
                   </TabsTrigger>
@@ -67,7 +67,7 @@ export default function CieIgnitePage() {
                   <TabsTrigger
                     value="engine"
                     style={{ ['--tab-color']: tabColors.engine } as React.CSSProperties}
-                    className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                    className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
                   >
                     The Ignite Engine
                   </TabsTrigger>
@@ -75,7 +75,7 @@ export default function CieIgnitePage() {
                   <TabsTrigger
                     value="timeline"
                     style={{ ['--tab-color']: tabColors.timeline } as React.CSSProperties}
-                    className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                    className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
                   >
                     Timeline & Partners
                   </TabsTrigger>

@@ -296,38 +296,38 @@ export default function AlumniMentorshipPage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
+                  className="bg-white p-5 md:p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-8 h-8 text-amber-500" />
+                  <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-yellow-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">{program.title}</h3>
-                      <p className="text-gray-600 mb-6">{program.description}</p>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 md:mb-3">{program.title}</h3>
+                      <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6">{program.description}</p>
 
-                      <div className="grid grid-cols-3 gap-4 mb-6">
+                      <div className="grid grid-cols-3 gap-2 md:gap-4 mb-4 md:mb-6">
                         <div className="text-center">
-                          <div className="text-sm text-gray-500">Duration</div>
-                          <div className="font-semibold text-gray-900">{program.duration}</div>
+                          <div className="text-xs md:text-sm text-gray-500">Duration</div>
+                          <div className="text-sm md:text-base font-semibold text-gray-900">{program.duration}</div>
                         </div>
                         <div className="text-center">
-                          <div className="text-sm text-gray-500">Commitment</div>
-                          <div className="font-semibold text-gray-900">{program.commitment}</div>
+                          <div className="text-xs md:text-sm text-gray-500">Commitment</div>
+                          <div className="text-xs md:text-base font-semibold text-gray-900 leading-tight">{program.commitment}</div>
                         </div>
                         <div className="text-center">
-                          <div className="text-sm text-gray-500">Participants</div>
-                          <div className="font-semibold text-gray-900">{program.participants}</div>
+                          <div className="text-xs md:text-sm text-gray-500">Participants</div>
+                          <div className="text-xs md:text-base font-semibold text-gray-900 leading-tight">{program.participants}</div>
                         </div>
                       </div>
 
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-3">Key Benefits</h4>
-                        <div className="space-y-2">
+                        <h4 className="text-sm md:text-base font-semibold text-gray-900 mb-2 md:mb-3">Key Benefits</h4>
+                        <div className="space-y-1.5 md:space-y-2">
                           {program.benefits.map((benefit) => (
                             <div key={benefit} className="flex items-start gap-2">
-                              <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                              <span className="text-sm text-gray-700">{benefit}</span>
+                              <CheckCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                              <span className="text-xs md:text-sm text-gray-700">{benefit}</span>
                             </div>
                           ))}
                         </div>
@@ -479,27 +479,28 @@ export default function AlumniMentorshipPage() {
             </p>
           </motion.div>
 
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             {mentorshipProcess.map((process, index) => (
               <motion.div
                 key={process.step}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`flex items-center gap-8 ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}
+                className={`flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
               >
-                <div className="flex-1">
-                  <div className={`bg-white p-8 rounded-3xl border border-gray-200 ${index % 2 === 1 ? 'text-right' : ''}`}>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{process.title}</h3>
-                    <p className="text-gray-600 mb-4">{process.description}</p>
-                    <span className="inline-block text-sm font-semibold text-amber-600 bg-yellow-50 px-3 py-1 rounded-full">
+                {/* Step number - show at top on mobile, inline on desktop */}
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-xl md:rounded-2xl flex items-center justify-center text-white font-bold text-lg md:text-xl flex-shrink-0">
+                  {process.step}
+                </div>
+
+                <div className="flex-1 w-full">
+                  <div className={`bg-white p-5 md:p-8 rounded-2xl md:rounded-3xl border border-gray-200 ${index % 2 === 1 ? 'md:text-right' : ''}`}>
+                    <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-2 md:mb-3">{process.title}</h3>
+                    <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4">{process.description}</p>
+                    <span className="inline-block text-xs md:text-sm font-semibold text-amber-600 bg-yellow-50 px-2 md:px-3 py-1 rounded-full">
                       Duration: {process.duration}
                     </span>
                   </div>
-                </div>
-
-                <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-2xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
-                  {process.step}
                 </div>
               </motion.div>
             ))}
@@ -515,37 +516,37 @@ export default function AlumniMentorshipPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-yellow-100 max-w-3xl mx-auto mb-12">
+            <p className="text-base md:text-xl text-yellow-100 max-w-3xl mx-auto mb-8 md:mb-12 px-2">
               Join our mentorship community and be part of a network that 
               empowers personal and professional growth for everyone.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <UserPlus className="w-8 h-8 text-white" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
+              <div className="text-center bg-white/10 rounded-2xl p-5 md:p-6">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
+                  <UserPlus className="w-6 h-6 md:w-8 md:h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Looking for Guidance?</h3>
-                <p className="text-yellow-100 mb-4">Connect with experienced alumni mentors</p>
+                <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Looking for Guidance?</h3>
+                <p className="text-sm md:text-base text-yellow-100 mb-4">Connect with experienced alumni mentors</p>
                 <Button 
-                  className="bg-white text-amber-600 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold"
+                  className="bg-white text-amber-600 hover:bg-gray-100 px-4 md:px-6 py-2.5 md:py-3 rounded-xl font-semibold text-sm md:text-base"
                   onClick={() => window.location.href = 'mailto:mentorship@pes.edu?subject=Enquiry%20about%20Mentee%20Program'}
                 >
                   Enquire about mentee
                 </Button>
               </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <HandHeart className="w-8 h-8 text-white" />
+              <div className="text-center bg-white/10 rounded-2xl p-5 md:p-6">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
+                  <HandHeart className="w-6 h-6 md:w-8 md:h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Want to Give Back?</h3>
-                <p className="text-yellow-100 mb-4">Share your expertise as a mentor</p>
+                <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Want to Give Back?</h3>
+                <p className="text-sm md:text-base text-yellow-100 mb-4">Share your expertise as a mentor</p>
                 <Button 
-                  className="border-2 border-white text-white hover:bg-white hover:text-amber-600 px-6 py-3 rounded-xl font-semibold bg-transparent"
+                  className="border-2 border-white text-white hover:bg-white hover:text-amber-600 px-4 md:px-6 py-2.5 md:py-3 rounded-xl font-semibold bg-transparent text-sm md:text-base"
                   onClick={() => window.location.href = 'mailto:mentorship@pes.edu?subject=Enquiry%20about%20Becoming%20a%20Mentor'}
                 >
                   Enquire about mentorship

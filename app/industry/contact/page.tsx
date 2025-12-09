@@ -30,7 +30,7 @@ export default function IndustryContactPage() {
       title: 'Partnership Inquiries',
       description: 'General partnership and collaboration opportunities',
       icon: Handshake,
-      contact: 'industry@pes.edu',
+      contact: 'cieoffice@pes.edu',
       phone: '+91 80 2672 7000',
       color: 'orange'
     },

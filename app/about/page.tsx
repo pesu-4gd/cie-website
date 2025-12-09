@@ -376,8 +376,8 @@ export default function About() {
           >
             <div className="mb-6">
               <h3 className="text-xl font-bold text-gray-900 mb-2">Email Us</h3>
-              <a href="mailto:cieinfo@pes.edu" className="text-red-600 hover:text-red-700 text-lg font-medium">
-                cieinfo@pes.edu
+              <a href="mailto:cieoffice@pes.edu" className="text-red-600 hover:text-red-700 text-lg font-medium">
+                cieoffice@pes.edu
               </a>
             </div>
             <p className="text-gray-600">
@@ -426,7 +426,7 @@ export default function About() {
               </p>
             </div>
             <p className="text-center text-gray-600 mt-8">
-              More FAQs coming soon. For specific questions, please email us at <a href="mailto:cieinfo@pes.edu" className="text-red-600 hover:text-red-700">cieinfo@pes.edu</a>
+              More FAQs coming soon. For specific questions, please email us at <a href="mailto:cieoffice@pes.edu" className="text-red-600 hover:text-red-700">cieoffice@pes.edu</a>
             </p>
           </motion.div>
         </div>
@@ -496,7 +496,7 @@ export default function About() {
                 Join as Student
               </Button> */}
               <Button 
-                onClick={() => globalThis.location.href = 'mailto:cieprogram@pes.edu'}
+                onClick={() => globalThis.location.href = 'mailto:cieoffice@pes.edu'}
                 className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
               >
                 Get in Touch

@@ -47,11 +47,11 @@ export default function CieSparkPage() {
           <div className="mt-6 grid md:grid-cols-3 gap-6">
             <div className="md:col-span-2">
               <Tabs defaultValue="overview">
-            <TabsList className="grid grid-cols-4 gap-2 mb-4">
+            <TabsList className="flex flex-wrap gap-2 mb-4 w-full">
               <TabsTrigger
                 value="overview"
                 style={{ ['--tab-color']: tabColors.overview } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 Overview
               </TabsTrigger>
@@ -59,7 +59,7 @@ export default function CieSparkPage() {
               <TabsTrigger
                 value="process"
                 style={{ ['--tab-color']: tabColors.process } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 Process
               </TabsTrigger>
@@ -67,7 +67,7 @@ export default function CieSparkPage() {
               <TabsTrigger
                 value="gains"
                 style={{ ['--tab-color']: tabColors.gains } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 Student Gains
               </TabsTrigger>
@@ -75,7 +75,7 @@ export default function CieSparkPage() {
               <TabsTrigger
                 value="partners"
                 style={{ ['--tab-color']: tabColors.partners } as React.CSSProperties}
-                className="px-3 py-2 text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)]"
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 Partners & Timeline
               </TabsTrigger>
