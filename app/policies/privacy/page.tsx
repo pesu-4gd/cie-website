@@ -82,12 +82,12 @@ export default function PrivacyPolicyPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <Badge className="mb-4 bg-red-100 text-red-800 border border-red-200">
+            <Badge className="mb-4 bg-[#f07f1a]/10 text-[#f07f1a] border border-[#f07f1a]/20">
               <Shield className="h-4 w-4 mr-1" />
               Legal Document
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Privacy <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Policy</span>
+              Privacy <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Policy</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Your privacy is important to us. This policy explains how we collect, use, and protect your personal information at CIE.
@@ -107,7 +107,7 @@ export default function PrivacyPolicyPage() {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <FileText className="h-5 w-5 text-red-600" />
+                <FileText className="h-5 w-5 text-[#f07f1a]" />
                 Introduction
               </CardTitle>
             </CardHeader>
@@ -133,9 +133,7 @@ export default function PrivacyPolicyPage() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
-                      <div className="p-2 bg-red-100 rounded-lg">
-                        <section.icon className="h-5 w-5 text-red-600" />
-                      </div>
+                      <section.icon className="w-10 h-10 text-[#f07f1a]" />
                       {section.title}
                     </CardTitle>
                   </CardHeader>
@@ -143,7 +141,7 @@ export default function PrivacyPolicyPage() {
                     <ul className="space-y-3">
                       {section.content.map((item, itemIndex) => (
                         <li key={itemIndex} className="flex items-start gap-3">
-                          <ArrowRight className="h-4 w-4 text-red-600 mt-1 flex-shrink-0" />
+                          <ArrowRight className="h-4 w-4 text-[#f07f1a] mt-1 flex-shrink-0" />
                           <span className="text-gray-700">{item}</span>
                         </li>
                       ))}
@@ -158,7 +156,7 @@ export default function PrivacyPolicyPage() {
           <Card className="mt-8">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Lock className="h-5 w-5 text-red-600" />
+                <Lock className="h-5 w-5 text-[#f07f1a]" />
                 Data Retention
               </CardTitle>
             </CardHeader>
@@ -184,7 +182,7 @@ export default function PrivacyPolicyPage() {
           <Card className="mt-8">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Eye className="h-5 w-5 text-red-600" />
+                <Eye className="h-5 w-5 text-[#f07f1a]" />
                 Contact Us
               </CardTitle>
               <CardDescription>
@@ -236,7 +234,7 @@ export default function PrivacyPolicyPage() {
         <div className="max-w-4xl mx-auto text-center">
           <Link 
             href="/policies"
-            className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold transition-colors"
+            className="inline-flex items-center gap-2 text-[#f07f1a] hover:text-[#d96d15] font-semibold transition-colors"
           >
             <ArrowRight className="h-4 w-4 rotate-180" />
             Back to All Policies

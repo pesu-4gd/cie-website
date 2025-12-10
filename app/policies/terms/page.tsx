@@ -91,12 +91,12 @@ export default function TermsOfServicePage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <Badge className="mb-4 bg-red-100 text-red-800 hover:bg-red-200">
+            <Badge className="mb-4 bg-[#f07f1a]/10 text-[#f07f1a] hover:bg-[#f07f1a]/20">
               <Scale className="h-4 w-4 mr-1" />
               Legal Document
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Terms of <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Service</span>
+              Terms of <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Service</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               These terms govern your use of CIE services, programs, and facilities. Please read them carefully.
@@ -116,7 +116,7 @@ export default function TermsOfServicePage() {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <FileText className="h-5 w-5 text-red-600" />
+                <FileText className="h-5 w-5 text-[#f07f1a]" />
                 Introduction
               </CardTitle>
             </CardHeader>
@@ -142,9 +142,7 @@ export default function TermsOfServicePage() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
-                      <div className="p-2 bg-red-100 rounded-lg">
-                        <section.icon className="h-5 w-5 text-red-600" />
-                      </div>
+                      <section.icon className="w-10 h-10 text-[#f07f1a]" />
                       {section.title}
                     </CardTitle>
                   </CardHeader>
@@ -152,7 +150,7 @@ export default function TermsOfServicePage() {
                     <ul className="space-y-3">
                       {section.content.map((item, itemIndex) => (
                         <li key={itemIndex} className="flex items-start gap-3">
-                          <ArrowRight className="h-4 w-4 text-red-600 mt-1 flex-shrink-0" />
+                          <ArrowRight className="h-4 w-4 text-[#f07f1a] mt-1 flex-shrink-0" />
                           <span className="text-gray-700">{item}</span>
                         </li>
                       ))}
@@ -167,7 +165,7 @@ export default function TermsOfServicePage() {
           <Card className="mt-8">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <AlertCircle className="h-5 w-5 text-red-600" />
+                <AlertCircle className="h-5 w-5 text-[#f07f1a]" />
                 Prohibited Activities
               </CardTitle>
               <CardDescription>
@@ -178,7 +176,7 @@ export default function TermsOfServicePage() {
               <div className="grid md:grid-cols-2 gap-4">
                 {prohibitedActivities.map((activity, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0" />
+                    <div className="w-2 h-2 bg-[#f07f1a] rounded-full mt-2 flex-shrink-0" />
                     <span className="text-gray-700 text-sm">{activity}</span>
                   </div>
                 ))}
@@ -190,7 +188,7 @@ export default function TermsOfServicePage() {
           <Card className="mt-8">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Shield className="h-5 w-5 text-red-600" />
+                <Shield className="h-5 w-5 text-[#f07f1a]" />
                 Liability and Disclaimers
               </CardTitle>
             </CardHeader>
@@ -240,7 +238,7 @@ export default function TermsOfServicePage() {
           <Card className="mt-8">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <FileText className="h-5 w-5 text-red-600" />
+                <FileText className="h-5 w-5 text-[#f07f1a]" />
                 Contact Information
               </CardTitle>
               <CardDescription>
@@ -292,7 +290,7 @@ export default function TermsOfServicePage() {
         <div className="max-w-4xl mx-auto text-center">
           <Link 
             href="/policies"
-            className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold transition-colors"
+            className="inline-flex items-center gap-2 text-[#f07f1a] hover:text-[#d96d15] font-semibold transition-colors"
           >
             <ArrowRight className="h-4 w-4 rotate-180" />
             Back to All Policies

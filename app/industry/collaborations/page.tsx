@@ -496,16 +496,7 @@ function CollaborationTypesSection({ types }: { types: CollaborationType[] }) {
           >
             <Card className="h-full hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${
-                  type.color === 'blue' ? 'bg-blue-100 text-blue-600' :
-                  type.color === 'green' ? 'bg-green-100 text-green-600' :
-                  type.color === 'purple' ? 'bg-purple-100 text-purple-600' :
-                  type.color === 'red' ? 'bg-red-100 text-red-600' :
-                  type.color === 'orange' ? 'bg-orange-100 text-orange-600' :
-                  'bg-yellow-100 text-yellow-600'
-                }`}>
-                  <IconComponent className="h-6 w-6" />
-                </div>
+                <IconComponent className="w-10 h-10 text-[#f07f1a] mb-4" />
                 <CardTitle className="text-xl">{type.title}</CardTitle>
                 <CardDescription>{type.description}</CardDescription>
               </CardHeader>
@@ -702,23 +693,17 @@ function ContactSection() {
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Partnership Benefits</h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <TrendingUp className="h-6 w-6 text-blue-600" />
-              </div>
+              <TrendingUp className="w-10 h-10 text-[#f07f1a] mx-auto mb-3" />
               <h4 className="font-semibold mb-2">Innovation Access</h4>
               <p className="text-sm text-gray-600">Get early access to cutting-edge research and breakthrough innovations</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Users className="h-6 w-6 text-green-600" />
-              </div>
+              <Users className="w-10 h-10 text-[#f07f1a] mx-auto mb-3" />
               <h4 className="font-semibold mb-2">Talent Pipeline</h4>
               <p className="text-sm text-gray-600">Direct access to top-tier students and researchers for recruitment</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Rocket className="h-6 w-6 text-purple-600" />
-              </div>
+              <Rocket className="w-10 h-10 text-[#f07f1a] mx-auto mb-3" />
               <h4 className="font-semibold mb-2">Market Advantage</h4>
               <p className="text-sm text-gray-600">Stay ahead of competition with collaborative research and development</p>
             </div>
@@ -1203,9 +1188,7 @@ export default function CollaborationsPage() {
                     className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg"
                   >
                     <div className="flex items-start gap-6 mb-6">
-                      <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                        <IconComponent className="w-8 h-8 text-orange-600" />
-                      </div>
+                      <IconComponent className="w-12 h-12 text-[#f07f1a] flex-shrink-0" />
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900 mb-3">{model.title}</h3>
                         <p className="text-lg text-gray-600 leading-relaxed">{model.description}</p>
@@ -1416,7 +1399,7 @@ export default function CollaborationsPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-orange-600 to-[#f47b56]">
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1433,7 +1416,7 @@ export default function CollaborationsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="mailto:cieprogram@pes.edu"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl group bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-semibold"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
               >
                 <Handshake className="w-5 h-5 mr-2" />
                 Start Partnership
@@ -1448,7 +1431,7 @@ export default function CollaborationsPage() {
               </Button> */}
               <a
                 href="mailto:cieprogram@pes.edu"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 font-semibold"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
               >
                 <Phone className="w-5 h-5 mr-2" />
                 Schedule Consultation

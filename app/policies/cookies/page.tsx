@@ -91,12 +91,12 @@ export default function CookiePolicyPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <Badge className="mb-4 bg-red-100 text-red-800 hover:bg-red-200">
+            <Badge className="mb-4 bg-[#f07f1a]/10 text-[#f07f1a] hover:bg-[#f07f1a]/20">
               <Cookie className="h-4 w-4 mr-1" />
               Cookie Policy
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Cookie <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Policy</span>
+              Cookie <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Policy</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Learn about how we use cookies and similar technologies to enhance your experience on our website.
@@ -116,7 +116,7 @@ export default function CookiePolicyPage() {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Info className="h-5 w-5 text-red-600" />
+                <Info className="h-5 w-5 text-[#f07f1a]" />
                 What Are Cookies?
               </CardTitle>
             </CardHeader>
@@ -143,9 +143,7 @@ export default function CookiePolicyPage() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
-                      <div className="p-2 bg-red-100 rounded-lg">
-                        <cookie.icon className="h-5 w-5 text-red-600" />
-                      </div>
+                      <cookie.icon className="w-10 h-10 text-[#f07f1a]" />
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
                           {cookie.type}
@@ -165,7 +163,7 @@ export default function CookiePolicyPage() {
                       <ul className="space-y-1">
                         {cookie.examples.map((example, exampleIndex) => (
                           <li key={exampleIndex} className="flex items-center gap-2 text-sm text-gray-700">
-                            <ArrowRight className="h-3 w-3 text-red-600" />
+                            <ArrowRight className="h-3 w-3 text-[#f07f1a]" />
                             {example}
                           </li>
                         ))}
@@ -208,7 +206,7 @@ export default function CookiePolicyPage() {
                             className={
                               cookie.type === 'Essential' 
                                 ? 'text-green-600 border-green-600' 
-                                : 'text-red-600 border-blue-600'
+                                : 'text-[#f07f1a] border-[#f07f1a]'
                             }
                           >
                             {cookie.type}
@@ -226,7 +224,7 @@ export default function CookiePolicyPage() {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Settings className="h-5 w-5 text-red-600" />
+                <Settings className="h-5 w-5 text-[#f07f1a]" />
                 Managing Your Cookie Preferences
               </CardTitle>
             </CardHeader>
@@ -245,12 +243,12 @@ export default function CookiePolicyPage() {
                   </ul>
                 </div>
                 
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                <div className="bg-[#f07f1a]/10 border border-[#f07f1a]/20 rounded-lg p-4">
                   <div className="flex items-start gap-3">
-                    <Info className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
+                    <Info className="h-5 w-5 text-[#f07f1a] mt-0.5 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-red-800 mb-1">Important Note</h4>
-                      <p className="text-red-700 text-sm">
+                      <h4 className="font-semibold text-[#d96d15] mb-1">Important Note</h4>
+                      <p className="text-[#d96d15] text-sm">
                         Disabling essential cookies may prevent certain features of our website from working properly, such as logging in or accessing secure areas.
                       </p>
                     </div>
@@ -297,7 +295,7 @@ export default function CookiePolicyPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Cookie className="h-5 w-5 text-red-600" />
+                <Cookie className="h-5 w-5 text-[#f07f1a]" />
                 Contact Us
               </CardTitle>
               <CardDescription>
@@ -334,7 +332,7 @@ export default function CookiePolicyPage() {
         <div className="max-w-4xl mx-auto text-center">
           <Link 
             href="/policies"
-            className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold transition-colors"
+            className="inline-flex items-center gap-2 text-[#f07f1a] hover:text-[#d96d15] font-semibold transition-colors"
           >
             <ArrowRight className="h-4 w-4 rotate-180" />
             Back to All Policies

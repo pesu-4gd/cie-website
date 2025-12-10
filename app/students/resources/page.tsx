@@ -191,9 +191,7 @@ export default function ResourcesPage() {
         />
         <div className="relative z-10 max-w-7xl mx-auto text-center">
           <div className="mb-8">
-            <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 bg-gradient-to-br ${studentsColors.gradient.tailwind}`}>
-              <BookOpen className="h-8 w-8 text-white" />
-            </div>
+            <BookOpen className="h-12 w-12 text-[#2B9EB3] mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Fuel Your{' '}
               <span className="block text-[#2B9EB3]">Entrepreneurial Journey</span>

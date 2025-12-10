@@ -303,7 +303,7 @@ export default function CareersPage() {
             className="text-5xl md:text-7xl font-bold text-white mb-6"
           >
             Build the Future of
-            <span className="block mt-4 bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent">
+            <span className="block mt-4 bg-gradient-to-r from-[#f07f1a] to-amber-400 bg-clip-text text-transparent">
               Entrepreneurship Education
             </span>
           </motion.h1>
@@ -321,32 +321,6 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Company Stats */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-200"
-                >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r from-red-500 to-rose-500 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Company Values */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
@@ -358,7 +332,7 @@ export default function CareersPage() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="text-gray-900">Our Values & </span>
-              <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Culture</span>
+              <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Culture</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               We're more than just a workplace – we're a community of passionate
@@ -378,9 +352,7 @@ export default function CareersPage() {
                   className="bg-white p-8 rounded-3xl border-2 border-gray-200"
                 >
                   <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-rose-500 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-8 h-8 text-white" />
-                    </div>
+                    <IconComponent className="w-12 h-12 text-[#f07f1a] flex-shrink-0" />
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{value.title}</h3>
                       <p className="text-gray-600">{value.description}</p>
@@ -394,7 +366,7 @@ export default function CareersPage() {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 bg-gradient-to-br from-red-50 to-rose-50">
+      <section className="py-20 bg-gradient-to-br from-[#f07f1a]/10 to-amber-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -404,7 +376,7 @@ export default function CareersPage() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="text-gray-900">Why Work </span>
-              <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">With Us?</span>
+              <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">With Us?</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               We offer comprehensive benefits and opportunities that support your
@@ -425,9 +397,7 @@ export default function CareersPage() {
                   className="bg-white p-8 rounded-3xl border-2 border-gray-200"
                 >
                   <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 bg-gradient-to-r from-red-500 to-rose-500">
-                      <IconComponent className="w-8 h-8 text-white" />
-                    </div>
+                    <IconComponent className="w-12 h-12 text-[#f07f1a] flex-shrink-0" />
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
                       <p className="text-gray-600">{benefit.description}</p>
@@ -453,7 +423,7 @@ export default function CareersPage() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="text-gray-900">Application </span>
-              <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Process</span>
+              <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Process</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Our streamlined hiring process is designed to be fair, transparent,
@@ -470,7 +440,7 @@ export default function CareersPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-white p-8 rounded-3xl border-2 border-gray-200 text-center"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <span className="text-white font-bold text-xl">{process.step}</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{process.title}</h3>
@@ -482,7 +452,7 @@ export default function CareersPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-red-600 to-rose-700">
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -492,40 +462,34 @@ export default function CareersPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Ready to Join Our Mission?
             </h2>
-            <p className="text-xl text-red-100 max-w-3xl mx-auto mb-12">
+            <p className="text-xl text-amber-100 max-w-3xl mx-auto mb-12">
               If you're passionate about entrepreneurship education and want to make
               a meaningful impact, we'd love to hear from you.
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Rocket className="w-8 h-8 text-white" />
-                </div>
+                <Rocket className="w-12 h-12 text-white mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-white">Innovation Focus</h3>
                 <p className="text-blue-100">Work on cutting-edge projects</p>
               </div>
               
               <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
+                <Users className="w-12 h-12 text-white mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-white">Great Team</h3>
-                <p className="text-red-100">Collaborate with amazing people</p>
+                <p className="text-amber-100">Collaborate with amazing people</p>
               </div>
               
               <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Target className="w-8 h-8 text-white" />
-                </div>
+                <Target className="w-12 h-12 text-white mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-white">Meaningful Impact</h3>
-                <p className="text-red-100">Shape the future of education</p>
+                <p className="text-amber-100">Shape the future of education</p>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button 
-                className="border-2 border-white text-white px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => globalThis.location.href = 'mailto:cieoffice@pes.edu?subject=Career Inquiry'}
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
@@ -534,7 +498,7 @@ export default function CareersPage() {
             </div>
             
             <div className="text-center">
-              <p className="text-red-100 mb-4">Questions about careers at CIE?</p>
+              <p className="text-amber-100 mb-4">Questions about careers at CIE?</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center text-white">
                 <div className="flex items-center justify-center gap-2">
                   <Mail className="w-4 h-4" />

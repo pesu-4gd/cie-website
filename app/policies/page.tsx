@@ -143,12 +143,10 @@ export default function PoliciesPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-rose-500 rounded-full mb-6">
-              <Shield className="h-8 w-8 text-white" />
-            </div>
+            <Shield className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="text-gray-900">Policies & </span>
-              <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Legal Information</span>
+              <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Legal Information</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Important policies, terms, and legal information governing CIE services and programs.
@@ -160,15 +158,15 @@ export default function PoliciesPage() {
       {/* Important Notice */}
       <section className="py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <Card className="border-2 border-red-200 bg-gradient-to-br from-red-50 to-rose-50">
+          <Card className="border-2 border-[#f07f1a]/30 bg-gradient-to-br from-[#f07f1a]/10 to-amber-50">
             <CardHeader>
               <div className="flex items-center space-x-3">
-                <AlertTriangle className="h-6 w-6 text-red-600" />
-                <CardTitle className="text-red-900">Important Notice</CardTitle>
+                <AlertTriangle className="h-6 w-6 text-[#f07f1a]" />
+                <CardTitle className="text-[#d96d15]">Important Notice</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-red-800">
+              <p className="text-[#d96d15]">
                 These policies are regularly updated to reflect changes in our services and legal requirements. 
                 Please review them periodically. By using CIE services, you agree to comply with these policies.
               </p>
@@ -182,7 +180,7 @@ export default function PoliciesPage() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <h2 className="text-3xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Required Policies</span>
+              <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Required Policies</span>
             </h2>
             <p className="text-gray-600">
               These policies are mandatory and apply to all users of CIE services.
@@ -195,11 +193,11 @@ export default function PoliciesPage() {
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="bg-gradient-to-r from-red-500 to-rose-500 p-2 rounded-lg text-white">
+                      <div className="text-[#f07f1a]">
                         {getCategoryIcon(policy.category)}
                       </div>
                       <div>
-                        <Badge className="mb-2 bg-red-600 text-white">Required</Badge>
+                        <Badge className="mb-2 bg-[#f07f1a] text-white">Required</Badge>
                         <CardTitle className="text-lg text-gray-900">{policy.title}</CardTitle>
                       </div>
                     </div>
@@ -215,18 +213,18 @@ export default function PoliciesPage() {
                         <Calendar className="h-4 w-4" />
                         <span>Updated: {formatDate(policy.lastUpdated)}</span>
                       </span>
-                      <Badge variant="outline" className="border-red-200 text-red-600">v{policy.version}</Badge>
+                      <Badge variant="outline" className="border-[#f07f1a]/30 text-[#f07f1a]">v{policy.version}</Badge>
                     </div>
                     
                     <Separator />
 {/*                     
                     <div className="flex space-x-2">
-                      <Button size="sm" className="flex-1 bg-gradient-to-r from-red-500 to-rose-600 text-white">
+                      <Button size="sm" className="flex-1 bg-gradient-to-r from-[#f07f1a] to-amber-500 text-white">
                         <Eye className="h-4 w-4 mr-2" />
                         View Policy
                       </Button>
                       {policy.downloadUrl && (
-                        <Button size="sm" variant="outline" className="border-2 border-red-500 text-red-600">
+                        <Button size="sm" variant="outline" className="border-2 border-[#f07f1a] text-[#f07f1a]">
                           <Download className="h-4 w-4" />
                         </Button>
                       )}
@@ -244,7 +242,7 @@ export default function PoliciesPage() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <h2 className="text-3xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Additional Policies</span>
+              <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Additional Policies</span>
             </h2>
             <p className="text-gray-600">
               Additional policies and guidelines that may apply to specific services or programs.
@@ -257,11 +255,11 @@ export default function PoliciesPage() {
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="bg-red-100 p-2 rounded-lg text-red-600">
+                      <div className="text-[#f07f1a]">
                         {getCategoryIcon(policy.category)}
                       </div>
                       <div>
-                        <Badge className="mb-2 bg-red-100 text-red-700 border border-red-200">{policy.category}</Badge>
+                        <Badge className="mb-2 bg-[#f07f1a]/10 text-[#f07f1a] border border-[#f07f1a]/20">{policy.category}</Badge>
                         <CardTitle className="text-lg text-gray-900">{policy.title}</CardTitle>
                       </div>
                     </div>
@@ -277,18 +275,18 @@ export default function PoliciesPage() {
                         <Calendar className="h-4 w-4" />
                         <span>Updated: {formatDate(policy.lastUpdated)}</span>
                       </span>
-                      <Badge variant="outline" className="border-red-200 text-red-600">v{policy.version}</Badge>
+                      <Badge variant="outline" className="border-[#f07f1a]/30 text-[#f07f1a]">v{policy.version}</Badge>
                     </div>
                     
                     <Separator />
                     
                     {/* <div className="flex space-x-2">
-                      <Button size="sm" variant="outline" className="flex-1 border-2 border-red-500 text-red-600">
+                      <Button size="sm" variant="outline" className="flex-1 border-2 border-[#f07f1a] text-[#f07f1a]">
                         <Eye className="h-4 w-4 mr-2" />
                         View Policy
                       </Button>
                       {policy.downloadUrl && (
-                        <Button size="sm" variant="outline" className="border-2 border-red-500 text-red-600">
+                        <Button size="sm" variant="outline" className="border-2 border-[#f07f1a] text-[#f07f1a]">
                           <Download className="h-4 w-4" />
                         </Button>
                       )}
@@ -305,7 +303,7 @@ export default function PoliciesPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
-            <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Policy Categories</span>
+            <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Policy Categories</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -317,12 +315,12 @@ export default function PoliciesPage() {
                 <Card key={category} className="border-2 border-gray-200">
                   <CardHeader>
                     <div className="flex items-center space-x-3">
-                      <div className="bg-gradient-to-r from-red-500 to-rose-500 p-3 rounded-lg text-white">
+                      <div className="text-[#f07f1a]">
                         {getCategoryIcon(category)}
                       </div>
                       <div>
                         <CardTitle className="text-lg text-gray-900">{category}</CardTitle>
-                        <CardDescription className="text-red-600">
+                        <CardDescription className="text-[#f07f1a]">
                           {categoryPolicies.length} policies
                           {requiredCount > 0 && ` (${requiredCount} required)`}
                         </CardDescription>
@@ -335,7 +333,7 @@ export default function PoliciesPage() {
                         <div key={policy.id} className="flex items-center justify-between text-sm">
                           <span className="text-gray-600">{policy.title}</span>
                           {policy.isRequired && (
-                            <Badge className="text-xs bg-red-600 text-white">Required</Badge>
+                            <Badge className="text-xs bg-[#f07f1a] text-white">Required</Badge>
                           )}
                         </div>
                       ))}
@@ -354,18 +352,18 @@ export default function PoliciesPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-red-600 to-rose-700 text-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#00338d] text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">
             Questions About Our Policies?
           </h2>
-          <p className="text-xl text-red-100 mb-8">
+          <p className="text-xl text-amber-100 mb-8">
             If you have questions about any of our policies or need clarification, please contact our legal team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              className="bg-white text-red-600"
+              className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
               onClick={() => globalThis.location.href = 'mailto:cieinfo@pes.edu?subject=Policy Inquiry'}
             >
               Contact Legal Team
@@ -373,30 +371,30 @@ export default function PoliciesPage() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-2 border-white text-white"
+              className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
               onClick={() => globalThis.location.href = 'mailto:cieinfo@pes.edu?subject=Policy Update Request'}
             >
               Request Policy Update
             </Button>
           </div>
           
-          <div className="mt-12 pt-8 border-t border-red-500">
+          <div className="mt-12 pt-8 border-t border-amber-400">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
                 <h3 className="font-semibold mb-2">Legal Compliance</h3>
-                <p className="text-red-100 text-sm">
+                <p className="text-amber-100 text-sm">
                   All policies comply with Indian laws and university regulations
                 </p>
               </div>
               <div>
                 <h3 className="font-semibold mb-2">Regular Updates</h3>
-                <p className="text-red-100 text-sm">
+                <p className="text-amber-100 text-sm">
                   Policies are reviewed and updated quarterly
                 </p>
               </div>
               <div>
                 <h3 className="font-semibold mb-2">Transparency</h3>
-                <p className="text-red-100 text-sm">
+                <p className="text-amber-100 text-sm">
                   All changes are communicated to affected users
                 </p>
               </div>

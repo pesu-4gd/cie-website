@@ -15,7 +15,7 @@ export default function About() {
         <InteractiveHexagonBackground
           primaryColor={insideCieColors.hero.background}
           // keep the warm accent used in inside-cie hero for the hexagon highlights
-          accentColor="#F43F5E"
+          accentColor="#f07f1a"
           className="absolute inset-0 z-0"
         />
 
@@ -34,7 +34,7 @@ export default function About() {
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
               About
-              <span className="bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent"> CIE</span>
+              <span className="bg-gradient-to-r from-[#f07f1a] to-amber-400 bg-clip-text text-transparent"> CIE</span>
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
               Empowering the next generation of innovators and entrepreneurs at PES University since 2018.
@@ -52,7 +52,7 @@ export default function About() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              About <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">CIE</span>
+              About <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">CIE</span>
             </h2>
             <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
               The Center for Innovation and Entrepreneurship (CIE) at PES University is dedicated to inspiring students and startups to develop innovative, world-changing ideas. By leveraging PES University's values and strengths, CIE fosters role-model entrepreneurs who create high-value products and solutions. Established to catalyze student-led startups, CIE equips students with the skills needed for Industry 4.0, complementing the PES SPIRIT with sustainable innovation and entrepreneurship ethos.
@@ -63,7 +63,7 @@ export default function About() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-gradient-to-br from-red-50 to-rose-50 p-8 rounded-2xl"
+            className="bg-gradient-to-br from-[#f07f1a]/10 to-amber-50 p-8 rounded-2xl"
           >
             <div className="text-center">
               <p className="text-lg text-gray-700 leading-relaxed">
@@ -74,7 +74,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-red-50">
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-[#f07f1a]/10">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -83,7 +83,7 @@ export default function About() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Purpose</span>
+              Our <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Purpose</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Driving innovation and entrepreneurship through education, mentorship, and real-world application.
@@ -95,12 +95,12 @@ export default function About() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-red-200 transition-colors group"
+              className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-rose-500 rounded-xl flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-xl flex items-center justify-center mb-6">
                 <Target className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-red-700 transition-colors mb-4">Our Vision</h3>
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-4">Our Vision</h3>
               <p className="text-gray-600 leading-relaxed">
                 To impart innovation and entrepreneurial skills and provide an entrepreneurial launchpad for students and startups to bring to life disruptive technology startups that will positively impact the world.
               </p>
@@ -110,12 +110,12 @@ export default function About() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-red-200 transition-colors group"
+              className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-rose-500 rounded-xl flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-xl flex items-center justify-center mb-6">
                 <Lightbulb className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-red-700 transition-colors mb-4">Our Mission</h3>
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-4">Our Mission</h3>
               <p className="text-gray-600 leading-relaxed">
                 Enable students and startups to transform ideas into market ready products and solutions, creating entrepreneurs who create value for stakeholders.
               </p>
@@ -133,7 +133,7 @@ export default function About() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              CIE <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">SPIRIT</span>
+              CIE <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">SPIRIT</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Building on PES Values — We complement the PES SPIRIT with sustainable innovation and entrepreneurship ethos, nurturing the next generation of innovators and entrepreneurs.
@@ -145,12 +145,12 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-red-200 transition-colors group"
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-rose-500 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-lg flex items-center justify-center mb-4">
                 <Users className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 group-hover:text-red-700 transition-colors mb-3">Student-Centric</h3>
+              <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-3">Student-Centric</h3>
               <ul className="text-gray-600 space-y-2 text-sm">
                 <li>• <strong>2150+ innovators</strong> nurtured across 15 cohorts</li>
                 <li>• Students winning <strong>MoveInSync Mobility Hackathon, IBM TechXchange, Google Gen AI Exchange</strong></li>
@@ -164,12 +164,12 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-red-200 transition-colors group"
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-rose-500 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-lg flex items-center justify-center mb-4">
                 <Target className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 group-hover:text-red-700 transition-colors mb-3">Process-Oriented</h3>
+              <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-3">Process-Oriented</h3>
               <ul className="text-gray-600 space-y-2 text-sm">
                 <li>• Consistently achieving <strong>4+/5 course rating</strong> across programs</li>
                 <li>• Student-friendly onboarding through <strong>CIE Aarambh/Harvard ManageMentor</strong></li>
@@ -183,12 +183,12 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-red-200 transition-colors group"
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-rose-500 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-lg flex items-center justify-center mb-4">
                 <Award className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 group-hover:text-red-700 transition-colors mb-3">Identity-Focused</h3>
+              <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-3">Identity-Focused</h3>
               <ul className="text-gray-600 space-y-2 text-sm">
                 <li>• Novel <strong>2-credit EIE course</strong> reaching ~4500 students (EC & RR campuses)</li>
                 <li>• <strong>UC Berkeley BHGAP</strong> semester abroad program</li>
@@ -202,12 +202,12 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-red-200 transition-colors group"
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-rose-500 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-lg flex items-center justify-center mb-4">
                 <Lightbulb className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 group-hover:text-red-700 transition-colors mb-3">Research-Driven</h3>
+              <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-3">Research-Driven</h3>
               <ul className="text-gray-600 space-y-2 text-sm">
                 <li>• Research publications in top-tier conferences</li>
                 <li>• <strong>CIE Research Internship</strong> program with industry projects</li>
@@ -221,12 +221,12 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-red-200 transition-colors group"
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-rose-500 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-lg flex items-center justify-center mb-4">
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 group-hover:text-red-700 transition-colors mb-3">Infrastructure-Rich</h3>
+              <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-3">Infrastructure-Rich</h3>
               <ul className="text-gray-600 space-y-2 text-sm">
                 <li>• State-of-the-art prototyping resources</li>
                 <li>• Collaborative workspaces and board rooms</li>
@@ -240,12 +240,12 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-red-200 transition-colors group"
+              className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-rose-500 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-lg flex items-center justify-center mb-4">
                 <Target className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 group-hover:text-red-700 transition-colors mb-3">Teaching Excellence</h3>
+              <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-3">Teaching Excellence</h3>
               <ul className="text-gray-600 space-y-2 text-sm">
                 <li>• Best-in-class content and pedagogy</li>
                 <li>• Industry professionals through <strong>CIE Industry Mentor program</strong></li>
@@ -258,7 +258,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-rose-50">
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-amber-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -267,7 +267,7 @@ export default function About() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Impact</span>
+              Our <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Impact</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Since 2018, we have been transforming ideas into reality and fostering innovation across disciplines.
@@ -328,7 +328,7 @@ export default function About() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Research & <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Publications</span>
+              Research & <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Publications</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Explore our research contributions in Technology Management, including publications co-authored with IIM-Bangalore, and our partnerships with leading institutions like UC Berkeley, IIT Madras, and IIT Delhi.
@@ -339,9 +339,9 @@ export default function About() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="bg-gradient-to-br from-red-50 to-rose-50 p-8 rounded-2xl text-center"
+            className="bg-gradient-to-br from-[#f07f1a]/10 to-amber-50 p-8 rounded-2xl text-center"
           >
-            <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-rose-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-xl flex items-center justify-center mx-auto mb-4">
               <Lightbulb className="w-8 h-8 text-white" />
             </div>
             <p className="text-gray-600 text-lg">
@@ -352,7 +352,7 @@ export default function About() {
       </section>
 
       {/* Contact Us */}
-      <section className="py-20 bg-gradient-to-br from-red-50 to-rose-50">
+      <section className="py-20 bg-gradient-to-br from-[#f07f1a]/10 to-amber-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -361,7 +361,7 @@ export default function About() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Get in <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Touch</span>
+              Get in <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Touch</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
               Have questions or want to learn more about our programs? Reach out to us!
@@ -376,7 +376,7 @@ export default function About() {
           >
             <div className="mb-6">
               <h3 className="text-xl font-bold text-gray-900 mb-2">Email Us</h3>
-              <a href="mailto:cieoffice@pes.edu" className="text-red-600 hover:text-red-700 text-lg font-medium">
+              <a href="mailto:cieoffice@pes.edu" className="text-[#f07f1a] hover:text-[#d96d15] text-lg font-medium">
                 cieoffice@pes.edu
               </a>
             </div>
@@ -397,7 +397,7 @@ export default function About() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Frequently Asked <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Questions</span>
+              Frequently Asked <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Questions</span>
             </h2>
           </motion.div>
 
@@ -426,7 +426,7 @@ export default function About() {
               </p>
             </div>
             <p className="text-center text-gray-600 mt-8">
-              More FAQs coming soon. For specific questions, please email us at <a href="mailto:cieoffice@pes.edu" className="text-red-600 hover:text-red-700">cieoffice@pes.edu</a>
+              More FAQs coming soon. For specific questions, please email us at <a href="mailto:cieoffice@pes.edu" className="text-[#f07f1a] hover:text-[#d96d15]">cieoffice@pes.edu</a>
             </p>
           </motion.div>
         </div>
@@ -442,7 +442,7 @@ export default function About() {
             className="text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Policies</span>
+              <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Policies</span>
             </h2>
             <p className="text-gray-600 mb-6">
               Our privacy policy and terms of use will be available here soon.
@@ -461,7 +461,7 @@ export default function About() {
             className="text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Join Our <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Team</span>
+              Join Our <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Team</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
               Interested in working with CIE? Check back soon for open positions and opportunities to join our mission of fostering innovation and entrepreneurship.
@@ -473,7 +473,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-red-600 to-rose-700">
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -497,7 +497,7 @@ export default function About() {
               </Button> */}
               <Button 
                 onClick={() => globalThis.location.href = 'mailto:cieoffice@pes.edu'}
-                className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
+                className="border-2 border-white text-white hover:bg-white hover:text-[#f07f1a] px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
               >
                 Get in Touch
               </Button>

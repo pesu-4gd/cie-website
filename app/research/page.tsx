@@ -1,16 +1,13 @@
 'use client';
 
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { SECTION_COLORS } from '@/styles/colors';
 import {
-  Search,
   ExternalLink,
   User,
   Star
@@ -275,17 +272,6 @@ const ongoingProjects = [
 ];
 
 export default function ResearchPage() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedArea, setSelectedArea] = useState('all');
-  const [selectedType, setSelectedType] = useState('all');
-
-  const filteredPublications = publications.filter(pub => {
-    const matchesSearch = pub.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         pub.authors.some(author => author.toLowerCase().includes(searchTerm.toLowerCase()));
-    const matchesArea = selectedArea === 'all' || pub.area.toLowerCase().includes(selectedArea.toLowerCase());
-    const matchesType = selectedType === 'all' || pub.type.toLowerCase() === selectedType.toLowerCase();
-    return matchesSearch && matchesArea && matchesType;
-  });
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -293,7 +279,7 @@ export default function ResearchPage() {
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B] text-white">
         <InteractiveHexagonBackground
           primaryColor={SECTION_COLORS.insideCie.hero.background}
-          accentColor="#F43F5E"
+          accentColor="#f07f1a"
           className="absolute inset-0 z-0"
         />
 
@@ -304,7 +290,7 @@ export default function ResearchPage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl font-bold mb-6">Research & <span className="block mt-4 bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent">
+            <h1 className="text-5xl font-bold mb-6">Research & <span className="block mt-4 bg-gradient-to-r from-[#f07f1a] to-amber-400 bg-clip-text text-transparent">
               Publications
             </span></h1>
             <p className="text-xl mb-8 text-white/90">
@@ -391,53 +377,16 @@ export default function ResearchPage() {
           <TabsContent value="publications" className="space-y-8">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Publications</span>
+                <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Publications</span>
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Explore our latest research publications and academic contributions
               </p>
             </div>
 
-            {/* Search and Filters */}
-            <div className="flex flex-col md:flex-row gap-4 mb-8">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                <Input
-                  placeholder="Search publications..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
-              <select
-                aria-label="Filter publications by area"
-                title="Filter publications by area"
-                value={selectedArea}
-                onChange={(e) => setSelectedArea(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md"
-              >
-                <option value="all">All Areas</option>
-                <option value="ai">AI & ML</option>
-                <option value="iot">IoT</option>
-                <option value="education">Education</option>
-                <option value="business">Business</option>
-              </select>
-              <select
-                aria-label="Filter publications by type"
-                title="Filter publications by type"
-                value={selectedType}
-                onChange={(e) => setSelectedType(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md"
-              >
-                <option value="all">All Types</option>
-                <option value="conference">Conference</option>
-                <option value="book chapter">Book Chapter</option>
-              </select>
-            </div>
-
             {/* Publications List */}
             <div className="space-y-6">
-              {filteredPublications.map((pub, index) => (
+              {publications.map((pub, index) => (
                 <motion.div
                   key={pub.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -448,11 +397,11 @@ export default function ResearchPage() {
                     <CardHeader>
                       <div className="flex justify-between items-start">
                         <div className="flex-1">
-                          <CardTitle className="text-lg mb-2 group-hover:text-red-700 transition-colors">{pub.title}</CardTitle>
+                          <CardTitle className="text-lg mb-2 group-hover:text-[#f07f1a] transition-colors">{pub.title}</CardTitle>
                           <div className="flex flex-wrap gap-2 mb-3">
-                            <Badge variant="outline" className="border-red-200 text-red-600">{pub.area}</Badge>
-                            <Badge variant="outline" className="border-rose-200 text-rose-600">{pub.type}</Badge>
-                            <Badge variant="outline" className="border-red-200 text-red-600">{pub.year}</Badge>
+                            <Badge variant="outline" className="border-[#f07f1a]/30 text-[#f07f1a]">{pub.area}</Badge>
+                            <Badge variant="outline" className="border-amber-200 text-amber-600">{pub.type}</Badge>
+                            <Badge variant="outline" className="border-[#f07f1a]/30 text-[#f07f1a]">{pub.year}</Badge>
                           </div>
                           <p className="text-sm text-gray-600 mb-2">
                             Authors: {pub.authors.join(', ')}
@@ -470,7 +419,7 @@ export default function ResearchPage() {
                           {pub.url && (
                             <Button 
                               size="sm" 
-                              className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white"
+                              className="bg-gradient-to-r from-[#f07f1a] to-amber-500 hover:from-[#d96d15] hover:to-amber-600 text-white"
                               onClick={() => globalThis.open(pub.url, '_blank')}
                             >
                               <ExternalLink className="h-4 w-4 mr-1" />
@@ -490,7 +439,7 @@ export default function ResearchPage() {
           <TabsContent value="faculty" className="space-y-8">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Research Faculty</span>
+                <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Research Faculty</span>
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Meet our distinguished faculty members leading cutting-edge research
@@ -516,8 +465,8 @@ export default function ResearchPage() {
                           </div>
                         )}
                       </div>
-                      <CardTitle className="text-lg group-hover:text-red-700 transition-colors">{faculty.name}</CardTitle>
-                      <CardDescription className="text-red-600">{faculty.designation}</CardDescription>
+                      <CardTitle className="text-lg group-hover:text-[#f07f1a] transition-colors">{faculty.name}</CardTitle>
+                      <CardDescription className="text-[#f07f1a]">{faculty.designation}</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-3">
@@ -533,7 +482,7 @@ export default function ResearchPage() {
                           <p className="text-sm font-medium text-gray-700 mb-1">Research Interests:</p>
                           <div className="flex flex-wrap gap-1">
                             {faculty.researchInterests.map((interest) => (
-                              <Badge key={interest} className="text-xs bg-red-100 text-red-700 hover:bg-black">
+                              <Badge key={interest} className="text-xs bg-[#f07f1a]/10 text-[#f07f1a] hover:bg-black">
                                 {interest}
                               </Badge>
                             ))}
@@ -548,7 +497,7 @@ export default function ResearchPage() {
                         {faculty.linkedin && (
                           <Button 
                             size="sm" 
-                            className="w-full bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white"
+                            className="w-full bg-gradient-to-r from-[#f07f1a] to-amber-500 hover:from-[#d96d15] hover:to-amber-600 text-white"
                             onClick={() => globalThis.open(faculty.linkedin, '_blank')}
                           >
                             LinkedIn Profile

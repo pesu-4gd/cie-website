@@ -299,9 +299,7 @@ export default function AlumniWelcomePage() {
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-8 h-8 text-amber-500" />
-                    </div>
+                    <IconComponent className="w-12 h-12 text-amber-500 flex-shrink-0" />
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
                       <p className="text-gray-600 mb-6">{benefit.description}</p>
@@ -350,9 +348,7 @@ export default function AlumniWelcomePage() {
                 className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
                 <div className="mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-500 rounded-2xl flex items-center justify-center mb-4">
-                    <Calendar className="w-8 h-8 text-white" />
-                  </div>
+                  <Calendar className="w-12 h-12 text-amber-500 mb-4" />
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">{event.title}</h3>
                   <div className="flex items-center gap-4 text-gray-600 mb-3">
                     <div className="flex items-center gap-2">
@@ -473,9 +469,7 @@ export default function AlumniWelcomePage() {
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-8 h-8 text-amber-600" />
-                    </div>
+                    <IconComponent className="w-12 h-12 text-amber-500 flex-shrink-0" />
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{opportunity.title}</h3>
                       <p className="text-gray-600 mb-4">{opportunity.description}</p>
@@ -496,57 +490,51 @@ export default function AlumniWelcomePage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-amber-50 to-amber-50">
+      <section className="py-20 bg-[#00338d] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-amber-800 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Stay Connected, Stay Inspired
             </h2>
-            <p className="text-xl text-amber-800 max-w-3xl mx-auto mb-12">
+            <p className="text-xl text-white max-w-3xl mx-auto mb-12">
               Join our thriving alumni community and be part of a network that's
               changing the world, one innovation at a time.
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Network className="w-8 h-8 text-amber-800" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-amber-800">Global Network</h3>
-                <p className="text-amber-800">Connect with 5,000+ alumni worldwide</p>
+                <Network className="w-12 h-12 text-white mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-2 text-white">Global Network</h3>
+                <p className="text-white">Connect with 5,000+ alumni worldwide</p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Lightbulb className="w-8 h-8 text-amber-800" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-amber-800">Innovation Hub</h3>
-                <p className="text-amber-800">Access to cutting-edge resources and opportunities</p>
+                <Lightbulb className="w-12 h-12 text-white mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-2 text-white">Innovation Hub</h3>
+                <p className="text-white">Access to cutting-edge resources and opportunities</p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-amber-800" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-amber-800">Meaningful Impact</h3>
-                <p className="text-amber-800">Make a difference in future generations</p>
+                <Heart className="w-12 h-12 text-white mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-2 text-white">Meaningful Impact</h3>
+                <p className="text-white">Make a difference in future generations</p>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button 
-                className="text-amber-400 hover:bg-white px-8 py-4 text-lg font-semibold rounded-xl"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => (window.location.href = 'mailto:cieoffice@pes.edu?subject=Join Alumni Network')}
               >
                 <UserPlus className="w-5 h-5 mr-2" />
                 Join Alumni Network
               </Button>
               <Button 
-                className="border-2 border-white text-amber-400 hover:bg-white hover:text-amber-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => (window.location.href = 'mailto:cieoffice@pes.edu?subject=Contact Alumni Relations')}
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
@@ -555,8 +543,8 @@ export default function AlumniWelcomePage() {
             </div>
 
             <div className="text-center">
-              <p className="text-amber-500 mb-4">Questions about joining our alumni community?</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center text-amber-400">
+              <p className="text-white mb-4">Questions about joining our alumni community?</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center text-white">
                 <div className="flex items-center justify-center gap-2">
                   <Mail className="w-4 h-4" />
                   <span>cieoffice@pes.edu</span>

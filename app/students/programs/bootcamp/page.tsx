@@ -1221,7 +1221,7 @@ const BootcampPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-pes-navy to-pes-orange">
+      <section className="py-16 bg-[#00338d]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1229,22 +1229,22 @@ const BootcampPage = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-black mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
               Ready to Start Your Entrepreneurial Journey?
             </h2>
-            <p className="text-xl text-black/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Join the next generation of innovators and entrepreneurs at PES University's Centre for Innovation and Entrepreneurship. Experience the same transformative program that launched successful startups.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/students/courses" className="inline-block">
-                <Button className="text-lg px-8 py-4 font-semibold bg-[var(--students-primary)] text-white">
+                <Button className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors">
                   <Rocket className="w-5 h-5 mr-2" />
                   Learn more about programs
                 </Button>
               </Link>
 
               <Link href="/inside-cie" className="inline-block">
-                <Button className="text-lg px-8 py-4 font-semibold border-2 border-[color:var(--students-secondary)] text-[color:var(--students-secondary)] bg-transparent">
+                <Button className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors">
                   <Globe className="w-5 h-5 mr-2" />
                   Learn more about CIE
                 </Button>
@@ -1252,30 +1252,30 @@ const BootcampPage = () => {
             </div>
 
             <div className="mt-8 pt-8 border-t border-white/20">
-              <p className="text-black/80 text-sm mb-6">
+              <p className="text-white text-sm mb-6">
                 "CIE's Bootcamp 2018 was a massive success. It brought together diverse, driven and determined students and helped them grow into enthused entrepreneurs."
               </p>
-              <p className="text-black/90 font-semibold mb-4">
+              <p className="text-white font-semibold mb-4">
                 - Prof. Sathya Prasad, Director, Centre for Innovation and Entrepreneurship
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 pt-6 border-t border-white/10">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-black mb-1">2018</div>
-                  <div className="text-black/80 text-sm">First Bootcamp</div>
+                  <div className="text-2xl font-bold text-white mb-1">2018</div>
+                  <div className="text-white/80 text-sm">First Bootcamp</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-black mb-1">7 Days</div>
-                  <div className="text-black/80 text-sm">Intensive Training</div>
+                  <div className="text-2xl font-bold text-white mb-1">7 Days</div>
+                  <div className="text-white/80 text-sm">Intensive Training</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-black mb-1">100%</div>
-                  <div className="text-black/80 text-sm">Success Rate</div>
+                  <div className="text-2xl font-bold text-white mb-1">100%</div>
+                  <div className="text-white/80 text-sm">Success Rate</div>
                 </div>
               </div>
 
               <div className="mt-8 text-center">
-                <p className="text-black/70 text-sm">
+                <p className="text-white/70 text-sm">
                   Continue the legacy of innovation and entrepreneurship at PES University
                 </p>
               </div>

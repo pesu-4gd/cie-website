@@ -597,7 +597,7 @@ export default function Home() {
             className="text-center mb-6"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Ready to <span className="bg-gradient-to-r from-[#2B9EB3] to-[#3E3C6B] bg-clip-text text-transparent">Change the World?</span>
+              Ready to <span className="bg-gradient-to-r from-[#00338d] to-[#00338d] bg-clip-text text-transparent">Change the World?</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Join a community of innovators building the future through technology and impact.
@@ -616,8 +616,8 @@ export default function Home() {
             >
               <div className="bg-white rounded-2xl p-5 hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 h-56 flex flex-col justify-between">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#2B9EB3] to-[#3E3C6B] rounded-lg flex items-center justify-center mr-4">
-                    <GraduationCap className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                    <GraduationCap className="w-8 h-8 text-[#2B9EB3]" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">Students</h3>
                 </div>
@@ -641,8 +641,8 @@ export default function Home() {
             >
               <div className="bg-white rounded-2xl p-5 hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 h-56 flex flex-col justify-between">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#F15A29] to-[#FFC107] rounded-lg flex items-center justify-center mr-4">
-                    <Building2 className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                    <Building2 className="w-8 h-8 text-[#F15A29]" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">Industry</h3>
                 </div>
@@ -666,8 +666,8 @@ export default function Home() {
             >
               <div className="bg-white rounded-2xl p-5 hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 h-56 flex flex-col justify-between">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-amber-400 rounded-lg flex items-center justify-center mr-4">
-                    <Users className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                    <Users className="w-8 h-8 text-amber-500" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">Alumni</h3>
                 </div>
@@ -1015,7 +1015,7 @@ export default function Home() {
 
 
       {/* Call to Action Section */}
-      <section className="py-12 bg-gradient-to-br from-[#2B9EB3] via-[#3E3C6B] to-[#F15A29] relative overflow-hidden">
+      <section className="py-12 bg-[#00338d] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1032,14 +1032,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button 
                 onClick={() => window.location.href = '/students'}
-                className="bg-white text-[#3E3C6B] hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl"
+                className="bg-white text-[#00338d] hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl"
               >
                 <Rocket className="w-5 h-5 mr-2" />
                 Get Started Today
               </Button>
               <Button 
                 onClick={() => window.location.href = '/students/programs'}
-                className="border-2 border-white text-white hover:bg-white hover:text-[#3E3C6B] px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
+                className="border-2 border-white text-white hover:bg-white hover:text-[#00338d] px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
               >
                 Explore Programs
               </Button>

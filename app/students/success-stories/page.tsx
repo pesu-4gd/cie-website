@@ -56,7 +56,7 @@ export default function StudentSuccessStoriesPage() {
       impact: 'Democratizing professional sports coaching, with growing adoption by schools and sports organizations across India.',
       linkedin: 'https://www.linkedin.com/company/pocketcoach-technologies-pvt-ltd/',
       icon: Dumbbell,
-      color: 'from-green-500 to-emerald-600'
+      color: 'from-teal-500 to-teal-600'
     },
     {
       name: 'Epicure Robotics',
@@ -74,7 +74,7 @@ export default function StudentSuccessStoriesPage() {
       impact: 'Revolutionizing the food service industry by introducing affordable, reliable robotic automation technologies.',
       linkedin: 'https://www.linkedin.com/company/epicure-robotics/',
       icon: ChefHat,
-      color: 'from-orange-500 to-red-600'
+      color: 'from-teal-500 to-teal-600'
     },
     {
       name: 'Aalap AI',
@@ -92,7 +92,7 @@ export default function StudentSuccessStoriesPage() {
       impact: 'Bridging tradition and technology in music while revolutionizing legal assistance with specialized AI tools.',
       linkedin: 'https://www.linkedin.com/company/aalapai/',
       icon: Brain,
-      color: 'from-purple-500 to-pink-600'
+      color: 'from-teal-500 to-teal-600'
     },
     {
       name: 'Authify',
@@ -110,7 +110,7 @@ export default function StudentSuccessStoriesPage() {
       impact: 'Enhancing smart city initiatives and enterprise data security through innovative behavioral enforcement technology.',
       linkedin: 'https://www.linkedin.com/company/authifytech/',
       icon: Shield,
-      color: 'from-blue-500 to-indigo-600'
+      color: 'from-teal-500 to-teal-600'
     }
   ];
 
@@ -213,47 +213,6 @@ export default function StudentSuccessStoriesPage() {
               transforming industries and creating impact across India and beyond.
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Startup Ecosystem Impact
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our student entrepreneurs are creating real-world impact through innovative
-              solutions and successful ventures.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {successStats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-teal-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-teal-600" />
-                  </div>
-                  <div className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
-                </motion.div>
-              );
-            })}
-          </div>
         </div>
       </section>
 
@@ -383,9 +342,7 @@ export default function StudentSuccessStoriesPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mb-6">
-                    <IconComponent className="w-8 h-8 text-teal-600" />
-                  </div>
+                  <IconComponent className="w-12 h-12 text-[#2B9EB3] mb-6" />
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{startup.name}</h3>
                   <span className="inline-block text-sm font-medium text-teal-600 mb-4">
                     {startup.sector}
@@ -441,9 +398,7 @@ export default function StudentSuccessStoriesPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mb-6">
-                    <IconComponent className="w-8 h-8 text-teal-600" />
-                  </div>
+                  <IconComponent className="w-12 h-12 text-[#2B9EB3] mb-6" />
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{support.title}</h3>
                   <p className="text-gray-600 mb-6">{support.description}</p>
                   <ul className="space-y-3">
@@ -462,7 +417,7 @@ export default function StudentSuccessStoriesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-teal-600 to-cyan-700">
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -478,11 +433,11 @@ export default function StudentSuccessStoriesPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-teal-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+              <Button className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors">
                 <Rocket className="w-5 h-5 mr-2" />
                 Apply for Incubation
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-teal-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              <Button className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors">
                 <Users className="w-5 h-5 mr-2" />
                 Connect with CIE
               </Button>

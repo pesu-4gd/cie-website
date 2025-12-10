@@ -487,7 +487,7 @@ export default function MentorshipPage() {
       </section>
 
       {/* CTA Section */}
-      <section className={`py-16 px-4 sm:px-6 lg:px-8 bg-[${studentsColors.primary}]`}>
+      <section className={`py-16 px-4 sm:px-6 lg:px-8 bg-[#00338d]`}>
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

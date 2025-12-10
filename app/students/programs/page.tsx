@@ -239,7 +239,7 @@ export default function ProgramsPage() {
     if (t.includes('eie part 1')) return '/students/courses/eie-1';
     if (t.includes('eie part 2')) return '/students/courses/eie-2';
     if (t.includes('product management')) return '/students/courses/product-management-ai';
-    if (t.includes('paml')) return '/students/courses/paml';
+    if (t.includes('paml')) return '/students/workshops';
     // For Berkeley program, remove the Learn More action
     if (t.includes('berkeley')) return null;
     const slug = program.title.toLowerCase().replace(/[^a-z0-9]+/gi, '-').replace(/(^-|-$)/g, '');

@@ -18,35 +18,35 @@ const InsideCIEPage = () => {
       description: 'Learn about our mission, vision, and team',
       icon: Users,
       href: '/about',
-      color: 'from-red-500 to-rose-500'
+      color: 'from-[#f07f1a] to-amber-500'
     },
     {
       title: 'Research & Publications',
       description: 'Explore our academic research and publications',
       icon: BookOpen,
       href: '/research',
-      color: 'from-red-500 to-rose-500'
+      color: 'from-[#f07f1a] to-amber-500'
     },
     {
       title: 'Contact Us',
       description: 'Get in touch with our team',
       icon: Phone,
       href: '/contact',
-      color: 'from-red-500 to-rose-500'
+      color: 'from-[#f07f1a] to-amber-500'
     },
     {
       title: 'FAQs',
       description: 'Frequently asked questions',
       icon: HelpCircle,
       href: '/faqs',
-      color: 'from-red-500 to-rose-500'
+      color: 'from-[#f07f1a] to-amber-500'
     },
     {
       title: 'Policies',
       description: 'Privacy policy and terms of use',
       icon: FileText,
       href: '/policies',
-      color: 'from-red-500 to-rose-500'
+      color: 'from-[#f07f1a] to-amber-500'
     }
   ];
 
@@ -56,8 +56,8 @@ const InsideCIEPage = () => {
   <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
         <InteractiveHexagonBackground 
           primaryColor={insideCieColors.hero.background}
-          // Force the hexagon accent to a red/rose tone to match the new highlight
-          accentColor="#F43F5E"
+          // Force the hexagon accent to orange to match the new highlight
+          accentColor="#f07f1a"
           className="absolute inset-0 z-0"
         />
         
@@ -82,7 +82,7 @@ const InsideCIEPage = () => {
             className="text-5xl md:text-7xl font-bold text-white mb-6"
           >
             Behind the Innovation
-            <span className="block mt-4 bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent">
+            <span className="block mt-4 bg-gradient-to-r from-[#f07f1a] to-amber-400 bg-clip-text text-transparent">
               Discover Our Story
             </span>
           </motion.h1>
@@ -108,7 +108,7 @@ const InsideCIEPage = () => {
               <Button 
                 variant="default" 
                 size="lg"
-                className="group bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white"
+                className="group bg-gradient-to-r from-[#f07f1a] to-amber-500 hover:from-[#d96d15] hover:to-amber-600 text-white"
               >
                 Learn About CIE
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -134,12 +134,10 @@ const InsideCIEPage = () => {
         {sections.map((section) => {
           const Icon = section.icon;
           return (
-            <Card key={section.href} className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-red-200">
+            <Card key={section.href} className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-[#f07f1a]/30">
               <CardHeader className="text-center">
-                <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${section.color} flex items-center justify-center`}>
-                  <Icon className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-red-700 transition-colors">
+                <Icon className="w-12 h-12 text-[#f07f1a] mx-auto mb-4" />
+                <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors">
                   {section.title}
                 </CardTitle>
                 <CardDescription className="text-gray-600">
@@ -147,7 +145,7 @@ const InsideCIEPage = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="text-center">
-                <Button asChild className="w-full group-hover:bg-red-600 transition-colors">
+                <Button asChild className="w-full group-hover:bg-[#f07f1a] transition-colors">
                   <Link href={section.href} className="flex items-center justify-center gap-2">
                     Learn More
                     <ArrowRight className="w-4 h-4" />
@@ -161,14 +159,14 @@ const InsideCIEPage = () => {
 
       {/* Additional Info */}
       <div className="mt-16 text-center">
-        <div className="bg-gradient-to-r from-red-50 to-rose-50 rounded-xl p-8 max-w-4xl mx-auto">
+        <div className="bg-gradient-to-r from-[#f07f1a]/10 to-amber-50 rounded-xl p-8 max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Need Something Else?
           </h2>
           <p className="text-gray-600 mb-6">
             Can't find what you're looking for? Our team is here to help you with any questions or information you need.
           </p>
-          <Button asChild size="lg" className="bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white">
+          <Button asChild size="lg" className="bg-gradient-to-r from-[#f07f1a] to-amber-500 hover:from-[#d96d15] hover:to-amber-600 text-white">
             <Link href="/contact" className="flex items-center gap-2">
               <Phone className="w-5 h-5 text-white" />
               Contact Our Team

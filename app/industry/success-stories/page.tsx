@@ -399,9 +399,7 @@ export default function IndustrySuccessStoriesPage() {
               transition={{ duration: 0.6 }}
               className="bg-white p-8 rounded-3xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-orange-100 flex items-center justify-center">
-                <Award className="w-8 h-8 text-orange-600" />
-              </div>
+              <Award className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
               <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Start-up Mahakumbh</h3>
               <p className="text-center mb-4">
                 <span className="text-3xl font-bold text-orange-600">Top 7</span>
@@ -419,9 +417,7 @@ export default function IndustrySuccessStoriesPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="bg-white p-8 rounded-3xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-blue-100 flex items-center justify-center">
-                <Users className="w-8 h-8 text-blue-600" />
-              </div>
+              <Users className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
               <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Microsoft WISE</h3>
               <p className="text-center mb-4">
                 <span className="text-3xl font-bold text-blue-600">4</span>
@@ -439,9 +435,7 @@ export default function IndustrySuccessStoriesPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-white p-8 rounded-3xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-orange-100 flex items-center justify-center">
-                <Star className="w-8 h-8 text-orange-600" />
-              </div>
+              <Star className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
               <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Cisco-Nasscom</h3>
               <p className="text-center mb-4">
                 <span className="text-3xl font-bold text-orange-600">Top 10</span>
@@ -515,9 +509,7 @@ export default function IndustrySuccessStoriesPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-orange-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-orange-600" />
-                  </div>
+                  <IconComponent className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{type.title}</h3>
                   <p className="text-gray-600 mb-4">{type.description}</p>
                   
@@ -544,7 +536,7 @@ export default function IndustrySuccessStoriesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-orange-600 to-orange-500">
+      <section className="py-20 bg-[#00338d] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -589,7 +581,7 @@ export default function IndustrySuccessStoriesPage() {
               <Button
                 variant="default"
                 size="lg"
-                className="group bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-600 hover:to-orange-600 text-white"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => (globalThis.location.href = 'mailto:partnerships@pes.edu')}
               >
                 <Mail className="w-5 h-5 mr-2" />
@@ -598,7 +590,7 @@ export default function IndustrySuccessStoriesPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => (globalThis.location.href = 'mailto:partnerships@pes.edu')}
               >
                 <MessageCircle className="w-5 h-5 mr-2" />

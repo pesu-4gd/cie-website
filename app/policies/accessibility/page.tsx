@@ -110,12 +110,12 @@ export default function AccessibilityPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <Badge className="mb-4 bg-red-100 text-red-800 hover:bg-red-200">
+            <Badge className="mb-4 bg-[#f07f1a]/10 text-[#f07f1a] hover:bg-[#f07f1a]/20">
               <Accessibility className="h-4 w-4 mr-1" />
               Accessibility Statement
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Web <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Accessibility</span>
+              Web <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Accessibility</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               CIE is committed to ensuring digital accessibility for all users, including those with disabilities.
@@ -135,7 +135,7 @@ export default function AccessibilityPage() {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-red-600" />
+                <Users className="h-5 w-5 text-[#f07f1a]" />
                 Our Commitment
               </CardTitle>
             </CardHeader>
@@ -162,9 +162,7 @@ export default function AccessibilityPage() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
-                      <div className="p-2 bg-red-100 rounded-lg">
-                        <category.icon className="h-5 w-5 text-red-600" />
-                      </div>
+                      <category.icon className="w-10 h-10 text-[#f07f1a]" />
                       {category.category}
                     </CardTitle>
                   </CardHeader>
@@ -187,7 +185,7 @@ export default function AccessibilityPage() {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Shield className="h-5 w-5 text-red-600" />
+                <Shield className="h-5 w-5 text-[#f07f1a]" />
                 Standards Compliance
               </CardTitle>
               <CardDescription>
@@ -215,7 +213,7 @@ export default function AccessibilityPage() {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Keyboard className="h-5 w-5 text-red-600" />
+                <Keyboard className="h-5 w-5 text-[#f07f1a]" />
                 Supported Assistive Technologies
               </CardTitle>
               <CardDescription>
@@ -226,7 +224,7 @@ export default function AccessibilityPage() {
               <div className="grid md:grid-cols-2 gap-4">
                 {assistiveTechnologies.map((technology, index) => (
                   <div key={index} className="flex items-center gap-3 p-3 border rounded-lg">
-                    <ArrowRight className="h-4 w-4 text-red-600 flex-shrink-0" />
+                    <ArrowRight className="h-4 w-4 text-[#f07f1a] flex-shrink-0" />
                     <span className="text-gray-700">{technology}</span>
                   </div>
                 ))}
@@ -238,7 +236,7 @@ export default function AccessibilityPage() {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Keyboard className="h-5 w-5 text-red-600" />
+                <Keyboard className="h-5 w-5 text-[#f07f1a]" />
                 Keyboard Navigation
               </CardTitle>
             </CardHeader>
@@ -308,12 +306,12 @@ export default function AccessibilityPage() {
                     Some interactive elements may need better focus indicators
                   </li>
                 </ul>
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                <div className="bg-[#f07f1a]/10 border border-[#f07f1a]/20 rounded-lg p-4">
                   <div className="flex items-start gap-3">
-                    <Info className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
+                    <Info className="h-5 w-5 text-[#f07f1a] mt-0.5 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-red-800 mb-1">Our Commitment</h4>
-                      <p className="text-red-700 text-sm">
+                      <h4 className="font-semibold text-[#f07f1a] mb-1">Our Commitment</h4>
+                      <p className="text-[#d96d15] text-sm">
                         We are actively working to address these issues and improve accessibility across all our digital platforms.
                       </p>
                     </div>
@@ -327,7 +325,7 @@ export default function AccessibilityPage() {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Accessibility className="h-5 w-5 text-red-600" />
+                <Accessibility className="h-5 w-5 text-[#f07f1a]" />
                 Accessibility Feedback
               </CardTitle>
               <CardDescription>
@@ -384,7 +382,7 @@ export default function AccessibilityPage() {
         <div className="max-w-4xl mx-auto text-center">
           <Link 
             href="/policies"
-            className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold transition-colors"
+            className="inline-flex items-center gap-2 text-[#f07f1a] hover:text-[#d96d15] font-semibold transition-colors"
           >
             <ArrowRight className="h-4 w-4 rotate-180" />
             Back to All Policies

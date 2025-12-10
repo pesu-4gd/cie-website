@@ -258,9 +258,7 @@ export default function IndustryEventsPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="text-center bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center ${colorClasses[reason.color as keyof typeof colorClasses]}`}>
-                    <IconComponent className="w-8 h-8" />
-                  </div>
+                  <IconComponent className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
                   <h3 className="text-xl font-bold text-gray-900 mb-4">{reason.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{reason.description}</p>
                 </motion.div>
@@ -330,13 +328,7 @@ export default function IndustryEventsPage() {
                         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                           <div>
                             <div className="flex items-center gap-4 mb-6">
-                              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${
-                                eventType.featured ? 'bg-orange-100' : 'bg-orange-100'
-                              }`}>
-                                <IconComponent className={`w-8 h-8 ${
-                                  eventType.featured ? 'text-orange-600' : 'text-orange-600'
-                                }`} />
-                              </div>
+                              <IconComponent className="w-12 h-12 text-[#f07f1a]" />
                               <div>
                                 <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">{eventType.title}</h3>
                                 {eventType.featured && (
@@ -495,9 +487,7 @@ export default function IndustryEventsPage() {
                         className="bg-gradient-to-br from-white to-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                       >
                         <div className="flex items-center gap-3 mb-6">
-                          <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
-                            <IconComponent className="w-6 h-6 text-orange-600" />
-                          </div>
+                          <IconComponent className="w-10 h-10 text-[#f07f1a]" />
                           <div>
                             <h3 className="text-xl font-bold text-gray-900">{story.title}</h3>
                           </div>
@@ -546,9 +536,7 @@ export default function IndustryEventsPage() {
                     transition={{ duration: 0.6 }}
                     className="text-center bg-orange-50 p-8 rounded-3xl border border-orange-200"
                   >
-                    <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <Target className="w-8 h-8 text-orange-600" />
-                    </div>
+                    <Target className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
                     <h3 className="text-xl font-bold text-gray-900 mb-4">1. Prepare Your Proposal</h3>
                     <div className="text-left space-y-2 text-sm text-gray-600">
                       <p>• Type of event (webinar, networking event, workshop)</p>
@@ -565,9 +553,7 @@ export default function IndustryEventsPage() {
                     transition={{ duration: 0.6, delay: 0.1 }}
                     className="text-center bg-orange-50 p-8 rounded-3xl border border-orange-200"
                   >
-                    <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <Mail className="w-8 h-8 text-orange-600" />
-                    </div>
+                    <Mail className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
                     <h3 className="text-xl font-bold text-gray-900 mb-4">2. Submit Your Interest</h3>
                     <p className="text-gray-600 mb-4">
                       Email <span className="font-semibold text-orange-700">cieinfo@pes.edu</span> with 
@@ -588,9 +574,7 @@ export default function IndustryEventsPage() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="text-center bg-orange-50 p-8 rounded-3xl border border-orange-200"
                   >
-                    <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <MessageCircle className="w-8 h-8 text-orange-600" />
-                    </div>
+                    <MessageCircle className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
                     <h3 className="text-xl font-bold text-gray-900 mb-4">3. Next Steps</h3>
                     <p className="text-gray-600">
                       A CIE representative will review your inquiry, discuss logistics, and confirm participation 
@@ -615,7 +599,7 @@ export default function IndustryEventsPage() {
       </section>
 
       {/* Contact and Benefits Section */}
-      <section className="py-20 bg-gradient-to-br from-orange-400 to-orange-600">
+      <section className="py-20 bg-[#1e3a8a] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -715,7 +699,7 @@ export default function IndustryEventsPage() {
               <Button
                 variant="default"
                 size="lg"
-                className="group bg-gradient-to-r from-orange-500 to-orange-500 hover:from-orange-400 hover:to-orange-400 text-white"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => window.open('mailto:cieinfo@pes.edu')}
               >
                 <Mail className="w-5 h-5 mr-2" />
@@ -724,7 +708,7 @@ export default function IndustryEventsPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => window.open('mailto:cieinfo@pes.edu')}
               >
                 <MessageCircle className="w-5 h-5 mr-2" />

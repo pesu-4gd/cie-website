@@ -299,9 +299,7 @@ export default function AlumniMentorshipPage() {
                   className="bg-white p-5 md:p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-yellow-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />
-                    </div>
+                    <IconComponent className="w-10 h-10 md:w-12 md:h-12 text-amber-500 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
                       <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 md:mb-3">{program.title}</h3>
                       <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6">{program.description}</p>
@@ -509,7 +507,7 @@ export default function AlumniMentorshipPage() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-to-br from-amber-500 to-yellow-600">
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -526,13 +524,11 @@ export default function AlumniMentorshipPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
               <div className="text-center bg-white/10 rounded-2xl p-5 md:p-6">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
-                  <UserPlus className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                </div>
+                <UserPlus className="w-10 h-10 md:w-12 md:h-12 text-white mx-auto mb-3 md:mb-4" />
                 <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Looking for Guidance?</h3>
                 <p className="text-sm md:text-base text-yellow-100 mb-4">Connect with experienced alumni mentors</p>
                 <Button 
-                  className="bg-white text-amber-600 hover:bg-gray-100 px-4 md:px-6 py-2.5 md:py-3 rounded-xl font-semibold text-sm md:text-base"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                   onClick={() => window.location.href = 'mailto:mentorship@pes.edu?subject=Enquiry%20about%20Mentee%20Program'}
                 >
                   Enquire about mentee
@@ -540,13 +536,11 @@ export default function AlumniMentorshipPage() {
               </div>
 
               <div className="text-center bg-white/10 rounded-2xl p-5 md:p-6">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
-                  <HandHeart className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                </div>
+                <HandHeart className="w-10 h-10 md:w-12 md:h-12 text-white mx-auto mb-3 md:mb-4" />
                 <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Want to Give Back?</h3>
                 <p className="text-sm md:text-base text-yellow-100 mb-4">Share your expertise as a mentor</p>
                 <Button 
-                  className="border-2 border-white text-white hover:bg-white hover:text-amber-600 px-4 md:px-6 py-2.5 md:py-3 rounded-xl font-semibold bg-transparent text-sm md:text-base"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                   onClick={() => window.location.href = 'mailto:mentorship@pes.edu?subject=Enquiry%20about%20Becoming%20a%20Mentor'}
                 >
                   Enquire about mentorship

@@ -197,17 +197,17 @@ export default function FAQsPage() {
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
         <InteractiveHexagonBackground
           primaryColor={SECTION_COLORS.insideCie.hero.background}
-          accentColor="#F43F5E"
+          accentColor="#f07f1a"
           className="absolute inset-0 z-0"
         />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <div className="mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-rose-500 rounded-full mb-6">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-full mb-6">
               <HelpCircle className="h-8 w-8 text-white" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-white">Frequently Asked </span><span className="bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent">Questions</span>
+              <span className="text-white">Frequently Asked </span><span className="bg-gradient-to-r from-[#f07f1a] to-amber-400 bg-clip-text text-transparent">Questions</span>
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Find answers to common questions about CIE programs, partnerships, and opportunities.
@@ -223,7 +223,7 @@ export default function FAQsPage() {
             {/* Vertical Category Tabs */}
             <div className="lg:w-64 flex-shrink-0">
               <div className="sticky top-24 space-y-2">
-                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">
                   Categories
                 </h3>
                 {categories.map((category) => {
@@ -234,12 +234,12 @@ export default function FAQsPage() {
                       onClick={() => setSelectedCategory(category)}
                       className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center justify-between group ${
                         selectedCategory === category
-                          ? 'bg-gradient-to-r from-red-500 to-rose-600 text-white shadow-md'
-                          : 'bg-white border-2 border-gray-200 hover:border-red-200 text-gray-700'
+                          ? 'bg-gradient-to-r from-[#f07f1a] to-amber-500 text-white shadow-md'
+                          : 'bg-white border-2 border-gray-200 hover:border-[#f07f1a]/30 text-gray-700'
                       }`}
                     >
                       <div className="flex items-center space-x-3">
-                        <div className={selectedCategory === category ? 'text-white' : 'text-red-600'}>
+                        <div className={selectedCategory === category ? 'text-white' : 'text-[#f07f1a]'}>
                           {category !== 'All' && getCategoryIcon(category)}
                         </div>
                         <div>
@@ -265,14 +265,14 @@ export default function FAQsPage() {
               {filteredFAQs.length === 0 ? (
                 <Card className="text-center py-12 border-2 hover:border-black">
                   <CardContent>
-                    <HelpCircle className="h-12 w-12 text-red-400 mx-auto mb-4" />
+                    <HelpCircle className="h-12 w-12 text-[#f07f1a] mx-auto mb-4" />
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">No FAQs Found</h3>
                     <p className="text-gray-600 mb-4">
                       No questions match your criteria. Try adjusting your category filter.
                     </p>
                     <Button 
                       onClick={() => setSelectedCategory('All')}
-                      className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white"
+                      className="bg-gradient-to-r from-[#f07f1a] to-amber-500 hover:from-[#d96d15] hover:to-amber-600 text-white"
                     >
                       Clear Filters
                     </Button>
@@ -307,15 +307,15 @@ export default function FAQsPage() {
                       <AccordionItem key={faq.id} value={faq.id} className='py-3 border-b border-gray-200 last:border-b-0'>
                         <AccordionTrigger className='w-full py-0.5 text-left'>
                           <div className='flex items-start w-full'>
-                            <ChevronRight className='h-5 w-5 text-red-600 transition-transform duration-200 group-data-expanded:rotate-90 mt-0.5 flex-shrink-0' />
+                            <ChevronRight className='h-5 w-5 text-[#f07f1a] transition-transform duration-200 group-data-expanded:rotate-90 mt-0.5 flex-shrink-0' />
                             <div className='ml-3 flex-1'>
                               <div className='flex items-center gap-2 mb-2'>
-                                <Badge className="flex items-center space-x-1 bg-red-100 text-red-700 border-red-200 text-xs">
+                                <Badge className="flex items-center space-x-1 bg-[#f07f1a]/10 text-[#f07f1a] border-[#f07f1a]/20 text-xs">
                                   {getCategoryIcon(faq.category)}
                                   <span>{faq.category}</span>
                                 </Badge>
                               </div>
-                              <div className='font-semibold text-gray-900 group-hover:text-red-700 transition-colors'>
+                              <div className='font-semibold text-gray-900 group-hover:text-[#f07f1a] transition-colors'>
                                 {faq.question}
                               </div>
                             </div>
@@ -328,7 +328,7 @@ export default function FAQsPage() {
                             </p>
                             <div className='flex flex-wrap gap-2'>
                               {faq.tags.map((tag) => (
-                                <Badge key={tag} variant="outline" className="text-xs border-red-200 text-red-600">
+                                <Badge key={tag} variant="outline" className="text-xs border-[#f07f1a]/30 text-[#f07f1a]">
                                   {tag}
                                 </Badge>
                               ))}
@@ -346,18 +346,18 @@ export default function FAQsPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-red-50 to-rose-50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#00338d]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Still Have Questions?</span>
+            <span className="bg-white bg-clip-text text-transparent">Still Have Questions?</span>
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-white mb-8">
             Can't find what you're looking for? Our team is here to help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg"
-              className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white"
+              className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
               onClick={() => globalThis.location.href = 'mailto:cieinfo@pes.edu?subject=FAQ Inquiry'}
             >
               Contact Us

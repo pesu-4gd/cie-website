@@ -463,9 +463,7 @@ export default function AlumniSuccessStoriesPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6">
-                    <IconComponent className="w-8 h-8 text-amber-500" />
-                  </div>
+                  <IconComponent className="w-12 h-12 text-amber-500 mb-6" />
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{support.title}</h3>
                   <p className="text-gray-600 mb-6">{support.description}</p>
                   <ul className="space-y-3">
@@ -484,31 +482,31 @@ export default function AlumniSuccessStoriesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-amber-50 to-yellow-50">
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Ready to Start Your Journey?
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-12">
+            <p className="text-xl text-white max-w-3xl mx-auto mb-12">
               Join PES University's thriving entrepreneurial ecosystem and transform
               your innovative ideas into successful ventures.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                className="bg-amber-400 hover:bg-amber-500 text-white px-8 py-4 text-lg font-semibold rounded-xl"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => window.location.href = 'mailto:cieinfo@pes.edu?subject=Application%20for%20Incubation'}
               >
                 <Rocket className="w-5 h-5 mr-2" />
                 Apply for Incubation
               </Button>
               <Button 
-                className="border-2 border-amber-400 text-amber-600 hover:bg-amber-400 hover:text-white px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => window.location.href = 'mailto:cieinfo@pes.edu?subject=Connect%20with%20CIE'}
               >
                 <Users className="w-5 h-5 mr-2" />

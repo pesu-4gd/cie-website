@@ -316,9 +316,7 @@ export default function IndustryPage() {
                   className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg"
                 >
                   <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mr-6">
-                      <IconComponent className="w-8 h-8 text-orange-600" />
-                    </div>
+                    <IconComponent className="w-12 h-12 text-[#f07f1a] mr-6" />
                     <div>
                       <h3 className="text-3xl font-bold text-gray-900 mb-2">{type.title}</h3>
                       <p className="text-lg text-gray-600">{type.description}</p>
@@ -401,9 +399,7 @@ export default function IndustryPage() {
                 className="bg-gradient-to-br from-gray-50 to-orange-50 p-8 rounded-3xl border border-gray-200 hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center mr-4">
-                    <Building2 className="w-6 h-6 text-white" />
-                  </div>
+                  <Building2 className="w-10 h-10 text-[#f07f1a] mr-4" />
                   <div>
                     <h3 className="text-xl font-bold text-gray-900">{story.company}</h3>
                     <p className="text-orange-600 font-medium">{story.duration}</p>
@@ -453,9 +449,7 @@ export default function IndustryPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-[#F15A29] rounded-2xl flex items-center justify-center mb-6">
-                  <Calendar className="w-8 h-8 text-white" />
-                </div>
+                <Calendar className="w-12 h-12 text-[#f07f1a] mb-6" />
                 
                 <div className="mb-4">
                   <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-sm font-medium rounded-full mb-3">
@@ -506,7 +500,7 @@ export default function IndustryPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-gradient-to-br from-orange-600 to-orange-400">
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -549,13 +543,13 @@ export default function IndustryPage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:cieinfo@pes.edu"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl group bg-gradient-to-r from-orange-600 to-orange-600 hover:from-orange-600 hover:to-yellow-700 text-white font-semibold"
+                href="mailto:cieprogram@pes.edu"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
               >
                 <Handshake className="w-5 h-5 mr-2" />
                 Start Partnership
               </a>
-              <a href="mailto:cieprogram@pes.edu" className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/10 bg-gradient-to-r from-orange-600 to-orange-600 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 font-semibold">
+              <a href="mailto:cieprogram@pes.edu" className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors">
                 <Calendar className="w-5 h-5 mr-2" />
                 Schedule Meeting
               </a>

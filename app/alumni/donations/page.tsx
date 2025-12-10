@@ -280,9 +280,7 @@ export default function AlumniDonationsPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="text-center bg-white p-8 rounded-3xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-yellow-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-amber-500" />
-                  </div>
+                  <IconComponent className="w-12 h-12 text-amber-500 mx-auto mb-4" />
                   <div className="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
                   <div className="text-gray-600 font-medium">{stat.label}</div>
                 </motion.div>
@@ -322,9 +320,7 @@ export default function AlumniDonationsPage() {
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-8 h-8 text-amber-500" />
-                    </div>
+                    <IconComponent className="w-12 h-12 text-amber-500 flex-shrink-0" />
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{impact.title}</h3>
                       <p className="text-gray-600 mb-6">{impact.description}</p>
@@ -386,9 +382,7 @@ export default function AlumniDonationsPage() {
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="w-8 h-8 text-amber-500" />
-                    </div>
+                    <IconComponent className="w-12 h-12 text-amber-500 flex-shrink-0" />
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{option.title}</h3>
                       <p className="text-gray-600 mb-6">{option.description}</p>
@@ -530,7 +524,7 @@ export default function AlumniDonationsPage() {
       </section> */}
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-amber-500 to-yellow-600">
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -547,25 +541,19 @@ export default function AlumniDonationsPage() {
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <CreditCard className="w-8 h-8 text-white" />
-                </div>
+                <CreditCard className="w-12 h-12 text-white mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-white">Secure Donations</h3>
                 <p className="text-yellow-100">Safe and encrypted payment processing</p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Shield className="w-8 h-8 text-white" />
-                </div>
+                <Shield className="w-12 h-12 text-white mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-white">Tax Benefits</h3>
                 <p className="text-yellow-100">Eligible for tax deductions under 80G</p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="w-8 h-8 text-white" />
-                </div>
+                <TrendingUp className="w-12 h-12 text-white mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-white">Track Impact</h3>
                 <p className="text-yellow-100">Regular updates on your donation impact</p>
               </div>
@@ -573,14 +561,14 @@ export default function AlumniDonationsPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button
-                className="bg-white text-amber-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => window.location.href = 'mailto:giving@pes.edu?subject=Interest%20in%20Alumni%20Giving'}
               >
                 <Gift className="w-5 h-5 mr-2" />
                 Interested
               </Button>
               <Button 
-                className="border-2 border-white text-white hover:bg-white hover:text-amber-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => window.location.href = 'mailto:giving@pes.edu?subject=Schedule%20Consultation%20for%20Giving'}
               >
                 <Calendar className="w-5 h-5 mr-2" />
@@ -588,19 +576,7 @@ export default function AlumniDonationsPage() {
               </Button>
             </div>
 
-            <div className="text-center">
-              <p className="text-yellow-100 mb-4">Questions about giving? Contact our development team:</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center text-white">
-                <div className="flex items-center justify-center gap-2">
-                  <Mail className="w-4 h-4" />
-                  <span>giving@pes.edu</span>
-                </div>
-                {/* <div className="flex items-center justify-center gap-2">
-                  <MessageCircle className="w-4 h-4" />
-                  <span>+91 80 2672 7000</span>
-                </div> */}
-              </div>
-            </div>
+
           </motion.div>
         </div>
       </section>

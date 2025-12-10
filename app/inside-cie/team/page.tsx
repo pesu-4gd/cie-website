@@ -51,7 +51,7 @@ export default function Team() {
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
         <InteractiveHexagonBackground
           primaryColor={insideCieColors.hero.background}
-          accentColor="#F43F5E"
+          accentColor="#f07f1a"
           className="absolute inset-0 z-0"
         />
 
@@ -69,7 +69,7 @@ export default function Team() {
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#f07f1a] to-amber-400 bg-clip-text text-transparent">
                 Our Team
               </span>
             </h1>
@@ -94,7 +94,7 @@ export default function Team() {
               >
                 {/* Image */}
                 <div className="lg:w-1/3">
-                  <div className="relative aspect-square w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-gradient-to-r from-red-500 to-rose-500">
+                  <div className="relative aspect-square w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-gradient-to-r from-[#f07f1a] to-amber-500">
                     <Image
                       src={member.image}
                       alt={member.name}
@@ -110,14 +110,14 @@ export default function Team() {
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
                       {member.name}
                     </h2>
-                    <p className="text-xl bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent font-semibold mb-4">
+                    <p className="text-xl bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent font-semibold mb-4">
                       {member.title}
                     </p>
                     
                     <div className="flex flex-wrap gap-4 mb-6">
                       <a
                         href={`mailto:${member.email}`}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white rounded-lg transition-all"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#f07f1a] to-amber-500 hover:from-[#d96d15] hover:to-amber-600 text-white rounded-lg transition-all"
                       >
                         <Mail className="w-4 h-4" />
                         {member.email}
@@ -127,7 +127,7 @@ export default function Team() {
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 border-2 border-red-500 text-red-600 hover:bg-red-50 rounded-lg transition-all"
+                        className="inline-flex items-center gap-2 px-4 py-2 border-2 border-[#f07f1a] text-[#f07f1a] hover:bg-[#f07f1a]/10 rounded-lg transition-all"
                       >
                         <ExternalLink className="w-4 h-4" />
                         LinkedIn Profile
@@ -150,7 +150,7 @@ export default function Team() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-20 bg-gradient-to-br from-red-600 to-rose-700">
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -167,13 +167,13 @@ export default function Team() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 onClick={() => globalThis.location.href = '/contact'}
-                className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
               >
                 Contact Us
               </Button>
               <Button 
                 onClick={() => globalThis.location.href = 'mailto:cieinfo@pes.edu'}
-                className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
               >
                 Email CIE
               </Button>

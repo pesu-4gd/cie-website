@@ -212,7 +212,7 @@ export default function BeAPartOfCIEPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-green-500/20 text-green-100 border border-green-400/30 mb-8">
+            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30 mb-8">
               <Users className="w-4 h-4 mr-2" />
               Opportunities for Students
             </span>
@@ -530,7 +530,7 @@ export default function BeAPartOfCIEPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              <Heart className="w-10 h-10 inline-block mr-3 text-blue-500" />
+              <Heart className="w-10 h-10 inline-block mr-3 text-[#00338d]" />
               Volunteer Opportunities
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -549,7 +549,7 @@ export default function BeAPartOfCIEPage() {
                 className="bg-white p-8 rounded-3xl border border-gray-200 max-w-3xl mx-auto"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+                  <div className="w-14 h-14 rounded-2xl bg-[#00338d] flex items-center justify-center flex-shrink-0">
                     <Icon className="w-7 h-7 text-white" />
                   </div>
                   <div>
@@ -622,7 +622,7 @@ export default function BeAPartOfCIEPage() {
       </section>
 
       {/* Stay Updated */}
-      <section className="py-16 bg-gradient-to-br from-[#2B9EB3] to-[#3E3C6B]">
+      <section className="py-16 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -694,19 +694,19 @@ export default function BeAPartOfCIEPage() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#2B9EB3]" />
-                <a href="mailto:cieprogram@pes.edu" className="text-[#2B9EB3] font-medium hover:underline">
+                <a href="mailto:cieprogram@pes.edu" className="text-[#00338d] font-medium hover:underline">
                   cieprogram@pes.edu
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-[#F15A29]" />
+                <MapPin className="w-5 h-5 text-[#00338d]" />
                 <span className="text-gray-600">CIE Office, PES University RR/EC Campus</span>
               </div>
             </div>
 
             <Button
               size="lg"
-              className="bg-gradient-to-r from-[#F15A29] to-[#FFC107] text-white hover:opacity-90"
+              className="inline-flex items-center justify-center px-6 py-3 border border-white text-[#00338d] hover:bg-white/10 rounded-lg font-semibold transition-colors"
               onClick={() => window.location.href = 'mailto:cieprogram@pes.edu?subject=Interest%20in%20CIE%20Opportunities'}
             >
               <Mail className="w-5 h-5 mr-2" />

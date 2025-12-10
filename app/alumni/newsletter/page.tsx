@@ -153,7 +153,7 @@ export default function NewsletterPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Section - Clean, no hero */}
-      <section className="pt-8 pb-12 bg-gradient-to-b from-amber-50 to-white">
+      <section className="pt-8 pb-12 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           {/* Breadcrumb / Back Navigation */}
           <div className="mb-8">
@@ -421,9 +421,7 @@ export default function NewsletterPage() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
-                    <IconComponent className="w-6 h-6 text-amber-600" />
-                  </div>
+                  <IconComponent className="w-10 h-10 text-amber-500 mb-4" />
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{section.title}</h3>
                   <p className="text-gray-600 text-sm">{section.description}</p>
                 </motion.div>
@@ -434,7 +432,7 @@ export default function NewsletterPage() {
       </section>
 
       {/* Subscribe CTA */}
-      <section className="py-16 bg-gradient-to-r from-amber-500 to-yellow-500">
+      <section className="py-16 bg-[#00338d]">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -450,7 +448,7 @@ export default function NewsletterPage() {
             </p>
             <Button 
               size="lg"
-              className="bg-white text-amber-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl"
+              className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
               onClick={() => globalThis.location.href = 'mailto:cieprogram@pes.edu?subject=Subscribe%20to%20CIE%20Newsletter'}
             >
               <Mail className="w-5 h-5 mr-2" />

@@ -408,9 +408,7 @@ export default function StudentStartupProgramPage() {
             >
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <Lightbulb className="w-6 h-6 text-blue-600" />
-                  </div>
+                  <Lightbulb className="w-10 h-10 text-[#2B9EB3] mr-4 flex-shrink-0" />
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Foster Entrepreneurial Mindset</h3>
                     <p className="text-gray-600">Develop problem-solving skills and entrepreneurial thinking across all disciplines through practical experience, courses, and workshops.</p>
@@ -418,9 +416,7 @@ export default function StudentStartupProgramPage() {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <Building2 className="w-6 h-6 text-blue-600" />
-                  </div>
+                  <Building2 className="w-10 h-10 text-[#2B9EB3] mr-4 flex-shrink-0" />
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Resources & Infrastructure</h3>
                     <p className="text-gray-600">Access resources, mentorship, and state-of-the-art infrastructure for prototype/MVP development with hands-on projects.</p>
@@ -428,9 +424,7 @@ export default function StudentStartupProgramPage() {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <Award className="w-6 h-6 text-blue-600" />
-                  </div>
+                  <Award className="w-10 h-10 text-[#2B9EB3] mr-4 flex-shrink-0" />
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Legal & IP Guidance</h3>
                     <p className="text-gray-600">Navigate legal processes including IP/patent registry and company establishment with expert support.</p>
@@ -438,9 +432,7 @@ export default function StudentStartupProgramPage() {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <TrendingUp className="w-6 h-6 text-blue-600" />
-                  </div>
+                  <TrendingUp className="w-10 h-10 text-[#2B9EB3] mr-4 flex-shrink-0" />
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Scaling & Global Exposure</h3>
                     <p className="text-gray-600">Support for scaling and growth with funding opportunities and global exposure through international platforms.</p>
@@ -520,9 +512,7 @@ export default function StudentStartupProgramPage() {
                 className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${getColorClasses(funding.color)} rounded-2xl flex items-center justify-center`}>
-                    <DollarSign className="w-8 h-8 text-white" />
-                  </div>
+                  <DollarSign className="w-12 h-12 text-[#2B9EB3]" />
                   <div className="text-right">
                     <div className="text-2xl font-bold text-gray-900">{funding.amount}</div>
                     <div className={`text-sm px-2 py-1 bg-${funding.color}-100 text-${funding.color}-800 rounded-full`}>
@@ -667,8 +657,8 @@ export default function StudentStartupProgramPage() {
                 className="relative"
               >
                 <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg text-center h-full flex flex-col">
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 bg-gradient-to-r from-blue-600 to-cyan-500">
-                    <span className="text-2xl font-bold text-white">{step.step}</span>
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <span className="text-3xl font-bold text-[#2B9EB3]">{step.step}</span>
                   </div>
                   
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
@@ -726,9 +716,7 @@ export default function StudentStartupProgramPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md hover:shadow-xl transition-shadow"
                 >
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 bg-gradient-to-r from-blue-600 to-cyan-500">
-                    <IconComponent className="w-7 h-7 text-white" />
-                  </div>
+                  <IconComponent className="w-10 h-10 text-[#2B9EB3] mb-4" />
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{stage.stage}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{stage.description}</p>
                 </motion.div>
@@ -739,7 +727,7 @@ export default function StudentStartupProgramPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20" style={{ background: studentsColors.gradient.css }}>
+      <section className="py-20" style={{ background: '#00338d' }}>
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

@@ -630,7 +630,7 @@ export default function FundingPage() {
       </section>
 
       {/* CTA Section */}
-  <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ background: studentsColors.gradient?.css ?? studentsColors.primary }}>
+  <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ background:'#00338d' }}>
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -645,9 +645,9 @@ export default function FundingPage() {
             </p>
             <div className="flex justify-center">
               <a href="mailto:cieprogram@pes.edu" className="inline-block w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto bg-white text-[var(--cie-blue)] hover:opacity-95">
+                <Button size="lg" className="w-full sm:w-auto bg-white text-[#00338d] hover:opacity-95">
                   <ExternalLink className="h-5 w-5 mr-2" />
-                  Contact Support
+                  Contact Supportc
                 </Button>
               </a>
             </div>

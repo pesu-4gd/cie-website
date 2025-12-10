@@ -392,9 +392,7 @@ export default function CentersOfExcellencePage() {
               transition={{ duration: 0.6 }}
               className="bg-white p-8 rounded-2xl border border-gray-200 shadow-lg"
             >
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                <Rocket className="w-6 h-6 text-blue-600" />
-              </div>
+              <Rocket className="w-10 h-10 text-[#2B9EB3] mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Industry Partnerships</h3>
               <p className="text-gray-600 mb-4">
                 30+ active collaborations with leading technology companies and research institutions.
@@ -410,9 +408,7 @@ export default function CentersOfExcellencePage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="bg-white p-8 rounded-2xl border border-gray-200 shadow-lg"
             >
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                <BookOpen className="w-6 h-6 text-blue-600" />
-              </div>
+              <BookOpen className="w-10 h-10 text-[#2B9EB3] mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Publications & Patents</h3>
               <p className="text-gray-600 mb-4">
                 100+ research publications in top-tier conferences and journals with 15+ patents filed.
@@ -428,9 +424,7 @@ export default function CentersOfExcellencePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-white p-8 rounded-2xl border border-gray-200 shadow-lg"
             >
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                <Users className="w-6 h-6 text-blue-600" />
-              </div>
+              <Users className="w-10 h-10 text-[#2B9EB3] mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Student Success</h3>
               <p className="text-gray-600 mb-4">
                 200+ students engaged in research with 50+ securing placements in top companies and PhD programs.
@@ -444,7 +438,7 @@ export default function CentersOfExcellencePage() {
       </section>
 
     {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-[#00338d] to-[#f07f1a]">
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

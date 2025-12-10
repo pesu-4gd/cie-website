@@ -152,9 +152,7 @@ export default function IndustryAboutPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-16 h-16 mb-6 rounded-2xl bg-orange-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-orange-600" />
-                  </div>
+                  <IconComponent className="w-12 h-12 text-[#f07f1a] mb-6" />
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{type.title}</h3>
                   <p className="text-gray-600 mb-6">{type.description}</p>
                   <ul className="space-y-3">
@@ -191,9 +189,7 @@ export default function IndustryAboutPage() {
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Target className="w-6 h-6 text-orange-600" />
-                  </div>
+                  <Target className="w-10 h-10 text-[#f07f1a] flex-shrink-0" />
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Innovation Focus</h3>
                     <p className="text-gray-600">Access cutting-edge research and innovative solutions tailored to your industry challenges.</p>
@@ -201,9 +197,7 @@ export default function IndustryAboutPage() {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Users className="w-6 h-6 text-orange-600" />
-                  </div>
+                  <Users className="w-10 h-10 text-[#f07f1a] flex-shrink-0" />
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Talent Access</h3>
                     <p className="text-gray-600">Connect with skilled students and graduates trained in emerging technologies and entrepreneurial thinking.</p>
@@ -211,9 +205,7 @@ export default function IndustryAboutPage() {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <TrendingUp className="w-6 h-6 text-orange-600" />
-                  </div>
+                  <TrendingUp className="w-10 h-10 text-[#f07f1a] flex-shrink-0" />
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Proven Results</h3>
                     <p className="text-gray-600">Join successful partnerships that have driven innovation, created value, and achieved measurable impact.</p>
@@ -229,9 +221,7 @@ export default function IndustryAboutPage() {
               className="bg-white p-8 rounded-3xl shadow-xl border border-gray-200"
             >
               <div className="text-center mb-8">
-                <div className="w-20 h-20 bg-gradient-to-r from-orange-600 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Rocket className="w-10 h-10 text-white" />
-                </div>
+                <Rocket className="w-14 h-14 text-[#f07f1a] mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Ready to Collaborate?</h3>
                 <p className="text-gray-600">Let's discuss how we can create a partnership that drives innovation.</p>
               </div>
@@ -252,7 +242,7 @@ export default function IndustryAboutPage() {
       </section>
 
       {/* Contact CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-orange-600 to-orange-400">
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

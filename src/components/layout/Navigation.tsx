@@ -82,12 +82,12 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
       </NavigationMenuTrigger>
       
       <NavigationMenuContent>
-        <div className="w-auto min-w-[900px] max-w-[1200px] bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200">
+        <div className="w-auto min-w-[900px] max-w-[1200px] bg-white backdrop-blur-sm rounded-xl shadow-lg border border-gray-200">
           {/* Header */}
           <div className="px-6 py-4 border-b border-gray-100">
             <div className="flex items-center gap-4">
-              <div className="p-2 bg-gradient-to-r from-[#f07f1a] to-[#f07f1a]/80 rounded-lg">
-                <Icon className="w-6 h-6 text-white" />
+              <div className="p-2 bg-white rounded-lg">
+                <Icon className="w-6 h-6 text-[#f07f1a]" />
               </div>
               <div>
                 <h3 className="text-xl font-bold text-[#00338d]">{title}</h3>

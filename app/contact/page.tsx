@@ -14,17 +14,17 @@ export default function ContactPage() {
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
         <InteractiveHexagonBackground
           primaryColor={SECTION_COLORS.insideCie.hero.background}
-          accentColor="#F43F5E"
+          accentColor="#f07f1a"
           className="absolute inset-0 z-0"
         />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <div className="mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-rose-500 rounded-full mb-6">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-full mb-6">
               <MessageSquare className="h-8 w-8 text-white" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-white">Contact </span><span className="bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent">CIE</span>
+              <span className="text-white">Contact </span><span className="bg-gradient-to-r from-[#f07f1a] to-amber-400 bg-clip-text text-transparent">CIE</span>
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Get in touch with us for partnerships, programs, or general inquiries. We're here to help you on your innovation journey.
@@ -39,10 +39,8 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <Card className="hover:shadow-lg transition-shadow duration-300 border-2 hover:border-black group">
               <CardContent className="p-6 text-center">
-                <div className="bg-gradient-to-r from-red-500 to-rose-500 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">Address</h3>
+                <MapPin className="h-10 w-10 text-[#f07f1a] mx-auto mb-4" />
+                <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-[#f07f1a] transition-colors">Address</h3>
                 <p className="text-gray-600 text-sm">
                   PES University<br />
                   100 Feet Ring Road<br />
@@ -54,12 +52,10 @@ export default function ContactPage() {
 
             <Card className="hover:shadow-lg transition-shadow duration-300 border-2 hover:border-black group">
               <CardContent className="p-6 text-center">
-                <div className="bg-gradient-to-r from-red-500 to-rose-500 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Mail className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">Email</h3>
+                <Mail className="h-10 w-10 text-[#f07f1a] mx-auto mb-4" />
+                <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-[#f07f1a] transition-colors">Email</h3>
                 <p className="text-gray-600 text-sm">
-                  <a href="mailto:cieprogram@pes.edu" className="hover:text-red-600 transition-colors">
+                  <a href="mailto:cieprogram@pes.edu" className="hover:text-[#f07f1a] transition-colors">
                     cieprogram@pes.edu
                   </a><br />
                   General Inquiries
@@ -69,10 +65,8 @@ export default function ContactPage() {
 
             <Card className="hover:shadow-lg transition-shadow duration-300 border-2 hover:border-black group">
               <CardContent className="p-6 text-center">
-                <div className="bg-gradient-to-r from-red-500 to-rose-500 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Phone className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">Phone</h3>
+                <Phone className="h-10 w-10 text-[#f07f1a] mx-auto mb-4" />
+                <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-[#f07f1a] transition-colors">Phone</h3>
                 <p className="text-gray-600 text-sm">
                   +91 80 2672 7272<br />
                   Main Office
@@ -82,10 +76,8 @@ export default function ContactPage() {
 
             <Card className="hover:shadow-lg transition-shadow duration-300 border-2 hover:border-black group">
               <CardContent className="p-6 text-center">
-                <div className="bg-gradient-to-r from-red-500 to-rose-500 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">Office Hours</h3>
+                <Clock className="h-10 w-10 text-[#f07f1a] mx-auto mb-4" />
+                <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-[#f07f1a] transition-colors">Office Hours</h3>
                 <p className="text-gray-600 text-sm">
                   Mon - Fri: 9:00 AM - 5:00 PM<br />
                   Sat: By Appointment
@@ -109,14 +101,14 @@ export default function ContactPage() {
                   className="w-full max-w-md mx-auto"
                 />
                 <div className="text-center mt-8">
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent mb-4">
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent mb-4">
                     Centre for Innovation and Entrepreneurship
                   </h3>
                   <p className="text-gray-600 mb-6">
                     Empowering the next generation of innovators and entrepreneurs at PES University
                   </p>
                   <Button 
-                    className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white"
+                    className="bg-gradient-to-r from-[#f07f1a] to-amber-500 hover:from-[#d96d15] hover:to-amber-600 text-white"
                     onClick={() => globalThis.location.href = 'mailto:cieprogram@pes.edu'}
                   >
                     <Mail className="h-4 w-4 mr-2" />
@@ -129,7 +121,7 @@ export default function ContactPage() {
             {/* Team Directory */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Team Directory</span>
+                <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Team Directory</span>
               </h2>
               <div className="space-y-4 stmt-6">
               <Card className="hover:shadow-lg transition-shadow duration-300 border-2 hover:border-black group">
@@ -144,8 +136,8 @@ export default function ContactPage() {
                         />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-red-700 transition-colors">Prof. Sathya Prasad</h3>
-                        <p className="text-red-600">Director, CIE</p>
+                        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#f07f1a] transition-colors">Prof. Sathya Prasad</h3>
+                        <p className="text-[#f07f1a]">Director, CIE</p>
                         <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
                           <div className="flex items-center">
                             <Mail className="h-4 w-4 mr-1" />
@@ -170,8 +162,8 @@ export default function ContactPage() {
                         />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-red-700 transition-colors">Madhukar Narasimha</h3>
-                        <p className="text-red-600">Program Manager</p>
+                        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#f07f1a] transition-colors">Madhukar Narasimha</h3>
+                        <p className="text-[#f07f1a]">Program Manager</p>
                         <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
                           <div className="flex items-center">
                             <Mail className="h-4 w-4 mr-1" />
@@ -186,12 +178,12 @@ export default function ContactPage() {
                 <Card className="hover:shadow-lg transition-shadow duration-300 border-2 hover:border-black group">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-rose-500 rounded-full flex items-center justify-center text-white flex-shrink-0">
+                      <div className="w-16 h-16 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-full flex items-center justify-center text-white flex-shrink-0">
                         <User className="h-8 w-8" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-red-700 transition-colors">CIE Operations Team</h3>
-                        <p className="text-red-600">Program Coordination & Support</p>
+                        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#f07f1a] transition-colors">CIE Operations Team</h3>
+                        <p className="text-[#f07f1a]">Program Coordination & Support</p>
                         <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
                           <div className="flex items-center">
                             <Mail className="h-4 w-4 mr-1" />
@@ -207,30 +199,30 @@ export default function ContactPage() {
               {/* Quick Contact Options */}
               <div className="mt-8">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Quick Contact</span>
+                  <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Quick Contact</span>
                 </h3>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-red-50 to-rose-50 rounded-lg border border-red-100">
+                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-[#f07f1a]/10 to-amber-50 rounded-lg border border-[#f07f1a]/20">
                     <div className="flex items-center space-x-3">
-                      <Users className="h-5 w-5 text-red-600" />
+                      <Users className="h-5 w-5 text-[#f07f1a]" />
                       <span className="text-gray-700">Student Programs</span>
                     </div>
                     <Button 
                       size="sm" 
-                      className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white"
+                      className="bg-gradient-to-r from-[#f07f1a] to-amber-500 hover:from-[#d96d15] hover:to-amber-600 text-white"
                       onClick={() => globalThis.location.href = 'mailto:cieprogram@pes.edu?subject=Student Programs Inquiry'}
                     >
                       Contact
                     </Button>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-red-50 to-rose-50 rounded-lg border border-red-100">
+                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-[#f07f1a]/10 to-amber-50 rounded-lg border border-[#f07f1a]/20">
                     <div className="flex items-center space-x-3">
-                      <Building2 className="h-5 w-5 text-red-600" />
+                      <Building2 className="h-5 w-5 text-[#f07f1a]" />
                       <span className="text-gray-700">Industry Partnerships</span>
                     </div>
                     <Button 
                       size="sm" 
-                      className="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white"
+                      className="bg-gradient-to-r from-[#f07f1a] to-amber-500 hover:from-[#d96d15] hover:to-amber-600 text-white"
                       onClick={() => globalThis.location.href = 'mailto:cieprogram@pes.edu?subject=Industry Partnership Inquiry'}
                     >
                       Contact
@@ -253,10 +245,10 @@ export default function ContactPage() {
       </section>
 
       {/* Location Map Placeholder */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-red-50 to-rose-50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#00338d]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Find Us</span>
+          <h2 className="text-3xl font-bold text-white text-center mb-12">
+            <span className="bg-[#00338d] bg-clip-text text-white">Find Us</span>
           </h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -276,7 +268,7 @@ export default function ContactPage() {
                   href="https://www.google.com/maps/search/?api=1&query=PES+University+Bangalore"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-red-600 hover:underline"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-[#f07f1a] hover:underline"
                 >
                   Open in Google Maps
                   <ArrowRight className="w-4 h-4" />
@@ -286,33 +278,33 @@ export default function ContactPage() {
 
             {/* Directions */}
             <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Getting Here</h3>
+              <h3 className="text-2xl font-semibold text-white mb-6">Getting Here</h3>
               
               <div className="space-y-6">
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-2">By Metro</h4>
-                  <p className="text-gray-600 text-sm">
+                  <h4 className="font-medium text-white mb-2">By Metro</h4>
+                  <p className="text-white text-sm">
                     Take the Green Line to Banashankari Metro Station. CIE is a 10-minute walk from the station.
                   </p>
                 </div>
                 
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-2">By Bus</h4>
-                  <p className="text-gray-600 text-sm">
+                  <h4 className="font-medium text-white mb-2">By Bus</h4>
+                  <p className="text-white text-sm">
                     Multiple BMTC bus routes serve the area. Get off at PES University bus stop on 100 Feet Ring Road.
                   </p>
                 </div>
                 
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-2">By Car</h4>
-                  <p className="text-gray-600 text-sm">
+                  <h4 className="font-medium text-white mb-2">By Car</h4>
+                  <p className="text-white text-sm">
                     Parking is available on campus. Enter through the main gate on 100 Feet Ring Road.
                   </p>
                 </div>
                 
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-2">Landmarks</h4>
-                  <p className="text-gray-600 text-sm">
+                  <h4 className="font-medium text-white mb-2">Landmarks</h4>
+                  <p className="text-white text-sm">
                     Near Banashankari Temple, opposite to Banashankari Metro Station, on 100 Feet Ring Road.
                   </p>
                 </div>
@@ -326,7 +318,7 @@ export default function ContactPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent">Frequently Asked Questions</span>
+            <span className="bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">Frequently Asked Questions</span>
           </h2>
           
           <div className="space-y-6">
@@ -352,7 +344,7 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 hover:border-red-200 transition-colors">
+            <Card className="border-2 hover:border-[#f07f1a]/30 transition-colors">
               <CardHeader>
                 <CardTitle className="text-lg">How quickly can I expect a response to my inquiry?</CardTitle>
               </CardHeader>

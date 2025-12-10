@@ -237,9 +237,7 @@ export default function IndustryCompetitionsPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="text-center bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center ${colorClasses[reason.color as keyof typeof colorClasses]}`}>
-                    <IconComponent className="w-8 h-8" />
-                  </div>
+                  <IconComponent className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
                   <h3 className="text-xl font-bold text-gray-900 mb-4">{reason.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{reason.description}</p>
                 </motion.div>
@@ -295,7 +293,7 @@ export default function IndustryCompetitionsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-orange-600 to-yellow-600">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#00338d]">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -311,7 +309,7 @@ export default function IndustryCompetitionsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="mailto:cieinfo@pes.edu"
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-orange-600 hover:bg-orange-50 rounded-lg font-semibold transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
               >
                 <Send className="h-5 w-5 mr-2" />
                 Submit Proposal
@@ -366,13 +364,7 @@ function OpportunitiesSection({ opportunities }: { opportunities: Array<{
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div>
                   <div className="flex items-center gap-4 mb-6">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${
-                      opportunity.featured ? 'bg-orange-100' : 'bg-orange-100'
-                    }`}>
-                      <IconComponent className={`w-8 h-8 ${
-                        opportunity.featured ? 'text-orange-600' : 'text-orange-600'
-                      }`} />
-                    </div>
+                    <IconComponent className="w-12 h-12 text-[#f07f1a]" />
                     <div>
                       <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">{opportunity.title}</h3>
                       {opportunity.featured && (
@@ -464,9 +456,7 @@ function SuccessStoriesSection({ stories }: { stories: Array<{
               className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
-                  <IconComponent className="w-6 h-6 text-orange-600" />
-                </div>
+                <IconComponent className="w-10 h-10 text-[#f07f1a]" />
                 <div>
                   <h4 className="font-bold text-orange-600">{story.year}</h4>
                   <h3 className="font-bold text-gray-900">{story.title}</h3>
@@ -511,9 +501,7 @@ function HowToProposeSection() {
           transition={{ duration: 0.6 }}
           className="text-center bg-orange-50 p-8 rounded-3xl border border-orange-200"
         >
-          <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-orange-100 flex items-center justify-center">
-            <Mail className="w-8 h-8 text-orange-600" />
-          </div>
+          <Mail className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
           <h3 className="text-xl font-bold text-gray-900 mb-4">Step 1: Email Proposal</h3>
           <p className="text-gray-600">
             Send your competition proposal to CIE with event details, target audience, and timeline. 
@@ -527,9 +515,7 @@ function HowToProposeSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-center bg-orange-50 p-8 rounded-3xl border border-orange-200"
         >
-          <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-orange-100 flex items-center justify-center">
-            <Users className="w-8 h-8 text-orange-600" />
-          </div>
+          <Users className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
           <h3 className="text-xl font-bold text-gray-900 mb-4">Step 2: Collaboration</h3>
           <p className="text-gray-600">
             CIE team will collaborate with you to refine the competition format, logistics, and execution plan. 
@@ -543,9 +529,7 @@ function HowToProposeSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center bg-orange-50 p-8 rounded-3xl border border-orange-200"
         >
-          <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-orange-100 flex items-center justify-center">
-            <Trophy className="w-8 h-8 text-orange-600" />
-          </div>
+          <Trophy className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
           <h3 className="text-xl font-bold text-gray-900 mb-4">Step 3: Execute</h3>
           <p className="text-gray-600">
             Launch your competition with CIE's support. Engage with talented PES students, 
@@ -558,7 +542,7 @@ function HowToProposeSection() {
         <div className="text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h3>
           <div className="space-y-2">
-            <p className="text-gray-700"> Email: cieinfo@pes.edu</p>
+            <p className="text-gray-700"> Email: cieoffice@pes.edu</p>
             <p className="text-gray-700"> Office: Centre for Innovation and Entrepreneurship</p>
             <p className="text-gray-700"> Location: PES University RR/EC Campus</p>
             {/* <p className="text-gray-700"> Website: Visit CIE PES University for latest information</p> */}

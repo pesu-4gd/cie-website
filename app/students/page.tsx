@@ -466,9 +466,7 @@ const SectionCard: React.FC<{ section: SectionType; index: number }> = ({ sectio
       onClick={() => setExpanded(!expanded)}
     >
       <div>
-        <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-gradient-to-br ${gradient}`}>
-          <IconComponent className="w-6 h-6 text-white" />
-        </div>
+        <IconComponent className="w-10 h-10 text-[#2B9EB3] mb-4" />
         <h3 className="text-lg font-bold text-gray-900 mb-2">{section.title}</h3>
         <p className="text-sm text-gray-600 mb-4">{section.description}</p>
       </div>
@@ -526,7 +524,7 @@ export default function StudentsPage() {
       description: 'Stay informed with the latest updates, events, and opportunities from CIE',
       icon: Mail,
       href: '/alumni/newsletter',
-      color: 'teal',
+      color: 'blue',
       highlights: ['Monthly updates on CIE activities', 'Event announcements & recaps', 'Student success spotlights', 'Opportunities & deadlines']
     },
     {
@@ -541,7 +539,7 @@ export default function StudentsPage() {
       title: 'FAQs',
       description: 'Clear answers on mandatory EIE courses and Student Startup Program',
       icon: BookOpen,
-      href: '/students/faqs',
+      href: '/faqs',
       color: 'purple',
       highlights: ['Why EIE is required', 'How it integrates with your major', 'Funding opportunities explained', 'Get clarity on CIE offerings']
     },
@@ -799,9 +797,7 @@ export default function StudentsPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white p-8 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300"
                 >
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-[rgba(${hexToRgb(studentsColors.primary)},0.08)]`}>
-                    <IconComponent className="w-8 h-8" style={{ color: studentsColors.primary }} />
-                  </div>
+                  <IconComponent className="w-10 h-10 mb-6" style={{ color: studentsColors.primary }} />
                   
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
                     {item.title}
@@ -818,7 +814,7 @@ export default function StudentsPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-indigo-700">
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

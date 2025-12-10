@@ -377,7 +377,7 @@ export default function JobsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-orange-600 to-yellow-600">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#00338d]">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -393,7 +393,7 @@ export default function JobsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="mailto:cieinfo@pes.edu"
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-orange-600 hover:bg-orange-50 rounded-lg font-semibold transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
               >
                 <Mail className="h-5 w-5 mr-2" />
                 Submit Interest
@@ -864,23 +864,17 @@ function PostJobSection() {
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Benefits of Partnering with CIE</h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center">
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <TrendingUp className="h-6 w-6 text-orange-600" />
-              </div>
+              <TrendingUp className="w-10 h-10 text-[#f07f1a] mx-auto mb-3" />
               <h4 className="font-semibold mb-2">Skilled Talent Pool</h4>
               <p className="text-sm text-gray-600">Access students with entrepreneurial and technical expertise in high-demand fields</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Award className="h-6 w-6 text-orange-600" />
-              </div>
+              <Award className="w-10 h-10 text-[#f07f1a] mx-auto mb-3" />
               <h4 className="font-semibold mb-2">Industry Ready</h4>
               <p className="text-sm text-gray-600">Students trained through real-world projects and industry collaborations</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Target className="h-6 w-6 text-orange-600" />
-              </div>
+              <Target className="w-10 h-10 text-[#f07f1a] mx-auto mb-3" />
               <h4 className="font-semibold mb-2">Early Engagement</h4>
               <p className="text-sm text-gray-600">Build talent pipeline through CIE events and engagement programs</p>
             </div>

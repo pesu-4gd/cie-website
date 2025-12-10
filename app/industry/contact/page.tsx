@@ -152,9 +152,7 @@ export default function IndustryContactPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-16 h-16 mb-6 rounded-2xl bg-orange-100 flex items-center justify-center">
-                    <IconComponent className="w-8 h-8 text-orange-600" />
-                  </div>
+                  <IconComponent className="w-12 h-12 text-[#f07f1a] mb-6" />
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">{method.title}</h3>
                   <p className="text-gray-600 mb-6">{method.description}</p>
                   
@@ -340,9 +338,7 @@ export default function IndustryContactPage() {
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-orange-600" />
-                  </div>
+                  <MapPin className="w-10 h-10 text-[#f07f1a] flex-shrink-0" />
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Address</h3>
                     <p className="text-gray-600">
@@ -355,9 +351,7 @@ export default function IndustryContactPage() {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-orange-600" />
-                  </div>
+                  <Clock className="w-10 h-10 text-[#f07f1a] flex-shrink-0" />
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Office Hours</h3>
                     <div className="space-y-1">
@@ -372,9 +366,7 @@ export default function IndustryContactPage() {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-orange-600" />
-                  </div>
+                  <Phone className="w-10 h-10 text-[#f07f1a] flex-shrink-0" />
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">Direct Contact</h3>
                     <p className="text-gray-600">
@@ -450,7 +442,7 @@ export default function IndustryContactPage() {
       </section>
 
       {/* Quick Contact CTA */}
-      <section className="py-20 bg-gradient-to-br from-orange-600 to-orange-500">
+      <section className="py-20 bg-[#00338d] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -469,7 +461,7 @@ export default function IndustryContactPage() {
               <Button
                 variant="default"
                 size="lg"
-                className="group bg-gradient-to-r from-orange-400 to-orange-400 hover:from-orange-600 hover:to-orange-600 text-white"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => window.location.href = 'mailto:industry@pes.edu'}
               >
                 <Mail className="w-5 h-5 mr-2" />
