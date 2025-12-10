@@ -97,9 +97,7 @@ export default function About() {
               transition={{ duration: 0.8 }}
               className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-xl flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-white" />
-              </div>
+              <Target className="w-10 h-10 text-[#f07f1a] mb-6" />
               <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-4">Our Vision</h3>
               <p className="text-gray-600 leading-relaxed">
                 To impart innovation and entrepreneurial skills and provide an entrepreneurial launchpad for students and startups to bring to life disruptive technology startups that will positively impact the world.
@@ -112,9 +110,7 @@ export default function About() {
               transition={{ duration: 0.8 }}
               className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-xl flex items-center justify-center mb-6">
-                <Lightbulb className="w-8 h-8 text-white" />
-              </div>
+              <Lightbulb className="w-10 h-10 text-[#f07f1a] mb-6" />
               <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-4">Our Mission</h3>
               <p className="text-gray-600 leading-relaxed">
                 Enable students and startups to transform ideas into market ready products and solutions, creating entrepreneurs who create value for stakeholders.
@@ -147,9 +143,7 @@ export default function About() {
               transition={{ duration: 0.8 }}
               className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-lg flex items-center justify-center mb-4">
-                <Users className="w-6 h-6 text-white" />
-              </div>
+              <Users className="w-10 h-10 text-[#f07f1a] mb-4" />
               <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-3">Student-Centric</h3>
               <ul className="text-gray-600 space-y-2 text-sm">
                 <li>• <strong>2150+ innovators</strong> nurtured across 15 cohorts</li>
@@ -166,9 +160,7 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-lg flex items-center justify-center mb-4">
-                <Target className="w-6 h-6 text-white" />
-              </div>
+              <Target className="w-10 h-10 text-[#f07f1a] mb-4" />
               <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-3">Process-Oriented</h3>
               <ul className="text-gray-600 space-y-2 text-sm">
                 <li>• Consistently achieving <strong>4+/5 course rating</strong> across programs</li>
@@ -185,9 +177,7 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-lg flex items-center justify-center mb-4">
-                <Award className="w-6 h-6 text-white" />
-              </div>
+              <Award className="w-10 h-10 text-[#f07f1a] mb-4" />
               <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-3">Identity-Focused</h3>
               <ul className="text-gray-600 space-y-2 text-sm">
                 <li>• Novel <strong>2-credit EIE course</strong> reaching ~4500 students (EC & RR campuses)</li>
@@ -204,9 +194,7 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-lg flex items-center justify-center mb-4">
-                <Lightbulb className="w-6 h-6 text-white" />
-              </div>
+              <Lightbulb className="w-10 h-10 text-[#f07f1a] mb-4" />
               <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-3">Research-Driven</h3>
               <ul className="text-gray-600 space-y-2 text-sm">
                 <li>• Research publications in top-tier conferences</li>
@@ -223,9 +211,7 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-lg flex items-center justify-center mb-4">
-                <Sparkles className="w-6 h-6 text-white" />
-              </div>
+              <Sparkles className="w-10 h-10 text-[#f07f1a] mb-4" />
               <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-3">Infrastructure-Rich</h3>
               <ul className="text-gray-600 space-y-2 text-sm">
                 <li>• State-of-the-art prototyping resources</li>
@@ -242,9 +228,7 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-[#f07f1a]/30 transition-colors group"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-lg flex items-center justify-center mb-4">
-                <Target className="w-6 h-6 text-white" />
-              </div>
+              <Target className="w-10 h-10 text-[#f07f1a] mb-4" />
               <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#f07f1a] transition-colors mb-3">Teaching Excellence</h3>
               <ul className="text-gray-600 space-y-2 text-sm">
                 <li>• Best-in-class content and pedagogy</li>
@@ -319,7 +303,7 @@ export default function About() {
       </section>
 
       {/* Research & Publications */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -341,15 +325,13 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="bg-gradient-to-br from-[#f07f1a]/10 to-amber-50 p-8 rounded-2xl text-center"
           >
-            <div className="w-16 h-16 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <Lightbulb className="w-8 h-8 text-white" />
-            </div>
+            <Lightbulb className="w-12 h-12 text-[#f07f1a] mx-auto mb-4" />
             <p className="text-gray-600 text-lg">
               Detailed research publications and ongoing projects coming soon.
             </p>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Us */}
       <section className="py-20 bg-gradient-to-br from-[#f07f1a]/10 to-amber-50">

@@ -539,7 +539,7 @@ export default function StudentsPage() {
       title: 'FAQs',
       description: 'Clear answers on mandatory EIE courses and Student Startup Program',
       icon: BookOpen,
-      href: '/faqs',
+      href: '/students/faqs',
       color: 'purple',
       highlights: ['Why EIE is required', 'How it integrates with your major', 'Funding opportunities explained', 'Get clarity on CIE offerings']
     },

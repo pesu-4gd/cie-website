@@ -472,12 +472,12 @@ const InsideCIENavigation: React.FC = () => {
           description: 'Frequently asked questions',
           icon: Info
         },
-        { 
-          title: 'Policies', 
-          href: '/policies', 
-          description: 'Institutional policies and guidelines',
-          icon: BookOpen
-        }
+        // { 
+        //   title: 'Policies', 
+        //   href: '#', 
+        //   description: 'Institutional policies and guidelines',
+        //   icon: BookOpen
+        // }
       ]
     },
     {

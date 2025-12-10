@@ -187,15 +187,15 @@ export default function NewsletterPage() {
           </motion.div>
 
           {/* Quick Stats */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-wrap justify-center gap-8 mt-10"
           >
             <div className="text-center">
-              <div className="text-3xl font-bold text-amber-600">10+</div>
-              <div className="text-sm text-gray-500">Issues Published</div>
+              <div className="text-3xl font-bold text-amber-600">10</div>
+              <div className="text-sm text-gray-500">Issues Published by far</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-amber-600">6+</div>
@@ -205,7 +205,7 @@ export default function NewsletterPage() {
               <div className="text-3xl font-bold text-amber-600">100+</div>
               <div className="text-sm text-gray-500">Stories Featured</div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
 

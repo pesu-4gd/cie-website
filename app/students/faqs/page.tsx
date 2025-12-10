@@ -300,9 +300,7 @@ export default function StudentFAQsPage() {
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <div className={`w-12 h-12 bg-${category.color}-100 rounded-xl flex items-center justify-center mr-4`}>
-                          <IconComponent className={`w-6 h-6 text-${category.color}-600`} />
-                        </div>
+                        <IconComponent className="w-10 h-10 text-[#2B9EB3] mr-4" />
                         <h3 className="text-2xl font-bold text-gray-900">{category.title}</h3>
                       </div>
                       <ChevronDown 
@@ -463,7 +461,7 @@ export default function StudentFAQsPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-[#00338d] to-[#f07f1a]">
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

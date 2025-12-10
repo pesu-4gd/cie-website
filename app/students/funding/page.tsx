@@ -746,9 +746,7 @@ function ApplicationTipsSection({ tips }: { tips: typeof applicationTips }) {
               <Card className="h-full hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
                   <div className="space-y-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                      <IconComponent className="h-6 w-6 text-blue-600" />
-                    </div>
+                    <IconComponent className="w-10 h-10 text-[#2B9EB3]" />
                     <h3 className="text-xl font-semibold text-gray-900">{tip.title}</h3>
                     <p className="text-gray-600">{tip.description}</p>
                   </div>
@@ -812,9 +810,7 @@ function SuccessStoriesSection({ stories }: { stories: typeof successStories }) 
               <CardContent className="p-6">
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-blue-100 rounded-full flex items-center justify-center">
-                      <GraduationCap className="h-6 w-6 text-green-600" />
-                    </div>
+                    <GraduationCap className="w-10 h-10 text-[#2B9EB3]" />
                     <div>
                       <p className="font-semibold text-gray-900">{story.studentName}</p>
                       <p className="text-sm text-gray-600">Batch {story.batch}</p>

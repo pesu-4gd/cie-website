@@ -225,7 +225,7 @@ export default function BeAPartOfCIEPage() {
             className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg"
           >
             Be a Part of{' '}
-            <span className="block mt-4 bg-gradient-to-r from-[#2B9EB3] to-[#F15A29] bg-clip-text text-transparent">
+            <span className="block mt-4 text-[#2B9EB3]">
               CIE
             </span>
           </motion.h1>
@@ -310,9 +310,7 @@ export default function BeAPartOfCIEPage() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-white p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition-all"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2B9EB3] to-[#3E3C6B] flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
+                  <Icon className="w-10 h-10 text-[#2B9EB3] mb-4" />
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
                   <p className="text-gray-600 text-sm">{benefit.description}</p>
                 </motion.div>
@@ -352,9 +350,7 @@ export default function BeAPartOfCIEPage() {
                   className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-3xl border border-blue-100"
                 >
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2B9EB3] to-[#3E3C6B] flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-7 h-7 text-white" />
-                    </div>
+                    <Icon className="w-10 h-10 text-[#2B9EB3] flex-shrink-0" />
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">{opportunity.title}</h3>
                       <p className="text-sm text-[#2B9EB3] font-medium">{opportunity.timeline}</p>
@@ -415,9 +411,7 @@ export default function BeAPartOfCIEPage() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F15A29] to-[#FFC107] flex items-center justify-center mb-6">
-                    <Icon className="w-7 h-7 text-white" />
-                  </div>
+                  <Icon className="w-10 h-10 text-[#F15A29] mb-6" />
                   
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{opportunity.title}</h3>
                   <p className="text-gray-600 text-sm mb-4">{opportunity.description}</p>
@@ -489,9 +483,7 @@ export default function BeAPartOfCIEPage() {
                   className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl border border-green-100"
                 >
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-7 h-7 text-white" />
-                    </div>
+                    <Icon className="w-10 h-10 text-green-500 flex-shrink-0" />
                     <h3 className="text-xl font-bold text-gray-900">{role.title}</h3>
                   </div>
                   
@@ -549,9 +541,7 @@ export default function BeAPartOfCIEPage() {
                 className="bg-white p-8 rounded-3xl border border-gray-200 max-w-3xl mx-auto"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-2xl bg-[#00338d] flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-7 h-7 text-white" />
-                  </div>
+                  <Icon className="w-10 h-10 text-[#00338d] flex-shrink-0" />
                   <div>
                     <h3 className="text-xl font-bold text-gray-900">{opportunity.title}</h3>
                     <p className="text-sm text-gray-500">{opportunity.eligibility}</p>
@@ -596,18 +586,19 @@ export default function BeAPartOfCIEPage() {
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
-              {/* Vertical line */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#2B9EB3] to-[#F15A29]" />
-              
               {howToApplySteps.map((step, index) => (
                 <motion.div
                   key={step.step}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative pl-16 pb-8"
+                  className={`relative pl-16 ${index === howToApplySteps.length - 1 ? '' : 'pb-8'}`}
                 >
-                  <div className="absolute left-0 w-12 h-12 rounded-full bg-gradient-to-br from-[#2B9EB3] to-[#3E3C6B] flex items-center justify-center text-white font-bold text-lg">
+                  {/* Vertical line segment - only show if not last item */}
+                  {index < howToApplySteps.length - 1 && (
+                    <div className="absolute left-6 top-12 bottom-0 w-0.5 bg-gradient-to-b from-[#2B9EB3] to-[#F15A29]" />
+                  )}
+                  <div className="absolute left-0 w-12 h-12 rounded-full bg-gradient-to-br from-[#2B9EB3] to-[#3E3C6B] flex items-center justify-center text-white font-bold text-lg z-10">
                     {step.step}
                   </div>
                   <div className="bg-gray-50 p-6 rounded-2xl">

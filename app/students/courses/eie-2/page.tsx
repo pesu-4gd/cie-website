@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/design-system';
 import { SECTION_COLORS } from '@/styles/colors';
-import { Lightbulb, Users, Presentation, Trophy } from 'lucide-react';
+import { Lightbulb, Users, Presentation, Trophy, Calendar, Target, BookOpen, Mic2, Sparkles, GraduationCap } from 'lucide-react';
 import {
   Tabs,
   TabsContent,
@@ -21,6 +21,7 @@ export default function EIE2Page() {
     details: studentsColors.accent,
     ignite: (studentsColors.gradient?.stops && studentsColors.gradient.stops[0]) || studentsColors.primary,
     references: studentsColors.primary,
+    batch2025: studentsColors.accent,
   } as const;
 
   return (
@@ -67,6 +68,14 @@ export default function EIE2Page() {
                 className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
               >
                 References
+              </TabsTrigger>
+
+              <TabsTrigger
+                value="batch2025"
+                style={{ ['--tab-color']: tabColors.batch2025 } as React.CSSProperties}
+                className="px-3 py-2 text-xs sm:text-sm font-medium text-black border-b-2 border-transparent data-[state=active]:text-[var(--tab-color)] data-[state=active]:border-[var(--tab-color)] whitespace-nowrap"
+              >
+                Jan-Apr 2025 Batch
               </TabsTrigger>
             </TabsList>
 
@@ -454,6 +463,196 @@ export default function EIE2Page() {
               <div className="mt-8 flex items-center gap-3">
                 <Link href="/students/courses/eie-1"><Button className="bg-white text-blue-700">Go to EIE — Part 1</Button></Link>
                 <Link href="/students/courses"><Button variant="outline" className="ml-auto border-black text-black">Back to Courses</Button></Link>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="batch2025">
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-3xl font-bold mb-4 mt-9">EIE-2 Batch: Jan-Apr 2025</h3>
+                  <p className="text-xl italic text-gray-600 mb-6">Empowering the next generation of innovators and entrepreneurs</p>
+                </div>
+
+                <div className="rounded-2xl p-8" style={{ background: `linear-gradient(to right, ${studentsColors.primary}15, ${studentsColors.accent}15)` }}>
+                  <h4 className="text-2xl font-bold mb-4 text-gray-900">About This Batch</h4>
+                  <p className="text-lg text-gray-700 leading-relaxed">The Essentials of Innovation and Entrepreneurship (EIE) Part II Jan-April Batch 2025 at PES University is a dynamic 2-credit course running from January to April 2025. Led by the Centre for Innovation and Entrepreneurship (CIE), this 4th-semester program builds on EIE Part I, offering students a deep dive into entrepreneurial skills through the CIE Ignite Ideathon and exclusive Founder's Talks. Open to all disciplines, it prepares students for innovative careers in startups, corporations, or MSMEs.</p>
+                  
+                  <p className="text-lg text-gray-700 leading-relaxed mt-4">The Jan Batch 2025 of EIE Part II was tailored to empower students in a rapidly evolving world driven by Generative AI, Machine Learning, climate change, and sustainability.</p>
+                </div>
+
+                <div>
+                  <h4 className="text-2xl font-bold mb-6 text-center text-gray-900">What This Batch Offers</h4>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="text-center p-6 bg-gray-50 rounded-xl">
+                      <div className="mb-4 flex justify-center">
+                        <Sparkles className="w-10 h-10 text-[#2B9EB3]" />
+                      </div>
+                      <h5 className="text-lg font-bold mb-2 text-gray-900">CIE Ignite Ideathon</h5>
+                      <p className="text-gray-700">Practical application where students compete for CIE Summer Internships, funding, and mentorship.</p>
+                    </div>
+                    <div className="text-center p-6 bg-gray-50 rounded-xl">
+                      <div className="mb-4 flex justify-center">
+                        <Mic2 className="w-10 h-10 text-[#2B9EB3]" />
+                      </div>
+                      <h5 className="text-lg font-bold mb-2 text-gray-900">Founder's Talks</h5>
+                      <p className="text-gray-700">Insights from renowned founders and experts, including Aditya Mehta, Suresh Narasimha, and PESU alumni.</p>
+                    </div>
+                    <div className="text-center p-6 bg-gray-50 rounded-xl">
+                      <div className="mb-4 flex justify-center">
+                        <Users className="w-10 h-10 text-[#2B9EB3]" />
+                      </div>
+                      <h5 className="text-lg font-bold mb-2 text-gray-900">Interdisciplinary Collaboration</h5>
+                      <p className="text-gray-700">Engage with peers across Engineering, Design, Management, Law, and more.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="text-2xl font-bold mb-4 flex items-center gap-3">
+                      <Target className="w-8 h-8 text-[#2B9EB3]" />
+                      Course Objectives
+                    </h4>
+                    <ul className="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                      <li>Deepen the I&amp;E mindset and skills for entrepreneurial ventures.</li>
+                      <li>Enable I&amp;E application in diverse contexts (startups, corporate entrepreneurship, MSMEs).</li>
+                      <li>Enhance understanding of transformative technologies and opportunities.</li>
+                      <li>Develop advanced business acumen (market research, finance, legal).</li>
+                      <li>Strengthen soft skills (communication, collaboration, problem-solving).</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-2xl font-bold mb-4 flex items-center gap-3">
+                      <GraduationCap className="w-8 h-8 text-[#2B9EB3]" />
+                      Learning Outcomes
+                    </h4>
+                    <ul className="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                      <li>Apply advanced I&amp;E skills through CIE Ignite.</li>
+                      <li>Master the idea-to-market process using Lean Canvas and business models.</li>
+                      <li>Understand technological transformations (e.g., Industry 4.0-5.0, AI-led digital transformation).</li>
+                      <li>Gain proficiency in business fundamentals (legal, finance, digital marketing).</li>
+                      <li>Build networks with peers for future I&amp;E collaborations.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-2xl font-bold mb-4 flex items-center gap-3">
+                    <Calendar className="w-8 h-8 text-[#2B9EB3]" />
+                    Course Structure
+                  </h4>
+                  <p className="text-lg text-gray-700 leading-relaxed">The Jan Batch 2025 spans January to April, with 2-hour weekly sessions (hybrid: mostly online via MS Teams, some in-person at GJB Auditorium). The CIE Ignite Ideathon contributes 10% to the grade.</p>
+                </div>
+
+                <div>
+                  <h4 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <Mic2 className="w-8 h-8 text-[#2B9EB3]" />
+                    Founder's Talks Schedule (Jan-Apr 2025)
+                  </h4>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left table-auto border-collapse">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th className="border border-gray-300 px-4 py-3 font-semibold">Week</th>
+                          <th className="border border-gray-300 px-4 py-3 font-semibold">Speaker</th>
+                          <th className="border border-gray-300 px-4 py-3 font-semibold">Topic/Theme/Area</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3">Wk2</td>
+                          <td className="border border-gray-300 px-4 py-3">Dr. Jaykumar</td>
+                          <td className="border border-gray-300 px-4 py-3">Startups in Food & Beverage - Why/What/How</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="border border-gray-300 px-4 py-3">Wk4</td>
+                          <td className="border border-gray-300 px-4 py-3">SJ Vijay (CEO), Nithin Simakurti (CEO)</td>
+                          <td className="border border-gray-300 px-4 py-3">Pioneer, Building-as-a-Product; Starting a Service/Product Firm</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3">Wk5</td>
+                          <td className="border border-gray-300 px-4 py-3">Krishnaprasad Jagadish (Founder CEO, Parjanya), Suresh Narasimha (CEO, Co-Create Ventures, PVL)</td>
+                          <td className="border border-gray-300 px-4 py-3">AR/VR & Media: startup journey; How to succeed in student-led startups</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="border border-gray-300 px-4 py-3">Wk6</td>
+                          <td className="border border-gray-300 px-4 py-3">Prof. Sushma (Performing Arts), Shashank Prabhakar (Founder, Kaadu Trails, draft42)</td>
+                          <td className="border border-gray-300 px-4 py-3">Art of Storytelling for Startups; Student to Startup</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3">Wk7</td>
+                          <td className="border border-gray-300 px-4 py-3">John Kuruvilla (CEO), Abhilash Madabhushi (Founder, Consuma.AI)</td>
+                          <td className="border border-gray-300 px-4 py-3">Serial Entrepreneur; multi-area; Student to Startup Founder</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="border border-gray-300 px-4 py-3">Wk8</td>
+                          <td className="border border-gray-300 px-4 py-3">Parthan M (Alum, MS, Germany), Manoj Sanker (Founder, Nemocare), Shreyas Vedapatak (Proto expert)</td>
+                          <td className="border border-gray-300 px-4 py-3">Student to Entrepreneur; Student to Entrepreneur; Prototyping mentor</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3">Wk9</td>
+                          <td className="border border-gray-300 px-4 py-3">Prof. Ravi Urs (FoMS), Prof. Nagarjuna S (Pro VC, PESU)</td>
+                          <td className="border border-gray-300 px-4 py-3">Digital Business Models; Importance of Intrapreneurship</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="border border-gray-300 px-4 py-3">Wk10</td>
+                          <td className="border border-gray-300 px-4 py-3">Prof. Ravi Urs (FoMS), Tushar Magar (PESU Alum, Entrepreneur)</td>
+                          <td className="border border-gray-300 px-4 py-3">Digital Marketing; Student to Entrepreneur</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3">Wk11</td>
+                          <td className="border border-gray-300 px-4 py-3">Prof. Nidhi Srivatsa (Law), Prof. Manikandan (Prof, Inventor), Ms. Sushma Krishnamurthy (InzpireU Co-Founder)</td>
+                          <td className="border border-gray-300 px-4 py-3">IPR for Startups; Idea→Patent: What & How?; Startup Journey</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="border border-gray-300 px-4 py-3">Wk12</td>
+                          <td className="border border-gray-300 px-4 py-3">Aditya Mehta (Epicure Robotics), Panel: Keerthi R, Dhruv S, Shriya D, Samhitha H with Sathya Prasad</td>
+                          <td className="border border-gray-300 px-4 py-3">Student to Startup - A Perspective; Life After CIE - A Different Perspective</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl p-8" style={{ background: `linear-gradient(to right, ${studentsColors.primary}15, ${studentsColors.accent}15)` }}>
+                  <h4 className="text-2xl font-bold mb-6 text-center text-gray-900">Unique Features</h4>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="flex gap-4">
+                      <Sparkles className="w-8 h-8 text-[#2B9EB3] flex-shrink-0" />
+                      <div>
+                        <h5 className="text-lg font-bold mb-2 text-gray-900">CIE Ignite Ideathon</h5>
+                        <p className="text-gray-700">Compete in a real-world setting, with mentorship from industry leaders.</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-4">
+                      <Mic2 className="w-8 h-8 text-[#2B9EB3] flex-shrink-0" />
+                      <div>
+                        <h5 className="text-lg font-bold mb-2 text-gray-900">Founder Talks</h5>
+                        <p className="text-gray-700">Learn from pioneers like Aditya Mehta, Suresh Narasimha, and alumni like Tushar Magar.</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-4">
+                      <Users className="w-8 h-8 text-[#2B9EB3] flex-shrink-0" />
+                      <div>
+                        <h5 className="text-lg font-bold mb-2 text-gray-900">Interdisciplinary Collaboration</h5>
+                        <p className="text-gray-700">Engage with peers from all PESU departments.</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-4">
+                      <BookOpen className="w-8 h-8 text-[#2B9EB3] flex-shrink-0" />
+                      <div>
+                        <h5 className="text-lg font-bold mb-2 text-gray-900">Practical Tools</h5>
+                        <p className="text-gray-700">Master Lean Canvas, customer discovery, digital marketing, and legal fundamentals.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 flex items-center gap-3">
+                  <Link href="/students/courses/eie-1"><Button className="bg-white text-blue-700">Go to EIE — Part 1</Button></Link>
+                  <Link href="/students/courses"><Button variant="outline" className="ml-auto border-black text-black">Back to Courses</Button></Link>
+                </div>
               </div>
             </TabsContent>
 

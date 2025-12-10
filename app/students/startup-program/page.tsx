@@ -515,7 +515,7 @@ export default function StudentStartupProgramPage() {
                   <DollarSign className="w-12 h-12 text-[#2B9EB3]" />
                   <div className="text-right">
                     <div className="text-2xl font-bold text-gray-900">{funding.amount}</div>
-                    <div className={`text-sm px-2 py-1 bg-${funding.color}-100 text-${funding.color}-800 rounded-full`}>
+                    <div className="inline-block text-sm px-3 py-1 bg-green-100 text-green-700 rounded-full border border-green-200">
                       {funding.type}
                     </div>
                   </div>

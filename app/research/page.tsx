@@ -202,7 +202,7 @@ const facultyMembers = [
     email: 'sathya.prasad@pes.edu',
     linkedin: 'https://www.linkedin.com/in/sathya-prasad',
     image: '/assets/sathya-prasad.png',
-    researchInterests: ['Innovation & Entrepreneurship', 'Product Management', 'Lean Startup'],
+    researchInterests: ['Innovation & Entrepreneurship', 'Product Management',],
     summary: '30+ years including ~20 years at Intel in Product Management, Tech Innovation and R&D. Founding President, SEMI India; launched SOLARCON India; led product management for Intel\'s first server SoC. Executive Management (MIT Sloan), MS (VLSI) — Arizona State University.'
   },
   {
