@@ -232,6 +232,69 @@ const AcademicCarousel = () => {
   );
 };
 
+// Industry collaborators carousel (infinite scrolling)
+const IndustryCarousel = () => {
+  const images = [
+    '/assets/intel.jpg',
+    '/assets/microsoft.jpg',
+    '/assets/rapido.jpg',
+    '/assets/4gd.jpg',
+    '/assets/sima.jpg',
+    '/assets/agropak.jpg',
+    '/assets/param.jpg',
+    '/assets/mathworks.jpg',
+    '/assets/create.jpg',
+    '/assets/moi.jpg',
+    '/assets/xinova.jpg',
+    '/assets/inzpireu.jpg',
+    '/assets/cisco.jpg',
+    '/assets/harman.jpg',
+  ];
+
+  // duplicate the array to create seamless looping
+  const slides = [...images, ...images];
+
+  return (
+    <div className="w-full">
+      <div className="overflow-hidden">
+        <ul
+          className="flex items-center gap-6 industry-slider will-change-transform"
+          aria-label="Industry collaborators carousel"
+        >
+          {slides.map((src, idx) => (
+            <li key={`industry-${src}-${idx}`} className="flex-shrink-0">
+              <button
+                type="button"
+                aria-label={`Open industry partner ${idx % images.length + 1}`}
+                className="p-0 bg-transparent border-0"
+              >
+                <img
+                  src={src}
+                  alt={`Industry Partner ${idx % images.length + 1}`}
+                  className="h-16 w-auto object-contain rounded-md shadow-sm bg-white p-2"
+                />
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <style>{`
+        .industry-slider {
+          animation: scrollLinearIndustry 30s linear infinite;
+        }
+        .industry-slider:hover {
+          animation-play-state: paused;
+        }
+        @keyframes scrollLinearIndustry {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+      `}</style>
+    </div>
+  );
+};
+
 // Student Journey Radial Navigation - Semi-circle design matching image 1
 // const StudentJourneyRadial = () => {
 //   const [activeStep, setActiveStep] = useState<number | null>(null);
@@ -742,7 +805,7 @@ export default function Home() {
                   className="inline-flex items-center justify-center whitespace-nowrap rounded-xl px-3 py-2 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-[#3E3C6B] data-[state=active]:text-white data-[state=active]:shadow-sm hover:bg-purple-50 hover:text-[#3E3C6B]"
                 >
                   <Building2 className="w-4 h-4 mr-2" />
-                    <span className="hidden sm:inline">Academic collaborators</span>
+                    <span className="hidden sm:inline">Collaborations</span>
                     <span className="sm:hidden">Collaborators</span>
                 </TabsTrigger>
                 <TabsTrigger 
@@ -768,7 +831,7 @@ export default function Home() {
                 >
                   <div className="flex flex-col items-center text-center">
                     <GraduationCap className="w-12 h-12 text-[#2B9EB3] mb-3" />
-                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">6715</div>
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">10053</div>
                     <div className="text-sm text-gray-700 font-medium">Students Graduated</div>
                   </div>
                 </motion.div>
@@ -782,8 +845,8 @@ export default function Home() {
                 >
                   <div className="flex flex-col items-center text-center">
                     <Users className="w-12 h-12 text-[#F15A29] mb-3" />
-                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">61</div>
-                    <div className="text-sm text-gray-700 font-medium">Cohorts</div>
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">₹1.1M</div>
+                    <div className="text-sm text-gray-700 font-medium">Hardware Grants</div>
                   </div>
                 </motion.div>
 
@@ -824,7 +887,7 @@ export default function Home() {
                 >
                   <div className="flex flex-col items-center text-center">
                     <Award className="w-12 h-12 text-[#2B9EB3] mb-3" />
-                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">₹13.9M</div>
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">₹12.8M</div>
                     <div className="text-sm text-gray-700 font-medium">Industry Grants/Awards</div>
                   </div>
                 </motion.div>
@@ -838,7 +901,7 @@ export default function Home() {
                 >
                   <div className="flex flex-col items-center text-center">
                     <Users className="w-12 h-12 text-[#F15A29] mb-3" />
-                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">1900+</div>
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">2180+</div>
                     <div className="text-sm text-gray-700 font-medium">Students Participating in Industry Programs</div>
                   </div>
                 </motion.div>
@@ -852,7 +915,7 @@ export default function Home() {
                 >
                   <div className="flex flex-col items-center text-center">
                     <Briefcase className="w-12 h-12 text-[#2B9EB3] mb-3" />
-                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">98</div>
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">106</div>
                     <div className="text-sm text-gray-700 font-medium">Industry/Startup Internships</div>
                   </div>
                 </motion.div>
@@ -894,7 +957,7 @@ export default function Home() {
                 >
                   <div className="flex flex-col items-center text-center">
                     <BookOpen className="w-12 h-12 text-[#F15A29] mb-3" />
-                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">11</div>
+                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">12</div>
                     <div className="text-sm text-gray-700 font-medium">Industry Programs</div>
                   </div>
                 </motion.div>
@@ -957,9 +1020,24 @@ export default function Home() {
                 </div>
               </div> */}
 
-              {/* Infinite carousel of partner logos */}
-              <div className="w-full">
-                <AcademicCarousel />
+              {/* Academic Collaborators */}
+              <div className="mb-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
+                  <span className="bg-gradient-to-r from-[#2B9EB3] to-[#3E3C6B] bg-clip-text text-transparent">Academic Collaborators</span>
+                </h3>
+                <div className="w-full">
+                  <AcademicCarousel />
+                </div>
+              </div>
+
+              {/* Industry Collaborators */}
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
+                  <span className="bg-gradient-to-r from-[#F15A29] to-[#FFC107] bg-clip-text text-transparent">Industry Collaborators</span>
+                </h3>
+                <div className="w-full">
+                  <IndustryCarousel />
+                </div>
               </div>
             </TabsContent>
 
