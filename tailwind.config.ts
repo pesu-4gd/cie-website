@@ -25,47 +25,50 @@ export default {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         
-        // PES University brand colors - Navy Blue and Orange theme
+        // CIE Brand colors - Following CIE Design System
         primary: {
-          50: '#f0f4ff',
-          100: '#e0e7ff',
-          200: '#c7d2fe',
-          300: '#a5b4fc',
-          400: '#818cf8',
-          500: '#1e3a8a', // PES Navy Blue - Main brand color
-          600: '#1e40af',
-          700: '#1d4ed8',
-          800: '#1e3a8a',
-          900: '#1e293b',
-          950: '#0f172a',
-          DEFAULT: '#1e3a8a',
+          50: '#f5f5f9',
+          100: '#ebebf2',
+          200: '#d3d2e2',
+          300: '#aeacc9',
+          400: '#8380ac',
+          500: '#3E3C6B', // CIE Navy Blue - Main brand color
+          600: '#353363',
+          700: '#2d2b53',
+          800: '#272546',
+          900: '#24223d',
+          950: '#151427',
+          DEFAULT: '#3E3C6B',
           foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {
-          50: '#fff7ed',
-          100: '#ffedd5',
-          200: '#fed7aa',
-          300: '#fdba74',
-          400: '#fb923c',
-          500: '#f97316', // PES Orange - Secondary brand color
-          600: '#ea580c',
-          700: '#c2410c',
-          800: '#9a3412',
-          900: '#7c2d12',
-          950: '#431407',
-          DEFAULT: '#f97316',
+          50: '#fef5f1',
+          100: '#fde8df',
+          200: '#fbcdbe',
+          300: '#f8aa93',
+          400: '#f47b56',
+          500: '#F15A29', // CIE Orange - Accent brand color
+          600: '#e24116',
+          700: '#bd330f',
+          800: '#9c2c11',
+          900: '#812815',
+          950: '#461207',
+          DEFAULT: '#F15A29',
           foreground: 'hsl(var(--secondary-foreground))',
         },
-        // PES University specific colors
-        pes: {
-          'navy': '#1e3a8a',        // Main navy blue
-          'navy-light': '#3b82f6',  // Lighter navy for accents
-          'navy-dark': '#1e293b',   // Darker navy for depth
-          'orange': '#f97316',      // Main orange
-          'orange-light': '#fb923c', // Lighter orange
-          'orange-dark': '#c2410c',  // Darker orange
-          'gold': '#fbbf24',        // Academic gold
-          'silver': '#94a3b8',      // Professional silver
+        // CIE specific colors following Design System
+        cie: {
+          'navy': '#3E3C6B',        // Primary brand - Headers, navbars, primary text
+          'orange': '#F15A29',      // Accent - Buttons, highlights, CTAs
+          'teal': '#2B9EB3',        // Secondary - Secondary buttons, icons, borders
+          'green': '#3AA76D',       // Support - Success indicators
+          'red': '#E53935',         // Support - Errors, urgent CTAs
+          'yellow': '#FFC107',      // Support - Awards, highlights
+          'white': '#FFFFFF',       // Neutral - Backgrounds
+          'gray-light': '#F5F5F5',  // Neutral - Section separators
+          'gray-medium': '#9E9E9E', // Neutral - Secondary text
+          'gray-dark': '#333333',   // Neutral - Body text
+          'black': '#1A1A1A',       // Neutral - Headlines, high contrast
         },
         // Academic colors for different purposes
         academic: {
@@ -129,13 +132,14 @@ export default {
         'full': '9999px',
       },
       boxShadow: {
-        'pes-sm': '0 1px 2px 0 rgba(30, 58, 138, 0.05)',
-        'pes': '0 4px 6px -1px rgba(30, 58, 138, 0.1), 0 2px 4px -1px rgba(30, 58, 138, 0.06)',
-        'pes-md': '0 10px 15px -3px rgba(30, 58, 138, 0.1), 0 4px 6px -2px rgba(30, 58, 138, 0.05)',
-        'pes-lg': '0 20px 25px -5px rgba(30, 58, 138, 0.1), 0 10px 10px -5px rgba(30, 58, 138, 0.04)',
-        'pes-xl': '0 25px 50px -12px rgba(30, 58, 138, 0.25)',
-        'pes-glow': '0 0 20px rgba(30, 58, 138, 0.3)',
-        'orange-glow': '0 0 20px rgba(249, 115, 22, 0.3)',
+        'cie-sm': '0 1px 2px 0 rgba(62, 60, 107, 0.05)',
+        'cie': '0 4px 6px -1px rgba(62, 60, 107, 0.1), 0 2px 4px -1px rgba(62, 60, 107, 0.06)',
+        'cie-md': '0 10px 15px -3px rgba(62, 60, 107, 0.1), 0 4px 6px -2px rgba(62, 60, 107, 0.05)',
+        'cie-lg': '0 20px 25px -5px rgba(62, 60, 107, 0.1), 0 10px 10px -5px rgba(62, 60, 107, 0.04)',
+        'cie-xl': '0 25px 50px -12px rgba(62, 60, 107, 0.25)',
+        'cie-glow': '0 0 20px rgba(62, 60, 107, 0.3)',
+        'orange-glow': '0 0 20px rgba(241, 90, 41, 0.3)',
+        'teal-glow': '0 0 20px rgba(43, 158, 179, 0.3)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

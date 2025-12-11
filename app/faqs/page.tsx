@@ -1,11 +1,17 @@
-'use client';
+"use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
 import { Badge } from '@/components/ui/badge';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-collapsible';
-import { HelpCircle, Search, ChevronDown, ChevronUp, Users, Building2, GraduationCap, BookOpen, DollarSign, Calendar } from 'lucide-react';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from '@/components/core/accordion';
+import { HelpCircle, ChevronRight, Users, Building2, GraduationCap, BookOpen, DollarSign, Calendar } from 'lucide-react';
 import { useState } from 'react';
 
 interface FAQ {
@@ -166,25 +172,12 @@ const faqs: FAQ[] = [
 const categories = ['All', 'General', 'Student Programs', 'Industry Partnerships', 'Alumni', 'Funding & Support', 'Events & Competitions'];
 
 export default function FAQsPage() {
-  const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [openItems, setOpenItems] = useState<string[]>([]);
 
   const filteredFAQs = faqs.filter(faq => {
-    const matchesSearch = faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         faq.answer.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         faq.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     const matchesCategory = selectedCategory === 'All' || faq.category === selectedCategory;
-    return matchesSearch && matchesCategory;
+    return matchesCategory;
   });
-
-  const toggleItem = (id: string) => {
-    setOpenItems(prev => 
-      prev.includes(id) 
-        ? prev.filter(item => item !== id)
-        : [...prev, id]
-    );
-  };
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
@@ -199,189 +192,189 @@ export default function FAQsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section (Inside CIE style) */}
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+        <InteractiveHexagonBackground
+          primaryColor={SECTION_COLORS.insideCie.hero.background}
+          accentColor="#f07f1a"
+          className="absolute inset-0 z-0"
+        />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <div className="mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-6">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#f07f1a] to-amber-500 rounded-full mb-6">
               <HelpCircle className="h-8 w-8 text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Frequently Asked Questions
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="text-white">Frequently Asked </span><span className="bg-gradient-to-r from-[#f07f1a] to-amber-400 bg-clip-text text-transparent">Questions</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Find answers to common questions about CIE programs, partnerships, and opportunities.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Search and Filter */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-4 mb-8">
-            {/* Search */}
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-              <Input
-                type="text"
-                placeholder="Search FAQs..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
-              />
+      {/* FAQ Section with Vertical Tabs and Accordion */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Vertical Category Tabs */}
+            <div className="lg:w-64 flex-shrink-0">
+              <div className="sticky top-24 space-y-2">
+                <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-[#f07f1a] to-amber-500 bg-clip-text text-transparent">
+                  Categories
+                </h3>
+                {categories.map((category) => {
+                  const categoryFAQs = faqs.filter(faq => category === 'All' || faq.category === category);
+                  return (
+                    <button
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center justify-between group ${
+                        selectedCategory === category
+                          ? 'bg-gradient-to-r from-[#f07f1a] to-amber-500 text-white shadow-md'
+                          : 'bg-white border-2 border-gray-200 hover:border-[#f07f1a]/30 text-gray-700'
+                      }`}
+                    >
+                      <div className="flex items-center space-x-3">
+                        <div className={selectedCategory === category ? 'text-white' : 'text-[#f07f1a]'}>
+                          {category !== 'All' && getCategoryIcon(category)}
+                        </div>
+                        <div>
+                          <div className={`font-medium ${selectedCategory === category ? 'text-white' : 'text-gray-900'}`}>
+                            {category}
+                          </div>
+                          <div className={`text-xs ${selectedCategory === category ? 'text-white/80' : 'text-gray-500'}`}>
+                            {categoryFAQs.length} questions
+                          </div>
+                        </div>
+                      </div>
+                      <ChevronRight className={`h-4 w-4 transition-transform ${
+                        selectedCategory === category ? 'text-white rotate-90' : 'text-gray-400 group-hover:translate-x-1'
+                      }`} />
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </div>
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap gap-2 mb-8">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedCategory(category)}
-                className="flex items-center space-x-2"
-              >
-                {category !== 'All' && getCategoryIcon(category)}
-                <span>{category}</span>
-              </Button>
-            ))}
-          </div>
-
-          {/* Results Count */}
-          <div className="mb-6">
-            <p className="text-gray-600">
-              Showing {filteredFAQs.length} of {faqs.length} questions
-              {searchTerm && ` for "${searchTerm}"`}
-              {selectedCategory !== 'All' && ` in ${selectedCategory}`}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ List */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          {filteredFAQs.length === 0 ? (
-            <Card className="text-center py-12">
-              <CardContent>
-                <HelpCircle className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">No FAQs Found</h3>
-                <p className="text-gray-600 mb-4">
-                  No questions match your search criteria. Try adjusting your search terms or category filter.
-                </p>
-                <Button onClick={() => { setSearchTerm(''); setSelectedCategory('All'); }}>
-                  Clear Filters
-                </Button>
-              </CardContent>
-            </Card>
-          ) : (
-            <div className="space-y-4">
-              {filteredFAQs.map((faq) => (
-                <Card key={faq.id} className="hover:shadow-lg transition-shadow duration-300">
-                  <Collapsible
-                    open={openItems.includes(faq.id)}
-                    onOpenChange={() => toggleItem(faq.id)}
-                  >
-                    <CollapsibleTrigger asChild>
-                      <CardHeader className="cursor-pointer hover:bg-gray-50 transition-colors">
-                        <div className="flex items-center justify-between">
-                          <div className="flex-1">
-                            <div className="flex items-center space-x-3 mb-2">
-                              <Badge variant="secondary" className="flex items-center space-x-1">
-                                {getCategoryIcon(faq.category)}
-                                <span>{faq.category}</span>
-                              </Badge>
-                            </div>
-                            <CardTitle className="text-left text-lg">{faq.question}</CardTitle>
-                          </div>
-                          <div className="ml-4">
-                            {openItems.includes(faq.id) ? (
-                              <ChevronUp className="h-5 w-5 text-gray-500" />
-                            ) : (
-                              <ChevronDown className="h-5 w-5 text-gray-500" />
-                            )}
-                          </div>
-                        </div>
-                      </CardHeader>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent>
-                      <CardContent className="pt-0">
-                        <p className="text-gray-600 leading-relaxed mb-4">{faq.answer}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {faq.tags.map((tag) => (
-                            <Badge key={tag} variant="outline" className="text-xs">
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </CollapsibleContent>
-                  </Collapsible>
+            {/* FAQ Accordion List */}
+            <div className="flex-1">
+              {filteredFAQs.length === 0 ? (
+                <Card className="text-center py-12 border-2 hover:border-black">
+                  <CardContent>
+                    <HelpCircle className="h-12 w-12 text-[#f07f1a] mx-auto mb-4" />
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">No FAQs Found</h3>
+                    <p className="text-gray-600 mb-4">
+                      No questions match your criteria. Try adjusting your category filter.
+                    </p>
+                    <Button 
+                      onClick={() => setSelectedCategory('All')}
+                      className="bg-gradient-to-r from-[#f07f1a] to-amber-500 hover:from-[#d96d15] hover:to-amber-600 text-white"
+                    >
+                      Clear Filters
+                    </Button>
+                  </CardContent>
                 </Card>
-              ))}
+              ) : (
+                <div>
+                  <div className="mb-6">
+                    <h2 className="text-2xl font-bold text-gray-900">
+                      {selectedCategory === 'All' ? 'All Questions' : selectedCategory}
+                    </h2>
+                    <p className="text-gray-600 mt-1">
+                      {filteredFAQs.length} {filteredFAQs.length === 1 ? 'question' : 'questions'}
+                    </p>
+                  </div>
+                  
+                  <Accordion
+                    className='flex w-full flex-col border-2 border-gray-200 rounded-lg p-4 bg-white'
+                    transition={{ type: 'spring', stiffness: 120, damping: 20 }}
+                    variants={{
+                      expanded: {
+                        opacity: 1,
+                        scale: 1,
+                      },
+                      collapsed: {
+                        opacity: 0,
+                        scale: 0.7,
+                      },
+                    }}
+                  >
+                    {filteredFAQs.map((faq) => (
+                      <AccordionItem key={faq.id} value={faq.id} className='py-3 border-b border-gray-200 last:border-b-0'>
+                        <AccordionTrigger className='w-full py-0.5 text-left'>
+                          <div className='flex items-start w-full'>
+                            <ChevronRight className='h-5 w-5 text-[#f07f1a] transition-transform duration-200 group-data-expanded:rotate-90 mt-0.5 flex-shrink-0' />
+                            <div className='ml-3 flex-1'>
+                              <div className='flex items-center gap-2 mb-2'>
+                                <Badge className="flex items-center space-x-1 bg-[#f07f1a]/10 text-[#f07f1a] border-[#f07f1a]/20 text-xs">
+                                  {getCategoryIcon(faq.category)}
+                                  <span>{faq.category}</span>
+                                </Badge>
+                              </div>
+                              <div className='font-semibold text-gray-900 group-hover:text-[#f07f1a] transition-colors'>
+                                {faq.question}
+                              </div>
+                            </div>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className='origin-left'>
+                          <div className='pl-8 pr-2 pt-2'>
+                            <p className='text-gray-600 leading-relaxed mb-4'>
+                              {faq.answer}
+                            </p>
+                            <div className='flex flex-wrap gap-2'>
+                              {faq.tags.map((tag) => (
+                                <Badge key={tag} variant="outline" className="text-xs border-[#f07f1a]/30 text-[#f07f1a]">
+                                  {tag}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#00338d]">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            Still Have Questions?
+          <h2 className="text-3xl font-bold mb-6">
+            <span className="bg-white bg-clip-text text-transparent">Still Have Questions?</span>
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-white mb-8">
             Can't find what you're looking for? Our team is here to help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg">
+            <Button 
+              size="lg"
+              className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
+              onClick={() => globalThis.location.href = 'mailto:cieinfo@pes.edu?subject=FAQ Inquiry'}
+            >
               Contact Us
             </Button>
-            <Button size="lg" variant="outline">
+            {/* <Button 
+              size="lg" 
+              variant="outline"
+              className="border-2 border-red-500 text-red-600 hover:bg-red-50"
+              onClick={() => globalThis.location.href = 'mailto:cieinfo@pes.edu?subject=Schedule Meeting'}
+            >
               Schedule a Meeting
-            </Button>
+            </Button> */}
           </div>
         </div>
       </section>
 
-      {/* Popular Categories */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            Browse by Category
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories.slice(1).map((category) => {
-              const categoryFAQs = faqs.filter(faq => faq.category === category);
-              return (
-                <Card key={category} className="hover:shadow-lg transition-shadow duration-300 cursor-pointer"
-                      onClick={() => setSelectedCategory(category)}>
-                  <CardHeader>
-                    <div className="flex items-center space-x-3">
-                      <div className="bg-blue-100 p-3 rounded-lg">
-                        {getCategoryIcon(category)}
-                      </div>
-                      <div>
-                        <CardTitle className="text-lg">{category}</CardTitle>
-                        <CardDescription>{categoryFAQs.length} questions</CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 text-sm">
-                      {categoryFAQs.length > 0 && categoryFAQs[0].question}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 }

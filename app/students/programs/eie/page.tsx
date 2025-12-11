@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { 
   BookOpen, 
   Clock, 
@@ -193,24 +194,23 @@ export default function EIEPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
+        <InteractiveHexagonBackground className="absolute inset-0 z-0" />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10" />
-        <div className="relative max-w-7xl mx-auto">
+        <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-200">
-              <GraduationCap className="h-4 w-4 mr-1" />
+            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30 mb-4">
+              <GraduationCap className="h-4 w-4 mr-2" />
               Academic Program
-            </Badge>
+            </span>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Entrepreneurship & Innovation <br />
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Education (EIE)
-              </span>
+              Entrepreneurship & Innovation{' '}
+              <span className="block text-[#2B9EB3]">Education (EIE)</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Comprehensive two-part program designed to transform students into confident entrepreneurs 

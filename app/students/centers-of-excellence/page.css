@@ -1,0 +1,20 @@
+/* Styles specific to the Centers of Excellence page */
+
+/* Use the RGB CSS variables set on the hero section to create translucent overlays.
+   The page component sets these variables (e.g. --students-primary-rgb) via inline style. */
+
+.students-hero-gradient {
+  /* Fallback to transparent if variables are not set */
+  background: linear-gradient(
+    90deg,
+    rgba(var(--students-primary-rgb, 0, 51, 141), 0.12),
+    rgba(var(--students-secondary-rgb, 43, 158, 179), 0.08)
+  );
+  pointer-events: none; /* allow underlying interactive background to receive mouse events */
+  mix-blend-mode: overlay;
+}
+
+/* Small utility: if you want to reference the gradient elsewhere */
+:root {
+  --students-hero-gradient: linear-gradient(90deg, rgba(var(--students-primary-rgb, 0, 51, 141), 0.12), rgba(var(--students-secondary-rgb, 43, 158, 179), 0.08));
+}

@@ -1,17 +1,93 @@
 'use client';
 
-import { AlumniHero } from '@/components/ui/hero-section';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { SECTION_COLORS } from '@/styles/colors';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Users, TrendingUp, Heart, Calendar, Search, UserPlus, DollarSign, Briefcase } from 'lucide-react';
+import { Users, TrendingUp, Heart, Calendar, Search, UserPlus, DollarSign, Briefcase, GraduationCap, ArrowRight, Mail } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+const alumniColors = SECTION_COLORS.alumni;
 
 export default function AlumniPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Hero Section */}
-      <AlumniHero />
+    <div className="min-h-screen bg-white">
+      {/* Hero Section with Interactive Hexagonal Background */}
+  <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+          <InteractiveHexagonBackground 
+          primaryColor={alumniColors.hero.background}
+          // Use a yellow accent (amber) instead of the orange accent
+          accentColor="#F59E0B"
+          className="absolute inset-0 z-0"
+        />
+        
+        {/* Hero Content - Centered */}
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white mb-8"
+          >
+            <GraduationCap className="w-4 h-4 mr-2" />
+            <span className="text-sm font-medium">Alumni Network</span>
+          </motion.div>
+
+          {/* Title - Centered */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-7xl font-bold text-white mb-6"
+          >
+            Stay Connected, Give Back
+            <span className="block mt-4 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
+              Grow Together
+            </span>
+          </motion.h1>
+
+          {/* Subtitle - Centered */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
+          >
+            Join our thriving alumni community and continue your journey of innovation while helping shape the future of entrepreneurship.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <Link href="/alumni/directory">
+              <Button 
+                variant="default" 
+                size="lg"
+                className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white"
+              >
+                Alumni Directory
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link href="/alumni/give-back">
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+              >
+                Give Back
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Alumni Network Stats */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
@@ -169,6 +245,45 @@ export default function AlumniPage() {
                 <Link href="/alumni/stay-connected">
                   <Button className="w-full" variant="outline">
                     Join Network
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Newsletter */}
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <div className="flex items-center space-x-3">
+                  <div className="bg-amber-100 p-3 rounded-lg">
+                    <Mail className="h-6 w-6 text-amber-600" />
+                  </div>
+                  <div>
+                    <CardTitle>CIE Newsletter</CardTitle>
+                    <CardDescription>Innovation updates</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">
+                  Stay updated with innovation stories, startup success journeys, and community updates from CIE.
+                </p>
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center text-sm text-gray-600">
+                    <span className="w-2 h-2 bg-amber-500 rounded-full mr-2"></span>
+                    10+ Issues Published
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <span className="w-2 h-2 bg-amber-500 rounded-full mr-2"></span>
+                    Success Stories
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <span className="w-2 h-2 bg-amber-500 rounded-full mr-2"></span>
+                    Community Updates
+                  </div>
+                </div>
+                <Link href="/alumni/newsletter">
+                  <Button className="w-full bg-amber-500 hover:bg-amber-600 text-white">
+                    Read Newsletter
                   </Button>
                 </Link>
               </CardContent>

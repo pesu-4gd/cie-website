@@ -3,6 +3,8 @@
 import { Button } from '@/components/design-system';
 import { ModernCard } from '@/components/ui/modern-card';
 import { motion } from 'framer-motion';
+import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { 
   Users, 
   Calendar, 
@@ -23,11 +25,12 @@ import {
 import Link from 'next/link';
 
 export default function StudentClubsPage() {
+  const studentsColors = SECTION_COLORS.students;
   const clubStats = [
     { label: 'Active Members', value: '500+', icon: Users, color: 'blue' },
     { label: 'Events Organized', value: '50+', icon: Calendar, color: 'green' },
-    { label: 'Success Stories', value: '25+', icon: Award, color: 'purple' },
-    { label: 'Volunteers', value: '100+', icon: Heart, color: 'red' }
+    { label: 'Success Stories', value: '25+', icon: Award, color: 'blue' },
+    { label: 'Volunteers', value: '100+', icon: Heart, color: 'green' }
   ];
 
   const featuredClubs = [
@@ -35,7 +38,7 @@ export default function StudentClubsPage() {
       title: 'Entrepreneurship Cell (E-Cell)',
       description: 'Leading student organization driving entrepreneurial culture and hosting flagship events like E-Summit.',
       icon: Lightbulb,
-      color: 'blue',
+      color: '#00338d',
       highlights: [
         'Hosts E-Summit annually with 1000+ participants',
         'Founder Fusion and other startup competitions', 
@@ -55,7 +58,7 @@ export default function StudentClubsPage() {
       title: "Changemakers' Society (CMS)",
       description: 'Sustainability-focused club organizing impactful initiatives and driving environmental consciousness on campus.',
       icon: Globe,
-      color: 'green',
+      color: '#00338d',
       highlights: [
         'Organized CIE Ignite S01 Grand Finale with 20+ volunteers',
         'Zero Waste Carnival and sustainability drives',
@@ -96,7 +99,7 @@ export default function StudentClubsPage() {
       title: 'Startup Pitch Night',
       club: 'E-Cell',
       date: '2025-02-20',
-      description: 'Monthly event where student entrepreneurs pitch to a panel of investors and mentors.',
+      description: 'Monthly event where student entrepreneurs pitch to a panel of investors and mentors and receive feedback.',
       type: 'Networking',
       expectedAttendees: '100+',
       registrationOpen: false
@@ -123,14 +126,14 @@ export default function StudentClubsPage() {
       value: '50+',
       description: 'Direct connections with industry leaders and mentors',
       icon: Target,
-      color: 'purple'
+      color: 'blue'
     },
     {
       metric: 'Student Startups Supported',
       value: '30+',
       description: 'Startups launched through club initiatives and support',
       icon: TrendingUp,
-      color: 'orange'
+      color: 'green'
     }
   ];
 
@@ -146,27 +149,37 @@ export default function StudentClubsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#00338d] via-blue-700 to-[#f07f1a] text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
+    <div className="min-h-screen bg-white">
+  {/* Hero Section (interactive hexagon + themed overlay) */}
+  <section className="relative h-[85vh] flex items-center justify-center overflow-hidden px-6">
+        <InteractiveHexagonBackground
+          className="absolute inset-0 z-0"
+          primaryColor={studentsColors.hero?.background}
+          accentColor={studentsColors.hero?.hexagonAccent}
+        />
+
+        <div className={`absolute inset-0 pointer-events-none`} style={{ background: `linear-gradient(90deg, ${studentsColors.primary}11, ${studentsColors.secondary}11)` }} />
+
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/20 text-white border border-white/30">
+            <div className="mb-6 inline-flex items-center gap-3">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
                 <Users className="w-4 h-4 mr-2" />
                 Student Organizations
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
               Student Clubs
-              <span className="block text-blue-200">& Communities</span>
+              <span className="block" style={{ color: studentsColors.accent }}>&nbsp;Communities</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+
+            <p className="text-xl md:text-2xl text-white/85 max-w-3xl mx-auto leading-relaxed">
               Join vibrant student-led organizations to immerse yourself in entrepreneurship, sustainability, and drive meaningful impact on campus and beyond.
             </p>
           </motion.div>
@@ -174,7 +187,7 @@ export default function StudentClubsPage() {
       </section>
 
       {/* Quick Stats */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -202,7 +215,7 @@ export default function StudentClubsPage() {
             })}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Featured Clubs */}
       <section className="py-20 bg-gray-50">
@@ -214,7 +227,7 @@ export default function StudentClubsPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our <span className="text-[#00338d]">Featured</span> Clubs
+              Our <span style={{ color: studentsColors.primary }}>Featured</span> Clubs
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Discover student-led organizations driving innovation, entrepreneurship, and sustainability impact.
@@ -235,9 +248,7 @@ export default function StudentClubsPage() {
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
                     <div>
                       <div className="flex items-center mb-6">
-                        <div className={`w-16 h-16 bg-gradient-to-br ${getColorClasses(club.color)} rounded-2xl flex items-center justify-center mr-4`}>
-                          <IconComponent className="w-8 h-8 text-white" />
-                        </div>
+                        <IconComponent className="w-12 h-12 text-[#2B9EB3] mr-4" />
                         <div>
                           <h3 className="text-3xl font-bold text-gray-900">{club.title}</h3>
                         </div>
@@ -257,13 +268,13 @@ export default function StudentClubsPage() {
                         ))}
                       </div>
                       
-                      <Button 
-                        className={`bg-gradient-to-r ${getColorClasses(club.color)} text-white px-6 py-3 rounded-xl`}
-                        onClick={() => window.location.href = club.joinLink}
+                      <Link 
+                        href={club.joinLink}
+                        className={`inline-flex items-center justify-center bg-[#00338d] text-white px-6 py-3 rounded-xl`}
                       >
                         <UserPlus className="w-4 h-4 mr-2" />
                         Join {club.title.split(' ')[0]}
-                      </Button>
+                      </Link>
                     </div>
                     
                     <div className="space-y-6">
@@ -272,7 +283,7 @@ export default function StudentClubsPage() {
                         <div className="space-y-3">
                           {club.keyEvents.map((event, idx) => (
                             <div key={idx} className="flex items-center">
-                              <Calendar className={`w-4 h-4 text-${club.color}-600 mr-3`} />
+                              <Calendar className="w-5 h-5 text-[#2B9EB3] mr-3" />
                               <span className="text-gray-700">{event}</span>
                             </div>
                           ))}
@@ -284,7 +295,7 @@ export default function StudentClubsPage() {
                         <div className="space-y-3">
                           {club.memberBenefits.map((benefit, idx) => (
                             <div key={idx} className="flex items-center">
-                              <Star className={`w-4 h-4 text-${club.color}-600 mr-3`} />
+                              <Star className="w-5 h-5 text-[#2B9EB3] mr-3" />
                               <span className="text-gray-700">{benefit}</span>
                             </div>
                           ))}
@@ -309,7 +320,7 @@ export default function StudentClubsPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Upcoming <span className="text-[#f07f1a]">Events</span>
+              Upcoming <span style={{ color: studentsColors.accent }}>Events</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Stay updated with the latest club events, workshops, and networking opportunities.
@@ -334,11 +345,11 @@ export default function StudentClubsPage() {
                       ? 'bg-green-100 text-green-800' 
                       : 'bg-gray-100 text-gray-800'
                   }`}>
-                    {event.registrationOpen ? 'Registration Open' : 'Registration Closed'}
+                    {event.registrationOpen ? 'Registration Open' : 'Not available'}
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-l font-bold text-gray-900 mb-3">
                   {event.title}
                 </h3>
                 
@@ -348,7 +359,7 @@ export default function StudentClubsPage() {
                 
                 <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
                   <div className="flex items-center">
-                    <Calendar className="w-4 h-4 mr-2" />
+                    <Calendar className="w-5 h-5 text-[#2B9EB3] mr-2" />
                     <span>
                       {new Date(event.date).toLocaleDateString('en-US', {
                         month: 'short',
@@ -358,12 +369,12 @@ export default function StudentClubsPage() {
                     </span>
                   </div>
                   <div className="flex items-center">
-                    <Users className="w-4 h-4 mr-2" />
+                    <Users className="w-5 h-5 text-[#2B9EB3] mr-2" />
                     <span>{event.expectedAttendees}</span>
                   </div>
                 </div>
                 
-                <Button 
+                {/* <Button 
                   className={`w-full ${
                     event.registrationOpen 
                       ? 'bg-[#00338d] hover:bg-blue-700' 
@@ -371,8 +382,8 @@ export default function StudentClubsPage() {
                   } text-white`}
                   disabled={!event.registrationOpen}
                 >
-                  {event.registrationOpen ? 'Register Now' : 'Registration Closed'}
-                </Button>
+                  {event.registrationOpen ? 'Learn more' : 'Not available'}
+                </Button> */}
               </motion.div>
             ))}
           </div>
@@ -389,14 +400,14 @@ export default function StudentClubsPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our <span className="text-[#00338d]">Impact</span>
+              Our <span style={{ color: studentsColors.primary }}>Impact</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Measuring success through student engagement, events organized, and community impact created.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          {/* <div className="grid md:grid-cols-4 gap-6">
             {impactMetrics.map((metric, index) => {
               const IconComponent = metric.icon;
               return (
@@ -416,40 +427,40 @@ export default function StudentClubsPage() {
                 </motion.div>
               );
             })}
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-[#00338d] to-[#f07f1a]">
+      <section className="py-20" style={{ background: '#00338d' }}>
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Ready to Make an Impact?
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+            <p className="text-xl max-w-3xl mx-auto mb-8 text-white">
               Join our vibrant community of student leaders, innovators, and changemakers. Network, lead, and create meaningful impact through our student organizations.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+              <Link href="/students/clubs/e-cell" className="inline-flex items-center justify-center bg-white px-8 py-4 text-lg font-semibold rounded-xl border border-white" style={{ color: '#00338d' }}>
                 <UserPlus className="w-5 h-5 mr-2" />
                 Join E-Cell
-              </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              </Link>
+              <Link href="/students/clubs/cms" className="inline-flex items-center justify-center bg-transparent px-8 py-4 text-lg font-semibold rounded-xl text-white border border-white">
                 <Globe className="w-5 h-5 mr-2" />
                 Join CMS
-              </Button>
+              </Link>
             </div>
             
             <div className="mt-8">
-              <p className="text-blue-100 mb-4">Questions about joining?</p>
+              <p className="mb-4 text-white">Questions about joining?</p>
               <Button 
-                className="bg-transparent border border-white/30 text-white hover:bg-white/10 px-6 py-3 rounded-xl"
+                className="px-6 py-3 rounded-xl text-white border border-white"
                 onClick={() => window.location.href = 'mailto:cieprogram@pes.edu'}
               >
                 <MessageCircle className="w-4 h-4 mr-2" />

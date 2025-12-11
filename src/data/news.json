@@ -1,0 +1,28 @@
+[
+  {
+    "id": "news-001",
+    "title": "CIE Students Win National Innovation Challenge",
+    "summary": "Team from CIE secures first place in the National Innovation Challenge with their sustainable energy solution",
+    "content": "A team of students from the Centre for Innovation and Entrepreneurship (CIE) has won the prestigious National Innovation Challenge 2025. Their project on sustainable energy solutions impressed judges with its innovative approach and practical implementation.",
+    "author": "CIE Communications Team",
+    "publishedDate": "2025-01-20",
+    "category": "achievement",
+    "tags": ["innovation", "students", "competition", "sustainability"],
+    "featuredImage": "/assets/news/innovation-challenge-placeholder.jpg",
+    "readTime": "3 min read",
+    "featured": true
+  },
+  {
+    "id": "news-002",
+    "title": "New Industry Partnership Announced",
+    "summary": "CIE partners with leading tech companies to provide more internship and job opportunities for students",
+    "content": "The Centre for Innovation and Entrepreneurship is excited to announce new partnerships with several leading technology companies. These partnerships will provide enhanced internship opportunities, mentorship programs, and direct job placements for our students.",
+    "author": "Industry Relations Team",
+    "publishedDate": "2025-01-18",
+    "category": "partnership",
+    "tags": ["industry", "partnership", "internships", "careers"],
+    "featuredImage": "/assets/news/partnership-placeholder.jpg",
+    "readTime": "2 min read",
+    "featured": false
+  }
+]

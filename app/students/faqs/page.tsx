@@ -2,6 +2,8 @@
 
 import { Button } from '@/components/design-system';
 import { motion } from 'framer-motion';
+import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { 
   HelpCircle, 
   ChevronDown,
@@ -21,6 +23,7 @@ import {
 import { useState } from 'react';
 
 export default function StudentFAQsPage() {
+  const studentsColors = SECTION_COLORS.students;
   const [openCategories, setOpenCategories] = useState<{ [key: string]: boolean }>({
     eie: true
   });
@@ -228,10 +231,16 @@ export default function StudentFAQsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className={`min-h-screen ${studentsColors.gradient.tailwind}`}>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#00338d] via-blue-700 to-[#f07f1a] text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
+        <InteractiveHexagonBackground
+          className="absolute inset-0 z-0"
+          primaryColor={studentsColors.hero?.background}
+          accentColor={studentsColors.hero?.hexagonAccent}
+        />
+        <div className="absolute inset-0" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -239,14 +248,14 @@ export default function StudentFAQsPage() {
             className="text-center"
           >
             <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/20 text-white border border-white/30">
-                <HelpCircle className="w-4 h-4 mr-2" />
+              <span className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-[${studentsColors.primary}] text-white`}>
+                <HelpCircle className="w-4 h-4 mr-2 text-white" />
                 Get Answers
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
               Frequently Asked
-              <span className="block text-blue-200">Questions</span>
+              <span className={`block text-[${studentsColors.accent}]`}>Questions</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
               Get clear answers about EIE courses, Student Startup Program, funding opportunities, and how to maximize your CIE experience.
@@ -291,9 +300,7 @@ export default function StudentFAQsPage() {
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <div className={`w-12 h-12 bg-${category.color}-100 rounded-xl flex items-center justify-center mr-4`}>
-                          <IconComponent className={`w-6 h-6 text-${category.color}-600`} />
-                        </div>
+                        <IconComponent className="w-10 h-10 text-[#2B9EB3] mr-4" />
                         <h3 className="text-2xl font-bold text-gray-900">{category.title}</h3>
                       </div>
                       <ChevronDown 
@@ -454,7 +461,7 @@ export default function StudentFAQsPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-[#00338d] to-[#f07f1a]">
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

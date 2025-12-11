@@ -1,30 +1,18 @@
-'use client';
+"use client";
 
+import React from 'react';
 import { Button } from '@/components/design-system';
 import { motion } from 'framer-motion';
-import { 
-  Cpu, 
-  Atom, 
-  Brain,
-  Zap,
-  Globe,
-  Database,
-  ChipIcon,
-  Microscope,
-  ArrowRight,
-  BookOpen,
-  Users,
-  Award,
-  Target,
-  Lightbulb,
-  Building2,
-  FlaskConical,
-  Rocket,
-  Link2,
-  Mail
-} from 'lucide-react';
+import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { BookOpen, Users, Award, Building2, FlaskConical, Rocket, Link2 } from 'lucide-react';
+import './page.css';
+
+// coeList removed (we render a curated overview below from provided content)
+// Hex background removed in favor of shared `InteractiveHexagonBackground` used on the site root.
 
 export default function CentersOfExcellencePage() {
+  const studentsColors = SECTION_COLORS.students;
   const stats = [
     { label: 'Research Centers', value: '8+', icon: Building2, color: 'blue' },
     { label: 'Active Projects', value: '50+', icon: FlaskConical, color: 'green' },
@@ -32,169 +20,26 @@ export default function CentersOfExcellencePage() {
     { label: 'Publications', value: '100+', icon: BookOpen, color: 'orange' }
   ];
 
-  const centers = [
-    {
-      name: 'Centre for Robotics, Automation & Intelligent Systems (CRAIS)',
-      acronym: 'CRAIS',
-      description: 'Leading research in robotics, automation, and AI systems with focus on practical applications and industry collaboration.',
-      icon: Cpu,
-      color: 'blue',
-      researchAreas: [
-        'Autonomous Robotics',
-        'Industrial Automation', 
-        'Computer Vision',
-        'Machine Learning Applications',
-        'Human-Robot Interaction'
-      ],
-      facilities: [
-        'Advanced Robotics Lab',
-        'Automation Testing Facility',
-        'AI Computing Cluster',
-        'Prototype Development Workshop'
-      ],
-      opportunities: [
-        'Research Internships',
-        'Capstone Projects',
-        'Industry Collaborations',
-        'Conference Presentations'
-      ],
-      contact: 'crais@pes.edu'
-    },
-    {
-      name: 'Quantum and Nano Devices Lab (QuaNaD)',
-      acronym: 'QuaNaD',
-      description: 'Cutting-edge research in quantum computing, nanotechnology, and advanced semiconductor devices.',
-      icon: Atom,
-      color: 'purple',
-      researchAreas: [
-        'Quantum Computing',
-        'Nanotechnology',
-        'Quantum Devices',
-        'Semiconductor Physics',
-        'Quantum Information Systems'
-      ],
-      facilities: [
-        'Clean Room Facility',
-        'Quantum Testing Lab',
-        'Nano Fabrication Unit',
-        'Characterization Equipment'
-      ],
-      opportunities: [
-        'PhD Research Programs',
-        'Masters Thesis Projects',
-        'International Collaborations',
-        'Technology Transfer Projects'
-      ],
-      contact: 'quanad@pes.edu'
-    },
-    {
-      name: 'Centre for IoT & Cyber Physical Systems',
-      acronym: 'C-IoT',
-      description: 'Research and development in Internet of Things, cyber-physical systems, and smart city technologies.',
-      icon: Globe,
-      color: 'green',
-      researchAreas: [
-        'IoT Architecture',
-        'Smart City Solutions',
-        'Cyber-Physical Systems',
-        'Edge Computing',
-        'Wireless Sensor Networks'
-      ],
-      facilities: [
-        'IoT Testbed',
-        'Smart City Simulation Lab',
-        'Sensor Network Facility',
-        'Cloud Computing Infrastructure'
-      ],
-      opportunities: [
-        'Smart City Projects',
-        'Industry Partnerships',
-        'Startup Incubation',
-        'Innovation Challenges'
-      ],
-      contact: 'ciot@pes.edu'
-    },
-    {
-      name: 'CHIPS (Centre for Hardware & Integrated Processor Systems)',
-      acronym: 'CHIPS',
-      description: 'Advanced research in computer hardware, processor design, and integrated systems.',
-      icon: ChipIcon,
-      color: 'orange',
-      researchAreas: [
-        'Processor Design',
-        'VLSI Technology',
-        'Embedded Systems',
-        'Hardware Security',
-        'System-on-Chip Design'
-      ],
-      facilities: [
-        'VLSI Design Lab',
-        'Hardware Prototyping Facility',
-        'Testing & Validation Lab',
-        'Fabrication Partnerships'
-      ],
-      opportunities: [
-        'Chip Design Projects',
-        'Hardware Startups',
-        'Industry Internships',
-        'Patent Development'
-      ],
-      contact: 'chips@pes.edu'
-    },
-    {
-      name: 'Centre for Cloud Computing, Networking & Cybersecurity (CCNCS)',
-      acronym: 'CCNCS',
-      description: 'Research excellence in cloud technologies, network systems, and cybersecurity solutions.',
-      icon: Database,
-      color: 'red',
-      researchAreas: [
-        'Cloud Computing',
-        'Network Security',
-        'Cybersecurity',
-        'Distributed Systems',
-        'Data Privacy'
-      ],
-      facilities: [
-        'Cloud Infrastructure Lab',
-        'Cybersecurity Testing Center',
-        'Network Simulation Facility',
-        'Security Analytics Lab'
-      ],
-      opportunities: [
-        'Security Research Projects',
-        'Industry Consulting',
-        'Certification Programs',
-        'Hackathon Participation'
-      ],
-      contact: 'ccncs@pes.edu'
-    },
-    {
-      name: 'Centre for Data Sciences & Applied ML (CDSAML)',
-      acronym: 'CDSAML',
-      description: 'Advanced research in data science, machine learning, and artificial intelligence applications.',
-      icon: Brain,
-      color: 'indigo',
-      researchAreas: [
-        'Machine Learning',
-        'Data Analytics',
-        'Artificial Intelligence',
-        'Big Data Processing',
-        'Predictive Modeling'
-      ],
-      facilities: [
-        'High-Performance Computing Cluster',
-        'Data Analytics Lab',
-        'ML Model Development Studio',
-        'Visualization Centers'
-      ],
-      opportunities: [
-        'AI Research Projects',
-        'Data Science Internships',
-        'ML Model Development',
-        'Industry Data Projects'
-      ],
-      contact: 'cdsaml@pes.edu'
-    }
+  
+
+  // Full overview list (from provided content) — used in the overview table below
+  const centersOverview = [
+  { short: 'CCNCS', name: 'Center for Computer Networks and Cyber Security (CCNCS)', description: 'Focuses on improving internet security and building protected next-generation ecosystems, addressing challenges in cybersecurity and network infrastructure.', logo: '/assets/ccncs.jpg', url: '' },
+  { short: 'CHIPS', name: 'Centre for Heterogeneous and Intelligent Processing Systems (CHIPS)', description: 'Researches heterogeneous computing using CPUs, GPUs, and FPGAs, supported by grants like CHIPS2Startup from MEITY, driving advancements in high-performance computing.', logo: '/assets/chips.jpg', url: '' },
+  { short: 'QuaNaD', name: 'Quantum and Nano Devices Lab (QuaNaD)', description: 'Explores quantum and nano technologies, focusing on innovative device development for applications in computing and materials science.', logo: '/assets/quanad.jpg', url: '' },
+  { short: 'CoDMAV', name: 'Centre for Data Modelling, Analytics and Visualization (CoDMAV)', description: 'Specializes in data modeling, analytics, and visualization techniques to derive insights from complex datasets, supporting AI and business intelligence applications.', logo: '/assets/codmav.jpg', url: '' },
+  { short: 'CRSST', name: 'Centre for Research in Space Science and Technology (CRSST)', description: 'Advances research in space science and technology, including satellite systems, astrophysics, and space exploration technologies.', logo: '/assets/crsst.jpg', url: '' },
+  { short: 'CRAIS', name: 'Centre for Robotics, Automation & Intelligent Systems (CRAIS)', description: 'Develops cutting-edge solutions in robotics, automation, and intelligent systems, integrating AI and IoT for real-world applications.', logo: '/assets/rais.jpg', url: '' },
+  { short: 'Cloud & Big Data', name: 'Centre for Cloud Computing & Big Data', description: 'Innovates in cloud computing architectures and big data analytics, enabling scalable and efficient data processing solutions.', logo: '/assets/ccbd.jpg', url: '' },
+  { short: 'CORI', name: 'Crucible of Research and Innovation (CORI)', description: 'Combines faculty expertise and student enthusiasm to create leading-edge solutions across multiple disciplines, fostering interdisciplinary innovation.', logo: '/assets/cori.jpg', url: '' },
+  { short: 'C-ISFCR', name: 'Center of Excellence in Information Security, Forensics, and Cyber Resilience (C-ISFCR)', description: 'Provides facilities to test practical aspects of information security, focusing on forensics, cyber resilience, and threat mitigation.', logo: '/assets/isfcr.jpg', url: '' },
+  { short: 'C-IoT', name: 'Center of Excellence in Internet of Things (C-IoT)', description: 'Drives the development of IoT solutions, integrating sensors, connectivity, and data analytics for smart applications.', logo: '/assets/pesu-iot.jpg', url: '' },
+  { short: 'Pattern Recognition', name: 'Center for Pattern Recognition', description: 'Advances techniques in pattern analysis and machine learning for applications in image processing, speech recognition, and data mining.', logo: '/assets/cprmi.jpg', url: '' },
+  { short: 'KANOE', name: 'Knowledge Analytics & Ontological Engineering (KANOE)', description: 'Focuses on knowledge analytics, semantic technologies, and ontological engineering to enhance data interoperability and intelligence.', logo: '/assets/kanoe.jpg', url: '' },
+  { short: 'Intelligent Systems', name: 'Centre for Intelligent Systems', description: 'Researches AI-driven intelligent systems for automation, decision-making, and human-machine interaction.', logo: '/assets/cis.jpg', url: '' },
+  { short: 'Photonics & Quantum', name: 'Laboratory of Photonics & Quantum Technology', description: 'Explores photonics and quantum technologies for applications in communication, sensing, and computing.', logo: '/assets/lpqt.jpg', url: '' },
+  { short: 'CDSAML', name: 'Center for Data Sciences and Applied Machine Learning (CDSAML)', description: 'Applies machine learning to data sciences, enabling predictive analytics and decision support systems.', logo: '/assets/cdsaml.jpg', url: '' },
+  { short: 'C3I', name: 'Centre of Cognitive Computing and Computational Intelligence (C3I)', description: 'Innovates in cognitive computing and computational intelligence, focusing on AI systems that mimic human cognition.', logo: '/assets/c3i.jpg', url: '' }
   ];
 
   const collaborationOpportunities = [
@@ -221,42 +66,65 @@ export default function CentersOfExcellencePage() {
     }
   ];
 
-  const getColorClasses = (color: string) => {
-    const colorMap = {
-      blue: 'from-blue-500 to-blue-600',
-      green: 'from-green-500 to-green-600', 
-      purple: 'from-purple-500 to-purple-600',
-      orange: 'from-orange-500 to-orange-600',
-      red: 'from-red-500 to-red-600',
-      indigo: 'from-indigo-500 to-indigo-600'
-    };
-    return colorMap[color as keyof typeof colorMap] || colorMap.blue;
-  };
+  
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#00338d] via-indigo-700 to-[#f07f1a] text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
+    <div className="min-h-screen bg-white">
+      <section
+        className="relative h-[85vh] flex items-center justify-center text-white overflow-hidden"
+        style={
+          {
+            ['--cie-blue']: studentsColors.primary,
+            ['--students-primary-rgb']: hexToRgb(studentsColors.primary),
+            ['--students-secondary-rgb']: hexToRgb(studentsColors.secondary),
+            ['--students-accent-rgb']: hexToRgb(studentsColors.accent)
+          } as React.CSSProperties
+        }
+      >
+      
+        {/* Interactive hex background (reuse site component for consistent visual language) */}
+        <InteractiveHexagonBackground
+          primaryColor={studentsColors.hero?.background ?? studentsColors.primary}
+          accentColor={studentsColors.hero?.hexagonAccent ?? studentsColors.accent}
+          hexagonSize={72}
+          className="absolute inset-0 z-0"
+        />
+
+        {/* Decorative gradient layer for stronger contrast — translucent and non-blocking so hexagon remains visible and interactive */}
+        <div
+          className="absolute inset-0 pointer-events-none mix-blend-overlay students-hero-gradient"
+          aria-hidden="true"
+        />
+
+        {/* Decorative orbs (subtle) — use students tokens and remain non-interactive */}
+        <div
+          className="absolute top-16 right-16 w-56 h-56 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse pointer-events-none"
+          style={{ backgroundColor: `rgba(${hexToRgb(studentsColors.accent)}, 0.16)` }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute bottom-16 left-16 w-56 h-56 rounded-full mix-blend-multiply filter blur-xl opacity-24 animate-pulse pointer-events-none"
+          style={{ backgroundColor: `rgba(${hexToRgb(studentsColors.secondary)}, 0.12)` }}
+          aria-hidden="true"
+        />
+
+  <div className="max-w-7xl mx-auto px-6 relative z-10 text-center" style={{ ['--cie-blue']: studentsColors.primary } as React.CSSProperties}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/20 text-white border border-white/30">
+            <div className="mb-6 inline-block">
+              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-100 border border-blue-400/30">
                 <FlaskConical className="w-4 h-4 mr-2" />
                 Research Excellence
               </span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Centers of
-              <span className="block text-blue-200">Excellence</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+              Centers of Excellence{' '}
+              <span className="block" style={{ color: studentsColors.accent }}>at PES University</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Engage with PES University's Centers of Excellence for cutting-edge research and innovation opportunities across AI, IoT, quantum technology, and more.
-            </p>
           </motion.div>
         </div>
       </section>
@@ -268,34 +136,31 @@ export default function CentersOfExcellencePage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            className="text-center mb-16"
           >
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-2xl border border-gray-200 text-center hover:shadow-lg transition-all duration-300"
-                >
-                  <div className={`w-12 h-12 bg-${stat.color}-100 rounded-xl flex items-center justify-center mx-auto mb-4`}>
-                    <IconComponent className={`w-6 h-6 text-${stat.color}-600`} />
-                  </div>
-                  <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                  <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-                </motion.div>
-              );
-            })}
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              About Our Centers of Excellence
+            </h2>
+            <div className="max-w-5xl mx-auto space-y-4">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                PES University's Centers of Excellence (CoEs) are hubs for cutting-edge research and innovation, offering students unparalleled opportunities to engage in transformative projects.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Aligned with the Centre for Innovation and Entrepreneurship (CIE) and other university divisions, these centers focus on fields like artificial intelligence, cybersecurity, quantum technology, and sustainability.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                They provide access to advanced facilities, industry partnerships, and expert mentorship, empowering students to contribute to groundbreaking solutions.
+              </p>
+            </div>
           </motion.div>
+          
         </div>
       </section>
 
       {/* Centers Grid */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-1 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -307,9 +172,9 @@ export default function CentersOfExcellencePage() {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               World-class research facilities focusing on emerging technologies and industry collaboration.
             </p>
-          </motion.div>
+          </motion.div> */}
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          {/* <div className="grid lg:grid-cols-2 gap-8">
             {centers.map((center, index) => {
               const IconComponent = center.icon;
               return (
@@ -321,7 +186,7 @@ export default function CentersOfExcellencePage() {
                   className="bg-white rounded-3xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-center mb-6">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${getColorClasses(center.color)} rounded-2xl flex items-center justify-center mr-4`}>
+                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center mr-4" style={{ background: studentsColors.gradient.css }}>
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
                     <div>
@@ -340,7 +205,7 @@ export default function CentersOfExcellencePage() {
                       <div className="space-y-2">
                         {center.researchAreas.slice(0, 3).map((area, idx) => (
                           <div key={idx} className="flex items-center text-sm text-gray-600">
-                            <div className={`w-2 h-2 bg-${center.color}-500 rounded-full mr-2`} />
+                            <div className="w-2 h-2 rounded-full mr-2" style={{ backgroundColor: studentsColors.accent }} />
                             <span>{area}</span>
                           </div>
                         ))}
@@ -378,12 +243,11 @@ export default function CentersOfExcellencePage() {
                   </div>
                   
                   <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                    <Button 
-                      className={`bg-gradient-to-r ${getColorClasses(center.color)} text-white px-4 py-2 rounded-xl text-sm`}
-                      onClick={() => window.location.href = `mailto:${center.contact}`}
-                    >
-                      <Mail className="w-4 h-4 mr-2" />
-                      Contact Center
+                    <Button asChild className={`bg-gradient-to-r ${getColorClasses(center.color)} text-white px-4 py-2 rounded-xl text-sm`}>
+                      <a href={`mailto:${center.contact}`}>
+                        <Mail className="w-4 h-4 mr-2" />
+                        Contact Center
+                      </a>
                     </Button>
                     <div className="text-sm text-gray-500">
                       {center.contact}
@@ -392,6 +256,48 @@ export default function CentersOfExcellencePage() {
                 </motion.div>
               );
             })}
+          </div> */}
+
+          {/* Simple listing of all CoEs from data file - exclude any already shown in `centers` to avoid duplicates */}
+          <div className="mt-12">
+            <h2 className="text-2xl font-semibold mb-6">Centers of Excellence</h2>
+            <p className="text-sm text-gray-600 mb-6 max-w-3xl">Below is a comprehensive overview of the CoEs, their focus areas, and how students can get involved.</p>
+
+            <div className="overflow-x-auto bg-white rounded-2xl border border-gray-200 shadow-sm">
+              <table className="min-w-full table-auto">
+                <thead>
+                  <tr className="bg-gray-50">
+                    <th className="px-6 py-3 text-left text-sm font-medium text-gray-500">Center</th>
+                    <th className="px-6 py-3 text-left text-sm font-medium text-gray-500">Description</th>
+                    <th className="px-6 py-3 text-left text-sm font-medium text-gray-500">Short</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {centersOverview.map((c) => (
+                    <tr key={c.short} className="border-t last:border-b hover:bg-[#b7e2ec]">
+                      <td className="px-6 py-4 align-top text-sm text-gray-800 font-semibold">
+                        <div className="flex items-center">
+                          {c.logo && (
+                            <img src={c.logo} alt={`${c.short} logo`} className="w-12 h-12 object-cover rounded-md mr-4" />
+                          )}
+                          <div className="text-sm font-semibold text-gray-800">
+                            {c.url ? (
+                              <a href={c.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                {c.name}
+                              </a>
+                            ) : (
+                              c.name
+                            )}
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 align-top text-sm text-gray-700">{c.description}</td>
+                      <td className="px-6 py-4 align-top text-sm text-gray-600 hover:text-[#268295]">{c.short}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
@@ -449,10 +355,13 @@ export default function CentersOfExcellencePage() {
                     ))}
                   </div>
                 </div>
-                
-                <Button className="w-full bg-[#00338d] hover:bg-blue-700 text-white">
-                  Apply Now
-                </Button>
+                <div className="mt-6">
+                  <Button asChild className="w-full">
+                    <a href="mailto:cieprogram@pes.edu" style={{ background: studentsColors.gradient.css, display: 'inline-block', padding: '0.75rem 1rem', color: '#fff', borderRadius: 12, textAlign: 'center' }}>
+                      Enquire
+                    </a>
+                  </Button>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -483,9 +392,7 @@ export default function CentersOfExcellencePage() {
               transition={{ duration: 0.6 }}
               className="bg-white p-8 rounded-2xl border border-gray-200 shadow-lg"
             >
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                <Rocket className="w-6 h-6 text-blue-600" />
-              </div>
+              <Rocket className="w-10 h-10 text-[#2B9EB3] mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Industry Partnerships</h3>
               <p className="text-gray-600 mb-4">
                 30+ active collaborations with leading technology companies and research institutions.
@@ -501,14 +408,12 @@ export default function CentersOfExcellencePage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="bg-white p-8 rounded-2xl border border-gray-200 shadow-lg"
             >
-              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
-                <BookOpen className="w-6 h-6 text-green-600" />
-              </div>
+              <BookOpen className="w-10 h-10 text-[#2B9EB3] mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Publications & Patents</h3>
               <p className="text-gray-600 mb-4">
                 100+ research publications in top-tier conferences and journals with 15+ patents filed.
               </p>
-              <div className="text-sm text-green-600 font-medium">
+              <div className="text-sm text-blue-600 font-medium">
                 IEEE, ACM, Nature, Science, USPTO
               </div>
             </motion.div>
@@ -519,14 +424,12 @@ export default function CentersOfExcellencePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-white p-8 rounded-2xl border border-gray-200 shadow-lg"
             >
-              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                <Users className="w-6 h-6 text-purple-600" />
-              </div>
+              <Users className="w-10 h-10 text-[#2B9EB3] mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Student Success</h3>
               <p className="text-gray-600 mb-4">
                 200+ students engaged in research with 50+ securing placements in top companies and PhD programs.
               </p>
-              <div className="text-sm text-purple-600 font-medium">
+              <div className="text-sm text-blue-600 font-medium">
                 Google, Amazon, Microsoft, Stanford, MIT
               </div>
             </motion.div>
@@ -534,8 +437,8 @@ export default function CentersOfExcellencePage() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-[#00338d] to-[#f07f1a]">
+    {/* Call to Action */}
+      <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -549,7 +452,7 @@ export default function CentersOfExcellencePage() {
               Join our world-class research centers and work on cutting-edge projects with industry partners and renowned faculty.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
                 <FlaskConical className="w-5 h-5 mr-2" />
                 Explore Research
@@ -558,16 +461,15 @@ export default function CentersOfExcellencePage() {
                 <Mail className="w-5 h-5 mr-2" />
                 Contact Centers
               </Button>
-            </div>
+            </div> */}
             
             <div className="mt-8">
               <p className="text-blue-100 mb-4">Have questions about research opportunities?</p>
-              <Button 
-                className="bg-transparent border border-white/30 text-white hover:bg-white/10 px-6 py-3 rounded-xl"
-                onClick={() => window.location.href = 'mailto:cieprogram@pes.edu'}
-              >
-                <Link2 className="w-4 h-4 mr-2" />
-                Get Connected
+              <Button asChild className="bg-transparent border border-white/30 text-white hover:bg-white/10 px-6 py-3 rounded-xl">
+                <a href="mailto:cieprogram@pes.edu">
+                  <Link2 className="w-4 h-4 mr-2" />
+                  Get Connected
+                </a>
               </Button>
             </div>
           </motion.div>

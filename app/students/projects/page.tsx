@@ -3,10 +3,10 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Rocket, Users, Calendar, ExternalLink, Search, Filter, Star, Award, TrendingUp } from 'lucide-react';
-import { useState } from 'react';
+// Search and select UI removed per request
+import { Rocket, Users, Calendar, ExternalLink, Star, Award, TrendingUp } from 'lucide-react';
+import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 
 interface Project {
   id: string;
@@ -110,22 +110,12 @@ const projects: Project[] = [
   }
 ];
 
-const categories = ['All', 'AI/ML', 'Healthcare', 'Education', 'Sustainability', 'Agriculture', 'FinTech'];
-const statuses = ['All', 'Planning', 'In Progress', 'Completed'];
+// categories and statuses removed — filters were removed per request
 
 export default function ProjectsPage() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedStatus, setSelectedStatus] = useState('All');
-
-  const filteredProjects = projects.filter(project => {
-    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.technologies.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()));
-    const matchesCategory = selectedCategory === 'All' || project.category === selectedCategory;
-    const matchesStatus = selectedStatus === 'All' || project.status === selectedStatus;
-    return matchesSearch && matchesCategory && matchesStatus;
-  });
+  const studentsColors = SECTION_COLORS.students;
+  // Filters/search removed per request — show full projects list
+  const visibleProjects = projects;
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -136,31 +126,24 @@ export default function ProjectsPage() {
     }
   };
 
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'AI/ML': return '🤖';
-      case 'Healthcare': return '🏥';
-      case 'Education': return '📚';
-      case 'Sustainability': return '🌱';
-      case 'Agriculture': return '🌾';
-      case 'FinTech': return '💰';
-      default: return '🚀';
-    }
-  };
+  
+
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section (gradient) */}
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden" style={{ background: studentsColors.gradient.css }}>
+        <InteractiveHexagonBackground className="absolute inset-0 z-0" />
+        <div className="max-w-7xl mx-auto text-center z-10">
           <div className="mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-6">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6" style={{ background: studentsColors.primary }}>
               <Rocket className="h-8 w-8 text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Student Projects
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Student{' '}
+              <span className="text-[#2B9EB3]">Projects</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
               Discover innovative projects built by CIE students, from AI solutions to sustainable technologies.
             </p>
           </div>
@@ -173,25 +156,25 @@ export default function ProjectsPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <Card className="text-center">
               <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
+                <div className="text-3xl font-bold mb-2" style={{ color: studentsColors.primary }}>50+</div>
                 <div className="text-gray-600">Active Projects</div>
               </CardContent>
             </Card>
             <Card className="text-center">
               <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-green-600 mb-2">₹25L+</div>
+                <div className="text-3xl font-bold mb-2" style={{ color: studentsColors.accent }}>₹25L+</div>
                 <div className="text-gray-600">Total Funding</div>
               </CardContent>
             </Card>
             <Card className="text-center">
               <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-purple-600 mb-2">200+</div>
+                <div className="text-3xl font-bold mb-2" style={{ color: studentsColors.primary }}>200+</div>
                 <div className="text-gray-600">Students Involved</div>
               </CardContent>
             </Card>
             <Card className="text-center">
               <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-orange-600 mb-2">15+</div>
+                <div className="text-3xl font-bold mb-2" style={{ color: studentsColors.accent }}>15+</div>
                 <div className="text-gray-600">Awards Won</div>
               </CardContent>
             </Card>
@@ -199,87 +182,29 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* Search and Filters */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-4 mb-8">
-            {/* Search */}
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-              <Input
-                type="text"
-                placeholder="Search projects, technologies, or team members..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-            
-            {/* Category Filter */}
-            <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-              <SelectTrigger className="w-full md:w-48">
-                <SelectValue placeholder="Category" />
-              </SelectTrigger>
-              <SelectContent>
-                {categories.map((category) => (
-                  <SelectItem key={category} value={category}>
-                    {category}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            
-            {/* Status Filter */}
-            <Select value={selectedStatus} onValueChange={setSelectedStatus}>
-              <SelectTrigger className="w-full md:w-48">
-                <SelectValue placeholder="Status" />
-              </SelectTrigger>
-              <SelectContent>
-                {statuses.map((status) => (
-                  <SelectItem key={status} value={status}>
-                    {status}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Results Count */}
-          <div className="mb-6">
-            <p className="text-gray-600">
-              Showing {filteredProjects.length} of {projects.length} projects
-            </p>
-          </div>
-        </div>
-      </section>
+    
 
       {/* Projects Grid */}
       <section className="py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {filteredProjects.length === 0 ? (
+          {visibleProjects.length === 0 ? (
             <Card className="text-center py-12">
               <CardContent>
                 <Rocket className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">No Projects Found</h3>
-                <p className="text-gray-600 mb-4">
-                  No projects match your search criteria. Try adjusting your filters.
-                </p>
-                <Button onClick={() => { setSearchTerm(''); setSelectedCategory('All'); setSelectedStatus('All'); }}>
-                  Clear Filters
-                </Button>
+                <p className="text-gray-600 mb-4">There are no projects to display.</p>
               </CardContent>
             </Card>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProjects.map((project) => (
+              {visibleProjects.map((project) => (
                 <Card key={project.id} className="hover:shadow-lg transition-shadow duration-300">
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div className="flex items-center space-x-2">
-                        <span className="text-2xl">{getCategoryIcon(project.category)}</span>
-                        <Badge variant="secondary">{project.category}</Badge>
+                        <Badge variant="secondary" style={{ backgroundColor: `rgba(${hexToRgb(studentsColors.primary)}, 0.08)`, color: studentsColors.primary }}>{project.category}</Badge>
                       </div>
-                      <Badge className={getStatusColor(project.status)}>
+                      <Badge style={{ backgroundColor: studentsColors.accent, color: '#fff' }}>
                         {project.status}
                       </Badge>
                     </div>
@@ -348,17 +273,8 @@ export default function ProjectsPage() {
                         </div>
                       )}
 
-                      {/* Action Buttons */}
-                      <div className="flex space-x-2 pt-4">
-                        <Button size="sm" className="flex-1">
-                          View Details
-                        </Button>
-                        {project.demoUrl && (
-                          <Button size="sm" variant="outline">
-                            <ExternalLink className="h-4 w-4" />
-                          </Button>
-                        )}
-                      </div>
+                      {/* Action Buttons: demo button present but non-clickable per request */}
+                      
                     </div>
                   </CardContent>
                 </Card>
@@ -369,7 +285,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      {/* <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">
             Have a Project Idea?
@@ -386,7 +302,7 @@ export default function ProjectsPage() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

@@ -1,494 +1,337 @@
 'use client';
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BookOpen, Download, ExternalLink, Search, Video, FileText, Code, Lightbulb, Users, Calendar, Star } from 'lucide-react';
 import { useState } from 'react';
+import { BookOpen, ExternalLink, Lightbulb, FileText, Newspaper, DollarSign, TrendingUp, Globe, GraduationCap, Library, Database, Code } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+import { TransitionPanel } from '@/components/core/transition-panel';
+import { SECTION_COLORS } from '@/styles/colors';
 
+const studentsColors = SECTION_COLORS.students;
+
+// Resource data structure
 interface Resource {
-  id: string;
   title: string;
   description: string;
-  type: string;
-  category: string;
-  url?: string;
-  downloadUrl?: string;
-  author: string;
-  publishDate: string;
-  rating: number;
-  downloads: number;
-  tags: string[];
-  isPremium: boolean;
+  url: string;
 }
 
-const resources: Resource[] = [
-  // Learning Materials
-  {
-    id: '1',
-    title: 'Entrepreneurship Fundamentals Guide',
-    description: 'Comprehensive guide covering basics of entrepreneurship, business model canvas, and startup fundamentals.',
-    type: 'PDF',
-    category: 'Learning Materials',
-    downloadUrl: '/resources/entrepreneurship-guide.pdf',
-    author: 'Dr. Rajesh Kumar',
-    publishDate: '2024-01-15',
-    rating: 4.8,
-    downloads: 1250,
-    tags: ['entrepreneurship', 'business model', 'startup'],
-    isPremium: false
-  },
-  {
-    id: '2',
-    title: 'Product Management in AI Era',
-    description: 'Complete course materials for understanding product management in the age of artificial intelligence.',
-    type: 'Course',
-    category: 'Learning Materials',
-    url: '/courses/product-management-ai',
-    author: 'Prof. Priya Sharma',
-    publishDate: '2024-01-10',
-    rating: 4.9,
-    downloads: 890,
-    tags: ['product management', 'AI', 'technology'],
-    isPremium: true
-  },
-  {
-    id: '3',
-    title: 'Financial Planning for Startups',
-    description: 'Essential financial planning templates and guides for early-stage startups and entrepreneurs.',
-    type: 'Template',
-    category: 'Learning Materials',
-    downloadUrl: '/resources/financial-planning-template.xlsx',
-    author: 'CA Suresh Babu',
-    publishDate: '2024-01-08',
-    rating: 4.7,
-    downloads: 2100,
-    tags: ['finance', 'planning', 'templates'],
-    isPremium: false
-  },
-
-  // Tools & Software
-  {
-    id: '4',
-    title: 'Business Model Canvas Tool',
-    description: 'Interactive online tool for creating and sharing business model canvases with your team.',
-    type: 'Tool',
-    category: 'Tools & Software',
-    url: 'https://canvas.cie-pes.edu',
-    author: 'CIE Tech Team',
-    publishDate: '2023-12-20',
-    rating: 4.6,
-    downloads: 3200,
-    tags: ['business model', 'canvas', 'collaboration'],
-    isPremium: false
-  },
-  {
-    id: '5',
-    title: 'Pitch Deck Designer',
-    description: 'Professional pitch deck templates and design tool specifically created for startup presentations.',
-    type: 'Tool',
-    category: 'Tools & Software',
-    url: '/tools/pitch-deck-designer',
-    author: 'Design Team',
-    publishDate: '2024-01-05',
-    rating: 4.8,
-    downloads: 1800,
-    tags: ['pitch deck', 'presentation', 'design'],
-    isPremium: true
-  },
-  {
-    id: '6',
-    title: 'Market Research Toolkit',
-    description: 'Comprehensive toolkit with templates and guides for conducting effective market research.',
-    type: 'Toolkit',
-    category: 'Tools & Software',
-    downloadUrl: '/resources/market-research-toolkit.zip',
-    author: 'Research Team',
-    publishDate: '2023-12-15',
-    rating: 4.5,
-    downloads: 1450,
-    tags: ['market research', 'analysis', 'templates'],
-    isPremium: false
-  },
-
-  // Video Tutorials
-  {
-    id: '7',
-    title: 'How to Validate Your Startup Idea',
-    description: 'Step-by-step video tutorial on validating startup ideas through customer interviews and market testing.',
-    type: 'Video',
-    category: 'Video Tutorials',
-    url: '/videos/startup-validation',
-    author: 'Dr. Amit Verma',
-    publishDate: '2024-01-12',
-    rating: 4.9,
-    downloads: 2800,
-    tags: ['validation', 'startup', 'customer development'],
-    isPremium: false
-  },
-  {
-    id: '8',
-    title: 'Fundraising Masterclass Series',
-    description: '10-part video series covering everything from seed funding to Series A, featuring successful entrepreneurs.',
-    type: 'Video Series',
-    category: 'Video Tutorials',
-    url: '/videos/fundraising-masterclass',
-    author: 'Industry Experts',
-    publishDate: '2024-01-01',
-    rating: 4.8,
-    downloads: 1950,
-    tags: ['fundraising', 'investment', 'venture capital'],
-    isPremium: true
-  },
-  {
-    id: '9',
-    title: 'Digital Marketing for Startups',
-    description: 'Practical video tutorials on digital marketing strategies specifically designed for startup budgets.',
-    type: 'Video',
-    category: 'Video Tutorials',
-    url: '/videos/digital-marketing',
-    author: 'Marketing Team',
-    publishDate: '2023-12-28',
-    rating: 4.6,
-    downloads: 2200,
-    tags: ['marketing', 'digital', 'growth'],
-    isPremium: false
-  },
-
-  // Templates & Forms
-  {
-    id: '10',
-    title: 'Legal Document Templates',
-    description: 'Essential legal document templates including NDAs, partnership agreements, and employment contracts.',
-    type: 'Template Pack',
-    category: 'Templates & Forms',
-    downloadUrl: '/resources/legal-templates.zip',
-    author: 'Legal Team',
-    publishDate: '2024-01-03',
-    rating: 4.7,
-    downloads: 1650,
-    tags: ['legal', 'contracts', 'templates'],
-    isPremium: true
-  },
-  {
-    id: '11',
-    title: 'Grant Application Templates',
-    description: 'Proven templates for government grants, startup competitions, and funding applications.',
-    type: 'Template',
-    category: 'Templates & Forms',
-    downloadUrl: '/resources/grant-templates.docx',
-    author: 'Funding Team',
-    publishDate: '2023-12-25',
-    rating: 4.8,
-    downloads: 1100,
-    tags: ['grants', 'funding', 'applications'],
-    isPremium: false
-  },
-  {
-    id: '12',
-    title: 'Customer Interview Scripts',
-    description: 'Ready-to-use scripts and question banks for conducting effective customer discovery interviews.',
-    type: 'Template',
-    category: 'Templates & Forms',
-    downloadUrl: '/resources/interview-scripts.pdf',
-    author: 'UX Research Team',
-    publishDate: '2024-01-07',
-    rating: 4.6,
-    downloads: 980,
-    tags: ['customer interviews', 'research', 'validation'],
-    isPremium: false
-  }
+// Entrepreneurship Resources Data
+const templatesAndGuides: Resource[] = [
+  { title: 'Business Model Canvas (Stratagyzer)', description: 'A strategic tool for visualizing and developing business models.', url: 'https://www.strategyzer.com/canvas/business-model-canvas' },
+  { title: 'Lean Canvas', description: 'A one-page business plan template optimized for startups.', url: 'https://leanstack.com/leancanvas' },
+  { title: 'Customer Discovery Templates and Primer (Alexander Cowan)', description: 'Resources for conducting customer interviews and validating ideas.', url: 'https://www.alexandercowan.com/customer-discovery/' },
+  { title: 'Pretotype for Customer Discovery (Alberto Savoia)', description: 'A method to test ideas quickly and cost-effectively.', url: 'https://www.pretotyping.org/' },
+  { title: 'BDC.ca Free Templates and Business Guides', description: 'Templates for business planning, marketing, and financial management.', url: 'https://www.bdc.ca/en/articles-tools/entrepreneur-toolkit/templates-business-guides' },
+  { title: 'Statrys Business Plan Templates', description: 'Simple business plan templates for new entrepreneurs.', url: 'https://statrys.com/blog/business-plan-templates' },
 ];
 
-const categories = ['All', 'Learning Materials', 'Tools & Software', 'Video Tutorials', 'Templates & Forms'];
-const types = ['All', 'PDF', 'Video', 'Tool', 'Template', 'Course', 'Toolkit'];
+const designAndPrototyping: Resource[] = [
+  { title: 'Proto.io', description: 'A platform for creating interactive mobile and web app prototypes.', url: 'https://proto.io/' },
+  { title: 'Figma', description: 'A collaborative design tool for wireframes, prototypes, and UI/UX.', url: 'https://www.figma.com/' },
+  { title: 'Google Cloud for AI', description: 'Cloud-based tools for building and deploying AI models.', url: 'https://cloud.google.com/ai' },
+  { title: 'Canva Business Guide Templates', description: 'Customizable templates for business guides and presentations.', url: 'https://www.canva.com/templates/s/business-guide/' },
+  { title: 'PosterMyWall Entrepreneur Templates', description: 'Templates for flyers, posters, and social media graphics.', url: 'https://www.postermywall.com/index.php/posters/search?s=entrepreneur' },
+];
+
+const fundingAndLegal: Resource[] = [
+  { title: 'AngelList', description: 'Connect with investors and explore funding opportunities for startups.', url: 'https://www.angel.co/' },
+  { title: 'Crunchbase', description: 'Research startups, investors, and funding trends.', url: 'https://www.crunchbase.com/' },
+  { title: 'Rocket Lawyer', description: 'Legal templates and advice for startups, including incorporation and IP protection.', url: 'https://www.rocketlawyer.com/' },
+];
+
+const marketingResources: Resource[] = [
+  { title: 'HubSpot Blog', description: 'Free resources on inbound marketing, sales, and CRM strategies.', url: 'https://blog.hubspot.com/' },
+];
+
+const websiteTemplates: Resource[] = [
+  { title: 'Entrepreneur Website Templates from Nicepage', description: 'Free, customizable templates for building professional websites.', url: 'https://nicepage.com/k/entrepreneur-website-templates' },
+];
+
+// AI and Machine Learning Resources Data
+const onlineCourses: Resource[] = [
+  { title: 'Andrew Ng\'s Machine Learning Course on Coursera', description: 'A foundational course covering machine learning essentials.', url: 'https://www.coursera.org/learn/machine-learning' },
+  { title: 'CS50\'s Introduction to Artificial Intelligence with Python', description: 'A Harvard course on AI fundamentals using Python.', url: 'https://cs50.harvard.edu/ai/' },
+  { title: 'Machine Learning with Python by Socratica on YouTube', description: 'Engaging video tutorials on ML concepts.', url: 'https://www.youtube.com/playlist?list=PLi01XoE8jYohWFP07LKk4OcpBpa0B4T2O' },
+  { title: 'Deep Learning Specialization by Andrew Ng on Coursera', description: 'Advanced courses on deep learning techniques.', url: 'https://www.coursera.org/specializations/deep-learning' },
+];
+
+const books: Resource[] = [
+  { title: '"Artificial Intelligence: A Modern Approach" by Stuart Russell and Peter Norvig', description: 'A comprehensive guide to AI theory and applications.', url: 'https://aima.cs.berkeley.edu/' },
+  { title: '"Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow" by Aurélien Géron', description: 'A practical guide to ML with popular libraries.', url: 'https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032649/' },
+];
+
+const learningPlatforms: Resource[] = [
+  { title: 'edX', description: 'Courses from top universities on AI, machine learning, and data science.', url: 'https://www.edx.org/' },
+  { title: 'Udacity', description: 'Nanodegree programs in AI, machine learning, and related fields.', url: 'https://www.udacity.com/' },
+  { title: 'DataCamp', description: 'Interactive courses on machine learning, data science, and Python.', url: 'https://www.datacamp.com/' },
+];
+
+const datasets: Resource[] = [
+  { title: 'Kaggle Datasets', description: 'A repository of datasets for machine learning projects and competitions.', url: 'https://www.kaggle.com/datasets' },
+  { title: 'UCI Machine Learning Repository', description: 'A collection of datasets for ML research.', url: 'https://archive.ics.uci.edu/' },
+];
+
+const openSourceProjects: Resource[] = [
+  { title: 'TensorFlow', description: 'An open-source machine learning framework by Google.', url: 'https://www.tensorflow.org/' },
+  { title: 'PyTorch', description: 'A flexible open-source library for deep learning.', url: 'https://pytorch.org/' },
+];
+
+const newsletters: Resource[] = [
+  { title: 'CIE Newsletter', description: 'Subscribe for updates on CIE events, programs, and resources.', url: 'https://cie.pes.edu/newsletter' },
+  { title: 'TechCrunch', description: 'Daily news on tech startups, funding, and innovation.', url: 'https://techcrunch.com/' },
+  { title: 'Harvard Business Review', description: 'Insights on business strategy and leadership.', url: 'https://hbr.org/' },
+  { title: 'MIT Technology Review', description: 'Coverage of emerging technologies, including AI and ML.', url: 'https://www.technologyreview.com/' },
+];
+
+// Category configuration for navigation
+const RESOURCE_CATEGORIES = [
+  {
+    id: 0,
+    key: 'templates-guides',
+    title: 'Templates & Guides',
+    subtitle: 'Business Planning Tools',
+    icon: <FileText className="h-full w-full text-black-800 dark:text-neutral-300" />,
+    resources: templatesAndGuides,
+  },
+  {
+    id: 1,
+    key: 'design-prototyping',
+    title: 'Design & Prototyping',
+    subtitle: 'Creative Development Tools',
+    icon: <Lightbulb className="h-full w-full text-black-800 dark:text-neutral-300" />,
+    resources: designAndPrototyping,
+  },
+  {
+    id: 2,
+    key: 'funding-legal',
+    title: 'Funding & Legal',
+    subtitle: 'Startup Resources',
+    icon: <DollarSign className="h-full w-full text-black-800 dark:text-neutral-300" />,
+    resources: fundingAndLegal,
+  },
+  {
+    id: 3,
+    key: 'marketing',
+    title: 'Marketing',
+    subtitle: 'Growth Strategies',
+    icon: <TrendingUp className="h-full w-full text-black-800 dark:text-neutral-300" />,
+    resources: marketingResources,
+  },
+  {
+    id: 4,
+    key: 'website-templates',
+    title: 'Website Templates',
+    subtitle: 'Web Development',
+    icon: <Globe className="h-full w-full text-black-800 dark:text-neutral-300" />,
+    resources: websiteTemplates,
+  },
+  {
+    id: 5,
+    key: 'online-courses',
+    title: 'Online Courses',
+    subtitle: 'AI & ML Learning',
+    icon: <GraduationCap className="h-full w-full text-black-800 dark:text-neutral-300" />,
+    resources: onlineCourses,
+  },
+  {
+    id: 6,
+    key: 'books',
+    title: 'Books',
+    subtitle: 'Essential Reading',
+    icon: <BookOpen className="h-full w-full text-black-800 dark:text-neutral-300" />,
+    resources: books,
+  },
+  {
+    id: 7,
+    key: 'learning-platforms',
+    title: 'Learning Platforms',
+    subtitle: 'Online Education',
+    icon: <Library className="h-full w-full text-black-800 dark:text-neutral-300" />,
+    resources: learningPlatforms,
+  },
+  {
+    id: 8,
+    key: 'datasets',
+    title: 'Datasets',
+    subtitle: 'ML Data Sources',
+    icon: <Database className="h-full w-full text-black-800 dark:text-neutral-300" />,
+    resources: datasets,
+  },
+  {
+    id: 9,
+    key: 'open-source',
+    title: 'Open-Source',
+    subtitle: 'Development Frameworks',
+    icon: <Code className="h-full w-full text-black-800 dark:text-neutral-300" />,
+    resources: openSourceProjects,
+  },
+  {
+    id: 10,
+    key: 'newsletters',
+    title: 'Newsletters',
+    subtitle: 'Industry Updates',
+    icon: <Newspaper className="h-full w-full text-black-800 dark:text-neutral-300" />,
+    resources: newsletters,
+  },
+];
 
 export default function ResourcesPage() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [activeTab, setActiveTab] = useState('all');
-
-  const filteredResources = resources.filter(resource => {
-    const matchesSearch = resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         resource.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         resource.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-    const matchesCategory = selectedCategory === 'All' || resource.category === selectedCategory;
-    const matchesTab = activeTab === 'all' || 
-                      (activeTab === 'free' && !resource.isPremium) ||
-                      (activeTab === 'premium' && resource.isPremium);
-    return matchesSearch && matchesCategory && matchesTab;
-  });
-
-  const getTypeIcon = (type: string) => {
-    switch (type) {
-      case 'PDF': return <FileText className="h-4 w-4" />;
-      case 'Video': case 'Video Series': return <Video className="h-4 w-4" />;
-      case 'Tool': case 'Toolkit': return <Code className="h-4 w-4" />;
-      case 'Template': case 'Template Pack': return <FileText className="h-4 w-4" />;
-      case 'Course': return <BookOpen className="h-4 w-4" />;
-      default: return <FileText className="h-4 w-4" />;
-    }
-  };
-
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
-  };
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
+        <InteractiveHexagonBackground
+          primaryColor={studentsColors.hero?.background}
+          accentColor={studentsColors.hero?.hexagonAccent}
+          className="absolute inset-0 z-0"
+        />
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
           <div className="mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-6">
-              <BookOpen className="h-8 w-8 text-white" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Learning Resources
+            <BookOpen className="h-12 w-12 text-[#2B9EB3] mx-auto mb-6" />
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Fuel Your{' '}
+              <span className="block text-[#2B9EB3]">Entrepreneurial Journey</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Access curated learning materials, tools, templates, and tutorials to accelerate your entrepreneurial journey.
+            <p className="text-xl text-white max-w-4xl mx-auto">
+              The Centre for Innovation and Entrepreneurship (CIE) at PES University is committed to empowering students, entrepreneurs, and professionals with the tools and knowledge needed to succeed in today's dynamic landscape.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
+
+
+      {/* Main Content - Icon-Based Tab Navigation */}
+      <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-white min-h-[80vh]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-blue-600 mb-2">100+</div>
-                <div className="text-gray-600">Resources Available</div>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-green-600 mb-2">25K+</div>
-                <div className="text-gray-600">Total Downloads</div>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-purple-600 mb-2">50+</div>
-                <div className="text-gray-600">Video Tutorials</div>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="text-3xl font-bold text-orange-600 mb-2">4.8★</div>
-                <div className="text-gray-600">Average Rating</div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Search and Tabs */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Search */}
-          <div className="relative mb-6">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-            <Input
-              type="text"
-              placeholder="Search resources, tools, or topics..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10"
-            />
-          </div>
-
-          {/* Tabs */}
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-6">
-            <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="all">All Resources</TabsTrigger>
-              <TabsTrigger value="free">Free Resources</TabsTrigger>
-              <TabsTrigger value="premium">Premium Resources</TabsTrigger>
-            </TabsList>
-          </Tabs>
-
-          {/* Category Filter */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
-
-          {/* Results Count */}
-          <div className="mb-6">
-            <p className="text-gray-600">
-              Showing {filteredResources.length} of {resources.length} resources
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Resources Grid */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          {filteredResources.length === 0 ? (
-            <Card className="text-center py-12">
-              <CardContent>
-                <BookOpen className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">No Resources Found</h3>
-                <p className="text-gray-600 mb-4">
-                  No resources match your search criteria. Try adjusting your filters.
-                </p>
-                <Button onClick={() => { setSearchTerm(''); setSelectedCategory('All'); setActiveTab('all'); }}>
-                  Clear Filters
-                </Button>
-              </CardContent>
-            </Card>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredResources.map((resource) => (
-                <Card key={resource.id} className="hover:shadow-lg transition-shadow duration-300">
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      <div className="flex items-center space-x-2">
-                        <div className="bg-blue-100 p-2 rounded-lg">
-                          {getTypeIcon(resource.type)}
-                        </div>
-                        <div>
-                          <Badge variant={resource.isPremium ? "default" : "secondary"}>
-                            {resource.isPremium ? 'Premium' : 'Free'}
-                          </Badge>
-                        </div>
-                      </div>
-                      <div className="flex items-center space-x-1">
-                        <Star className="h-4 w-4 text-yellow-500 fill-current" />
-                        <span className="text-sm text-gray-600">{resource.rating}</span>
-                      </div>
-                    </div>
-                    <CardTitle className="text-lg">{resource.title}</CardTitle>
-                    <CardDescription className="line-clamp-3">
-                      {resource.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      {/* Metadata */}
-                      <div className="flex items-center justify-between text-sm text-gray-500">
-                        <span>By {resource.author}</span>
-                        <span>{formatDate(resource.publishDate)}</span>
-                      </div>
-
-                      {/* Stats */}
-                      <div className="flex items-center justify-between text-sm text-gray-500">
-                        <div className="flex items-center space-x-1">
-                          <Download className="h-4 w-4" />
-                          <span>{resource.downloads.toLocaleString()}</span>
-                        </div>
-                        <Badge variant="outline" className="text-xs">
-                          {resource.type}
-                        </Badge>
-                      </div>
-
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-1">
-                        {resource.tags.slice(0, 3).map((tag, index) => (
-                          <Badge key={index} variant="outline" className="text-xs">
-                            {tag}
-                          </Badge>
-                        ))}
-                        {resource.tags.length > 3 && (
-                          <Badge variant="outline" className="text-xs">
-                            +{resource.tags.length - 3}
-                          </Badge>
-                        )}
-                      </div>
-
-                      {/* Action Buttons */}
-                      <div className="flex space-x-2 pt-4">
-                        {resource.downloadUrl ? (
-                          <Button size="sm" className="flex-1">
-                            <Download className="h-4 w-4 mr-2" />
-                            Download
-                          </Button>
-                        ) : (
-                          <Button size="sm" className="flex-1">
-                            <ExternalLink className="h-4 w-4 mr-2" />
-                            Access
-                          </Button>
-                        )}
-                        <Button size="sm" variant="outline">
-                          Preview
-                        </Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+          {/* Icon Tab Navigation */}
+          <div className="mb-12">
+            <div className="flex items-center justify-center gap-3 flex-wrap mb-8 p-4 bg-gradient-to-r from-black-50 via-white to-black-50 rounded-2xl shadow-sm border border-black-200">
+              {RESOURCE_CATEGORIES.map((category) => (
+                <button
+                  key={category.key}
+                  onClick={() => setActiveIndex(category.id)}
+                  className={`group relative flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-300 ${
+                    activeIndex === category.id
+                      ? 'bg-gradient-to-br from-teal-500 to-cyan-500 shadow-lg scale-105'
+                      : 'bg-white hover:bg-black-50 hover:scale-105 border border-black-200'
+                  }`}
+                  title={category.title}
+                >
+                  {/* Icon */}
+                  <div className={`w-12 h-12 mb-2 transition-colors duration-300 ${
+                    activeIndex === category.id ? 'text-white' : 'text-black-900 group-hover:text-teal-600'
+                  }`}>
+                    {category.icon}
+                  </div>
+                  
+                  {/* Title - Shows on active or hover */}
+                  <span className={`text-xs font-medium transition-all duration-300 text-center whitespace-nowrap ${
+                    activeIndex === category.id 
+                      ? 'text-white opacity-100' 
+                      : 'text-black-900 opacity-0 group-hover:opacity-100 absolute -bottom-6'
+                  }`}>
+                    {category.title}
+                  </span>
+                </button>
               ))}
             </div>
-          )}
-        </div>
-      </section>
-
-      {/* Featured Categories */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            Popular Categories
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.slice(1).map((category) => {
-              const categoryResources = resources.filter(resource => resource.category === category);
-              const avgRating = categoryResources.reduce((sum, r) => sum + r.rating, 0) / categoryResources.length;
-              
-              return (
-                <Card key={category} className="hover:shadow-lg transition-shadow duration-300 cursor-pointer"
-                      onClick={() => setSelectedCategory(category)}>
-                  <CardHeader className="text-center">
-                    <div className="mx-auto mb-4">
-                      {category === 'Learning Materials' && <BookOpen className="h-8 w-8 text-blue-600" />}
-                      {category === 'Tools & Software' && <Code className="h-8 w-8 text-green-600" />}
-                      {category === 'Video Tutorials' && <Video className="h-8 w-8 text-purple-600" />}
-                      {category === 'Templates & Forms' && <FileText className="h-8 w-8 text-orange-600" />}
-                    </div>
-                    <CardTitle className="text-lg">{category}</CardTitle>
-                    <CardDescription>
-                      {categoryResources.length} resources • {avgRating.toFixed(1)}★ avg
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-              );
-            })}
           </div>
-        </div>
-      </section>
 
-      {/* Call to Action */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Need Something Specific?
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Can't find what you're looking for? Request new resources or suggest improvements.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary">
-              Request Resource
-            </Button>
-            <Button size="lg" variant="outline">
-              Contribute Content
-            </Button>
+          {/* Category Title and Subtitle */}
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-black-900 mb-2">
+              {RESOURCE_CATEGORIES[activeIndex].title}
+            </h2>
+            <p className="text-lg text-black-600">
+              {RESOURCE_CATEGORIES[activeIndex].subtitle}
+            </p>
+          </div>
+
+          {/* TransitionPanel for Content */}
+          <div className="overflow-hidden">
+            <TransitionPanel
+              activeIndex={activeIndex}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              variants={{
+                enter: { opacity: 0, y: 20, filter: 'blur(4px)' },
+                center: { opacity: 1, y: 0, filter: 'blur(0px)' },
+                exit: { opacity: 0, y: -20, filter: 'blur(4px)' },
+              }}
+            >
+              {RESOURCE_CATEGORIES.map((category) => (
+                <div key={category.key} className="py-4">
+                  <Card>
+                    <CardContent className="pt-6">
+                      <div className="space-y-4">
+                        {category.resources.map((resource) => (
+                          <div
+                            key={`${category.key}-${resource.title}`}
+                            className="border-b border-black-200 pb-4 last:border-0 hover:bg-black-50 transition-colors duration-200 rounded-lg p-4"
+                          >
+                            <div className="flex items-start justify-between">
+                              <div className="flex-1">
+                                <h4 className="font-semibold text-black-900 mb-2">
+                                  {resource.title}
+                                </h4>
+                                <p className="text-sm text-black-600">
+                                  {resource.description}
+                                </p>
+                              </div>
+                              <Button
+                                asChild
+                                variant="ghost"
+                                size="sm"
+                                className="ml-4 shrink-0 hover:bg-teal-100 hover:text-teal-700"
+                              >
+                                <a
+                                  href={resource.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  title={`Visit ${resource.title}`}
+                                >
+                                  <ExternalLink className="h-4 w-4" />
+                                  <span className="sr-only">Visit {resource.title}</span>
+                                </a>
+                              </Button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Special note for Newsletters */}
+                      {category.key === 'newsletters' && (
+                        <div className="mt-6 p-4 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-lg border border-teal-200">
+                          <p className="text-sm text-black-700">
+                            💡 <strong>Stay informed</strong> with the latest trends and opportunities in entrepreneurship and technology.
+                          </p>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </TransitionPanel>
+          </div>
+
+          {/* Explore More Section */}
+          <div className="mt-12 text-center">
+            <Card className="bg-gradient-to-br from-teal-50 to-cyan-50 border-teal-200">
+              <CardContent className="pt-6">
+                <h3 className="text-xl font-semibold text-black-900 mb-2">Explore More</h3>
+                <p className="text-black-600 mb-4">
+                  Our resource library is continuously updated to provide the latest tools and insights. Contact{' '}
+                  <a href="mailto:cieprogram@pes.edu" className="text-teal-600 hover:underline">
+                    cieprogram@pes.edu
+                  </a>{' '}
+                  to access additional materials and join our vibrant community of innovators.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

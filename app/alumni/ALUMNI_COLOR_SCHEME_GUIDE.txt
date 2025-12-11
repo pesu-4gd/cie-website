@@ -1,0 +1,552 @@
+=============================================================================
+CIE ALUMNI SECTION - COLOR SCHEME & IMPLEMENTATION GUIDE
+=============================================================================
+
+This guide explains the color scheme used in the Alumni section and provides
+clear instructions for implementing it consistently across any new Alumni pages.
+
+=============================================================================
+1. COLOR SYSTEM OVERVIEW
+=============================================================================
+
+The Alumni section uses a warm, celebratory color palette centered around:
+- PRIMARY: Navy Blue (#3E3C6B) - Authority, tradition, excellence
+- SECONDARY: Orange (#F15A29) - Energy, community, warmth  
+- ACCENT: Amber/Yellow (#FFB020, #F59E0B) - Success, celebration, optimism
+- SUPPORTING: Teal (#2B9EB3) - Minor accent for variety
+
+This differs from other sections:
+- Students: Teal + Navy (innovation, learning)
+- Industry: Orange + Teal (action, partnership)
+- Inside CIE: Yellow + Navy (sunshine, openness)
+
+=============================================================================
+2. IMPORTING THE COLOR SYSTEM
+=============================================================================
+
+At the top of any Alumni page component, import:
+
+```typescript
+import { SECTION_COLORS } from '@/styles/colors';
+```
+
+Then extract alumni colors:
+
+```typescript
+const alumniColors = SECTION_COLORS.alumni;
+```
+
+This gives you access to:
+- alumniColors.primary = '#3E3C6B' (Navy)
+- alumniColors.secondary = '#F15A29' (Orange)
+- alumniColors.accent = '#2B9EB3' (Teal)
+- alumniColors.hero.background = '#3E3C6B'
+- alumniColors.hero.hexagonAccent = '#F15A29'
+
+=============================================================================
+3. HERO SECTION PATTERN (STANDARDIZED)
+=============================================================================
+
+ALL Alumni pages should use this exact hero structure:
+
+A. Background & Layout:
+   - Height: h-[85vh] (standardized across site)
+   - Base background: bg-[#3E3C6B] (navy)
+   - Overflow: overflow-hidden
+   - Position: relative with flex centering
+
+B. Interactive Hexagon Background:
+   ```typescript
+   <InteractiveHexagonBackground
+     primaryColor={alumniColors.hero.background}    // Navy
+     accentColor="#F59E0B"                          // Amber/Orange
+     className="absolute inset-0 z-0"
+   />
+   ```
+
+C. Ambient Light Effects (pointer-events-none):
+   - Two soft blur circles (bg-white/10, blur-3xl)
+   - Positioned at top-right and bottom-left
+   - Size: w-64 h-64
+   - Purpose: Add depth without being interactive
+
+D. Content Container:
+   - Z-index: z-10 (above hexagons)
+   - Max-width: max-w-7xl
+   - Center: mx-auto
+   - Padding: px-6
+   - Alignment: text-center
+
+E. Badge/Label:
+   ```typescript
+   <span className="inline-flex items-center px-4 py-2 rounded-full 
+                    text-sm font-medium bg-blue-500/20 text-blue-100 
+                    border border-blue-400/30">
+     <Icon className="w-4 h-4 mr-2" />
+     Section Name
+   </span>
+   ```
+   NOTE: Uses blue tones (not orange) for badge to maintain readability
+
+F. Heading:
+   - Main text: text-white (full white)
+   - Gradient accent line: Uses yellow-to-amber gradient
+   ```typescript
+   <span className="block bg-gradient-to-r from-yellow-400 to-yellow-200 
+                    bg-clip-text text-transparent">
+     Highlighted Text
+   </span>
+   ```
+
+G. Description:
+   - Color: text-blue-100 (softer white for readability)
+   - Size: text-xl md:text-2xl
+   - Width: max-w-4xl mx-auto
+   - Spacing: leading-relaxed mb-8
+
+H. CTA Buttons:
+   - Primary: Amber/Yellow gradient
+     ```typescript
+     className="bg-gradient-to-r from-amber-500 to-amber-600 
+                hover:from-yellow-400 hover:to-amber-400 text-white"
+     ```
+   - Secondary: Glass effect (if needed)
+     ```typescript
+     className="bg-white/10 backdrop-blur-sm border-white/20 
+                text-white hover:bg-white/20"
+     ```
+
+=============================================================================
+4. SECTION BACKGROUNDS PATTERN
+=============================================================================
+
+Alumni pages alternate between these backgrounds:
+
+A. Gray Background:
+   - Use: bg-gray-50
+   - When: Stats sections, alternating content blocks
+   - Purpose: Subtle separation without heavy contrast
+
+B. White Background:
+   - Use: bg-white
+   - When: Main content sections, card grids
+   - Purpose: Clean, professional presentation
+
+C. Warm Accent Background:
+   - Use: bg-gradient-to-br from-amber-50 to-amber-50
+   - When: Call-to-action sections, celebration areas
+   - Purpose: Warm, inviting atmosphere for community
+
+D. Pattern:
+   Section 1: Gray (stats)
+   Section 2: White (benefits/features)
+   Section 3: White (events/stories)
+   Section 4: White (giving back)
+   Section 5: Warm amber (final CTA)
+
+=============================================================================
+5. ICON BACKGROUNDS & ACCENTS
+=============================================================================
+
+A. Primary Icon Containers (most common):
+   ```typescript
+   className="w-16 h-16 rounded-2xl bg-yellow-100 flex items-center 
+              justify-center"
+   // Icon inside:
+   className="w-8 h-8 text-amber-500"
+   ```
+   - Background: yellow-100 (light yellow/cream)
+   - Icon color: amber-500 (rich amber)
+
+B. Secondary Icon Containers (for variety):
+   ```typescript
+   className="w-16 h-16 rounded-2xl bg-orange-100 flex items-center 
+              justify-center"
+   // Icon inside:
+   className="w-8 h-8 text-orange-600"
+   ```
+   - Background: orange-100
+   - Icon color: orange-600
+
+C. Stats/Metrics:
+   - Container: bg-white with border-gray-200
+   - Icon background: bg-yellow-100
+   - Icon color: text-amber-500
+   - Number: text-gray-900 (dark for contrast)
+   - Label: text-gray-600
+
+=============================================================================
+6. CARD COMPONENT PATTERN
+=============================================================================
+
+A. Base Card Structure:
+   ```typescript
+   className="bg-white p-8 rounded-3xl border border-gray-200 
+              hover:shadow-xl transition-all duration-300"
+   ```
+
+B. Card Header Icon:
+   - Size: w-16 h-16
+   - Shape: rounded-2xl
+   - Background options:
+     * Primary: bg-yellow-100 with text-amber-500 icon
+     * Event: bg-gradient-to-r from-yellow-500 to-yellow-500 with white icon
+     * Success: bg-gradient-to-r from-blue-500 to-purple-500 with white icon
+
+C. Card Title:
+   - Size: text-2xl or text-xl
+   - Weight: font-bold
+   - Color: text-gray-900
+
+D. Card Description:
+   - Color: text-gray-600
+   - Spacing: mb-4 or mb-6
+
+E. Card Accent Boxes (highlights):
+   ```typescript
+   // Amber variant:
+   className="bg-yellow-50 p-4 rounded-xl border border-yellow-200"
+   // Text inside:
+   className="text-sm text-amber-800 font-semibold"
+   
+   // Green variant (success):
+   className="bg-green-50 p-4 rounded-xl border border-green-200"
+   // Text inside:
+   className="text-sm text-green-800 font-semibold"
+   ```
+
+=============================================================================
+7. BUTTON STYLES
+=============================================================================
+
+A. Primary CTA Buttons:
+   ```typescript
+   className="bg-amber-400 hover:bg-amber-500 text-white 
+              py-3 px-6 rounded-xl font-semibold"
+   ```
+   OR gradient version:
+   ```typescript
+   className="bg-gradient-to-r from-amber-500 to-amber-600 
+              hover:from-yellow-400 hover:to-amber-400 text-white"
+   ```
+
+B. Secondary Buttons:
+   ```typescript
+   className="border-2 border-white text-amber-400 hover:bg-white 
+              hover:text-amber-600 bg-transparent"
+   ```
+
+C. Button Icons:
+   - Size: w-5 h-5 or w-4 h-4
+   - Spacing: mr-2 (before text)
+   - Color: Inherits from button text color
+
+=============================================================================
+8. TEXT HIERARCHY
+=============================================================================
+
+A. Section Headings:
+   - Size: text-3xl md:text-4xl
+   - Weight: font-bold
+   - Color: text-gray-900 (or text-amber-800 on amber backgrounds)
+   - Spacing: mb-4
+
+B. Section Subheadings:
+   - Size: text-lg
+   - Weight: normal
+   - Color: text-gray-600 (or text-amber-800 on amber backgrounds)
+   - Width: max-w-3xl mx-auto
+
+C. Card Titles:
+   - Size: text-2xl or text-xl
+   - Weight: font-bold
+   - Color: text-gray-900
+
+D. Body Text:
+   - Regular: text-gray-600 or text-gray-700
+   - Small: text-sm text-gray-700
+   - Muted: text-gray-500
+
+E. Special Text (graduation year, company):
+   - Color: text-blue-600 or text-amber-800
+   - Weight: font-semibold or font-medium
+
+=============================================================================
+9. LIST ITEM PATTERNS
+=============================================================================
+
+A. Feature Lists (checkmarks):
+   ```typescript
+   <li className="flex items-start gap-3">
+     <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+     <span className="text-sm text-gray-700">Feature text</span>
+   </li>
+   ```
+
+B. Highlight Lists (stars):
+   ```typescript
+   <li className="flex items-start gap-2">
+     <Star className="w-4 h-4 text-yellow-500 flex-shrink-0 mt-0.5" />
+     <span className="text-sm text-gray-700">Highlight text</span>
+   </li>
+   ```
+
+=============================================================================
+10. CALL-TO-ACTION SECTION PATTERN
+=============================================================================
+
+The final CTA section uses:
+
+A. Background:
+   ```typescript
+   className="py-20 bg-gradient-to-br from-amber-50 to-amber-50"
+   ```
+   - Warm, inviting amber tone
+
+B. All Text Colors:
+   - Headings: text-amber-800 (dark amber for readability)
+   - Body: text-amber-800
+   - Icons: text-amber-800
+   - Purpose: Monochromatic harmony on warm background
+
+C. Feature Cards in CTA:
+   ```typescript
+   className="w-16 h-16 bg-white/20 rounded-2xl 
+              flex items-center justify-center"
+   // Icon:
+   className="w-8 h-8 text-amber-800"
+   ```
+   - Semi-transparent white boxes
+   - Dark amber icons
+
+D. CTA Buttons on Amber:
+   - Primary: White background, amber text
+     ```typescript
+     className="text-amber-400 hover:bg-white"
+     ```
+   - Secondary: Transparent with amber border
+     ```typescript
+     className="border-2 border-white text-amber-400 hover:bg-white 
+                hover:text-amber-600 bg-transparent"
+     ```
+
+=============================================================================
+11. SPACING & LAYOUT STANDARDS
+=============================================================================
+
+A. Section Padding:
+   - Vertical: py-20 (consistent across all sections)
+   - Horizontal: px-6 (at container level)
+
+B. Container Max Width:
+   - Standard: max-w-7xl mx-auto
+
+C. Grid Layouts:
+   - 2 columns: grid lg:grid-cols-2 gap-8
+   - 3 columns: grid lg:grid-cols-3 gap-8
+   - 4 columns: grid md:grid-cols-2 lg:grid-cols-4 gap-8
+
+D. Card Spacing:
+   - Internal padding: p-8
+   - Border radius: rounded-3xl
+   - Gap between cards: gap-8
+
+E. Text Spacing:
+   - Heading to subheading: mb-4
+   - Subheading to content: mb-8 or mb-12
+   - Between paragraphs: mb-4 or mb-6
+
+=============================================================================
+12. ANIMATION PATTERNS
+=============================================================================
+
+All sections use consistent Framer Motion animations:
+
+A. Section Headers:
+   ```typescript
+   <motion.div
+     initial={{ opacity: 0, y: 30 }}
+     whileInView={{ opacity: 1, y: 0 }}
+     transition={{ duration: 0.8 }}
+   >
+   ```
+
+B. Cards/Items:
+   ```typescript
+   <motion.div
+     initial={{ opacity: 0, y: 30 }}
+     whileInView={{ opacity: 1, y: 0 }}
+     transition={{ duration: 0.6, delay: index * 0.1 }}
+   >
+   ```
+   - Staggered delay: delay: index * 0.1
+   - Slightly faster than headers: duration: 0.6
+
+C. Hero Content:
+   ```typescript
+   <motion.div
+     initial={{ opacity: 0, y: 30 }}
+     animate={{ opacity: 1, y: 0 }}
+     transition={{ duration: 0.8 }}
+   >
+   ```
+   - Uses animate (not whileInView) for immediate animation
+
+=============================================================================
+13. SPECIAL COMPONENTS
+=============================================================================
+
+A. Meta Information (dates, locations):
+   ```typescript
+   <div className="flex items-center gap-2">
+     <Calendar className="w-4 h-4" />
+     <span className="text-sm">{date}</span>
+   </div>
+   ```
+   - Icon: w-4 h-4, inherits text color
+   - Text: text-sm
+   - Color: text-gray-600 (inherits from parent)
+
+B. Badge Pills:
+   ```typescript
+   // Amber variant:
+   className="bg-yellow-50 p-4 rounded-xl border border-yellow-200"
+   
+   // Blue variant:
+   className="bg-blue-50 p-4 rounded-xl border border-blue-200"
+   
+   // Green variant:
+   className="bg-green-50 p-4 rounded-xl border border-green-200"
+   ```
+
+C. Contact Information:
+   ```typescript
+   <div className="flex items-center justify-center gap-2">
+     <Mail className="w-4 h-4" />
+     <span>email@domain.com</span>
+   </div>
+   ```
+
+=============================================================================
+14. DO'S AND DON'TS
+=============================================================================
+
+DO:
+✓ Always import SECTION_COLORS from @/styles/colors
+✓ Use amber-500/amber-600 for primary alumni actions
+✓ Use yellow-100 backgrounds with amber-500 icons
+✓ Maintain h-[85vh] hero height
+✓ Use InteractiveHexagonBackground with accentColor="#F59E0B"
+✓ Apply text-amber-800 on amber-50 backgrounds
+✓ Use bg-gray-50 for alternating sections
+✓ Include hover:shadow-xl on cards
+✓ Use CheckCircle (green) for features, Star (yellow) for highlights
+✓ Apply py-20 to all section containers
+
+DON'T:
+✗ Don't use random hex codes - use color system
+✗ Don't mix teal heavily in alumni (it's students' color)
+✗ Don't use orange-600 as primary (it's industry's hero color)
+✗ Don't use different hero heights
+✗ Don't skip the InteractiveHexagonBackground
+✗ Don't use white text on amber backgrounds (use amber-800)
+✗ Don't forget motion animations on sections
+✗ Don't use inconsistent border-radius (stick to rounded-3xl/2xl/xl)
+
+=============================================================================
+15. QUICK REFERENCE: COLOR CLASSES
+=============================================================================
+
+BACKGROUNDS:
+- Hero: bg-[#3E3C6B]
+- Section alternates: bg-gray-50 / bg-white
+- CTA section: bg-gradient-to-br from-amber-50 to-amber-50
+- Cards: bg-white
+- Icon boxes: bg-yellow-100, bg-orange-100
+- Accent boxes: bg-yellow-50, bg-green-50, bg-blue-50
+
+TEXT:
+- Primary headings: text-gray-900
+- Body text: text-gray-600, text-gray-700
+- On amber BG: text-amber-800
+- Hero text: text-white
+- Hero subtitle: text-blue-100
+- Special emphasis: text-blue-600, text-amber-800
+
+BORDERS:
+- Cards: border-gray-200
+- Accent boxes: border-yellow-200, border-green-200, border-blue-200
+- Hero badge: border-blue-400/30
+
+BUTTONS:
+- Primary: bg-amber-400 hover:bg-amber-500
+- Gradient: from-amber-500 to-amber-600
+- Secondary: border-2 border-white text-amber-400
+
+ICONS:
+- Primary: text-amber-500
+- Secondary: text-orange-600
+- Success: text-green-500
+- Highlight: text-yellow-500
+
+=============================================================================
+16. EXAMPLE: CREATING A NEW ALUMNI PAGE
+=============================================================================
+
+Step-by-step process:
+
+1. Import required dependencies:
+   ```typescript
+   'use client';
+   import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
+   import { SECTION_COLORS } from '@/styles/colors';
+   import { Button } from '@/components/ui/button';
+   import { motion } from 'framer-motion';
+   import { Icon1, Icon2, Icon3 } from 'lucide-react';
+   ```
+
+2. Extract alumni colors in component:
+   ```typescript
+   export default function AlumniNewPage() {
+     const alumniColors = SECTION_COLORS.alumni;
+   ```
+
+3. Create hero section (copy from welcome page, adjust text):
+   - Keep h-[85vh], bg-[#3E3C6B], InteractiveHexagonBackground
+   - Change accentColor to "#F59E0B"
+   - Update heading and description
+   - Adjust CTA button text/action
+
+4. Add first content section with bg-gray-50:
+   - Use py-20
+   - Add motion.div for header
+   - Create grid of stats or features
+   - Use yellow-100 icon backgrounds
+
+5. Add second content section with bg-white:
+   - Follow card pattern with rounded-3xl
+   - Use hover:shadow-xl
+   - Include CheckCircle or Star lists
+
+6. Add CTA section with amber background:
+   - Use from-amber-50 to-amber-50
+   - Apply text-amber-800 throughout
+   - Use white/20 for icon boxes
+
+7. Test responsiveness:
+   - Grid should be md:grid-cols-2 lg:grid-cols-3/4
+   - Text should be text-xl md:text-2xl for subtitles
+   - Buttons should be flex-col sm:flex-row
+
+=============================================================================
+END OF GUIDE
+=============================================================================
+
+This guide ensures any new Alumni page maintains visual consistency with
+the established design system. Follow these patterns exactly for a cohesive
+user experience across the entire Alumni section.
+
+For questions or clarifications, refer to:
+- /src/styles/colors.ts for the complete color system
+- /app/alumni/welcome/page.tsx for reference implementation
+
