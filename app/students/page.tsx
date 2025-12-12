@@ -220,10 +220,10 @@ const VerticalTabCarousel = ({ sections }: { sections: SectionType[] }) => {
   return (
     <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
       {/* Left Sidebar - Vertical Tabs */}
-      <div className="lg:col-span-3">
-        <div className="bg-white rounded-3xl border border-gray-200 p-3 sticky top-6">
-          <h3 className="text-base font-bold text-gray-900 mb-3 px-2">Categories</h3>
-          <div className="space-y-1.5">
+      <div className="lg:col-span-3 self-start">
+        <div className="bg-white rounded-3xl border border-gray-200 p-2 sticky top-6">
+          <h3 className="text-sm font-semibold text-gray-900 mb-2 px-2">Categories</h3>
+          <div className="space-y-1">
             {sections.map((section, index) => {
               const Icon = section.icon;
               const gradient = colorMap[section.color || 'blue'] || studentsColors.gradient.tailwind;
@@ -231,19 +231,19 @@ const VerticalTabCarousel = ({ sections }: { sections: SectionType[] }) => {
                 <button
                   key={section.title}
                   onClick={() => setSelectedIndex(index)}
-                  className={`w-full text-left p-3 rounded-xl transition-all duration-300 ${
+                  className={`w-full text-left py-2 px-3 rounded-lg transition-all duration-300 ${
                     selectedIndex === index
                       ? `bg-gradient-to-r ${gradient} text-white shadow-lg`
                       : 'hover:bg-gray-50 text-gray-700'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
                       selectedIndex === index
                         ? 'bg-white/20'
                         : 'bg-gray-100'
                     }`}>
-                      <Icon className={`w-4.5 h-4.5 ${
+                      <Icon className={`w-4 h-4 ${
                         selectedIndex === index ? 'text-white' : 'text-gray-600'
                       }`} />
                     </div>
@@ -504,52 +504,44 @@ export default function StudentsPage() {
 
   const mainSections = [
     {
-      title: 'Student Startup Program',
-      description: 'Transform your ideas into thriving startups with funding, mentorship, and resources',
-      icon: Rocket,
-      href: '/students/startup-program',
-      color: 'blue',
-      highlights: ['Open to all PES students', 'Funding, mentorship & makerspaces', 'Access PESU Venture Labs funding', 'CIE Ignite Ideathon opportunities']
-    },
-    {
-      title: 'Student Clubs',
-      description: 'Join vibrant student-led clubs to immerse yourself in entrepreneurship and sustainability',
-      icon: Heart,
-      href: '/students/clubs',
-      color: 'red',
-      highlights: ['E-Cell: E-Summit events', 'CMS: Sustainability initiatives', 'CIE Ignite S01 Grand Finale with 20+ volunteers', 'Network, lead, and make impact']
-    },
-    {
-      title: 'Newsletter',
-      description: 'Stay informed with the latest updates, events, and opportunities from CIE',
-      icon: Mail,
-      href: '/alumni/newsletter',
-      color: 'blue',
-      highlights: ['Monthly updates on CIE activities', 'Event announcements & recaps', 'Student success spotlights', 'Opportunities & deadlines']
-    },
-    {
-      title: 'Centers of Excellence',
-      description: 'Engage with cutting-edge research and innovation opportunities',
-      icon: Lightbulb,
-      href: '/students/centers-of-excellence',
-      color: 'indigo',
-      highlights: ['CRAIS: Robotics & Intelligent Systems', 'QuaNaD: Quantum & Nano Devices', 'Focus on AI, IoT, quantum tech', 'Access advanced labs & industry partners']
-    },
-    {
-      title: 'FAQs',
-      description: 'Clear answers on mandatory EIE courses and Student Startup Program',
-      icon: BookOpen,
-      href: '/students/faqs',
-      color: 'purple',
-      highlights: ['Why EIE is required', 'How it integrates with your major', 'Funding opportunities explained', 'Get clarity on CIE offerings']
-    },
-    {
       title: 'Be a Part of CIE',
       description: 'Take active roles as Teaching Assistants, interns, or mentors',
       icon: Users,
       href: '/students/be-a-part-of-cie',
       color: 'green',
       highlights: ['Assist in PAML workshops', 'Intern with Centers of Excellence', 'Mentor peers through E-Cell & CMS', 'Hands-on experience & networking']
+    },
+    {
+      title: 'Courses',
+      description: 'Mandatory and elective EIE courses to build practical skills',
+      icon: BookOpen,
+      href: '/students/courses',
+      color: 'blue',
+      highlights: ['EIE-I & EIE-II', 'Hands-on labs', 'Project-driven assessments', 'Industry-aligned curriculum']
+    },
+    {
+      title: 'Programs',
+      description: 'Longer-term programs and certificates offered by CIE',
+      icon: Lightbulb,
+      href: '/students/programs',
+      color: 'indigo',
+      highlights: ['CIE Ignite', 'Co-innovation Center programs', 'Internships & fellowships', 'Research opportunities']
+    },
+    {
+      title: 'Workshops',
+      description: 'Short, focused workshops to gain practical skills quickly',
+      icon: Calendar,
+      href: '/students/workshops',
+      color: 'orange',
+      highlights: ['PAML Trainer', 'Summer Workshop series', 'Hands-on labs', 'Industry mentor sessions']
+    },
+    {
+      title: 'Student Startup Program',
+      description: 'Transform your ideas into thriving startups with funding, mentorship, and resources',
+      icon: Rocket,
+      href: '/students/startup-program',
+      color: 'blue',
+      highlights: ['Open to all PES students', 'Funding, mentorship & makerspaces', 'Access PESU Venture Labs funding', 'CIE Ignite Ideathon opportunities']
     },
     {
       title: 'Industry Mentor Program',
@@ -568,12 +560,44 @@ export default function StudentsPage() {
       highlights: ['E-Summit 2023 & Founder Fusion', 'CIE Ignite Ideathon 2026', 'Global Venture Lab Conference', 'Compete, learn, and network']
     },
     {
+      title: 'Centers of Excellence',
+      description: 'Engage with cutting-edge research and innovation opportunities',
+      icon: Lightbulb,
+      href: '/students/centers-of-excellence',
+      color: 'indigo',
+      highlights: ['CRAIS: Robotics & Intelligent Systems', 'QuaNaD: Quantum & Nano Devices', 'Focus on AI, IoT, quantum tech', 'Access advanced labs & industry partners']
+    },
+    {
+      title: 'Student Clubs',
+      description: 'Join vibrant student-led clubs to immerse yourself in entrepreneurship and sustainability',
+      icon: Heart,
+      href: '/students/clubs',
+      color: 'red',
+      highlights: ['E-Cell: E-Summit events', 'CMS: Sustainability initiatives', 'CIE Ignite S01 Grand Finale with 20+ volunteers', 'Network, lead, and make impact']
+    },
+    {
       title: 'Success Stories',
       description: 'Discover how CIE students built impactful startups',
       icon: Star,
       href: '/students/success-stories',
       color: 'yellow',
       highlights: ['PocketCoach: AI upskilling', 'Epicure Robotics: Food automation', 'Authify: NFC authentication', 'Zeru: Universal reputation system']
+    },
+    {
+      title: 'Newsletter',
+      description: 'Stay informed with the latest updates, events, and opportunities from CIE',
+      icon: Mail,
+      href: '/alumni/newsletter',
+      color: 'blue',
+      highlights: ['Monthly updates on CIE activities', 'Event announcements & recaps', 'Student success spotlights', 'Opportunities & deadlines']
+    },
+    {
+      title: 'FAQs',
+      description: 'Clear answers on mandatory EIE courses and Student Startup Program',
+      icon: BookOpen,
+      href: '/students/faqs',
+      color: 'purple',
+      highlights: ['Why EIE is required', 'How it integrates with your major', 'Funding opportunities explained', 'Get clarity on CIE offerings']
     }
   ];
 

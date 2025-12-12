@@ -103,13 +103,13 @@ const Footer = () => {
                   </Button>
                 </a>
 
-                <a href={SITE_CONFIG.links.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
+                {/* <a href={SITE_CONFIG.links.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
                   <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
                     <svg className="w-4 h-4" viewBox="0 0 640 640" fill="currentColor" aria-hidden xmlns="http://www.w3.org/2000/svg">
                       <path d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z" />
                     </svg>
                   </Button>
-                </a>
+                </a> */}
 
                 <a href={SITE_CONFIG.links.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <Button variant="outline" size="icon" className="rounded-full border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white">
