@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/design-system';
-import { ArrowRight, Users, Building2, GraduationCap, Play, Sparkles, Rocket, BookOpen, BarChart3, Zap, X, Award, Globe, Briefcase, FileText, Lightbulb } from 'lucide-react';
+import { ArrowRight, Users, Building2, GraduationCap, Play, Sparkles, Rocket, BookOpen, BarChart3, Zap, X, Award, Globe, Briefcase, FileText, Lightbulb, CreditCard } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useState, useEffect } from 'react';
@@ -12,10 +12,10 @@ const ProgramsRadialView = () => {
   const [activeProgram, setActiveProgram] = useState<number | null>(null);
 
   const programs = [
-    { id: 0, name: 'CIE Product Management for the AI Era', borderColor: 'border-[#F15A29]', textColor: 'text-gray-800' },
+    { id: 0, name: 'CIE Product Management for the AI Era', borderColor: 'border-[#FF6C00]', textColor: 'text-gray-800' },
     { id: 1, name: 'CIE Practical Approach to Deep Learning', borderColor: 'border-[#2B9EB3]', textColor: 'text-gray-800' },
-    { id: 2, name: 'CIE EIE I – Getting Started with Entrepreneurship', borderColor: 'border-[#F15A29]', textColor: 'text-white', bgGradient: 'from-[#F15A29] to-[#FFC107]', filled: true },
-    { id: 3, name: 'CIE EIE II – Building a Lean Start-Up Company or Project', borderColor: 'border-[#2B9EB3]', textColor: 'text-white', bgGradient: 'from-[#2B9EB3] to-[#3E3C6B]', filled: true },
+    { id: 2, name: 'CIE EIE I – Getting Started with Entrepreneurship', borderColor: 'border-[#FF6C00]', textColor: 'text-white', bgGradient: 'from-[#FF6C00] to-[#FFC107]', filled: true },
+    { id: 3, name: 'CIE EIE II – Building a Lean Start-Up Company or Project', borderColor: 'border-[#2B9EB3]', textColor: 'text-white', bgGradient: 'from-[#2B9EB3] to-[#00377B]', filled: true },
     { id: 4, name: 'CIE Practical Approach to Machine Learning', borderColor: 'border-[#F15A29]', textColor: 'text-gray-800' },
     { id: 5, name: 'CIE BIOS Firmware Course', borderColor: 'border-[#2B9EB3]', textColor: 'text-gray-800' },
   ];
@@ -541,18 +541,19 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Interactive Hexagonal Hero Section */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#00377B]">
         {/* Interactive Hexagonal Background */}
         <InteractiveHexagonBackground
-          primaryColor="#3E3C6B"
-          accentColor="#2B9EB3"
-          hexagonSize={80}
+          primaryColor="#003576ff"
+          accentColor="#0069e8ff"
+          hexagonSize={100}
+          hexagonMargin={3}
           className="absolute inset-0 z-0"
         />
 
         {/* Decorative Gradient Orbs */}
         <div className="absolute top-20 right-20 w-64 h-64 bg-[#2B9EB3]/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse pointer-events-none" />
-  <div className="absolute bottom-20 left-20 w-64 h-64 bg-[#F15A29]/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse pointer-events-none" />
+  <div className="absolute bottom-20 left-20 w-64 h-64 bg-[#FF6C00]/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse pointer-events-none" />
 
         {/* Hero Content */}
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -573,7 +574,7 @@ export default function Home() {
                 <span className="text-white"> • </span> 
                 <span className="text-[#2B9EB3]">Innovate</span> 
                 <span className="text-white"> • </span> 
-                <span className="text-[#F15A29]">Inspire</span>
+                <span className="text-[#FF6C00]">Inspire</span>
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-200 mb-6 max-w-3xl mx-auto leading-relaxed">
@@ -586,7 +587,7 @@ export default function Home() {
                 onClick={() => window.location.href = '/students'}
                 variant="cie"
                 size="lg"
-                className="group bg-gradient-to-r from-[#F15A29] to-[#FFC107] text-white"
+                className="group bg-gradient-to-r from-[#FF6C00] to-[#FF6C00] text-white"
               >
                 EXPLORE NOW
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -705,14 +706,14 @@ export default function Home() {
               <div className="bg-white rounded-2xl p-5 hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 h-56 flex flex-col justify-between">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                    <Building2 className="w-8 h-8 text-[#F15A29]" />
+                    <Building2 className="w-8 h-8 text-[#FF6C00]" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">Industry</h3>
                 </div>
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                   Partner with us for collaborations, job postings, and innovation opportunities that drive meaningful change.
                 </p>
-                <button className="flex items-center text-[#F15A29] hover:text-[#FFC107] font-semibold">
+                <button className="flex items-center text-[#FF6C00] hover:text-[#FFC107] font-semibold">
                   <span>View Opportunities</span>
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -752,7 +753,7 @@ export default function Home() {
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-10 right-10 w-32 h-32 bg-[#2B9EB3]/30 rounded-full mix-blend-multiply filter blur-2xl" />
-          <div className="absolute bottom-10 left-10 w-32 h-32 bg-[#F15A29]/30 rounded-full mix-blend-multiply filter blur-2xl" />
+          <div className="absolute bottom-10 left-10 w-32 h-32 bg-[#FF6C00]/30 rounded-full mix-blend-multiply filter blur-2xl" />
         </div>
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -762,8 +763,8 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Discover <span className="bg-gradient-to-r from-[#2B9EB3] to-[#3E3C6B] bg-clip-text text-transparent">CIE</span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              Discover <span className="bg-gradient-to-r from-[#2B9EB3] to-[#00377B] bg-clip-text text-transparent">CIE</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-4">
               Explore our impact, programs, and success stories through interactive content tabs.
@@ -802,7 +803,7 @@ export default function Home() {
                 {/* Ignite tab removed per request */}
                 <TabsTrigger 
                   value="partners" 
-                  className="inline-flex items-center justify-center whitespace-nowrap rounded-xl px-3 py-2 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-[#3E3C6B] data-[state=active]:text-white data-[state=active]:shadow-sm hover:bg-purple-50 hover:text-[#3E3C6B]"
+                  className="inline-flex items-center justify-center whitespace-nowrap rounded-xl px-3 py-2 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-[#00377B] data-[state=active]:text-white data-[state=active]:shadow-sm hover:bg-purple-50 hover:text-[#00377B]"
                 >
                   <Building2 className="w-4 h-4 mr-2" />
                     <span className="hidden sm:inline">Collaborations</span>
@@ -841,11 +842,11 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="bg-white border-2 border-[#F15A29] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                  className="bg-white border-2 border-[#FF6C00] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <Users className="w-12 h-12 text-[#F15A29] mb-3" />
-                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">₹1.1M</div>
+                    <CreditCard className="w-12 h-12 text-[#FF6C00] mb-3" />
+                    <div className="text-3xl font-bold text-[#00377B] mb-2">₹1.1M</div>
                     <div className="text-sm text-gray-700 font-medium">Hardware Grants</div>
                   </div>
                 </motion.div>
@@ -859,7 +860,7 @@ export default function Home() {
                 >
                   <div className="flex flex-col items-center text-center">
                     <Building2 className="w-12 h-12 text-[#2B9EB3] mb-3" />
-                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">32</div>
+                    <div className="text-3xl font-bold text-[#00377B] mb-2">32</div>
                     <div className="text-sm text-gray-700 font-medium">Industry/Startup Placements</div>
                   </div>
                 </motion.div>
@@ -869,11 +870,11 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="bg-white border-2 border-[#F15A29] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                  className="bg-white border-2 border-[#FF6C00] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <Globe className="w-12 h-12 text-[#F15A29] mb-3" />
-                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">2</div>
+                    <Globe className="w-12 h-12 text-[#FF6C00] mb-3" />
+                    <div className="text-3xl font-bold text-[#00377B] mb-2">2</div>
                     <div className="text-sm text-gray-700 font-medium">International Exchange Program</div>
                   </div>
                 </motion.div>
@@ -887,7 +888,7 @@ export default function Home() {
                 >
                   <div className="flex flex-col items-center text-center">
                     <Award className="w-12 h-12 text-[#2B9EB3] mb-3" />
-                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">₹12.8M</div>
+                    <div className="text-3xl font-bold text-[#00377B] mb-2">₹12.8M</div>
                     <div className="text-sm text-gray-700 font-medium">Industry Grants/Awards</div>
                   </div>
                 </motion.div>
@@ -897,11 +898,11 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
-                  className="bg-white border-2 border-[#F15A29] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                  className="bg-white border-2 border-[#FF6C00] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <Users className="w-12 h-12 text-[#F15A29] mb-3" />
-                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">2180+</div>
+                    <Users className="w-12 h-12 text-[#FF6C00] mb-3" />
+                    <div className="text-3xl font-bold text-[#00377B] mb-2">2180+</div>
                     <div className="text-sm text-gray-700 font-medium">Students Participating in Industry Programs</div>
                   </div>
                 </motion.div>
@@ -915,7 +916,7 @@ export default function Home() {
                 >
                   <div className="flex flex-col items-center text-center">
                     <Briefcase className="w-12 h-12 text-[#2B9EB3] mb-3" />
-                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">106</div>
+                    <div className="text-3xl font-bold text-[#00377B] mb-2">106</div>
                     <div className="text-sm text-gray-700 font-medium">Industry/Startup Internships</div>
                   </div>
                 </motion.div>
@@ -925,11 +926,11 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.7 }}
-                  className="bg-white border-2 border-[#F15A29] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
+                  className="bg-white border-2 border-[#FF6C00] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <FileText className="w-12 h-12 text-[#F15A29] mb-3" />
-                    <div className="text-3xl font-bold text-[#3E3C6B] mb-2">12</div>
+                    <FileText className="w-12 h-12 text-[#FF6C00] mb-3" />
+                    <div className="text-3xl font-bold text-[#00377B] mb-2">12</div>
                     <div className="text-sm text-gray-700 font-medium">International Publications & Conference Speakerships</div>
                   </div>
                 </motion.div>
@@ -942,7 +943,8 @@ export default function Home() {
                   className="bg-white border-2 border-[#2B9EB3] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <Award className="w-12 h-12 text-[#2B9EB3] mb-3" />
+                    <img src="/CIE%20Logos-20251019T155324Z-1-001/CIE%20Logos/engineering_24dp_2B9EB3_FILL0_wght400_GRAD0_opsz24.svg" alt="Harvard Manage Mentor" className="w-12 h-12 mb-3" />
+                    
                     <div className="text-3xl font-bold text-[#3E3C6B] mb-2">78</div>
                     <div className="text-sm text-gray-700 font-medium">Harvard Manage Mentor</div>
                   </div>
@@ -956,7 +958,7 @@ export default function Home() {
                   className="bg-white border-2 border-[#F15A29] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <BookOpen className="w-12 h-12 text-[#F15A29] mb-3" />
+                    <img src="/CIE%20Logos-20251019T155324Z-1-001/CIE%20Logos/manufacturing_24dp_F15A29_FILL0_wght400_GRAD0_opsz24.svg" alt="Industry Programs" className="w-12 h-12 mb-3" />
                     <div className="text-3xl font-bold text-[#3E3C6B] mb-2">12</div>
                     <div className="text-sm text-gray-700 font-medium">Industry Programs</div>
                   </div>

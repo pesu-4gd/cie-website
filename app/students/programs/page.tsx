@@ -496,8 +496,8 @@ export default function ProgramsPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Choose Your <span className="bg-gradient-to-r from-[#3E3C6B] to-[#2B9EB3] bg-clip-text text-transparent">Learning Path</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Choose Your <span className="bg-gradient-to-r from-[#00377B] to-[#2B9EB3] bg-clip-text text-transparent">Learning Path</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Explore our diverse range of programs designed to meet different learning objectives and career goals.

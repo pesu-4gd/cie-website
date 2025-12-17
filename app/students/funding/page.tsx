@@ -320,7 +320,7 @@ export default function FundingPage() {
   return (
   <div className="min-h-screen bg-white" style={cssVars}>
       {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#00377B]">
         <InteractiveHexagonBackground
           primaryColor={studentsColors.hero?.background}
           accentColor={studentsColors.hero?.hexagonAccent}

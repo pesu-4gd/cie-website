@@ -82,7 +82,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
       </NavigationMenuTrigger>
       
       <NavigationMenuContent>
-        <div className="w-auto min-w-[900px] max-w-[1200px] bg-white backdrop-blur-sm rounded-xl shadow-lg border border-gray-200">
+        <div className="w-auto min-w-[900px] max-w-[1200px] bg-white backdrop-blur-sm rounded-l shadow-lg border border-gray-200">
           {/* Header */}
           <div className="px-6 py-4 border-b border-gray-100">
             <div className="flex items-center gap-4">

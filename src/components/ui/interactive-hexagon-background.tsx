@@ -19,7 +19,7 @@ function InteractiveHexagonBackground({
   children,
   primaryColor = '#3E3C6B',
   accentColor = '#2B9EB3',
-  hexagonSize = 75,
+  hexagonSize = 100,
   hexagonMargin = 3,
   ...props
 }: InteractiveHexagonBackgroundProps) {
@@ -130,8 +130,9 @@ function InteractiveHexagonBackground({
             {Array.from({ length: gridDimensions.columns }).map(
               (_, colIndex) => {
                 const distance = getDistanceFromMouse(rowIndex, colIndex);
-                // Only highlight hexagon directly under cursor
-                const isDirectlyUnder = distance < 45; // Single hexagon radius
+                // Only highlight hexagon directly under cursor; scale with size
+                const highlightRadius = Math.max(45, hexagonSize * 0.65);
+                const isDirectlyUnder = distance < highlightRadius;
 
                 return (
                   <div

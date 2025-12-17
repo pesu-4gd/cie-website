@@ -449,7 +449,7 @@ const SectionCard: React.FC<{ section: SectionType; index: number }> = ({ sectio
   const colorMap: Record<string, string> = {
     blue: 'from-[#2B9EB3] to-[#2B9EB3]',
     green: 'from-green-500 to-green-600',
-    red: 'from-[#F15A29] to-[#FFC107]',
+    red: 'from-[#FF6C00] to-[#FFC107]',
     indigo: 'from-indigo-500 to-blue-600',
     purple: 'from-purple-500 to-indigo-500',
     orange: 'from-orange-400 to-yellow-400',

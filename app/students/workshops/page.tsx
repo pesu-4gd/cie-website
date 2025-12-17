@@ -26,7 +26,7 @@ export default function WorkshopsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#00377B]">
         <InteractiveHexagonBackground primaryColor={studentsColors.hero?.background} accentColor={studentsColors.hero?.hexagonAccent} className="absolute inset-0 z-0" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
           <div className="flex items-center justify-center gap-4">
@@ -68,7 +68,7 @@ export default function WorkshopsPage() {
               </TabsTrigger>
               <TabsTrigger
                 value="sw2025"
-                className="px-6 py-3 text-sm font-semibold rounded-xl data-[state=active]:bg-[#F15A29] data-[state=active]:text-white transition-all"
+                className="px-6 py-3 text-sm font-semibold rounded-xl data-[state=active]:bg-[#FF6C00] data-[state=active]:text-white transition-all"
               >
                 <Calendar className="w-4 h-4 mr-2 inline" />
                 Summer Workshop 2025

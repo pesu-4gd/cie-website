@@ -50,7 +50,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
     <>
       {/* Announcement Banner - Only on Homepage */}
           {isHomePage && showBanner && (
-            <div className="fixed top-0 left-0 right-0 z-[60] bg-[#F15A29] text-white border-b border-transparent">
+            <div className="fixed top-0 left-0 right-0 z-[60] h-[52px] bg-[#F15A29] text-white border-b border-transparent">
           <div className="container mx-auto px-6 sm:px-8 lg:px-12">
             <div className="flex items-center gap-3 py-2">
               <Bell
