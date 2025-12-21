@@ -4,11 +4,11 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Users, 
-  Clock, 
-  Target, 
-  Building2, 
+import {
+  Users,
+  Clock,
+  Target,
+  Building2,
   Calendar,
   Rocket,
   Globe,
@@ -22,7 +22,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { Button } from '@/components/design-system';
-import {InteractiveHexagonBackground} from '@/components/ui/interactive-hexagon-background';
+import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { SECTION_COLORS } from '@/styles/colors';
 
 const BasecampPage = () => {
@@ -57,7 +57,7 @@ const BasecampPage = () => {
     {
       id: 2,
       title: "Idea Generation & Validation",
-      week: "Week 2", 
+      week: "Week 2",
       description: "Hands-on workshop for generating innovative ideas and validating them with real market feedback.",
       topics: ["Design Thinking", "Market Research", "Customer Validation"],
       image: "/assets/basecamp/session-2.jpg",
@@ -152,7 +152,7 @@ const BasecampPage = () => {
       if (autoScrollIntervalRef.current) {
         clearInterval(autoScrollIntervalRef.current);
       }
-      
+
       autoScrollIntervalRef.current = setInterval(() => {
         if (!isAutoScrollPaused) {
           setCurrentSessionSlide((prev) => (prev + 1) % sessionSlides.length);
@@ -175,7 +175,7 @@ const BasecampPage = () => {
   const handleManualNavigation = (callback: () => void) => {
     setIsAutoScrollPaused(true);
     callback();
-    
+
     // Resume auto-scroll after 10 seconds of no interaction
     setTimeout(() => {
       setIsAutoScrollPaused(false);
@@ -191,7 +191,7 @@ const BasecampPage = () => {
       image: "/assets/basecamp/expert-1.jpg"
     },
     {
-      name: "Industry Expert 2", 
+      name: "Industry Expert 2",
       company: "FinTech Company",
       topic: "Financial Technology Innovation",
       description: "Explored fintech trends and how technology is disrupting traditional finance.",
@@ -206,7 +206,7 @@ const BasecampPage = () => {
     },
     {
       name: "Industry Expert 4",
-      company: "Healthcare Startup", 
+      company: "Healthcare Startup",
       topic: "Healthcare Innovation & Impact",
       description: "Highlighted opportunities in healthcare technology and social impact.",
       image: "/assets/basecamp/expert-4.jpg"
@@ -244,7 +244,7 @@ const BasecampPage = () => {
       if (expertAutoScrollIntervalRef.current) {
         clearInterval(expertAutoScrollIntervalRef.current);
       }
-      
+
       expertAutoScrollIntervalRef.current = setInterval(() => {
         if (!isExpertAutoScrollPaused) {
           setCurrentExpertSlide((prev) => (prev + 1) % expertSlides.length);
@@ -266,7 +266,7 @@ const BasecampPage = () => {
   const handleExpertManualNavigation = (callback: () => void) => {
     setIsExpertAutoScrollPaused(true);
     callback();
-    
+
     setTimeout(() => {
       setIsExpertAutoScrollPaused(false);
     }, 10000);
@@ -355,8 +355,8 @@ const BasecampPage = () => {
               CIE Basecamp 2018
             </h1>
             <p className="text-xl lg:text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed">
-              Weekly sessions designed to introduce entrepreneurship and decode the start-up journey of 
-              guest entrepreneurs. Interactive learning filled with fun activities, live examples, and 
+              Weekly sessions designed to introduce entrepreneurship and decode the start-up journey of
+              guest entrepreneurs. Interactive learning filled with fun activities, live examples, and
               direct interaction with fantastic entrepreneurs and start-ups!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -368,7 +368,7 @@ const BasecampPage = () => {
                 <Button
                   variant="cie"
                   size="lg"
-                  className="group text-white"
+                  className="group text-white rounded-xl uppercase font-semibold"
                   style={{ backgroundColor: studentsColors.primary }}
                 >
                   Explore Programs
@@ -380,7 +380,7 @@ const BasecampPage = () => {
                 onClick={() => setShowVideo(true)}
                 variant="outline"
                 size="lg"
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 rounded-xl uppercase font-semibold"
               >
                 <Play className="w-5 h-5 mr-2" />
                 Watch Story
@@ -533,22 +533,21 @@ const BasecampPage = () => {
               >
                 <ChevronLeft className="w-4 h-4" />
               </Button>
-              
+
               <div className="flex gap-2">
                 {sessionSlides.map((slideGroup, slideIndex) => (
                   <button
                     key={`session-slide-${slideGroup[0]?.id || slideIndex}`}
                     onClick={() => handleManualNavigation(() => setCurrentSessionSlide(slideIndex))}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      slideIndex === currentSessionSlide
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${slideIndex === currentSessionSlide
                         ? 'bg-pes-navy scale-125'
                         : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
+                      }`}
                     aria-label={`Go to slide ${slideIndex + 1}`}
                   />
                 ))}
               </div>
-              
+
               <Button
                 onClick={() => handleManualNavigation(nextSessionSlide)}
                 variant="outline"
@@ -629,22 +628,21 @@ const BasecampPage = () => {
               >
                 <ChevronLeft className="w-4 h-4" />
               </Button>
-              
+
               <div className="flex gap-2">
                 {expertSlides.map((slideGroup, slideIndex) => (
                   <button
                     key={`expert-slide-${slideGroup[0]?.name.replace(/\s+/g, '-') || slideIndex}`}
                     onClick={() => handleExpertManualNavigation(() => setCurrentExpertSlide(slideIndex))}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      slideIndex === currentExpertSlide
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${slideIndex === currentExpertSlide
                         ? 'bg-pes-navy scale-125'
                         : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
+                      }`}
                     aria-label={`Go to expert slide ${slideIndex + 1}`}
                   />
                 ))}
               </div>
-              
+
               <Button
                 onClick={() => handleExpertManualNavigation(nextExpertSlide)}
                 variant="outline"
@@ -741,7 +739,7 @@ const BasecampPage = () => {
             <p className="text-xl text-white mb-8 leading-relaxed">
               Join our current programs and experience hands-on learning with industry experts
             </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               {/* <Button className="bg-gradient-to-r from-pes-navy to-blue-600 hover:from-pes-navy/90 hover:to-blue-600/90 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300">
                 <Rocket className="w-5 h-5 mr-2" />
                 Explore Current Programs

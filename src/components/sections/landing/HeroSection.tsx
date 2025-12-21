@@ -17,7 +17,7 @@ export function HeroSection() {
   const landingColors = SECTION_COLORS.landing;
 
   return (
-    <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+    <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#00377B]">
       {/* Interactive Hexagonal Background */}
       <InteractiveHexagonBackground
         className="absolute inset-0 z-0"
@@ -108,7 +108,7 @@ export function HeroSection() {
       </div>
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#3E3C6B]/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#00377B]/80 pointer-events-none" />
     </section>
   );
 }

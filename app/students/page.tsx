@@ -1,12 +1,12 @@
 // The small overview component was removed to avoid duplicate imports/exports.
 // This file intentionally contains the full StudentsPage component below.
 "use client";
-import { 
-  BookOpen, 
-  Calendar, 
-  Users, 
-  Lightbulb, 
-  DollarSign, 
+import {
+  BookOpen,
+  Calendar,
+  Users,
+  Lightbulb,
+  DollarSign,
   ArrowRight,
   GraduationCap,
   Rocket,
@@ -68,7 +68,7 @@ const useEnhancedLetterHover = (text: string) => {
     }
 
     // Reset after the animation
-  const resetT = globalThis.setTimeout(() => {
+    const resetT = globalThis.setTimeout(() => {
       if (!isHoveringRef.current) return;
       setLetterStates(new Array(text.length).fill({ color: 'white', phase: 'rest' }));
     }, 2200);
@@ -231,26 +231,22 @@ const VerticalTabCarousel = ({ sections }: { sections: SectionType[] }) => {
                 <button
                   key={section.title}
                   onClick={() => setSelectedIndex(index)}
-                  className={`w-full text-left py-2 px-3 rounded-lg transition-all duration-300 ${
-                    selectedIndex === index
+                  className={`w-full text-left py-2 px-3 rounded-lg transition-all duration-300 ${selectedIndex === index
                       ? `bg-gradient-to-r ${gradient} text-white shadow-lg`
                       : 'hover:bg-gray-50 text-gray-700'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                      selectedIndex === index
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${selectedIndex === index
                         ? 'bg-white/20'
                         : 'bg-gray-100'
-                    }`}>
-                      <Icon className={`w-4 h-4 ${
-                        selectedIndex === index ? 'text-white' : 'text-gray-600'
-                      }`} />
+                      }`}>
+                      <Icon className={`w-4 h-4 ${selectedIndex === index ? 'text-white' : 'text-gray-600'
+                        }`} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className={`font-semibold text-xs leading-tight ${
-                        selectedIndex === index ? 'text-white' : 'text-gray-900'
-                      }`}>
+                      <div className={`font-semibold text-xs leading-tight ${selectedIndex === index ? 'text-white' : 'text-gray-900'
+                        }`}>
                         {section.title}
                       </div>
                     </div>
@@ -275,7 +271,7 @@ const VerticalTabCarousel = ({ sections }: { sections: SectionType[] }) => {
             const section = sections[selectedIndex];
             const Icon = section.icon;
             const gradient = colorMap[section.color || 'blue'] || studentsColors.gradient.tailwind;
-            
+
             return (
               <div className="flex flex-col lg:flex-row min-h-[480px]">
                 {/* Section Icon/Visual */}
@@ -312,7 +308,7 @@ const VerticalTabCarousel = ({ sections }: { sections: SectionType[] }) => {
 
                   <div className="pt-5 border-t border-gray-200">
                     <Link href={section.href} className="block">
-                      <Button 
+                      <Button
                         className={`w-full bg-gradient-to-r ${gradient} hover:opacity-90 text-white px-6 py-2.5 rounded-xl font-semibold transition-all flex items-center justify-center text-sm lg:text-base`}
                       >
                         Learn More
@@ -333,43 +329,42 @@ const VerticalTabCarousel = ({ sections }: { sections: SectionType[] }) => {
 // Component for text with enhanced magic hover effect on individual letters
 const EnhancedMagicTitle = ({ text, className = '' }: EnhancedMagicTitleProps) => {
   const { letterStates, handleMouseEnter, handleMouseLeave } = useEnhancedLetterHover(text);
-  
+
   return (
-        <button
-          type="button"
-          className={`flex flex-wrap justify-center ${className}`}
-          tabIndex={0}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          onFocus={handleMouseEnter}
-          onBlur={handleMouseLeave}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              handleMouseEnter();
-            }
-          }}
-          onKeyUp={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              handleMouseLeave();
-            }
-          }}
-        >
+    <button
+      type="button"
+      className={`flex flex-wrap justify-center ${className}`}
+      tabIndex={0}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onFocus={handleMouseEnter}
+      onBlur={handleMouseLeave}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleMouseEnter();
+        }
+      }}
+      onKeyUp={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleMouseLeave();
+        }
+      }}
+    >
       {text.split('').map((char, index) => {
         const { color, phase }: LetterState = letterStates[index];
         let colorClass = 'text-white';
-        
+
         if (color === 'orange') {
           colorClass = 'text-orange-500';
         } else if (color === 'navy') {
           colorClass = 'text-blue-400'; // Lighter navy blue
         }
-        
+
         return (
-          <span 
+          <span
             key={`${char}-${index}`}
-            className={`inline-block transition-all duration-500 ${colorClass} ${
-              phase === 'active' ? 'transform scale-110' : ''
-            }`}
+            className={`inline-block transition-all duration-500 ${colorClass} ${phase === 'active' ? 'transform scale-110' : ''
+              }`}
           >
             {char === ' ' ? '\u00A0' : char}
           </span>
@@ -383,30 +378,30 @@ const EnhancedMagicTitle = ({ text, className = '' }: EnhancedMagicTitleProps) =
 const EnhancedMagicSubtitle = ({ text, className = '' }: { text: string; className?: string }) => {
   const [colorPhase, setColorPhase] = useState(0); // 0: white, 1: orange, 2: navy blue
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  
+
   const handleMouseEnter = () => {
-    
+
     // Transition to orange
     timeoutRef.current = setTimeout(() => {
       setColorPhase(1);
     }, 300);
-    
+
     // Then to navy blue
     timeoutRef.current = setTimeout(() => {
       setColorPhase(2);
     }, 1000);
-    
+
     // Then back to original after 2 seconds
     timeoutRef.current = setTimeout(() => {
       setColorPhase(0);
     }, 3000);
   };
-  
+
   const handleMouseLeave = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setColorPhase(0);
   };
-  
+
   // Clean up timeout on unmount
   useEffect(() => {
     return () => {
@@ -422,7 +417,7 @@ const EnhancedMagicSubtitle = ({ text, className = '' }: { text: string; classNa
   }
 
   return (
-    <p 
+    <p
       className={`${className} transition-all duration-1000 ${colorClass}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -642,7 +637,7 @@ export default function StudentsPage() {
       <section
         className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]"
       >
-        <InteractiveHexagonBackground 
+        <InteractiveHexagonBackground
           primaryColor={studentsColors.hero.background}
           accentColor={studentsColors.hero.hexagonAccent}
           className="absolute inset-0 z-0"
@@ -699,7 +694,7 @@ export default function StudentsPage() {
               <Button
                 variant="cie"
                 size="lg"
-                className="group text-white hover:opacity-95 transition-opacity"
+                className="group text-white hover:opacity-95 transition-opacity rounded-xl font-semibold uppercase"
                 style={{ background: studentsColors.primary, borderColor: `${studentsColors.primary}33` }}
               >
                 Discover the Student Startup Program
@@ -707,10 +702,10 @@ export default function StudentsPage() {
               </Button>
             </Link>
             <Link href="/students/events">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="cie"
                 size="lg"
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+                className="bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all duration-300 border-2 border-white/30 hover:border-white/50 backdrop-blur-sm uppercase flex items-center justify-center"
               >
                 Explore CIE Events
               </Button>
@@ -720,7 +715,7 @@ export default function StudentsPage() {
       </section>
 
       {/* Rest of the page remains the same as before */}
-          {/* Quick Stats */}
+      {/* Quick Stats */}
       {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -822,11 +817,11 @@ export default function StudentsPage() {
                   className="bg-white p-8 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300"
                 >
                   <IconComponent className="w-10 h-10 mb-6" style={{ color: studentsColors.primary }} />
-                  
+
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
                     {item.title}
                   </h3>
-                  
+
                   <p className="text-gray-600 leading-relaxed">
                     {item.description}
                   </p>
@@ -851,26 +846,26 @@ export default function StudentsPage() {
             <p className="text-xl max-w-3xl mx-auto mb-12 text-blue-100">
               Your entrepreneurial journey begins here. Choose your path and dive in.
             </p>
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
                 <Rocket className="w-8 h-8 text-white mb-3 mx-auto" />
                 <h3 className="font-bold text-white mb-2">Join a Program</h3>
                 <p className="text-sm text-blue-100">Enroll in Student Startup Program or EIE courses</p>
               </div>
-              
+
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
                 <Heart className="w-8 h-8 text-white mb-3 mx-auto" />
                 <h3 className="font-bold text-white mb-2">Engage with Clubs</h3>
                 <p className="text-sm text-blue-100">Connect with E-Cell or CMS for events</p>
               </div>
-              
+
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
                 <Lightbulb className="w-8 h-8 text-white mb-3 mx-auto" />
                 <h3 className="font-bold text-white mb-2">Explore Research</h3>
                 <p className="text-sm text-blue-100">Collaborate with Centers of Excellence</p>
               </div>
-              
+
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
                 <Calendar className="w-8 h-8 text-white mb-3 mx-auto" />
                 <h3 className="font-bold text-white mb-2">Attend Events</h3>
@@ -880,7 +875,7 @@ export default function StudentsPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/students/startup-program">
-                <Button 
+                <Button
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg font-semibold rounded-xl"
                 >
@@ -890,7 +885,7 @@ export default function StudentsPage() {
               </Link>
 
               <Link href="/contact">
-                <Button 
+                <Button
                   size="lg"
                   variant="outline"
                   className="border-2 border-white text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-xl"

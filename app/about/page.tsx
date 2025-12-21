@@ -407,9 +407,9 @@ export default function About() {
                 CIE provides mentorship, infrastructure, industry connections, funding facilitation, and comprehensive support throughout the startup journey.
               </p>
             </div>
-            <p className="text-center text-gray-600 mt-8">
+            {/* <p className="text-center text-gray-600 mt-8">
               More FAQs coming soon. For specific questions, please email us at <a href="mailto:cieoffice@pes.edu" className="text-[#f07f1a] hover:text-[#d96d15]">cieoffice@pes.edu</a>
-            </p>
+            </p> */}
           </motion.div>
         </div>
       </section>

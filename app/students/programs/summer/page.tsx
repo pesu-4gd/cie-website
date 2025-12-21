@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
+import {
   Sun,
   Calendar,
   Clock,
@@ -246,25 +246,25 @@ const SummerProgramPage = () => {
   ];
 
   const nextTestimonial = () => {
-    setCurrentTestimonialSlide((prev) => 
+    setCurrentTestimonialSlide((prev) =>
       prev === testimonials.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevTestimonial = () => {
-    setCurrentTestimonialSlide((prev) => 
+    setCurrentTestimonialSlide((prev) =>
       prev === 0 ? testimonials.length - 1 : prev - 1
     );
   };
 
   const nextProject = () => {
-    setCurrentProjectSlide((prev) => 
+    setCurrentProjectSlide((prev) =>
       prev === projectShowcase.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevProject = () => {
-    setCurrentProjectSlide((prev) => 
+    setCurrentProjectSlide((prev) =>
       prev === 0 ? projectShowcase.length - 1 : prev - 1
     );
   };
@@ -306,13 +306,13 @@ const SummerProgramPage = () => {
               with hands-on projects, industry mentorship, and real-world experience.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
+              <Button asChild size="lg" className="bg-white text-orange-600 hover:bg-gray-100 rounded-xl uppercase font-semibold">
                 <a href="mailto:cieprogram@pes.edu">
                   <Rocket className="w-5 h-5 mr-2" />
                   Enquire
                 </a>
               </Button>
-              <Button className="border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 text-lg font-semibold rounded-xl bg-transparent">
+              <Button size="lg" className="border-2 border-white text-white hover:bg-white hover:text-orange-600 rounded-xl bg-transparent uppercase font-semibold">
                 <Calendar className="w-5 h-5 mr-2" />
                 View Schedule
               </Button>
@@ -534,7 +534,7 @@ const SummerProgramPage = () => {
                 </motion.div>
               </AnimatePresence>
             </div>
-            
+
             <button
               onClick={prevProject}
               title="Previous project"
@@ -542,7 +542,7 @@ const SummerProgramPage = () => {
             >
               <ChevronLeft className="w-6 h-6 text-gray-600" />
             </button>
-            
+
             <button
               onClick={nextProject}
               title="Next project"
@@ -551,18 +551,17 @@ const SummerProgramPage = () => {
               <ChevronRight className="w-6 h-6 text-gray-600" />
             </button>
           </div>
-          
+
           <div className="flex justify-center mt-8 gap-2">
             {projectShowcase.map((_, index) => (
               <button
-                    key={index}
-                    onClick={() => setCurrentProjectSlide(index)}
-                    title={`Go to project ${index + 1}`}
-                    aria-label={`Go to project ${index + 1}`}
-                    className={`w-3 h-3 rounded-full transition-colors ${
-                      index === currentProjectSlide ? 'bg-orange-500' : 'bg-gray-300'
-                    }`}
-                  />
+                key={index}
+                onClick={() => setCurrentProjectSlide(index)}
+                title={`Go to project ${index + 1}`}
+                aria-label={`Go to project ${index + 1}`}
+                className={`w-3 h-3 rounded-full transition-colors ${index === currentProjectSlide ? 'bg-orange-500' : 'bg-gray-300'
+                  }`}
+              />
             ))}
           </div>
         </div>
@@ -646,7 +645,7 @@ const SummerProgramPage = () => {
                   <blockquote className="text-xl md:text-2xl text-gray-800 mb-8 leading-relaxed">
                     "{testimonials[currentTestimonialSlide].text}"
                   </blockquote>
-                  
+
                   <div className="mb-6">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">
                       {testimonials[currentTestimonialSlide].name}
@@ -665,7 +664,7 @@ const SummerProgramPage = () => {
                 </motion.div>
               </AnimatePresence>
             </div>
-            
+
             <button
               onClick={prevTestimonial}
               title="Previous testimonial"
@@ -673,7 +672,7 @@ const SummerProgramPage = () => {
             >
               <ChevronLeft className="w-6 h-6 text-gray-600" />
             </button>
-            
+
             <button
               type="button"
               onClick={nextTestimonial}
@@ -684,17 +683,16 @@ const SummerProgramPage = () => {
               <ChevronRight className="w-6 h-6 text-gray-600" />
             </button>
           </div>
-          
+
           <div className="flex justify-center mt-8 gap-2">
             {testimonials.map((_, index) => (
               <button
-                  key={index}
-                  onClick={() => setCurrentTestimonialSlide(index)}
-                  title={`Go to testimonial ${index + 1}`}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentTestimonialSlide ? 'bg-orange-500' : 'bg-gray-300'
+                key={index}
+                onClick={() => setCurrentTestimonialSlide(index)}
+                title={`Go to testimonial ${index + 1}`}
+                className={`w-3 h-3 rounded-full transition-colors ${index === currentTestimonialSlide ? 'bg-orange-500' : 'bg-gray-300'
                   }`}
-                />
+              />
             ))}
           </div>
         </div>
@@ -762,7 +760,7 @@ const SummerProgramPage = () => {
               Join our intensive summer program and transform your ideas into reality.
               Applications for Summer 2024 are now open!
             </p>
-            
+
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -771,7 +769,7 @@ const SummerProgramPage = () => {
                 <h3 className="text-xl font-semibold mb-2 text-white">May 15 - July 10</h3>
                 <p className="text-orange-100">8-week intensive program</p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-white" />
@@ -779,7 +777,7 @@ const SummerProgramPage = () => {
                 <h3 className="text-xl font-semibold mb-2 text-white">Limited Seats</h3>
                 <p className="text-orange-100">Only 30 participants selected</p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Award className="w-8 h-8 text-white" />
@@ -788,7 +786,7 @@ const SummerProgramPage = () => {
                 <p className="text-orange-100">Industry-recognized completion certificate</p>
               </div>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
                 <a href="mailto:cieprogram@pes.edu">

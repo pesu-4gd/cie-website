@@ -15,11 +15,11 @@ import {
   MorphingDialogClose,
 } from '@/components/ui/morphing-dialog';
 import Link from 'next/link';
-import { 
-  BookOpen, 
-  Clock, 
-  Users, 
-  Award, 
+import {
+  BookOpen,
+  Clock,
+  Users,
+  Award,
   Calendar,
   MapPin,
   ExternalLink,
@@ -30,7 +30,12 @@ import {
   Briefcase,
   Globe,
   Target,
-  Lightbulb
+  Lightbulb,
+  Rocket,
+  FileText,
+  ClipboardCheck,
+  Settings,
+  HandCoins
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -42,7 +47,8 @@ export default function ProgramsPage() {
     { id: 'core', label: 'Core Programs', icon: BookOpen },
     { id: 'specialized', label: 'Specialized Courses', icon: Target },
     { id: 'workshops', label: 'Workshops', icon: Lightbulb },
-    { id: 'international', label: 'International', icon: Globe }
+    { id: 'international', label: 'International', icon: Globe },
+    { id: 'ready', label: 'CiC READY', icon: Rocket }
   ];
 
   const corePrograms = [
@@ -275,8 +281,378 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* Signature Programs (morphing dialog cards) */}
-      <section id="signature-programs" className="py-16 bg-white">
+      {/* Program Categories */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Choose Your <span className="bg-gradient-to-r from-[#00377B] to-[#2B9EB3] bg-clip-text text-transparent">Learning Path</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Explore our diverse range of programs designed to meet different learning objectives and career goals.
+            </p>
+          </motion.div>
+
+          {/* Tab Navigation */}
+          <div className="flex flex-wrap justify-center mb-12">
+            {programCategories.map((category) => {
+              const IconComponent = category.icon;
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveTab(category.id)}
+                  className={`flex items-center px-6 py-3 mx-2 mb-4 rounded-xl font-semibold transition-all duration-300 ${activeTab === category.id
+                    ? 'bg-blue-600 text-white shadow-lg'
+                    : 'bg-white text-gray-600 hover:bg-blue-50 hover:text-blue-600'
+                    }`}
+                >
+                  <IconComponent className="w-5 h-5 mr-2" />
+                  {category.label}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Content Area */}
+          {/* Active Tab Check */}
+          {activeTab === 'ready' ? (
+            <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-16">
+
+              {/* 1. Intro */}
+              <div className="bg-white rounded-3xl p-8 border border-gray-200">
+                <div className="max-w-4xl mx-auto text-center">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm mb-6">
+                    Pre-Seed Launchpad
+                  </span>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                    CiC READY Program: Your Launchpad for Deep-Tech Innovation
+                  </h3>
+                  <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                    A Landmark Collaboration, a New Chapter in Innovation. On January 24, 2025, PES University marked a historic milestone in Indian academia with the inauguration of the nation’s first Co-Innovation Centre (CIC), established in partnership with IHFC (I-Hub Foundation for Cobotics), the Technology Innovation Hub of IIT Delhi.
+                  </p>
+                  <p className="text-gray-600 leading-relaxed">
+                    The READY (Research, Entrepreneurship and Development for Youth) Program is the vibrant heart of this visionary centre. It is designed to turn the CIC’s mission into reality, directly empowering PES University's brightest students and graduates to translate pioneering ideas into viable prototypes and scalable startups.
+                  </p>
+                </div>
+              </div>
+
+              {/* 2. Why READY? */}
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Why READY? Your Comprehensive Advantage</h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {[
+                    { title: "Funding & Resources", desc: "Receive financial support of up to ₹5 Lakhs and access to dedicated lab space and prototyping facilities.", icon: CheckCircle },
+                    { title: "Expert Mentorship", desc: "Benefit from structured guidance by industry experts, faculty innovators, and seasoned entrepreneurs.", icon: Users },
+                    { title: "Path to Market & IP", desc: "Graduate from prototype to startup with direct incubation support. Learn to protect and own your inventions.", icon: Target },
+                    { title: "Structured Journey", desc: "Immerse yourself in a 6-month intensive program with peer learning and milestone-based development.", icon: Clock }
+                  ].map((item, idx) => (
+                    <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                      <item.icon className="w-10 h-10 text-blue-600 mb-4" />
+                      <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>
+                      <p className="text-sm text-gray-600">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 3. The READY Journey (Roadmap) */}
+              <div className="py-16">
+                <h3 className="text-2xl font-bold text-gray-900 mb-12 text-center">The READY Journey: From Idea to Impact</h3>
+
+                {/* Desktop View (Wave) */}
+                <div className="hidden lg:block relative h-[400px] max-w-6xl mx-auto">
+                  {/* Dashed Wave Line */}
+                  <svg className="absolute top-0 left-0 w-full h-full" viewBox="0 0 1200 300" fill="none" preserveAspectRatio="none">
+                    <path
+                      d="M0,150 C150,150 150,50 300,50 C450,50 450,250 600,250 C750,250 750,50 900,50 C1050,50 1050,250 1200,250"
+                      stroke="#000"
+                      strokeWidth="2"
+                      strokeDasharray="8 8"
+                      className="opacity-30"
+                    />
+                  </svg>
+
+                  {[
+                    {
+                      id: 1,
+                      title: "Apply Anytime",
+                      desc: "Ready Call for Applications, Proposal Submission year round",
+                      icon: FileText,
+                      top: true
+                    },
+                    {
+                      id: 2,
+                      title: "Quarterly Evaluation",
+                      desc: "Screening & pitches in Feb, May, Aug, Nov",
+                      icon: ClipboardCheck,
+                      top: false
+                    },
+                    {
+                      id: 3,
+                      title: "Onboarding",
+                      desc: "Final year students in Jan & July",
+                      icon: Settings,
+                      top: true
+                    },
+                    {
+                      id: 4,
+                      title: "Flexible Onboarding",
+                      desc: "For Graduated Applicants (G+1 & G+2)",
+                      icon: Users,
+                      top: false
+                    },
+                    {
+                      id: 5,
+                      title: "Build & Grow",
+                      desc: "Financial support, mentoring & peer learning",
+                      icon: HandCoins,
+                      top: true
+                    },
+                    {
+                      id: 6,
+                      title: "Graduate to Startup",
+                      desc: "Transition to deep-tech ventures & incubation",
+                      icon: Award,
+                      top: false
+                    }
+                  ].map((step, index) => {
+                    const positions = [10, 26, 42, 58, 74, 90];
+                    const xPos = positions[index];
+
+                    return (
+                      <div
+                        key={step.id}
+                        className="absolute transform -translate-x-1/2 w-48 text-center group"
+                        style={{ left: `${xPos}%`, top: step.top ? '16%' : '83%' }}
+                      >
+                        {/* Node on Wave */}
+                        <div className={`absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-bold text-sm z-10 border-4 border-white`}>
+                          {step.id}
+                        </div>
+
+                        {/* Icon Circle */}
+                        <div className={`absolute left-1/2 transform -translate-x-1/2 ${step.top ? 'top-12' : 'bottom-12'} w-20 h-20 rounded-full bg-[#E8A682] flex items-center justify-center shadow-md transition-transform hover:scale-110 duration-300`}>
+                          <step.icon className="w-10 h-10 text-white" />
+                        </div>
+
+                        {/* Content */}
+                        <div className={`absolute left-1/2 transform -translate-x-1/2 w-56 ${step.top ? 'bottom-full mb-16' : 'top-full mt-16'}`}>
+                          <p className="text-sm text-gray-700 font-medium leading-snug">{step.desc}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Mobile View (Timeline) */}
+                <div className="lg:hidden space-y-8 pl-4 border-l-2 border-gray-200 ml-4 relative">
+                  {[
+                    {
+                      id: 1,
+                      title: "Apply Anytime",
+                      desc: "Ready Call for Applications, Proposal Submission year round",
+                      icon: FileText
+                    },
+                    {
+                      id: 2,
+                      title: "Quarterly Evaluation",
+                      desc: "Screening & pitches in Feb, May, Aug, Nov",
+                      icon: ClipboardCheck
+                    },
+                    {
+                      id: 3,
+                      title: "Onboarding",
+                      desc: "Final year students in Jan & July",
+                      icon: Settings
+                    },
+                    {
+                      id: 4,
+                      title: "Flexible Onboarding",
+                      desc: "For Graduated Applicants (G+1 & G+2)",
+                      icon: Users
+                    },
+                    {
+                      id: 5,
+                      title: "Build & Grow",
+                      desc: "Financial support, mentoring & peer learning",
+                      icon: HandCoins
+                    },
+                    {
+                      id: 6,
+                      title: "Graduate to Startup",
+                      desc: "Transition to deep-tech ventures & incubation",
+                      icon: Award
+                    }
+                  ].map((step) => (
+                    <div key={step.id} className="relative pl-8">
+                      <div className="absolute -left-[21px] top-0 w-10 h-10 rounded-full bg-[#E8A682] flex items-center justify-center border-4 border-white shadow-sm">
+                        <step.icon className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="absolute -left-[29px] -top-6 w-6 h-6 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold border-2 border-white">
+                        {step.id}
+                      </div>
+
+                      <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                        <h4 className="font-bold text-gray-900 mb-1">{step.title}</h4>
+                        <p className="text-sm text-gray-600">{step.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 4. Success Stories */}
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Innovations in Action: READY Success Stories</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {[
+                    { name: "COBRA", desc: "An agile robot designed for search and rescue operations in collapsed structures and hazardous environments." },
+                    { name: "Kaere", desc: "A novel, non-invasive, AI-powered breath analyzer for glucose monitoring." },
+                    { name: "Smart AI Glasses", desc: "Assistive technology enhancing independence for the visually impaired through real-time object recognition." },
+                    { name: "TeleRobotic Ultrasound", desc: "A system enabling remote diagnostic ultrasound examinations, expanding access to healthcare." }
+                  ].map((story, idx) => (
+                    <div key={idx} className="flex items-start bg-white p-6 rounded-2xl border border-gray-200">
+                      <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 font-bold text-xl mr-4 flex-shrink-0">
+                        {story.name[0]}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900 mb-1">{story.name}</h4>
+                        <p className="text-sm text-gray-600">{story.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 4. CTA */}
+              <div className="bg-gradient-to-r from-blue-900 to-blue-700 rounded-3xl p-10 text-white text-center">
+                <h3 className="text-3xl font-bold mb-4">Are You Ready to Build the Future?</h3>
+                <p className="text-blue-100 max-w-2xl mx-auto mb-8">
+                  If you are a passionate student or recent graduate with a disruptive idea in deep technology, the READY Program is your definitive launchpad.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-white text-blue-900 hover:bg-blue-50 font-bold"
+                  >
+                    <a href="mailto:cieprogram@pes.edu">Contact CIE</a>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="border-white text-white hover:bg-white/10"
+                  >
+                    <a href="https://www.ihfc.co.in/ready-program/" target="_blank" rel="noreferrer">
+                      Visit Official Page <ExternalLink className="w-4 h-4 ml-2" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+
+            </div>
+          ) : (
+            /* Existing Cards Grid */
+            <div className="grid lg:grid-cols-2 gap-8">
+              {getCurrentPrograms().map((program, index) => (
+                <motion.div
+                  key={program.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white rounded-3xl p-8 border border-gray-200 hover:shadow-xl transition-all duration-300"
+                >
+                  {/* Program Header */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{program.title}</h3>
+                      <p className="text-gray-600 leading-relaxed">{program.description}</p>
+                    </div>
+                  </div>
+
+                  {/* Program Meta */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div className="text-center p-3 bg-gray-50 rounded-xl">
+                      <Clock className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
+                      <div className="text-sm font-medium text-gray-900">{program.duration}</div>
+                      <div className="text-xs text-gray-500">Duration</div>
+                    </div>
+                    <div className="text-center p-3 bg-gray-50 rounded-xl">
+                      <Award className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
+                      <div className="text-sm font-medium text-gray-900">{program.level}</div>
+                      <div className="text-xs text-gray-500">Level</div>
+                    </div>
+                    <div className="text-center p-3 bg-gray-50 rounded-xl">
+                      <Users className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
+                      <div className="text-sm font-medium text-gray-900">{program.students}</div>
+                      <div className="text-xs text-gray-500">Students</div>
+                    </div>
+                    <div className="text-center p-3 bg-gray-50 rounded-xl">
+                      <MapPin className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
+                      <div className="text-sm font-medium text-gray-900">{program.format.split(' ')[0]}</div>
+                      <div className="text-xs text-gray-500">Format</div>
+                    </div>
+                  </div>
+
+                  {/* Program Highlights */}
+                  <div className="mb-6">
+                    <h4 className="font-semibold text-gray-900 mb-3">Program Highlights</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                      {program.highlights.map((highlight, idx) => (
+                        <div key={idx} className="flex items-center text-sm text-gray-600">
+                          <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                          <span>{highlight}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Program Details */}
+                  <div className="space-y-4 mb-6">
+                    <div>
+                      <span className="font-semibold text-gray-900">Instructor: </span>
+                      <span className="text-gray-600">{program.instructor}</span>
+                    </div>
+                    <div>
+                      <span className="font-semibold text-gray-900">Prerequisites: </span>
+                      <span className="text-gray-600">{program.prerequisites}</span>
+                    </div>
+                    <div>
+                      <span className="font-semibold text-gray-900">Certification: </span>
+                      <span className="text-gray-600">{program.certification}</span>
+                    </div>
+                  </div>
+
+                  {/* Action: only Learn More */}
+                  <div>
+                    {(() => {
+                      const href = getProgramHref(program as { title: string });
+                      if (!href) return null;
+                      return (
+                        <Link href={href}>
+                          <Button className="w-full bg-white hover:bg-[#4cafc5] border border-[#4cafc5] hover:border-green-600 transition-all duration-300" style={{ borderColor: studentsColors.secondary, color: studentsColors.secondary }}>
+                            Learn More
+                            <ExternalLink className="w-4 h-4 ml-2" />
+                          </Button>
+                        </Link>
+                      );
+                    })()}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Signature Programs (morphing dialog cards) - MOVED HERE */}
+      <section id="signature-programs" className="py-16 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -288,9 +664,9 @@ export default function ProgramsPage() {
             <p className="text-gray-600 max-w-2xl mx-auto">CIE’s signature programs provide structured learning and hands-on experience in entrepreneurship and innovation, tailored for students and aspiring entrepreneurs.</p>
           </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-6 auto-rows-fr">
-              {/* Bootcamp */}
-              <MorphingDialog>
+          <div className="grid md:grid-cols-3 gap-6 auto-rows-fr">
+            {/* Bootcamp */}
+            <MorphingDialog>
               <div>
                 <MorphingDialogTrigger className="block">
                   <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm cursor-pointer h-full flex flex-col justify-between">
@@ -337,10 +713,10 @@ export default function ProgramsPage() {
                   </MorphingDialogContent>
                 </MorphingDialogContainer>
               </div>
-              </MorphingDialog>
+            </MorphingDialog>
 
-              {/* Basecamp */}
-              <MorphingDialog>
+            {/* Basecamp */}
+            <MorphingDialog>
               <div>
                 <MorphingDialogTrigger className="block">
                   <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm cursor-pointer h-full flex flex-col justify-between">
@@ -386,10 +762,10 @@ export default function ProgramsPage() {
                   </MorphingDialogContent>
                 </MorphingDialogContainer>
               </div>
-              </MorphingDialog>
+            </MorphingDialog>
 
-              {/* Summer Programs (dialog trigger) */}
-              <MorphingDialog>
+            {/* Summer Programs (dialog trigger) */}
+            <MorphingDialog>
               <div>
                 <MorphingDialogTrigger className="block">
                   <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm cursor-pointer h-full flex flex-col justify-between">
@@ -438,188 +814,11 @@ export default function ProgramsPage() {
                   </MorphingDialogContent>
                 </MorphingDialogContainer>
               </div>
-              </MorphingDialog>
-            </div>
-        </div>
-      </section>
-
-      {/* Program Stats */}
-      {/* <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
-            >
-              <div className="text-4xl font-bold text-blue-600 mb-2">15+</div>
-              <div className="text-gray-600 font-medium">Active Programs</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-center"
-            >
-              <div className="text-4xl font-bold text-orange-600 mb-2">2,159</div>
-              <div className="text-gray-600 font-medium">Students Trained</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-center"
-            >
-              <div className="text-4xl font-bold text-blue-600 mb-2">95%</div>
-              <div className="text-gray-600 font-medium">Success Rate</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-center"
-            >
-              <div className="text-4xl font-bold text-orange-600 mb-2">4.8</div>
-              <div className="text-gray-600 font-medium">Average Rating</div>
-            </motion.div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Program Categories */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Choose Your <span className="bg-gradient-to-r from-[#00377B] to-[#2B9EB3] bg-clip-text text-transparent">Learning Path</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore our diverse range of programs designed to meet different learning objectives and career goals.
-            </p>
-          </motion.div>
-
-          {/* Tab Navigation */}
-          <div className="flex flex-wrap justify-center mb-12">
-            {programCategories.map((category) => {
-              const IconComponent = category.icon;
-              return (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveTab(category.id)}
-                  className={`flex items-center px-6 py-3 mx-2 mb-4 rounded-xl font-semibold transition-all duration-300 ${
-                    activeTab === category.id
-                      ? 'bg-blue-600 text-white shadow-lg'
-                      : 'bg-white text-gray-600 hover:bg-blue-50 hover:text-blue-600'
-                  }`}
-                >
-                  <IconComponent className="w-5 h-5 mr-2" />
-                  {category.label}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Program Cards */}
-          <div className="grid lg:grid-cols-2 gap-8">
-            {getCurrentPrograms().map((program, index) => (
-              <motion.div
-                key={program.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-3xl p-8 border border-gray-200 hover:shadow-xl transition-all duration-300"
-              >
-                {/* Program Header */}
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{program.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{program.description}</p>
-                  </div>
-                </div>
-
-                {/* Program Meta */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                  <div className="text-center p-3 bg-gray-50 rounded-xl">
-                    <Clock className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
-                    <div className="text-sm font-medium text-gray-900">{program.duration}</div>
-                    <div className="text-xs text-gray-500">Duration</div>
-                  </div>
-                  <div className="text-center p-3 bg-gray-50 rounded-xl">
-                    <Award className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
-                    <div className="text-sm font-medium text-gray-900">{program.level}</div>
-                    <div className="text-xs text-gray-500">Level</div>
-                  </div>
-                  <div className="text-center p-3 bg-gray-50 rounded-xl">
-                    <Users className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
-                    <div className="text-sm font-medium text-gray-900">{program.students}</div>
-                    <div className="text-xs text-gray-500">Students</div>
-                  </div>
-                  <div className="text-center p-3 bg-gray-50 rounded-xl">
-                    <MapPin className="w-5 h-5 mx-auto mb-1" style={{ color: studentsColors.primary }} />
-                    <div className="text-sm font-medium text-gray-900">{program.format.split(' ')[0]}</div>
-                    <div className="text-xs text-gray-500">Format</div>
-                  </div>
-                </div>
-
-                {/* Program Highlights */}
-                <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-3">Program Highlights</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {program.highlights.map((highlight, idx) => (
-                      <div key={idx} className="flex items-center text-sm text-gray-600">
-                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                        <span>{highlight}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Program Details */}
-                <div className="space-y-4 mb-6">
-                  <div>
-                    <span className="font-semibold text-gray-900">Instructor: </span>
-                    <span className="text-gray-600">{program.instructor}</span>
-                  </div>
-                  <div>
-                    <span className="font-semibold text-gray-900">Prerequisites: </span>
-                    <span className="text-gray-600">{program.prerequisites}</span>
-                  </div>
-                  <div>
-                    <span className="font-semibold text-gray-900">Certification: </span>
-                    <span className="text-gray-600">{program.certification}</span>
-                  </div>
-                </div>
-
-                {/* Action: only Learn More */}
-                <div>
-                  {(() => {
-                    const href = getProgramHref(program as { title: string });
-                    if (!href) return null;
-                    return (
-                      <Link href={href}>
-                        <Button className="w-full bg-white hover:bg-[#4cafc5] border border-[#4cafc5] hover:border-green-600 transition-all duration-300" style={{ borderColor: studentsColors.secondary, color: studentsColors.secondary }}>
-                          Learn More
-                          <ExternalLink className="w-4 h-4 ml-2" />
-                        </Button>
-                      </Link>
-                    );
-                  })()}
-                </div>
-              </motion.div>
-            ))}
+            </MorphingDialog>
           </div>
         </div>
       </section>
 
-      {/* Summer Programs section removed — now surfaced in morphing dialogs above to avoid duplicate content */}
-
-      {/* Call to Action removed per design: Learn More is the single action for programs. */}
     </div>
   );
 }

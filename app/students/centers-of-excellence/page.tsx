@@ -20,26 +20,26 @@ export default function CentersOfExcellencePage() {
     { label: 'Publications', value: '100+', icon: BookOpen, color: 'orange' }
   ];
 
-  
+
 
   // Full overview list (from provided content) — used in the overview table below
   const centersOverview = [
-  { short: 'CCNCS', name: 'Center for Computer Networks and Cyber Security (CCNCS)', description: 'Focuses on improving internet security and building protected next-generation ecosystems, addressing challenges in cybersecurity and network infrastructure.', logo: '/assets/ccncs.jpg', url: '' },
-  { short: 'CHIPS', name: 'Centre for Heterogeneous and Intelligent Processing Systems (CHIPS)', description: 'Researches heterogeneous computing using CPUs, GPUs, and FPGAs, supported by grants like CHIPS2Startup from MEITY, driving advancements in high-performance computing.', logo: '/assets/chips.jpg', url: '' },
-  { short: 'QuaNaD', name: 'Quantum and Nano Devices Lab (QuaNaD)', description: 'Explores quantum and nano technologies, focusing on innovative device development for applications in computing and materials science.', logo: '/assets/quanad.jpg', url: '' },
-  { short: 'CoDMAV', name: 'Centre for Data Modelling, Analytics and Visualization (CoDMAV)', description: 'Specializes in data modeling, analytics, and visualization techniques to derive insights from complex datasets, supporting AI and business intelligence applications.', logo: '/assets/codmav.jpg', url: '' },
-  { short: 'CRSST', name: 'Centre for Research in Space Science and Technology (CRSST)', description: 'Advances research in space science and technology, including satellite systems, astrophysics, and space exploration technologies.', logo: '/assets/crsst.jpg', url: '' },
-  { short: 'CRAIS', name: 'Centre for Robotics, Automation & Intelligent Systems (CRAIS)', description: 'Develops cutting-edge solutions in robotics, automation, and intelligent systems, integrating AI and IoT for real-world applications.', logo: '/assets/rais.jpg', url: '' },
-  { short: 'Cloud & Big Data', name: 'Centre for Cloud Computing & Big Data', description: 'Innovates in cloud computing architectures and big data analytics, enabling scalable and efficient data processing solutions.', logo: '/assets/ccbd.jpg', url: '' },
-  { short: 'CORI', name: 'Crucible of Research and Innovation (CORI)', description: 'Combines faculty expertise and student enthusiasm to create leading-edge solutions across multiple disciplines, fostering interdisciplinary innovation.', logo: '/assets/cori.jpg', url: '' },
-  { short: 'C-ISFCR', name: 'Center of Excellence in Information Security, Forensics, and Cyber Resilience (C-ISFCR)', description: 'Provides facilities to test practical aspects of information security, focusing on forensics, cyber resilience, and threat mitigation.', logo: '/assets/isfcr.jpg', url: '' },
-  { short: 'C-IoT', name: 'Center of Excellence in Internet of Things (C-IoT)', description: 'Drives the development of IoT solutions, integrating sensors, connectivity, and data analytics for smart applications.', logo: '/assets/pesu-iot.jpg', url: '' },
-  { short: 'Pattern Recognition', name: 'Center for Pattern Recognition', description: 'Advances techniques in pattern analysis and machine learning for applications in image processing, speech recognition, and data mining.', logo: '/assets/cprmi.jpg', url: '' },
-  { short: 'KANOE', name: 'Knowledge Analytics & Ontological Engineering (KANOE)', description: 'Focuses on knowledge analytics, semantic technologies, and ontological engineering to enhance data interoperability and intelligence.', logo: '/assets/kanoe.jpg', url: '' },
-  { short: 'Intelligent Systems', name: 'Centre for Intelligent Systems', description: 'Researches AI-driven intelligent systems for automation, decision-making, and human-machine interaction.', logo: '/assets/cis.jpg', url: '' },
-  { short: 'Photonics & Quantum', name: 'Laboratory of Photonics & Quantum Technology', description: 'Explores photonics and quantum technologies for applications in communication, sensing, and computing.', logo: '/assets/lpqt.jpg', url: '' },
-  { short: 'CDSAML', name: 'Center for Data Sciences and Applied Machine Learning (CDSAML)', description: 'Applies machine learning to data sciences, enabling predictive analytics and decision support systems.', logo: '/assets/cdsaml.jpg', url: '' },
-  { short: 'C3I', name: 'Centre of Cognitive Computing and Computational Intelligence (C3I)', description: 'Innovates in cognitive computing and computational intelligence, focusing on AI systems that mimic human cognition.', logo: '/assets/c3i.jpg', url: '' }
+    { short: 'CCNCS', name: 'Center for Computer Networks and Cyber Security (CCNCS)', description: 'Focuses on improving internet security and building protected next-generation ecosystems, addressing challenges in cybersecurity and network infrastructure.', logo: '/assets/ccncs.jpg', url: '' },
+    { short: 'CHIPS', name: 'Centre for Heterogeneous and Intelligent Processing Systems (CHIPS)', description: 'Researches heterogeneous computing using CPUs, GPUs, and FPGAs, supported by grants like CHIPS2Startup from MEITY, driving advancements in high-performance computing.', logo: '/assets/chips.jpg', url: '' },
+    { short: 'QuaNaD', name: 'Quantum and Nano Devices Lab (QuaNaD)', description: 'Explores quantum and nano technologies, focusing on innovative device development for applications in computing and materials science.', logo: '/assets/quanad.jpg', url: '' },
+    { short: 'CoDMAV', name: 'Centre for Data Modelling, Analytics and Visualization (CoDMAV)', description: 'Specializes in data modeling, analytics, and visualization techniques to derive insights from complex datasets, supporting AI and business intelligence applications.', logo: '/assets/codmav.jpg', url: '' },
+    { short: 'CRSST', name: 'Centre for Research in Space Science and Technology (CRSST)', description: 'Advances research in space science and technology, including satellite systems, astrophysics, and space exploration technologies.', logo: '/assets/crsst.jpg', url: '' },
+    { short: 'CRAIS', name: 'Centre for Robotics, Automation & Intelligent Systems (CRAIS)', description: 'Develops cutting-edge solutions in robotics, automation, and intelligent systems, integrating AI and IoT for real-world applications.', logo: '/assets/rais.jpg', url: '' },
+    { short: 'Cloud & Big Data', name: 'Centre for Cloud Computing & Big Data', description: 'Innovates in cloud computing architectures and big data analytics, enabling scalable and efficient data processing solutions.', logo: '/assets/ccbd.jpg', url: '' },
+    { short: 'CORI', name: 'Crucible of Research and Innovation (CORI)', description: 'Combines faculty expertise and student enthusiasm to create leading-edge solutions across multiple disciplines, fostering interdisciplinary innovation.', logo: '/assets/cori.jpg', url: '' },
+    { short: 'C-ISFCR', name: 'Center of Excellence in Information Security, Forensics, and Cyber Resilience (C-ISFCR)', description: 'Provides facilities to test practical aspects of information security, focusing on forensics, cyber resilience, and threat mitigation.', logo: '/assets/isfcr.jpg', url: '' },
+    { short: 'C-IoT', name: 'Center of Excellence in Internet of Things (C-IoT)', description: 'Drives the development of IoT solutions, integrating sensors, connectivity, and data analytics for smart applications.', logo: '/assets/pesu-iot.jpg', url: '' },
+    { short: 'Pattern Recognition', name: 'Center for Pattern Recognition', description: 'Advances techniques in pattern analysis and machine learning for applications in image processing, speech recognition, and data mining.', logo: '/assets/cprmi.jpg', url: '' },
+    { short: 'KANOE', name: 'Knowledge Analytics & Ontological Engineering (KANOE)', description: 'Focuses on knowledge analytics, semantic technologies, and ontological engineering to enhance data interoperability and intelligence.', logo: '/assets/kanoe.jpg', url: '' },
+    { short: 'Intelligent Systems', name: 'Centre for Intelligent Systems', description: 'Researches AI-driven intelligent systems for automation, decision-making, and human-machine interaction.', logo: '/assets/cis.jpg', url: '' },
+    { short: 'Photonics & Quantum', name: 'Laboratory of Photonics & Quantum Technology', description: 'Explores photonics and quantum technologies for applications in communication, sensing, and computing.', logo: '/assets/lpqt.jpg', url: '' },
+    { short: 'CDSAML', name: 'Center for Data Sciences and Applied Machine Learning (CDSAML)', description: 'Applies machine learning to data sciences, enabling predictive analytics and decision support systems.', logo: '/assets/cdsaml.jpg', url: '' },
+    { short: 'C3I', name: 'Centre of Cognitive Computing and Computational Intelligence (C3I)', description: 'Innovates in cognitive computing and computational intelligence, focusing on AI systems that mimic human cognition.', logo: '/assets/c3i.jpg', url: '' }
   ];
 
   const collaborationOpportunities = [
@@ -51,7 +51,7 @@ export default function CentersOfExcellencePage() {
       benefits: ['Research experience', 'Faculty mentorship', 'Publication opportunities', 'Industry exposure']
     },
     {
-      title: 'Capstone Projects', 
+      title: 'Capstone Projects',
       description: 'Final year projects in collaboration with industry partners',
       duration: '6-12 months',
       eligibility: 'Final year students',
@@ -66,7 +66,7 @@ export default function CentersOfExcellencePage() {
     }
   ];
 
-  
+
 
   return (
     <div className="min-h-screen bg-white">
@@ -81,12 +81,12 @@ export default function CentersOfExcellencePage() {
           } as React.CSSProperties
         }
       >
-      
+
         {/* Interactive hex background (reuse site component for consistent visual language) */}
         <InteractiveHexagonBackground
           primaryColor={studentsColors.hero?.background ?? studentsColors.primary}
           accentColor={studentsColors.hero?.hexagonAccent ?? studentsColors.accent}
-          hexagonSize={72}
+          hexagonSize={100}
           className="absolute inset-0 z-0"
         />
 
@@ -108,7 +108,7 @@ export default function CentersOfExcellencePage() {
           aria-hidden="true"
         />
 
-  <div className="max-w-7xl mx-auto px-6 relative z-10 text-center" style={{ ['--cie-blue']: studentsColors.primary } as React.CSSProperties}>
+        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center" style={{ ['--cie-blue']: studentsColors.primary } as React.CSSProperties}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -153,7 +153,7 @@ export default function CentersOfExcellencePage() {
               </p>
             </div>
           </motion.div>
-          
+
         </div>
       </section>
 
@@ -332,7 +332,7 @@ export default function CentersOfExcellencePage() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">{opportunity.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{opportunity.description}</p>
                 </div>
-                
+
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-medium text-gray-700">Duration:</span>
@@ -343,7 +343,7 @@ export default function CentersOfExcellencePage() {
                     <span className="text-sm text-gray-600">{opportunity.eligibility}</span>
                   </div>
                 </div>
-                
+
                 <div className="mb-6">
                   <h4 className="font-bold text-gray-900 mb-3">Benefits</h4>
                   <div className="space-y-2">
@@ -437,7 +437,7 @@ export default function CentersOfExcellencePage() {
         </div>
       </section>
 
-    {/* Call to Action */}
+      {/* Call to Action */}
       <section className="py-20 bg-[#00338d]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.div
@@ -451,7 +451,7 @@ export default function CentersOfExcellencePage() {
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
               Join our world-class research centers and work on cutting-edge projects with industry partners and renowned faculty.
             </p>
-            
+
             {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
                 <FlaskConical className="w-5 h-5 mr-2" />
@@ -462,7 +462,7 @@ export default function CentersOfExcellencePage() {
                 Contact Centers
               </Button>
             </div> */}
-            
+
             <div className="mt-8">
               <p className="text-blue-100 mb-4">Have questions about research opportunities?</p>
               <Button asChild className="bg-transparent border border-white/30 text-white hover:bg-white/10 px-6 py-3 rounded-xl">

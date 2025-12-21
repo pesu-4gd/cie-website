@@ -4,7 +4,7 @@ import { Button } from '@/components/design-system';
 import { motion } from 'framer-motion';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { SECTION_COLORS } from '@/styles/colors';
-import { 
+import {
   Building2,
   Users,
   Phone,
@@ -60,13 +60,13 @@ export default function IndustryContactPage() {
 
   return (
     <div className="min-h-screen bg-white">
-  {/* Hero Section */}
-  <section className="relative h-[85vh] flex items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-700 overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative h-[85vh] flex items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-700 overflow-hidden">
         {/* Hexagon Background behind content */}
         <InteractiveHexagonBackground
           primaryColor={SECTION_COLORS.industry.hero.background}
           accentColor={SECTION_COLORS.industry.hero.hexagonAccent}
-          hexagonSize={72}
+          hexagonSize={100}
           className="absolute inset-0 z-0"
         />
 
@@ -92,7 +92,7 @@ export default function IndustryContactPage() {
               <span className="block bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">Partnership Conversation</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8">
-              Ready to explore collaboration opportunities with CIE? Our industry relations team 
+              Ready to explore collaboration opportunities with CIE? Our industry relations team
               is here to discuss partnerships, talent solutions, and innovation initiatives.
             </p>
             <p className="text-sm text-blue-100 max-w-4xl mx-auto mb-6">
@@ -103,16 +103,16 @@ export default function IndustryContactPage() {
               <Button
                 variant="default"
                 size="lg"
-                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
+                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white rounded-xl font-semibold uppercase"
                 onClick={() => (window.location.href = 'mailto:cieinfo@pes.edu?subject=Partnership%20Inquiry')}
               >
                 <Send className="w-5 h-5 mr-2" />
                 Send Message
               </Button>
               <Button
-                variant="outline"
+                variant="cie"
                 size="lg"
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+                className="bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all duration-300 border-2 border-white/30 hover:border-white/50 backdrop-blur-sm uppercase flex items-center justify-center"
                 onClick={() => (window.location.href = 'mailto:cieinfo@pes.edu?subject=Schedule%20Meeting%20with%20CIE')}
               >
                 <Calendar className="w-5 h-5 mr-2" />
@@ -136,7 +136,7 @@ export default function IndustryContactPage() {
               Contact Our Team
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Connect with the right team member based on your specific needs and 
+              Connect with the right team member based on your specific needs and
               collaboration interests.
             </p>
           </motion.div>
@@ -155,7 +155,7 @@ export default function IndustryContactPage() {
                   <IconComponent className="w-12 h-12 text-[#f07f1a] mb-6" />
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">{method.title}</h3>
                   <p className="text-gray-600 mb-6">{method.description}</p>
-                  
+
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <Mail className="w-5 h-5 text-gray-400" />
@@ -170,7 +170,7 @@ export default function IndustryContactPage() {
                       </a>
                     </div> */}
                   </div>
-                  
+
                   {/* <Button className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold">
                     <Send className="w-4 h-4 mr-2" />
                     Contact Now
@@ -332,10 +332,10 @@ export default function IndustryContactPage() {
                 Visit Our Campus
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                Located in the heart of Bangalore's tech corridor, our campus 
+                Located in the heart of Bangalore's tech corridor, our campus
                 offers state-of-the-art facilities for industry collaboration.
               </p>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <MapPin className="w-10 h-10 text-[#f07f1a] flex-shrink-0" />
@@ -349,7 +349,7 @@ export default function IndustryContactPage() {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <Clock className="w-10 h-10 text-[#f07f1a] flex-shrink-0" />
                   <div>
@@ -364,7 +364,7 @@ export default function IndustryContactPage() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <Phone className="w-10 h-10 text-[#f07f1a] flex-shrink-0" />
                   <div>
@@ -378,7 +378,7 @@ export default function IndustryContactPage() {
                 </div>
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -405,7 +405,7 @@ export default function IndustryContactPage() {
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
-              
+
               <div className="space-y-4">
                 <h3 className="text-xl font-bold text-gray-900">Getting Here</h3>
                 <div className="space-y-3 text-sm text-gray-600">
@@ -426,7 +426,7 @@ export default function IndustryContactPage() {
                     <span>Visitor registration at main gate</span>
                   </div>
                 </div>
-                
+
                 <Button
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold"
                   onClick={() => (window.location.href = 'mailto:cieinfo@pes.edu?subject=Schedule%20Campus%20Visit')}
@@ -453,10 +453,10 @@ export default function IndustryContactPage() {
               Ready to Connect?
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-12">
-              Don't wait – reach out today and let's start building a partnership 
+              Don't wait – reach out today and let's start building a partnership
               that drives innovation and creates real impact.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 variant="default"
@@ -477,7 +477,7 @@ export default function IndustryContactPage() {
                 Call Today
               </Button> */}
             </div>
-            
+
             {/* <div className="mt-8">
               <p className="text-blue-100 mb-4">Prefer to connect on social media?</p>
               <div className="flex justify-center gap-4">

@@ -15,14 +15,14 @@ export default function AlumniPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Interactive Hexagonal Background */}
-  <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
-          <InteractiveHexagonBackground 
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+        <InteractiveHexagonBackground
           primaryColor={alumniColors.hero.background}
           // Use a yellow accent (amber) instead of the orange accent
           accentColor="#F59E0B"
           className="absolute inset-0 z-0"
         />
-        
+
         {/* Hero Content - Centered */}
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           {/* Badge */}
@@ -67,20 +67,20 @@ export default function AlumniPage() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link href="/alumni/directory">
-              <Button 
-                variant="default" 
+              <Button
+                variant="default"
                 size="lg"
-                className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white"
+                className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white rounded-xl uppercase font-semibold"
               >
                 Alumni Directory
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link href="/alumni/give-back">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="lg"
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 rounded-xl uppercase font-semibold"
               >
                 Give Back
               </Button>

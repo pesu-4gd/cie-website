@@ -6,13 +6,13 @@ import { motion } from 'framer-motion';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { SECTION_COLORS } from '@/styles/colors';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { 
-  Trophy, 
-  Star, 
-  Lightbulb, 
+import {
+  Trophy,
+  Star,
+  Lightbulb,
   TrendingUp,
   CheckCircle,
-  Crown, 
+  Crown,
   Mail,
   Code,
   Presentation,
@@ -140,7 +140,7 @@ export default function IndustryCompetitionsPage() {
         <InteractiveHexagonBackground
           primaryColor={SECTION_COLORS.industry.hero.background}
           accentColor={SECTION_COLORS.industry.hero.hexagonAccent}
-          hexagonSize={72}
+          hexagonSize={100}
           className="absolute inset-0 z-0"
         />
 
@@ -171,7 +171,7 @@ export default function IndustryCompetitionsPage() {
               <Button
                 variant="default"
                 size="lg"
-                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white"
+                className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white rounded-xl font-semibold uppercase"
                 onClick={() => window.open('mailto:cieinfo@pes.edu')}
               >
                 <Send className="w-5 h-5 mr-2" />
@@ -192,7 +192,7 @@ export default function IndustryCompetitionsPage() {
           >
             <div className="max-w-4xl mx-auto">
               <p className="text-2xl text-gray-700 mb-8 leading-relaxed">
-                The Centre for Innovation and Entrepreneurship (CIE) at PES University invites industry partners to engage our talented student community. 
+                The Centre for Innovation and Entrepreneurship (CIE) at PES University invites industry partners to engage our talented student community.
                 Foster innovation, develop skills, and identify top talent through competitive and educational initiatives.
               </p>
             </div>
@@ -213,7 +213,7 @@ export default function IndustryCompetitionsPage() {
               Why Propose Competitions with CIE?
             </h2>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-              Engaging with PES students through competitions offers mutual benefits for industries and students. 
+              Engaging with PES students through competitions offers mutual benefits for industries and students.
               Drive innovation, identify talent, and contribute to the next generation of tech leaders.
             </p>
           </motion.div>
@@ -228,7 +228,7 @@ export default function IndustryCompetitionsPage() {
                 orange: 'bg-orange-100 text-orange-600',
                 pink: 'bg-pink-100 text-pink-600'
               } as const;
-              
+
               return (
                 <motion.div
                   key={reason.title}
@@ -251,25 +251,25 @@ export default function IndustryCompetitionsPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8 bg-white">
-              <TabsTrigger 
-                value="opportunities" 
+            <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-8 bg-white h-auto">
+              <TabsTrigger
+                value="opportunities"
                 className="text-lg py-3 data-[state=active]:bg-white data-[state=active]:text-orange-600 data-[state=active]:border-orange-600 data-[state=active]:border-2
                 rounded-xl"
               >
                 <Trophy className="h-5 w-5 mr-2" />
                 Opportunities
               </TabsTrigger>
-              <TabsTrigger 
-                value="success-stories" 
+              <TabsTrigger
+                value="success-stories"
                 className="text-lg py-3 data-[state=active]:bg-white data-[state=active]:text-orange-600 data-[state=active]:border-orange-600 data-[state=active]:border-2
                 rounded-xl"
               >
                 <Star className="h-5 w-5 mr-2" />
                 Success Stories
               </TabsTrigger>
-              <TabsTrigger 
-                value="how-to-propose" 
+              <TabsTrigger
+                value="how-to-propose"
                 className="text-lg py-3 data-[state=active]:bg-white data-[state=active]:text-orange-600 data-[state=active]:border-orange-600 data-[state=active]:border-2 rounded-xl"
               >
                 <Send className="h-5 w-5 mr-2" />
@@ -330,15 +330,17 @@ export default function IndustryCompetitionsPage() {
 }
 
 // Component Sections
-function OpportunitiesSection({ opportunities }: { opportunities: Array<{
-  title: string;
-  description: string;
-  icon: React.ComponentType<{ className?: string }>;
-  format: string;
-  example: string;
-  benefits: string[];
-  featured: boolean;
-}> }) {
+function OpportunitiesSection({ opportunities }: {
+  opportunities: Array<{
+    title: string;
+    description: string;
+    icon: React.ComponentType<{ className?: string }>;
+    format: string;
+    example: string;
+    benefits: string[];
+    featured: boolean;
+  }>
+}) {
   return (
     <div className="space-y-8">
       <div className="text-center mb-12">
@@ -347,7 +349,7 @@ function OpportunitiesSection({ opportunities }: { opportunities: Array<{
           Choose from various engagement formats to connect with PES students
         </p>
       </div>
-      
+
       <div className="space-y-12">
         {opportunities.map((opportunity, index) => {
           const IconComponent = opportunity.icon;
@@ -357,9 +359,8 @@ function OpportunitiesSection({ opportunities }: { opportunities: Array<{
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`bg-gradient-to-br from-gray-50 to-white p-8 lg:p-12 rounded-3xl border-2 hover:shadow-xl transition-all duration-300 ${
-                opportunity.featured ? 'border-orange-200 ring-2 ring-orange-100' : 'border-gray-200'
-              }`}
+              className={`bg-gradient-to-br from-gray-50 to-white p-8 lg:p-12 rounded-3xl border-2 hover:shadow-xl transition-all duration-300 ${opportunity.featured ? 'border-orange-200 ring-2 ring-orange-100' : 'border-gray-200'
+                }`}
             >
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div>
@@ -375,22 +376,22 @@ function OpportunitiesSection({ opportunities }: { opportunities: Array<{
                       )}
                     </div>
                   </div>
-                  
+
                   <p className="text-lg text-gray-700 mb-6 leading-relaxed">{opportunity.description}</p>
-                  
+
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">Format:</h4>
                       <p className="text-gray-600">{opportunity.format}</p>
                     </div>
-                    
+
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">Example Success:</h4>
                       <p className="text-gray-600 italic">{opportunity.example}</p>
                     </div>
                   </div>
                 </div>
-                
+
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-4">Benefits:</h4>
                   <ul className="space-y-3">
@@ -401,14 +402,13 @@ function OpportunitiesSection({ opportunities }: { opportunities: Array<{
                       </li>
                     ))}
                   </ul>
-                  
+
                   <div className="mt-8">
-                    <Button 
-                      className={`w-full py-3 rounded-xl font-semibold ${
-                        opportunity.featured 
-                          ? 'bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white' 
-                          : 'bg-orange-600 hover:bg-orange-700 text-white'
-                      }`}
+                    <Button
+                      className={`w-full py-3 rounded-xl font-semibold ${opportunity.featured
+                        ? 'bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white'
+                        : 'bg-orange-600 hover:bg-orange-700 text-white'
+                        }`}
                       onClick={() => window.open('mailto:cieinfo@pes.edu?subject=Competition Proposal – [Your Company Name]&body=Dear CIE Team,%0A%0AI would like to propose a ' + opportunity.title.toLowerCase() + ' for PES University students.%0A%0ACompetition Details:%0A- Type: ' + opportunity.title + '%0A- Proposed theme or focus area:%0A- Target audience:%0A- Duration and preferred timeline:%0A- Prizes, funding, or internship opportunities:%0A%0AThank you for your time.%0A%0ABest regards,', '_blank')}
                     >
                       <Send className="w-4 h-4 mr-2" />
@@ -425,14 +425,16 @@ function OpportunitiesSection({ opportunities }: { opportunities: Array<{
   );
 }
 
-function SuccessStoriesSection({ stories }: { stories: Array<{
-  year: string;
-  title: string;
-  description: string;
-  achievement: string;
-  impact: string;
-  icon: React.ComponentType<{ className?: string }>;
-}> }) {
+function SuccessStoriesSection({ stories }: {
+  stories: Array<{
+    year: string;
+    title: string;
+    description: string;
+    achievement: string;
+    impact: string;
+    icon: React.ComponentType<{ className?: string }>;
+  }>
+}) {
   return (
     <div className="space-y-8">
       <div className="text-center mb-12">
@@ -470,7 +472,7 @@ function SuccessStoriesSection({ stories }: { stories: Array<{
                   <h5 className="font-semibold text-gray-900 text-sm">Achievement:</h5>
                   <p className="text-gray-600 text-sm">{story.achievement}</p>
                 </div>
-                
+
                 <div>
                   <h5 className="font-semibold text-gray-900 text-sm">Impact:</h5>
                   <p className="text-gray-600 text-sm">{story.impact}</p>
@@ -504,7 +506,7 @@ function HowToProposeSection() {
           <Mail className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
           <h3 className="text-xl font-bold text-gray-900 mb-4">Step 1: Email Proposal</h3>
           <p className="text-gray-600">
-            Send your competition proposal to CIE with event details, target audience, and timeline. 
+            Send your competition proposal to CIE with event details, target audience, and timeline.
             Include information about prizes, funding, or internship opportunities.
           </p>
         </motion.div>
@@ -518,7 +520,7 @@ function HowToProposeSection() {
           <Users className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
           <h3 className="text-xl font-bold text-gray-900 mb-4">Step 2: Collaboration</h3>
           <p className="text-gray-600">
-            CIE team will collaborate with you to refine the competition format, logistics, and execution plan. 
+            CIE team will collaborate with you to refine the competition format, logistics, and execution plan.
             Together, we'll ensure maximum student engagement and impact.
           </p>
         </motion.div>
@@ -532,7 +534,7 @@ function HowToProposeSection() {
           <Trophy className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
           <h3 className="text-xl font-bold text-gray-900 mb-4">Step 3: Execute</h3>
           <p className="text-gray-600">
-            Launch your competition with CIE's support. Engage with talented PES students, 
+            Launch your competition with CIE's support. Engage with talented PES students,
             identify top performers, and build lasting connections for future collaborations.
           </p>
         </motion.div>

@@ -6,33 +6,33 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
 import { InfiniteSlider } from '@/components/core/infinite-slider';
-import { 
-  Building2, 
-  Handshake, 
-  Users, 
-  Target, 
-  TrendingUp, 
-  Globe, 
-  Award, 
-  Lightbulb, 
-  BookOpen, 
-  Briefcase, 
-  Calendar, 
-  Clock, 
-  MapPin, 
-  ExternalLink, 
-  ArrowRight, 
-  CheckCircle, 
-  Star, 
-  Heart, 
-  Zap, 
-  Shield, 
-  Rocket, 
-  Network, 
-  FileText, 
-  Mail, 
-  Phone, 
-  Search, 
+import {
+  Building2,
+  Handshake,
+  Users,
+  Target,
+  TrendingUp,
+  Globe,
+  Award,
+  Lightbulb,
+  BookOpen,
+  Briefcase,
+  Calendar,
+  Clock,
+  MapPin,
+  ExternalLink,
+  ArrowRight,
+  CheckCircle,
+  Star,
+  Heart,
+  Zap,
+  Shield,
+  Rocket,
+  Network,
+  FileText,
+  Mail,
+  Phone,
+  Search,
   Filter,
   DollarSign,
   GraduationCap,
@@ -375,36 +375,36 @@ function PartnersSection({ partners, searchTerm, setSearchTerm, selectedIndustry
               className="pl-10"
             />
           </div>
-            <select
-              value={selectedIndustry}
-              onChange={(e) => setSelectedIndustry(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              aria-label="Filter by industry"
-            >
-              {industries.map(industry => (
-                <option key={industry} value={industry}>{industry}</option>
-              ))}
-            </select>
-            <select
-              value={selectedType}
-              onChange={(e) => setSelectedType(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              aria-label="Filter by partnership type"
-            >
-              {partnershipTypes.map(type => (
-                <option key={type} value={type}>{type}</option>
-              ))}
-            </select>
-            <select
-              value={selectedStatus}
-              onChange={(e) => setSelectedStatus(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              aria-label="Filter by status"
-            >
-              {statuses.map(status => (
-                <option key={status} value={status}>{status}</option>
-              ))}
-            </select>
+          <select
+            value={selectedIndustry}
+            onChange={(e) => setSelectedIndustry(e.target.value)}
+            className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            aria-label="Filter by industry"
+          >
+            {industries.map(industry => (
+              <option key={industry} value={industry}>{industry}</option>
+            ))}
+          </select>
+          <select
+            value={selectedType}
+            onChange={(e) => setSelectedType(e.target.value)}
+            className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            aria-label="Filter by partnership type"
+          >
+            {partnershipTypes.map(type => (
+              <option key={type} value={type}>{type}</option>
+            ))}
+          </select>
+          <select
+            value={selectedStatus}
+            onChange={(e) => setSelectedStatus(e.target.value)}
+            className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            aria-label="Filter by status"
+          >
+            {statuses.map(status => (
+              <option key={status} value={status}>{status}</option>
+            ))}
+          </select>
         </div>
       </div>
 
@@ -435,7 +435,7 @@ function PartnersSection({ partners, searchTerm, setSearchTerm, selectedIndustry
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">{partner.description}</p>
-                
+
                 <div className="space-y-3 mb-4">
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-500">Students Impacted:</span>
@@ -513,7 +513,7 @@ function CollaborationTypesSection({ types }: { types: CollaborationType[] }) {
                       ))}
                     </ul>
                   </div>
-                  
+
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
                       <span className="text-gray-500">Duration:</span>
@@ -573,10 +573,10 @@ function SuccessStoriesSection({ stories }: { stories: SuccessStory[] }) {
                   <Badge className="bg-green-100 text-green-800">{story.partner}</Badge>
                   <span className="text-sm text-gray-500">{story.duration}</span>
                 </div>
-                
+
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">{story.title}</h3>
                 <p className="text-gray-600 mb-4">{story.description}</p>
-                
+
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-blue-600">{story.funding}</div>
@@ -595,7 +595,7 @@ function SuccessStoriesSection({ stories }: { stories: SuccessStory[] }) {
                     <div className="text-xs text-gray-500">UG Students</div>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center justify-between">
                   <div className="text-sm text-gray-600">
                     <strong>Impact:</strong> {story.impact}
@@ -723,8 +723,8 @@ export default function CollaborationsPage() {
 
   const filteredPartners = industryPartners.filter(partner => {
     const matchesSearch = partner.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         partner.industry.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         partner.description.toLowerCase().includes(searchTerm.toLowerCase());
+      partner.industry.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      partner.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesIndustry = selectedIndustry === 'All' || partner.industry === selectedIndustry;
     const matchesType = selectedType === 'All' || partner.partnershipType === selectedType;
     const matchesStatus = selectedStatus === 'All' || partner.status === selectedStatus;
@@ -880,7 +880,7 @@ export default function CollaborationsPage() {
 
   const [selectedTier, setSelectedTier] = useState('platinum');
   const [activeROI, setActiveROI] = useState(false);
-  
+
   const collaborationPrograms = [
     {
       id: 'mentorship',
@@ -954,21 +954,21 @@ export default function CollaborationsPage() {
         'Technology transfer opportunities'
       ],
       centers: [
-        { 
-          name: 'CRAIS', 
-          specialization: 'AI & Robotics', 
+        {
+          name: 'CRAIS',
+          specialization: 'AI & Robotics',
           facilities: '10+ labs with GPU clusters',
           projects: '25+ active research projects'
         },
-        { 
-          name: 'C-IoT', 
-          specialization: 'Internet of Things', 
+        {
+          name: 'C-IoT',
+          specialization: 'Internet of Things',
           facilities: 'IoT testbeds and sensor networks',
           projects: '15+ smart city initiatives'
         },
-        { 
-          name: 'CHIPS', 
-          specialization: 'Hardware & Semiconductors', 
+        {
+          name: 'CHIPS',
+          specialization: 'Hardware & Semiconductors',
           facilities: 'Clean room and fabrication lab',
           projects: '20+ chip design projects'
         }
@@ -1003,13 +1003,13 @@ export default function CollaborationsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-  {/* Hero Section */}
-  <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white">
+      {/* Hero Section */}
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B] text-white">
         {/* Hexagon Background (behind content) */}
         <InteractiveHexagonBackground
           primaryColor={SECTION_COLORS.industry.hero.background}
           accentColor={SECTION_COLORS.industry.hero.hexagonAccent}
-          hexagonSize={72}
+          hexagonSize={100}
           className="absolute inset-0 z-0"
         />
 
@@ -1055,7 +1055,7 @@ export default function CollaborationsPage() {
               Collaborating with top organizations to drive innovation and create impact
             </p>
           </motion.div>
-          
+
           <InfiniteSlider gap={48} duration={30}>
             <img
               src='/assets/intel.jpg'
@@ -1153,7 +1153,7 @@ export default function CollaborationsPage() {
               {collaborationModels.map((model) => {
                 const IconComponent = model.icon;
                 const getTabLabel = (id: string) => {
-                  switch(id) {
+                  switch (id) {
                     case 'sponsorship': return 'Sponsorship';
                     case 'mentorship': return 'Mentorship';
                     case 'research': return 'Research';
@@ -1161,7 +1161,7 @@ export default function CollaborationsPage() {
                     default: return model.title.split(':')[0];
                   }
                 };
-                
+
                 return (
                   <TabsTrigger
                     key={model.id}
@@ -1194,7 +1194,7 @@ export default function CollaborationsPage() {
                         <p className="text-lg text-gray-600 leading-relaxed">{model.description}</p>
                       </div>
                     </div>
-                    
+
                     <div className="grid lg:grid-cols-2 gap-8">
                       <div>
                         <h4 className="text-lg font-semibold text-gray-900 mb-4">Key Features</h4>
@@ -1207,12 +1207,12 @@ export default function CollaborationsPage() {
                           ))}
                         </ul>
                       </div>
-                      
+
                       <div>
                         <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                          {model.id === 'success-stories' ? 'Success Examples' : 
-                           model.id === 'research' ? 'Collaboration Areas' :
-                           model.id === 'mentorship' ? 'Program Details' : 'Event Opportunities'}
+                          {model.id === 'success-stories' ? 'Success Examples' :
+                            model.id === 'research' ? 'Collaboration Areas' :
+                              model.id === 'mentorship' ? 'Program Details' : 'Event Opportunities'}
                         </h4>
                         <div className="space-y-3">
                           {model.id === 'sponsorship' && model.events?.map((event, idx) => (
@@ -1221,7 +1221,7 @@ export default function CollaborationsPage() {
                               <div className="text-sm text-gray-600">{event.audience} • {event.frequency}</div>
                             </div>
                           ))}
-                          
+
                           {model.id === 'mentorship' && model.programs?.map((program, idx) => (
                             <div key={idx} className="p-3 bg-gray-50 rounded-lg">
                               <div className="font-medium text-gray-900">{program.name}</div>
@@ -1232,7 +1232,7 @@ export default function CollaborationsPage() {
                               {program.example && <div className="text-xs text-gray-500">Example: {program.example}</div>}
                             </div>
                           ))}
-                          
+
                           {model.id === 'research' && model.areas?.map((area, idx) => (
                             <div key={idx} className="p-3 bg-gray-50 rounded-lg">
                               <div className="font-medium text-gray-900">{area.name}</div>
@@ -1242,7 +1242,7 @@ export default function CollaborationsPage() {
                               {area.outcome && <div className="text-xs text-gray-500">Outcome: {area.outcome}</div>}
                             </div>
                           ))}
-                          
+
                           {model.id === 'success-stories' && model.examples?.map((example, idx) => (
                             <div key={idx} className="p-3 bg-gray-50 rounded-lg">
                               <div className="font-medium text-gray-900">{example.partner}</div>
@@ -1253,7 +1253,7 @@ export default function CollaborationsPage() {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="mt-8 pt-6 border-t border-gray-200 flex items-center justify-between">
                       <div>
                         <div className="text-sm text-gray-500">Investment</div>
@@ -1367,7 +1367,7 @@ export default function CollaborationsPage() {
 
           <div className="relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-orange-500 to-[#f47b56] rounded-full"></div>
-            
+
             {[
               { week: 'Week 1', title: 'Initial Discussion', description: 'Partnership goals and model selection' },
               { week: 'Week 2', title: 'Proposal & Agreement', description: 'Custom partnership proposal and contract' },
@@ -1379,9 +1379,8 @@ export default function CollaborationsPage() {
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className={`relative flex items-center mb-12 ${
-                  index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-                }`}
+                className={`relative flex items-center mb-12 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+                  }`}
               >
                 <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8'}`}>
                   <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg">
@@ -1390,7 +1389,7 @@ export default function CollaborationsPage() {
                     <p className="text-gray-600">{phase.description}</p>
                   </div>
                 </div>
-                
+
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-orange-600 rounded-full border-4 border-white shadow-lg"></div>
               </motion.div>
             ))}
@@ -1412,7 +1411,7 @@ export default function CollaborationsPage() {
             <p className="text-xl text-orange-100 max-w-3xl mx-auto mb-8">
               Partner with CIE to drive innovation, access top talent, and shape the future of entrepreneurship. Contact cieinfo@pes.edu to submit your interest today.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="mailto:cieprogram@pes.edu"

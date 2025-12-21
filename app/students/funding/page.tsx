@@ -1,34 +1,34 @@
- 'use client';
+'use client';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
-import { 
-  DollarSign, 
-  GraduationCap, 
-  Award, 
-  Calendar, 
-  Clock, 
-  Users, 
-  FileText, 
-  CheckCircle, 
-  ExternalLink, 
-  Download, 
-  Target, 
-  Lightbulb, 
-  Building2, 
-  Globe, 
-  TrendingUp, 
-  BookOpen, 
-  Briefcase, 
-  Heart, 
-  Star, 
-  ArrowRight, 
-  Info, 
-  AlertCircle, 
-  Search, 
+import {
+  DollarSign,
+  GraduationCap,
+  Award,
+  Calendar,
+  Clock,
+  Users,
+  FileText,
+  CheckCircle,
+  ExternalLink,
+  Download,
+  Target,
+  Lightbulb,
+  Building2,
+  Globe,
+  TrendingUp,
+  BookOpen,
+  Briefcase,
+  Heart,
+  Star,
+  ArrowRight,
+  Info,
+  AlertCircle,
+  Search,
   Filter,
   MapPin,
   Calculator,
@@ -289,12 +289,12 @@ export default function FundingPage() {
 
   const filteredOpportunities = fundingOpportunities.filter(opportunity => {
     const matchesSearch = opportunity.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         opportunity.provider.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         opportunity.description.toLowerCase().includes(searchTerm.toLowerCase());
+      opportunity.provider.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      opportunity.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'All' || opportunity.category === selectedCategory;
     const matchesStatus = selectedStatus === 'All' || opportunity.status === selectedStatus;
     const matchesProvider = selectedProvider === 'All' || (opportunity.providerType || 'External') === selectedProvider;
-    
+
     let matchesAmount = true;
     if (selectedAmount !== 'All') {
       const amount = parseInt(opportunity.amount.replace(/[^0-9]/g, ''));
@@ -313,12 +313,12 @@ export default function FundingPage() {
           break;
       }
     }
-    
+
     return matchesSearch && matchesCategory && matchesAmount && matchesStatus && matchesProvider;
   });
 
   return (
-  <div className="min-h-screen bg-white" style={cssVars}>
+    <div className="min-h-screen bg-white" style={cssVars}>
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#00377B]">
         <InteractiveHexagonBackground
@@ -326,9 +326,9 @@ export default function FundingPage() {
           accentColor={studentsColors.hero?.hexagonAccent}
           className="absolute inset-0 z-0"
         />
-  <div className="absolute inset-0 bg-black/200 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/200 pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -586,7 +586,7 @@ export default function FundingPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
+            <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-8 h-auto">
               <TabsTrigger value="opportunities" className="text-lg py-3">
                 <DollarSign className="h-5 w-5 mr-2" />
                 Opportunities
@@ -602,20 +602,20 @@ export default function FundingPage() {
             </TabsList>
 
             <TabsContent value="opportunities">
-                <OpportunitiesSection 
-                  opportunities={filteredOpportunities}
-                  searchTerm={searchTerm}
-                  setSearchTerm={setSearchTerm}
-                  selectedCategory={selectedCategory}
-                  setSelectedCategory={setSelectedCategory}
-                  selectedAmount={selectedAmount}
-                  setSelectedAmount={setSelectedAmount}
-                  selectedStatus={selectedStatus}
-                  setSelectedStatus={setSelectedStatus}
-                  selectedProvider={selectedProvider}
-                  setSelectedProvider={setSelectedProvider}
-                  studentsColors={studentsColors}
-                />
+              <OpportunitiesSection
+                opportunities={filteredOpportunities}
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+                selectedAmount={selectedAmount}
+                setSelectedAmount={setSelectedAmount}
+                selectedStatus={selectedStatus}
+                setSelectedStatus={setSelectedStatus}
+                selectedProvider={selectedProvider}
+                setSelectedProvider={setSelectedProvider}
+                studentsColors={studentsColors}
+              />
             </TabsContent>
 
             <TabsContent value="tips">
@@ -630,7 +630,7 @@ export default function FundingPage() {
       </section>
 
       {/* CTA Section */}
-  <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ background:'#00338d' }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ background: '#00338d' }}>
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -659,11 +659,11 @@ export default function FundingPage() {
 }
 
 // Opportunities Section Component
-function OpportunitiesSection({ 
-  opportunities, 
-  searchTerm, 
-  setSearchTerm, 
-  selectedCategory, 
+function OpportunitiesSection({
+  opportunities,
+  searchTerm,
+  setSearchTerm,
+  selectedCategory,
   setSelectedCategory,
   selectedAmount,
   setSelectedAmount,
@@ -732,7 +732,7 @@ function ApplicationTipsSection({ tips }: { tips: typeof applicationTips }) {
           Follow these expert tips to increase your chances of securing funding
         </p>
       </div>
-      
+
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {tips.map((tip, index) => {
           const IconComponent = tip.icon;
@@ -756,7 +756,7 @@ function ApplicationTipsSection({ tips }: { tips: typeof applicationTips }) {
           );
         })}
       </div>
-      
+
       <Card className="bg-blue-50 border-blue-200">
         <CardContent className="p-6">
           <div className="flex items-start space-x-4">
@@ -764,7 +764,7 @@ function ApplicationTipsSection({ tips }: { tips: typeof applicationTips }) {
             <div>
               <h3 className="text-lg font-semibold text-blue-900 mb-2">Need Help with Your Application?</h3>
               <p className="text-blue-800 mb-4">
-                Our funding support team is here to help you with your application process. 
+                Our funding support team is here to help you with your application process.
                 Schedule a consultation or attend our weekly application workshops.
               </p>
               <div className="flex space-x-3">
@@ -797,7 +797,7 @@ function SuccessStoriesSection({ stories }: { stories: typeof successStories }) 
           See how our funding programs have helped students achieve their goals
         </p>
       </div>
-      
+
       <div className="grid md:grid-cols-3 gap-6">
         {stories.map((story, index) => (
           <motion.div
@@ -816,23 +816,23 @@ function SuccessStoriesSection({ stories }: { stories: typeof successStories }) 
                       <p className="text-sm text-gray-600">Batch {story.batch}</p>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <div className="bg-green-50 rounded-lg p-3">
                       <p className="text-sm font-semibold text-green-800">{story.grantReceived}</p>
                       <p className="text-lg font-bold text-green-600">{story.amount}</p>
                     </div>
-                    
+
                     <div className="bg-blue-50 rounded-lg p-3">
                       <p className="text-sm text-blue-600 font-medium">Project:</p>
                       <p className="text-sm font-semibold text-blue-900">{story.projectTitle}</p>
                     </div>
                   </div>
-                  
+
                   <div className="bg-yellow-50 rounded-lg p-3">
                     <p className="text-sm font-semibold text-yellow-800">{story.outcome}</p>
                   </div>
-                  
+
                   <p className="text-gray-700 text-sm italic">"{story.description}"</p>
                 </div>
               </CardContent>

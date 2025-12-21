@@ -5,11 +5,11 @@ import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexago
 import { SECTION_COLORS } from '@/styles/colors';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { 
-  Heart, 
-  Rocket, 
+import {
+  Heart,
+  Rocket,
   DollarSign,
-  Users, 
+  Users,
   Target,
   Award,
   BookOpen,
@@ -229,14 +229,14 @@ export default function AlumniDonationsPage() {
               <span className="block bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">Future of Education</span>
             </h1>
             <p className="text-xl md:text-2xl text-yellow-100 max-w-4xl mx-auto leading-relaxed mb-8">
-              Your generous support helps create opportunities, advance research, and 
+              Your generous support helps create opportunities, advance research, and
               build a stronger foundation for current and future generations of students.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 variant="default"
                 size="lg"
-                className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white"
+                className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white rounded-xl uppercase font-semibold"
                 onClick={() => window.location.href = 'mailto:giving@pes.edu?subject=Interest%20in%20Alumni%20Giving'}
               >
                 <Gift className="w-5 h-5 mr-2" />
@@ -264,7 +264,7 @@ export default function AlumniDonationsPage() {
               Your Impact in Numbers
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Together, our alumni community has made a tremendous impact on 
+              Together, our alumni community has made a tremendous impact on
               education, research, and student opportunities at PES University.
             </p>
           </motion.div>
@@ -303,7 +303,7 @@ export default function AlumniDonationsPage() {
               Where Your Donations Make a Difference
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              See how alumni contributions are transforming education and 
+              See how alumni contributions are transforming education and
               creating lasting impact across the university.
             </p>
           </motion.div>
@@ -365,7 +365,7 @@ export default function AlumniDonationsPage() {
               Ways to Give
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Choose the giving option that aligns with your passion and 
+              Choose the giving option that aligns with your passion and
               desired impact on the PES University community.
             </p>
           </motion.div>
@@ -535,7 +535,7 @@ export default function AlumniDonationsPage() {
               Make Your Impact Today
             </h2>
             <p className="text-xl text-yellow-100 max-w-3xl mx-auto mb-12">
-              Every contribution, regardless of size, helps create opportunities 
+              Every contribution, regardless of size, helps create opportunities
               and advance excellence at PES University. Join our community of donors today.
             </p>
 
@@ -567,7 +567,7 @@ export default function AlumniDonationsPage() {
                 <Gift className="w-5 h-5 mr-2" />
                 Interested
               </Button>
-              <Button 
+              <Button
                 className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => window.location.href = 'mailto:giving@pes.edu?subject=Schedule%20Consultation%20for%20Giving'}
               >

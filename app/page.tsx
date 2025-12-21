@@ -544,8 +544,8 @@ export default function Home() {
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#00377B]">
         {/* Interactive Hexagonal Background */}
         <InteractiveHexagonBackground
-          primaryColor="#003576ff"
-          accentColor="#0069e8ff"
+          primaryColor="#00377B"
+          accentColor="rgb(35 130 147)"
           hexagonSize={100}
           hexagonMargin={3}
           className="absolute inset-0 z-0"
@@ -572,7 +572,7 @@ export default function Home() {
               <span className="block">
                 <span className="text-[#FFFFFF]">Ideate</span> 
                 <span className="text-white"> • </span> 
-                <span className="text-[#2B9EB3]">Innovate</span> 
+                <span className="text-[#61B9F0]">Innovate</span> 
                 <span className="text-white"> • </span> 
                 <span className="text-[#FF6C00]">Inspire</span>
               </span>
@@ -587,7 +587,7 @@ export default function Home() {
                 onClick={() => window.location.href = '/students'}
                 variant="cie"
                 size="lg"
-                className="group bg-gradient-to-r from-[#FF6C00] to-[#FF6C00] text-white"
+                className="group bg-[#FF6C00] text-white rounded-xl"
               >
                 EXPLORE NOW
                 <ArrowRight className="ml-2 w-5 h-5" />

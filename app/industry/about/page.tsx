@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { SECTION_COLORS } from '@/styles/colors';
-import { 
+import {
   Building2,
   Users,
   Target,
@@ -55,7 +55,7 @@ export default function IndustryAboutPage() {
       ]
     },
     {
-      title: 'Innovation Initiatives', 
+      title: 'Innovation Initiatives',
       description: 'Partner with CIE to sponsor innovation challenges, hackathons, and startup competitions.',
       icon: Lightbulb,
       benefits: [
@@ -74,7 +74,7 @@ export default function IndustryAboutPage() {
         <InteractiveHexagonBackground
           primaryColor={SECTION_COLORS.industry.hero.background}
           accentColor={SECTION_COLORS.industry.hero.hexagonAccent}
-          hexagonSize={72}
+          hexagonSize={100}
           className="absolute inset-0 z-0"
         />
 
@@ -100,24 +100,31 @@ export default function IndustryAboutPage() {
               <span className="block bg-gradient-to-r from-orange-600 to-yellow-500 bg-clip-text text-transparent">Innovation Excellence</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8">
-              CIE connects industry leaders with talented students and cutting-edge research to drive innovation, 
+              CIE connects industry leaders with talented students and cutting-edge research to drive innovation,
               solve real-world challenges, and create meaningful partnerships.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="mailto:cieinfo@pes.edu"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white font-semibold"
+              <Button asChild size="lg" className="rounded-xl uppercase font-semibold bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white border-0">
+                <a
+                  href="mailto:cieinfo@pes.edu"
+                >
+                  <Handshake className="w-5 h-5 mr-2" />
+                  Start Partnership
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="cie"
+                size="lg"
+                className="rounded-xl uppercase font-semibold bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/20 hover:border-white/50"
               >
-                <Handshake className="w-5 h-5 mr-2" />
-                Start Partnership
-              </a>
-              <Link
-                href="/industry/collaborations"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 font-semibold"
-              >
-                <MessageCircle className="w-5 h-5 mr-2" />
-                Learn More
-              </Link>
+                <Link
+                  href="/industry/collaborations"
+                >
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Learn More
+                </Link>
+              </Button>
             </div>
           </motion.div>
         </div>
@@ -136,7 +143,7 @@ export default function IndustryAboutPage() {
               Partnership Impact and Opportunities
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our industry collaborations have created significant value for both partners and students. 
+              Our industry collaborations have created significant value for both partners and students.
               Explore various ways to collaborate with CIE and leverage our ecosystem of innovation, talent, and research excellence.
             </p>
           </motion.div>
@@ -183,10 +190,10 @@ export default function IndustryAboutPage() {
                 Why Partner with CIE?
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                CIE offers a unique ecosystem that bridges the gap between industry needs 
+                CIE offers a unique ecosystem that bridges the gap between industry needs
                 and academic innovation, creating value for all stakeholders.
               </p>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <Target className="w-10 h-10 text-[#f07f1a] flex-shrink-0" />
@@ -195,7 +202,7 @@ export default function IndustryAboutPage() {
                     <p className="text-gray-600">Access cutting-edge research and innovative solutions tailored to your industry challenges.</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <Users className="w-10 h-10 text-[#f07f1a] flex-shrink-0" />
                   <div>
@@ -203,7 +210,7 @@ export default function IndustryAboutPage() {
                     <p className="text-gray-600">Connect with skilled students and graduates trained in emerging technologies and entrepreneurial thinking.</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <TrendingUp className="w-10 h-10 text-[#f07f1a] flex-shrink-0" />
                   <div>
@@ -213,7 +220,7 @@ export default function IndustryAboutPage() {
                 </div>
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -225,7 +232,7 @@ export default function IndustryAboutPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Ready to Collaborate?</h3>
                 <p className="text-gray-600">Let's discuss how we can create a partnership that drives innovation.</p>
               </div>
-              
+
               <div className="space-y-4">
                 <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-xl font-semibold">
                   <Mail className="w-5 h-5 mr-2" />
@@ -253,10 +260,10 @@ export default function IndustryAboutPage() {
               Start Your Partnership Journey
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-12">
-              Join leading organizations that have partnered with CIE to drive innovation, 
+              Join leading organizations that have partnered with CIE to drive innovation,
               access talent, and create meaningful impact in their industries.
             </p>
-            
+
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -265,7 +272,7 @@ export default function IndustryAboutPage() {
                 <h3 className="text-xl font-semibold mb-2 text-white">Email Us</h3>
                 <p className="text-blue-100">industry@pes.edu</p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <MessageCircle className="w-8 h-8 text-white" />
@@ -273,7 +280,7 @@ export default function IndustryAboutPage() {
                 <h3 className="text-xl font-semibold mb-2 text-white">Call Us</h3>
                 <p className="text-blue-100">+91 80 2672 7000</p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Building2 className="w-8 h-8 text-white" />
@@ -282,7 +289,7 @@ export default function IndustryAboutPage() {
                 <p className="text-blue-100">PES University, Bangalore</p>
               </div>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               {/* <Button
                 variant="default"
@@ -300,10 +307,10 @@ export default function IndustryAboutPage() {
                 Explore Opportunities
               </a>
             </div>
-            
+
             <div className="mt-8">
               <p className="text-blue-100 mb-4">Questions? We're here to help.</p>
-              <Button 
+              <Button
                 className="bg-transparent border border-white/30 text-white hover:bg-white/10 px-6 py-3 rounded-xl"
                 onClick={() => window.location.href = 'mailto:industry@pes.edu'}
               >

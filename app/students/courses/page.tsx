@@ -106,10 +106,10 @@ export default function CoursesPage() {
           </motion.p>
           <div className="mt-6 flex justify-center gap-3">
             <Link href="/students/resources">
-              <Button className="bg-white text-blue-700">Student Resources</Button>
+              <Button size="lg" className="bg-white text-blue-700 rounded-xl uppercase font-semibold">Student Resources</Button>
             </Link>
             <Link href="/students">
-              <Button variant="outline" className="border-white text-white">Back to Student Hub</Button>
+              <Button size="lg" variant="outline" className="border-white text-white rounded-xl uppercase font-semibold">Back to Student Hub</Button>
             </Link>
           </div>
         </div>
@@ -127,26 +127,24 @@ export default function CoursesPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Active Programs
             </h2>
-            
+
             {/* Horizontal Tab Navigation */}
             <div className="flex gap-3 mb-8 border-b border-gray-200">
               <button
                 onClick={() => setActiveTab('eie')}
-                className={`px-6 py-3 font-semibold transition-all duration-300 border-b-2 ${
-                  activeTab === 'eie'
+                className={`px-6 py-3 font-semibold transition-all duration-300 border-b-2 ${activeTab === 'eie'
                     ? 'border-blue-600 text-blue-600'
                     : 'border-transparent text-gray-600 hover:text-blue-600'
-                }`}
+                  }`}
               >
                 Essentials of Innovation and Entrepreneurship
               </button>
               <button
                 onClick={() => setActiveTab('productManagement')}
-                className={`px-6 py-3 font-semibold transition-all duration-300 border-b-2 ${
-                  activeTab === 'productManagement'
+                className={`px-6 py-3 font-semibold transition-all duration-300 border-b-2 ${activeTab === 'productManagement'
                     ? 'border-blue-600 text-blue-600'
                     : 'border-transparent text-gray-600 hover:text-blue-600'
-                }`}
+                  }`}
               >
                 Product Management in the AI Era
               </button>
@@ -171,13 +169,13 @@ export default function CoursesPage() {
                   {activeCourses[activeTab as keyof typeof activeCourses].description2}
                 </p>
               )}
-              
+
               <div className="flex flex-wrap gap-3">
                 {activeCourses[activeTab as keyof typeof activeCourses].buttons.map((button) => (
                   <Link key={button.label} href={button.href}>
-                    <Button 
-                      className={button.primary 
-                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white' 
+                    <Button
+                      className={button.primary
+                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white'
                         : 'border-gray-300 text-gray-700'
                       }
                       variant={button.primary ? 'default' : 'outline'}

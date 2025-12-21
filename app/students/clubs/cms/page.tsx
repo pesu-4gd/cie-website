@@ -18,8 +18,8 @@ export default function CMSPage() {
 
   return (
     <div className="min-h-screen bg-white" style={cssVars}>
-  {/* Hero */}
-  <section className="relative h-[85vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
+      {/* Hero */}
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
         <InteractiveHexagonBackground
           className="absolute inset-0 z-0"
           primaryColor={studentsColors.hero?.background}
@@ -43,14 +43,14 @@ export default function CMSPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button size="lg" asChild className="bg-white text-[var(--cie-blue)] px-6 py-3 rounded-xl font-semibold">
+              <Button size="lg" asChild className="bg-white text-[var(--cie-blue)] px-6 py-3 rounded-xl uppercase font-semibold">
                 <a href="mailto:cieprogram@pes.edu">
                   <Mail className="h-4 w-4 mr-2" />
                   Contact CMS
                 </a>
               </Button>
 
-              <Button size="lg" className="border-white text-white hover:bg-white/10" asChild>
+              <Button size="lg" className="border-white text-white hover:bg-white/10 rounded-xl uppercase font-semibold" asChild>
                 <a href="https://www.linkedin.com/company/the-changemakers-society/" target="_blank" rel="noreferrer noopener" className="inline-flex items-center">
                   <Linkedin className="h-4 w-4 mr-2" />
                   Visit LinkedIn

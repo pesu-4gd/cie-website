@@ -36,7 +36,7 @@ export default function CieIgnitePage() {
 
           <div className="mt-6 flex justify-center gap-3">
             <Link href="/students/courses">
-              <Button variant="outline" className="border-white text-white">Back to Courses</Button>
+              <Button size="lg" variant="outline" className="border-white text-white rounded-xl uppercase font-semibold">Back to Courses</Button>
             </Link>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function CieIgnitePage() {
 
                   <div className="mt-6">
                     <h4 className="text-lg font-semibold">The Complete Innovation Pipeline</h4>
-                    <p className="text-gray-700 mt-2">Semester 3: CIE Spark → Problem Discovery &amp; Validation<br/>Semester 4: CIE Ignite → Solution Building &amp; Venture Launch</p>
+                    <p className="text-gray-700 mt-2">Semester 3: CIE Spark → Problem Discovery &amp; Validation<br />Semester 4: CIE Ignite → Solution Building &amp; Venture Launch</p>
 
                     <h4 className="text-lg font-semibold mt-6">What is CIE Ignite?</h4>
                     <p className="mt-3 text-gray-700">CIE Ignite is PES University's premier solution-building sprint that transforms the top validated problems from CIE Spark into functional prototypes and viable ventures. Over 16 intensive weeks, student teams receive mentorship, funding, and resources to build, test, and pitch their solutions to real investors.</p>

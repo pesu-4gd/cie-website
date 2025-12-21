@@ -225,13 +225,17 @@ export default function MentorshipPage() {
               Fueling Innovation, Empowering Students: Industry Expertise Meets Campus Potential
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="mailto:cieprogram@pes.edu"
-                className={`inline-flex items-center justify-center px-6 py-3 rounded-md text-white bg-[${studentsColors.primary}] hover:opacity-95`}
+              <Button
+                asChild
+                size="lg"
+                className="rounded-xl uppercase font-semibold hover:opacity-95 text-white"
+                style={{ backgroundColor: studentsColors.primary }}
               >
-                <MessageCircle className="h-5 w-5 mr-2" />
-                Get in Touch
-              </a>
+                <a href="mailto:cieprogram@pes.edu">
+                  <MessageCircle className="h-5 w-5 mr-2" />
+                  Get in Touch
+                </a>
+              </Button>
             </div>
           </motion.div>
         </div>
@@ -308,7 +312,7 @@ export default function MentorshipPage() {
           </div>
 
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
+            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8 gap-6">
               <TabsTrigger value="2025" className="text-base py-3">
                 <Star className="h-4 w-4 mr-2" />
                 Industry Mentors 2025

@@ -33,9 +33,9 @@ export default function WorkshopsPage() {
             <Image src="/assets/CIE Logo White Short.svg" alt="CIE logo" width={120} height={48} className="object-contain" />
             <motion.h1 initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="text-3xl md:text-5xl font-bold">CIE Workshops</motion.h1>
           </div>
-          <motion.p 
-            initial={{ opacity: 0, y: 8 }} 
-            animate={{ opacity: 1, y: 0 }} 
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="mt-4 text-lg text-blue-100 max-w-2xl mx-auto"
           >
@@ -44,21 +44,21 @@ export default function WorkshopsPage() {
 
           <div className="mt-6 flex justify-center gap-3">
             <Link href="/students/courses">
-              <Button variant="outline" className="text-white border-white">Back to Courses</Button>
+              <Button size="lg" variant="outline" className="text-white border-white rounded-xl uppercase font-semibold">Back to Courses</Button>
             </Link>
             <Link href="/students/programs">
-              <Button className="bg-white text-blue-700">Related Programs <ArrowRight className="w-4 h-4 ml-2"/></Button>
+              <Button size="lg" className="bg-white text-blue-700 rounded-xl uppercase font-semibold">Related Programs <ArrowRight className="w-5 h-5 ml-2" /></Button>
             </Link>
           </div>
         </div>
       </section>
 
       {/* Main Tabs Section */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-10 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
           <Tabs defaultValue="paml" className="w-full">
             {/* Main Tab Navigation */}
-            <TabsList className="bg-white mb-8 p-1 space-x-4">
+            <TabsList className="bg-white mb-8 p-1 space-x-1">
               <TabsTrigger
                 value="paml"
                 className="px-6 py-3 text-sm font-semibold rounded-xl data-[state=active]:bg-[#2B9EB3] data-[state=active]:text-white transition-all"
@@ -225,7 +225,7 @@ export default function WorkshopsPage() {
                           <table className="w-full text-sm text-gray-700">
                             <tbody>
                               <tr>
-                                <td className="align-top pr-2 font-medium text-gray-600" style={{width: '28%'}}>Email</td>
+                                <td className="align-top pr-2 font-medium text-gray-600" style={{ width: '28%' }}>Email</td>
                                 <td><a className="text-indigo-600" href="mailto:prasannachandran@pes.edu">prasannachandran@pes.edu</a></td>
                               </tr>
                               <tr>
@@ -269,10 +269,10 @@ export default function WorkshopsPage() {
                   transition={{ duration: 0.6 }}
                   className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-white"
                 >
-                  <Image 
-                    src="/assets/sw2025 (1).png" 
-                    alt="Summer Workshop 2025" 
-                    fill 
+                  <Image
+                    src="/assets/sw2025 (1).png"
+                    alt="Summer Workshop 2025"
+                    fill
                     className="object-contain"
                   />
                 </motion.div>
@@ -282,10 +282,10 @@ export default function WorkshopsPage() {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-white"
                 >
-                  <Image 
-                    src="/assets/sw2025 (2).png" 
-                    alt="Summer Workshop 2025 Projects" 
-                    fill 
+                  <Image
+                    src="/assets/sw2025 (2).png"
+                    alt="Summer Workshop 2025 Projects"
+                    fill
                     className="object-contain"
                   />
                 </motion.div>

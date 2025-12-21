@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { SECTION_COLORS } from '@/styles/colors';
-import { 
+import {
   Calendar,
   Users,
   Building2,
@@ -167,7 +167,7 @@ export default function IndustryEventsPage() {
         <InteractiveHexagonBackground
           primaryColor={SECTION_COLORS.industry.hero.background}
           accentColor={SECTION_COLORS.industry.hero.hexagonAccent}
-          hexagonSize={72}
+          hexagonSize={100}
           className="absolute inset-0 z-0"
         />
 
@@ -195,14 +195,14 @@ export default function IndustryEventsPage() {
               </span>
             </h1>
             <p className="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-8">
-              The Centre for Innovation and Entrepreneurship (CIE) at PES University offers industry partners a dynamic platform 
+              The Centre for Innovation and Entrepreneurship (CIE) at PES University offers industry partners a dynamic platform
               to engage with our innovation ecosystem through webinars, networking events, and industry-specific workshops.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 variant="default"
                 size="lg"
-                className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white"
+                className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-xl uppercase font-semibold"
                 onClick={() => window.open('mailto:cieinfo@pes.edu')}
               >
                 <Calendar className="w-5 h-5 mr-2" />
@@ -234,7 +234,7 @@ export default function IndustryEventsPage() {
               Why Attend CIE Events?
             </h2>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-              Discover the unique opportunities that CIE events provide for industry partners to connect, 
+              Discover the unique opportunities that CIE events provide for industry partners to connect,
               collaborate, and drive innovation within our dynamic ecosystem.
             </p>
           </motion.div>
@@ -249,7 +249,7 @@ export default function IndustryEventsPage() {
                 purple: 'bg-purple-100 text-purple-600',
                 indigo: 'bg-indigo-100 text-indigo-600'
               } as const;
-              
+
               return (
                 <motion.div
                   key={reason.title}
@@ -280,11 +280,10 @@ export default function IndustryEventsPage() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                      activeTab === tab.id
-                        ? 'bg-gradient-to-r from-white to-white text-orange-600 shadow-lg border-2 border-orange-400'
-                        : 'text-gray-600 hover:text-gray-900'
-                    }`}
+                    className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${activeTab === tab.id
+                      ? 'bg-gradient-to-r from-white to-white text-orange-600 shadow-lg border-2 border-orange-400'
+                      : 'text-gray-600 hover:text-gray-900'
+                      }`}
                   >
                     <IconComponent className="w-5 h-5" />
                     <span className="hidden sm:block">{tab.label}</span>
@@ -307,7 +306,7 @@ export default function IndustryEventsPage() {
                     Event Opportunities for Industry
                   </h2>
                   <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Choose from various engagement formats to connect with CIE's ecosystem and share your expertise 
+                    Choose from various engagement formats to connect with CIE's ecosystem and share your expertise
                     with our vibrant community of students, faculty, and innovators.
                   </p>
                 </div>
@@ -321,9 +320,8 @@ export default function IndustryEventsPage() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: index * 0.1 }}
-                        className={`bg-gradient-to-br from-gray-50 to-white p-8 lg:p-12 rounded-3xl border-2 hover:shadow-xl transition-all duration-300 ${
-                          eventType.featured ? 'border-orange-200 ring-2 ring-orange-100' : 'border-gray-200'
-                        }`}
+                        className={`bg-gradient-to-br from-gray-50 to-white p-8 lg:p-12 rounded-3xl border-2 hover:shadow-xl transition-all duration-300 ${eventType.featured ? 'border-orange-200 ring-2 ring-orange-100' : 'border-gray-200'
+                          }`}
                       >
                         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                           <div>
@@ -339,22 +337,22 @@ export default function IndustryEventsPage() {
                                 )}
                               </div>
                             </div>
-                            
+
                             <p className="text-lg text-gray-700 mb-6 leading-relaxed">{eventType.description}</p>
-                            
+
                             <div className="space-y-4">
                               <div>
                                 <h4 className="font-semibold text-gray-900 mb-2">Format:</h4>
                                 <p className="text-gray-600">{eventType.format}</p>
                               </div>
-                              
+
                               <div>
                                 <h4 className="font-semibold text-gray-900 mb-2">Example Success:</h4>
                                 <p className="text-gray-600 italic">{eventType.example}</p>
                               </div>
                             </div>
                           </div>
-                          
+
                           <div>
                             <h4 className="font-semibold text-gray-900 mb-4">Benefits:</h4>
                             <ul className="space-y-3">
@@ -365,14 +363,13 @@ export default function IndustryEventsPage() {
                                 </li>
                               ))}
                             </ul>
-                            
+
                             <div className="mt-8">
-                              <Button 
-                                className={`w-full py-3 rounded-xl font-semibold ${
-                                  eventType.featured 
-                                    ? 'bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white' 
-                                    : 'bg-orange-600 hover:bg-orange-700 text-white'
-                                }`}
+                              <Button
+                                className={`w-full py-3 rounded-xl font-semibold ${eventType.featured
+                                  ? 'bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white'
+                                  : 'bg-orange-600 hover:bg-orange-700 text-white'
+                                  }`}
                                 onClick={() => window.open('mailto:cieinfo@pes.edu')}
                               >
                                 <Mail className="w-4 h-4 mr-2" />
@@ -399,7 +396,7 @@ export default function IndustryEventsPage() {
                     Upcoming Events
                   </h2>
                   <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-                    CIE is committed to hosting regular events for industry partners. An event calendar for industry-specific activities 
+                    CIE is committed to hosting regular events for industry partners. An event calendar for industry-specific activities
                     is under development to keep you informed of upcoming opportunities.
                   </p>
                 </div>
@@ -421,10 +418,10 @@ export default function IndustryEventsPage() {
                           {event.status}
                         </span>
                       </div>
-                      
+
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{event.title}</h3>
                       <p className="text-gray-600 mb-4">{event.description}</p>
-                      
+
                       <div className="flex items-center gap-3 text-sm text-gray-500">
                         <Calendar className="w-4 h-4" />
                         <span>{event.date}</span>
@@ -439,15 +436,15 @@ export default function IndustryEventsPage() {
                     Subscribe to the CIE Newsletter or follow us on LinkedIn and X for updates on the event calendar launch and upcoming activities.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button 
+                    <Button
                       className="bg-blue-600 hover:bg-blue-700 text-white"
                       onClick={() => window.open('/alumni/newsletter', '_blank')}
                     >
                       <Mail className="w-4 h-4 mr-2" />
                       Subscribe to Newsletter
                     </Button>
-                    <Button 
-                      variant="outline" 
+                    <Button
+                      variant="outline"
                       className="border-blue-600 text-blue-600 hover:bg-blue-50"
                       onClick={() => window.open('https://www.linkedin.com/company/center-for-innovation-and-entrepreneurship-pes-university/', '_blank')}
                     >
@@ -470,7 +467,7 @@ export default function IndustryEventsPage() {
                     Success <span className="text-orange-600">Stories</span>
                   </h2>
                   <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Discover how our industry events have created meaningful impact, fostering collaborations 
+                    Discover how our industry events have created meaningful impact, fostering collaborations
                     and driving innovation within CIE's ecosystem.
                   </p>
                 </div>
@@ -524,7 +521,7 @@ export default function IndustryEventsPage() {
                     How to Participate or Host an Event
                   </h2>
                   <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-                    Interested in joining or hosting a webinar, networking event, or workshop with CIE? 
+                    Interested in joining or hosting a webinar, networking event, or workshop with CIE?
                     Express your interest and we'll help make it happen.
                   </p>
                 </div>
@@ -556,10 +553,10 @@ export default function IndustryEventsPage() {
                     <Mail className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
                     <h3 className="text-xl font-bold text-gray-900 mb-4">2. Submit Your Interest</h3>
                     <p className="text-gray-600 mb-4">
-                      Email <span className="font-semibold text-orange-700">cieinfo@pes.edu</span> with 
+                      Email <span className="font-semibold text-orange-700">cieinfo@pes.edu</span> with
                       the subject line "Industry Event Interest – [Your Company Name]."
                     </p>
-                    <Button 
+                    <Button
                       className="w-full bg-orange-600 hover:bg-orange-400 text-white"
                       onClick={() => window.open('mailto:cieinfo@pes.edu')}
                     >
@@ -577,7 +574,7 @@ export default function IndustryEventsPage() {
                     <MessageCircle className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
                     <h3 className="text-xl font-bold text-gray-900 mb-4">3. Next Steps</h3>
                     <p className="text-gray-600">
-                      A CIE representative will review your inquiry, discuss logistics, and confirm participation 
+                      A CIE representative will review your inquiry, discuss logistics, and confirm participation
                       or event details within <span className="font-semibold text-orange-700">5–7 business days</span>.
                     </p>
                   </motion.div>
@@ -587,7 +584,7 @@ export default function IndustryEventsPage() {
                   <div className="text-center">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Coming Soon: Event Registration Form</h3>
                     <p className="text-gray-600 max-w-3xl mx-auto">
-                      A dedicated form will allow you to submit event proposals or register for upcoming events directly on the CIE website, 
+                      A dedicated form will allow you to submit event proposals or register for upcoming events directly on the CIE website,
                       ensuring a seamless experience.
                     </p>
                   </div>
@@ -610,7 +607,7 @@ export default function IndustryEventsPage() {
               Ready to Connect with CIE's Ecosystem?
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-12">
-              Join CIE's webinars, networking events, and workshops to connect with our ecosystem 
+              Join CIE's webinars, networking events, and workshops to connect with our ecosystem
               and explore collaboration opportunities. Submit your interest today!
             </p>
 
@@ -678,18 +675,18 @@ export default function IndustryEventsPage() {
               <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
                 <h3 className="text-xl font-semibold mb-4 text-white">Stay Connected</h3>
                 <div className="space-y-3 text-blue-100 text-sm">
-                  <p>• <button 
-                      onClick={() => window.open('/alumni/newsletter', '_blank')}
-                      className="text-blue-200 hover:text-white underline"
-                    >
-                      Subscribe to the CIE Newsletter
-                    </button> for updates</p>
-                  <p>• <button 
-                      onClick={() => window.open('https://www.linkedin.com/company/center-for-innovation-and-entrepreneurship-pes-university/', '_blank')}
-                      className="text-blue-200 hover:text-white underline"
-                    >
-                      Follow us on LinkedIn
-                    </button></p>
+                  <p>• <button
+                    onClick={() => window.open('/alumni/newsletter', '_blank')}
+                    className="text-blue-200 hover:text-white underline"
+                  >
+                    Subscribe to the CIE Newsletter
+                  </button> for updates</p>
+                  <p>• <button
+                    onClick={() => window.open('https://www.linkedin.com/company/center-for-innovation-and-entrepreneurship-pes-university/', '_blank')}
+                    className="text-blue-200 hover:text-white underline"
+                  >
+                    Follow us on LinkedIn
+                  </button></p>
                   <p>• Visit CIE PES University for latest information</p>
                 </div>
               </div>
