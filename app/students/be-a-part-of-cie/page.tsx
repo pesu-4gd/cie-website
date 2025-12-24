@@ -199,7 +199,7 @@ export default function BeAPartOfCIEPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#00377B]">
         <InteractiveHexagonBackground
           primaryColor={studentsColors.hero.background}
           accentColor={studentsColors.hero.hexagonAccent}
@@ -392,7 +392,7 @@ export default function BeAPartOfCIEPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              <Briefcase className="w-10 h-10 inline-block mr-3 text-[#F15A29]" />
+              <Briefcase className="w-10 h-10 inline-block mr-3 text-[#FF6C00]" />
               Internship Opportunities
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -411,7 +411,7 @@ export default function BeAPartOfCIEPage() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl transition-all"
                 >
-                  <Icon className="w-10 h-10 text-[#F15A29] mb-6" />
+                  <Icon className="w-10 h-10 text-[#FF6C00] mb-6" />
                   
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{opportunity.title}</h3>
                   <p className="text-gray-600 text-sm mb-4">{opportunity.description}</p>
@@ -427,7 +427,7 @@ export default function BeAPartOfCIEPage() {
                       <ul className="space-y-2">
                         {opportunity.centers.map((center, idx) => (
                           <li key={idx} className="text-xs">
-                            <span className="font-semibold text-[#F15A29]">{center.name}:</span>{' '}
+                            <span className="font-semibold text-[#FF6C00]">{center.name}:</span>{' '}
                             <span className="text-gray-600">{center.focus}</span>
                           </li>
                         ))}
@@ -596,9 +596,9 @@ export default function BeAPartOfCIEPage() {
                 >
                   {/* Vertical line segment - only show if not last item */}
                   {index < howToApplySteps.length - 1 && (
-                    <div className="absolute left-6 top-12 bottom-0 w-0.5 bg-gradient-to-b from-[#2B9EB3] to-[#F15A29]" />
+                    <div className="absolute left-6 top-12 bottom-0 w-0.5 bg-gradient-to-b from-[#2B9EB3] to-[#FF6C00]" />
                   )}
-                  <div className="absolute left-0 w-12 h-12 rounded-full bg-gradient-to-br from-[#2B9EB3] to-[#3E3C6B] flex items-center justify-center text-white font-bold text-lg z-10">
+                  <div className="absolute left-0 w-12 h-12 rounded-full bg-gradient-to-br from-[#2B9EB3] to-[#00377B] flex items-center justify-center text-white font-bold text-lg z-10">
                     {step.step}
                   </div>
                   <div className="bg-gray-50 p-6 rounded-2xl">

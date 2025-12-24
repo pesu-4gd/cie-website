@@ -502,7 +502,7 @@ const BootcampPage = () => {
                   <Button
                     variant="cie"
                     size="lg"
-                    className="group text-white"
+                    className="group text-white rounded-xl uppercase font-semibold"
                     style={{ backgroundColor: studentsColors.primary }}
                   >
                     Explore Programs
@@ -514,7 +514,7 @@ const BootcampPage = () => {
                   onClick={() => setShowVideo(true)}
                   variant="outline"
                   size="lg"
-                  className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+                  className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 rounded-xl uppercase font-semibold"
                 >
                   <Play className="w-5 h-5 mr-2" />
                   Watch Story
@@ -659,8 +659,8 @@ const BootcampPage = () => {
                     onClick={() => handleManualNavigation(() => setCurrentTeamSlide(slideIndex))}
                     aria-label={`Go to slide ${slideIndex + 1}`}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${slideIndex === currentTeamSlide
-                        ? 'bg-pes-orange'
-                        : 'bg-gray-300 hover:bg-gray-400'
+                      ? 'bg-pes-orange'
+                      : 'bg-gray-300 hover:bg-gray-400'
                       }`}
                   />
                 ))}
@@ -1017,8 +1017,8 @@ const BootcampPage = () => {
                   key={`experts-slide-${expertSlides.length}-${slideIndex}`}
                   onClick={() => handleExpertManualNavigation(() => setCurrentExpertSlide(slideIndex))}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${currentExpertSlide === slideIndex
-                      ? 'bg-pes-orange scale-125'
-                      : 'bg-gray-300 hover:bg-gray-400'
+                    ? 'bg-pes-orange scale-125'
+                    : 'bg-gray-300 hover:bg-gray-400'
                     }`}
                   aria-label={`Go to expert slide ${slideIndex + 1}`}
                 />

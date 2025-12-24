@@ -214,7 +214,7 @@ function UpcomingEventsGrid({ events }: { events: EventItem[] }) {
               </div>
             </CardContent>
             <div className="p-4 pt-0">
-              <Button asChild className="w-full bg-white text-[#3E3C6B] hover:bg-gray-100">
+              <Button asChild className="w-full bg-white text-[#00377B] hover:bg-gray-100">
                 <a href="mailto:cieprogram@pes.edu">Enquire </a>
               </Button>
             </div>
@@ -317,7 +317,7 @@ export default function EventsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B] text-white">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#00377B] text-white">
         <InteractiveHexagonBackground
           primaryColor={studentsColors.hero?.background}
           accentColor={studentsColors.hero?.hexagonAccent}

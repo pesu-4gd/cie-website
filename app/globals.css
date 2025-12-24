@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap');
 @import "tailwindcss";
 
 @layer base {
@@ -9,25 +10,28 @@
     --card-foreground: 240 10% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 10%;
-    --primary: 245 28% 33%;        /* CIE Navy Blue #3E3C6B */
+    --primary: 213 100% 24%;        /* PES Blue #00377B */
     --primary-foreground: 0 0% 98%;
-    --secondary: 14 87% 55%;       /* CIE Orange #F15A29 */
+    --secondary: 25 100% 50%;       /* PES Orange #FF6C00 */
     --secondary-foreground: 0 0% 98%;
     --muted: 240 5% 96%;
     --muted-foreground: 0 0% 45%;
-    --accent: 14 87% 55%;          /* CIE Orange accent */
+    --accent: 25 100% 50%;          /* PES Orange accent */
     --accent-foreground: 0 0% 98%;
     --destructive: 4 90% 58%;      /* CIE Red #E53935 */
     --destructive-foreground: 0 0% 98%;
     --border: 240 6% 90%;
     --input: 240 6% 90%;
-    --ring: 245 28% 33%;           /* CIE Navy for focus rings */
+    --ring: 213 100% 24%;           /* PES Blue for focus rings */
     --radius: 0.5rem;
-    --chart-1: 14 87% 55%;         /* CIE Orange */
-    --chart-2: 245 28% 33%;        /* CIE Navy */
+    --chart-1: 25 100% 50%;         /* PES Orange */
+    --chart-2: 213 100% 24%;        /* PES Blue */
     --chart-3: 45 100% 51%;        /* CIE Yellow */
     --chart-4: 156 51% 46%;        /* CIE Green */
     --chart-5: 188 59% 44%;        /* CIE Teal */
+    /* Font stacks */
+    --font-heading: 'Merriweather', Georgia, 'Times New Roman', serif;
+    --font-body: 'Roboto', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   }
 
   .dark {
@@ -37,13 +41,13 @@
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 10%;
     --popover-foreground: 0 0% 98%;
-    --primary: 245 35% 50%;        /* Lighter navy for dark mode */
+    --primary: 213 100% 32%;        /* Lighter PES Blue for dark mode */
     --primary-foreground: 240 10% 10%;
-    --secondary: 14 87% 55%;       /* CIE Orange stays same */
+    --secondary: 25 100% 50%;       /* PES Orange */
     --secondary-foreground: 240 10% 10%;
     --muted: 240 10% 20%;
     --muted-foreground: 0 0% 65%;
-    --accent: 14 87% 55%;          /* CIE Orange accent */
+    --accent: 25 100% 50%;          /* PES Orange accent */
     --accent-foreground: 240 10% 10%;
     --destructive: 4 62% 45%;
     --destructive-foreground: 0 0% 98%;
@@ -63,30 +67,36 @@
     background-color: white;
     color: rgb(17 24 39);
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: var(--font-body);
   }
+}
+
+/* Headings use Merriweather for a more traditional typographic feel */
+h1, h2, h3, h4, h5, h6, .cie-heading {
+  font-family: var(--font-heading);
 }
 
 /* Custom CIE University styles - Design System Implementation */
 @layer components {
   /* CIE Gradients - Following Design System */
   .cie-gradient {
-    background: linear-gradient(135deg, rgb(62 60 107), rgb(62 60 107 / 0.9));
+    background: linear-gradient(135deg, rgb(0 55 123), rgb(0 55 123 / 0.9));
   }
   
   .cie-gradient-innovation {
-    background: linear-gradient(135deg, rgb(43 158 179), rgb(62 60 107));
+    background: linear-gradient(135deg, rgb(43 158 179), rgb(0 55 123));
   }
   
   .cie-gradient-ignite {
-    background: linear-gradient(135deg, rgb(241 90 41), rgb(255 193 7));
+    background: linear-gradient(135deg, rgb(255 108 0), rgb(255 193 7));
   }
   
   .cie-gradient-spark {
-    background: linear-gradient(135deg, rgb(255 193 7), rgb(241 90 41));
+    background: linear-gradient(135deg, rgb(255 193 7), rgb(255 108 0));
   }
   
   .cie-gradient-orange {
-    background: linear-gradient(135deg, rgb(241 90 41), rgb(241 90 41 / 0.9));
+    background: linear-gradient(135deg, rgb(255 108 0), rgb(255 108 0 / 0.9));
   }
   
   .cie-gradient-teal {
@@ -99,19 +109,19 @@
     color: rgb(51 51 51);
     border-radius: 1rem;
     border: 1px solid rgb(229 231 235);
-    box-shadow: 0 4px 6px -1px rgb(62 60 107 / 0.1), 0 2px 4px -2px rgb(62 60 107 / 0.05);
+    box-shadow: 0 4px 6px -1px rgb(0 55 123 / 0.1), 0 2px 4px -2px rgb(0 55 123 / 0.05);
     transition: all 0.3s ease;
   }
   
   .cie-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgb(62 60 107 / 0.15), 0 8px 10px -6px rgb(62 60 107 / 0.1);
+    box-shadow: 0 20px 25px -5px rgb(0 55 123 / 0.15), 0 8px 10px -6px rgb(0 55 123 / 0.1);
   }
   
   .cie-card-featured {
-    background: linear-gradient(135deg, rgb(62 60 107 / 0.05), rgb(241 90 41 / 0.05));
-    border: 2px solid rgb(62 60 107 / 0.2);
-    box-shadow: 0 8px 25px -5px rgb(62 60 107 / 0.3);
+    background: linear-gradient(135deg, rgb(0 55 123 / 0.05), rgb(255 108 0 / 0.05));
+    border: 2px solid rgb(0 55 123 / 0.2);
+    box-shadow: 0 8px 25px -5px rgb(0 55 123 / 0.3);
   }
   
   .cie-card-interactive {
@@ -121,7 +131,7 @@
   
   .cie-card-interactive:hover {
     transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 25px 50px -12px rgb(62 60 107 / 0.25);
+    box-shadow: 0 25px 50px -12px rgb(0 55 123 / 0.25);
   }
   
   /* CIE Buttons - Following Design System */
@@ -154,15 +164,15 @@
   }
   
   .cie-button-primary {
-    background: rgb(241 90 41);
+    background: rgb(255 108 0);
     color: white;
-    box-shadow: 0 4px 14px 0 rgb(241 90 41 / 0.4);
+    box-shadow: 0 4px 14px 0 rgb(255 108 0 / 0.4);
   }
   
   .cie-button-primary:hover {
-    background: rgb(226 79 36);
+    background: rgb(230 90 0);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px 0 rgb(241 90 41 / 0.5);
+    box-shadow: 0 8px 25px 0 rgb(255 108 0 / 0.5);
   }
   
   .cie-button-secondary {
@@ -179,13 +189,13 @@
   
   .cie-button-tertiary {
     background: white;
-    color: rgb(62 60 107);
-    border: 2px solid rgb(62 60 107);
-    box-shadow: 0 2px 8px 0 rgb(62 60 107 / 0.1);
+    color: rgb(0 55 123);
+    border: 2px solid rgb(0 55 123);
+    box-shadow: 0 2px 8px 0 rgb(0 55 123 / 0.1);
   }
   
   .cie-button-tertiary:hover {
-    background: rgb(62 60 107);
+    background: rgb(0 55 123);
     color: white;
     transform: translateY(-2px);
   }

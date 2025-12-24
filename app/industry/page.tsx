@@ -4,12 +4,12 @@ import { Button } from '@/components/design-system';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
 import { SECTION_COLORS } from '@/styles/colors';
 import { motion } from 'framer-motion';
-import { 
-  Building2, 
-  Handshake, 
-  Users, 
-  TrendingUp, 
-  Award, 
+import {
+  Building2,
+  Handshake,
+  Users,
+  TrendingUp,
+  Award,
   Target,
   Briefcase,
   Globe,
@@ -171,13 +171,13 @@ export default function IndustryPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Interactive Hexagonal Background */}
-  <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
-        <InteractiveHexagonBackground 
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B]">
+        <InteractiveHexagonBackground
           primaryColor={industryColors.hero.background}
           accentColor={industryColors.hero.hexagonAccent}
           className="absolute inset-0 z-0"
         />
-        
+
         {/* Hero Content - Centered */}
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           {/* Badge */}
@@ -230,13 +230,16 @@ export default function IndustryPage() {
               <Handshake className="w-5 h-5 mr-2" />
               Explore Partnerships
             </Button> */}
-            <a
-              href="mailto:cieprogram@pes.edu"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white font-semibold"
+            <Button
+              asChild
+              size="lg"
+              className="group text-white rounded-xl font-semibold uppercase bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700"
             >
-              <Phone className="w-5 h-5 mr-2" />
-              Schedule a Meeting
-            </a>
+              <a href="mailto:cieprogram@pes.edu">
+                <Phone className="w-5 h-5 mr-2" />
+                Schedule a Meeting
+              </a>
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -290,11 +293,10 @@ export default function IndustryPage() {
                 <button
                   key={type.id}
                   onClick={() => setActivePartnership(type.id)}
-                  className={`flex items-center px-6 py-3 mx-2 mb-4 rounded-xl font-semibold transition-all duration-300 ${
-                    activePartnership === type.id
+                  className={`flex items-center px-6 py-3 mx-2 mb-4 rounded-xl font-semibold transition-all duration-300 ${activePartnership === type.id
                       ? 'bg-orange-600 text-white shadow-lg'
                       : 'bg-white text-gray-600 hover:bg-orange-50 hover:text-orange-600'
-                  }`}
+                    }`}
                 >
                   <IconComponent className="w-5 h-5 mr-2" />
                   {type.title}
@@ -405,10 +407,10 @@ export default function IndustryPage() {
                     <p className="text-orange-600 font-medium">{story.duration}</p>
                   </div>
                 </div>
-                
+
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">{story.partnership}</h4>
                 <p className="text-gray-600 mb-6">{story.impact}</p>
-                
+
                 <div className="space-y-2">
                   {story.outcomes.map((outcome) => (
                     <div key={outcome} className="flex items-start text-sm">
@@ -450,7 +452,7 @@ export default function IndustryPage() {
                 className="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-lg transition-all duration-300"
               >
                 <Calendar className="w-12 h-12 text-[#f07f1a] mb-6" />
-                
+
                 <div className="mb-4">
                   <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-sm font-medium rounded-full mb-3">
                     {event.type}
@@ -459,11 +461,11 @@ export default function IndustryPage() {
                   <p className="text-orange-600 font-medium mb-3">{event.date}</p>
                   <p className="text-gray-600">{event.description}</p>
                 </div>
-                
+
                 <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white rounded-xl">
                   Register Now
                 </Button>
-              </motion.div> 
+              </motion.div>
             ))}
           </div>
         </div>
@@ -514,7 +516,7 @@ export default function IndustryPage() {
             <p className="text-xl text-orange-100 max-w-3xl mx-auto mb-12">
               Partner with CIE to drive innovation, access top talent, and shape the future of entrepreneurship. Contact us to explore collaboration opportunities.
             </p>
-            
+
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -523,7 +525,7 @@ export default function IndustryPage() {
                 <h3 className="text-xl font-semibold mb-2">Email Us</h3>
                 <p className="text-orange-100">cieinfo@pes.edu</p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Phone className="w-8 h-8 text-white" />
@@ -531,7 +533,7 @@ export default function IndustryPage() {
                 <h3 className="text-xl font-semibold mb-2">Call Us</h3>
                 <p className="text-orange-100">Schedule a consultation</p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <MapPin className="w-8 h-8 text-white" />
@@ -540,7 +542,7 @@ export default function IndustryPage() {
                 <p className="text-orange-100">CIE Office, PES University RR/EC Campus</p>
               </div>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="mailto:cieprogram@pes.edu"

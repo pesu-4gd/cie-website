@@ -4,8 +4,8 @@ import { Button } from '@/components/design-system';
 import { motion } from 'framer-motion';
 import { SECTION_COLORS, hexToRgb } from '@/styles/colors';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
-import { 
-  Rocket, 
+import {
+  Rocket,
   DollarSign,
   Users,
   Target,
@@ -323,7 +323,7 @@ export default function StudentStartupProgramPage() {
             <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
               Empowering students to transform innovative ideas into thriving startups. A transparent, structured pathway from ideation to scaling your venture with cutting-edge resources, expert mentorship, and financial support.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               {/* <Button asChild variant="default" size="lg" className="group bg-gradient-to-r from-orange-500 to-yellow-600 hover:from-orange-600 hover:to-yellow-700 text-white">
                 <a href="https://forms.gle/b8uLuLievLw7V6uv8" target="_blank" rel="noopener noreferrer">
@@ -334,7 +334,7 @@ export default function StudentStartupProgramPage() {
               <Button
                 variant="cie"
                 size="lg"
-                className="group text-white"
+                className="group text-white rounded-xl font-semibold uppercase"
                 style={{ background: studentsColors.primary }}
                 asChild
               >
@@ -414,7 +414,7 @@ export default function StudentStartupProgramPage() {
                     <p className="text-gray-600">Develop problem-solving skills and entrepreneurial thinking across all disciplines through practical experience, courses, and workshops.</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <Building2 className="w-10 h-10 text-[#2B9EB3] mr-4 flex-shrink-0" />
                   <div>
@@ -422,7 +422,7 @@ export default function StudentStartupProgramPage() {
                     <p className="text-gray-600">Access resources, mentorship, and state-of-the-art infrastructure for prototype/MVP development with hands-on projects.</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <Award className="w-10 h-10 text-[#2B9EB3] mr-4 flex-shrink-0" />
                   <div>
@@ -430,7 +430,7 @@ export default function StudentStartupProgramPage() {
                     <p className="text-gray-600">Navigate legal processes including IP/patent registry and company establishment with expert support.</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <TrendingUp className="w-10 h-10 text-[#2B9EB3] mr-4 flex-shrink-0" />
                   <div>
@@ -470,7 +470,7 @@ export default function StudentStartupProgramPage() {
                   <span className="text-gray-700">Ideal for both beginners and experienced entrepreneurs</span>
                 </div>
               </div>
-              
+
               <div className="mt-8 p-6 rounded-2xl" style={{ backgroundColor: `${studentsColors.primary}1A` }}>
                 <div className="flex items-center mb-3">
                   <Target className="w-5 h-5 text-blue-600 mr-2" />
@@ -520,10 +520,10 @@ export default function StudentStartupProgramPage() {
                     </div>
                   </div>
                 </div>
-                
+
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{funding.title}</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">{funding.description}</p>
-                
+
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between">
                     <span className="text-sm font-medium text-gray-700">Eligibility:</span>
@@ -534,12 +534,12 @@ export default function StudentStartupProgramPage() {
                     <span className="text-sm text-gray-600">{funding.timeline}</span>
                   </div>
                 </div>
-                
+
                 <div className="mb-6">
                   <h4 className="font-bold text-gray-900 mb-2">Application Process:</h4>
                   <p className="text-sm text-gray-600">{funding.process}</p>
                 </div>
-                
+
                 <Button asChild className={`w-full bg-gradient-to-r ${getColorClasses(funding.color)} text-white`}>
                   <a href={funding.url} target="_blank" rel="noopener noreferrer">
                     Learn More
@@ -585,20 +585,20 @@ export default function StudentStartupProgramPage() {
                         {story.industry}
                       </span>
                     </div>
-                    
+
                     <p className="text-gray-600 mb-4 leading-relaxed">{story.description}</p>
-                    
+
                     <div className="mb-4">
                       <h4 className="font-bold text-gray-900 mb-2">Impact Created:</h4>
                       <p className="text-gray-600">{story.impact}</p>
                     </div>
-                    
+
                     <div className="flex items-center text-sm text-gray-500">
                       <Users className="w-4 h-4 mr-2" />
                       <span>{story.founders}</span>
                     </div>
                   </div>
-                  
+
                   <div className="bg-gray-50 rounded-2xl p-6">
                     <div className="space-y-4">
                       <div>
@@ -606,14 +606,14 @@ export default function StudentStartupProgramPage() {
                         <div className="text-xl font-bold text-green-600">{story.funding}</div>
                         <div className="text-xs text-gray-500">{story.fundingSource}</div>
                       </div>
-                      
+
                       <div>
                         <div className="text-sm font-medium text-gray-700 mb-1">Current Status</div>
                         <div className="text-sm text-gray-600">{story.currentStatus}</div>
                       </div>
-                      
+
                       {story.linkedin && (
-                        <Button 
+                        <Button
                           className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 rounded-xl"
                           onClick={() => globalThis.open(story.linkedin, '_blank')}
                         >
@@ -660,10 +660,10 @@ export default function StudentStartupProgramPage() {
                   <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <span className="text-3xl font-bold text-[#2B9EB3]">{step.step}</span>
                   </div>
-                  
+
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed flex-grow">{step.description}</p>
-                  
+
                   <div className="mb-4">
                     <div className="text-sm font-medium text-gray-700 mb-2">Duration: {step.duration}</div>
                     <div className="space-y-1">
@@ -676,7 +676,7 @@ export default function StudentStartupProgramPage() {
                     </div>
                   </div>
                 </div>
-                
+
                 {index < applicationProcess.length - 1 && (
                   <div className="hidden lg:block absolute top-1/2 right-0 transform translate-x-1/1 -translate-y-1/2">
                     <ArrowRight className="w-8 h-8 text-gray-400" />
@@ -740,7 +740,7 @@ export default function StudentStartupProgramPage() {
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
               Join hundreds of successful student entrepreneurs who have transformed their ideas into thriving businesses through our comprehensive support ecosystem.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="bg-white hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl">
                 <a href="mailto:cieprogram@pes.edu" className="flex items-center" style={{ color: studentsColors.primary }}>
@@ -753,10 +753,10 @@ export default function StudentStartupProgramPage() {
                 Schedule Consultation
               </Button> */}
             </div>
-            
+
             <div className="mt-8">
               <p className="text-blue-100 mb-4">Questions? We're here to help.</p>
-              <Button 
+              <Button
                 className="bg-transparent border border-white/30 text-white hover:bg-white/10 px-6 py-3 rounded-xl"
                 onClick={() => window.location.href = 'mailto:cieprogram@pes.edu'}
               >

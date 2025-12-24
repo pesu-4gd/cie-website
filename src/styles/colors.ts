@@ -10,14 +10,14 @@
 // ============================================================================
 
 export const BRAND_COLORS = {
-  // CIE Navy - Primary brand color, authority, professionalism
+  // CIE Navy - Primary brand color for sections, authority, professionalism
   navy: {
     DEFAULT: '#3E3C6B',
     dark: '#2E2C4B',
     light: '#4E4C7B',
     rgb: '62, 60, 107',
   },
-  
+
   // CIE Teal - Innovation, technology, trust
   teal: {
     DEFAULT: '#2B9EB3',
@@ -25,7 +25,7 @@ export const BRAND_COLORS = {
     light: '#3BAEC3',
     rgb: '43, 158, 179',
   },
-  
+
   // CIE Orange - Energy, creativity, action
   orange: {
     DEFAULT: '#F15A29',
@@ -33,7 +33,7 @@ export const BRAND_COLORS = {
     light: '#F37A49',
     rgb: '241, 90, 41',
   },
-  
+
   // CIE Yellow - Optimism, success, highlight
   yellow: {
     DEFAULT: '#FFB020',
@@ -54,21 +54,21 @@ export const GRADIENTS = {
     tailwind: 'from-[#2B9EB3] to-[#3E3C6B]',
     stops: ['#2B9EB3', '#3E3C6B'],
   },
-  
+
   // Spark Gradient - Energy, Creativity, Ideas
   spark: {
     css: 'linear-gradient(135deg, #FFB020 0%, #F15A29 50%, #3E3C6B 100%)',
     tailwind: 'from-[#FFB020] via-[#F15A29] to-[#3E3C6B]',
     stops: ['#FFB020', '#F15A29', '#3E3C6B'],
   },
-  
+
   // Ignite Gradient - Action, Launch, Transform
   ignite: {
     css: 'linear-gradient(135deg, #F15A29 0%, #FFB020 100%)',
     tailwind: 'from-[#F15A29] to-[#FFB020]',
     stops: ['#F15A29', '#FFB020'],
   },
-  
+
   // Ocean Gradient - Calm, Professional, Trust
   ocean: {
     css: 'linear-gradient(135deg, #2B9EB3 0%, #1B7E93 100%)',
@@ -92,7 +92,7 @@ export const SECTION_COLORS = {
       hexagonAccent: BRAND_COLORS.teal.DEFAULT,
     },
   },
-  
+
   alumni: {
     primary: BRAND_COLORS.navy.DEFAULT,
     secondary: BRAND_COLORS.orange.DEFAULT,
@@ -103,7 +103,7 @@ export const SECTION_COLORS = {
       hexagonAccent: BRAND_COLORS.orange.DEFAULT,
     },
   },
-  
+
   industry: {
     primary: BRAND_COLORS.orange.DEFAULT,
     secondary: BRAND_COLORS.teal.DEFAULT,
@@ -114,7 +114,7 @@ export const SECTION_COLORS = {
       hexagonAccent: BRAND_COLORS.orange.DEFAULT,
     },
   },
-  
+
   insideCie: {
     primary: BRAND_COLORS.yellow.DEFAULT,
     secondary: BRAND_COLORS.navy.DEFAULT,
@@ -125,7 +125,7 @@ export const SECTION_COLORS = {
       hexagonAccent: BRAND_COLORS.yellow.DEFAULT,
     },
   },
-  
+
   landing: {
     primary: BRAND_COLORS.navy.DEFAULT,
     secondary: BRAND_COLORS.teal.DEFAULT,
@@ -149,7 +149,7 @@ export const UI_COLORS = {
     secondary: 'bg-white/10 border-white/20',
     hover: 'hover:shadow-lg hover:shadow-orange-500/50',
   },
-  
+
   // Cards
   card: {
     background: 'bg-white',
@@ -157,7 +157,7 @@ export const UI_COLORS = {
     hover: 'hover:shadow-xl hover:scale-105',
     gradient: 'bg-gradient-to-br',
   },
-  
+
   // Text
   text: {
     primary: 'text-gray-900',
@@ -166,7 +166,7 @@ export const UI_COLORS = {
     light: 'text-gray-300',
     white: 'text-white',
   },
-  
+
   // Backgrounds
   background: {
     white: 'bg-white',
@@ -181,18 +181,18 @@ export const UI_COLORS = {
 
 export const COLOR_USAGE_RULES = {
   hero: {
-    background: 'Always use navy (#3E3C6B) as base',
+    background: 'Always use navy (#3E3C6B) as base for section pages, or PES blue (#00377B) for landing',
     hexagons: 'Use section-specific accent color',
     text: 'White for primary, white/80% for secondary',
     cta: 'Orange-Yellow gradient for primary action',
   },
-  
+
   sections: {
     navigation: 'Use section primary color for icon backgrounds',
     cards: 'White background with section-colored accents',
     stats: 'Use gradient variants of section colors',
   },
-  
+
   interactive: {
     hover: 'Increase opacity/brightness by 20%',
     active: 'Darken by 10%',

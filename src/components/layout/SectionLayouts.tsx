@@ -51,12 +51,12 @@ export function HeroSection({
         'relative min-h-[60vh] flex items-center justify-center',
         hexagonClassName,
       )}
-      hexagonSize={75}
+      hexagonSize={100}
       hexagonMargin={3}
     >
       {/* Gradient overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#3E3C6B]/90 via-[#2B9EB3]/80 to-[#3E3C6B]/90" />
-      
+
       <div className={cn('relative z-10 max-w-7xl mx-auto px-6 text-center', className)}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -72,11 +72,11 @@ export function HeroSection({
               </span>
             </div>
           )}
-          
+
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white">
             {title}
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
             {subtitle}
           </p>

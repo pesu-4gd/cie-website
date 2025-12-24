@@ -276,7 +276,7 @@ export default function ResearchPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section (Inside CIE style) */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#3E3C6B] text-white">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#00377B] text-white">
         <InteractiveHexagonBackground
           primaryColor={SECTION_COLORS.insideCie.hero.background}
           accentColor="#f07f1a"

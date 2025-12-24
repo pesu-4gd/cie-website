@@ -2,25 +2,25 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Search, 
-  MapPin, 
-  Calendar, 
-  Clock, 
-  DollarSign, 
-  Building2, 
-  Users, 
-  Briefcase, 
-  Star, 
-  ExternalLink, 
-  Mail, 
-  Globe, 
-  ChevronRight, 
-  BookmarkPlus, 
-  Share2, 
-  TrendingUp, 
-  Award, 
-  Target, 
+import {
+  Search,
+  MapPin,
+  Calendar,
+  Clock,
+  DollarSign,
+  Building2,
+  Users,
+  Briefcase,
+  Star,
+  ExternalLink,
+  Mail,
+  Globe,
+  ChevronRight,
+  BookmarkPlus,
+  Share2,
+  TrendingUp,
+  Award,
+  Target,
   Zap,
   CheckCircle,
   ArrowRight,
@@ -230,18 +230,18 @@ export default function JobsPage() {
 
   const filteredJobs = jobListings.filter(job => {
     const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         job.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()));
+      job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      job.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()));
     const matchesLocation = selectedLocation === 'All' || job.location.includes(selectedLocation);
     const matchesType = selectedType === 'All' || job.type === selectedType;
     const matchesExperience = selectedExperience === 'All' || job.experience.includes(selectedExperience.split(' ')[0]);
-    
+
     return matchesSearch && matchesLocation && matchesType && matchesExperience;
   });
 
   const toggleSaveJob = (jobId: number) => {
-    setSavedJobs(prev => 
-      prev.includes(jobId) 
+    setSavedJobs(prev =>
+      prev.includes(jobId)
         ? prev.filter(id => id !== jobId)
         : [...prev, jobId]
     );
@@ -255,14 +255,14 @@ export default function JobsPage() {
         <InteractiveHexagonBackground
           primaryColor={SECTION_COLORS.industry.hero.background}
           accentColor={SECTION_COLORS.industry.hero.hexagonAccent}
-          hexagonSize={72}
+          hexagonSize={100}
           className="absolute inset-0 z-0"
         />
 
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-blue-600/10 to-purple=-600/10 z-10" />
 
         <div className="relative z-20 max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -349,15 +349,15 @@ export default function JobsPage() {
         <div className="max-w-7xl mx-auto">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-8 bg-white">
-              <TabsTrigger 
-                value="employers" 
+              <TabsTrigger
+                value="employers"
                 className="text-lg py-3 data-[state=active]:bg-white data-[state=active]:text-orange-600 data-[state=active]:border-orange-600 data-[state=active]:border-2 rounded-xl"
               >
                 <Building2 className="h-5 w-5 mr-2" />
                 Partner Companies
               </TabsTrigger>
-              <TabsTrigger 
-                value="post" 
+              <TabsTrigger
+                value="post"
                 className="text-lg py-3 data-[state=active]:bg-white data-[state=active]:text-orange-600 data-[state=active]:border-orange-600 data-[state=active]:border-2 rounded-xl"
               >
                 <Plus className="h-5 w-5 mr-2" />
@@ -450,11 +450,11 @@ interface Employer {
 }
 
 // Component Sections
-function BrowseJobsSection({ 
-  jobs, 
-  searchTerm, 
-  setSearchTerm, 
-  selectedLocation, 
+function BrowseJobsSection({
+  jobs,
+  searchTerm,
+  setSearchTerm,
+  selectedLocation,
   setSelectedLocation,
   selectedType,
   setSelectedType,
@@ -540,9 +540,8 @@ function BrowseJobsSection({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <Card className={`hover:shadow-lg transition-shadow duration-300 ${
-              job.featured ? 'border-blue-500 bg-blue-50/50' : ''
-            }`}>
+            <Card className={`hover:shadow-lg transition-shadow duration-300 ${job.featured ? 'border-blue-500 bg-blue-50/50' : ''
+              }`}>
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="flex items-start space-x-4">
@@ -605,7 +604,7 @@ function BrowseJobsSection({
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">{job.description}</p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-4">
                   {job.skills.map((skill, idx) => (
                     <Badge key={idx} variant="secondary" className="text-xs">
@@ -685,7 +684,7 @@ function EmployersSection({ employers }: { employers: Employer[] }) {
           Connect with leading companies actively recruiting from our talent pool
         </p>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {employers.map((employer, index) => (
           <motion.div
@@ -698,8 +697,8 @@ function EmployersSection({ employers }: { employers: Employer[] }) {
               <CardHeader>
                 <div className="flex items-center space-x-4">
                   <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center overflow-hidden">
-                    <img 
-                      src={employer.logo} 
+                    <img
+                      src={employer.logo}
                       alt={`${employer.name} logo`}
                       className="w-full h-full object-contain"
                     />
@@ -725,9 +724,9 @@ function EmployersSection({ employers }: { employers: Employer[] }) {
                     <span className="font-semibold">Multiple Cities</span>
                   </div>
                 </div>
-                
+
                 <div className="flex gap-2 mt-4">
-                  <a 
+                  <a
                     href={employer.website}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -736,7 +735,7 @@ function EmployersSection({ employers }: { employers: Employer[] }) {
                     Learn More
                     <ChevronRight className="h-4 w-4 ml-2" />
                   </a>
-                  <a 
+                  <a
                     href={employer.website}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -795,13 +794,13 @@ function PostJobSection() {
                 <span>Industry exposure through Intel & Cisco partnerships</span>
               </div>
             </div>
-            
+
             <div className="pt-4">
               <div className="text-sm text-gray-600 mb-2">Success Stories:</div>
               <div className="text-base font-semibold text-blue-600 mb-1">Cisco ThingQbator</div>
               <div className="text-sm text-gray-500">8 PES teams secured internships in 2024</div>
             </div>
-            
+
             <a
               href="mailto:cieinfo@pes.edu"
               className="inline-flex items-center justify-center w-full px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg font-medium transition-colors"
@@ -841,13 +840,13 @@ function PostJobSection() {
                 <span>Access to industry-ready graduates</span>
               </div>
             </div>
-            
+
             <div className="pt-4">
               <div className="text-sm text-gray-600 mb-2">Contact Information:</div>
               <div className="text-base font-semibold text-blue-600 mb-1">cieinfo@pes.edu</div>
               <div className="text-sm text-gray-500">CIE office at PES University RR/EC Campus</div>
             </div>
-            
+
             <a
               href="mailto:cieinfo@pes.edu"
               className="inline-flex items-center justify-center w-full px-4 py-2 border border-orange-600 text-orange-600 hover:bg-orange-50 rounded-lg font-medium transition-colors"

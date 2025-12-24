@@ -162,7 +162,7 @@ export default function EIE1Page() {
             <TabsContent value="cie-spark">
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-3xl font-bold mb-4 mt-9">CIE Spark: Where Innovation Begins</h3>
+                  <h3 className="text-3xl font-bold mb-4 mt-12">CIE Spark: Where Innovation Begins</h3>
                   <p className="text-xl italic text-gray-600">The Idea Validation Sprint for Tomorrow's Founders</p>
                   <p className="text-lg text-gray-600 mt-2">August - December</p>
                   <p className="text-lg text-gray-700 leading-relaxed mt-2">CIE Spark empowers student innovators taking EIE-1 course, The Idea Validation Sprint for Tomorrow's Founders</p>

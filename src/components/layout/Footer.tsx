@@ -11,13 +11,13 @@ import Image from 'next/image';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const quickLinks = [
-    { name: 'About CIE', href: '/about' },
-    { name: 'Programs', href: '/students/programs' },
-    { name: 'Events', href: '/students/events' },
-    { name: 'Industry Partnerships', href: '/industry/collaborations' },
-    { name: 'Alumni Network', href: '/alumni' },
-    { name: 'Contact Us', href: '/contact' }
+  // Inside CIE links (replaces Quick Links - those moved to secondary navbar)
+  const insideCieLinks = [
+    { name: 'Overview', href: '/inside-cie' },
+    { name: 'Research & Publications', href: '/research' },
+    { name: 'FAQs', href: '/faqs' },
+    { name: 'Team', href: '/inside-cie/team' },
+    { name: 'Careers', href: '/careers' }
   ];
 
   const studentLinks = [
@@ -31,7 +31,7 @@ const Footer = () => {
 
   const industryLinks = [
     { name: 'Collaborations', href: '/industry/collaborations' },
-    { name: 'Job Portal', href: '/industry/jobs' },
+    { name: 'Events for industry', href: '/industry/events' },
     { name: 'Competitions', href: '/industry/competitions' },
     { name: 'Success Stories', href: '/industry/success-stories' },
     { name: 'Partner With Us', href: '/industry/contact' }
@@ -44,7 +44,7 @@ const Footer = () => {
     { name: 'Accessibility', href: '#' }
   ];
 
-  
+
 
   return (
     <footer className="bg-gray-900 border-t border-gray-800">
@@ -80,11 +80,11 @@ const Footer = () => {
             {/* CIE Info */}
             <div className="lg:col-span-2">
               <div className="flex items-center gap-3 mb-4">
-                <Image 
-                  src="/assets/CIE Logo White Short.svg" 
-                  alt="CIE Logo" 
-                  width={48} 
-                  height={48} 
+                <Image
+                  src="/assets/CIE Logo White Short.svg"
+                  alt="CIE Logo"
+                  width={48}
+                  height={48}
                   className="w-12 h-12"
                 />
                 <div>
@@ -93,7 +93,7 @@ const Footer = () => {
                 </div>
               </div>
               <P className="text-gray-300 mb-4 max-w-md">
-                Empowering the next generation of innovators and entrepreneurs through cutting-edge programs, 
+                Empowering the next generation of innovators and entrepreneurs through cutting-edge programs,
                 mentorship, and real-world opportunities.
               </P>
               <div className="flex gap-3">
@@ -131,13 +131,13 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Quick Links */}
+            {/* Inside CIE */}
             <div>
-              <H4 className="mb-6 text-white">Quick Links</H4>
+              <H4 className="mb-6 text-white">Inside CIE</H4>
               <ul className="space-y-3">
-                {quickLinks.map((link) => (
+                {insideCieLinks.map((link) => (
                   <li key={link.name}>
-                    <Link 
+                    <Link
                       href={link.href}
                       className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
                     >
@@ -154,7 +154,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {studentLinks.map((link) => (
                   <li key={link.name}>
-                    <Link 
+                    <Link
                       href={link.href}
                       className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
                     >
@@ -171,7 +171,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {industryLinks.map((link) => (
                   <li key={link.name}>
-                    <Link 
+                    <Link
                       href={link.href}
                       className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
                     >
@@ -198,7 +198,7 @@ const Footer = () => {
             <div className="flex items-center space-x-4 text-sm">
               {legalLinks.map((link, index) => (
                 <div key={link.name} className="flex items-center">
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-gray-400 hover:text-blue-400 transition-colors"
                   >

@@ -80,7 +80,7 @@ export default function EIE2Page() {
             </TabsList>
 
             <TabsContent value="welcome">
-              <h3 className="text-3xl font-bold mb-4 mt-9">Welcome to CIE</h3>
+              <h3 className="text-3xl font-bold mb-4 mt-10">Welcome to CIE</h3>
               <p className="mt-3 text-lg text-gray-700 leading-relaxed">At PES University's Centre for Innovation and Entrepreneurship (CIE), we empower students to become the innovators and entrepreneurs of tomorrow. Our programs blend theoretical knowledge with practical experience, preparing students and industry professionals to thrive in a rapidly evolving world. The Essentials of Innovation and Entrepreneurship (EIE) course provides a foundational understanding of entrepreneurial principles, while CIE Ignite, our flagship Ideathon, offers a platform to apply these skills in real-world challenges.</p>
 
               <div className="mt-6">
@@ -141,7 +141,7 @@ export default function EIE2Page() {
             </TabsContent>
 
             <TabsContent value="objectives">
-              <h3 className="text-2xl font-semibold mt-9">Course Objectives</h3>
+              <h3 className="text-2xl font-semibold mt-10">Course Objectives</h3>
               <p className="mt-3 text-gray-700">EIE Part II aims to:</p>
               <ul className="list-disc pl-6 text-gray-700 mt-2">
                 <li>Deepen students' I&amp;E mindset and practical skills for starting ventures.</li>
@@ -163,7 +163,7 @@ export default function EIE2Page() {
                   {/* <div className="flex items-center gap-4 mb-4">
                     <Image src="/assets/cie-ignite-white-bg.png" alt="CIE Ignite Logo" width={200} height={100} className="h-20 w-auto" />
                   </div> */}
-                  <h3 className="text-3xl font-bold mb-4 mt-9">CIE Ignite: Where Solutions Take Flight</h3>
+                  <h3 className="text-3xl font-bold mb-4 mt-10">CIE Ignite: Where Solutions Take Flight</h3>
                   <p className="text-xl italic text-gray-600">The Solution Sprint Turning Validated Problems into Market-Ready Ventures</p>
                 </div>
 
@@ -452,7 +452,7 @@ export default function EIE2Page() {
             </TabsContent>
 
             <TabsContent value="references">
-              <h3 className="text-2xl font-semibold mt-9">References</h3>
+              <h3 className="text-2xl font-semibold mt-10">References</h3>
               <ul className="list-disc pl-6 text-gray-700 mt-2">
                 <li>Technology Ventures: From Idea to Enterprise by McGraw Hill</li>
                 <li>PES University 'CIE Level 2' Course - Getting Started With Entrepreneurship</li>
@@ -469,7 +469,7 @@ export default function EIE2Page() {
             <TabsContent value="batch2025">
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-3xl font-bold mb-4 mt-9">EIE-2 Batch: Jan-Apr 2025</h3>
+                  <h3 className="text-3xl font-bold mb-4 mt-10">EIE-2 Batch: Jan-Apr 2025</h3>
                   <p className="text-xl italic text-gray-600 mb-6">Empowering the next generation of innovators and entrepreneurs</p>
                 </div>
 
@@ -659,7 +659,7 @@ export default function EIE2Page() {
             <TabsContent value="details">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="md:col-span-2">
-                  <h3 className="text-2xl font-semibold mt-9">Course Outline &amp; Modules</h3>
+                  <h3 className="text-2xl font-semibold mt-10">Course Outline &amp; Modules</h3>
                   <div className="overflow-x-auto mt-3">
                     <table className="w-full text-left table-auto border-collapse">
                       <thead>

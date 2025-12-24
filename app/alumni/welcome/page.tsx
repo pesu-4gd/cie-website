@@ -4,7 +4,7 @@ import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexago
 import { SECTION_COLORS } from '@/styles/colors';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { 
+import {
   Users,
   Trophy,
   Building2,
@@ -225,10 +225,10 @@ export default function AlumniWelcomePage() {
               who are shaping the future across industries and continents.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                variant="default" 
-                size="lg" 
-                className="group bg-gradient-to-r from-amber-500 to-amber-600 hover:from-yellow-400 hover:to-amber-400 text-white"
+              <Button
+                variant="default"
+                size="lg"
+                className="group bg-gradient-to-r from-amber-500 to-amber-600 hover:from-yellow-400 hover:to-amber-400 text-white rounded-xl font-semibold uppercase"
                 onClick={() => (window.location.href = 'mailto:alumni@pes.edu?subject=Join Alumni Network')}
               >
                 <UserPlus className="w-5 h-5 mr-2" />
@@ -526,14 +526,14 @@ export default function AlumniWelcomePage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button 
+              <Button
                 className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => (window.location.href = 'mailto:cieoffice@pes.edu?subject=Join Alumni Network')}
               >
                 <UserPlus className="w-5 h-5 mr-2" />
                 Join Alumni Network
               </Button>
-              <Button 
+              <Button
                 className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                 onClick={() => (window.location.href = 'mailto:cieoffice@pes.edu?subject=Contact Alumni Relations')}
               >

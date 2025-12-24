@@ -5,10 +5,10 @@ import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexago
 import { SECTION_COLORS } from '@/styles/colors';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { 
-  Users, 
-  Rocket, 
-  Heart, 
+import {
+  Users,
+  Rocket,
+  Heart,
   DollarSign,
   Target,
   BookOpen,
@@ -222,23 +222,23 @@ export default function AlumniMentorshipPage() {
               <span className="block bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">Generation Forward</span>
             </h1>
             <p className="text-xl md:text-2xl text-yellow-100 max-w-4xl mx-auto leading-relaxed mb-8">
-              Connect with experienced alumni mentors or share your expertise by mentoring 
+              Connect with experienced alumni mentors or share your expertise by mentoring
               students and recent graduates on their professional journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                variant="default" 
-                size="lg" 
-                className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white"
+              <Button
+                variant="default"
+                size="lg"
+                className="group bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white rounded-xl uppercase font-semibold"
                 onClick={() => window.location.href = 'mailto:mentorship@pes.edu?subject=Enquiry%20about%20Mentee%20Program'}
               >
                 <UserPlus className="w-5 h-5 mr-2" />
                 Enquire about mentee
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
+              <Button
+                variant="cie"
+                size="lg"
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 rounded-xl uppercase font-semibold"
                 onClick={() => window.location.href = 'mailto:mentorship@pes.edu?subject=Enquiry%20about%20Becoming%20a%20Mentor'}
               >
                 <HandHeart className="w-5 h-5 mr-2" />
@@ -472,7 +472,7 @@ export default function AlumniMentorshipPage() {
               How Mentorship Works
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our streamlined process ensures meaningful mentor-mentee matches 
+              Our streamlined process ensures meaningful mentor-mentee matches
               and successful program outcomes.
             </p>
           </motion.div>
@@ -518,7 +518,7 @@ export default function AlumniMentorshipPage() {
               Ready to Get Started?
             </h2>
             <p className="text-base md:text-xl text-yellow-100 max-w-3xl mx-auto mb-8 md:mb-12 px-2">
-              Join our mentorship community and be part of a network that 
+              Join our mentorship community and be part of a network that
               empowers personal and professional growth for everyone.
             </p>
 
@@ -527,7 +527,7 @@ export default function AlumniMentorshipPage() {
                 <UserPlus className="w-10 h-10 md:w-12 md:h-12 text-white mx-auto mb-3 md:mb-4" />
                 <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Looking for Guidance?</h3>
                 <p className="text-sm md:text-base text-yellow-100 mb-4">Connect with experienced alumni mentors</p>
-                <Button 
+                <Button
                   className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                   onClick={() => window.location.href = 'mailto:mentorship@pes.edu?subject=Enquiry%20about%20Mentee%20Program'}
                 >
@@ -539,7 +539,7 @@ export default function AlumniMentorshipPage() {
                 <HandHeart className="w-10 h-10 md:w-12 md:h-12 text-white mx-auto mb-3 md:mb-4" />
                 <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Want to Give Back?</h3>
                 <p className="text-sm md:text-base text-yellow-100 mb-4">Share your expertise as a mentor</p>
-                <Button 
+                <Button
                   className="inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white/10 rounded-lg font-semibold transition-colors"
                   onClick={() => window.location.href = 'mailto:mentorship@pes.edu?subject=Enquiry%20about%20Becoming%20a%20Mentor'}
                 >

@@ -6,7 +6,7 @@ import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexago
 import { SECTION_COLORS } from '@/styles/colors';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { useState } from 'react';
-import { 
+import {
   Award,
   Building2,
   TrendingUp,
@@ -141,7 +141,7 @@ export default function IndustrySuccessStoriesPage() {
         <InteractiveHexagonBackground
           primaryColor={SECTION_COLORS.industry.hero.background}
           accentColor={SECTION_COLORS.industry.hero.hexagonAccent}
-          hexagonSize={72}
+          hexagonSize={100}
           className="absolute inset-0 z-0"
         />
 
@@ -167,8 +167,8 @@ export default function IndustrySuccessStoriesPage() {
               <span className="block bg-gradient-to-r px-6 py-4 from-orange-400 to-yellow-400 bg-clip-text text-transparent">Powering Innovation</span>
             </h1>
             <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed mb-8">
-              At CIE, our industry partnerships drive transformative outcomes, bridging academia and industry 
-              to create real-world impact. Collaborations with global leaders like Intel, Cisco, and HCL Tech 
+              At CIE, our industry partnerships drive transformative outcomes, bridging academia and industry
+              to create real-world impact. Collaborations with global leaders like Intel, Cisco, and HCL Tech
               have empowered students to deliver cutting-edge solutions and launch successful ventures.
             </p>
             {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -206,8 +206,8 @@ export default function IndustrySuccessStoriesPage() {
               Partnership Impact and Featured Success Stories
             </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-              Real partnerships, real results. Discover how global industry leaders like Intel, Cisco, 
-              and HCL Tech have achieved breakthrough success through collaboration with CIE, creating 
+              Real partnerships, real results. Discover how global industry leaders like Intel, Cisco,
+              and HCL Tech have achieved breakthrough success through collaboration with CIE, creating
               measurable impact across innovation, talent development, and startup growth.
             </p>
           </motion.div>
@@ -219,11 +219,10 @@ export default function IndustrySuccessStoriesPage() {
                 <button
                   key={story.company}
                   onClick={() => setCarouselIndex(index)}
-                  className={`px-3 py-2 md:px-6 md:py-3 rounded-lg text-xs md:text-sm font-medium transition-all duration-300 whitespace-nowrap ${
-                    index === carouselIndex
+                  className={`px-3 py-2 md:px-6 md:py-3 rounded-lg text-xs md:text-sm font-medium transition-all duration-300 whitespace-nowrap ${index === carouselIndex
                       ? 'bg-orange-600 text-white shadow-md'
                       : 'bg-gray-100 text-gray-700 hover:bg-orange-100 hover:text-orange-700'
-                  }`}
+                    }`}
                 >
                   {story.company}
                 </button>
@@ -235,7 +234,7 @@ export default function IndustrySuccessStoriesPage() {
           <div className="md:hidden">
             {successStories.map((story, index) => (
               index === carouselIndex && (
-                <motion.div 
+                <motion.div
                   key={story.company}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -260,19 +259,19 @@ export default function IndustrySuccessStoriesPage() {
                       </span>
                     </div>
                   </div>
-                  
+
                   {/* Story */}
                   <div className="mb-4">
                     <h4 className="text-base font-semibold text-gray-900 mb-2">Partnership Story</h4>
                     <p className="text-sm text-gray-700 leading-relaxed">{story.story}</p>
                   </div>
-                  
+
                   {/* Quote */}
                   <blockquote className="border-l-4 border-orange-500 pl-3 py-2 bg-orange-50 rounded-r-lg mb-4">
                     <p className="text-gray-700 italic text-sm">&quot;{story.quote}&quot;</p>
                     <cite className="text-xs font-medium text-orange-800">— {story.spokesperson}</cite>
                   </blockquote>
-                  
+
                   {/* Impact */}
                   <div>
                     <h4 className="text-base font-semibold text-gray-900 mb-2">Key Impact</h4>
@@ -312,9 +311,9 @@ export default function IndustrySuccessStoriesPage() {
                                 Featured Success
                               </div>
                             )}
-                            
+
                             <h3 className="text-4xl font-bold text-gray-900 mb-6">{story.company}</h3>
-                            
+
                             <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
                               <span className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">
                                 {story.industry}
@@ -325,7 +324,7 @@ export default function IndustrySuccessStoriesPage() {
                               <span className="text-sm text-gray-600 font-medium bg-gray-50 px-4 py-2 rounded-full">{story.year}</span>
                             </div>
                           </div>
-                          
+
                           {/* Main Content Grid */}
                           <div className="grid lg:grid-cols-2 gap-12 flex-1">
                             {/* Story Content */}
@@ -334,13 +333,13 @@ export default function IndustrySuccessStoriesPage() {
                                 <h4 className="text-xl font-semibold text-gray-900 mb-4">Partnership Story</h4>
                                 <p className="text-lg text-gray-700 leading-relaxed">{story.story}</p>
                               </div>
-                              
+
                               <blockquote className="border-l-4 border-orange-500 pl-6 py-4 bg-orange-50 rounded-r-xl">
                                 <p className="text-gray-700 italic mb-2 text-lg">&quot;{story.quote}&quot;</p>
                                 <cite className="text-sm font-medium text-orange-800">— {story.spokesperson}</cite>
                               </blockquote>
                             </div>
-                            
+
                             {/* Impact & Action */}
                             <div className="space-y-6">
                               <div>
@@ -354,7 +353,7 @@ export default function IndustrySuccessStoriesPage() {
                                   ))}
                                 </ul>
                               </div>
-                              
+
                               <div className="pt-6">
                                 {/* <Button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-semibold text-lg w-full lg:w-auto">
                                   <ExternalLink className="w-5 h-5 mr-3" />
@@ -387,7 +386,7 @@ export default function IndustrySuccessStoriesPage() {
               National Recognition & Awards
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              CIE's excellence in fostering innovation has earned national accolades 
+              CIE's excellence in fostering innovation has earned national accolades
               and recognition across multiple platforms.
             </p>
           </motion.div>
@@ -493,7 +492,7 @@ export default function IndustrySuccessStoriesPage() {
               Types of Successful Partnerships
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Explore the different ways companies have achieved success through 
+              Explore the different ways companies have achieved success through
               collaboration with CIE across various partnership models.
             </p>
           </motion.div>
@@ -512,12 +511,12 @@ export default function IndustrySuccessStoriesPage() {
                   <IconComponent className="w-12 h-12 text-[#f07f1a] mx-auto mb-6" />
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{type.title}</h3>
                   <p className="text-gray-600 mb-4">{type.description}</p>
-                  
+
                   {/* <div className="text-center mb-4">
                     <span className="text-2xl font-bold text-orange-600">{type.successCount}</span>
                     <p className="text-sm text-gray-500">Success Stories</p>
                   </div> */}
-                  
+
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2 text-sm">Examples:</h4>
                     <ul className="space-y-1">
@@ -547,10 +546,10 @@ export default function IndustrySuccessStoriesPage() {
               Ready to Create Your Success Story?
             </h2>
             <p className="text-xl text-orange-100 max-w-3xl mx-auto mb-12">
-              Join the growing list of companies that have achieved breakthrough success 
+              Join the growing list of companies that have achieved breakthrough success
               through partnership with CIE. Your success story could be next.
             </p>
-            
+
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -559,7 +558,7 @@ export default function IndustrySuccessStoriesPage() {
                 <h3 className="text-xl font-semibold mb-2 text-white">Define Goals</h3>
                 <p className="text-orange-100">We work with you to set clear partnership objectives</p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-white" />
@@ -567,7 +566,7 @@ export default function IndustrySuccessStoriesPage() {
                 <h3 className="text-xl font-semibold mb-2 text-white">Collaborate</h3>
                 <p className="text-orange-100">Access our talent and research expertise</p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="w-8 h-8 text-white" />
@@ -576,7 +575,7 @@ export default function IndustrySuccessStoriesPage() {
                 <p className="text-orange-100">Realize measurable business impact</p>
               </div>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 variant="default"
@@ -597,10 +596,10 @@ export default function IndustrySuccessStoriesPage() {
                 Schedule Consultation
               </Button>
             </div>
-            
+
             <div className="mt-8">
               <p className="text-orange-100 mb-4">Ready to discuss your partnership goals?</p>
-              <Button 
+              <Button
                 className="bg-transparent border border-white/30 text-white hover:bg-white/10 px-6 py-3 rounded-xl"
                 onClick={() => globalThis.location.href = 'mailto:partnerships@pes.edu'}
               >

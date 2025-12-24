@@ -6,11 +6,11 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
 import { InteractiveHexagonBackground } from '@/components/ui/interactive-hexagon-background';
-import { 
-  BookOpen, 
-  Clock, 
-  Users, 
-  Award, 
+import {
+  BookOpen,
+  Clock,
+  Users,
+  Award,
   Calendar,
   CheckCircle,
   Star,
@@ -198,7 +198,7 @@ export default function EIEPage() {
         <InteractiveHexagonBackground className="absolute inset-0 z-0" />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10" />
         <div className="relative z-10 max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -213,15 +213,15 @@ export default function EIEPage() {
               <span className="block text-[#2B9EB3]">Education (EIE)</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Comprehensive two-part program designed to transform students into confident entrepreneurs 
+              Comprehensive two-part program designed to transform students into confident entrepreneurs
               and innovative thinkers through hands-on learning and real-world application.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 rounded-xl uppercase font-semibold">
                 <Calendar className="h-5 w-5 mr-2" />
                 Enroll Now
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="rounded-xl uppercase font-semibold">
                 <Download className="h-5 w-5 mr-2" />
                 Download Syllabus
               </Button>
