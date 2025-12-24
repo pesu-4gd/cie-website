@@ -943,7 +943,7 @@ export default function Home() {
                   className="bg-white border-2 border-[#2B9EB3] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <img src="/CIE%20Logos-20251019T155324Z-1-001/CIE%20Logos/engineering_24dp_2B9EB3_FILL0_wght400_GRAD0_opsz24.svg" alt="Harvard Manage Mentor" className="w-12 h-12 mb-3" />
+                    <img src="/assets/engineering_24dp_2B9EB3_FILL0_wght400_GRAD0_opsz24.svg" alt="Harvard Manage Mentor" className="w-12 h-12 mb-3" />
                     
                     <div className="text-3xl font-bold text-[#3E3C6B] mb-2">78</div>
                     <div className="text-sm text-gray-700 font-medium">Harvard Manage Mentor</div>
@@ -958,7 +958,7 @@ export default function Home() {
                   className="bg-white border-2 border-[#F15A29] rounded-xl p-4 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <img src="/CIE%20Logos-20251019T155324Z-1-001/CIE%20Logos/manufacturing_24dp_F15A29_FILL0_wght400_GRAD0_opsz24.svg" alt="Industry Programs" className="w-12 h-12 mb-3" />
+                    <img src="/assets/manufacturing_24dp_F15A29_FILL0_wght400_GRAD0_opsz24.svg" alt="Industry Programs" className="w-12 h-12 mb-3" />
                     <div className="text-3xl font-bold text-[#3E3C6B] mb-2">12</div>
                     <div className="text-sm text-gray-700 font-medium">Industry Programs</div>
                   </div>
