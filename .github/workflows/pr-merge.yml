@@ -1,4 +1,4 @@
-name: Deployment cie_dev_website
+name: Deployment pesu_cie_dev
 
 on:
   push:
@@ -38,7 +38,7 @@ jobs:
         id: build_tag_push_image
         env:
           ECR_REGISTRY: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
-          ECR_REPOSITORY: cie_dev_website
+          ECR_REPOSITORY: pesu_cie_dev
         run: |
           set -e
 
@@ -127,17 +127,17 @@ jobs:
 
             docker login -u AWS -p $(aws ecr get-login-password --region ${{ secrets.AWS_REGION }}) ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
 
-            docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/cie_dev_website:${{ needs.build.outputs.image_tag }} || exit 1
+            docker pull ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/pesu_cie_dev:${{ needs.build.outputs.image_tag }} || exit 1
 
-            docker stop cie_dev_website || true
-            docker rm cie_dev_website || true
+            docker stop pesu_cie_dev || true
+            docker rm pesu_cie_dev || true
 
             docker run -d \
-              --name cie_dev_website \
+              --name pesu_cie_dev \
               --env-file .env \
               -p 3000:3000 \
               -v /opt/cie-dev-website/ssh-keys/atower:/root/.ssh/id_rsa:ro \
               -e SSH_KEY_PATH=/root/.ssh/id_rsa \
               -e GIT_SSH_COMMAND="ssh -i /root/.ssh/id_rsa -o StrictHostKeyChecking=no" \
               -e REMOTE_HOST=forgood@1.6.83.12 \
-              ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/cie_dev_website:${{ needs.build.outputs.image_tag }}
+              ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/pesu_cie_dev:${{ needs.build.outputs.image_tag }}
