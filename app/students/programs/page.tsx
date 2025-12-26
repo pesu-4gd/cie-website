@@ -549,7 +549,7 @@ export default function ProgramsPage() {
                     size="lg"
                     className="border-white text-white hover:bg-white/10"
                   >
-                    <a href="https://www.ihfc.co.in/ready-program/" target="_blank" rel="noreferrer">
+                    <a href="https://www.ihfc.co.in/ready-program/" target="_blank" rel="noopener noreferrer">
                       Visit Official Page <ExternalLink className="w-4 h-4 ml-2" />
                     </a>
                   </Button>
